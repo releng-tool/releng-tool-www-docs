@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>releng-tool &mdash; releng-tool  documentation</title>
+  <title>requirements &mdash; releng-tool  documentation</title>
   
 
   
@@ -29,7 +29,8 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="requirements" href="requirements.html" /> 
+    <link rel="next" title="installation" href="install.html" />
+    <link rel="prev" title="releng-tool" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +49,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> releng-tool
+            <a href="index.html" class="icon icon-home"> releng-tool
           
 
           
@@ -78,8 +79,8 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="requirements.html">requirements</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">quick-start</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="install.html#linux">linux</a><ul>
@@ -171,7 +172,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">releng-tool</a>
+          <a href="index.html">releng-tool</a>
         
       </nav>
 
@@ -200,15 +201,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>releng-tool</li>
+      <li>requirements</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/requirements.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -218,8 +219,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="requirements.html" class="btn btn-neutral float-right" title="requirements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="install.html" class="btn btn-neutral float-right" title="installation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="index.html" class="btn btn-neutral" title="releng-tool" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -228,58 +231,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="releng-tool">
-<h1>releng-tool<a class="headerlink" href="#releng-tool" title="Permalink to this headline">¶</a></h1>
-<p>releng-tool can be used to assist in the release engineering of a project. This
-tool allows a user to define one or more packages to process. Each package has
-the ability to perform several stages: fetching, extraction, patching,
-configuration, building and installation. What a package defines will vary for a
-given project. The simplest type of package is script-based that allows a user
-to define custom scripts on how to perform various stages of the release
-engineering process. A package is not required to handle every stage.
-releng-tool also provides helper package types, such as autotools, for projects
-using common build capabilities.</p>
-<p>While this tool can assist in the configuration and building of a project, the
-framework does not attempt to provide a perfect sandbox for the process. Users
-defining their projects will have ownership on what compilers/toolchains are
-used and the interaction between the staging/target area and the host system.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="requirements.html">requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">quick-start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#development">development</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="user-guide.html">user guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#getting-started">getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#arguments">arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#understanding-rebuilds">understanding rebuilds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#tips">tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#advanced-builder-capabilities">advanced builder capabilities</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="developer-guide.html">developer guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-py">releng.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#other">other</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="contributor-guide.html">contributor guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#contributing">contributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#root-directory">root directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#fetching-design">fetching design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extraction-design">extraction design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#host-and-build-environment">host and build environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <div class="section" id="requirements">
+<h1>requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> is requires either <a class="reference external" href="https://www.python.org/">Python</a> 2.7 or 3.4+ to
+run on a host system. A series of optional tools are required if certain stages
+and/or features are used. For example, projects fetching sources from <a class="reference external" href="https://git-scm.com/">Git</a> will
+require the <code class="docutils literal notranslate"><span class="pre">git</span></code> tool installed; projects with patches will required the
+<code class="docutils literal notranslate"><span class="pre">patch</span></code> tool.  While some features may be operating system-specific (e.g.
+autotools features are designed for Linux-based hosts), releng-tool can work on
+various operating system variants.</p>
 </div>
 
 
@@ -290,8 +250,10 @@ used and the interaction between the staging/target area and the host system.</p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="requirements.html" class="btn btn-neutral float-right" title="requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="install.html" class="btn btn-neutral float-right" title="installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="index.html" class="btn btn-neutral" title="releng-tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
