@@ -131,6 +131,16 @@
 <li class="toctree-l2"><a class="reference internal" href="#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#common-package-configurations">common package configurations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advanced-package-configurations">advanced package configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#site-definitions">site definitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bazaar-site">bazaar site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cvs-site">cvs site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git-site">git site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mercurial-site">mercurial site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scp-site">scp site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#svn-site">svn site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#url-site-default">url site (default)</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#hash-file">hash file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#script-package-default">script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#autotools-package">autotools package</a></li>
@@ -144,6 +154,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#patching">patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#internal-and-external-packages">internal and external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#script-helpers">script helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vcs-ignore">vcs ignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#loading-extensions">loading extensions</a></li>
 </ul>
 </li>
@@ -1064,14 +1075,17 @@ definitions:</p>
 </table>
 <p>Examples include:</p>
 <pre class="literal-block">
-LIBFOO_SITE = '<a class="reference external" href="https://example.com/libfoo.git">https://example.com/libfoo.git</a>'
-LIBFOO_SITE = 'cvs+pserver:anonymous&#64;cvs.example.com:/var/lib/cvsroot/mymodule'
+LIBFOO_SITE = 'https://example.com/libfoo.git'
+LIBFOO_SITE = 'cvs+:pserver:anonymous&#64;cvs.example.com:/var/lib/cvsroot mymodule'
 LIBFOO_SITE = 'svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2'
-LIBFOO_SITE = '<a class="reference external" href="https://www.example.com/files/libfoo.tar.gz">https://www.example.com/files/libfoo.tar.gz</a>'
+LIBFOO_SITE = 'https://www.example.com/files/libfoo.tar.gz'
 </pre>
-<p>A developer can also use <code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code> to
+<p>A developer can also use <a class="reference internal" href="#conf-vcs-type"><code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code></a> to
 explicitly define the version control system type
 without the need for a prefix/postfix entry.</p>
+<p>For more information on each type’s formatting,
+consult
+<a class="reference internal" href="#site-definitions"><span class="std std-ref">site definitions</span></a>.</p>
 <p>Using a specific type will create a dependency
 for a project that the respective host tool is
 installed on the host system. For example, if a
@@ -1081,7 +1095,7 @@ have <code class="docutils literal notranslate"><span class="pre">git</span></co
 considered a virtual package (i.e. has no
 content). If applicable, loaded extensions may
 provide support for custom site protocols.</p>
-<p class="last">See also <code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code>.</p>
+<p class="last">See also <a class="reference internal" href="#conf-vcs-type"><code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code></a>.</p>
 </td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="conf-type"><code class="docutils literal notranslate"><span class="pre">TYPE</span></code></p>
@@ -1313,7 +1327,8 @@ a higher strip count can be set.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code></td>
+<tr class="row-even"><td><p class="first last" id="conf-vcs-type"><code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code></p>
+</td>
 <td><p class="first">Explicitly sets the version control system type
 to use when acquiring sources. releng-tool
 attempts to automatically determine the VCS type
@@ -1348,6 +1363,112 @@ have <code class="docutils literal notranslate"><span class="pre">git</span></co
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="site-definitions">
+<span id="id1"></span><h3>site definitions<a class="headerlink" href="#site-definitions" title="Permalink to this headline">¶</a></h3>
+<p>The following outlines the details for defining supported site definitions. If
+attempting to use an extension-provided site type, please consult the
+documentation provided by said extension.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All site values can be defined with a prefix value (e.g. <code class="docutils literal notranslate"><span class="pre">git+</span></code> for Git
+sources) or postfix value; however, this is optional if a package wishes to
+use the <a class="reference internal" href="#conf-vcs-type"><code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code></a> option.</p>
+</div>
+<div class="section" id="bazaar-site">
+<h4>bazaar site<a class="headerlink" href="#bazaar-site" title="Permalink to this headline">¶</a></h4>
+<p>To define a <a class="reference external" href="https://bazaar.canonical.com">Bazaar</a>-based location, the site value must be prefixed with a
+<code class="docutils literal notranslate"><span class="pre">bzr+</span></code> value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;bzr+ssh://example.com/project/trunk&#39;</span>
+<span class="c1"># (or)</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;bzr+lp:&lt;project&gt;&#39;</span>
+</pre></div>
+</div>
+<p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">export</span></code>
+call <a class="footnote-reference" href="#bzrexport" id="id2">[1]</a>. Content from a Bazaar repository will be fetched and
+archived into a file during fetch stage. Once an cached archive is made, the
+fetch stage will be skipped unless the archive is manually removed.</p>
+</div>
+<div class="section" id="cvs-site">
+<h4>cvs site<a class="headerlink" href="#cvs-site" title="Permalink to this headline">¶</a></h4>
+<p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code>
+value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;cvs+:pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule&#39;</span>
+</pre></div>
+</div>
+<p>The value after the prefix is a space-separated pair, where the first part
+represents the CVSROOT <a class="footnote-reference" href="#cvsroot" id="id3">[3]</a> to use and the second part specifies the CVS
+module <a class="footnote-reference" href="#cvsmodule" id="id4">[2]</a>  to use. Content from a CVS repository will be fetched and
+archived into a file during fetch stage. Once an cached archive is made, the
+fetch stage will be skipped unless the archive is manually removed.</p>
+</div>
+<div class="section" id="git-site">
+<h4>git site<a class="headerlink" href="#git-site" title="Permalink to this headline">¶</a></h4>
+<p>To define a <a class="reference external" href="https://git-scm.com/">Git</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">git+</span></code>
+value or postfixed with the <code class="docutils literal notranslate"><span class="pre">.git</span></code> value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/libfoo.git&#39;</span>
+<span class="c1"># (or)</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
+</pre></div>
+</div>
+<p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference" href="#gitremote" id="id5">[4]</a> for
+a locally managed cache source. Git sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code>
+directory on first-run. Future runs to fetch a project’s source will use the
+cached Git file system. If a desired revision exists, content will be acquired
+from the cache location. If a desired revision does not exist, the origin remote
+will be fetched for the new revision (if it exists).</p>
+</div>
+<div class="section" id="mercurial-site">
+<h4>mercurial site<a class="headerlink" href="#mercurial-site" title="Permalink to this headline">¶</a></h4>
+<p>To define a <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a>-based location, the site value must be prefixed with a
+<code class="docutils literal notranslate"><span class="pre">hg+</span></code> value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://example.com/project&#39;</span>
+</pre></div>
+</div>
+<p>The value after the prefix is used as the <code class="docutils literal notranslate"><span class="pre">SOURCE</span></code> in an <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">clone</span></code> call
+<a class="footnote-reference" href="#hgclone" id="id6">[5]</a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
+first-run. Future runs to fetch a project’s source will use the cached Mercurial
+repository. If a desired revision exists, content will be acquired from the
+cache location. If a desired revision does not exist, the origin remote will be
+pulled for the new revision (if it exists).</p>
+</div>
+<div class="section" id="scp-site">
+<h4>scp site<a class="headerlink" href="#scp-site" title="Permalink to this headline">¶</a></h4>
+<p>To define an SCP-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">scp+</span></code>
+value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;scp+TODO&#39;</span>
+</pre></div>
+</div>
+<p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">scp</span></code> call’s
+<a class="footnote-reference" href="#scpcommand" id="id7">[6]</a> source host value. The SCP site only supports copying a file from
+a remote host. The fetched file will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code> directory. Once
+fetch, the fetch stage will be skipped unless the file is manually removed.</p>
+</div>
+<div class="section" id="svn-site">
+<h4>svn site<a class="headerlink" href="#svn-site" title="Permalink to this headline">¶</a></h4>
+<p>To define a <a class="reference external" href="https://subversion.apache.org/">Subversion</a>-based location, the site value must be prefixed with a
+<code class="docutils literal notranslate"><span class="pre">svn+</span></code> value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2&#39;</span>
+</pre></div>
+</div>
+<p>The value after the prefix is a path which will be provided to a
+<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference" href="#svncheckout" id="id8">[7]</a>. Content from a Subversion repository will
+be fetched and archived into a file during fetch stage. Once an cached archive
+is made, the fetch stage will be skipped unless the archive is manually removed.</p>
+</div>
+<div class="section" id="url-site-default">
+<h4>url site (default)<a class="headerlink" href="#url-site-default" title="Permalink to this headline">¶</a></h4>
+<p>All packages that do not define a helper prefix/postfix value (as seen in other
+site definitions) or do not explicitly set a <a class="reference internal" href="#conf-vcs-type"><code class="docutils literal notranslate"><span class="pre">VCS_TYPE</span></code></a> value (other than
+<code class="docutils literal notranslate"><span class="pre">url</span></code>), will be considered a URL site. A URL site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/my-file&#39;</span>
+</pre></div>
+</div>
+<p>The site value provided will be directly used in a URL request. URL values
+supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference" href="#urlopen" id="id9">[8]</a>,
+which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>, <code class="docutils literal notranslate"><span class="pre">file://</span></code> and
+more.</p>
+</div>
 </div>
 <div class="section" id="hash-file">
 <span id="hash-files"></span><h3>hash file<a class="headerlink" href="#hash-file" title="Permalink to this headline">¶</a></h3>
@@ -1969,6 +2090,9 @@ listed below:</p>
 <p>Logs a debug message to standard out with a trailing new line. By default,
 debug messages will not be output to standard out unless the instance is
 configured with debugging enabled.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;this is a debug message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1993,6 +2117,9 @@ generating a formatted message</li>
 <dd><p>log an error message</p>
 <p>Logs an error message to standard error with a trailing new line and (if
 enabled) a red colorization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">err</span><span class="p">(</span><span class="s1">&#39;this is an error message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2016,6 +2143,9 @@ generating a formatted message</li>
 <code class="descclassname">releng.util.log.</code><code class="descname">log</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a message</p>
 <p>Logs a (normal) message to standard out with a trailing new line.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2040,6 +2170,9 @@ generating a formatted message</li>
 <dd><p>log a notification message</p>
 <p>Logs a notification message to standard out with a trailing new line and (if
 enabled) an inverted colorization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">&#39;this is a note message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2061,8 +2194,23 @@ generating a formatted message</li>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.util.io.</code><code class="descname">pathCopy</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em>, <em>quiet=False</em>, <em>critical=True</em><span class="sig-paren">)</span></dt>
-<dd><p>copy the file or directory src into the file or directory dst</p>
-<p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion.</p>
+<dd><p>copy a file or directory into a target file or directory</p>
+<p>This call will attempt to copy a provided file or directory, defined by
+<code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code>
+is a file, then the <code class="docutils literal notranslate"><span class="pre">dst</span></code> file is considered to be a file as well;
+likewise if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target
+directory. If a target directory or target file’s directory does not exist,
+it will be automatically created. In the event that a file or directory
+could not be copied, an error message will be output to standard error
+(unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If <code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>
+and the specified file/directory could not be copied for any reason, this
+call will issue a system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file2-)</span>
+<span class="c1"># (or)</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2075,8 +2223,11 @@ generating a formatted message</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the copy has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the copy
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the copy has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the copy
 has failed</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code> – if the copy operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
 </td>
 </tr>
 </tbody>
@@ -2090,7 +2241,41 @@ has failed</p>
 <dt>
 <code class="descclassname">releng.util.io.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>args</em>, <em>cwd=None</em>, <em>env=None</em>, <em>env_update=None</em>, <em>quiet=False</em>, <em>critical=True</em>, <em>poll=False</em>, <em>capture=None</em><span class="sig-paren">)</span></dt>
 <dd><p>execute the provided command/arguments</p>
-<p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion.</p>
+<p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
+the working directory of the executed command by explicitly setting the
+directory in <code class="docutils literal notranslate"><span class="pre">cwd</span></code>. The execution request will return <code class="docutils literal notranslate"><span class="pre">True</span></code> on a
+successful execution; <code class="docutils literal notranslate"><span class="pre">False</span></code> if an issue has been detected (e.g. bad
+options or called process returns a non-zero value). In the event that the
+execution fails, an error message will be output to standard error unless
+<code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>The environment variables used on execution can be manipulated in two ways.
+First, the environment can be explicitly controlled by applying a new
+environment content using the <code class="docutils literal notranslate"><span class="pre">env</span></code> dictionary. Key of the dictionary will
+be used as environment variable names, whereas the respective values will be
+the respective environment variable’s value. If <code class="docutils literal notranslate"><span class="pre">env</span></code> is not provided, the
+existing environment of the executing context will be used. Second, a caller
+can instead update the existing environment by using the <code class="docutils literal notranslate"><span class="pre">env_update</span></code>
+option. Like <code class="docutils literal notranslate"><span class="pre">env</span></code>, the key-value pairs match to respective environment
+key-value pairs. The difference with this option is that the call will use
+the original environment values and update select values which match in the
+updated environment request. When <code class="docutils literal notranslate"><span class="pre">env</span></code> and <code class="docutils literal notranslate"><span class="pre">env_update</span></code> are both
+provided, <code class="docutils literal notranslate"><span class="pre">env_update</span></code> will be updated the options based off of <code class="docutils literal notranslate"><span class="pre">env</span></code>
+instead of the original environment of the caller.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the execution fails for any reason,
+this call will issue a system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>). By default, the
+critical flag is enabled (i.e. <code class="docutils literal notranslate"><span class="pre">critical=True</span></code>).</p>
+<p>In special cases, an executing process may not provide carriage returns/new
+lines to simple output processing. This can lead the output of a process to
+be undesirably buffered. To workaround this issue, the execution call can
+instead poll for output results by using the <code class="docutils literal notranslate"><span class="pre">poll</span></code> option with a value
+of <code class="docutils literal notranslate"><span class="pre">True</span></code>. By default, polling is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>A caller may wish to capture the provided output from a process for
+examination. If a list is provided in the call argument <code class="docutils literal notranslate"><span class="pre">capture</span></code>, the
+list will be populated with the output provided from an invoked process.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_execute</span><span class="p">([</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;this is a test&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2100,15 +2285,21 @@ has failed</p>
 <li><strong>cwd</strong> (<em>optional</em>) – working directory to use</li>
 <li><strong>env</strong> (<em>optional</em>) – environment variables to use for the process</li>
 <li><strong>env_update</strong> (<em>optional</em>) – environment variables to append for the process</li>
-<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</li>
-<li><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</li>
-<li><strong>poll</strong> (<em>optional</em>) – force polling stdin/stdout for output data</li>
+<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output (defaults to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>)</li>
+<li><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure
+(defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>)</li>
+<li><strong>poll</strong> (<em>optional</em>) – force polling stdin/stdout for output data (defaults to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>)</li>
 <li><strong>capture</strong> (<em>optional</em>) – list to capture output into</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the execution has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the execution has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
 execution has failed</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code> – if the execution operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
 </td>
 </tr>
 </tbody>
@@ -2122,7 +2313,15 @@ execution has failed</p>
 <dt>
 <code class="descclassname">releng.util.io.</code><code class="descname">pathExists</code><span class="sig-paren">(</span><em>path</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>return whether or not the path exists</p>
-<p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<p>Allows a caller to verify the existence of a file on the file system. This
+cal will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_exists</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the file exists&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the file does not exist&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2145,17 +2344,28 @@ execution has failed</p>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.platform.</code><code class="descname">exit</code><span class="sig-paren">(</span><em>msg=None</em>, <em>code=0</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.util.platform.</code><code class="descname">exit</code><span class="sig-paren">(</span><em>msg=None</em>, <em>code=None</em><span class="sig-paren">)</span></dt>
 <dd><p>exit out of the releng-tool process</p>
 <p>Provides a convenience method to help invoke a system exit call without
-needing to explicitly use <code class="docutils literal notranslate"><span class="pre">sys</span></code>.</p>
+needing to explicitly use <code class="docutils literal notranslate"><span class="pre">sys</span></code>. A caller can provide a message to
+indicate the reason for the exit. The provide message will output to
+standard error. The exit code, if not explicit set, will vary on other
+arguments. If a message is provided to this call, the default exit code will
+be <code class="docutils literal notranslate"><span class="pre">1</span></code>. If no message is provided, the default exit code will be <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+In any case, if the caller explicitly sets a code value, the provided code
+value will be used.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_exit</span><span class="p">(</span><span class="s1">&#39;there was an error performing this task&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>msg</strong> (<em>optional</em>) – error message to print</li>
-<li><strong>code</strong> (<em>optional</em>) – exit code (default: 0)</li>
+<li><strong>code</strong> (<em>optional</em>) – exit code; defaults to 0 if no message or defaults to 1
+if a message is set</li>
 </ul>
 </td>
 </tr>
@@ -2184,6 +2394,16 @@ provided, each value which be checked if it can be expanded on. If a
 dictionary key is expanded to match another key, a key-value pair can be
 dropped. If a set may result in a smaller set if expanded values result in
 duplicate entries.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="o">...</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MY_ENV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;my-environment-variable&#39;</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">releng_expand</span><span class="p">(</span><span class="s1">&#39;$MY_ENV&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="c1"># will output: my-environment-variable</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2206,18 +2426,32 @@ duplicate entries.</p>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.io.</code><code class="descname">pathRemove</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span></dt>
-<dd><p>quietly remove the provided path</p>
-<p>Attempts to remove the provided path if it exists. If the provided path does
-not exist, this method does nothing.</p>
+<code class="descclassname">releng.util.io.</code><code class="descname">pathRemove</code><span class="sig-paren">(</span><em>path</em>, <em>quiet=False</em><span class="sig-paren">)</span></dt>
+<dd><p>remove the provided path</p>
+<p>Attempts to remove the provided path if it exists. The path value can either
+be a directory or a specific file. If the provided path does not exist, this
+method has no effect. In the event that a file or directory could not be
+removed due to an error other than unable to be found, an error message will
+be output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_remove</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">)</span>
+<span class="c1"># (or)</span>
+<span class="n">releng_remove</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – the path to remove</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>path</strong> – the path to remove</li>
+<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path was removed or does not exist; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
-path could not be removed from the system</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path was removed or does not exist; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
+path could not be removed from the system</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2225,13 +2459,46 @@ path could not be removed from the system</td>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">success</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></td>
+<td><dl class="first last function">
+<dt>
+<code class="descclassname">releng.util.io.</code><code class="descname">touch</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span></dt>
+<dd><p>update a file’s access/modifications times</p>
+<p>Attempts to update the access/modifications times on a file. If the file
+does not exist, it will be created. This utility call operates in the same
+fashion as the <code class="docutils literal notranslate"><span class="pre">touch</span></code> system command.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_touch</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;file was created&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;file was not created&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> – the file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the file was created/updated; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the file could
+not be created/updated</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">success</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.util.log.</code><code class="descname">success</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a success message</p>
 <p>Logs a success message to standard error with a trailing new line and (if
 enabled) a green colorization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;this is a success message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2249,7 +2516,7 @@ generating a formatted message</li>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.util.log.</code><code class="descname">verbose</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
@@ -2257,6 +2524,9 @@ generating a formatted message</li>
 <p>Logs a verbose message to standard out with a trailing new line and (if
 enabled) an inverted colorization. By default, verbose messages will not be
 output to standard out unless the instance is configured with verbosity.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;this is a verbose message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2274,13 +2544,16 @@ generating a formatted message</li>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">warn</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">warn</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.util.log.</code><code class="descname">warn</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a warning message</p>
 <p>Logs a warning message to standard error with a trailing new line and (if
 enabled) a purple colorization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;this is a warning message&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2300,6 +2573,21 @@ generating a formatted message</li>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="vcs-ignore">
+<h3>vcs ignore<a class="headerlink" href="#vcs-ignore" title="Permalink to this headline">¶</a></h3>
+<p>When invoking releng-tool on a project, the project’s root directory will be
+populated with cached assets and other output files. A series of standard ignore
+patterns can be applied to a repository to prevent observing these generated
+files using VCS tools. The following is an example ignore configuration which
+can be applied for Git-based repositories (via <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># releng-tool
+/cache/
+/dl/
+/output/
+.releng-flag-*
+</pre></div>
+</div>
 </div>
 <div class="section" id="loading-extensions">
 <h3>loading extensions<a class="headerlink" href="#loading-extensions" title="Permalink to this headline">¶</a></h3>
@@ -2326,6 +2614,54 @@ detailed error message will be presented to the user.</p>
 extensions are not officially supported by releng-tool. For issues related to
 specific extension use, it is recommended to consult the documentation provided
 by the providers of said extensions.</p>
+<table class="docutils footnote" frame="void" id="bzrexport" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html">http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="cvsmodule" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="cvsroot" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="gitremote" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td><a class="reference external" href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="hgclone" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td><a class="reference external" href="https://www.selenic.com/mercurial/hg.1.html#clone">https://www.selenic.com/mercurial/hg.1.html#clone</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="scpcommand" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td><a class="reference external" href="https://linux.die.net/man/1/scp">https://linux.die.net/man/1/scp</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="svncheckout" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td><a class="reference external" href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="urlopen" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

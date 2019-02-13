@@ -131,6 +131,16 @@
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#common-package-configurations">common package configurations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#advanced-package-configurations">advanced package configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#site-definitions">site definitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#bazaar-site">bazaar site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cvs-site">cvs site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#git-site">git site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#mercurial-site">mercurial site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#scp-site">scp site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#svn-site">svn site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#url-site-default">url site (default)</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#hash-file">hash file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-package-default">script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#autotools-package">autotools package</a></li>
@@ -144,6 +154,7 @@
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#patching">patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#internal-and-external-packages">internal and external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-helpers">script helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#vcs-ignore">vcs ignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#loading-extensions">loading extensions</a></li>
 </ul>
 </li>
@@ -234,7 +245,7 @@
   <div class="section" id="installation">
 <h1>installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>The recommended method of installation is using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install releng
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install releng-tool
 </pre></div>
 </div>
 <p>To verify the package has been installed the following command can be used:</p>
@@ -255,7 +266,7 @@ specific distributions of Linux. From a terminal, invoke the following commands:
 <h4>arch<a class="headerlink" href="#arch" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -Sy
 $ sudo pacman -S python-pip
-$ sudo pip install releng
+$ sudo pip install releng-tool
 $ python -m releng --version
 releng-tool &lt;version&gt;
 </pre></div>
@@ -265,7 +276,7 @@ releng-tool &lt;version&gt;
 <h4>centos<a class="headerlink" href="#centos" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo yum install epel-release
 $ sudo yum install python-pip
-$ sudo pip install releng
+$ sudo pip install releng-tool
 $ python -m releng --version
 releng-tool &lt;version&gt;
 </pre></div>
@@ -274,7 +285,7 @@ releng-tool &lt;version&gt;
 <div class="section" id="fedora">
 <h4>fedora<a class="headerlink" href="#fedora" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo dnf install python-pip
-$ sudo pip install releng
+$ sudo pip install releng-tool
 $ python -m releng --version
 releng-tool &lt;version&gt;
 </pre></div>
@@ -282,7 +293,7 @@ releng-tool &lt;version&gt;
 </div>
 <div class="section" id="opensuse">
 <h4>opensuse<a class="headerlink" href="#opensuse" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install releng
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install releng-tool
 $ python -m releng --version
 releng-tool &lt;version&gt;
 </pre></div>
@@ -292,7 +303,7 @@ releng-tool &lt;version&gt;
 <h4>ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
 $ sudo apt-get install python-pip
-$ sudo pip install releng
+$ sudo pip install releng-tool
 $ python -m releng --version
 releng-tool &lt;version&gt;
 </pre></div>
@@ -303,7 +314,7 @@ releng-tool &lt;version&gt;
 <h3>os x<a class="headerlink" href="#os-x" title="Permalink to this headline">¶</a></h3>
 <p>From a terminal, invoke the following commands:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo easy_install pip
-$ sudo pip install releng
+$ sudo pip install releng-tool
 $ python -m releng --version
 releng-tool &lt;version&gt;
 </pre></div>
@@ -322,7 +333,7 @@ releng-tool &lt;version&gt;
 Python to PATH”; however, users can explicitly invoked Python from an absolute
 path (the remainder of these steps will assume Python is available in the path).</p>
 <p>Open a Windows command prompt and invoke the following:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; python -m pip install releng
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; python -m pip install releng-tool
 &gt; python -m releng --version
 releng-tool &lt;version&gt;
 </pre></div>
