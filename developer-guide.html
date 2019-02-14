@@ -915,6 +915,33 @@ will be set to a value of one (i.e.
 </tr>
 </tbody>
 </table>
+<p>Package-defined environment variables are also available in the rare chance
+that package content needs to be mangled (e.g. including a dependent module
+which does not properly support a sysroot staged environment). The following
+package-defined environment variables are available for use (where <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;</span></code>
+translates to a releng-tool’s determined package key):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code></td>
+<td>The directory for a defined package’s
+buildable content.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code></td>
+<td>The directory for where a defined package’s
+build output will be stored.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code></td>
+<td>The name of the package.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code></td>
+<td>The version of a defined package.</td>
+</tr>
+</tbody>
+</table>
 <p>Note that is it not recommended to define environment variables for the
 releng-tool process to use outside the project definition except for special
 cases (such as authentication tokens, etc.). Attempting to configure, for
