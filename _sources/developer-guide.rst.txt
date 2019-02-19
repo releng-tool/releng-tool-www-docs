@@ -368,7 +368,7 @@ file ``post.py`` has the following contents:
 The target directory will be output to standard out at the end of the build. A
 developer may wish to define their own Python script to decide on how to package
 the contents found in ``TARGET_DIR`` (see also `script helpers`_ for helper
-variables/methods).
+variables/functions).
 
 releng.py
 ---------
@@ -698,7 +698,16 @@ environment variables will be made available:
 +--------------------------+---------------------------------------------------+
 | ``PREFIX``               | The sysroot prefix for the package.               |
 +--------------------------+---------------------------------------------------+
+| ``RELENG_REBUILD``       | Flag set if performing a re-build request.        |
++--------------------------+---------------------------------------------------+
+| ``RELENG_RECONFIGURE``   | Flag set if performing a re-configuration         |
+|                          | request.                                          |
++--------------------------+---------------------------------------------------+
+| ``RELENG_REINSTALL``     | Flag set if performing a re-install request.      |
++--------------------------+---------------------------------------------------+
 | ``STAGING_DIR``          | The staging area directory.                       |
++--------------------------+---------------------------------------------------+
+| ``SYMBOLS_DIR``          | The symbols area directory.                       |
 +--------------------------+---------------------------------------------------+
 | ``TARGET_DIR``           | The target area directory.                        |
 +--------------------------+---------------------------------------------------+
@@ -1387,7 +1396,7 @@ respective script (mentioned above) will be invoked. Package scripts are
 optional; thus, if a script is not provided for a stage, the stage will be
 skipped.
 
-See also `script helpers`_ for helper methods/variables available for use.
+See also `script helpers`_ for helper functions/variables available for use.
 
 autotools package
 ~~~~~~~~~~~~~~~~~
@@ -1550,6 +1559,17 @@ can override this option by explicitly adjusting the configuration option
 
 The following configuration options are available for a CMake package:
 
++----------------------------+-------------------------------------------------+
+| ``CMAKE_CONF_DEFS``        | Provides a means to pass definitions into the   |
+|                            | configuration process. This option can is       |
+|                            | defined as a dictionary of string pairs. This   |
+|                            | field is optional.                              |
+|                            |                                                 |
+|                            | .. code-block:: python                          |
+|                            |                                                 |
+|                            |    LIBFOO_CMAKE_CONF_DEFS = {                   |
+|                            |        'CMAKE_BUILD_TYPE': 'RelWithDebInfo',    |
+|                            |    }                                            |
 +----------------------------+-------------------------------------------------+
 | ``CMAKE_CONF_ENV``         | Provides a means to pass environment variables  |
 |                            | into the configuration process. This option is  |
@@ -1913,69 +1933,103 @@ types are almost treated the same except for the following:
 script helpers
 ~~~~~~~~~~~~~~
 
-releng-tool provides a series of helper methods which can be used in
-script-based packages, post-processing and more. Helper methods provided are
+releng-tool provides a series of helper functions which can be used in
+script-based packages, post-processing and more. Helper functions provided are
 listed below:
 
 +--------------------------+---------------------------------------------------+
 | method                   | documentation                                     |
 +==========================+===================================================+
-| ``debug``                | .. automodule:: releng.util.log                   |
+| ``debug``                | .. automodule:: releng                            |
 |                          |     :members: debug                               |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``err``                  | .. automodule:: releng.util.log                   |
+| ``err``                  | .. automodule:: releng                            |
 |                          |     :members: err                                 |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``log``                  | .. automodule:: releng.util.log                   |
+| ``log``                  | .. automodule:: releng                            |
 |                          |     :members: log                                 |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``note``                 | .. automodule:: releng.util.log                   |
+| ``note``                 | .. automodule:: releng                            |
 |                          |     :members: note                                |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``releng_copy``          | .. automodule:: releng.util.io                    |
-|                          |     :members: pathCopy                            |
+| ``releng_copy``          | .. automodule:: releng                            |
+|                          |     :members: releng_copy                         |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``releng_execute``       | .. automodule:: releng.util.io                    |
-|                          |     :members: execute                             |
+| ``releng_execute``       | .. automodule:: releng                            |
+|                          |     :members: releng_execute                      |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``releng_exists``        | .. automodule:: releng.util.io                    |
-|                          |     :members: pathExists                          |
+| ``releng_exists``        | .. automodule:: releng                            |
+|                          |     :members: releng_exists                       |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``releng_exit``          | .. automodule:: releng.util.platform              |
-|                          |     :members: exit                                |
+| ``releng_exit``          | .. automodule:: releng                            |
+|                          |     :members: releng_exit                         |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``releng_expand``        | .. automodule:: releng.util.string                |
-|                          |     :members: expand                              |
+| ``releng_expand``        | .. automodule:: releng                            |
+|                          |     :members: releng_expand                       |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``releng_remove``        | .. automodule:: releng.util.io                    |
-|                          |     :members: pathRemove                          |
+| ``releng_join``          | .. automodule:: releng                            |
+|                          |     :noindex:                                     |
+|                          |                                                   |
+|                          |     .. method:: releng_join(path, *paths)         |
+|                          |                                                   |
+|                          |        An alias for |os.path.join|_.              |
++--------------------------+---------------------------------------------------+
+| ``releng_move``          | .. automodule:: releng                            |
+|                          |     :members: releng_move                         |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``releng_touch``         | .. automodule:: releng.util.io                    |
-|                          |     :members: touch                               |
+| ``releng_remove``        | .. automodule:: releng                            |
+|                          |     :members: releng_remove                       |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``success``              | .. automodule:: releng.util.log                   |
+| ``releng_touch``         | .. automodule:: releng                            |
+|                          |     :members: releng_touch                        |
+|                          |     :noindex:                                     |
++--------------------------+---------------------------------------------------+
+| ``releng_wd``            | .. automodule:: releng                            |
+|                          |     :members: releng_wd                           |
+|                          |     :noindex:                                     |
++--------------------------+---------------------------------------------------+
+| ``success``              | .. automodule:: releng                            |
 |                          |     :members: success                             |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``verbose``              | .. automodule:: releng.util.log                   |
+| ``verbose``              | .. automodule:: releng                            |
 |                          |     :members: verbose                             |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
-| ``warn``                 | .. automodule:: releng.util.log                   |
+| ``warn``                 | .. automodule:: releng                            |
 |                          |     :members: warn                                |
 |                          |     :noindex:                                     |
 +--------------------------+---------------------------------------------------+
+
+.. |os.path.join| replace:: ``os.path.join``
+.. _os.path.join: https://docs.python.org/library/os.path.html#os.path.join
+
+Scripts directly invoked by releng-tool will automatically have these helpers
+registered in the script's globals module (i.e. no import is necessary). If a
+project defines custom Python modules in their project and wishes to take
+advantage of these helper functions, the following import can be used to, for
+example, import a specific function:
+
+.. code-block:: python
+
+    from releng import releng_execute
+
+Or, if desired, all helper methods can be imported at once:
+
+.. code-block:: python
+
+    from releng import *
 
 vcs ignore
 ~~~~~~~~~~

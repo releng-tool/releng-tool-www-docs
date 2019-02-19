@@ -559,7 +559,7 @@ file <code class="docutils literal notranslate"><span class="pre">post.py</span>
 <p>The target directory will be output to standard out at the end of the build. A
 developer may wish to define their own Python script to decide on how to package
 the contents found in <code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code> (see also <a class="reference internal" href="#script-helpers">script helpers</a> for helper
-variables/methods).</p>
+variables/functions).</p>
 </div>
 <div class="section" id="releng-py">
 <h2>releng.py<a class="headerlink" href="#releng-py" title="Permalink to this headline">¶</a></h2>
@@ -907,8 +907,21 @@ will be set to a value of one (i.e.
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></td>
 <td>The sysroot prefix for the package.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></td>
+<td>Flag set if performing a re-build request.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></td>
+<td>Flag set if performing a re-configuration
+request.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></td>
+<td>Flag set if performing a re-install request.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></td>
 <td>The staging area directory.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></td>
+<td>The symbols area directory.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></td>
 <td>The target area directory.</td>
@@ -1565,7 +1578,7 @@ configure a project as script-based, the following configuration can be used:</p
 respective script (mentioned above) will be invoked. Package scripts are
 optional; thus, if a script is not provided for a stage, the stage will be
 skipped.</p>
-<p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper methods/variables available for use.</p>
+<p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
 </div>
 <div class="section" id="autotools-package">
 <h3>autotools package<a class="headerlink" href="#autotools-package" title="Permalink to this headline">¶</a></h3>
@@ -1737,7 +1750,19 @@ can override this option by explicitly adjusting the configuration option
 <col width="64%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_ENV</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_DEFS</span></code></td>
+<td><p class="first">Provides a means to pass definitions into the
+configuration process. This option can is
+defined as a dictionary of string pairs. This
+field is optional.</p>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;CMAKE_BUILD_TYPE&#39;</span><span class="p">:</span> <span class="s1">&#39;RelWithDebInfo&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_ENV</span></code></td>
 <td><p class="first">Provides a means to pass environment variables
 into the configuration process. This option is
 defined as a dictionary with key-value pairs
@@ -1751,7 +1776,7 @@ field is optional.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_OPTS</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_OPTS</span></code></td>
 <td><p class="first">Provides a means to pass command line options
 into the configuration process. This option can
 be defined as a dictionary of string pairs or a
@@ -1773,7 +1798,7 @@ configuration event. This field is optional.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_ENV</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_ENV</span></code></td>
 <td><p class="first">Provides a means to pass environment variables
 into the build process. This option is defined
 as a dictionary with key-value pairs where the
@@ -1787,7 +1812,7 @@ optional.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_ENV</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_ENV</span></code></td>
 <td><p class="first">Provides a means to pass environment variables
 into the installation process. This option is
 defined as a dictionary with key-value pairs
@@ -1801,7 +1826,7 @@ field is optional.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_OPTS</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_OPTS</span></code></td>
 <td><p class="first">Provides a means to pass command line options
 into the installation process. This option can
 be defined as a dictionary of string pairs or a
@@ -1823,7 +1848,7 @@ installation event. This field is optional.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_OPTS</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_OPTS</span></code></td>
 <td><p class="first">Provides a means to pass command line options
 into the build process. This option can
 be defined as a dictionary of string pairs or a
@@ -2095,8 +2120,8 @@ stages will not be performed.</li>
 </div>
 <div class="section" id="script-helpers">
 <h3>script helpers<a class="headerlink" href="#script-helpers" title="Permalink to this headline">¶</a></h3>
-<p>releng-tool provides a series of helper methods which can be used in
-script-based packages, post-processing and more. Helper methods provided are
+<p>releng-tool provides a series of helper functions which can be used in
+script-based packages, post-processing and more. Helper functions provided are
 listed below:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2112,7 +2137,7 @@ listed below:</p>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">debug</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.log.</code><code class="descname">debug</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">debug</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a debug message</p>
 <p>Logs a debug message to standard out with a trailing new line. By default,
 debug messages will not be output to standard out unless the instance is
@@ -2140,7 +2165,7 @@ generating a formatted message</li>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">err</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.log.</code><code class="descname">err</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">err</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log an error message</p>
 <p>Logs an error message to standard error with a trailing new line and (if
 enabled) a red colorization.</p>
@@ -2167,7 +2192,7 @@ generating a formatted message</li>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">log</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.log.</code><code class="descname">log</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">log</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a message</p>
 <p>Logs a (normal) message to standard out with a trailing new line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">)</span>
@@ -2193,7 +2218,7 @@ generating a formatted message</li>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">note</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.log.</code><code class="descname">note</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">note</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a notification message</p>
 <p>Logs a notification message to standard out with a trailing new line and (if
 enabled) an inverted colorization.</p>
@@ -2220,22 +2245,36 @@ generating a formatted message</li>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.io.</code><code class="descname">pathCopy</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em>, <em>quiet=False</em>, <em>critical=True</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_copy</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em>, <em>quiet=False</em>, <em>critical=True</em><span class="sig-paren">)</span></dt>
 <dd><p>copy a file or directory into a target file or directory</p>
 <p>This call will attempt to copy a provided file or directory, defined by
 <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code>
-is a file, then the <code class="docutils literal notranslate"><span class="pre">dst</span></code> file is considered to be a file as well;
-likewise if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target
-directory. If a target directory or target file’s directory does not exist,
-it will be automatically created. In the event that a file or directory
-could not be copied, an error message will be output to standard error
-(unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If <code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>
-and the specified file/directory could not be copied for any reason, this
-call will issue a system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
+is a file, then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file or directory; if <code class="docutils literal notranslate"><span class="pre">src</span></code>
+is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a target
+directory or target file’s directory does not exist, it will be
+automatically created. In the event that a file or directory could not be
+copied, an error message will be output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code>
+is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If <code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the specified
+file/directory could not be copied for any reason, this call will issue a
+system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file2-)</span>
-<span class="c1"># (or)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># (stage)</span>
+<span class="c1"># my-file</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file2&#39;</span><span class="p">)</span>
+<span class="c1"># (stage)</span>
+<span class="c1"># my-file</span>
+<span class="c1"># my-file2</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory/&#39;</span><span class="p">)</span>
+<span class="c1"># (stage)</span>
+<span class="c1"># my-directory/my-file</span>
+<span class="c1"># my-file</span>
+<span class="c1"># my-file2</span>
 <span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
+<span class="c1"># (stage)</span>
+<span class="c1"># my-directory/my-file</span>
+<span class="c1"># my-directory2/my-file</span>
+<span class="c1"># my-file</span>
+<span class="c1"># my-file2</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2266,7 +2305,7 @@ has failed</p>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.io.</code><code class="descname">execute</code><span class="sig-paren">(</span><em>args</em>, <em>cwd=None</em>, <em>env=None</em>, <em>env_update=None</em>, <em>quiet=False</em>, <em>critical=True</em>, <em>poll=False</em>, <em>capture=None</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_execute</code><span class="sig-paren">(</span><em>args</em>, <em>cwd=None</em>, <em>env=None</em>, <em>env_update=None</em>, <em>quiet=False</em>, <em>critical=True</em>, <em>poll=False</em>, <em>capture=None</em><span class="sig-paren">)</span></dt>
 <dd><p>execute the provided command/arguments</p>
 <p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
 the working directory of the executed command by explicitly setting the
@@ -2300,7 +2339,7 @@ of <code class="docutils literal notranslate"><span class="pre">True</span></cod
 examination. If a list is provided in the call argument <code class="docutils literal notranslate"><span class="pre">capture</span></code>, the
 list will be populated with the output provided from an invoked process.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_execute</span><span class="p">([</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;this is a test&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_execute</span><span class="p">([</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;this is a test&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2338,7 +2377,7 @@ execution has failed</p>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.io.</code><code class="descname">pathExists</code><span class="sig-paren">(</span><em>path</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_exists</code><span class="sig-paren">(</span><em>path</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>return whether or not the path exists</p>
 <p>Allows a caller to verify the existence of a file on the file system. This
 cal will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
@@ -2371,7 +2410,7 @@ cal will return <code class="docutils literal notranslate"><span class="pre">Tru
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.platform.</code><code class="descname">exit</code><span class="sig-paren">(</span><em>msg=None</em>, <em>code=None</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_exit</code><span class="sig-paren">(</span><em>msg=None</em>, <em>code=None</em><span class="sig-paren">)</span></dt>
 <dd><p>exit out of the releng-tool process</p>
 <p>Provides a convenience method to help invoke a system exit call without
 needing to explicitly use <code class="docutils literal notranslate"><span class="pre">sys</span></code>. A caller can provide a message to
@@ -2408,7 +2447,7 @@ if a message is set</li>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.string.</code><code class="descname">expand</code><span class="sig-paren">(</span><em>obj</em>, <em>kv=None</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_expand</code><span class="sig-paren">(</span><em>obj</em>, <em>kv=None</em><span class="sig-paren">)</span></dt>
 <dd><p>perform variable expansion on strings</p>
 <p>This expand utility method will attempt to expand variables in detected
 string types. For a detected string which contains substrings in the form of
@@ -2450,10 +2489,71 @@ duplicate entries.</p>
 
 </td>
 </tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></td>
+<td><dl class="first last method">
+<dt id="releng.releng_join">
+<code class="descclassname">releng.</code><code class="descname">releng_join</code><span class="sig-paren">(</span><em>path</em>, <em>*paths</em><span class="sig-paren">)</span><a class="headerlink" href="#releng.releng_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
+</dd></dl>
+
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></td>
+<td><dl class="first last function">
+<dt>
+<code class="descclassname">releng.</code><code class="descname">releng_move</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em>, <em>quiet=False</em>, <em>critical=True</em><span class="sig-paren">)</span></dt>
+<dd><p>move a file or directory into a target file or directory</p>
+<p>This call will attempt to move a provided file or directory’s contents,
+defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file, then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file; likewise if
+<code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a
+target directory or target file’s directory does not exist, it will be
+automatically created.</p>
+<p>In the event that a file or directory could not be moved, an error message
+will be output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If
+<code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the specified file/directory could not
+be moved for any reason, this call will issue a system exit
+(<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># (input)</span>
+<span class="c1"># my-directory/another-file</span>
+<span class="c1"># my-file</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file2&#39;</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
+<span class="c1"># (output)</span>
+<span class="c1"># my-directory2/another-file</span>
+<span class="c1"># my-file2</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>src</strong> – the source directory or file</li>
+<li><strong>dst</strong> – the destination directory or file* (*if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file)</li>
+<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</li>
+<li><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the move has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the move
+has failed</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code> – if the copy operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</td>
+</tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.io.</code><code class="descname">pathRemove</code><span class="sig-paren">(</span><em>path</em>, <em>quiet=False</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_remove</code><span class="sig-paren">(</span><em>path</em>, <em>quiet=False</em><span class="sig-paren">)</span></dt>
 <dd><p>remove the provided path</p>
 <p>Attempts to remove the provided path if it exists. The path value can either
 be a directory or a specific file. If the provided path does not exist, this
@@ -2489,7 +2589,7 @@ path could not be removed from the system</p>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.io.</code><code class="descname">touch</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_touch</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span></dt>
 <dd><p>update a file’s access/modifications times</p>
 <p>Attempts to update the access/modifications times on a file. If the file
 does not exist, it will be created. This utility call operates in the same
@@ -2516,10 +2616,42 @@ not be created/updated</td>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">success</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.log.</code><code class="descname">success</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">releng_wd</code><span class="sig-paren">(</span><em>dir</em><span class="sig-paren">)</span></dt>
+<dd><p>move into a context-supported working directory</p>
+<p>Moves the current context into the provided working directory <code class="docutils literal notranslate"><span class="pre">dir</span></code>. When
+returned, the original working directory will be restored. If the provided
+directory does not exist, it will created. If the directory could not be
+created, an <code class="docutils literal notranslate"><span class="pre">FailedToPrepareWorkingDirectoryError</span></code> exception will be
+thrown.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_wd</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">):</span>
+    <span class="c1"># invoked in &#39;my-directory&#39;</span>
+
+<span class="c1"># invoked in original working directory</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dir</strong> – the target working directory</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FailedToPrepareWorkingDirectoryError</span></code> – the working directory does not
+exist and could not be created</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">success</span></code></td>
+<td><dl class="first last function">
+<dt>
+<code class="descclassname">releng.</code><code class="descname">success</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a success message</p>
 <p>Logs a success message to standard error with a trailing new line and (if
 enabled) a green colorization.</p>
@@ -2543,10 +2675,10 @@ generating a formatted message</li>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.log.</code><code class="descname">verbose</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">verbose</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a verbose message</p>
 <p>Logs a verbose message to standard out with a trailing new line and (if
 enabled) an inverted colorization. By default, verbose messages will not be
@@ -2571,10 +2703,10 @@ generating a formatted message</li>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">warn</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">warn</span></code></td>
 <td><dl class="first last function">
 <dt>
-<code class="descclassname">releng.util.log.</code><code class="descname">warn</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="descclassname">releng.</code><code class="descname">warn</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a warning message</p>
 <p>Logs a warning message to standard error with a trailing new line and (if
 enabled) a purple colorization.</p>
@@ -2600,6 +2732,18 @@ generating a formatted message</li>
 </tr>
 </tbody>
 </table>
+<p>Scripts directly invoked by releng-tool will automatically have these helpers
+registered in the script’s globals module (i.e. no import is necessary). If a
+project defines custom Python modules in their project and wishes to take
+advantage of these helper functions, the following import can be used to, for
+example, import a specific function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">releng</span> <span class="kn">import</span> <span class="n">releng_execute</span>
+</pre></div>
+</div>
+<p>Or, if desired, all helper methods can be imported at once:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">releng</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="vcs-ignore">
 <h3>vcs ignore<a class="headerlink" href="#vcs-ignore" title="Permalink to this headline">¶</a></h3>
