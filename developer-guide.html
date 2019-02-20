@@ -131,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#common-package-configurations">common package configurations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advanced-package-configurations">advanced package configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-post-processing">package post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#site-definitions">site definitions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bazaar-site">bazaar site</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cvs-site">cvs site</a></li>
@@ -917,13 +918,16 @@ request.</td>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></td>
 <td>Flag set if performing a re-install request.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></td>
+<td>The root directory.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></td>
 <td>The staging area directory.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></td>
 <td>The symbols area directory.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></td>
 <td>The target area directory.</td>
 </tr>
 </tbody>
@@ -1404,6 +1408,23 @@ have <code class="docutils literal notranslate"><span class="pre">git</span></co
 </tbody>
 </table>
 </div>
+<div class="section" id="package-post-processing">
+<h3>package post-processing<a class="headerlink" href="#package-post-processing" title="Permalink to this headline">¶</a></h3>
+<p>Every package, no matter which package <a class="reference internal" href="#conf-type"><code class="docutils literal notranslate"><span class="pre">TYPE</span></code></a> is defined, can create a
+post-processing script to invoke after a package has completed an installation
+stage. The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> inside a package directory will
+trigger the post-processing stage for the package. An example post-processing
+script (<code class="docutils literal notranslate"><span class="pre">libfoo-post</span></code>) can be as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A post-processing script for a package is optional; thus, if a script is not
+provided, no post-processing will be performed for the package.</p>
+<p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
+</div>
 <div class="section" id="site-definitions">
 <span id="id1"></span><h3>site definitions<a class="headerlink" href="#site-definitions" title="Permalink to this headline">¶</a></h3>
 <p>The following outlines the details for defining supported site definitions. If
@@ -1566,6 +1587,7 @@ configure a project as script-based, the following configuration can be used:</p
 <li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-configure</span></code> - script to invoke during the configuration stage</li>
 <li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-build</span></code> - script to invoke during the build stage</li>
 <li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-install</span></code> - script to invoke during the installation stage</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> - script to invoke after the installation stage</li>
 </ul>
 <p>An example build script (<code class="docutils literal notranslate"><span class="pre">libfoo-build</span></code>) can be as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -2505,8 +2527,8 @@ duplicate entries.</p>
 <dd><p>move a file or directory into a target file or directory</p>
 <p>This call will attempt to move a provided file or directory’s contents,
 defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>.
-If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file, then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file; likewise if
-<code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a
+If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file, then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file or directory;
+if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a
 target directory or target file’s directory does not exist, it will be
 automatically created.</p>
 <p>In the event that a file or directory could not be moved, an error message
@@ -2518,11 +2540,14 @@ be moved for any reason, this call will issue a system exit
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># (input)</span>
 <span class="c1"># my-directory/another-file</span>
 <span class="c1"># my-file</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file2&#39;</span><span class="p">)</span>
+<span class="c1"># my-file2</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file3&#39;</span><span class="p">)</span>
 <span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file2&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
 <span class="c1"># (output)</span>
 <span class="c1"># my-directory2/another-file</span>
-<span class="c1"># my-file2</span>
+<span class="c1"># my-directory2/my-file2</span>
+<span class="c1"># my-file3</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2586,7 +2611,37 @@ path could not be removed from the system</p>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></td>
+<td><dl class="first last function">
+<dt>
+<code class="descclassname">releng.</code><code class="descname">releng_tmpdir</code><span class="sig-paren">(</span><em>dir=None</em><span class="sig-paren">)</span></dt>
+<dd><p>generate a context-supported temporary directory</p>
+<p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir</span></code> (or system
+default, is not provided). This is a context-supported call and will
+automatically remove the directory when completed. If the provided
+directory does not exist, it will created. If the directory could not be
+created, an <code class="docutils literal notranslate"><span class="pre">FailedToPrepareBaseDirectoryError</span></code> exception will be thrown.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">()</span> <span class="k">as</span> <span class="nb">dir</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dir</strong> (<em>optional</em>) – the directory to create the temporary directory in</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FailedToPrepareBaseDirectoryError</span></code> – the base directory does not exist and
+could not be created</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.</code><code class="descname">releng_touch</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span></dt>
@@ -2616,7 +2671,7 @@ not be created/updated</td>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.</code><code class="descname">releng_wd</code><span class="sig-paren">(</span><em>dir</em><span class="sig-paren">)</span></dt>
@@ -2648,7 +2703,7 @@ exist and could not be created</td>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">success</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">success</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.</code><code class="descname">success</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
@@ -2675,7 +2730,7 @@ generating a formatted message</li>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.</code><code class="descname">verbose</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
@@ -2703,7 +2758,7 @@ generating a formatted message</li>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">warn</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">warn</span></code></td>
 <td><dl class="first last function">
 <dt>
 <code class="descclassname">releng.</code><code class="descname">warn</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
