@@ -144,9 +144,41 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#hash-file">hash file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#script-package-default">script package (default)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#autotools-package">autotools package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cmake-package">cmake package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#python-package">python package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autotools-package">autotools package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-autotools-autoreconf">&lt;PKG&gt;_AUTOTOOLS_AUTORECONF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-build-defs">&lt;PKG&gt;_BUILD_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-build-env">&lt;PKG&gt;_BUILD_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-build-opts">&lt;PKG&gt;_BUILD_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-conf-defs">&lt;PKG&gt;_CONF_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-conf-env">&lt;PKG&gt;_CONF_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-conf-opts">&lt;PKG&gt;_CONF_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-install-defs">&lt;PKG&gt;_INSTALL_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-install-env">&lt;PKG&gt;_INSTALL_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-install-opts">&lt;PKG&gt;_INSTALL_OPTS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cmake-package">cmake package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-build-defs">&lt;PKG&gt;_BUILD_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-build-env">&lt;PKG&gt;_BUILD_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-build-opts">&lt;PKG&gt;_BUILD_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-conf-defs">&lt;PKG&gt;_CONF_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-conf-env">&lt;PKG&gt;_CONF_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-conf-opts">&lt;PKG&gt;_CONF_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-install-defs">&lt;PKG&gt;_INSTALL_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-install-env">&lt;PKG&gt;_INSTALL_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-install-opts">&lt;PKG&gt;_INSTALL_OPTS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-package">python package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python-build-defs">&lt;PKG&gt;_BUILD_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-build-env">&lt;PKG&gt;_BUILD_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-build-opts">&lt;PKG&gt;_BUILD_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-install-defs">&lt;PKG&gt;_INSTALL_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-install-env">&lt;PKG&gt;_INSTALL_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-install-opts">&lt;PKG&gt;_INSTALL_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pkg-python-interpreter">&lt;PKG&gt;_PYTHON_INTERPRETER</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#other">other</a><ul>
@@ -865,13 +897,17 @@ package-defined count will be used instead.</td>
 </tr>
 <tr class="row-even"><td><p class="first last" id="conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></p>
 </td>
-<td>The directory for a specific package’s buildable
-content (see also <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>).</td>
+<td><p class="first">The directory for a specific package’s buildable
+content.</p>
+<p class="last">See also <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>.</p>
+</td>
 </tr>
 <tr class="row-odd"><td><p class="first last" id="conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></p>
 </td>
-<td>The directory for where a package’s build output
-will be stored (see also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>).</td>
+<td><p class="first">The directory for where a package’s build output
+will be stored.</p>
+<p class="last">See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
+</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></td>
 <td>The location of the cache file for a package. If
@@ -899,35 +935,44 @@ will be set to a value of one (i.e.
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></td>
 <td>The name of the package.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></td>
-<td>The site of the package (see also <a class="reference internal" href="#conf-site"><code class="docutils literal notranslate"><span class="pre">SITE</span></code></a>).</td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></td>
+<td><p class="first">The site revision of the package.</p>
+<p class="last">See also <a class="reference internal" href="#conf-revision"><code class="docutils literal notranslate"><span class="pre">REVISION</span></code></a>.</p>
+</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></td>
-<td>The version of the package.</td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></td>
+<td><p class="first">The site of the package.</p>
+<p class="last">See also <a class="reference internal" href="#conf-site"><code class="docutils literal notranslate"><span class="pre">SITE</span></code></a>.</p>
+</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></td>
+<td><p class="first">The version of the package.</p>
+<p class="last">See also <a class="reference internal" href="#conf-version"><code class="docutils literal notranslate"><span class="pre">VERSION</span></code></a>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></td>
 <td>The sysroot prefix for the package.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></td>
 <td>Flag set if performing a re-build request.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></td>
 <td>Flag set if performing a re-configuration
 request.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></td>
 <td>Flag set if performing a re-install request.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></td>
 <td>The root directory.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></td>
 <td>The staging area directory.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></td>
 <td>The symbols area directory.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></td>
 <td>The target area directory.</td>
 </tr>
 </tbody>
@@ -1613,136 +1658,148 @@ supported module.</p>
 <code class="docutils literal notranslate"><span class="pre">autoreconf</span></code> (if configured to do so) and then invoke <code class="docutils literal notranslate"><span class="pre">configure</span></code>. When the
 build stage is reached, <code class="docutils literal notranslate"><span class="pre">make</span></code> will be invoked followed by <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>
 during the installation stage.</p>
-<p>The following configuration options are available for an autotools package:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="36%" />
-<col width="64%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">AUTOTOOLS_AUTORECONF</span></code></td>
-<td><p class="first">Specifies whether or not the package needs to
-perform an autotools re-configuration. This is
-to assist in the rebuilding of GNU Build System
-files which may be broken or a patch has
-introduced new build script changes that need
-to be applied. This field is optional. By
-default, <code class="docutils literal notranslate"><span class="pre">autoreconf</span></code> is not invoked.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="bp">True</span>
+<p>The following sections outline configuration options are available for an
+autotools package.</p>
+<div class="section" id="pkg-autotools-autoreconf">
+<h4>&lt;PKG&gt;_AUTOTOOLS_AUTORECONF<a class="headerlink" href="#pkg-autotools-autoreconf" title="Permalink to this headline">¶</a></h4>
+<p>Specifies whether or not the package needs to perform an autotools
+re-configuration. This is to assist in the rebuilding of GNU Build System files
+which may be broken or a patch has introduced new build script changes that need
+to be applied. This field is optional. By default, <code class="docutils literal notranslate"><span class="pre">autoreconf</span></code> is not
+invoked.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">AUTOTOOLS_CONF_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the configuration process. This option is
-defined as a dictionary with key-value pairs
-where the key is the environment name and the
-value is the environment variable’s value. This
-field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span>
+</div>
+<div class="section" id="pkg-build-defs">
+<span id="autotools-build-defs"></span><h4>&lt;PKG&gt;_BUILD_DEFS<a class="headerlink" href="#pkg-build-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the build process. This option can is
+defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pkg-build-env">
+<span id="autotools-build-env"></span><h4>&lt;PKG&gt;_BUILD_ENV<a class="headerlink" href="#pkg-build-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the build process. This
+option is defined as a dictionary with key-value pairs where the key is the
+environment name and the value is the environment variable’s value. This field
+is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">AUTOTOOLS_CONF_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the configuration process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
+</div>
+<div class="section" id="pkg-build-opts">
+<span id="autotools-build-opts"></span><h4>&lt;PKG&gt;_BUILD_OPTS<a class="headerlink" href="#pkg-build-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the build process. This
+option can be defined as a dictionary of string pairs or a list with strings –
+either way defined will generate argument values to include in the build event.
+This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># (or)</span>
+
+<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pkg-conf-defs">
+<span id="autotools-conf-defs"></span><h4>&lt;PKG&gt;_CONF_DEFS<a class="headerlink" href="#pkg-conf-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the configuration process. This option
+can is defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pkg-conf-env">
+<span id="autotools-conf-env"></span><h4>&lt;PKG&gt;_CONF_ENV<a class="headerlink" href="#pkg-conf-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the configuration process.
+This option is defined as a dictionary with key-value pairs where the key is
+the environment name and the value is the environment variable’s value. This
+field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pkg-conf-opts">
+<span id="autotools-conf-opts"></span><h4>&lt;PKG&gt;_CONF_OPTS<a class="headerlink" href="#pkg-conf-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the configuration process.
+This option can be defined as a dictionary of string pairs or a list with
+strings – either way defined will generate argument values to include in the
 configuration event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
-<span class="n">LIBFOO_AUTOTOOLS_CONF_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1"># adds &quot;--some-option&quot; to the command</span>
     <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">AUTOTOOLS_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the build process. This option is defined
-as a dictionary with key-value pairs where the
-key is the environment name and the value is
-the environment variable’s value. This field is
-optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
+</div>
+<div class="section" id="pkg-install-defs">
+<span id="autotools-install-defs"></span><h4>&lt;PKG&gt;_INSTALL_DEFS<a class="headerlink" href="#pkg-install-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the installation process. This option
+can is defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">AUTOTOOLS_INSTALL_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the installation process. This option is
-defined as a dictionary with key-value pairs
-where the key is the environment name and the
-value is the environment variable’s value. This
+</div>
+<div class="section" id="pkg-install-env">
+<span id="autotools-install-env"></span><h4>&lt;PKG&gt;_INSTALL_ENV<a class="headerlink" href="#pkg-install-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the installation process.
+This option is defined as a dictionary with key-value pairs where the key is
+the environment name and the value is the environment variable’s value. This
 field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">AUTOTOOLS_INSTALL_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the installation process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
+</div>
+<div class="section" id="pkg-install-opts">
+<span id="autotools-install-opts"></span><h4>&lt;PKG&gt;_INSTALL_OPTS<a class="headerlink" href="#pkg-install-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the installation process.
+This option can be defined as a dictionary of string pairs or a list with
+strings – either way defined will generate argument values to include in the
 installation event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
-<span class="n">LIBFOO_AUTOTOOLS_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1"># adds &quot;--some-option&quot; to the command</span>
     <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">AUTOTOOLS_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the build process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
-build event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="c1"># (or)</span>
-
-<span class="n">LIBFOO_AUTOTOOLS_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
-    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-</pre></div>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="cmake-package">
 <h3>cmake package<a class="headerlink" href="#cmake-package" title="Permalink to this headline">¶</a></h3>
@@ -1756,7 +1813,11 @@ environment variables and options used by the CMake executable.</p>
 <p>The default configuration built for projects is <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code>. A developer
 can override this option by explicitly adjusting the configuration option
 <code class="docutils literal notranslate"><span class="pre">--config</span></code> to, for example, <code class="docutils literal notranslate"><span class="pre">Debug</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;CMAKE_BUILD_TYPE&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">LIBFOO_CMAKE_OPTS</span> <span class="o">=</span> <span class="p">{</span>
    <span class="s1">&#39;--config&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -1765,135 +1826,137 @@ can override this option by explicitly adjusting the configuration option
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The following configuration options are available for a CMake package:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="36%" />
-<col width="64%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_DEFS</span></code></td>
-<td><p class="first">Provides a means to pass definitions into the
-configuration process. This option can is
-defined as a dictionary of string pairs. This
-field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;CMAKE_BUILD_TYPE&#39;</span><span class="p">:</span> <span class="s1">&#39;RelWithDebInfo&#39;</span><span class="p">,</span>
+<p>The following sections outline configuration options are available for a CMake
+package.</p>
+<div class="section" id="cmake-build-defs">
+<span id="id10"></span><h4>&lt;PKG&gt;_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the build process. This option can is
+defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the configuration process. This option is
-defined as a dictionary with key-value pairs
-where the key is the environment name and the
-value is the environment variable’s value. This
-field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span>
+</div>
+<div class="section" id="cmake-build-env">
+<span id="id11"></span><h4>&lt;PKG&gt;_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the build process. This
+option is defined as a dictionary with key-value pairs where the key is the
+environment name and the value is the environment variable’s value. This field
+is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_CONF_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the configuration process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
+</div>
+<div class="section" id="cmake-build-opts">
+<span id="id12"></span><h4>&lt;PKG&gt;_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the build process. This
+option can be defined as a dictionary of string pairs or a list with strings –
+either way defined will generate argument values to include in the build event.
+This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># (or)</span>
+
+<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cmake-conf-defs">
+<span id="id13"></span><h4>&lt;PKG&gt;_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the configuration process. This option
+can is defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cmake-conf-env">
+<span id="id14"></span><h4>&lt;PKG&gt;_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the configuration process.
+This option is defined as a dictionary with key-value pairs where the key is
+the environment name and the value is the environment variable’s value. This
+field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cmake-conf-opts">
+<span id="id15"></span><h4>&lt;PKG&gt;_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the configuration process.
+This option can be defined as a dictionary of string pairs or a list with
+strings – either way defined will generate argument values to include in the
 configuration event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
-<span class="n">LIBFOO_CMAKE_CONF_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1"># adds &quot;--some-option&quot; to the command</span>
     <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the build process. This option is defined
-as a dictionary with key-value pairs where the
-key is the environment name and the value is
-the environment variable’s value. This field is
-optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
+</div>
+<div class="section" id="cmake-install-defs">
+<span id="id16"></span><h4>&lt;PKG&gt;_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the installation process. This option
+can is defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the installation process. This option is
-defined as a dictionary with key-value pairs
-where the key is the environment name and the
-value is the environment variable’s value. This
+</div>
+<div class="section" id="cmake-install-env">
+<span id="id17"></span><h4>&lt;PKG&gt;_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the installation process.
+This option is defined as a dictionary with key-value pairs where the key is
+the environment name and the value is the environment variable’s value. This
 field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the installation process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
+</div>
+<div class="section" id="cmake-install-opts">
+<span id="id18"></span><h4>&lt;PKG&gt;_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the installation process.
+This option can be defined as a dictionary of string pairs or a list with
+strings – either way defined will generate argument values to include in the
 installation event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
-<span class="n">LIBFOO_CMAKE_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1"># adds &quot;--some-option&quot; to the command</span>
     <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">CMAKE_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the build process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
-build event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="c1"># (or)</span>
-
-<span class="n">LIBFOO_CMAKE_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
-    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-</pre></div>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="python-package">
 <h3>python package<a class="headerlink" href="#python-package" title="Permalink to this headline">¶</a></h3>
@@ -1907,98 +1970,103 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/my-custom-python-build/python&#39;</span>
 </pre></div>
 </div>
-<p>The following configuration options are available for a Python package:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="36%" />
-<col width="64%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PYTHON_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the build process. This option is defined
-as a dictionary with key-value pairs where the
-key is the environment name and the value is
-the environment variable’s value. This field is
-optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_ENV</span> <span class="o">=</span> <span class="p">{</span>
+<p>The following sections outline configuration options are available for a Python
+package.</p>
+<div class="section" id="python-build-defs">
+<span id="id19"></span><h4>&lt;PKG&gt;_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the build process. This option can is
+defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-build-env">
+<span id="id20"></span><h4>&lt;PKG&gt;_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the build process. This
+option is defined as a dictionary with key-value pairs where the key is the
+environment name and the value is the environment variable’s value. This field
+is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYTHON_INSTALL_ENV</span></code></td>
-<td><p class="first">Provides a means to pass environment variables
-into the installation process. This option is
-defined as a dictionary with key-value pairs
-where the key is the environment name and the
-value is the environment variable’s value. This
+</div>
+<div class="section" id="python-build-opts">
+<span id="id21"></span><h4>&lt;PKG&gt;_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the build process. This
+option can be defined as a dictionary of string pairs or a list with strings –
+either way defined will generate argument values to include in the build event.
+This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># (or)</span>
+
+<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-install-defs">
+<span id="id22"></span><h4>&lt;PKG&gt;_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass definitions into the installation process. This option
+can is defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-install-env">
+<span id="id23"></span><h4>&lt;PKG&gt;_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass environment variables into the installation process.
+This option is defined as a dictionary with key-value pairs where the key is
+the environment name and the value is the environment variable’s value. This
 field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PYTHON_INSTALL_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the installation process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
+</div>
+<div class="section" id="python-install-opts">
+<span id="id24"></span><h4>&lt;PKG&gt;_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this headline">¶</a></h4>
+<p>Provides a means to pass command line options into the installation process.
+This option can be defined as a dictionary of string pairs or a list with
+strings – either way defined will generate argument values to include in the
 installation event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
-<span class="n">LIBFOO_PYTHON_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1"># adds &quot;--some-option&quot; to the command</span>
     <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PYTHON_INTERPRETER</span></code></td>
-<td><p class="first">Defines an specific Python interpreter when
-processing the build and installation stages
-for a package. If not specified, the system’s
-Python interpreter will be used. This field is
-optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
+</div>
+<div class="section" id="pkg-python-interpreter">
+<span id="python-interpreter"></span><h4>&lt;PKG&gt;_PYTHON_INTERPRETER<a class="headerlink" href="#pkg-python-interpreter" title="Permalink to this headline">¶</a></h4>
+<p>Defines an specific Python interpreter when processing the build and
+installation stages for a package. If not specified, the system’s Python
+interpreter will be used. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
 </pre></div>
 </div>
-</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PYTHON_OPTS</span></code></td>
-<td><p class="first">Provides a means to pass command line options
-into the build process. This option can
-be defined as a dictionary of string pairs or a
-list with strings – either way defined will
-generate argument values to include in the
-build event. This field is optional.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="c1"># (or)</span>
-
-<span class="n">LIBFOO_PYTHON_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
-    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-</pre></div>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="section" id="other">
