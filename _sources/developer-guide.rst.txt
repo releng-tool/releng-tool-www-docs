@@ -751,6 +751,8 @@ translates to a releng-tool's determined package key):
 +----------------------------+-------------------------------------------------+
 | ``<PKG>_NAME``             | The name of the package.                        |
 +----------------------------+-------------------------------------------------+
+| ``<PKG>_REVISION``         | The revision of a defined package.              |
++----------------------------+-------------------------------------------------+
 | ``<PKG>_VERSION``          | The version of a defined package.               |
 +----------------------------+-------------------------------------------------+
 
@@ -946,6 +948,12 @@ CMake     ``cmake``
 Python    ``python``
 Script    ``script``
 ========= ===
+
+For example:
+
+.. code-block:: python
+
+   LIBFOO_TYPE = 'script'
 
 If no type is defined for a package, it will be considered a script-based
 package. If applicable, loaded extensions may provide support for custom site

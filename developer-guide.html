@@ -79,7 +79,10 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">releng-tool</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">quick-start</a><ul>
@@ -226,6 +229,14 @@
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="annex-a.html">annex a - quick reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#configuration-options">configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">package options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://releng.io/">releng.io</a></li>
 </ul>
 
             
@@ -1026,7 +1037,10 @@ build output will be stored.</td>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code></td>
 <td>The name of the package.</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_REVISION</span></code></td>
+<td>The revision of a defined package.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code></td>
 <td>The version of a defined package.</td>
 </tr>
 </tbody>
@@ -1242,6 +1256,10 @@ frameworks. The following outline a series of supported site definitions:</p>
 </tr>
 </tbody>
 </table>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;script&#39;</span>
+</pre></div>
+</div>
 <p>If no type is defined for a package, it will be considered a script-based
 package. If applicable, loaded extensions may provide support for custom site
 protocols.</p>

@@ -20,6 +20,11 @@ defining their projects will have ownership on what compilers/toolchains are
 used and the interaction between the staging/target area and the host system.
 
 .. toctree::
+   :hidden:
+
+   self
+
+.. toctree::
    :maxdepth: 2
 
    requirements
@@ -27,3 +32,5 @@ used and the interaction between the staging/target area and the host system.
    user-guide
    developer-guide
    contributor-guide
+   annex-a
+   releng.io <https://releng.io/>
