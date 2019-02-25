@@ -120,6 +120,7 @@
 <li class="toctree-l4"><a class="reference internal" href="user-guide.html#revision-overrides">revision overrides</a></li>
 <li class="toctree-l4"><a class="reference internal" href="user-guide.html#site-overrides">site overrides</a></li>
 <li class="toctree-l4"><a class="reference internal" href="user-guide.html#tool-overrides">tool overrides</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user-guide.html#quirks">quirks</a></li>
 </ul>
 </li>
 </ul>
@@ -215,6 +216,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#internal-and-external-packages">internal and external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#script-helpers">script helpers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#vcs-ignore">vcs ignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quirks">quirks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#loading-extensions">loading extensions</a></li>
 </ul>
 </li>
@@ -869,6 +871,20 @@ following override can be used:</p>
 <p class="last">Note that the use of an override option should
 only be used in special cases (see also
 <a class="reference internal" href="user-guide.html#conf-overrides"><span class="std std-ref">configuration overrides</span></a>).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></p>
+</td>
+<td><p class="first">A list of configuration quirks to apply to deal
+with rare corner case scenarios which can
+prevent releng-tool operating on a host system.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;releng.&lt;special-quirk-id&gt;&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p class="last">For a list of available quirks, please consult
+<a class="reference internal" href="#quirks">quirks</a>.</p>
 </td>
 </tr>
 </tbody>
@@ -2863,6 +2879,23 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 /dl/
 /output/
 .releng-flag-*
+</pre></div>
+</div>
+</div>
+<div class="section" id="quirks">
+<span id="id25"></span><h3>quirks<a class="headerlink" href="#quirks" title="Permalink to this headline">¶</a></h3>
+<p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
+applied to deal with rare host environment scenarios.</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_parallel_option</span></code> – Disables the <code class="docutils literal notranslate"><span class="pre">--parallel</span></code> option
+from being injected when a CMake-package is performing a build stage. This is
+to help support host systems running variants of CMake which do not explicitly
+provide a parallelization option.</li>
+</ul>
+<p>Quirks are enabled through a configuration (override) script such as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;&lt;quirk-value&gt;&#39;</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
