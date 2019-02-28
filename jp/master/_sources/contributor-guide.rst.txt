@@ -26,6 +26,9 @@ to contribute should consult this project's `CONTRIBUTING`_ document. A reminder
 that any contributions must be signed off with the
 `Developer Certificate of Origin`_.
 
+Implementation (source, comments, commits, etc.) submitted to this project
+should be provided in English.
+
 root directory
 --------------
 
@@ -134,6 +137,22 @@ For more details for API details, consult the documentation found inside the
 `API implementation`_.
 
 .. |releng/api/__init__.py| replace:: ``releng/api/__init__.py``
+
+documentation
+-------------
+
+Improvements to this project's documentation (found inside ``Documentation``)
+are always welcome -- not only for adding/updating documentation for releng-tool
+features but also translations.
+
+For users interested in translations for this project, please consult the
+following repositories:
+
+   | releng-tool - Translations
+   | https://github.com/releng-tool/releng-tool-doc-translations
+
+   | releng-tool - Translations Builder
+   | https://github.com/releng-tool/releng-tool-doc-translations-builder
 
 .. _--git-dir: https://git-scm.com/docs/git#git---git-dirltpathgt
 .. _API implementation: https://github.com/releng-tool/releng-tool/blob/master/releng/api/__init__.py

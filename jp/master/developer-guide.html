@@ -235,6 +235,11 @@
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extraction-design">extraction design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#host-and-build-environment">host and build environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#documentation">documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">requesting help</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a.html">annex a - quick reference</a><ul>
@@ -601,8 +606,8 @@ remove an existing extracted sources/partially built sources:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool clean
 </pre></div>
 </div>
-<p>Or start from a completely fresh state using <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> to remove any
-downloaded/cached resources:</p>
+<p>Or start from a completely fresh state using <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> to remove any built
+images and file mode flags:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool mrproper
 </pre></div>
 </div>
@@ -1012,6 +1017,12 @@ will be set to a value of one (i.e.
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></td>
 <td>The sysroot prefix for the package.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></td>
+<td>Flag set if in <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></td>
+<td>Flag set if in <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></td>
 <td>Flag set if performing a re-build request.</td>

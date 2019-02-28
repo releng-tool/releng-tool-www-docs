@@ -8,14 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>annex a - quick reference &mdash; releng-tool  documentation</title>
+  <title>tips &mdash; releng-tool  documentation</title>
   
 
   
   
   
   
-    <link rel="canonical" href="https://docs.releng.io/annex-a.html"/>
+    <link rel="canonical" href="https://docs.releng.io/tips.html"/>
   
 
   
@@ -31,7 +31,8 @@
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="tips" href="tips.html" /> 
+    <link rel="next" title="annex a - quick reference" href="annex-a.html" />
+    <link rel="prev" title="contributor guide" href="contributor-guide.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -237,15 +238,15 @@
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#documentation">documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">tips</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">requesting help</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requesting-help">requesting help</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">annex a - quick reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#configuration-options">configuration options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environment-variables">environment variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#package-options">package options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#script-helpers">script helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-a.html">annex a - quick reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#configuration-options">configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">package options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://releng.io/">releng.io</a></li>
@@ -294,13 +295,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>annex a - quick reference</li>
+      <li>tips</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/annex-a.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/tips.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -310,8 +311,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
+        <a href="annex-a.html" class="btn btn-neutral float-right" title="annex a - quick reference" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="tips.html" class="btn btn-neutral" title="tips" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="contributor-guide.html" class="btn btn-neutral" title="contributor guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -320,126 +323,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="annex-a-quick-reference">
-<h1>annex a - quick reference<a class="headerlink" href="#annex-a-quick-reference" title="Permalink to this headline">¶</a></h1>
-<p>A quick reference document listing available options to developers building a
-releng-tool project. Consult the <a class="reference internal" href="developer-guide.html"><span class="doc">developer's guide</span></a> for
-more detailed information.</p>
-<div class="section" id="configuration-options">
-<h2>configuration options<a class="headerlink" href="#configuration-options" title="Permalink to this headline">¶</a></h2>
-<p>Options which are read by releng-tool from a project's configuration script:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
-<span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">]</span>
-<span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;path&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;path&gt;&#39;</span><span class="p">]</span>
-<span class="n">license_header</span> <span class="o">=</span> <span class="s1">&#39;&lt;data&gt;&#39;</span>
-<span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;tool-path&gt;&#39;</span><span class="p">}</span>
-<span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span><span class="p">}</span>
-<span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;site&gt;&#39;</span><span class="p">}</span>
-<span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
-<span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
-<span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
-</pre></div>
+  <div class="section" id="tips">
+<h1>tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requesting-help">
+<h2>requesting help<a class="headerlink" href="#requesting-help" title="Permalink to this headline">¶</a></h2>
+<p>If experience issues with using releng-tool, developing extensions, etc.; do not
+hesitate to create an issue in this project's GitHub page:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">releng-tool - Issues</div>
+<div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool/issues">https://github.com/releng-tool/releng-tool/issues</a></div>
 </div>
-</div>
-<div class="section" id="environment-variables">
-<h2>environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
-<p>Environment (and script) variables available to context's invoked by
-releng-tool (may vary per context):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
-<span class="n">CACHE_DIR</span>
-<span class="n">DL_DIR</span>
-<span class="n">HOST_DIR</span>
-<span class="n">IMAGES_DIR</span>
-<span class="n">LICENSE_DIR</span>
-<span class="n">NJOBS</span>
-<span class="n">NJOBSCONF</span>
-<span class="n">OUTPUT_DIR</span>
-<span class="n">PKG_BUILD_DIR</span>
-<span class="n">PKG_BUILD_OUTPUT_DIR</span>
-<span class="n">PKG_CACHE_FILE</span>
-<span class="n">PKG_DEFDIR</span>
-<span class="n">PKG_INTERNAL</span>
-<span class="n">PKG_NAME</span>
-<span class="n">PKG_REVISION</span>
-<span class="n">PKG_SITE</span>
-<span class="n">PKG_VERSION</span>
-<span class="n">PREFIX</span>
-<span class="n">RELENG_REBUILD</span>
-<span class="n">RELENG_RECONFIGURE</span>
-<span class="n">RELENG_REINSTALL</span>
-<span class="n">ROOT_DIR</span>
-<span class="n">STAGING_DIR</span>
-<span class="n">SYMBOLS_DIR</span>
-<span class="n">TARGET_DIR</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_BUILD_DIR</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_BUILD_OUTPUT_DIR</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_NAME</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_REVISION</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_VERSION</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="package-options">
-<h2>package options<a class="headerlink" href="#package-options" title="Permalink to this headline">¶</a></h2>
-<p>Configuration options parsed by releng-tool for a package definition:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_BUILD_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;&lt;subdir&gt;&#39;</span>
-<span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span>
-<span class="n">LIBFOO_EXTENSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;extension&gt;&#39;</span>
-<span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_EXTOPT</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_EXTRACT_TYPE</span> <span class="o">=</span> <span class="s1">&#39;ext-&lt;extraction-extension&gt;&#39;</span>
-<span class="n">LIBFOO_FIXED_JOBS</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 1</span>
-<span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;install-type&gt;&#39;</span> <span class="c1"># host, images, staging, staging_and_target, target</span>
-<span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">&#39;&lt;license&gt;&#39;</span>  <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">&#39;&lt;file&gt;&#39;</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
-<span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
-<span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span>
-<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;&lt;site&gt;&#39;</span>
-<span class="n">LIBFOO_STRIP_COUNT</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
-<span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;type&gt;&#39;</span> <span class="c1"># autotools, cmake, python, script, ext-&lt;extension&gt;</span>
-<span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;vcs-type&gt;&#39;</span> <span class="c1"># bzr, cvs, git, hg, none, scp, svn, url</span>
-<span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;version&gt;&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="script-helpers">
-<h2>script helpers<a class="headerlink" href="#script-helpers" title="Permalink to this headline">¶</a></h2>
-<p>Functions available to scripts invoked by releng-tool or importable via
-<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">note</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">releng_execute</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_exists</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_exit</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_expand</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">kv</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">releng_remove</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">releng_tmpdir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_touch</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
-<span class="n">releng_wd</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
-<span class="n">success</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">verbose</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-</pre></div>
-</div>
+</div></blockquote>
 </div>
 </div>
 
@@ -451,8 +346,10 @@ releng-tool (may vary per context):</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="annex-a.html" class="btn btn-neutral float-right" title="annex a - quick reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="tips.html" class="btn btn-neutral" title="tips" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="contributor-guide.html" class="btn btn-neutral" title="contributor guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

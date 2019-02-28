@@ -381,17 +381,19 @@ to be performed. An example of a user invoking a clean action is as follows:</p>
 <col width="70%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">clean</span></code></td>
-<td>Clean (remove) the <code class="docutils literal notranslate"><span class="pre">output/</span></code> directory found in
-the root directory. This clean operation will remove
-content such as extracted archives, built libraries
-and more. Downloaded assets/cache files are not
-removed (instead see <code class="docutils literal notranslate"><span class="pre">mrproper</span></code>). If an output
-directory is provided (i.e. <code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code>)
-during a clean event, the provided directory will be
-removed instead of the output directory (if any)
-found in the root directory. If no output directory
-exists, this call will have no effect.</td>
+<tr class="row-odd"><td><p class="first last" id="action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></p>
+</td>
+<td>Clean (removes) a series of folders holding content
+such as extracted archives, built libraries and
+more. Images and downloaded assets/cache are not
+removed (see <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> for a more through
+all cleaning operation). This clean operation will
+remove files based off the configured output
+directory. If an output directory is provided (i.e.
+<code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code>) during a clean event, select
+folders inside this directory will be removed
+instead of the output directory (if any) found in
+the root directory.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">extract</span></code></td>
 <td>The release engineering process will process all
@@ -409,11 +411,14 @@ acquiring license documents from packages.
 Therefore, packages will be fetched/extracted if not
 already done.</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></td>
+<tr class="row-odd"><td><p class="first last" id="action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></p>
+</td>
 <td>Perform a pristine clean of the releng-tool project.
-This request not only removes the targeted output
-directory but also any cached assets and mode file
-flags (see also <code class="docutils literal notranslate"><span class="pre">clean</span></code>).</td>
+This request removes the <code class="docutils literal notranslate"><span class="pre">output/</span></code> directory found
+in the root directory as well as any mode file flags
+which may be set. The <code class="docutils literal notranslate"><span class="pre">cache/</span></code> and <code class="docutils literal notranslate"><span class="pre">dl/</span></code>
+directories will remain untouched. See also the
+<a class="reference internal" href="#action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></a> action.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">patch</span></code></td>
 <td>The release engineering process will process all
@@ -620,7 +625,7 @@ based on the packages, changes and languages used.</p>
 </div>
 <p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and/or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
 folders. Future builds for the project will no longer need external access until
-these folders are manually removed or <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> is invoked.</p>
+these folders are manually removed.</p>
 </div>
 <div class="section" id="parallel-builds">
 <h3>parallel builds<a class="headerlink" href="#parallel-builds" title="Permalink to this headline">¶</a></h3>
@@ -639,7 +644,7 @@ package if a package cannot support parallel processing.</p>
 <div class="section" id="privileged-builds">
 <h3>privileged builds<a class="headerlink" href="#privileged-builds" title="Permalink to this headline">¶</a></h3>
 <p>It is never recommended to invoke a build with elevated (e.g. root) privileges.
-A builder invoking in an elevated environment runs the risk of a mis-configured
+A builder invoking in an elevated environment runs the risk of a misconfigured
 releng-tool project dirtying or destroying the builder’s host environment.</p>
 </div>
 <div class="section" id="license-generation">
@@ -680,7 +685,7 @@ $ releng-tool
 </div>
 <p>Development mode is persisted through the use of a file flag in the root
 directory. A user can either disable development mode by performing a
-<code class="docutils literal notranslate"><span class="pre">mrproper</span></code> or can manually remove the file flag.</p>
+<a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
 </div>
 <div class="section" id="local-sources-mode">
 <span id="id2"></span><h3>local-sources mode<a class="headerlink" href="#local-sources-mode" title="Permalink to this headline">¶</a></h3>
@@ -719,7 +724,7 @@ $ releng-tool
 </div>
 <p>Local-sources mode is persisted through the use of a file flag in the root
 directory. A user can either disable local sources mode by performing a
-<code class="docutils literal notranslate"><span class="pre">mrproper</span></code> or can manually remove the file flag.</p>
+<a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
 </div>
 <div class="section" id="configuration-overrides">
 <span id="conf-overrides"></span><h3>configuration overrides<a class="headerlink" href="#configuration-overrides" title="Permalink to this headline">¶</a></h3>

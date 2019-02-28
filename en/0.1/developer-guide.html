@@ -601,8 +601,8 @@ remove an existing extracted sources/partially built sources:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool clean
 </pre></div>
 </div>
-<p>Or start from a completely fresh state using <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> to remove any
-downloaded/cached resources:</p>
+<p>Or start from a completely fresh state using <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> to remove any built
+images and file mode flags:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool mrproper
 </pre></div>
 </div>
@@ -778,9 +778,9 @@ example, downloading an asset from
 <code class="docutils literal notranslate"><span class="pre">https://example.org/my-file.tgz</span></code>, the
 locally downloaded file will result in a
 <code class="docutils literal notranslate"><span class="pre">.tgz</span></code> extension; however, not all defined
-sites will result in a easily interpreted cache
-extension. While releng-tool will attempt its
-best to determine an appropriate extension
+sites will result in an easily interpreted
+cache extension. While releng-tool will attempt
+its best to determine an appropriate extension
 value to use, some use cases may not be able to
 be handled. To deal with these cases, a
 developer can define a transform method to help
@@ -1496,7 +1496,7 @@ use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docut
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">export</span></code>
 call <a class="footnote-reference" href="#bzrexport" id="id2">[1]</a>. Content from a Bazaar repository will be fetched and
-archived into a file during fetch stage. Once an cached archive is made, the
+archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="cvs-site">
@@ -1509,7 +1509,7 @@ value. A site can be defined as follows:</p>
 <p>The value after the prefix is a space-separated pair, where the first part
 represents the CVSROOT <a class="footnote-reference" href="#cvsroot" id="id3">[3]</a> to use and the second part specifies the CVS
 module <a class="footnote-reference" href="#cvsmodule" id="id4">[2]</a>  to use. Content from a CVS repository will be fetched and
-archived into a file during fetch stage. Once an cached archive is made, the
+archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="git-site">
@@ -1563,7 +1563,7 @@ fetch, the fetch stage will be skipped unless the file is manually removed.</p>
 </div>
 <p>The value after the prefix is a path which will be provided to a
 <code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference" href="#svncheckout" id="id8">[7]</a>. Content from a Subversion repository will
-be fetched and archived into a file during fetch stage. Once an cached archive
+be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="url-site-default">
@@ -2065,7 +2065,7 @@ installation event. This field is optional.</p>
 </div>
 <div class="section" id="libfoo-python-interpreter">
 <span id="python-interpreter"></span><h4>LIBFOO_PYTHON_INTERPRETER<a class="headerlink" href="#libfoo-python-interpreter" title="Permalink to this headline">¶</a></h4>
-<p>Defines an specific Python interpreter when processing the build and
+<p>Defines a specific Python interpreter when processing the build and
 installation stages for a package. If not specified, the system’s Python
 interpreter will be used. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
