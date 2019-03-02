@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# Copyright 2019 releng-tool
+
+base="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+################################################################################
+
+stable='0.1'
+
+################################################################################
+
+echo 'adjusting default redirect...'
+sed -i "s/var stable.*/var stable = '$stable';/g" $base/redirect.js
+
+echo 'generate base redirect pages for sub-language folders...'
+for ref in $(ls -d $base/*/); do
+    lang_dir=${ref%%/}
+    lang=${lang_dir##*/}
+
+cat <<EOM >$lang_dir/index.html
+<!DOCTYPE html>
+<html lang="$lang"><head>
+    <meta http-equiv="refresh" content="0; url=https://docs.releng.io/$lang/$stable">
+</head><body>
+<p>You should be redirected automatically; if not, venture to
+<a href="https://docs.releng.io/$lang/$stable/">/$lang/$stable/</a>.</p>
+</body></html>
+EOM
+
+done
+
+echo 'remove legacy base redirects...'
+for ref in $(ls -f $base/*.html); do
+    rm ${ref%%/}
+done
+
+echo 'generating redirect pages for existing stable html landing pages...'
+for ref in $(ls -f $base/en/$stable/*.html); do
+    existing=${ref%%/}
+    existing=${existing##*/}
+    name=${existing%.*}
+    if [ "$name" == 'index' ]; then
+        name=''
+    fi
+
+cat <<EOM >$base/$existing
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta http-equiv="refresh" content="2; url=https://docs.releng.io/en/$stable">
+    <link rel="canonical" href="https://docs.releng.io/$name" />
+    <script src="redirect.js"></script>
+</head><body>
+<p>You should be redirected automatically; if not, venture to
+<a href="https://docs.releng.io/en/$stable/">/en/$stable/</a>.</p>
+</body></html>
+EOM
+
+done
