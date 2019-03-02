@@ -80,6 +80,32 @@
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+    <style type="text/css">
+    .version-warning {
+        background-image: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 10px,
+            #5b5206 10px,
+            #5b5206 20px);
+        box-sizing: border-box;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding: 8px 20px 8px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        width: 100%;
+    }
+    .version-warning a {
+        display: inline;
+        padding: 0px;
+    }
+    </style>
+    
+    <div class="version-warning">development version | <a href="https://docs.releng.io/en/0.1/">stable v0.1</a></div>
+    
+    
             
             
               
@@ -254,6 +280,7 @@
 
             
           
+
         </div>
       </div>
     </nav>
@@ -327,6 +354,8 @@
 <h1>installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>The recommended method of installation is using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install releng-tool
+ <span class="o">(</span>or<span class="o">)</span>
+python -m pip install releng-tool
 </pre></div>
 </div>
 <p>To verify the package has been installed the following command can be used:</p>

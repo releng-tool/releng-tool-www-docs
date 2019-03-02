@@ -80,6 +80,32 @@
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+    <style type="text/css">
+    .version-warning {
+        background-image: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 10px,
+            #5b5206 10px,
+            #5b5206 20px);
+        box-sizing: border-box;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        padding: 8px 20px 8px;
+        text-align: center;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        width: 100%;
+    }
+    .version-warning a {
+        display: inline;
+        padding: 0px;
+    }
+    </style>
+    
+    <div class="version-warning">development version | <a href="https://docs.releng.io/jp/0.1/">stable v0.1</a></div>
+    
+    
             
             
               
@@ -254,6 +280,7 @@
 
             
           
+
         </div>
       </div>
     </nav>
@@ -325,7 +352,7 @@
             
   <div class="section" id="requirements">
 <h1>requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
-<p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> is requires either <a class="reference external" href="https://www.python.org/">Python</a> 2.7 or 3.4+ to
+<p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> and requires either <a class="reference external" href="https://www.python.org/">Python</a> 2.7 or 3.4+ to
 run on a host system. A series of optional tools are required if certain stages
 and/or features are used. For example, projects fetching sources from <a class="reference external" href="https://git-scm.com/">Git</a> will
 require the <code class="docutils literal notranslate"><span class="pre">git</span></code> tool installed; projects with patches will required the
