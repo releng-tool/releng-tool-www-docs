@@ -1,11 +1,12 @@
-var base = '/en/master';
+var stable = '0.1';
+var base = '/en/' + stable;
 
 var ln = window.navigator.language || navigator.browserLanguage;
 ln = ln.substring(0,2);
 switch(ln)
 {
-case 'de': base = '/de/master'; break;
-case 'jp': base = '/jp/master'; break;
+case 'de': base = '/de/' + stable; break;
+case 'jp': base = '/jp/' + stable; break;
 default:
     // use default
 }
