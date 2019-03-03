@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+<loc>https://docs.releng.io/annex-a</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/contributor-guide</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/developer-guide</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/genindex</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/install</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/requirements</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/search</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
+<loc>https://docs.releng.io/user-guide</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+</urlset>
