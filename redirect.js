@@ -1,4 +1,4 @@
-var stable = '0.1';
+var stable = 'latest';
 var base = '/en/' + stable;
 
 var ln = window.navigator.language || navigator.browserLanguage;
