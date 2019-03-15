@@ -77,6 +77,15 @@ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <changefreq>monthly</changefreq>
 </url>
 <url>
+<loc>https://docs.releng.io/tips</loc>
+<xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
+<xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
+<xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/latest"/>
+<xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/latest"/>
+<xhtml:link rel="alternate" hreflang="zh" href="https://docs.releng.io/zh/latest"/>
+<changefreq>monthly</changefreq>
+</url>
+<url>
 <loc>https://docs.releng.io/user-guide</loc>
 <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/latest"/>
 <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/latest"/>
