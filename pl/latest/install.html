@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="index" title="Indeks" href="genindex.html" />
     <link rel="search" title="Szukaj" href="search.html" />
     <link rel="next" title="poradnik użytkownika" href="user-guide.html" />
@@ -139,7 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-py">releng.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#common-package-configurations">common package configurations</a><ul>
@@ -237,6 +238,11 @@
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extraction-design">extraction design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#host-and-build-environment">host and build environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#documentation">documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">wskazówki</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">prośba o pomoc</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a.html">załącznik a – instrukcja w pigułce</a><ul>
@@ -331,6 +337,8 @@
 <h1>instalacja<a class="headerlink" href="#installation" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>releng-tool można zainstalować korzystając z <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install releng-tool
+ <span class="o">(</span>or<span class="o">)</span>
+python -m pip install releng-tool
 </pre></div>
 </div>
 <p>Następujące polecenie sprawdza, czy pakiet został zainstalowany:</p>
@@ -490,6 +498,8 @@ releng-tool &lt;version&gt;
       <dd><a href="https://docs.releng.io/pl/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/pl/0.2/">0.2</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.1/">0.1</a></dd>
     

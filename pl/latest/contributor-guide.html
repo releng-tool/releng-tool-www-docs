@@ -29,9 +29,10 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="index" title="Indeks" href="genindex.html" />
     <link rel="search" title="Szukaj" href="search.html" />
-    <link rel="next" title="załącznik a – instrukcja w pigułce" href="annex-a.html" />
+    <link rel="next" title="wskazówki" href="tips.html" />
     <link rel="prev" title="poradnik dla programistów" href="developer-guide.html" /> 
 
   
@@ -139,7 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-py">releng.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#common-package-configurations">common package configurations</a><ul>
@@ -237,6 +238,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#extraction-design">extraction design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#host-and-build-environment">host and build environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extensions">extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">wskazówki</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">prośba o pomoc</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a.html">załącznik a – instrukcja w pigułce</a><ul>
@@ -315,7 +321,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="annex-a.html" class="btn btn-neutral float-right" title="załącznik a – instrukcja w pigułce" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tips.html" class="btn btn-neutral float-right" title="wskazówki" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="developer-guide.html" class="btn btn-neutral" title="poradnik dla programistów" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -351,6 +357,8 @@ tools for features that are not being used.</p>
 to contribute should consult this project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/CONTRIBUTING.rst">CONTRIBUTING</a> document. A reminder
 that any contributions must be signed off with the
 <a class="reference external" href="https://developercertificate.org/">Developer Certificate of Origin</a>.</p>
+<p>Implementation (source, comments, commits, etc.) submitted to this project
+should be provided in English.</p>
 </div>
 <div class="section" id="root-directory">
 <h2>root directory<a class="headerlink" href="#root-directory" title="Stały odnośnik do tego nagłówka">¶</a></h2>
@@ -405,7 +413,7 @@ attempt to prevent the changing of classes, methods, etc. to prevent
 compatibility issues as both releng-tool and extensions (if any) evolve. A
 developer for a releng-tool project would register an extension to load using
 the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> configuration option inside the project configuration
-(<code class="docutils literal notranslate"><span class="pre">releng.py</span></code>):</p>
+(<code class="docutils literal notranslate"><span class="pre">releng</span></code>):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -443,6 +451,24 @@ extension to register custom fetching, extraction and package implementations.</
 <p>For more details for API details, consult the documentation found inside the
 <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng/api/__init__.py">API implementation</a>.</p>
 </div>
+<div class="section" id="documentation">
+<h2>documentation<a class="headerlink" href="#documentation" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Improvements to this project’s documentation (found inside <code class="docutils literal notranslate"><span class="pre">Documentation</span></code>)
+are always welcome – not only for adding/updating documentation for releng-tool
+features but also translations.</p>
+<p>For users interested in translations for this project, please consult the
+following repositories:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">releng-tool - Translations</div>
+<div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations">https://github.com/releng-tool/releng-tool-doc-translations</a></div>
+</div>
+<div class="line-block">
+<div class="line">releng-tool - Translations Builder</div>
+<div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations-builder">https://github.com/releng-tool/releng-tool-doc-translations-builder</a></div>
+</div>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -453,7 +479,7 @@ extension to register custom fetching, extraction and package implementations.</
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="annex-a.html" class="btn btn-neutral float-right" title="załącznik a – instrukcja w pigułce" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tips.html" class="btn btn-neutral float-right" title="wskazówki" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="developer-guide.html" class="btn btn-neutral" title="poradnik dla programistów" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -505,6 +531,8 @@ extension to register custom fetching, extraction and package implementations.</
       <dd><a href="https://docs.releng.io/pl/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/pl/0.2/">0.2</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.1/">0.1</a></dd>
     

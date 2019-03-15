@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="installation" href="install.html" />
@@ -139,7 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-py">releng.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#common-package-configurations">common package configurations</a><ul>
@@ -237,6 +238,11 @@
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extraction-design">extraction design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#host-and-build-environment">host and build environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#documentation">documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">requesting help</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a.html">annex a - quick reference</a><ul>
@@ -329,7 +335,7 @@
             
   <div class="section" id="requirements">
 <h1>requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
-<p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> is requires either <a class="reference external" href="https://www.python.org/">Python</a> 2.7 or 3.4+ to
+<p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> and requires either <a class="reference external" href="https://www.python.org/">Python</a> 2.7 or 3.4+ to
 run on a host system. A series of optional tools are required if certain stages
 and/or features are used. For example, projects fetching sources from <a class="reference external" href="https://git-scm.com/">Git</a> will
 require the <code class="docutils literal notranslate"><span class="pre">git</span></code> tool installed; projects with patches will required the
@@ -398,6 +404,8 @@ various operating system variants.</p>
       <dd><a href="https://docs.releng.io/en/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/en/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/en/0.2/">0.2</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.1/">0.1</a></dd>
     

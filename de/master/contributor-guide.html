@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="tipps" href="tips.html" />
@@ -81,7 +82,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">entwicklungsversion | <a href="https://docs.releng.io/de/latest/">stabil v0.1</a></div>
+    <div class="version-warning">entwicklungsversion | <a href="https://docs.releng.io/de/latest/">stabil v0.2</a></div>
     
     
             
@@ -141,7 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-py">releng.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#common-package-configurations">common package configurations</a><ul>
@@ -414,7 +415,7 @@ attempt to prevent the changing of classes, methods, etc. to prevent
 compatibility issues as both releng-tool and extensions (if any) evolve. A
 developer for a releng-tool project would register an extension to load using
 the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> configuration option inside the project configuration
-(<code class="docutils literal notranslate"><span class="pre">releng.py</span></code>):</p>
+(<code class="docutils literal notranslate"><span class="pre">releng</span></code>):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -532,6 +533,8 @@ following repositories:</p>
       <dd><a href="https://docs.releng.io/de/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/de/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/de/0.2/">0.2</a></dd>
     
       <dd><a href="https://docs.releng.io/de/0.1/">0.1</a></dd>
     

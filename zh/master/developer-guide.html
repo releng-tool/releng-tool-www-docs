@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="contributor guide" href="contributor-guide.html" />
@@ -81,7 +82,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">开发版本 | <a href="https://docs.releng.io/zh/latest/">稳定 v0.1</a></div>
+    <div class="version-warning">开发版本 | <a href="https://docs.releng.io/zh/latest/">稳定 v0.2</a></div>
     
     
             
@@ -141,7 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#prelude">prelude</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#releng-py">releng.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#releng-configuration">releng configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#common-package-configurations">common package configurations</a><ul>
@@ -358,7 +359,7 @@ releng-tool project:</p>
 <li><code class="docutils literal notranslate"><span class="pre">output/images/</span></code> - container for final images/archives</li>
 <li><code class="docutils literal notranslate"><span class="pre">output/staging/</span></code> - area to hold staged sysroot content</li>
 <li><code class="docutils literal notranslate"><span class="pre">output/target/</span></code> - area to hold target sysroot content</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng.py</span></code> - project configuration</li>
+<li><code class="docutils literal notranslate"><span class="pre">releng</span></code> - project configuration</li>
 </ul>
 <p>How these directories and files are used can vary on how a developer defines a
 releng-tool project. Consider the following example:</p>
@@ -463,7 +464,7 @@ in this document). Repeat the same steps for the <code class="docutils literal n
 which tells releng-tool to ensure that <code class="docutils literal notranslate"><span class="pre">libx</span></code> package is processed before
 <code class="docutils literal notranslate"><span class="pre">liby</span></code>.</p>
 <p>With this minimal set of packages, the project's releng-tool configuration can
-now be created. At the root of the project folder, create a <code class="docutils literal notranslate"><span class="pre">releng.py</span></code>
+now be created. At the root of the project folder, create a <code class="docutils literal notranslate"><span class="pre">releng</span></code>
 configuration file with the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -511,8 +512,8 @@ package folders for a project, and venture into the root folder:</p>
 $ <span class="nb">cd</span> &lt;my-project&gt;/
 </pre></div>
 </div>
-<p>Inside the root folder, create a releng-tool configuration file <code class="docutils literal notranslate"><span class="pre">releng.py</span></code>
-with the following skeleton content:</p>
+<p>Inside the root folder, create a releng-tool configuration file <code class="docutils literal notranslate"><span class="pre">releng</span></code> with
+the following skeleton content:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -580,9 +581,9 @@ Developers can also use package types defined by included extensions (if any).</
 <p>A detailed list of options can be found in <a class="reference internal" href="#common-package-configurations">common package configurations</a> and
 <a class="reference internal" href="#advanced-package-configurations">advanced package configurations</a>.</p>
 <p>Once all packages have been prepared with desired package definitions options,
-the root configuration script (<code class="docutils literal notranslate"><span class="pre">releng.py</span></code>) should be updated to indicate
-which packages should be built. All packages can be defined in the <code class="docutils literal notranslate"><span class="pre">packages</span></code>
-list if desired. For example, if a project has packages <code class="docutils literal notranslate"><span class="pre">liba</span></code>, <code class="docutils literal notranslate"><span class="pre">libb</span></code> and
+the root configuration script (<code class="docutils literal notranslate"><span class="pre">releng</span></code>) should be updated to indicate which
+packages should be built. All packages can be defined in the <code class="docutils literal notranslate"><span class="pre">packages</span></code> list
+if desired. For example, if a project has packages <code class="docutils literal notranslate"><span class="pre">liba</span></code>, <code class="docutils literal notranslate"><span class="pre">libb</span></code> and
 <code class="docutils literal notranslate"><span class="pre">programc</span></code>, the following package list can be defined:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;liba&#39;</span><span class="p">,</span>
@@ -635,11 +636,11 @@ common that a developer wants to package some assets (whether it be a
 tar/zip/etc. container, pkg/rpm/etc. package or more). A developer could deal
 with such a capability outside the releng-tool process; but if a developer
 wishes to hook the end of the process, a post-processing script can be used.</p>
-<p>A developer may create a post-processing file <code class="docutils literal notranslate"><span class="pre">post.py</span></code> in the root directory.
-On the completion of processing each package, the post-processing script will be
-invoked. It is important to note that the post-processing script may be invoked
-multiple times if a user attempts to rebuild the project. For example, if the
-file <code class="docutils literal notranslate"><span class="pre">post.py</span></code> has the following contents:</p>
+<p>A developer may create a post-processing file <code class="docutils literal notranslate"><span class="pre">releng-post</span></code> in the root
+directory. On the completion of processing each package, the post-processing
+script will be invoked. It is important to note that the post-processing script
+may be invoked multiple times if a user attempts to rebuild the project. For
+example, if the file <code class="docutils literal notranslate"><span class="pre">releng-post</span></code> has the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -651,12 +652,12 @@ developer may wish to define their own Python script to decide on how to package
 the contents found in <code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code> (see also <a class="reference internal" href="#script-helpers">script helpers</a> for helper
 variables/functions).</p>
 </div>
-<div class="section" id="releng-py">
-<h2>releng.py<a class="headerlink" href="#releng-py" title="永久链接至标题">¶</a></h2>
-<p>A releng-tool project defines its configuration options inside the a
-<code class="docutils literal notranslate"><span class="pre">releng.py</span></code> file at the root of a project. The primary configuration option
-for a developer to define is <code class="docutils literal notranslate"><span class="pre">packages</span></code>, which is used to hold a list of
-packages to be processed:</p>
+<div class="section" id="releng-configuration">
+<h2>releng configuration<a class="headerlink" href="#releng-configuration" title="永久链接至标题">¶</a></h2>
+<p>A releng-tool project defines its configuration options inside the a <code class="docutils literal notranslate"><span class="pre">releng</span></code>
+file at the root of a project. The primary configuration option for a developer
+to define is <code class="docutils literal notranslate"><span class="pre">packages</span></code>, which is used to hold a list of packages to be
+processed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -2106,10 +2107,10 @@ reaches the final stage of a build.</p>
 <p>After each package has been processed, a project has the ability to perform
 post-processing. Post-processing allows a developer to cleanup the target
 directory, build an archive/package from generated results and more. If a
-project contains a <code class="docutils literal notranslate"><span class="pre">post.py</span></code> inside the root directory, the post-processing
-script will be invoked in the final stage of a build.</p>
+project contains a <code class="docutils literal notranslate"><span class="pre">releng-post</span></code> inside the root directory, the
+post-processing script will be invoked in the final stage of a build.</p>
 <p>A developer may start out with the following post-processing script
-<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/post.py</span></code>:</p>
+<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/releng-post</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -2146,7 +2147,7 @@ license information for a final package; or a mix.</p>
 information (<a class="reference internal" href="#libfoo-license-files"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code></a>) is will be populated into a single license
 document. If a developer defines the <a class="reference internal" href="#conf-license-header"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></a> configuration,
 the generated document will be prefixed with the header content. For example,
-<code class="docutils literal notranslate"><span class="pre">releng.py</span></code> can be configured to prepare a license header from a local file
+<code class="docutils literal notranslate"><span class="pre">releng</span></code> can be configured to prepare a license header from a local file
 <code class="docutils literal notranslate"><span class="pre">assets/license-header.tpl</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -3062,6 +3063,8 @@ by the providers of said extensions.</p>
       <dd><a href="https://docs.releng.io/zh/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.2/">0.2</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.1/">0.1</a></dd>
     

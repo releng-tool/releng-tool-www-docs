@@ -29,9 +29,10 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="prev" title="contributor guide" href="contributor-guide.html" /> 
+    <link rel="prev" title="提示" href="tips.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -138,7 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-py">releng.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#common-package-configurations">common package configurations</a><ul>
@@ -236,13 +237,18 @@
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extraction-design">extraction design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#host-and-build-environment">host and build environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#documentation">documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">提示</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">请求协助</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">附件a - 快速参考</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#configuration-options">配置选项</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environment-variables">环境变量</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#package-options">包装选项</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#script-helpers">脚本助手</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-options">configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#package-options">package options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-helpers">script helpers</a></li>
 </ul>
 </li>
 </ul>
@@ -315,7 +321,7 @@
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
       
-        <a href="contributor-guide.html" class="btn btn-neutral" title="contributor guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tips.html" class="btn btn-neutral" title="提示" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -328,8 +334,8 @@
 <h1>附件a - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="永久链接至标题">¶</a></h1>
 <p>我们有一个快速参考文档，列出了构建 releng-tool 项目的开发人员的可用选项。有关更多详细信息，请参阅 <a class="reference internal" href="developer-guide.html"><span class="doc">开发人员指南</span></a> 。</p>
 <div class="section" id="configuration-options">
-<h2>配置选项<a class="headerlink" href="#configuration-options" title="永久链接至标题">¶</a></h2>
-<p>releng-tool 从项目的配置脚本中所读取的选项：</p>
+<h2>configuration options<a class="headerlink" href="#configuration-options" title="永久链接至标题">¶</a></h2>
+<p>Options which are read by releng-tool from a project's configuration script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
 <span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">]</span>
@@ -339,14 +345,16 @@
 <span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span><span class="p">}</span>
 <span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;site&gt;&#39;</span><span class="p">}</span>
 <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
+<span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;quirk-id&gt;&#39;</span><span class="p">]</span>
 <span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
 <span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="environment-variables">
-<h2>环境变量<a class="headerlink" href="#environment-variables" title="永久链接至标题">¶</a></h2>
-<p>环境（和脚本）变量可用于 releng-tool 调用的上下文（可能因上下文而异）：</p>
+<h2>environment variables<a class="headerlink" href="#environment-variables" title="永久链接至标题">¶</a></h2>
+<p>Environment (and script) variables available to context's invoked by
+releng-tool (may vary per context):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
 <span class="n">CACHE_DIR</span>
 <span class="n">DL_DIR</span>
@@ -382,8 +390,8 @@
 </div>
 </div>
 <div class="section" id="package-options">
-<h2>包装选项<a class="headerlink" href="#package-options" title="永久链接至标题">¶</a></h2>
-<p>releng-tool 为组件定义解析的配置选项：</p>
+<h2>package options<a class="headerlink" href="#package-options" title="永久链接至标题">¶</a></h2>
+<p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
@@ -418,8 +426,9 @@
 </div>
 </div>
 <div class="section" id="script-helpers">
-<h2>脚本助手<a class="headerlink" href="#script-helpers" title="永久链接至标题">¶</a></h2>
-<p>releng-tool 调用的脚本可用的函数，或者 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng</span> <span class="pre">import</span> <span class="pre">*</span></code> 可导入的脚本：</p>
+<h2>script helpers<a class="headerlink" href="#script-helpers" title="永久链接至标题">¶</a></h2>
+<p>Functions available to scripts invoked by releng-tool or importable via
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -452,7 +461,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="contributor-guide.html" class="btn btn-neutral" title="contributor guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tips.html" class="btn btn-neutral" title="提示" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -501,6 +510,8 @@
       <dd><a href="https://docs.releng.io/zh/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.2/">0.2</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.1/">0.1</a></dd>
     
