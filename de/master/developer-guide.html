@@ -157,6 +157,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#advanced-package-configurations">advanced package configurations</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-build-subdir">LIBFOO_BUILD_SUBDIR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-devmode-ignore-cache">LIBFOO_DEVMODE_IGNORE_CACHE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-devmode-revision">LIBFOO_DEVMODE_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-extension">LIBFOO_EXTENSION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-external">LIBFOO_EXTERNAL</a></li>
@@ -164,6 +165,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-revision">LIBFOO_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
@@ -1342,6 +1344,23 @@ processes are invoked from.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="libfoo-devmode-ignore-cache">
+<h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Flag value to explicitly indicate that a package should ignore any generated
+cache file when operating in development mode. In most cases, users want to take
+advantage of cached sources to prevent having to re-fetch the same content again
+between builds. However, some packages may be configured in a way where their
+request for a package’s contents varies from a fresh stage. For example, when
+pulling from a branch from a non-distributed version control system, releng-tool
+will not attempt to re-fetch from a site since a cache file already exists. If a
+developer configures a package to use a revision value with dynamic content,
+they may wish to use this option to have a user always force fetching new
+content from a clean state.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div>
 <div class="section" id="libfoo-devmode-revision">
 <h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Specifies a development revision for a package. When a project is being built in
@@ -1419,6 +1438,32 @@ internal.</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
+</div>
+<div class="section" id="libfoo-no-extraction">
+<h4>LIBFOO_NO_EXTRACTION<a class="headerlink" href="#libfoo-no-extraction" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="admonition warning">
+<p class="first admonition-title">Warnung</p>
+<p class="last">If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
+define additional <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, define a list of
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> to manage or expect to support various actions (such
+as building; since no sources are available).</p>
+</div>
+<p>Flag value to explicitly indicate that a package should not extract the package
+contents. This feature is primarily used when using releng-tool to fetch content
+for one or more packages (into <a href="#id1"><span class="problematic" id="id2">``</span></a>DL_DIR`) to be used by another package the
+releng-tool project defines.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Limitations exist when using the <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> option. Since
+releng-tool will not be used to extract a package’s archive (if any), hash
+entries for files found inside the archive cannot be checked against. If any
+files other than the archive itself is listed, releng-tool will stop processing
+due to a hash check failure. In addition, since releng-tool does not have the
+extracted contents of an archive, it is unable to acquire a copy of the
+project’s license file. Specifying <code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> for projects with
+the no-extraction flag enabled will result in a warning. By default, this option
+is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </div>
 <div class="section" id="libfoo-prefix">
 <h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="Link zu dieser Überschrift">¶</a></h4>
@@ -1498,7 +1543,7 @@ provided, no post-processing will be performed for the package.</p>
 <p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
 </div>
 <div class="section" id="site-definitions">
-<span id="id1"></span><h3>site definitions<a class="headerlink" href="#site-definitions" title="Link zu dieser Überschrift">¶</a></h3>
+<span id="id3"></span><h3>site definitions<a class="headerlink" href="#site-definitions" title="Link zu dieser Überschrift">¶</a></h3>
 <p>The following outlines the details for defining supported site definitions. If
 attempting to use an extension-provided site type, please consult the
 documentation provided by said extension.</p>
@@ -1518,7 +1563,7 @@ use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docut
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">export</span></code>
-call <a class="footnote-reference" href="#bzrexport" id="id2">[1]</a>. Content from a Bazaar repository will be fetched and
+call <a class="footnote-reference" href="#bzrexport" id="id4">[1]</a>. Content from a Bazaar repository will be fetched and
 archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
@@ -1530,8 +1575,8 @@ value. A site can be defined as follows:</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a space-separated pair, where the first part
-represents the CVSROOT <a class="footnote-reference" href="#cvsroot" id="id3">[3]</a> to use and the second part specifies the CVS
-module <a class="footnote-reference" href="#cvsmodule" id="id4">[2]</a>  to use. Content from a CVS repository will be fetched and
+represents the CVSROOT <a class="footnote-reference" href="#cvsroot" id="id5">[3]</a> to use and the second part specifies the CVS
+module <a class="footnote-reference" href="#cvsmodule" id="id6">[2]</a>  to use. Content from a CVS repository will be fetched and
 archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
@@ -1544,7 +1589,7 @@ value or postfixed with the <code class="docutils literal notranslate"><span cla
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
 </pre></div>
 </div>
-<p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference" href="#gitremote" id="id5">[4]</a> for
+<p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference" href="#gitremote" id="id7">[4]</a> for
 a locally managed cache source. Git sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code>
 directory on first-run. Future runs to fetch a project’s source will use the
 cached Git file system. If a desired revision exists, content will be acquired
@@ -1559,7 +1604,7 @@ will be fetched for the new revision (if it exists).</p>
 </pre></div>
 </div>
 <p>The value after the prefix is used as the <code class="docutils literal notranslate"><span class="pre">SOURCE</span></code> in an <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">clone</span></code> call
-<a class="footnote-reference" href="#hgclone" id="id6">[5]</a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
+<a class="footnote-reference" href="#hgclone" id="id8">[5]</a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
 first-run. Future runs to fetch a project’s source will use the cached Mercurial
 repository. If a desired revision exists, content will be acquired from the
 cache location. If a desired revision does not exist, the origin remote will be
@@ -1573,7 +1618,7 @@ value. A site can be defined as follows:</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">scp</span></code> call’s
-<a class="footnote-reference" href="#scpcommand" id="id7">[6]</a> source host value. The SCP site only supports copying a file from
+<a class="footnote-reference" href="#scpcommand" id="id9">[6]</a> source host value. The SCP site only supports copying a file from
 a remote host. The fetched file will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code> directory. Once
 fetch, the fetch stage will be skipped unless the file is manually removed.</p>
 </div>
@@ -1585,7 +1630,7 @@ fetch, the fetch stage will be skipped unless the file is manually removed.</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a
-<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference" href="#svncheckout" id="id8">[7]</a>. Content from a Subversion repository will
+<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference" href="#svncheckout" id="id10">[7]</a>. Content from a Subversion repository will
 be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
@@ -1599,7 +1644,7 @@ follows:</p>
 </pre></div>
 </div>
 <p>The site value provided will be directly used in a URL request. URL values
-supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference" href="#urlopen" id="id9">[8]</a>,
+supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference" href="#urlopen" id="id11">[8]</a>,
 which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>, <code class="docutils literal notranslate"><span class="pre">file://</span></code> and
 more.</p>
 </div>
@@ -1857,7 +1902,7 @@ can override this option by explicitly adjusting the configuration option
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
 <div class="section" id="cmake-build-defs">
-<span id="id10"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id12"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -1868,7 +1913,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-env">
-<span id="id11"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id13"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -1880,7 +1925,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-opts">
-<span id="id12"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id14"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -1900,7 +1945,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-defs">
-<span id="id13"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id15"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -1911,7 +1956,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-env">
-<span id="id14"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id16"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -1923,7 +1968,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-opts">
-<span id="id15"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id17"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -1943,7 +1988,7 @@ configuration event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-defs">
-<span id="id16"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id18"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -1954,7 +1999,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-env">
-<span id="id17"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id19"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -1966,7 +2011,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-opts">
-<span id="id18"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id20"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2001,7 +2046,7 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 <p>The following sections outline configuration options are available for a Python
 package.</p>
 <div class="section" id="python-build-defs">
-<span id="id19"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id21"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2012,7 +2057,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-env">
-<span id="id20"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id22"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2024,7 +2069,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-opts">
-<span id="id21"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id23"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2044,7 +2089,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-defs">
-<span id="id22"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id24"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2055,7 +2100,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-env">
-<span id="id23"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id25"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2067,7 +2112,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-opts">
-<span id="id24"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id26"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2912,7 +2957,7 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 </div>
 </div>
 <div class="section" id="quirks">
-<span id="id25"></span><h3>quirks<a class="headerlink" href="#quirks" title="Link zu dieser Überschrift">¶</a></h3>
+<span id="id27"></span><h3>quirks<a class="headerlink" href="#quirks" title="Link zu dieser Überschrift">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
@@ -2956,49 +3001,49 @@ by the providers of said extensions.</p>
 <table class="docutils footnote" frame="void" id="bzrexport" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html">http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td><a class="reference external" href="http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html">http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="cvsmodule" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[2]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="cvsroot" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="gitremote" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td><a class="reference external" href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[4]</a></td><td><a class="reference external" href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="hgclone" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td><a class="reference external" href="https://www.selenic.com/mercurial/hg.1.html#clone">https://www.selenic.com/mercurial/hg.1.html#clone</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id8">[5]</a></td><td><a class="reference external" href="https://www.selenic.com/mercurial/hg.1.html#clone">https://www.selenic.com/mercurial/hg.1.html#clone</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="scpcommand" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td><a class="reference external" href="https://linux.die.net/man/1/scp">https://linux.die.net/man/1/scp</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id9">[6]</a></td><td><a class="reference external" href="https://linux.die.net/man/1/scp">https://linux.die.net/man/1/scp</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="svncheckout" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td><a class="reference external" href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id10">[7]</a></td><td><a class="reference external" href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html</a></td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="urlopen" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id11">[8]</a></td><td><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></td></tr>
 </tbody>
 </table>
 </div>
