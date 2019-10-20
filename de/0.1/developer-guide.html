@@ -19,13 +19,21 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
@@ -34,21 +42,16 @@
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="leitfaden für mitwirkende" href="contributor-guide.html" />
     <link rel="prev" title="benutzerhandbuch" href="user-guide.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -321,7 +324,7 @@
         <a href="contributor-guide.html" class="btn btn-neutral float-right" title="leitfaden für mitwirkende" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="user-guide.html" class="btn btn-neutral" title="benutzerhandbuch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="user-guide.html" class="btn btn-neutral float-left" title="benutzerhandbuch" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -345,34 +348,34 @@ sysroot can be packaged for distribution.</p>
 <p>The following outlines the (default) common directory/file locations for a
 releng-tool project:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">cache/</span></code> - cached content from select package sources (e.g. dvcs, etc.)</li>
-<li><code class="docutils literal notranslate"><span class="pre">dl/</span></code> - archives for select package sources (e.g. <code class="docutils literal notranslate"><span class="pre">.tgz</span></code>, <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, etc.)</li>
-<li><code class="docutils literal notranslate"><span class="pre">package/</span></code> - container for packages</li>
-<li><code class="docutils literal notranslate"><span class="pre">package/&lt;package&gt;/</span></code> - a package-specific folder</li>
-<li><code class="docutils literal notranslate"><span class="pre">package/&lt;package&gt;/&lt;package&gt;</span></code> - a package definition</li>
-<li><code class="docutils literal notranslate"><span class="pre">output/</span></code> - container for all output content</li>
-<li><code class="docutils literal notranslate"><span class="pre">output/build/</span></code> - container for package building</li>
-<li><code class="docutils literal notranslate"><span class="pre">output/host/</span></code> - area to hold host-specific content</li>
-<li><code class="docutils literal notranslate"><span class="pre">output/images/</span></code> - container for final images/archives</li>
-<li><code class="docutils literal notranslate"><span class="pre">output/staging/</span></code> - area to hold staged sysroot content</li>
-<li><code class="docutils literal notranslate"><span class="pre">output/target/</span></code> - area to hold target sysroot content</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng.py</span></code> - project configuration</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache/</span></code> - cached content from select package sources (e.g. dvcs, etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dl/</span></code> - archives for select package sources (e.g. <code class="docutils literal notranslate"><span class="pre">.tgz</span></code>, <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package/</span></code> - container for packages</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package/&lt;package&gt;/</span></code> - a package-specific folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package/&lt;package&gt;/&lt;package&gt;</span></code> - a package definition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output/</span></code> - container for all output content</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output/build/</span></code> - container for package building</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output/host/</span></code> - area to hold host-specific content</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output/images/</span></code> - container for final images/archives</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output/staging/</span></code> - area to hold staged sysroot content</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output/target/</span></code> - area to hold target sysroot content</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.py</span></code> - project configuration</p></li>
 </ul>
 <p>How these directories and files are used can vary on how a developer defines a
 releng-tool project. Consider the following example:</p>
 <ol class="arabic simple">
-<li>releng-tool will load the project’s configuration and respective package
-definitions to determine what steps need to be performed.</li>
-<li>Package sources can be downloaded into either the <code class="docutils literal notranslate"><span class="pre">cache/</span></code> or <code class="docutils literal notranslate"><span class="pre">dl/</span></code>
+<li><p>releng-tool will load the project’s configuration and respective package
+definitions to determine what steps need to be performed.</p></li>
+<li><p>Package sources can be downloaded into either the <code class="docutils literal notranslate"><span class="pre">cache/</span></code> or <code class="docutils literal notranslate"><span class="pre">dl/</span></code>
 folder, depending on what type of sources will be fetched. For example, Git
 sources will be stored inside of the <code class="docutils literal notranslate"><span class="pre">cache/</span></code> to take advantage of its
 distributable nature, and archive files (such as <code class="docutils literal notranslate"><span class="pre">.tgz</span></code>, <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, etc.)
-will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl/</span></code> directory.</li>
-<li>Each package will be extracted into its own output directory inside
+will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl/</span></code> directory.</p></li>
+<li><p>Each package will be extracted into its own output directory inside
 <code class="docutils literal notranslate"><span class="pre">output/build/</span></code>. The working areas for packages allow a package to be
 patched, configured and built based on how the developer configures the
-respective packages.</li>
-<li>Once packages are built, their final executables, libraries, etc. can be
+respective packages.</p></li>
+<li><p>Once packages are built, their final executables, libraries, etc. can be
 installed into either the host area (<code class="docutils literal notranslate"><span class="pre">output/host/</span></code>), staging area
 (<code class="docutils literal notranslate"><span class="pre">output/staging/</span></code>) or the target area (<code class="docutils literal notranslate"><span class="pre">output/target/</span></code>) depending on
 what has been built. The target area is designed for the final set of assets
@@ -381,23 +384,23 @@ folder are planned to be used on a target system (stripped, cross-compiled,
 etc.). A staging area is like a target area but may contain more content such
 as headers not intended for a final target, interim development assets, and
 more. Host content is designed for content built for the host system which
-other packages may depend on.</li>
-<li>At the end of the releng-tool process, a post-stage script can be invoked to
+other packages may depend on.</p></li>
+<li><p>At the end of the releng-tool process, a post-stage script can be invoked to
 help archive/package content from the target area (<code class="docutils literal notranslate"><span class="pre">output/target/</span></code>) into
 the images folder (<code class="docutils literal notranslate"><span class="pre">output/images/</span></code>). For example, generating an archive
-<code class="docutils literal notranslate"><span class="pre">output/images/my-awesome-project-v1.0.0.tgz</span></code>.</li>
+<code class="docutils literal notranslate"><span class="pre">output/images/my-awesome-project-v1.0.0.tgz</span></code>.</p></li>
 </ol>
 <p>Not all projects may use each of these folders or take advantage of each stage.
 While various capabilities exist, it does not mean releng-tool will handle all
 the nitty-gritty details to make a proper build of a project. For example:</p>
 <ul class="simple">
-<li>If a developer wishes to cross-compile a package to a target, they must ensure
-the package is configured in the proper manner to use a desired toolchain.</li>
-<li>If a developer wants to process a Python package, they must ensure the proper
-interpreter is used if they cannot rely on the host’s default interpreter.</li>
-<li>If a developer develops script-based packages, they must ensure that these
+<li><p>If a developer wishes to cross-compile a package to a target, they must ensure
+the package is configured in the proper manner to use a desired toolchain.</p></li>
+<li><p>If a developer wants to process a Python package, they must ensure the proper
+interpreter is used if they cannot rely on the host’s default interpreter.</p></li>
+<li><p>If a developer develops script-based packages, they must ensure that these
 scripts properly handle multiple re-invokes (e.g. if a builder performs a
-rebuild on a package).</li>
+rebuild on a package).</p></li>
 </ul>
 <p>releng-tool will attempt to provide an easy way to deal with fetching sources,
 ensuring projects are invoked in order, and more; however, the more advanced
@@ -544,36 +547,36 @@ structure for the definition file is as follows:</p>
 </div>
 <p>Initial changes to note:</p>
 <ul class="simple">
-<li>For a package, any support package variable requires the package name as a
+<li><p>For a package, any support package variable requires the package name as a
 prefix. The prefix should be a underscore-separated all-uppercase string
 value. In the above example, if the package name was <code class="docutils literal notranslate"><span class="pre">my-package</span></code>, the
-prefix will be <code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_</span></code>.</li>
-<li>One of the most important options is the version option
+prefix will be <code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_</span></code>.</p></li>
+<li><p>One of the most important options is the version option
 (<code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_VERSION</span></code>). This value is used to help manage downloaded asset
 names, build output directories and sometimes even revision values for
 source-fetching. An example of a good version value is ‚1.0‘; however, the
-value can vary depending on the package being defined.</li>
-<li>The site value (<code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_SITE</span></code>) is used to identify where source/assets
+value can vary depending on the package being defined.</p></li>
+<li><p>The site value (<code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_SITE</span></code>) is used to identify where source/assets
 can be fetched from. A site can be a Git repository, a URL, SCP location, a
-site value supported by a custom fetch extension or more.</li>
-<li>A helpful configuration option is the dependency list
+site value supported by a custom fetch extension or more.</p></li>
+<li><p>A helpful configuration option is the dependency list
 (<code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_DEPENDENCIES</span></code>). If a package depends on another package being
 built, the name of the package should be listed in this option. This ensures
-that releng-tool will invoke package stages in the appropriate order.</li>
-<li>While not required, it is recommended to provide license tracking for packages
+that releng-tool will invoke package stages in the appropriate order.</p></li>
+<li><p>While not required, it is recommended to provide license tracking for packages
 when possible. <code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_LICENSE</span></code> and <code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_LICENSE_FILES</span></code> are
 list values to define the list of licenses applicable to this package and the
 location of the respective license files found in the sources. A developer can
 exclude these options if desired. If a developer does provide these options,
 the end of the build process will compile a document of used licenses for the
-project.</li>
-<li>The type of package (<code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_TYPE</span></code>) can be used to take advantage of
+project.</p></li>
+<li><p>The type of package (<code class="docutils literal notranslate"><span class="pre">MY_PACKAGE_TYPE</span></code>) can be used to take advantage of
 various package types supported by releng-tool. By default, packages are
 script-based, where Python scripts inside the packages are invoked during each
 stage (e.g. <code class="docutils literal notranslate"><span class="pre">&lt;my-project&gt;/package/build</span></code> would be invoked during the build
 phase). releng-tool also supports other package types such as autotools, CMake
 and more to limit the need to define custom scripts for common build steps.
-Developers can also use package types defined by included extensions (if any).</li>
+Developers can also use package types defined by included extensions (if any).</p></li>
 </ul>
 <p>A detailed list of options can be found in <a class="reference internal" href="#common-package-configurations">common package configurations</a> and
 <a class="reference internal" href="#advanced-package-configurations">advanced package configurations</a>.</p>
@@ -668,26 +671,26 @@ packages to be processed:</p>
 <p>A series of additional configuration options are available to be defined inside
 the project’s configuration. A list of common configuration options are as
 follows:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="34%" />
-<col width="66%" />
+<col style="width: 34%" />
+<col style="width: 66%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><p class="first last" id="conf-default-intern"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></p>
+<tbody>
+<tr class="row-odd"><td><p id="conf-default-intern"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></p>
 </td>
-<td><p class="first">A flag to indicate that projects are implicitly
+<td><p>A flag to indicate that projects are implicitly
 loaded as internal projects. By default, packages
 not explicitly configured as internal or external
 are assumed to be external packages.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_internal</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
-<p class="last">See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
+<p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">extensions</span></code></td>
-<td><p class="first">A list of extensions to load before processing a
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">extensions</span></code></p></td>
+<td><p>A list of extensions to load before processing a
 releng-tool project. If an extension cannot be
 loaded, the release engineering process will fail
 with detailed information.</p>
@@ -697,11 +700,11 @@ with detailed information.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p class="last">See also <a class="reference internal" href="#loading-extensions">loading extensions</a>.</p>
+<p>See also <a class="reference internal" href="#loading-extensions">loading extensions</a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></td>
-<td><p class="first">A list of external package locations. By default,
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></p></td>
+<td><p>A list of external package locations. By default,
 packages for a project will be searched for in
 root directory’s package folder
 (<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package</span></code>). In some build environments,
@@ -710,16 +713,16 @@ to be located in another location/repository. To
 allow packages to be loaded from another package
 container directory, one or more package
 locations can be provided. For example:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MY_EXTERNAL_PKG_DIR&#39;</span><span class="p">],</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="conf-license-header"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></p>
+<tr class="row-even"><td><p id="conf-license-header"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></p>
 </td>
-<td><p class="first">As the releng-tool build process is finalized,
+<td><p>As the releng-tool build process is finalized,
 a license document can be generated containing
 each package’s license information. If a
 developer wishes to add a custom header to the
@@ -728,16 +731,16 @@ project’s configuration. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">license_header</span> <span class="o">=</span> <span class="s1">&#39;my leading content&#39;</span>
 </pre></div>
 </div>
-<p class="last">See also <a class="reference internal" href="#licenses">licenses</a>.</p>
+<p>See also <a class="reference internal" href="#licenses">licenses</a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">packages</span></code></td>
-<td><p class="first">A list of packages to process. Packages listed
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">packages</span></code></p></td>
+<td><p>A list of packages to process. Packages listed
 will be processed by releng-tool till their
 completion. Package dependencies not explicitly
 listed will be automatically loaded and processed
 as well.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
     <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
     <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
@@ -746,25 +749,25 @@ as well.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="conf-sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></p>
+<tr class="row-even"><td><p id="conf-sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></p>
 </td>
-<td><p class="first">Define a custom sysroot prefix to provide to
+<td><p>Define a custom sysroot prefix to provide to
 packages during their configuration, build and
 installation stages. By default, the sysroot
 prefix is set to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
 </pre></div>
 </div>
-<p class="last">See also <a class="reference internal" href="#libfoo-prefix"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></a>.</p>
+<p>See also <a class="reference internal" href="#libfoo-prefix"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></td>
-<td><p class="first">Specifies a mirror base site to be used for URL
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></p></td>
+<td><p>Specifies a mirror base site to be used for URL
 fetch requests. If this option is set, any URL
 fetch requests will first be tried on the
 configured mirror before attempting to acquired
 from the defined site in a package definition.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/data/&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/data/&#39;</span>
 </pre></div>
 </div>
 </td>
@@ -772,14 +775,14 @@ from the defined site in a package definition.</p>
 </tbody>
 </table>
 <p>A list of more advanced configuration options are as follows:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="36%" />
-<col width="64%" />
+<col style="width: 36%" />
+<col style="width: 64%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></td>
-<td><p class="first">A transform for cache extension interpreting.
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></p></td>
+<td><p>A transform for cache extension interpreting.
 This is an advanced configuration and is not
 recommended for use except for special use
 cases outlined below.</p>
@@ -816,13 +819,13 @@ For example:</p>
 <span class="n">cache_ext</span> <span class="o">=</span> <span class="n">my_translator</span>
 </pre></div>
 </div>
-<p class="last">The above transform indicates that all packages
+<p>The above transform indicates that all packages
 using the <code class="docutils literal notranslate"><span class="pre">static.example.org</span></code> site will be
 <code class="docutils literal notranslate"><span class="pre">tgz</span></code> archives.</p>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></td>
-<td><p class="first">A dictionary to be provided to map an extension
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></p></td>
+<td><p>A dictionary to be provided to map an extension
 type to an external tool to indicate which tool
 should be used for extraction. For example,
 when a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> archive is being processed for
@@ -835,13 +838,13 @@ utility. Consider the following example:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="last">Note that the use of an override option should
+<p>Note that the use of an override option should
 only be used in special cases (see also
 <a class="reference internal" href="user-guide.html#conf-overrides"><span class="std std-ref">configuration overrides</span></a>).</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code></td>
-<td><p class="first">Allows a dictionary to be provided to map a
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code></p></td>
+<td><p>Allows a dictionary to be provided to map a
 package name to a new revision value. Consider
 the following example: a project defines
 <code class="docutils literal notranslate"><span class="pre">module-a</span></code> and <code class="docutils literal notranslate"><span class="pre">module-b</span></code> packages with
@@ -862,13 +865,13 @@ avoid this, an override can be used instead:</p>
 <code class="docutils literal notranslate"><span class="pre">module-b</span></code> will fetch using a test branch
 instead of what is defined in the actual
 package definition.</p>
-<p class="last">Note that the use of an override option should
+<p>Note that the use of an override option should
 only be used in special cases (see also
 <a class="reference internal" href="user-guide.html#conf-overrides"><span class="std std-ref">configuration overrides</span></a>).</p>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">override_sites</span></code></td>
-<td><p class="first">A dictionary to be provided to map a package
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">override_sites</span></code></p></td>
+<td><p>A dictionary to be provided to map a package
 name to a new site value. There may be times
 where a host may not have access to a specific
 package site. To have a host to use a mirror
@@ -886,14 +889,14 @@ following override can be used:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="last">Note that the use of an override option should
+<p>Note that the use of an override option should
 only be used in special cases (see also
 <a class="reference internal" href="user-guide.html#conf-overrides"><span class="std std-ref">configuration overrides</span></a>).</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></p>
+<tr class="row-odd"><td><p id="conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></p>
 </td>
-<td><p class="first">A list of configuration quirks to apply to deal
+<td><p>A list of configuration quirks to apply to deal
 with rare corner case scenarios which can
 prevent releng-tool operating on a host system.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
@@ -901,7 +904,7 @@ prevent releng-tool operating on a host system.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p class="last">For a list of available quirks, please consult
+<p>For a list of available quirks, please consult
 <a class="reference internal" href="#quirks">quirks</a>.</p>
 </td>
 </tr>
@@ -912,35 +915,35 @@ prevent releng-tool operating on a host system.</p>
 <h2>environment variables<a class="headerlink" href="#environment-variables" title="Link zu dieser Überschrift">¶</a></h2>
 <p>When packages and the post-processing event are processed, the following
 environment variables will be made available:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="34%" />
-<col width="66%" />
+<col style="width: 34%" />
+<col style="width: 66%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">BUILD_DIR</span></code></td>
-<td>The build directory.</td>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BUILD_DIR</span></code></p></td>
+<td><p>The build directory.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">CACHE_DIR</span></code></td>
-<td>The cache directory.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CACHE_DIR</span></code></p></td>
+<td><p>The cache directory.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code></td>
-<td>The download directory.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code></p></td>
+<td><p>The download directory.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code></td>
-<td>The host directory.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code></p></td>
+<td><p>The host directory.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></td>
-<td>The images directory.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></p></td>
+<td><p>The images directory.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">LICENSE_DIR</span></code></td>
-<td><p class="first">The licenses directory.</p>
-<p class="last">See also <a class="reference internal" href="#licenses">licenses</a>.</p>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">LICENSE_DIR</span></code></p></td>
+<td><p>The licenses directory.</p>
+<p>See also <a class="reference internal" href="#licenses">licenses</a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="conf-njobs"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></p>
+<tr class="row-odd"><td><p id="conf-njobs"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></p>
 </td>
-<td>Number of calculated jobs to allow at a given
+<td><p>Number of calculated jobs to allow at a given
 time. Unless explicitly set by a system builder
 on the command line, the calculated number of
 jobs should be equal to the number of physical
@@ -948,11 +951,11 @@ cores on the host. When building a specific
 package and the package overrides the number of
 jobs to use, the package-defined count will be
 used instead. This configuration will always be a
-value of at least one (1).</td>
+value of at least one (1).</p></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="conf-njobsconf"><code class="docutils literal notranslate"><span class="pre">NJOBSCONF</span></code></p>
+<tr class="row-even"><td><p id="conf-njobsconf"><code class="docutils literal notranslate"><span class="pre">NJOBSCONF</span></code></p>
 </td>
-<td>Number of jobs to allow at a given time. Unlike
+<td><p>Number of jobs to allow at a given time. Unlike
 <a class="reference internal" href="#conf-njobs"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></a>, <code class="docutils literal notranslate"><span class="pre">NJOBSCONF</span></code> provides the
 requested configured number of jobs to use. The
 value may be set to zero (0) to indicate an
@@ -962,90 +965,90 @@ job count implementation and do not want to rely
 on the value defined by <a class="reference internal" href="#conf-njobs"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></a>. When
 building a specific package and the package
 overrides the number of jobs to use, the
-package-defined count will be used instead.</td>
+package-defined count will be used instead.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code></td>
-<td>The output directory.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code></p></td>
+<td><p>The output directory.</p></td>
 </tr>
-<tr class="row-even"><td><p class="first last" id="conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></p>
+<tr class="row-even"><td><p id="conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></p>
 </td>
-<td><p class="first">The directory for a specific package’s buildable
+<td><p>The directory for a specific package’s buildable
 content.</p>
-<p class="last">See also <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>.</p>
+<p>See also <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p class="first last" id="conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></p>
+<tr class="row-odd"><td><p id="conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></p>
 </td>
-<td><p class="first">The directory for where a package’s build output
+<td><p>The directory for where a package’s build output
 will be stored.</p>
-<p class="last">See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
+<p>See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></td>
-<td>The location of the cache file for a package. If
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></p></td>
+<td><p>The location of the cache file for a package. If
 package defines a fetch of an archive from a
 remote source, after the fetch stage is
 completed, the archive can be found in this
 location. For example, if a package defines a
 site <code class="docutils literal notranslate"><span class="pre">https://www.example.com/test.tgz</span></code>, the
 resulting catch file may be
-<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/dl/test-1.0.tgz</span></code>.</td>
+<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/dl/test-1.0.tgz</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></td>
-<td>The package’s definition directory. For example,
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></p></td>
+<td><p>The package’s definition directory. For example,
 for a package <code class="docutils literal notranslate"><span class="pre">test</span></code>. the definition directory
-would be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package/test</span></code>.</td>
+would be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package/test</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></td>
-<td><p class="first">Whether or not the package is considered
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></p></td>
+<td><p>Whether or not the package is considered
 „internal“. If internal, the environment variable
 will be set to a value of one (i.e.
 <code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL=1</span></code>).</p>
-<p class="last">See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
+<p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></td>
-<td>The name of the package.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></p></td>
+<td><p>The name of the package.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></td>
-<td><p class="first">The site revision of the package.</p>
-<p class="last">See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a>.</p>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></p></td>
+<td><p>The site revision of the package.</p>
+<p>See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></td>
-<td><p class="first">The site of the package.</p>
-<p class="last">See also <a class="reference internal" href="#libfoo-site"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></a>.</p>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></p></td>
+<td><p>The site of the package.</p>
+<p>See also <a class="reference internal" href="#libfoo-site"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></td>
-<td><p class="first">The version of the package.</p>
-<p class="last">See also <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></p></td>
+<td><p>The version of the package.</p>
+<p>See also <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></td>
-<td>The sysroot prefix for the package.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
+<td><p>The sysroot prefix for the package.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></td>
-<td>Flag set if performing a re-build request.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
+<td><p>Flag set if performing a re-build request.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></td>
-<td>Flag set if performing a re-configuration
-request.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></p></td>
+<td><p>Flag set if performing a re-configuration
+request.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></td>
-<td>Flag set if performing a re-install request.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
+<td><p>Flag set if performing a re-install request.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></td>
-<td>The root directory.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
+<td><p>The root directory.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></td>
-<td>The staging area directory.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
+<td><p>The staging area directory.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></td>
-<td>The symbols area directory.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
+<td><p>The symbols area directory.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></td>
-<td>The target area directory.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
+<td><p>The target area directory.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1054,28 +1057,28 @@ that package content needs to be mangled (e.g. including a dependent module
 which does not properly support a sysroot staged environment). The following
 package-defined environment variables are available for use (where <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;</span></code>
 translates to a releng-tool’s determined package key):</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="36%" />
-<col width="64%" />
+<col style="width: 36%" />
+<col style="width: 64%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code></td>
-<td>The directory for a defined package’s
-buildable content.</td>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code></p></td>
+<td><p>The directory for a defined package’s
+buildable content.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code></td>
-<td>The directory for where a defined package’s
-build output will be stored.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code></p></td>
+<td><p>The directory for where a defined package’s
+build output will be stored.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code></td>
-<td>The name of the package.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code></p></td>
+<td><p>The name of the package.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_REVISION</span></code></td>
-<td>The revision of a defined package.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_REVISION</span></code></p></td>
+<td><p>The revision of a defined package.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code></td>
-<td>The version of a defined package.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code></p></td>
+<td><p>The version of a defined package.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1138,31 +1141,31 @@ processed first:</p>
 built and installed for just the target area, the stage area, both or maybe in
 the host directory. The following options are available for the installation
 type:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="41%" />
-<col width="59%" />
+<col style="width: 41%" />
+<col style="width: 59%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">type</th>
-<th class="head">description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">host</span></code></td>
-<td>The host directory.</td>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">host</span></code></p></td>
+<td><p>The host directory.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">images</span></code></td>
-<td>The images directory.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">images</span></code></p></td>
+<td><p>The images directory.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">staging</span></code></td>
-<td>The staging area.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">staging</span></code></p></td>
+<td><p>The staging area.</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">staging_and_target</span></code></td>
-<td>Both the staging an target area.</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">staging_and_target</span></code></p></td>
+<td><p>Both the staging an target area.</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">target</span></code></td>
-<td>The target area.</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">target</span></code></p></td>
+<td><p>The target area.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1207,47 +1210,45 @@ not required).</p>
 <p>The site where package sources/assets can be found. The site can be a URL of an
 archive, or describe a source control URL such as Git or SVN. The following
 outline a series of supported site definitions:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="31%" />
-<col width="69%" />
+<col style="width: 31%" />
+<col style="width: 69%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">type</th>
-<th class="head">prefix/postfix</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>prefix/postfix</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Bazaar</td>
-<td><code class="docutils literal notranslate"><span class="pre">bzr+</span></code></td>
+<tbody>
+<tr class="row-even"><td><p>Bazaar</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bzr+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>CVS</td>
-<td><code class="docutils literal notranslate"><span class="pre">cvs+</span></code></td>
+<tr class="row-odd"><td><p>CVS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cvs+</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Git</td>
-<td><code class="docutils literal notranslate"><span class="pre">git+</span></code> or <code class="docutils literal notranslate"><span class="pre">.git</span></code></td>
+<tr class="row-even"><td><p>Git</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">git+</span></code> or <code class="docutils literal notranslate"><span class="pre">.git</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Mercurial</td>
-<td><code class="docutils literal notranslate"><span class="pre">hg+</span></code></td>
+<tr class="row-odd"><td><p>Mercurial</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hg+</span></code></p></td>
 </tr>
-<tr class="row-even"><td>SCP</td>
-<td><code class="docutils literal notranslate"><span class="pre">scp+</span></code></td>
+<tr class="row-even"><td><p>SCP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scp+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>SVN</td>
-<td><code class="docutils literal notranslate"><span class="pre">svn+</span></code></td>
+<tr class="row-odd"><td><p>SVN</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">svn+</span></code></p></td>
 </tr>
-<tr class="row-even"><td>URL</td>
-<td><cite>(wildcard)</cite></td>
+<tr class="row-even"><td><p>URL</p></td>
+<td><p><cite>(wildcard)</cite></p></td>
 </tr>
 </tbody>
 </table>
 <p>Examples include:</p>
-<pre class="literal-block">
-LIBFOO_SITE = 'https://example.com/libfoo.git'
+<pre class="literal-block">LIBFOO_SITE = 'https://example.com/libfoo.git'
 LIBFOO_SITE = 'cvs+:pserver:anonymous&#64;cvs.example.com:/var/lib/cvsroot mymodule'
 LIBFOO_SITE = 'svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2'
-LIBFOO_SITE = 'https://www.example.com/files/libfoo.tar.gz'
-</pre>
+LIBFOO_SITE = 'https://www.example.com/files/libfoo.tar.gz'</pre>
 <p>A developer can also use <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> to explicitly define the version
 control system type without the need for a prefix/postfix entry.</p>
 <p>For more information on each type’s formatting, consult
@@ -1265,28 +1266,28 @@ custom site protocols.</p>
 <p>The package type. The default package type is a (Python) script-based package;
 however, releng-tool also provides a series of helper package types for common
 frameworks. The following outline a series of supported site definitions:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="41%" />
-<col width="59%" />
+<col style="width: 41%" />
+<col style="width: 59%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">type</th>
-<th class="head">value</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>value</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Autotools</td>
-<td><code class="docutils literal notranslate"><span class="pre">autotools</span></code></td>
+<tbody>
+<tr class="row-even"><td><p>Autotools</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">autotools</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>CMake</td>
-<td><code class="docutils literal notranslate"><span class="pre">cmake</span></code></td>
+<tr class="row-odd"><td><p>CMake</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cmake</span></code></p></td>
 </tr>
-<tr class="row-even"><td>Python</td>
-<td><code class="docutils literal notranslate"><span class="pre">python</span></code></td>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span></code></p></td>
 </tr>
-<tr class="row-odd"><td>Script</td>
-<td><code class="docutils literal notranslate"><span class="pre">script</span></code></td>
+<tr class="row-odd"><td><p>Script</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">script</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1450,14 +1451,14 @@ specify a desired prefix/postfix. A developer can instead explicitly set the VCS
 type to be used no matter what the site value is configured as.</p>
 <p>Supported types are as follows:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">bzr</span></code> (Bazaar)</li>
-<li><code class="docutils literal notranslate"><span class="pre">cvs</span></code> (CVS)</li>
-<li><code class="docutils literal notranslate"><span class="pre">git</span></code> (Git)</li>
-<li><code class="docutils literal notranslate"><span class="pre">hg</span></code>  (Mercurial)</li>
-<li><code class="docutils literal notranslate"><span class="pre">none</span></code> (no VCS; virtual package)</li>
-<li><code class="docutils literal notranslate"><span class="pre">scp</span></code> (SCP)</li>
-<li><code class="docutils literal notranslate"><span class="pre">svn</span></code> (SVN)</li>
-<li><code class="docutils literal notranslate"><span class="pre">url</span></code> (URL)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bzr</span></code> (Bazaar)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cvs</span></code> (CVS)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span></code> (Git)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hg</span></code>  (Mercurial)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code> (no VCS; virtual package)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scp</span></code> (SCP)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">svn</span></code> (SVN)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> (URL)</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">&#39;git&#39;</span>
 </pre></div>
@@ -1492,8 +1493,8 @@ provided, no post-processing will be performed for the package.</p>
 attempting to use an extension-provided site type, please consult the
 documentation provided by said extension.</p>
 <div class="admonition note">
-<p class="first admonition-title">Bemerkung</p>
-<p class="last">All site values can be defined with a prefix value (e.g. <code class="docutils literal notranslate"><span class="pre">git+</span></code> for Git
+<p class="admonition-title">Bemerkung</p>
+<p>All site values can be defined with a prefix value (e.g. <code class="docutils literal notranslate"><span class="pre">git+</span></code> for Git
 sources) or postfix value; however, this is optional if a package wishes to
 use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> option.</p>
 </div>
@@ -1507,7 +1508,7 @@ use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docut
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">export</span></code>
-call <a class="footnote-reference" href="#bzrexport" id="id2">[1]</a>. Content from a Bazaar repository will be fetched and
+call <a class="footnote-reference brackets" href="#bzrexport" id="id2">1</a>. Content from a Bazaar repository will be fetched and
 archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
@@ -1519,8 +1520,8 @@ value. A site can be defined as follows:</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a space-separated pair, where the first part
-represents the CVSROOT <a class="footnote-reference" href="#cvsroot" id="id3">[3]</a> to use and the second part specifies the CVS
-module <a class="footnote-reference" href="#cvsmodule" id="id4">[2]</a>  to use. Content from a CVS repository will be fetched and
+represents the CVSROOT <a class="footnote-reference brackets" href="#cvsroot" id="id3">3</a> to use and the second part specifies the CVS
+module <a class="footnote-reference brackets" href="#cvsmodule" id="id4">2</a>  to use. Content from a CVS repository will be fetched and
 archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
@@ -1533,7 +1534,7 @@ value or postfixed with the <code class="docutils literal notranslate"><span cla
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
 </pre></div>
 </div>
-<p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference" href="#gitremote" id="id5">[4]</a> for
+<p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference brackets" href="#gitremote" id="id5">4</a> for
 a locally managed cache source. Git sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code>
 directory on first-run. Future runs to fetch a project’s source will use the
 cached Git file system. If a desired revision exists, content will be acquired
@@ -1548,7 +1549,7 @@ will be fetched for the new revision (if it exists).</p>
 </pre></div>
 </div>
 <p>The value after the prefix is used as the <code class="docutils literal notranslate"><span class="pre">SOURCE</span></code> in an <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">clone</span></code> call
-<a class="footnote-reference" href="#hgclone" id="id6">[5]</a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
+<a class="footnote-reference brackets" href="#hgclone" id="id6">5</a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
 first-run. Future runs to fetch a project’s source will use the cached Mercurial
 repository. If a desired revision exists, content will be acquired from the
 cache location. If a desired revision does not exist, the origin remote will be
@@ -1562,7 +1563,7 @@ value. A site can be defined as follows:</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">scp</span></code> call’s
-<a class="footnote-reference" href="#scpcommand" id="id7">[6]</a> source host value. The SCP site only supports copying a file from
+<a class="footnote-reference brackets" href="#scpcommand" id="id7">6</a> source host value. The SCP site only supports copying a file from
 a remote host. The fetched file will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code> directory. Once
 fetch, the fetch stage will be skipped unless the file is manually removed.</p>
 </div>
@@ -1574,7 +1575,7 @@ fetch, the fetch stage will be skipped unless the file is manually removed.</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a
-<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference" href="#svncheckout" id="id8">[7]</a>. Content from a Subversion repository will
+<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference brackets" href="#svncheckout" id="id8">7</a>. Content from a Subversion repository will
 be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
@@ -1588,7 +1589,7 @@ follows:</p>
 </pre></div>
 </div>
 <p>The site value provided will be directly used in a URL request. URL values
-supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference" href="#urlopen" id="id9">[8]</a>,
+supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference brackets" href="#urlopen" id="id9">8</a>,
 which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>, <code class="docutils literal notranslate"><span class="pre">file://</span></code> and
 more.</p>
 </div>
@@ -1603,10 +1604,10 @@ continuing. If a hash does not match, the build process stops indicating an
 unexpected asset was downloaded.</p>
 <p>It is recommended that:</p>
 <ul class="simple">
-<li>Any URL-based site asset have a hash entry defined for the asset (to ensure
-the package sources are not corrupted or have been unexpectedly replaced).</li>
-<li>A hash entry should exist for license files (additional sanity check if a
-package’s license has change).</li>
+<li><p>Any URL-based site asset have a hash entry defined for the asset (to ensure
+the package sources are not corrupted or have been unexpectedly replaced).</p></li>
+<li><p>A hash entry should exist for license files (additional sanity check if a
+package’s license has change).</p></li>
 </ul>
 <p>To create a hash file for a package, add a <code class="docutils literal notranslate"><span class="pre">&lt;my-package&gt;.hash</span></code> file inside the
 package’s directory. The hash file should be a UTF-8 encoded file and can
@@ -1646,10 +1647,10 @@ configure a project as script-based, the following configuration can be used:</p
 </div>
 <p>A script package has the ability to define three Python stage scripts:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-configure</span></code> - script to invoke during the configuration stage</li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-build</span></code> - script to invoke during the build stage</li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-install</span></code> - script to invoke during the installation stage</li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> - script to invoke after the installation stage</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-configure</span></code> - script to invoke during the configuration stage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-build</span></code> - script to invoke during the build stage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-install</span></code> - script to invoke during the installation stage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> - script to invoke after the installation stage</p></li>
 </ul>
 <p>An example build script (<code class="docutils literal notranslate"><span class="pre">libfoo-build</span></code>) can be as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -1830,15 +1831,15 @@ environment variables and options used by the CMake executable.</p>
 <p>The default configuration built for projects is <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code>. A developer
 can override this option by explicitly adjusting the configuration option
 <code class="docutils literal notranslate"><span class="pre">--config</span></code> to, for example, <code class="docutils literal notranslate"><span class="pre">Debug</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
    <span class="s1">&#39;CMAKE_BUILD_TYPE&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="n">LIBFOO_CMAKE_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
    <span class="s1">&#39;--config&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="n">LIBFOO_CMAKE_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
    <span class="s1">&#39;--config&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -2091,8 +2092,8 @@ interpreter will be used. This field is optional.</p>
 <div class="section" id="post-processing">
 <h3>post-processing<a class="headerlink" href="#post-processing" title="Link zu dieser Überschrift">¶</a></h3>
 <div class="admonition warning">
-<p class="first admonition-title">Warnung</p>
-<p class="last">A post-processing script (if used) will be invoked each time <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>
+<p class="admonition-title">Warnung</p>
+<p>A post-processing script (if used) will be invoked each time <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>
 reaches the final stage of a build.</p>
 </div>
 <p>After each package has been processed, a project has the ability to perform
@@ -2161,8 +2162,8 @@ when attempting to generated final archives/packages.</p>
 <div class="section" id="patching">
 <h3>patching<a class="headerlink" href="#patching" title="Link zu dieser Überschrift">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Bemerkung</p>
-<p class="last">Patches are ignored when in <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a> for packages with a
+<p class="admonition-title">Bemerkung</p>
+<p>Patches are ignored when in <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a> for packages with a
 development version revision or when in <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a> for
 internal packages.</p>
 </div>
@@ -2193,9 +2194,9 @@ lib.hash
 </div>
 <p>With be applied in the following order:</p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">0001-accept-linker-flags.patch</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">0002-correct-output-path.patch</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">0003-support-disabling-test-build.patch</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0001-accept-linker-flags.patch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0002-correct-output-path.patch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0003-support-disabling-test-build.patch</span></code></p></li>
 </ol>
 <p>If a user configures their build environment in <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>, patches
 will not be applied if a package defines a development revisions. The idea is
@@ -2214,15 +2215,15 @@ through either the package option <a class="reference internal" href="#libfoo-in
 configuration <a class="reference internal" href="#conf-default-intern"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></a> (see also <a class="reference internal" href="#libfoo-external"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></a>). Both package
 types are almost treated the same except for the following:</p>
 <ul class="simple">
-<li>An internal package will not generate output warnings if the package is
-missing <a class="reference internal" href="#hash-files"><span class="std std-ref">hash information</span></a>.</li>
-<li>An internal package will not generate output warnings if the package is
-missing <a class="reference internal" href="#license-information"><span class="std std-ref">license information</span></a>.</li>
-<li>When configured for <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>; the patch stage will not be
+<li><p>An internal package will not generate output warnings if the package is
+missing <a class="reference internal" href="#hash-files"><span class="std std-ref">hash information</span></a>.</p></li>
+<li><p>An internal package will not generate output warnings if the package is
+missing <a class="reference internal" href="#license-information"><span class="std std-ref">license information</span></a>.</p></li>
+<li><p>When configured for <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>; the patch stage will not be
 performed if the package specifies a development revision
-(<a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a>).</li>
-<li>When configured for <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>; the fetch, extract and patch
-stages will not be performed.</li>
+(<a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a>).</p></li>
+<li><p>When configured for <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>; the fetch, extract and patch
+stages will not be performed.</p></li>
 </ul>
 </div>
 <div class="section" id="script-helpers">
@@ -2230,21 +2231,21 @@ stages will not be performed.</li>
 <p>releng-tool provides a series of helper functions which can be used in
 script-based packages, post-processing and more. Helper functions provided are
 listed below:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="34%" />
-<col width="66%" />
+<col style="width: 34%" />
+<col style="width: 66%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">method</th>
-<th class="head">documentation</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>method</p></th>
+<th class="head"><p>documentation</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">debug</span></code></td>
-<td><dl class="first last function">
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">debug</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">debug</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">debug</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a debug message</p>
 <p>Logs a debug message to standard out with a trailing new line. By default,
 debug messages will not be output to standard out unless the instance is
@@ -2252,107 +2253,91 @@ configured with debugging enabled.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;this is a debug message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
-<li><strong>msg</strong> – the message</li>
-<li><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
-generating a formatted message</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the message</p></li>
+<li><p><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
+generating a formatted message</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">err</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">err</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">err</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">err</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log an error message</p>
 <p>Logs an error message to standard error with a trailing new line and (if
 enabled) a red colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">err</span><span class="p">(</span><span class="s1">&#39;this is an error message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
-<li><strong>msg</strong> – the message</li>
-<li><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
-generating a formatted message</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the message</p></li>
+<li><p><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
+generating a formatted message</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">log</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">log</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">log</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a message</p>
 <p>Logs a (normal) message to standard out with a trailing new line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
-<li><strong>msg</strong> – the message</li>
-<li><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
-generating a formatted message</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the message</p></li>
+<li><p><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
+generating a formatted message</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">note</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">note</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">note</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">note</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a notification message</p>
 <p>Logs a notification message to standard out with a trailing new line and (if
 enabled) an inverted colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">&#39;this is a note message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
-<li><strong>msg</strong> – the message</li>
-<li><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
-generating a formatted message</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the message</p></li>
+<li><p><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
+generating a formatted message</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_copy</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em>, <em>quiet=False</em>, <em>critical=True</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_copy</code><span class="sig-paren">(</span><em class="sig-param">src</em>, <em class="sig-param">dst</em>, <em class="sig-param">quiet=False</em>, <em class="sig-param">critical=True</em><span class="sig-paren">)</span></dt>
 <dd><p>copy a file or directory into a target file or directory</p>
 <p>This call will attempt to copy a provided file or directory, defined by
 <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code>
@@ -2384,35 +2369,31 @@ system exit (<code class="docutils literal notranslate"><span class="pre">System
 <span class="c1"># my-file2</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
-<li><strong>src</strong> – the source directory or file</li>
-<li><strong>dst</strong> – the destination directory or file* (*if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file)</li>
-<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</li>
-<li><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – the source directory or file</p></li>
+<li><p><strong>dst</strong> – the destination directory or file* (*if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file)</p></li>
+<li><p><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</p></li>
+<li><p><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the copy has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the copy
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the copy has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the copy
 has failed</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code> – if the copy operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Verursacht</dt>
+<dd class="field-odd"><p><strong>SystemExit</strong> – if the copy operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_execute</code><span class="sig-paren">(</span><em>args</em>, <em>cwd=None</em>, <em>env=None</em>, <em>env_update=None</em>, <em>quiet=False</em>, <em>critical=True</em>, <em>poll=False</em>, <em>capture=None</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_execute</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">cwd=None</em>, <em class="sig-param">env=None</em>, <em class="sig-param">env_update=None</em>, <em class="sig-param">quiet=False</em>, <em class="sig-param">critical=True</em>, <em class="sig-param">poll=False</em>, <em class="sig-param">capture=None</em><span class="sig-paren">)</span></dt>
 <dd><p>execute the provided command/arguments</p>
 <p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
 the working directory of the executed command by explicitly setting the
@@ -2449,42 +2430,38 @@ list will be populated with the output provided from an invoked process.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_execute</span><span class="p">([</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;this is a test&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
-<li><strong>args</strong> – the list of arguments to execute</li>
-<li><strong>cwd</strong> (<em>optional</em>) – working directory to use</li>
-<li><strong>env</strong> (<em>optional</em>) – environment variables to use for the process</li>
-<li><strong>env_update</strong> (<em>optional</em>) – environment variables to append for the process</li>
-<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output (defaults to
-<code class="docutils literal notranslate"><span class="pre">False</span></code>)</li>
-<li><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure
-(defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>)</li>
-<li><strong>poll</strong> (<em>optional</em>) – force polling stdin/stdout for output data (defaults to
-<code class="docutils literal notranslate"><span class="pre">False</span></code>)</li>
-<li><strong>capture</strong> (<em>optional</em>) – list to capture output into</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – the list of arguments to execute</p></li>
+<li><p><strong>cwd</strong> (<em>optional</em>) – working directory to use</p></li>
+<li><p><strong>env</strong> (<em>optional</em>) – environment variables to use for the process</p></li>
+<li><p><strong>env_update</strong> (<em>optional</em>) – environment variables to append for the process</p></li>
+<li><p><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output (defaults to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure
+(defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><strong>poll</strong> (<em>optional</em>) – force polling stdin/stdout for output data (defaults to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>capture</strong> (<em>optional</em>) – list to capture output into</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the execution has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the execution has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
 execution has failed</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code> – if the execution operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Verursacht</dt>
+<dd class="field-odd"><p><strong>SystemExit</strong> – if the execution operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_exists</code><span class="sig-paren">(</span><em>path</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_exists</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>return whether or not the path exists</p>
 <p>Allows a caller to verify the existence of a file on the file system. This
 cal will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
@@ -2495,29 +2472,25 @@ cal will return <code class="docutils literal notranslate"><span class="pre">Tru
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the file does not exist&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
-<li><strong>path</strong> – the path</li>
-<li><strong>*args</strong> – additional path parts</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – the path</p></li>
+<li><p><strong>*args</strong> – additional path parts</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise</p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_exit</code><span class="sig-paren">(</span><em>msg=None</em>, <em>code=None</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_exit</code><span class="sig-paren">(</span><em class="sig-param">msg=None</em>, <em class="sig-param">code=None</em><span class="sig-paren">)</span></dt>
 <dd><p>exit out of the releng-tool process</p>
 <p>Provides a convenience method to help invoke a system exit call without
 needing to explicitly use <code class="docutils literal notranslate"><span class="pre">sys</span></code>. A caller can provide a message to
@@ -2531,30 +2504,26 @@ value will be used.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_exit</span><span class="p">(</span><span class="s1">&#39;there was an error performing this task&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
-<li><strong>msg</strong> (<em>optional</em>) – error message to print</li>
-<li><strong>code</strong> (<em>optional</em>) – exit code; defaults to 0 if no message or defaults to 1
-if a message is set</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> (<em>optional</em>) – error message to print</p></li>
+<li><p><strong>code</strong> (<em>optional</em>) – exit code; defaults to 0 if no message or defaults to 1
+if a message is set</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code> – always raised</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Verursacht</dt>
+<dd class="field-even"><p><strong>SystemExit</strong> – always raised</p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_expand</code><span class="sig-paren">(</span><em>obj</em>, <em>kv=None</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_expand</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">kv=None</em><span class="sig-paren">)</span></dt>
 <dd><p>perform variable expansion on strings</p>
 <p>This expand utility method will attempt to expand variables in detected
 string types. For a detected string which contains substrings in the form of
@@ -2577,38 +2546,34 @@ duplicate entries.</p>
 <span class="c1"># will output: my-environment-variable</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
-<li><strong>obj</strong> – the object</li>
-<li><strong>kv</strong> (<em>optional</em>) – key-values pairs to use</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – the object</p></li>
+<li><p><strong>kv</strong> (<em>optional</em>) – key-values pairs to use</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last">the expanded object</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p>the expanded object</p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></td>
-<td><dl class="first last method">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
+<td><dl class="method">
 <dt id="releng.releng_join">
-<code class="descclassname">releng.</code><code class="descname">releng_join</code><span class="sig-paren">(</span><em>path</em>, <em>*paths</em><span class="sig-paren">)</span><a class="headerlink" href="#releng.releng_join" title="Link zu dieser Definition">¶</a></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_join</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">*paths</em><span class="sig-paren">)</span><a class="headerlink" href="#releng.releng_join" title="Link zu dieser Definition">¶</a></dt>
 <dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_move</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em>, <em>quiet=False</em>, <em>critical=True</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_move</code><span class="sig-paren">(</span><em class="sig-param">src</em>, <em class="sig-param">dst</em>, <em class="sig-param">quiet=False</em>, <em class="sig-param">critical=True</em><span class="sig-paren">)</span></dt>
 <dd><p>move a file or directory into a target file or directory</p>
 <p>This call will attempt to move a provided file or directory’s contents,
 defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>.
@@ -2635,35 +2600,31 @@ be moved for any reason, this call will issue a system exit
 <span class="c1"># my-file3</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
-<li><strong>src</strong> – the source directory or file</li>
-<li><strong>dst</strong> – the destination directory or file* (*if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file)</li>
-<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</li>
-<li><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> – the source directory or file</p></li>
+<li><p><strong>dst</strong> – the destination directory or file* (*if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file)</p></li>
+<li><p><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</p></li>
+<li><p><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the move has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the move
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the move has completed with no error; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the move
 has failed</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code> – if the copy operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-odd">Verursacht</dt>
+<dd class="field-odd"><p><strong>SystemExit</strong> – if the copy operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_remove</code><span class="sig-paren">(</span><em>path</em>, <em>quiet=False</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_remove</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">quiet=False</em><span class="sig-paren">)</span></dt>
 <dd><p>remove the provided path</p>
 <p>Attempts to remove the provided path if it exists. The path value can either
 be a directory or a specific file. If the provided path does not exist, this
@@ -2676,30 +2637,26 @@ be output to standard error (unless <code class="docutils literal notranslate"><
 <span class="n">releng_remove</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
-<li><strong>path</strong> – the path to remove</li>
-<li><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – the path to remove</p></li>
+<li><p><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path was removed or does not exist; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path was removed or does not exist; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
 path could not be removed from the system</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_tmpdir</code><span class="sig-paren">(</span><em>dir=None</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_tmpdir</code><span class="sig-paren">(</span><em class="sig-param">dir=None</em><span class="sig-paren">)</span></dt>
 <dd><p>generate a context-supported temporary directory</p>
 <p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir</span></code> (or system
 default, is not provided). This is a context-supported call and will
@@ -2711,25 +2668,23 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
     <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><strong>dir</strong> (<em>optional</em>) – the directory to create the temporary directory in</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FailedToPrepareBaseDirectoryError</span></code> – the base directory does not exist and
-could not be created</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p><strong>dir</strong> (<em>optional</em>) – the directory to create the temporary directory in</p>
+</dd>
+<dt class="field-even">Verursacht</dt>
+<dd class="field-even"><p><strong>FailedToPrepareBaseDirectoryError</strong> – the base directory does not exist and
+    could not be created</p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_touch</code><span class="sig-paren">(</span><em>file</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_touch</code><span class="sig-paren">(</span><em class="sig-param">file</em><span class="sig-paren">)</span></dt>
 <dd><p>update a file’s access/modifications times</p>
 <p>Attempts to update the access/modifications times on a file. If the file
 does not exist, it will be created. This utility call operates in the same
@@ -2741,25 +2696,23 @@ fashion as the <code class="docutils literal notranslate"><span class="pre">touc
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;file was not created&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><strong>file</strong> – the file</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">True</span></code> if the file was created/updated; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the file could
-not be created/updated</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p><strong>file</strong> – the file</p>
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the file was created/updated; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the file could
+not be created/updated</p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">releng_wd</code><span class="sig-paren">(</span><em>dir</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_wd</code><span class="sig-paren">(</span><em class="sig-param">dir</em><span class="sig-paren">)</span></dt>
 <dd><p>move into a context-supported working directory</p>
 <p>Moves the current context into the provided working directory <code class="docutils literal notranslate"><span class="pre">dir</span></code>. When
 returned, the original working directory will be restored. If the provided
@@ -2773,52 +2726,46 @@ thrown.</p>
 <span class="c1"># invoked in original working directory</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><strong>dir</strong> – the target working directory</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FailedToPrepareWorkingDirectoryError</span></code> – the working directory does not
-exist and could not be created</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><p><strong>dir</strong> – the target working directory</p>
+</dd>
+<dt class="field-even">Verursacht</dt>
+<dd class="field-even"><p><strong>FailedToPrepareWorkingDirectoryError</strong> – the working directory does not
+    exist and could not be created</p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">success</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">success</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">success</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a success message</p>
 <p>Logs a success message to standard error with a trailing new line and (if
 enabled) a green colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;this is a success message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
-<li><strong>msg</strong> – the message</li>
-<li><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
-generating a formatted message</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the message</p></li>
+<li><p><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
+generating a formatted message</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">verbose</span></code></td>
-<td><dl class="first last function">
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">verbose</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">verbose</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a verbose message</p>
 <p>Logs a verbose message to standard out with a trailing new line and (if
 enabled) an inverted colorization. By default, verbose messages will not be
@@ -2826,46 +2773,38 @@ output to standard out unless the instance is configured with verbosity.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;this is a verbose message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
-<li><strong>msg</strong> – the message</li>
-<li><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
-generating a formatted message</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the message</p></li>
+<li><p><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
+generating a formatted message</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">warn</span></code></td>
-<td><dl class="first last function">
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">warn</span></code></p></td>
+<td><dl class="function">
 <dt>
-<code class="descclassname">releng.</code><code class="descname">warn</code><span class="sig-paren">(</span><em>msg</em>, <em>*args</em><span class="sig-paren">)</span></dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">warn</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
 <dd><p>log a warning message</p>
 <p>Logs a warning message to standard error with a trailing new line and (if
 enabled) a purple colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;this is a warning message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
-<li><strong>msg</strong> – the message</li>
-<li><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
-generating a formatted message</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the message</p></li>
+<li><p><strong>*args</strong> – an arbitrary set of positional and keyword arguments used when
+generating a formatted message</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </td>
@@ -2905,10 +2844,10 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_parallel_option</span></code> – Disables the <code class="docutils literal notranslate"><span class="pre">--parallel</span></code> option
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_parallel_option</span></code> – Disables the <code class="docutils literal notranslate"><span class="pre">--parallel</span></code> option
 from being injected when a CMake-package is performing a build stage. This is
 to help support host systems running variants of CMake which do not explicitly
-provide a parallelization option.</li>
+provide a parallelization option.</p></li>
 </ul>
 <p>Quirks are enabled through a configuration (override) script such as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
@@ -2920,8 +2859,8 @@ provide a parallelization option.</li>
 <div class="section" id="loading-extensions">
 <h3>loading extensions<a class="headerlink" href="#loading-extensions" title="Link zu dieser Überschrift">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Bemerkung</p>
-<p class="last">If looking for information on developing extensions for releng-tool, consult
+<p class="admonition-title">Bemerkung</p>
+<p>If looking for information on developing extensions for releng-tool, consult
 the <a class="reference internal" href="contributor-guide.html#contributor-guide-ext"><span class="std std-ref">contributor’s guide – extensions</span></a>.</p>
 </div>
 <p>A releng-tool project can define one or more extensions to load for externally
@@ -2942,54 +2881,32 @@ detailed error message will be presented to the user.</p>
 extensions are not officially supported by releng-tool. For issues related to
 specific extension use, it is recommended to consult the documentation provided
 by the providers of said extensions.</p>
-<table class="docutils footnote" frame="void" id="bzrexport" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html">http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="cvsmodule" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="cvsroot" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="gitremote" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td><a class="reference external" href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="hgclone" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[5]</a></td><td><a class="reference external" href="https://www.selenic.com/mercurial/hg.1.html#clone">https://www.selenic.com/mercurial/hg.1.html#clone</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="scpcommand" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td><a class="reference external" href="https://linux.die.net/man/1/scp">https://linux.die.net/man/1/scp</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="svncheckout" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td><a class="reference external" href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="urlopen" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[8]</a></td><td><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></td></tr>
-</tbody>
-</table>
+<dl class="footnote brackets">
+<dt class="label" id="bzrexport"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html">http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html</a></p>
+</dd>
+<dt class="label" id="cvsmodule"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout</a></p>
+</dd>
+<dt class="label" id="cvsroot"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html</a></p>
+</dd>
+<dt class="label" id="gitremote"><span class="brackets"><a class="fn-backref" href="#id5">4</a></span></dt>
+<dd><p><a class="reference external" href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a></p>
+</dd>
+<dt class="label" id="hgclone"><span class="brackets"><a class="fn-backref" href="#id6">5</a></span></dt>
+<dd><p><a class="reference external" href="https://www.selenic.com/mercurial/hg.1.html#clone">https://www.selenic.com/mercurial/hg.1.html#clone</a></p>
+</dd>
+<dt class="label" id="scpcommand"><span class="brackets"><a class="fn-backref" href="#id7">6</a></span></dt>
+<dd><p><a class="reference external" href="https://linux.die.net/man/1/scp">https://linux.die.net/man/1/scp</a></p>
+</dd>
+<dt class="label" id="svncheckout"><span class="brackets"><a class="fn-backref" href="#id8">7</a></span></dt>
+<dd><p><a class="reference external" href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html</a></p>
+</dd>
+<dt class="label" id="urlopen"><span class="brackets"><a class="fn-backref" href="#id9">8</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -3005,7 +2922,7 @@ by the providers of said extensions.</p>
         <a href="contributor-guide.html" class="btn btn-neutral float-right" title="leitfaden für mitwirkende" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="user-guide.html" class="btn btn-neutral" title="benutzerhandbuch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="user-guide.html" class="btn btn-neutral float-left" title="benutzerhandbuch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -3037,15 +2954,15 @@ by the providers of said extensions.</p>
   <dl>
     <dt>Languages</dt>
     
-      <dd><a href="https://docs.releng.io/en/master/">en</a></dd>
+      <dd><a href="https://docs.releng.io/en/0.1/">en</a></dd>
     
-      <dd><a href="https://docs.releng.io/de/master/">de</a></dd>
+      <dd><a href="https://docs.releng.io/de/0.1/">de</a></dd>
     
-      <dd><a href="https://docs.releng.io/ja/master/">ja</a></dd>
+      <dd><a href="https://docs.releng.io/ja/0.1/">ja</a></dd>
     
-      <dd><a href="https://docs.releng.io/pl/master/">pl</a></dd>
+      <dd><a href="https://docs.releng.io/pl/0.1/">pl</a></dd>
     
-      <dd><a href="https://docs.releng.io/zh/master/">zh</a></dd>
+      <dd><a href="https://docs.releng.io/zh/0.1/">zh</a></dd>
     
   </dl>
   <dl>
@@ -3062,27 +2979,16 @@ by the providers of said extensions.</p>
   </dl>
 </div>
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

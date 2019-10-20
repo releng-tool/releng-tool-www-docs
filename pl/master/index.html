@@ -19,13 +19,21 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
@@ -33,21 +41,16 @@
     <link rel="index" title="Indeks" href="genindex.html" />
     <link rel="search" title="Szukaj" href="search.html" />
     <link rel="next" title="wymagania" href="requirements.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -89,10 +92,7 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">releng-tool</a></li>
-</ul>
-<ul>
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">wymagania</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">instalacja</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">szybki start</a><ul>
@@ -248,6 +248,12 @@
 <li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">prośba o pomoc</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.1 (2019-02-24)</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a.html">załącznik a – instrukcja w pigułce</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#configuration-options">opcje konfiguracji</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">zmienne środowiskowe</a></li>
@@ -341,55 +347,6 @@
 <p>Mimo że releng-tool może pomóc w konfiguracji i budowaniu projektu, schemat nie stara się zapewnić idealnej piaskownicy (sandbox) dla owego procesu. Użytkownicy tworzący projekty będą posiadali całkowite prawo do wyboru kompilatorów/toolchainów oraz interakcji między miejscem przechowującym/docelowym, a systemem hosta.</p>
 <div class="toctree-wrapper compound">
 </div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="requirements.html">wymagania</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">instalacja</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">szybki start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#development">oprogramowanie</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="user-guide.html">poradnik użytkownika</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#getting-started">getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#arguments">arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#understanding-rebuilds">understanding rebuilds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#tips">tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user-guide.html#advanced-builder-capabilities">advanced builder capabilities</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="developer-guide.html">poradnik dla programistów</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#other">other</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="contributor-guide.html">contributor guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#contributing">contributing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#root-directory">root directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#fetching-design">fetching design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extraction-design">extraction design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#host-and-build-environment">host and build environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#documentation">documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">wskazówki</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">prośba o pomoc</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="annex-a.html">załącznik a – instrukcja w pigułce</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="annex-a.html#configuration-options">opcje konfiguracji</a></li>
-<li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">zmienne środowiskowe</a></li>
-<li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">opcje pakietów</a></li>
-<li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
-</ul>
-</li>
-</ul>
-</div>
 </div>
 
 
@@ -458,27 +415,16 @@
   </dl>
 </div>
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/translations.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>contributor guide &mdash; releng-tool  文档</title>
+  <title>贡献者指南 &mdash; releng-tool  文档</title>
   
 
   
@@ -19,13 +19,20 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
@@ -34,21 +41,16 @@
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="附件a - 快速参考" href="annex-a.html" />
     <link rel="prev" title="开发者指南" href="developer-guide.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -233,7 +235,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">contributor guide</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">贡献者指南</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#contributing">contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#root-directory">root directory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fetching-design">fetching design</a></li>
@@ -302,7 +304,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>contributor guide</li>
+      <li>贡献者指南</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -321,7 +323,7 @@
         <a href="annex-a.html" class="btn btn-neutral float-right" title="附件a - 快速参考" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="developer-guide.html" class="btn btn-neutral" title="开发者指南" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -331,17 +333,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="contributor-guide">
-<h1>contributor guide<a class="headerlink" href="#contributor-guide" title="永久链接至标题">¶</a></h1>
+<h1>贡献者指南<a class="headerlink" href="#contributor-guide" title="永久链接至标题">¶</a></h1>
 <p>The following outlines common directory locations:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - project documentation</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng/api/</span></code> - api implementation for supporting releng-tool extensions</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng/engine/</span></code> - core implementation</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng/ext/</span></code> - extensions that are maintained in the official tree</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng/extract/</span></code> - translating fetched content to a build's working area</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng/fetch/</span></code> - support for fetching content from package sites</li>
-<li><code class="docutils literal notranslate"><span class="pre">releng/tool/</span></code> - definitions for host tools used by tool features</li>
-<li><code class="docutils literal notranslate"><span class="pre">test/</span></code> - testing-related content for this project's implementation</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - project documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng/api/</span></code> - api implementation for supporting releng-tool extensions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng/engine/</span></code> - core implementation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng/ext/</span></code> - extensions that are maintained in the official tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng/extract/</span></code> - translating fetched content to a build's working area</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng/fetch/</span></code> - support for fetching content from package sites</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng/tool/</span></code> - definitions for host tools used by tool features</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code> - testing-related content for this project's implementation</p></li>
 </ul>
 <p>releng-tool is built on the Python language and aims to be the minimum
 dependency for users of the tool. Specific features enabled by a developer's
@@ -459,7 +461,7 @@ extension to register custom fetching, extraction and package implementations.</
         <a href="annex-a.html" class="btn btn-neutral float-right" title="附件a - 快速参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="developer-guide.html" class="btn btn-neutral" title="开发者指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -491,15 +493,15 @@ extension to register custom fetching, extraction and package implementations.</
   <dl>
     <dt>Languages</dt>
     
-      <dd><a href="https://docs.releng.io/en/master/">en</a></dd>
+      <dd><a href="https://docs.releng.io/en/0.1/">en</a></dd>
     
-      <dd><a href="https://docs.releng.io/de/master/">de</a></dd>
+      <dd><a href="https://docs.releng.io/de/0.1/">de</a></dd>
     
-      <dd><a href="https://docs.releng.io/ja/master/">ja</a></dd>
+      <dd><a href="https://docs.releng.io/ja/0.1/">ja</a></dd>
     
-      <dd><a href="https://docs.releng.io/pl/master/">pl</a></dd>
+      <dd><a href="https://docs.releng.io/pl/0.1/">pl</a></dd>
     
-      <dd><a href="https://docs.releng.io/zh/master/">zh</a></dd>
+      <dd><a href="https://docs.releng.io/zh/0.1/">zh</a></dd>
     
   </dl>
   <dl>
@@ -516,26 +518,16 @@ extension to register custom fetching, extraction and package implementations.</
   </dl>
 </div>
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
