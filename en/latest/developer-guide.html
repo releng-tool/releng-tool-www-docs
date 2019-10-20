@@ -157,6 +157,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#advanced-package-configurations">advanced package configurations</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-build-subdir">LIBFOO_BUILD_SUBDIR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-devmode-ignore-cache">LIBFOO_DEVMODE_IGNORE_CACHE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-devmode-revision">LIBFOO_DEVMODE_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-extension">LIBFOO_EXTENSION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-external">LIBFOO_EXTERNAL</a></li>
@@ -164,13 +165,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-revision">LIBFOO_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-vcs-type">LIBFOO_VCS_TYPE</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#package-post-processing">package post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-bootstrapping-and-post-processing">package bootstrapping and post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#site-definitions">site definitions</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#bazaar-site">bazaar site</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cvs-site">cvs site</a></li>
@@ -252,6 +254,14 @@
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">package options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -345,7 +355,7 @@ interaction with releng-tool, consult the <a class="reference internal" href="us
 <p>A releng-tool project can define multiple packages, each can be based off of
 different languages, configured to use custom toolchains and more. Every package
 has multiple stages (such as fetching, configuring, building, etc.) which can
-help contribute to target sysroot. Once all packages are processed, the target
+help contribute to a target sysroot. Once all packages are processed, the target
 sysroot can be packaged for distribution.</p>
 <p>The following outlines the (default) common directory/file locations for a
 releng-tool project:</p>
@@ -756,7 +766,9 @@ as well.</p>
 <td><p>Define a custom sysroot prefix to provide to
 packages during their configuration, build and
 installation stages. By default, the sysroot
-prefix is set to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>.</p>
+prefix is set to <code class="docutils literal notranslate"><span class="pre">/usr</span></code> or <code class="docutils literal notranslate"><span class="pre">\usr</span></code> (based on
+the system’s default character to separate
+pathname components).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
 </pre></div>
 </div>
@@ -986,9 +998,21 @@ will be stored.</p>
 <p>See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code></p></td>
+<td><p>The location of the cache directory for a
+package. If a package defines a fetch from a
+repository which can be locally cached, this
+cache directory represents the location where the
+local cache of content will be held. For example,
+if a provide defines a Git-based site, a local
+cache of the Git repository will be stored in
+this location. Typically, packages should not
+need to operate on the cache directory except for
+advanced cases.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></p></td>
 <td><p>The location of the cache file for a package. If
-package defines a fetch of an archive from a
+a package defines a fetch of an archive from a
 remote source, after the fetch stage is
 completed, the archive can be found in this
 location. For example, if a package defines a
@@ -996,12 +1020,12 @@ site <code class="docutils literal notranslate"><span class="pre">https://www.ex
 resulting catch file may be
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/dl/test-1.0.tgz</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></p></td>
 <td><p>The package’s definition directory. For example,
 for a package <code class="docutils literal notranslate"><span class="pre">test</span></code>. the definition directory
 would be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package/test</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></p></td>
 <td><p>Whether or not the package is considered
 “internal”. If internal, the environment variable
 will be set to a value of one (i.e.
@@ -1009,53 +1033,53 @@ will be set to a value of one (i.e.
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></p></td>
 <td><p>The name of the package.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></p></td>
 <td><p>The site revision of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></p></td>
 <td><p>The site of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-site"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></p></td>
 <td><p>The version of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
 <td><p>The sysroot prefix for the package.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
 <td><p>Flag set if performing a re-build request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></p></td>
 <td><p>Flag set if performing a re-configuration
 request.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
 <td><p>Flag set if performing a re-install request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
 <td><p>The root directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
 <td><p>The staging area directory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
 <td><p>The symbols area directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
 <td><p>The target area directory.</p></td>
 </tr>
 </tbody>
@@ -1340,6 +1364,23 @@ processes are invoked from.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="libfoo-devmode-ignore-cache">
+<h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="Permalink to this headline">¶</a></h4>
+<p>Flag value to explicitly indicate that a package should ignore any generated
+cache file when operating in development mode. In most cases, users want to take
+advantage of cached sources to prevent having to re-fetch the same content again
+between builds. However, some packages may be configured in a way where their
+request for a package’s contents varies from a fresh stage. For example, when
+pulling from a branch from a non-distributed version control system, releng-tool
+will not attempt to re-fetch from a site since a cache file already exists. If a
+developer configures a package to use a revision value with dynamic content,
+they may wish to use this option to have a user always force fetching new
+content from a clean state.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div>
 <div class="section" id="libfoo-devmode-revision">
 <h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="Permalink to this headline">¶</a></h4>
 <p>Specifies a development revision for a package. When a project is being built in
@@ -1418,6 +1459,32 @@ internal.</p>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </div>
+<div class="section" id="libfoo-no-extraction">
+<h4>LIBFOO_NO_EXTRACTION<a class="headerlink" href="#libfoo-no-extraction" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
+define additional <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, define a list of
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> to manage or expect to support various actions (such
+as building; since no sources are available).</p>
+</div>
+<p>Flag value to explicitly indicate that a package should not extract the package
+contents. This feature is primarily used when using releng-tool to fetch content
+for one or more packages (into <code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code>) to be used by another package the
+releng-tool project defines.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>Limitations exist when using the <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> option. Since
+releng-tool will not be used to extract a package’s archive (if any), hash
+entries for files found inside the archive cannot be checked against. If any
+files other than the archive itself is listed, releng-tool will stop processing
+due to a hash check failure. In addition, since releng-tool does not have the
+extracted contents of an archive, it is unable to acquire a copy of the
+project’s license file. Specifying <code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> for projects with
+the no-extraction flag enabled will result in a warning. By default, this option
+is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div>
 <div class="section" id="libfoo-prefix">
 <h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="Permalink to this headline">¶</a></h4>
 <p>Specifies the sysroot prefix value to use for the package. An explicitly
@@ -1478,11 +1545,22 @@ host tool is installed on the host system. For example, if a Git VCS-type is
 set, the host system will need to have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on the system.</p>
 </div>
 </div>
-<div class="section" id="package-post-processing">
-<h3>package post-processing<a class="headerlink" href="#package-post-processing" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="package-bootstrapping-and-post-processing">
+<h3>package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="Permalink to this headline">¶</a></h3>
 <p>Every package, no matter which package <a class="reference internal" href="#libfoo-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></a> is defined, can create a
-post-processing script to invoke after a package has completed an installation
-stage. The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> inside a package directory will
+bootstrapping or post-processing script to invoke before a package starts a
+configuration stage or after a package has completed an installation stage,
+respectively.</p>
+<p>The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-bootstrap</span></code> inside a package directory will
+trigger the bootstrapping stage for the package. An example bootstrapping script
+(<code class="docutils literal notranslate"><span class="pre">libfoo-bootstrap</span></code>) can be as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;perform bootstrapping work&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> inside a package directory will
 trigger the post-processing stage for the package. An example post-processing
 script (<code class="docutils literal notranslate"><span class="pre">libfoo-post</span></code>) can be as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -1491,8 +1569,9 @@ script (<code class="docutils literal notranslate"><span class="pre">libfoo-post
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>A post-processing script for a package is optional; thus, if a script is not
-provided, no post-processing will be performed for the package.</p>
+<p>Bootstrapping or post-processing scripts for a package are optional; thus, if no
+scripts are provided for a package, no bootstrapping or post-processing will be
+performed for the package.</p>
 <p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
 </div>
 <div class="section" id="site-definitions">
@@ -2398,7 +2477,31 @@ has failed</p>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></p></td>
+<td><dl class="function">
+<dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_env</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">value</em><span class="sig-paren">)</span></dt>
+<dd><p>helper to easily configure an environment variable</p>
+<p>Provides a caller an simple method to configure an environment variable for
+the current context. This call is the same as if one directly added a
+key-value into <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – the environment key to set the value on</p></li>
+<li><p><strong>value</strong> – the environment value to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></p></td>
 <td><dl class="function">
 <dt>
 <code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_execute</code><span class="sig-paren">(</span><em class="sig-param">args</em>, <em class="sig-param">cwd=None</em>, <em class="sig-param">env=None</em>, <em class="sig-param">env_update=None</em>, <em class="sig-param">quiet=False</em>, <em class="sig-param">critical=True</em>, <em class="sig-param">poll=False</em>, <em class="sig-param">capture=None</em><span class="sig-paren">)</span></dt>
@@ -2466,7 +2569,7 @@ execution has failed</p>
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
 <td><dl class="function">
 <dt>
 <code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_exists</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span></dt>
@@ -2495,7 +2598,7 @@ call will return <code class="docutils literal notranslate"><span class="pre">Tr
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
 <td><dl class="function">
 <dt>
 <code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_exit</code><span class="sig-paren">(</span><em class="sig-param">msg=None</em>, <em class="sig-param">code=None</em><span class="sig-paren">)</span></dt>
@@ -2528,7 +2631,7 @@ if a message is set</p></li>
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
 <td><dl class="function">
 <dt>
 <code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_expand</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">kv=None</em><span class="sig-paren">)</span></dt>
@@ -2569,11 +2672,45 @@ duplicate entries.</p>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
 <td><dl class="method">
 <dt id="releng.releng_join">
 <code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_join</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">*paths</em><span class="sig-paren">)</span><a class="headerlink" href="#releng.releng_join" title="Permalink to this definition">¶</a></dt>
 <dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
+</dd></dl>
+
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></td>
+<td><dl class="function">
+<dt>
+<code class="sig-prename descclassname">releng.</code><code class="sig-name descname">releng_mkdir</code><span class="sig-paren">(</span><em class="sig-param">dir</em>, <em class="sig-param">quiet=False</em><span class="sig-paren">)</span></dt>
+<dd><p>ensure the provided directory exists</p>
+<p>Attempts to create the provided directory. If the directory already exists,
+this method has no effect. If the directory does not exist and could not be
+created, this method will return <code class="docutils literal notranslate"><span class="pre">False</span></code>. Also, if an error has been
+detected, an error message will be output to standard error (unless
+<code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_mkdir</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;directory was created&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> – the directory</p></li>
+<li><p><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output (defaults to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the directory exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the directory could not
+be created</p>
+</dd>
+</dl>
 </dd></dl>
 
 </td>

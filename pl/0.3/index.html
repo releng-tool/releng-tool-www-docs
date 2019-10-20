@@ -84,15 +84,16 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">starsza wersja | <a href="https://docs.releng.io/pl/latest/">stabilny v0.2</a></div>
-    
     
             
             
               
             
             
-              <ul>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">releng-tool</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">wymagania</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">instalacja</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">szybki start</a><ul>
@@ -248,17 +249,19 @@
 <li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">prośba o pomoc</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="release-notes.html">informacje o wydaniu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.1 (2019-02-24)</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a.html">załącznik a – instrukcja w pigułce</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#configuration-options">opcje konfiguracji</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">zmienne środowiskowe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">opcje pakietów</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">informacje o wydaniu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -345,6 +348,57 @@
 <p>releng-tool może pomóc podczas wydawania projektu. Pozwala ono użytkownikowi zdefiniować do przetworzenia jeden lub większą ilość pakietów. Każdy z pakietów ma możliwość wykonania ć kilka etapów: pobierania, dekompresji, łatania, konfigurowania, budowania i instalacji; to od projektu zależy, co dany pakiet będzie definiować. Najprostszym typem pakietu jest pakiet oparty na skryptach, który umożliwia użytkownikowi definiować dowolne skrypty dot. sposobu wykonywania różnych etapów wydawania projektu. Pakiet nie musi obowiązkowo obsługiwać wszystkich etapów. Dostarczone są pakiety pomocnicze, jak na przykład autotools, w przypadku projektów wykorzystujących możliwość wspólnego budowania.</p>
 <img alt="_images/overview.png" class="align-center" src="_images/overview.png" />
 <p>Mimo że releng-tool może pomóc w konfiguracji i budowaniu projektu, schemat nie stara się zapewnić idealnej piaskownicy (sandbox) dla owego procesu. Użytkownicy tworzący projekty będą posiadali całkowite prawo do wyboru kompilatorów/toolchainów oraz interakcji między miejscem przechowującym/docelowym, a systemem hosta.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">wymagania</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">instalacja</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">szybki start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#development">oprogramowanie</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user-guide.html">poradnik użytkownika</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#getting-started">getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#arguments">arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#understanding-rebuilds">understanding rebuilds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#tips">tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#advanced-builder-capabilities">advanced builder capabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-guide.html">poradnik dla programistów</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#other">other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-guide.html">contributor guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#contributing">contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#root-directory">root directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#fetching-design">fetching design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extraction-design">extraction design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#host-and-build-environment">host and build environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#extensions">extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-guide.html#documentation">documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">wskazówki</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">prośba o pomoc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annex-a.html">załącznik a – instrukcja w pigułce</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#configuration-options">opcje konfiguracji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">zmienne środowiskowe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">opcje pakietów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
