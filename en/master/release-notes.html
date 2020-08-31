@@ -165,6 +165,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extopt">LIBFOO_EXTOPT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -260,6 +261,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#master">master</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">0.3 (2019-10-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">0.2 (2019-03-15)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">0.1 (2019-02-24)</a></li>
@@ -349,6 +351,16 @@
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
+<div class="section" id="master">
+<h2>master<a class="headerlink" href="#master" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
+<li><p>allow setting quirks in command line</p></li>
+<li><p>fixed a scenario where a git extraction stage could fetch sources</p></li>
+<li><p>fixed git fetch/extraction if package is cached and site has changed</p></li>
+<li><p>improved handling of output files which may set the readonly attribute</p></li>
+</ul>
+</div>
 <div class="section" id="id1">
 <h2>0.3 (2019-10-19)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
