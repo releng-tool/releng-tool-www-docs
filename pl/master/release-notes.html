@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="pl" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="pl" > <!--<![endif]-->
+<html class="writer-html5" lang="pl" >
 <head>
   <meta charset="utf-8">
   
@@ -12,6 +11,12 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
+
+  
   
   
   
@@ -19,25 +24,21 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/translations.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="index" title="Indeks" href="genindex.html" />
     <link rel="search" title="Szukaj" href="search.html" />
     <link rel="prev" title="załącznik a – instrukcja w pigułce" href="annex-a.html" /> 
@@ -54,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> releng-tool
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> releng-tool
           
 
           
@@ -81,10 +82,11 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">wersja rozwojowa | <a href="https://docs.releng.io/pl/latest/">stabilny v0.3</a></div>
+    <div class="version-warning">wersja rozwojowa | <a href="https://docs.releng.io/pl/latest/">stabilny v0.4</a></div>
     
     
             
@@ -166,6 +168,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extopt">LIBFOO_EXTOPT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
@@ -249,6 +252,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tips.html">wskazówki</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#examples">przykłady</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">prośba o pomoc</a></li>
 </ul>
 </li>
@@ -262,10 +266,10 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">informacje o wydaniu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#master">master</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -281,6 +285,7 @@
 </div>
 
         </div>
+        
       </div>
     </nav>
 
@@ -319,7 +324,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>informacje o wydaniu</li>
     
@@ -352,18 +357,20 @@
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
-<div class="section" id="master">
-<h2>master<a class="headerlink" href="#master" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id1">
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
 <li><p>allow setting quirks in command line</p></li>
 <li><p>fixed a scenario where a git extraction stage could fetch sources</p></li>
 <li><p>fixed git fetch/extraction if package is cached and site has changed</p></li>
 <li><p>improved handling of output files which may set the readonly attribute</p></li>
+<li><p>introduce support for local interim-development package content</p></li>
+<li><p>introduce support for shallow git fetching</p></li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id2">
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#id2" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>allow packages to configure for no-extraction for sources</p></li>
@@ -374,8 +381,8 @@ consult the project’s <a class="reference external" href="https://github.com/r
 <li><p>introduce support for package-specific bootstrapping stage</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id2" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#id3" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>a project’s host directory will now be registered in the system’s path during
 execution</p></li>
@@ -384,8 +391,8 @@ execution</p></li>
 <li><p>re-work various script names (e.g. <code class="docutils literal notranslate"><span class="pre">releng.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">releng</span></code>)</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id3" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id4">
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#id4" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>hello world</p></li>
 </ul>
@@ -413,7 +420,14 @@ execution</p></li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -450,6 +464,8 @@ execution</p></li>
       <dd><a href="https://docs.releng.io/pl/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/pl/0.4/">0.4</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.3/">0.3</a></dd>
     
