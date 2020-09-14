@@ -167,6 +167,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extopt">LIBFOO_EXTOPT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
@@ -265,6 +266,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#master">master</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">0.5 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">0.4 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">0.3 (2019-10-19)</a></li>
@@ -357,6 +359,18 @@
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
+<div class="section" id="master">
+<h2>master<a class="headerlink" href="#master" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>always register optional flags inside scripts (allowing developers to use
+flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
+variables)</p></li>
+<li><p>introduce <code class="docutils literal notranslate"><span class="pre">LIBTOOL_GIT_CONFIG</span></code> for package git-specific configurations</p></li>
+<li><p>namespace moved from <code class="docutils literal notranslate"><span class="pre">releng</span></code> to <code class="docutils literal notranslate"><span class="pre">releng_tool</span></code> (<code class="docutils literal notranslate"><span class="pre">releng</span></code> deprecated for
+an interim)</p></li>
+<li><p>post-processing script <code class="docutils literal notranslate"><span class="pre">post.py</span></code> has been dropped</p></li>
+</ul>
+</div>
 <div class="section" id="id1">
 <h2>0.5 (2020-09-07)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">

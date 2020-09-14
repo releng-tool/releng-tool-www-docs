@@ -169,6 +169,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extopt">LIBFOO_EXTOPT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
@@ -267,6 +268,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">informacje o wydaniu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#master">master</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.5 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.4 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.3 (2019-10-19)</a></li>
@@ -367,7 +369,7 @@ python -m pip install releng-tool
 <p>Następujące polecenie sprawdza, czy pakiet został zainstalowany:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --version
  <span class="o">(</span>or<span class="o">)</span>
-python -m releng --version
+python -m releng_tool --version
 </pre></div>
 </div>
 <div class="section" id="quick-start">
@@ -446,7 +448,7 @@ releng-tool &lt;version&gt;
 <p>W momencie otarcia instalatora zaleca się wybrać opcję „Add Python to PATH”; jednakże użytkownicy mogą wybrać dowolną ścieżkę do otwarcia Pythona (w kolejnych krokach zakłada się, że Python jest dostępny w tej ścieżce).</p>
 <p>Otwórz wiersz poleceń Windowsa i wywołaj:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; python -m pip install releng-tool
-&gt; python -m releng --version
+&gt; python -m releng_tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>

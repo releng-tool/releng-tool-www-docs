@@ -169,6 +169,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-extopt">LIBFOO_EXTOPT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
@@ -267,6 +268,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">versionshinweise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#master">master</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.5 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.4 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.3 (2019-10-19)</a></li>
@@ -1455,6 +1457,18 @@ explicitly registered in this option.</p>
 case for this option is to help limit the total number of jobs for a package
 that cannot support a large or any parallel build environment.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_FIXED_JOBS</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="libfoo-git-config">
+<h4>LIBFOO_GIT_CONFIG<a class="headerlink" href="#libfoo-git-config" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Apply additional repository-specific Git configuration settings (<a class="reference external" href="https://git-scm.com/docs/git-config"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></a>)
+after a Git repository cache has been initialized. By default, no
+repository-specific configurations are introduced (i.e. all Git calls will use
+the global configuration set).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;core.example&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -3008,11 +3022,11 @@ registered in the script’s globals module (i.e. no import is necessary). If a
 project defines custom Python modules in their project and wishes to take
 advantage of these helper functions, the following import can be used to, for
 example, import a specific function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">releng</span> <span class="kn">import</span> <span class="n">releng_execute</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">releng_tool</span> <span class="kn">import</span> <span class="n">releng_execute</span>
 </pre></div>
 </div>
 <p>Or, if desired, all helper methods can be imported at once:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">releng</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">releng_tool</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>

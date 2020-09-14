@@ -168,6 +168,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extopt">LIBFOO_EXTOPT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
@@ -266,6 +267,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#master">master</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.5 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.4 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.3 (2019-10-19)</a></li>
@@ -366,7 +368,7 @@ python -m pip install releng-tool
 <p>To verify the package has been installed the following command can be used:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --version
  <span class="o">(</span>or<span class="o">)</span>
-python -m releng --version
+python -m releng_tool --version
 </pre></div>
 </div>
 <div class="section" id="quick-start">
@@ -451,7 +453,7 @@ Python to PATH”; however, users can explicitly invoked Python from an absolute
 path (the remainder of these steps will assume Python is available in the path).</p>
 <p>Open a Windows command prompt and invoke the following:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; python -m pip install releng-tool
-&gt; python -m releng --version
+&gt; python -m releng_tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
