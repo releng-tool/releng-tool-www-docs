@@ -165,6 +165,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extopt">LIBFOO_EXTOPT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
@@ -258,16 +259,18 @@
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">package options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#quirks">quirks</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">发行说明</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -356,13 +359,29 @@
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project's <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
 <div class="section" id="id1">
-<h2>0.5 (2020-09-07)<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>0.6 (2020-10-10)<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>always register optional flags inside scripts (allowing developers to use
+flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
+variables)</p></li>
+<li><p>fixed issued when capturing with <code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> which did not suppress
+output by default</p></li>
+<li><p>introduce <code class="docutils literal notranslate"><span class="pre">LIBTOOL_GIT_CONFIG</span></code> for package git-specific configurations</p></li>
+<li><p>introduce a <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">init</span></code> action for a quick-sample project</p></li>
+<li><p>introduce support for distclean</p></li>
+<li><p>introduce support for prerequisites</p></li>
+<li><p>namespace moved from <code class="docutils literal notranslate"><span class="pre">releng</span></code> to <code class="docutils literal notranslate"><span class="pre">releng_tool</span></code> (<code class="docutils literal notranslate"><span class="pre">releng</span></code> deprecated for
+an interim)</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>0.5 (2020-09-07)<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>fixed false error when verifying cached git reference</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>0.4 (2020-09-07)<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
 <li><p>allow setting quirks in command line</p></li>
@@ -373,8 +392,8 @@ consult the project's <a class="reference external" href="https://github.com/rel
 <li><p>introduce support for shallow git fetching</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>allow packages to configure for no-extraction for sources</p></li>
@@ -385,8 +404,8 @@ consult the project's <a class="reference external" href="https://github.com/rel
 <li><p>introduce support for package-specific bootstrapping stage</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>a project's host directory will now be registered in the system's path during
 execution</p></li>
@@ -395,8 +414,8 @@ execution</p></li>
 <li><p>re-work various script names (e.g. <code class="docutils literal notranslate"><span class="pre">releng.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">releng</span></code>)</p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>hello world</p></li>
 </ul>
@@ -468,6 +487,8 @@ execution</p></li>
       <dd><a href="https://docs.releng.io/zh/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.6/">0.6</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.5/">0.5</a></dd>
     

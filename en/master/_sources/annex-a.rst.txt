@@ -21,6 +21,7 @@ Options which are read by releng-tool from a project's configuration script:
    override_revisions = {'<pkg>': '<revision>'}
    override_sites = {'<pkg>': '<site>'}
    packages = ['<pkg>', '<pkg>', '<pkg>']
+   prerequisites = ['<tool>', '<tool>', '<tool>']
    quirks = ['<quirk-id>']
    sysroot_prefix = '<path>' # '/usr'
    url_mirror = '<mirror-url>'
@@ -137,3 +138,14 @@ Functions available to scripts invoked by releng-tool or importable via
    success(msg, *args)
    verbose(msg, *args)
    warn(msg, *args)
+
+quirks
+------
+
+Quirk options used by releng-tool:
+
+.. code-block:: none
+
+   releng.cmake.disable_parallel_option
+   releng.disable_prerequisites_check
+   releng.git.no_depth

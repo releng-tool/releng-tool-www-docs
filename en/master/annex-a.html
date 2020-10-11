@@ -86,7 +86,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">development version | <a href="https://docs.releng.io/en/latest/">stable v0.5</a></div>
+    <div class="version-warning">development version | <a href="https://docs.releng.io/en/latest/">stable v0.6</a></div>
     
     
             
@@ -262,17 +262,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#environment-variables">environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#package-options">package options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#script-helpers">script helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quirks">quirks</a></li>
 </ul>
 </li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">release notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#master">master</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -374,6 +375,7 @@ more detailed information.</p>
 <span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span><span class="p">}</span>
 <span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;site&gt;&#39;</span><span class="p">}</span>
 <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
+<span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">]</span>
 <span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;quirk-id&gt;&#39;</span><span class="p">]</span>
 <span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
 <span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
@@ -487,6 +489,15 @@ releng-tool (may vary per context):</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="quirks">
+<h2>quirks<a class="headerlink" href="#quirks" title="Permalink to this headline">¶</a></h2>
+<p>Quirk options used by releng-tool:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.cmake.disable_parallel_option
+releng.disable_prerequisites_check
+releng.git.no_depth
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -556,6 +567,8 @@ releng-tool (may vary per context):</p>
       <dd><a href="https://docs.releng.io/en/latest/">latest</a></dd>
     
       <dd><a href="https://docs.releng.io/en/master/">master</a></dd>
+    
+      <dd><a href="https://docs.releng.io/en/0.6/">0.6</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.5/">0.5</a></dd>
     
