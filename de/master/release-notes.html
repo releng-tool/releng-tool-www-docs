@@ -33,7 +33,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -175,6 +174,8 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-revision">LIBFOO_REVISION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-scripts">LIBFOO_SKIP_REMOTE_SCRIPTS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-vcs-type">LIBFOO_VCS_TYPE</a></li>
 </ul>
@@ -268,6 +269,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">versionshinweise</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#development">development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">0.6 (2020-10-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">0.5 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">0.4 (2020-09-07)</a></li>
@@ -361,6 +363,28 @@
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
+<div class="section" id="development">
+<h2>development<a class="headerlink" href="#development" title="Link zu dieser Überschrift">¶</a></h2>
+<ul class="simple">
+<li><p>fetch from an already cached package’s site if the fetch is explicitly
+requested</p></li>
+<li><p>fixed an issue with registry failing to import on python 2.7</p></li>
+<li><p>fixed issue where build/install definitions where not used in in their
+respective stages</p></li>
+<li><p>fixed issue where mercurial packages fetched using the version option instead
+of the revision option</p></li>
+<li><p>fixed issue where the host directory was not registered in a stage’s path</p></li>
+<li><p>introduce clean, logging flags and releng-version into the script environments</p></li>
+<li><p>only fetch a single package if only said package is requested to be fetched</p></li>
+<li><p>package without a site will throw an error when vcs-type is set</p></li>
+<li><p>reconfigure/rebuild requests will now perform all trailing stages for the
+package(s) being redone; rebuild/reconfigure-only actions have been introduced
+to force re-invoking a specific stage</p></li>
+<li><p>releng-tool will now full stop if external package definition fails to load</p></li>
+<li><p>support loading remote package configuration</p></li>
+<li><p>support loading remote package scripts</p></li>
+</ul>
+</div>
 <div class="section" id="id1">
 <h2>0.6 (2020-10-10)<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h2>
 <ul class="simple">

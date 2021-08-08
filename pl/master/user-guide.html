@@ -33,7 +33,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/translations.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -176,6 +175,8 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-revision">LIBFOO_REVISION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-scripts">LIBFOO_SKIP_REMOTE_SCRIPTS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-vcs-type">LIBFOO_VCS_TYPE</a></li>
 </ul>
@@ -269,6 +270,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">informacje o wydaniu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#development">development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.6 (2020-10-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.5 (2020-09-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.4 (2020-09-07)</a></li>
@@ -415,23 +417,24 @@ to be performed. An example of a user invoking a clean action is as follows:</p>
 <p>The following outlines available actions:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 30%" />
-<col style="width: 70%" />
+<col style="width: 36%" />
+<col style="width: 64%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p id="action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></p>
 </td>
-<td><p>Clean (removes) a series of folders holding content
-such as extracted archives, built libraries and
-more. Images and downloaded assets/cache are not
-removed (see <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> for a more through
-all cleaning operation). This clean operation will
+<td><p>Clean (removes) a series of folders holding
+content such as extracted archives, built
+libraries and more. Images and downloaded
+assets/cache are not removed (see
+<a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> for a more through all
+cleaning operation). This clean operation will
 remove files based off the configured output
-directory. If an output directory is provided (i.e.
-<code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code>) during a clean event, select
-folders inside this directory will be removed
-instead of the output directory (if any) found in
-the root directory.</p></td>
+directory. If an output directory is provided
+(i.e. <code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code>) during a clean
+event, select folders inside this directory
+will be removed instead of the output directory
+(if any) found in the root directory.</p></td>
 </tr>
 <tr class="row-even"><td><p id="action-distclean"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></p>
 </td>
@@ -439,130 +442,192 @@ the root directory.</p></td>
 releng-tool project. This request removes the
 <code class="docutils literal notranslate"><span class="pre">cache/</span></code>, <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and <code class="docutils literal notranslate"><span class="pre">output/</span></code> directories
 found in the root directory or overridden by
-respective arguments, as well as any mode file flags
-which may be set. See also the <a class="reference internal" href="#action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></a> or
-<a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> actions.</p></td>
+respective arguments, as well as any mode file
+flags which may be set. See also the
+<a class="reference internal" href="#action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></a> or <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> actions.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">extract</span></code></p></td>
-<td><p>The release engineering process will process all
-packages up to the extraction phase (inclusive).</p></td>
+<td><p>The release engineering process will process
+all packages up to the extraction phase
+(inclusive).</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fetch</span></code></p></td>
-<td><p>The release engineering process will process all
-packages up to the fetch phase (inclusive; see also
-<a class="reference internal" href="#offline-builds">offline builds</a>).</p></td>
+<td><p>The release engineering process will process
+all packages up to the fetch phase (inclusive;
+see also <a class="reference internal" href="#offline-builds">offline builds</a>).</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">init</span></code></p></td>
-<td><p>Initialize an empty root directory with a sample
-project.</p></td>
+<td><p>Initialize an empty root directory with a
+sample project.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">licenses</span></code></p></td>
-<td><p>A request to generate all license information for
-the project. Note that license information requires
-acquiring license documents from packages.
-Therefore, packages will be fetched/extracted if not
-already done.</p></td>
+<td><p>A request to generate all license information
+for the project. Note that license information
+requires acquiring license documents from
+packages. Therefore, packages will be
+fetched/extracted if not already done.</p></td>
 </tr>
 <tr class="row-odd"><td><p id="action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></p>
 </td>
-<td><p>Perform a pristine clean of the releng-tool project.
-This request removes the <code class="docutils literal notranslate"><span class="pre">output/</span></code> directory found
-in the root directory or overridden by the
-<code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument, as well as any mode file
-flags which may be set. The <code class="docutils literal notranslate"><span class="pre">cache/</span></code> and <code class="docutils literal notranslate"><span class="pre">dl/</span></code>
-directories will remain untouched. See also the
-<a class="reference internal" href="#action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></a> or <a class="reference internal" href="#action-distclean"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></a> actions.</p></td>
+<td><p>Perform a pristine clean of the releng-tool
+project. This request removes the <code class="docutils literal notranslate"><span class="pre">output/</span></code>
+directory found in the root directory or
+overridden by the <code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument, as
+well as any mode file flags which may be set.
+The <code class="docutils literal notranslate"><span class="pre">cache/</span></code> and <code class="docutils literal notranslate"><span class="pre">dl/</span></code> directories will
+remain untouched. See also the  <a class="reference internal" href="#action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></a>
+or <a class="reference internal" href="#action-distclean"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></a> actions.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">patch</span></code></p></td>
-<td><p>The release engineering process will process all
-packages up to the patch phase (inclusive).</p></td>
+<td><p>The release engineering process will process
+all packages up to the patch phase (inclusive).</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code></p></td>
 <td><p>Performs the build stage for the package. On
 success, the specified package stage will have
-completed its build. If a package has any package
-dependencies, these dependencies will be processed
-before the specified package. If the provided
-package name does not exist, a notification will be
-generated.</p></td>
+completed its build. If a package has any
+package dependencies, these dependencies will
+be processed before the specified package. If
+the provided package name does not exist, a
+notification will be generated.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></p></td>
 <td><p>Cleans the build directory for package (if it
 exists).</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code></p></td>
-<td><p>Performs the configure stage for the package. On
-success, the specified package stage will have
-completed its configuration stage. If a package has
-any package dependencies, these dependencies will be
-processed before the specified package. If the
-provided package name does not exist, a
-notification will be generated.</p></td>
+<td><p>Performs the configure stage for the package.
+On success, the specified package stage will
+have completed its configuration stage. If a
+package has any package dependencies, these
+dependencies will be processed before the
+specified package. If the provided package name
+does not exist, a notification will be
+generated.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
-<td><p>Performs the extraction stage for the package. On
-success, the specified package stage will have
-completed its extraction stage. If the provided
-package name does not exist, a notification will be
-generated.</p></td>
+<td><p>Performs the extraction stage for the package.
+On success, the specified package stage will
+have completed its extraction stage. If the
+provided package name does not exist, a
+notification will be generated.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></p></td>
 <td><p>Performs the fetch stage for the package. On
 success, the specified package stage will have
-completed its fetch stage. If the provided package
-name does not exist, a notification will be
-generated.</p></td>
+completed its fetch stage. If the provided
+package name does not exist, a notification
+will be generated.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
-<td><p>Performs the installation stage for the package. On
-success, the specified package stage will have
-completed its installation stage. If a package has
-any package dependencies, these dependencies will be
+<td><p>Performs the installation stage for the
+package. On success, the specified package
+stage will have completed its installation
+stage. If a package has any package
+dependencies, these dependencies will be
 processed before the specified package. If the
-provided package name does not exist, a notification
-will be generated.</p></td>
+provided package name does not exist, a
+notification will be generated.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
 <td><p>Performs the patch stage for the package. On
 success, the specified package stage will have
-completed its patch stage. If the provided package
-name does not exist, a notification will be
-generated.</p></td>
+completed its patch stage. If the provided
+package name does not exist, a notification
+will be generated.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a
-package has been built, the package will not attempt
-to be built again. Invoking a rebuild request will
-tell releng-tool to re-invoke the build step again.
-This can be useful during times of development where
-a developer attempts to change a package definition
-or sources between build attempts. If using this
-action, please ensure <a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has
-been read to understand this action’s effect.</p></td>
+package has been built, the package will not
+attempt to be built again. Invoking a rebuild
+request will tell releng-tool to re-invoke the
+build step again. This can be useful during
+times of development where a developer attempts
+to change a package definition or sources
+between build attempts. After completing a
+rebuild, releng-tool will perform the remaining
+stages of the package (i.e. the installation
+phase). Users wishing to perform only the
+rebuild stage are recommended to use
+<code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code> instead.</p>
+<p>If using this action, please ensure
+<a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has been read to
+understand this action’s effect.</p>
+</td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
-<td><p>Force a re-configuration of a specific package. Once
-a package has been configured, the package will not
-attempt to configure it again. Invoking a
-re-configuration request will tell releng-tool to
-re-invoke the configuration step again. This can be
-useful during times of development where a developer
-attempts to change a package definition or sources
-between configuration attempts. If using this
-action, please ensure <a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has
-been read to understand this action’s effect.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
+<td><p>Force a rebuild of a specific package. Once a
+package has been built, the package will not
+attempt to be built again. Invoking a rebuild
+request will tell releng-tool to re-invoke the
+build step again. This can be useful during
+times of development where a developer attempts
+to change a package definition or sources
+between build attempts. After completing a
+rebuild, releng-tool will stop and perform no
+other changes. Users wishing to perform a
+rebuild to the installation phase are
+recommended to use <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code> instead.</p>
+<p>If using this action, please ensure
+<a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has been read to
+understand this action’s effect.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
+<td><p>Force a re-configuration of a specific package.
+Once a package has been configured, the package
+will not attempt to configure it again.
+Invoking a re-configuration request will tell
+releng-tool to re-invoke the configuration
+step again. This can be useful during times of
+development where a developer attempts to
+change a package definition or sources between
+configuration attempts. After completing a
+re-configuration, releng-tool will perform the
+remaining stages of the package (i.e. all the
+way to the installation phase). Users wishing
+to perform only the re-configuration stage are
+recommended to use <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code>
+instead.</p>
+<p>If using this action, please ensure
+<a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has been read to
+understand this action’s effect.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
+<td><p>Force a re-configuration of a specific package.
+Once a package has been configured, the package
+will not attempt to configure it again.
+Invoking a re-configuration request will tell
+releng-tool to re-invoke the configuration step
+again. This can be useful during times of
+development where a developer attempts to
+change a package definition or sources between
+configuration attempts. After completing a
+re-configuration, releng-tool will stop and
+perform no other changes. Users wishing to
+perform a re-configuration to the installation
+phase are recommended to use
+<code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code> instead.</p>
+<p>If using this action, please ensure
+<a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has been read to
+understand this action’s effect.</p>
+</td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
-<td><p>Force a re-installation of a specific package. Once
-a package has been installed, the package will not
-attempt to install it again. Invoking a
-re-installation request will tell releng-tool to
-re-invoke the installation step again. This can be
-useful during times of development where a developer
-attempts to change a package definition or sources
-between installation attempts. If using this action,
-please ensure <a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has been
-read to understand this action’s effect.</p></td>
+<td><p>Force a re-installation of a specific package.
+Once a package has been installed, the package
+will not attempt to install it again. Invoking
+a re-installation request will tell releng-tool
+to re-invoke the installation step again. This
+can be useful during times of development where
+a developer attempts to change a package
+definition or sources between installation
+attempts.</p>
+<p>If using this action, please ensure
+<a class="reference internal" href="#understanding-rebuilds">understanding rebuilds</a> has been read to
+understand this action’s effect.</p>
+</td>
 </tr>
 </tbody>
 </table>
