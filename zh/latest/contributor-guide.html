@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="zh" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>贡献者指南 &mdash; releng-tool  文档</title>
   
@@ -18,9 +18,12 @@
 
   
   
+
   
   
     <link rel="canonical" href="https://docs.releng.io/contributor-guide.html"/>
+  
+
   
 
   
@@ -30,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -54,7 +58,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> releng-tool
+            <a href="index.html" class="icon icon-home"> releng-tool
           
 
           
@@ -72,7 +76,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="在文档中搜索" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -172,6 +176,8 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-revision">LIBFOO_REVISION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-scripts">LIBFOO_SKIP_REMOTE_SCRIPTS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-vcs-type">LIBFOO_VCS_TYPE</a></li>
 </ul>
@@ -265,12 +271,13 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">发行说明</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -321,6 +328,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -332,8 +341,8 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="_sources/contributor-guide.rst.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/contributor-guide.rst.txt" rel="nofollow"> 查看页面源码</a>
           
         
       </li>
@@ -343,10 +352,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="tips.html" class="btn btn-neutral float-right" title="提示" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tips.html" class="btn btn-neutral float-right" title="提示" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
       
   </div>
   
@@ -360,12 +369,12 @@
 <p>The following outlines common directory locations:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - project documentation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/api/</span></code> - api implementation for supporting releng-tool extensions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/engine/</span></code> - core implementation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/ext/</span></code> - extensions that are maintained in the official tree</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/extract/</span></code> - translating fetched content to a build's working area</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/fetch/</span></code> - support for fetching content from package sites</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/tool/</span></code> - definitions for host tools used by tool features</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/api/</span></code> - api for supporting releng-tool extensions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/engine/</span></code> - core implementation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/ext/</span></code> - extensions that are maintained in the official tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/extract/</span></code> - translate fetched content to a build's working area</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/fetch/</span></code> - support for fetching content from package sites</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/tool/</span></code> - definitions for host tools used by tool features</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code> - testing-related content for this project's implementation</p></li>
 </ul>
 <p>releng-tool is built on the Python language and aims to be the minimum
@@ -405,7 +414,7 @@ sources). For example, <a class="reference external" href="https://git-scm.com/"
 stored in the root directory's cache folder (e.g. <code class="docutils literal notranslate"><span class="pre">&lt;ROOT&gt;/cache</span></code>). During the
 extraction stage, target revisions will be pulled from the cache location using
 the <code class="docutils literal notranslate"><span class="pre">git</span></code> client.</p>
-<p>Not all packages will fetch content (i.e. placeholder packages).</p>
+<p>Not all packages will fetch content (e.g. placeholder packages).</p>
 </div>
 <div class="section" id="extraction-design">
 <h2>extraction design<a class="headerlink" href="#extraction-design" title="永久链接至标题">¶</a></h2>
@@ -429,7 +438,7 @@ tokens.</p>
 <div class="section" id="extensions">
 <span id="contributor-guide-ext"></span><h2>extensions<a class="headerlink" href="#extensions" title="永久链接至标题">¶</a></h2>
 <p>Developers wishing to provide extensions to releng-tool should consult the API
-implementation found in this tool's repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng/api/__init__.py"><code class="docutils literal notranslate"><span class="pre">releng/api/__init__.py</span></code></a>).
+implementation found in this tool's repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py"><code class="docutils literal notranslate"><span class="pre">releng_tool/api/__init__.py</span></code></a>).
 Implementation in the API folder aims to be &quot;API safe&quot; -- there is a strong
 attempt to prevent the changing of classes, methods, etc. to prevent
 compatibility issues as both releng-tool and extensions (if any) evolve. A
@@ -471,7 +480,7 @@ extension to register custom fetching, extraction and package implementations.</
 </pre></div>
 </div>
 <p>For more details for API details, consult the documentation found inside the
-<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng/api/__init__.py">API implementation</a>.</p>
+<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py">API implementation</a>.</p>
 </div>
 <div class="section" id="documentation">
 <h2>documentation<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h2>
@@ -498,16 +507,10 @@ following repositories:</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="tips.html" class="btn btn-neutral float-right" title="提示" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="tips.html" class="btn btn-neutral float-right" title="提示" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
     </div>
-  
 
   <hr/>
 
@@ -519,14 +522,13 @@ following repositories:</p>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发. 
 
 </footer>
-
         </div>
       </div>
 
@@ -559,7 +561,7 @@ following repositories:</p>
     
       <dd><a href="https://docs.releng.io/zh/latest/">latest</a></dd>
     
-      <dd><a href="https://docs.releng.io/zh/master/">master</a></dd>
+      <dd><a href="https://docs.releng.io/zh/0.7/">0.7</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.6/">0.6</a></dd>
     
@@ -567,12 +569,9 @@ following repositories:</p>
     
       <dd><a href="https://docs.releng.io/zh/0.4/">0.4</a></dd>
     
-      <dd><a href="https://docs.releng.io/zh/0.3/">0.3</a></dd>
-    
-      <dd><a href="https://docs.releng.io/zh/0.2/">0.2</a></dd>
-    
-      <dd><a href="https://docs.releng.io/zh/0.1/">0.1</a></dd>
-    
+  </dl>
+  <dl>
+    <dd><a href="https://docs.releng.io/zh/development/">development</a></dd>
   </dl>
 </div>
 

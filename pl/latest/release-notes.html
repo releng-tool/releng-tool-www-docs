@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="pl" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>informacje o wydaniu &mdash; releng-tool  - dokumentacja</title>
   
@@ -18,9 +18,12 @@
 
   
   
+
   
   
     <link rel="canonical" href="https://docs.releng.io/release-notes.html"/>
+  
+
   
 
   
@@ -30,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -54,7 +58,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> releng-tool
+            <a href="index.html" class="icon icon-home"> releng-tool
           
 
           
@@ -172,6 +176,8 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-revision">LIBFOO_REVISION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-scripts">LIBFOO_SKIP_REMOTE_SCRIPTS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-vcs-type">LIBFOO_VCS_TYPE</a></li>
 </ul>
@@ -265,12 +271,13 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">informacje o wydaniu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -321,6 +328,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -332,7 +341,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/release-notes.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -344,7 +353,7 @@
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
       
-        <a href="annex-a.html" class="btn btn-neutral float-left" title="załącznik a – instrukcja w pigułce" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="annex-a.html" class="btn btn-neutral float-left" title="załącznik a – instrukcja w pigułce" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -359,7 +368,29 @@
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
 <div class="section" id="id1">
-<h2>0.6 (2020-10-10)<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>0.7 (2021-08-08)<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<ul class="simple">
+<li><p>fetch from an already cached package’s site if the fetch is explicitly
+requested</p></li>
+<li><p>fixed an issue with registry failing to import on python 2.7</p></li>
+<li><p>fixed issue where build/install definitions where not used in in their
+respective stages</p></li>
+<li><p>fixed issue where mercurial packages fetched using the version option instead
+of the revision option</p></li>
+<li><p>fixed issue where the host directory was not registered in a stage’s path</p></li>
+<li><p>introduce clean, logging flags and releng-version into the script environments</p></li>
+<li><p>only fetch a single package if only said package is requested to be fetched</p></li>
+<li><p>package without a site will throw an error when vcs-type is set</p></li>
+<li><p>reconfigure/rebuild requests will now perform all trailing stages for the
+package(s) being redone; rebuild/reconfigure-only actions have been introduced
+to force re-invoking a specific stage</p></li>
+<li><p>releng-tool will now full stop if external package definition fails to load</p></li>
+<li><p>support loading remote package configuration</p></li>
+<li><p>support loading remote package scripts</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>0.6 (2020-10-10)<a class="headerlink" href="#id2" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>always register optional flags inside scripts (allowing developers to use
 flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
@@ -374,14 +405,14 @@ output by default</p></li>
 an interim)</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>0.5 (2020-09-07)<a class="headerlink" href="#id2" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.5 (2020-09-07)<a class="headerlink" href="#id3" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>fixed false error when verifying cached git reference</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>0.4 (2020-09-07)<a class="headerlink" href="#id3" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id4">
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#id4" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
 <li><p>allow setting quirks in command line</p></li>
@@ -392,8 +423,8 @@ an interim)</p></li>
 <li><p>introduce support for shallow git fetching</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id4" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id5">
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#id5" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>allow packages to configure for no-extraction for sources</p></li>
@@ -404,8 +435,8 @@ an interim)</p></li>
 <li><p>introduce support for package-specific bootstrapping stage</p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id5" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id6">
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#id6" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>a project’s host directory will now be registered in the system’s path during
 execution</p></li>
@@ -414,8 +445,8 @@ execution</p></li>
 <li><p>re-work various script names (e.g. <code class="docutils literal notranslate"><span class="pre">releng.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">releng</span></code>)</p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id6" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="id7">
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#id7" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <ul class="simple">
 <li><p>hello world</p></li>
 </ul>
@@ -427,14 +458,9 @@ execution</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="annex-a.html" class="btn btn-neutral float-left" title="załącznik a – instrukcja w pigułce" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="annex-a.html" class="btn btn-neutral float-left" title="załącznik a – instrukcja w pigułce" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -446,14 +472,13 @@ execution</p></li>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -486,7 +511,7 @@ execution</p></li>
     
       <dd><a href="https://docs.releng.io/pl/latest/">latest</a></dd>
     
-      <dd><a href="https://docs.releng.io/pl/master/">master</a></dd>
+      <dd><a href="https://docs.releng.io/pl/0.7/">0.7</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.6/">0.6</a></dd>
     
@@ -494,12 +519,9 @@ execution</p></li>
     
       <dd><a href="https://docs.releng.io/pl/0.4/">0.4</a></dd>
     
-      <dd><a href="https://docs.releng.io/pl/0.3/">0.3</a></dd>
-    
-      <dd><a href="https://docs.releng.io/pl/0.2/">0.2</a></dd>
-    
-      <dd><a href="https://docs.releng.io/pl/0.1/">0.1</a></dd>
-    
+  </dl>
+  <dl>
+    <dd><a href="https://docs.releng.io/pl/development/">development</a></dd>
   </dl>
 </div>
 

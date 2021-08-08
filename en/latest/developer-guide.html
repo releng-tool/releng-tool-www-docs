@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>developer guide &mdash; releng-tool  documentation</title>
   
@@ -18,9 +18,12 @@
 
   
   
+
   
   
     <link rel="canonical" href="https://docs.releng.io/developer-guide.html"/>
+  
+
   
 
   
@@ -30,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -54,7 +58,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> releng-tool
+            <a href="index.html" class="icon icon-home"> releng-tool
           
 
           
@@ -172,6 +176,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-revision">LIBFOO_REVISION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-skip-remote-scripts">LIBFOO_SKIP_REMOTE_SCRIPTS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-vcs-type">LIBFOO_VCS_TYPE</a></li>
 </ul>
@@ -265,12 +271,13 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">release notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -321,6 +328,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -332,7 +341,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/developer-guide.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -343,10 +352,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="contributor-guide.html" class="btn btn-neutral float-right" title="contributor guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contributor-guide.html" class="btn btn-neutral float-right" title="contributor guide" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
       
       
-        <a href="user-guide.html" class="btn btn-neutral float-left" title="user guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="user-guide.html" class="btn btn-neutral float-left" title="user guide" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
       
   </div>
   
@@ -1080,11 +1089,25 @@ will be set to a value of one (i.e.
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
 <td><p>The sysroot prefix for the package.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></p></td>
+<td><p>Flag set if performing a clean request.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></p></td>
+<td><p>Flag set if debug-related information should be
+shown.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></p></td>
+<td><p>Flag set if performing an extreme pristine clean
+request.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></p></td>
+<td><p>Flag set if performing a pristine clean request.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
 <td><p>Flag set if performing a re-build request.</p></td>
@@ -1095,6 +1118,13 @@ request.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
 <td><p>Flag set if performing a re-install request.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code></p></td>
+<td><p>Flag set if verbose-related information should be
+shown.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code></p></td>
+<td><p>The version of releng-tool.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
 <td><p>The root directory.</p></td>
@@ -1571,6 +1601,36 @@ will use the configured <a class="reference internal" href="#libfoo-version"><co
 </div>
 <p>See also <a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </div>
+<div class="section" id="libfoo-skip-remote-config">
+<h4>LIBFOO_SKIP_REMOTE_CONFIG<a class="headerlink" href="#libfoo-skip-remote-config" title="Permalink to this headline">¶</a></h4>
+<p>Flag value to explicitly indicate that a package should not attempt to load any
+package configurations which may be defined in the package’s source. A package,
+by default, has the ability to load configuration information from a package’s
+source. If the package includes a <code class="docutils literal notranslate"><span class="pre">.releng-tool</span></code> file at the root of their
+sources, supported configuration options that have not been populated will be
+registered into the package before invoking a package’s configuration stage.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
+</div>
+<div class="section" id="libfoo-skip-remote-scripts">
+<h4>LIBFOO_SKIP_REMOTE_SCRIPTS<a class="headerlink" href="#libfoo-skip-remote-scripts" title="Permalink to this headline">¶</a></h4>
+<p>Flag value to explicitly indicate that a package should not attempt to load any
+package scripts which may be defined in the package’s source. Typically, a
+script-based package will load configuration, build, etc. scripts from its
+package definition folder. If a script-based package is missing a stage script
+to invoke and finds an associated script in the package’s source, the detected
+script will be invoked. For example, if <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> package may attempt to load
+a <code class="docutils literal notranslate"><span class="pre">libfoo-configure</span></code> script for a configuration stage. In the event that the
+script cannot be found and remote scripting is permitted for a package, the
+script (if exists) <code class="docutils literal notranslate"><span class="pre">releng-configure</span></code> will be loaded from the root of the
+package’s contents.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
+</div>
 <div class="section" id="libfoo-strip-count">
 <h4>LIBFOO_STRIP_COUNT<a class="headerlink" href="#libfoo-strip-count" title="Permalink to this headline">¶</a></h4>
 <p>Specifies the strip count to use when attempting to extract sources from an
@@ -1620,7 +1680,7 @@ type will always generate a warning message.</p>
 </div>
 </div>
 <div class="section" id="package-bootstrapping-and-post-processing">
-<h3>package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="Permalink to this headline">¶</a></h3>
+<span id="package-bootstrapping-and-postprocessing"></span><h3>package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="Permalink to this headline">¶</a></h3>
 <p>Every package, no matter which package <a class="reference internal" href="#libfoo-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></a> is defined, can create a
 bootstrapping or post-processing script to invoke before a package starts a
 configuration stage or after a package has completed an installation stage,
@@ -1811,7 +1871,6 @@ configure a project as script-based, the following configuration can be used:</p
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-configure</span></code> - script to invoke during the configuration stage</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-build</span></code> - script to invoke during the build stage</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-install</span></code> - script to invoke during the installation stage</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> - script to invoke after the installation stage</p></li>
 </ul>
 <p>An example build script (<code class="docutils literal notranslate"><span class="pre">libfoo-build</span></code>) can be as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -1824,7 +1883,9 @@ configure a project as script-based, the following configuration can be used:</p
 respective script (mentioned above) will be invoked. Package scripts are
 optional; thus, if a script is not provided for a stage, the stage will be
 skipped.</p>
-<p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
+<p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use an
+<a class="reference internal" href="#package-bootstrapping-and-postprocessing">bootstrapping/post-processing</a> for
+more stage script support.</p>
 </div>
 <div class="section" id="autotools-package">
 <h3>autotools package<a class="headerlink" href="#autotools-package" title="Permalink to this headline">¶</a></h3>
@@ -2405,8 +2466,8 @@ listed below:</p>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">debug</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">debug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>log a debug message</p>
 <p>Logs a debug message to standard out with a trailing new line. By default,
 debug messages will not be output to standard out unless the instance is
@@ -2429,8 +2490,8 @@ generating a formatted message</p></li>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">err</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">err</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>log an error message</p>
 <p>Logs an error message to standard error with a trailing new line and (if
 enabled) a red colorization.</p>
@@ -2452,8 +2513,8 @@ generating a formatted message</p></li>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">log</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">log</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>log a message</p>
 <p>Logs a (normal) message to standard out with a trailing new line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">)</span>
@@ -2474,8 +2535,8 @@ generating a formatted message</p></li>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">note</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">note</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>log a notification message</p>
 <p>Logs a notification message to standard out with a trailing new line and (if
 enabled) an inverted colorization.</p>
@@ -2497,8 +2558,8 @@ generating a formatted message</p></li>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_copy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>copy a file or directory into a target file or directory</p>
 <p>This call will attempt to copy a provided file or directory, defined by
 <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code>
@@ -2553,8 +2614,8 @@ has failed</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_env</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>helper to easily configure an environment variable</p>
 <p>Provides a caller an simple method to configure an environment variable for
 the current context. This call is the same as if one directly added a
@@ -2577,8 +2638,8 @@ key-value into <code class="docutils literal notranslate"><span class="pre">os.e
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_execute</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>execute the provided command/arguments</p>
 <p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
 the working directory of the executed command by explicitly setting the
@@ -2645,8 +2706,8 @@ execution has failed</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_exists</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>return whether or not the path exists</p>
 <p>Allows a caller to verify the existence of a file on the file system. This
 call will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
@@ -2674,8 +2735,8 @@ call will return <code class="docutils literal notranslate"><span class="pre">Tr
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_exit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>exit out of the releng-tool process</p>
 <p>Provides a convenience method to help invoke a system exit call without
 needing to explicitly use <code class="docutils literal notranslate"><span class="pre">sys</span></code>. A caller can provide a message to
@@ -2707,8 +2768,8 @@ if a message is set</p></li>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_expand</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>perform variable expansion on strings</p>
 <p>This expand utility method will attempt to expand variables in detected
 string types. For a detected string which contains substrings in the form of
@@ -2748,8 +2809,8 @@ duplicate entries.</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
 <td><dl class="py method">
-<dt id="releng_tool.releng_join">
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_join</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="releng_tool.releng_join">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="Permalink to this definition">¶</a></dt>
 <dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
 </dd></dl>
 
@@ -2757,8 +2818,8 @@ duplicate entries.</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_mkdir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>ensure the provided directory exists</p>
 <p>Attempts to create the provided directory. If the directory already exists,
 this method has no effect. If the directory does not exist and could not be
@@ -2791,8 +2852,8 @@ be created</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>move a file or directory into a target file or directory</p>
 <p>This call will attempt to move a provided file or directory’s contents,
 defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>.
@@ -2842,8 +2903,8 @@ has failed</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_remove</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>remove the provided path</p>
 <p>Attempts to remove the provided path if it exists. The path value can either
 be a directory or a specific file. If the provided path does not exist, this
@@ -2874,8 +2935,8 @@ path could not be removed from the system</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_tmpdir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_tmpdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>generate a context-supported temporary directory</p>
 <p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir</span></code> (or system
 default, is not provided). This is a context-supported call and will
@@ -2902,8 +2963,8 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_touch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_touch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>update a file’s access/modifications times</p>
 <p>Attempts to update the access/modifications times on a file. If the file
 does not exist, it will be created. This utility call operates in the same
@@ -2930,8 +2991,8 @@ not be created/updated</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">releng_wd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_wd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>move into a context-supported working directory</p>
 <p>Moves the current context into the provided working directory <code class="docutils literal notranslate"><span class="pre">dir</span></code>. When
 returned, the original working directory will be restored. If the provided
@@ -2960,8 +3021,8 @@ thrown.</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">success</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>log a success message</p>
 <p>Logs a success message to standard error with a trailing new line and (if
 enabled) a green colorization.</p>
@@ -2983,8 +3044,8 @@ generating a formatted message</p></li>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">verbose</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>log a verbose message</p>
 <p>Logs a verbose message to standard out with a trailing new line and (if
 enabled) an inverted colorization. By default, verbose messages will not be
@@ -3007,8 +3068,8 @@ generating a formatted message</p></li>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">warn</span></code></p></td>
 <td><dl class="py function">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">releng_tool.</span></code><code class="sig-name descname"><span class="pre">warn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>log a warning message</p>
 <p>Logs a warning message to standard error with a trailing new line and (if
 enabled) a purple colorization.</p>
@@ -3069,6 +3130,10 @@ to help support host systems running variants of CMake which do not explicitly
 provide a parallelization option.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code> – Disables the fast-fail prerequisites
 check from running.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code> – Disables any attempt to load
+remote-defined configurations for a package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_scripts</span></code> – Disables any attempt to load
+remote-defined scripts for a package.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_depth</span></code> – Disables the <code class="docutils literal notranslate"><span class="pre">--depth</span></code> option from being injected
 when a Git-site-defined package is performing a fetch stage.</p></li>
 </ul>
@@ -3139,16 +3204,10 @@ by the providers of said extensions.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="contributor-guide.html" class="btn btn-neutral float-right" title="contributor guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="user-guide.html" class="btn btn-neutral float-left" title="user guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="contributor-guide.html" class="btn btn-neutral float-right" title="contributor guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="user-guide.html" class="btn btn-neutral float-left" title="user guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
@@ -3160,14 +3219,13 @@ by the providers of said extensions.</p>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -3200,7 +3258,7 @@ by the providers of said extensions.</p>
     
       <dd><a href="https://docs.releng.io/en/latest/">latest</a></dd>
     
-      <dd><a href="https://docs.releng.io/en/master/">master</a></dd>
+      <dd><a href="https://docs.releng.io/en/0.7/">0.7</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.6/">0.6</a></dd>
     
@@ -3208,12 +3266,9 @@ by the providers of said extensions.</p>
     
       <dd><a href="https://docs.releng.io/en/0.4/">0.4</a></dd>
     
-      <dd><a href="https://docs.releng.io/en/0.3/">0.3</a></dd>
-    
-      <dd><a href="https://docs.releng.io/en/0.2/">0.2</a></dd>
-    
-      <dd><a href="https://docs.releng.io/en/0.1/">0.1</a></dd>
-    
+  </dl>
+  <dl>
+    <dd><a href="https://docs.releng.io/en/development/">development</a></dd>
   </dl>
 </div>
 

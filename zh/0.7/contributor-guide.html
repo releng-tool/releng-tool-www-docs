@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>贡献者指南 &mdash; releng-tool  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
+
+  
+  
+
+  
+  
+    <link rel="canonical" href="https://docs.releng.io/contributor-guide.html"/>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="提示" href="tips.html" />
+    <link rel="prev" title="开发者指南" href="developer-guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> releng-tool
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+    
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">releng-tool</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">要求</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#quick-start">快速开始</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#linux">linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="install.html#arch">arch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#centos">centos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#fedora">fedora</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#opensuse">opensuse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="install.html#ubuntu">ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#os-x">os x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#windows">windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#development">发展</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user-guide.html">用户指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#getting-started">getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#arguments">arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#understanding-rebuilds">understanding rebuilds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#tips">tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide.html#offline-builds">offline builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide.html#parallel-builds">parallel builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide.html#privileged-builds">privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide.html#license-generation">license generation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide.html#advanced-builder-capabilities">advanced builder capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide.html#development-mode">development mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide.html#local-sources-mode">local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide.html#configuration-overrides">configuration overrides</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user-guide.html#extraction-tool-overrides">extraction tool overrides</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user-guide.html#revision-overrides">revision overrides</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user-guide.html#site-overrides">site overrides</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user-guide.html#tool-overrides">tool overrides</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user-guide.html#quirks">quirks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer-guide.html">开发者指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#prelude">prelude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#getting-started">getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#actually-getting-started">actually getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#releng-configuration">releng configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#environment-variables">environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#packages">packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#common-package-configurations">common package configurations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-dependencies">LIBFOO_DEPENDENCIES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-install-type">LIBFOO_INSTALL_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-license">LIBFOO_LICENSE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-license-files">LIBFOO_LICENSE_FILES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-site">LIBFOO_SITE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-type">LIBFOO_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-version">LIBFOO_VERSION</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#advanced-package-configurations">advanced package configurations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-build-subdir">LIBFOO_BUILD_SUBDIR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-devmode-ignore-cache">LIBFOO_DEVMODE_IGNORE_CACHE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-devmode-revision">LIBFOO_DEVMODE_REVISION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extension">LIBFOO_EXTENSION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-external">LIBFOO_EXTERNAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extopt">LIBFOO_EXTOPT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-extract-type">LIBFOO_EXTRACT_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-fixed-jobs">LIBFOO_FIXED_JOBS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-revision">LIBFOO_REVISION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-skip-remote-scripts">LIBFOO_SKIP_REMOTE_SCRIPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-strip-count">LIBFOO_STRIP_COUNT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-vcs-type">LIBFOO_VCS_TYPE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#package-bootstrapping-and-post-processing">package bootstrapping and post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#site-definitions">site definitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#bazaar-site">bazaar site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cvs-site">cvs site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#git-site">git site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#mercurial-site">mercurial site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#scp-site">scp site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#svn-site">svn site</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#url-site-default">url site (default)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#hash-file">hash file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-package-default">script package (default)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#autotools-package">autotools package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-autotools-autoreconf">LIBFOO_AUTOTOOLS_AUTORECONF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-build-defs">LIBFOO_BUILD_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-build-env">LIBFOO_BUILD_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-build-opts">LIBFOO_BUILD_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-conf-defs">LIBFOO_CONF_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-conf-env">LIBFOO_CONF_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-conf-opts">LIBFOO_CONF_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-install-defs">LIBFOO_INSTALL_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-install-env">LIBFOO_INSTALL_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-install-opts">LIBFOO_INSTALL_OPTS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#cmake-package">cmake package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-build-defs">LIBFOO_BUILD_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-build-env">LIBFOO_BUILD_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-build-opts">LIBFOO_BUILD_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-conf-defs">LIBFOO_CONF_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-conf-env">LIBFOO_CONF_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-conf-opts">LIBFOO_CONF_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-install-defs">LIBFOO_INSTALL_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-install-env">LIBFOO_INSTALL_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#cmake-install-opts">LIBFOO_INSTALL_OPTS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#python-package">python package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#python-build-defs">LIBFOO_BUILD_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#python-build-env">LIBFOO_BUILD_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#python-build-opts">LIBFOO_BUILD_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#python-install-defs">LIBFOO_INSTALL_DEFS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#python-install-env">LIBFOO_INSTALL_ENV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#python-install-opts">LIBFOO_INSTALL_OPTS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-python-interpreter">LIBFOO_PYTHON_INTERPRETER</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer-guide.html#other">other</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#post-processing">post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#licenses">licenses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#patching">patching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#internal-and-external-packages">internal and external packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-helpers">script helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#vcs-ignore">vcs ignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#quirks">quirks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#loading-extensions">loading extensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">贡献者指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contributing">contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#root-directory">root directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetching-design">fetching design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extraction-design">extraction design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#host-and-build-environment">host and build environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extensions">extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">提示</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#examples">例子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips.html#requesting-help">请求协助</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annex-a.html">附件a - 快速参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#configuration-options">configuration options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#environment-variables">environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#package-options">package options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#script-helpers">script helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annex-a.html#quirks">quirks</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">发行说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.1 (2019-02-24)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+<div><hr style="margin: 10px 0;" /></div>
+<div>
+    <a class="reference external" href="https://releng.io/">releng.io</a>
+</div>
+<div>
+    <a class="reference external" href="https://github.com/releng-tool/releng-tool">releng-tool GitHub</a>
+</div>
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">releng-tool</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>贡献者指南</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/contributor-guide.rst.txt" rel="nofollow"> 查看页面源码</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="tips.html" class="btn btn-neutral float-right" title="提示" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contributor-guide">
+<h1>贡献者指南<a class="headerlink" href="#contributor-guide" title="永久链接至标题">¶</a></h1>
+<p>The following outlines common directory locations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - project documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/api/</span></code> - api for supporting releng-tool extensions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/engine/</span></code> - core implementation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/ext/</span></code> - extensions that are maintained in the official tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/extract/</span></code> - translate fetched content to a build's working area</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/fetch/</span></code> - support for fetching content from package sites</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/tool/</span></code> - definitions for host tools used by tool features</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code> - testing-related content for this project's implementation</p></li>
+</ul>
+<p>releng-tool is built on the Python language and aims to be the minimum
+dependency for users of the tool. Specific features enabled by a developer's
+project may require additional tools (e.g. using <a class="reference external" href="https://git-scm.com/">Git</a> to fetch sources requires
+<code class="docutils literal notranslate"><span class="pre">git</span></code> to be installed); however, a user should not be required to install
+tools for features that are not being used.</p>
+<div class="section" id="contributing">
+<h2>contributing<a class="headerlink" href="#contributing" title="永久链接至标题">¶</a></h2>
+<p>Developers are free to submit contributions for this project. Developers wishing
+to contribute should consult this project's <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/CONTRIBUTING.rst">CONTRIBUTING</a> document. A reminder
+that any contributions must be signed off with the
+<a class="reference external" href="https://developercertificate.org/">Developer Certificate of Origin</a>.</p>
+<p>Implementation (source, comments, commits, etc.) submitted to this project
+should be provided in English.</p>
+</div>
+<div class="section" id="root-directory">
+<h2>root directory<a class="headerlink" href="#root-directory" title="永久链接至标题">¶</a></h2>
+<p>A user invoking releng-tool will attempt to operate in a project root directory.
+Any content managed by this tool (e.g. creating directories, downloading
+sources, etc.) should all be performed inside the root directory. Some
+exceptions exist where a user requests to adjust the download directory (i.e.
+providing the <code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument).</p>
+</div>
+<div class="section" id="fetching-design">
+<h2>fetching design<a class="headerlink" href="#fetching-design" title="永久链接至标题">¶</a></h2>
+<p>Packages can describe where external content should be fetched from. The most
+common fetching method is a simple URI-style fetch such as downloading an
+archive from an HTTP/FTP location. Assets acquired in this manner are downloaded
+into the root directory's download folder (e.g. <code class="docutils literal notranslate"><span class="pre">&lt;ROOT&gt;/dl</span></code>). The extraction
+phase will later use this folder to find package content to prepare against.</p>
+<p>releng-tool also supports the fetching of content from version control systems.
+Sources can either be fetched and placed into an archive, in a similar fashion
+as fetching an archive from HTTP/FTP locations, or sources can be fetched into a
+&quot;cache directory&quot; if supported (typically distributed version controlled
+sources). For example, <a class="reference external" href="https://git-scm.com/">Git</a> repositories (see also Git's <a class="reference external" href="https://git-scm.com/docs/git#git---git-dirltpathgt"><code class="docutils literal notranslate"><span class="pre">--git-dir</span></code></a>) will be
+stored in the root directory's cache folder (e.g. <code class="docutils literal notranslate"><span class="pre">&lt;ROOT&gt;/cache</span></code>). During the
+extraction stage, target revisions will be pulled from the cache location using
+the <code class="docutils literal notranslate"><span class="pre">git</span></code> client.</p>
+<p>Not all packages will fetch content (e.g. placeholder packages).</p>
+</div>
+<div class="section" id="extraction-design">
+<h2>extraction design<a class="headerlink" href="#extraction-design" title="永久链接至标题">¶</a></h2>
+<p>In most cases, the extraction phase will process archives (e.g. <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>,
+<code class="docutils literal notranslate"><span class="pre">.zip</span></code>, etc.) and place their content into a package's build working
+directory. Implementation will vary for fetching implementation which stores
+content into a cache directory. For example, <a class="reference external" href="https://git-scm.com/">Git</a> and <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a> sources have
+their own extraction implementations to pull content from their respective
+distributed file systems into a package's build working directory.</p>
+</div>
+<div class="section" id="host-and-build-environment">
+<h2>host and build environment<a class="headerlink" href="#host-and-build-environment" title="永久链接至标题">¶</a></h2>
+<p>releng-tool attempts to minimize the impact of a host system's environment on a
+project's build. For example, the build phase of a package should not be pulling
+compiler flags provided from the host system's environment. These flags should
+be provided from the package definition. Tools invoked by releng-tool will
+attempt to be invoked to ignore these external environment variables. Some
+exceptions apply such as environment variables dealing with authorization
+tokens.</p>
+</div>
+<div class="section" id="extensions">
+<span id="contributor-guide-ext"></span><h2>extensions<a class="headerlink" href="#extensions" title="永久链接至标题">¶</a></h2>
+<p>Developers wishing to provide extensions to releng-tool should consult the API
+implementation found in this tool's repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py"><code class="docutils literal notranslate"><span class="pre">releng_tool/api/__init__.py</span></code></a>).
+Implementation in the API folder aims to be &quot;API safe&quot; -- there is a strong
+attempt to prevent the changing of classes, methods, etc. to prevent
+compatibility issues as both releng-tool and extensions (if any) evolve. A
+developer for a releng-tool project would register an extension to load using
+the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> configuration option inside the project configuration
+(<code class="docutils literal notranslate"><span class="pre">releng</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="o">...</span>
+
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;ext-custom&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>On start, releng-tool will use this extension configuration to find and invoke
+the setup stage for each available extension.</p>
+<p>An extension will define <code class="docutils literal notranslate"><span class="pre">releng_setup</span></code> to be registered into releng-tool. The
+call will provide an instance to the releng-tool application which allows an
+extension to register custom fetching, extraction and package implementations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">releng.api</span>
+
+<span class="k">def</span> <span class="nf">releng_setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+    <span class="c1"># explicit version check for releng-tool version (if needed)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;&lt;version&gt;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># fetch support (for custom fetch implementation)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_fetch_type</span><span class="p">(</span><span class="s1">&#39;ext-myextension&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
+
+    <span class="c1"># extraction support (for custom extraction implementation)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_extract_type</span><span class="p">(</span><span class="s1">&#39;ext-myextension&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
+
+    <span class="c1"># package support (configure, build, installation modifications)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_package_type</span><span class="p">(</span><span class="s1">&#39;ext-myextension&#39;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For more details for API details, consult the documentation found inside the
+<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py">API implementation</a>.</p>
+</div>
+<div class="section" id="documentation">
+<h2>documentation<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h2>
+<p>Improvements to this project's documentation (found inside <code class="docutils literal notranslate"><span class="pre">Documentation</span></code>)
+are always welcome -- not only for adding/updating documentation for releng-tool
+features but also translations.</p>
+<p>For users interested in translations for this project, please consult the
+following repositories:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">releng-tool - Translations</div>
+<div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations">https://github.com/releng-tool/releng-tool-doc-translations</a></div>
+</div>
+<div class="line-block">
+<div class="line">releng-tool - Translations Builder</div>
+<div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations-builder">https://github.com/releng-tool/releng-tool-doc-translations-builder</a></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tips.html" class="btn btn-neutral float-right" title="提示" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="developer-guide.html" class="btn btn-neutral float-left" title="开发者指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+    
+    
+    
+    利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions">
+<span class="rst-current-version" data-toggle="rst-current-version">
+  <span class="icon icon-book"></span>
+  0.7
+  <span class="icon icon-caret-down"></span>
+</span>
+<div class="rst-other-versions">
+  <dl>
+    <dt>Languages</dt>
+    
+      <dd><a href="https://docs.releng.io/en/0.7/">en</a></dd>
+    
+      <dd><a href="https://docs.releng.io/de/0.7/">de</a></dd>
+    
+      <dd><a href="https://docs.releng.io/ja/0.7/">ja</a></dd>
+    
+      <dd><a href="https://docs.releng.io/pl/0.7/">pl</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.7/">zh</a></dd>
+    
+  </dl>
+  <dl>
+    <dt>Versions</dt>
+    
+      <dd><a href="https://docs.releng.io/zh/latest/">latest</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.7/">0.7</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.6/">0.6</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.5/">0.5</a></dd>
+    
+      <dd><a href="https://docs.releng.io/zh/0.4/">0.4</a></dd>
+    
+  </dl>
+  <dl>
+    <dd><a href="https://docs.releng.io/zh/development/">development</a></dd>
+  </dl>
+</div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
