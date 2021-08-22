@@ -2636,21 +2636,31 @@ has failed</p>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>helper to easily configure an environment variable</p>
-<p>Provides a caller an simple method to configure an environment variable for
-the current context. This call is the same as if one directly added a
-key-value into <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">key</span></em>, <em class="sig-param"><span class="pre">value=&lt;object</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span></dt>
+<dd><p>helper to easily fetch or configure an environment variable</p>
+<p>Provides a caller a simple method to fetch or configure an environment
+variable for the current context. This call is the same as if one directly
+fetched from or managed a key-value with <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>. If <code class="docutils literal notranslate"><span class="pre">value</span></code> is not
+provided, the environment variable’s value (if set) will be returned. If
+<code class="docutils literal notranslate"><span class="pre">value</span></code> is set to a value of <code class="docutils literal notranslate"><span class="pre">None</span></code>, any set environment variable will
+be removed.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get an environment variable</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">)</span>
+
+<span class="c1"># set an environment variable</span>
+<span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> – the environment key to set the value on</p></li>
-<li><p><strong>value</strong> – the environment value to set</p></li>
+<li><p><strong>key</strong> – the environment key</p></li>
+<li><p><strong>value</strong> (<em>optional</em>) – the environment value to set</p></li>
 </ul>
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p>the value of the environment variable</p>
 </dd>
 </dl>
 </dd></dl>
