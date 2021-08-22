@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="de" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>leitfaden für mitwirkende &mdash; releng-tool  Dokumentation</title>
@@ -370,7 +369,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="contributor-guide">
+  <div class="section" id="contributor-guide">
 <h1>leitfaden für mitwirkende<a class="headerlink" href="#contributor-guide" title="Link zu dieser Überschrift">¶</a></h1>
 <p>The following outlines common directory locations:</p>
 <ul class="simple">
@@ -388,7 +387,7 @@ dependency for users of the tool. Specific features enabled by a developer’s
 project may require additional tools (e.g. using <a class="reference external" href="https://git-scm.com/">Git</a> to fetch sources requires
 <code class="docutils literal notranslate"><span class="pre">git</span></code> to be installed); however, a user should not be required to install
 tools for features that are not being used.</p>
-<section id="contributing">
+<div class="section" id="contributing">
 <h2>contributing<a class="headerlink" href="#contributing" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Developers are free to submit contributions for this project. Developers wishing
 to contribute should consult this project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/CONTRIBUTING.rst">CONTRIBUTING</a> document. A reminder
@@ -396,16 +395,16 @@ that any contributions must be signed off with the
 <a class="reference external" href="https://developercertificate.org/">Developer Certificate of Origin</a>.</p>
 <p>Implementation (source, comments, commits, etc.) submitted to this project
 should be provided in English.</p>
-</section>
-<section id="root-directory">
+</div>
+<div class="section" id="root-directory">
 <h2>root directory<a class="headerlink" href="#root-directory" title="Link zu dieser Überschrift">¶</a></h2>
 <p>A user invoking releng-tool will attempt to operate in a project root directory.
 Any content managed by this tool (e.g. creating directories, downloading
 sources, etc.) should all be performed inside the root directory. Some
 exceptions exist where a user requests to adjust the download directory (i.e.
 providing the <code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument).</p>
-</section>
-<section id="fetching-design">
+</div>
+<div class="section" id="fetching-design">
 <h2>fetching design<a class="headerlink" href="#fetching-design" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Packages can describe where external content should be fetched from. The most
 common fetching method is a simple URI-style fetch such as downloading an
@@ -421,8 +420,8 @@ stored in the root directory’s cache folder (e.g. <code class="docutils litera
 extraction stage, target revisions will be pulled from the cache location using
 the <code class="docutils literal notranslate"><span class="pre">git</span></code> client.</p>
 <p>Not all packages will fetch content (e.g. placeholder packages).</p>
-</section>
-<section id="extraction-design">
+</div>
+<div class="section" id="extraction-design">
 <h2>extraction design<a class="headerlink" href="#extraction-design" title="Link zu dieser Überschrift">¶</a></h2>
 <p>In most cases, the extraction phase will process archives (e.g. <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>,
 <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, etc.) and place their content into a package’s build working
@@ -430,8 +429,8 @@ directory. Implementation will vary for fetching implementation which stores
 content into a cache directory. For example, <a class="reference external" href="https://git-scm.com/">Git</a> and <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a> sources have
 their own extraction implementations to pull content from their respective
 distributed file systems into a package’s build working directory.</p>
-</section>
-<section id="host-and-build-environment">
+</div>
+<div class="section" id="host-and-build-environment">
 <h2>host and build environment<a class="headerlink" href="#host-and-build-environment" title="Link zu dieser Überschrift">¶</a></h2>
 <p>releng-tool attempts to minimize the impact of a host system’s environment on a
 project’s build. For example, the build phase of a package should not be pulling
@@ -440,8 +439,8 @@ be provided from the package definition. Tools invoked by releng-tool will
 attempt to be invoked to ignore these external environment variables. Some
 exceptions apply such as environment variables dealing with authorization
 tokens.</p>
-</section>
-<section id="extensions">
+</div>
+<div class="section" id="extensions">
 <span id="contributor-guide-ext"></span><h2>extensions<a class="headerlink" href="#extensions" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Developers wishing to provide extensions to releng-tool should consult the API
 implementation found in this tool’s repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py"><code class="docutils literal notranslate"><span class="pre">releng_tool/api/__init__.py</span></code></a>).
@@ -487,8 +486,8 @@ extension to register custom fetching, extraction and package implementations.</
 </div>
 <p>For more details for API details, consult the documentation found inside the
 <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py">API implementation</a>.</p>
-</section>
-<section id="documentation">
+</div>
+<div class="section" id="documentation">
 <h2>documentation<a class="headerlink" href="#documentation" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Improvements to this project’s documentation (found inside <code class="docutils literal notranslate"><span class="pre">Documentation</span></code>)
 are always welcome – not only for adding/updating documentation for releng-tool
@@ -505,8 +504,8 @@ following repositories:</p>
 <div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations-builder">https://github.com/releng-tool/releng-tool-doc-translations-builder</a></div>
 </div>
 </div></blockquote>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

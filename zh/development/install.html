@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>安装 &mdash; releng-tool  文档</title>
@@ -369,7 +368,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="installation">
+  <div class="section" id="installation">
 <h1>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h1>
 <p>我们推荐的安装方法是使用 <a class="reference external" href="https://pip.pypa.io/">pip</a>：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install releng-tool
@@ -383,13 +382,13 @@ python -m pip install releng-tool
 python -m releng_tool --version
 </pre></div>
 </div>
-<section id="quick-start">
+<div class="section" id="quick-start">
 <h2>快速开始<a class="headerlink" href="#quick-start" title="永久链接至标题">¶</a></h2>
 <p>以下我们提供了一系列步骤，以帮助你准备使用此组件的新环境。这个快速入门旨在让你使用最新版本的 Python。</p>
-<section id="linux">
+<div class="section" id="linux">
 <h3>linux<a class="headerlink" href="#linux" title="永久链接至标题">¶</a></h3>
 <p>虽然 <a class="reference external" href="https://www.python.org/">Python</a>/<a class="reference external" href="https://pip.pypa.io/">pip</a> 的使用在 Linux 发行版之间几乎是一致的，但以下是在 Linux 的特定发行版下安装此组件的一系列有用步骤。从终端开始，调用以下命令：</p>
-<section id="arch">
+<div class="section" id="arch">
 <h4>arch<a class="headerlink" href="#arch" title="永久链接至标题">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -Sy
 $ sudo pacman -S python-pip
@@ -398,8 +397,8 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</section>
-<section id="centos">
+</div>
+<div class="section" id="centos">
 <h4>centos<a class="headerlink" href="#centos" title="永久链接至标题">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo yum install epel-release
 $ sudo yum install python-pip
@@ -408,8 +407,8 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</section>
-<section id="fedora">
+</div>
+<div class="section" id="fedora">
 <h4>fedora<a class="headerlink" href="#fedora" title="永久链接至标题">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo dnf install python-pip
 $ sudo pip install releng-tool
@@ -417,16 +416,16 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</section>
-<section id="opensuse">
+</div>
+<div class="section" id="opensuse">
 <h4>opensuse<a class="headerlink" href="#opensuse" title="永久链接至标题">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install releng-tool
 $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</section>
-<section id="ubuntu">
+</div>
+<div class="section" id="ubuntu">
 <h4>ubuntu<a class="headerlink" href="#ubuntu" title="永久链接至标题">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
 $ sudo apt-get install python-pip
@@ -435,9 +434,9 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</section>
-</section>
-<section id="os-x">
+</div>
+</div>
+<div class="section" id="os-x">
 <h3>os x<a class="headerlink" href="#os-x" title="永久链接至标题">¶</a></h3>
 <p>从终端开始，调用以下命令：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo easy_install pip
@@ -446,8 +445,8 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</section>
-<section id="windows">
+</div>
+<div class="section" id="windows">
 <h3>windows<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h3>
 <p>请先下载最新版本的 <a class="reference external" href="https://www.python.org/">Python</a>：</p>
 <blockquote>
@@ -463,16 +462,16 @@ releng-tool &lt;version&gt;
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</section>
-</section>
-<section id="development">
+</div>
+</div>
+<div class="section" id="development">
 <h2>发展<a class="headerlink" href="#development" title="永久链接至标题">¶</a></h2>
 <p>要安装最新的开发源，可以使用以下 <a class="reference external" href="https://pip.pypa.io/">pip</a> 命令：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/releng-tool/releng-tool.git
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="zh" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>附件a - 快速参考 &mdash; releng-tool  文档</title>
@@ -369,10 +368,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="annex-a-quick-reference">
+  <div class="section" id="annex-a-quick-reference">
 <h1>附件a - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="永久链接至标题">¶</a></h1>
 <p>我们有一个快速参考文档，列出了构建 releng-tool 项目的开发人员的可用选项。有关更多详细信息，请参阅 <a class="reference internal" href="developer-guide.html"><span class="doc">开发人员指南</span></a> 。</p>
-<section id="configuration-options">
+<div class="section" id="configuration-options">
 <h2>configuration options<a class="headerlink" href="#configuration-options" title="永久链接至标题">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
@@ -390,8 +389,8 @@
 <span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="environment-variables">
+</div>
+<div class="section" id="environment-variables">
 <h2>environment variables<a class="headerlink" href="#environment-variables" title="永久链接至标题">¶</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
@@ -437,8 +436,8 @@ releng-tool (may vary per context):</p>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_VERSION</span>
 </pre></div>
 </div>
-</section>
-<section id="package-options">
+</div>
+<div class="section" id="package-options">
 <h2>package options<a class="headerlink" href="#package-options" title="永久链接至标题">¶</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
@@ -481,8 +480,8 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;version&gt;&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="script-helpers">
+</div>
+<div class="section" id="script-helpers">
 <h2>script helpers<a class="headerlink" href="#script-helpers" title="永久链接至标题">¶</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
@@ -509,8 +508,8 @@ releng-tool (may vary per context):</p>
 <span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="quirks">
+</div>
+<div class="section" id="quirks">
 <h2>quirks<a class="headerlink" href="#quirks" title="永久链接至标题">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.cmake.disable_parallel_option
@@ -520,8 +519,8 @@ releng.disable_remote_scripts
 releng.git.no_depth
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

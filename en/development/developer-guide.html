@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>developer guide &mdash; releng-tool  documentation</title>
@@ -369,12 +368,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="developer-guide">
+  <div class="section" id="developer-guide">
 <h1>developer guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">¶</a></h1>
 <p>The following will outline details on how to prepare a releng-tool project to be
 used to assist the release engineering of a project. For details on a user
 interaction with releng-tool, consult the <a class="reference internal" href="user-guide.html"><span class="doc">user’s guide</span></a>.</p>
-<section id="prelude">
+<div class="section" id="prelude">
 <h2>prelude<a class="headerlink" href="#prelude" title="Permalink to this headline">¶</a></h2>
 <p>A releng-tool project can define multiple packages, each can be based off of
 different languages, configured to use custom toolchains and more. Every package
@@ -442,8 +441,8 @@ rebuild on a package).</p></li>
 ensuring projects are invoked in order, and more; however, the more advanced
 features/actions a developer may want in their release engineering (like the
 examples above), the more a developer will need to manage in their project.</p>
-</section>
-<section id="getting-started">
+</div>
+<div class="section" id="getting-started">
 <h2>getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>releng-tool is made on Python. This document will outline package definitions,
 scripts and more which are most likely Python scripts, and in turn will be
@@ -539,8 +538,8 @@ elaborate scripts can be made to handle a package’s source to build.</p>
 <p>Now the project is in a state again to perform a fresh build. This concludes the
 initial getting started example. Feel free to remove the example project and
 prepare for steps to make a real releng-tool project.</p>
-</section>
-<section id="actually-getting-started">
+</div>
+<div class="section" id="actually-getting-started">
 <h2>actually getting started<a class="headerlink" href="#actually-getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Start building a new releng-tool project by creating the following root and
 package folders for a project, and venture into the root folder:</p>
@@ -687,8 +686,8 @@ example, if the file <code class="docutils literal notranslate"><span class="pre
 developer may wish to define their own Python script to decide on how to package
 the contents found in <code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code> (see also <a class="reference internal" href="#script-helpers">script helpers</a> for helper
 variables/functions).</p>
-</section>
-<section id="releng-configuration">
+</div>
+<div class="section" id="releng-configuration">
 <h2>releng configuration<a class="headerlink" href="#releng-configuration" title="Permalink to this headline">¶</a></h2>
 <p>A releng-tool project defines its configuration options inside the a <code class="docutils literal notranslate"><span class="pre">releng</span></code>
 file at the root of a project. The primary configuration option for a developer
@@ -964,8 +963,8 @@ prevent releng-tool operating on a host system.</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="environment-variables">
+</div>
+<div class="section" id="environment-variables">
 <h2>environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
 <p>When packages and the post-processing event are processed, the following
 environment variables will be made available:</p>
@@ -1180,8 +1179,8 @@ releng-tool process to use outside the project definition except for special
 cases (such as authentication tokens, etc.). Attempting to configure, for
 example, compiler flags outside the project definition circumvents configuration
 control a releng-tool project aims to maintain.</p>
-</section>
-<section id="packages">
+</div>
+<div class="section" id="packages">
 <h2>packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
 <p>Packages are defined inside the <code class="docutils literal notranslate"><span class="pre">package/</span></code> directory. There is no explicit
 limit on the total number of packages a project can have. Packages can consist
@@ -1214,10 +1213,10 @@ the following can be defined (<code class="docutils literal notranslate"><span c
 </pre></div>
 </div>
 <p>More details on available configuration options are as follows.</p>
-<section id="common-package-configurations">
+<div class="section" id="common-package-configurations">
 <h3>common package configurations<a class="headerlink" href="#common-package-configurations" title="Permalink to this headline">¶</a></h3>
 <p>The following outlines common configuration options available for packages.</p>
-<section id="libfoo-dependencies">
+<div class="section" id="libfoo-dependencies">
 <h4>LIBFOO_DEPENDENCIES<a class="headerlink" href="#libfoo-dependencies" title="Permalink to this headline">¶</a></h4>
 <p>List of package dependencies a given project has. If a project depends on
 another package, the package name should be listed in this option. This ensures
@@ -1227,8 +1226,8 @@ processed first:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBC_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;liba&#39;</span><span class="p">,</span> <span class="s1">&#39;libb&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-install-type">
+</div>
+<div class="section" id="libfoo-install-type">
 <h4>LIBFOO_INSTALL_TYPE<a class="headerlink" href="#libfoo-install-type" title="Permalink to this headline">¶</a></h4>
 <p>Defines the installation type of this package. A package may be designed to be
 built and installed for just the target area, the stage area, both or maybe in
@@ -1266,8 +1265,8 @@ type:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;target&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-license">
+</div>
+<div class="section" id="libfoo-license">
 <h4>LIBFOO_LICENSE<a class="headerlink" href="#libfoo-license" title="Permalink to this headline">¶</a></h4>
 <p>A string or list of strings outlining the license information for a package.
 Outlining the license of a package is always recommended (but not required).</p>
@@ -1279,8 +1278,8 @@ Outlining the license of a package is always recommended (but not required).</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-license-files"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code></a>.</p>
-</section>
-<section id="libfoo-license-files">
+</div>
+<div class="section" id="libfoo-license-files">
 <h4>LIBFOO_LICENSE_FILES<a class="headerlink" href="#libfoo-license-files" title="Permalink to this headline">¶</a></h4>
 <p>A string or list of strings identifying the license files found inside the
 package sources which match up to the defined <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> entries
@@ -1297,8 +1296,8 @@ not required).</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-license"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></a>.</p>
-</section>
-<section id="libfoo-site">
+</div>
+<div class="section" id="libfoo-site">
 <h4>LIBFOO_SITE<a class="headerlink" href="#libfoo-site" title="Permalink to this headline">¶</a></h4>
 <p>The site where package sources/assets can be found. The site can be a URL of an
 archive, or describe a source control URL such as Git or SVN. The following
@@ -1355,8 +1354,8 @@ custom site protocols.</p>
 <p>Specifying a site value of <code class="docutils literal notranslate"><span class="pre">local</span></code> will automatically configure a VCS-type of
 <code class="docutils literal notranslate"><span class="pre">local</span></code> (see <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> for more information).</p>
 <p>See also <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a>.</p>
-</section>
-<section id="libfoo-type">
+</div>
+<div class="section" id="libfoo-type">
 <h4>LIBFOO_TYPE<a class="headerlink" href="#libfoo-type" title="Permalink to this headline">¶</a></h4>
 <p>The package type. The default package type is a (Python) script-based package;
 however, releng-tool also provides a series of helper package types for common
@@ -1396,8 +1395,8 @@ protocols.</p>
 <p>Using a specific type will create a dependency for a project that the respective
 host tool is installed on the host system. For example, if a CMake type is set,
 the host system will need to have <code class="docutils literal notranslate"><span class="pre">cmake</span></code> installed on the system.</p>
-</section>
-<section id="libfoo-version">
+</div>
+<div class="section" id="libfoo-version">
 <h4>LIBFOO_VERSION<a class="headerlink" href="#libfoo-version" title="Permalink to this headline">¶</a></h4>
 <p>The version of the package. Typically the version value should be formatted in a
 semantic versioning style; however, it is up to the developer to decide the best
@@ -1411,13 +1410,13 @@ revision of sources. If for some case the desired version value cannot be
 gracefully defined (e.g. <code class="docutils literal notranslate"><span class="pre">libfoo-v1.0</span></code> will produce output directories such as
 <code class="docutils literal notranslate"><span class="pre">libfoo-libfoo-v1.0</span></code>), <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> can be used.</p>
 <p>See also <a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a>.</p>
-</section>
-</section>
-<section id="advanced-package-configurations">
+</div>
+</div>
+<div class="section" id="advanced-package-configurations">
 <h3>advanced package configurations<a class="headerlink" href="#advanced-package-configurations" title="Permalink to this headline">¶</a></h3>
 <p>The following outlines more advanced configuration options available for
 packages.</p>
-<section id="libfoo-build-subdir">
+<div class="section" id="libfoo-build-subdir">
 <h4>LIBFOO_BUILD_SUBDIR<a class="headerlink" href="#libfoo-build-subdir" title="Permalink to this headline">¶</a></h4>
 <p>Sub-directory where a package’s extracted sources holds its buildable content.
 Sources for a package may be nested inside one or more directories. A package
@@ -1426,8 +1425,8 @@ processes are invoked from.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;subdir&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-devmode-ignore-cache">
+</div>
+<div class="section" id="libfoo-devmode-ignore-cache">
 <h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="Permalink to this headline">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should ignore any generated
 cache file when operating in development mode. In most cases, users want to take
@@ -1442,8 +1441,8 @@ option to have a user always force fetching new content from a clean state.</p>
 </pre></div>
 </div>
 <p>By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</section>
-<section id="libfoo-devmode-revision">
+</div>
+<div class="section" id="libfoo-devmode-revision">
 <h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="Permalink to this headline">¶</a></h4>
 <p>Specifies a development revision for a package. When a project is being built in
 <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>, the development revision is used over the configured
@@ -1454,8 +1453,8 @@ development mode.</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
-</section>
-<section id="libfoo-extension">
+</div>
+<div class="section" id="libfoo-extension">
 <h4>LIBFOO_EXTENSION<a class="headerlink" href="#libfoo-extension" title="Permalink to this headline">¶</a></h4>
 <p>Specifies a filename extension for the package. A package may be cached inside
 the download directory to be used when the extraction phase is invoked.
@@ -1466,8 +1465,8 @@ option.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTENSION</span> <span class="o">=</span> <span class="s1">&#39;tgz&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-external">
+</div>
+<div class="section" id="libfoo-external">
 <h4>LIBFOO_EXTERNAL<a class="headerlink" href="#libfoo-external" title="Permalink to this headline">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an external package.
 External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
@@ -1477,8 +1476,8 @@ explicitly configured to be internal.</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
-</section>
-<section id="libfoo-extopt">
+</div>
+<div class="section" id="libfoo-extopt">
 <h4>LIBFOO_EXTOPT<a class="headerlink" href="#libfoo-extopt" title="Permalink to this headline">¶</a></h4>
 <p>Specifies extension-specific options. Packages wishing to take advantage of
 extension-specific capabilities can forward options to extensions by defining a
@@ -1489,8 +1488,8 @@ dictionary of values.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-extract-type">
+</div>
+<div class="section" id="libfoo-extract-type">
 <h4>LIBFOO_EXTRACT_TYPE<a class="headerlink" href="#libfoo-extract-type" title="Permalink to this headline">¶</a></h4>
 <p>Specifies a custom extraction type for a package. If a configured extension
 supports a custom extraction capability, the registered extraction type can be
@@ -1498,8 +1497,8 @@ explicitly registered in this option.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTRACT_TYPE</span> <span class="o">=</span> <span class="s1">&#39;ext-custom-extract&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-fixed-jobs">
+</div>
+<div class="section" id="libfoo-fixed-jobs">
 <h4>LIBFOO_FIXED_JOBS<a class="headerlink" href="#libfoo-fixed-jobs" title="Permalink to this headline">¶</a></h4>
 <p>Explicitly configure the total number of jobs a package can use. The primary use
 case for this option is to help limit the total number of jobs for a package
@@ -1507,8 +1506,8 @@ that cannot support a large or any parallel build environment.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_FIXED_JOBS</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-git-config">
+</div>
+<div class="section" id="libfoo-git-config">
 <h4>LIBFOO_GIT_CONFIG<a class="headerlink" href="#libfoo-git-config" title="Permalink to this headline">¶</a></h4>
 <p>Apply additional repository-specific Git configuration settings (<a class="reference external" href="https://git-scm.com/docs/git-config"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></a>)
 after a Git repository cache has been initialized. By default, no
@@ -1519,8 +1518,8 @@ the global configuration set).</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-git-depth">
+</div>
+<div class="section" id="libfoo-git-depth">
 <h4>LIBFOO_GIT_DEPTH<a class="headerlink" href="#libfoo-git-depth" title="Permalink to this headline">¶</a></h4>
 <p>Limit fetching for a Git-based source to the specified number of commits. The
 value provided will be used with the <a class="reference external" href="https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---depthltdepthgt"><code class="docutils literal notranslate"><span class="pre">--depth</span></code></a> argument. By default, the depth
@@ -1534,8 +1533,8 @@ depth of <code class="docutils literal notranslate"><span class="pre">1</span></
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-git-refspecs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></a> and <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
-</section>
-<section id="libfoo-git-refspecs">
+</div>
+<div class="section" id="libfoo-git-refspecs">
 <h4>LIBFOO_GIT_REFSPECS<a class="headerlink" href="#libfoo-git-refspecs" title="Permalink to this headline">¶</a></h4>
 <p>List of addition refspecs to fetch when using a <code class="docutils literal notranslate"><span class="pre">git</span></code> VCS type. By default, a
 Git fetch request will acquire all <code class="docutils literal notranslate"><span class="pre">heads</span></code> and <code class="docutils literal notranslate"><span class="pre">tags</span></code> refspecs. If a
@@ -1545,8 +1544,8 @@ fetching.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pull&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-git-submodules">
+</div>
+<div class="section" id="libfoo-git-submodules">
 <h4>LIBFOO_GIT_SUBMODULES<a class="headerlink" href="#libfoo-git-submodules" title="Permalink to this headline">¶</a></h4>
 <p>Flag value to indicate whether or not a package’s Git submodules should be
 fetched/extracted during a package’s own fetch/extraction stages. By default,
@@ -1561,8 +1560,8 @@ instead.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_SUBMODULES</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-internal">
+</div>
+<div class="section" id="libfoo-internal">
 <h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="Permalink to this headline">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an internal package.
 Internal packages will not generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
@@ -1574,8 +1573,8 @@ internal.</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
-</section>
-<section id="libfoo-no-extraction">
+</div>
+<div class="section" id="libfoo-no-extraction">
 <h4>LIBFOO_NO_EXTRACTION<a class="headerlink" href="#libfoo-no-extraction" title="Permalink to this headline">¶</a></h4>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1600,8 +1599,8 @@ extracted contents of an archive, it is unable to acquire a copy of the
 project’s license file. Specifying <code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> for projects with
 the no-extraction flag enabled will result in a warning. By default, this option
 is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</section>
-<section id="libfoo-prefix">
+</div>
+<div class="section" id="libfoo-prefix">
 <h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="Permalink to this headline">¶</a></h4>
 <p>Specifies the sysroot prefix value to use for the package. An explicitly
 provided prefix value will override the project-defined or default sysroot
@@ -1610,8 +1609,8 @@ prefix value.</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#conf-sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></a>.</p>
-</section>
-<section id="libfoo-revision">
+</div>
+<div class="section" id="libfoo-revision">
 <h4>LIBFOO_REVISION<a class="headerlink" href="#libfoo-revision" title="Permalink to this headline">¶</a></h4>
 <p>Specifies a revision value for a package. When a package fetches content using
 source management tools, the revision value is used to determine which sources
@@ -1621,8 +1620,8 @@ will use the configured <a class="reference internal" href="#libfoo-version"><co
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
-</section>
-<section id="libfoo-skip-remote-config">
+</div>
+<div class="section" id="libfoo-skip-remote-config">
 <h4>LIBFOO_SKIP_REMOTE_CONFIG<a class="headerlink" href="#libfoo-skip-remote-config" title="Permalink to this headline">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should not attempt to load any
 package configurations which may be defined in the package’s source. A package,
@@ -1634,8 +1633,8 @@ registered into the package before invoking a package’s configuration stage.</
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
-</section>
-<section id="libfoo-skip-remote-scripts">
+</div>
+<div class="section" id="libfoo-skip-remote-scripts">
 <h4>LIBFOO_SKIP_REMOTE_SCRIPTS<a class="headerlink" href="#libfoo-skip-remote-scripts" title="Permalink to this headline">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should not attempt to load any
 package scripts which may be defined in the package’s source. Typically, a
@@ -1651,8 +1650,8 @@ package’s contents.</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
-</section>
-<section id="libfoo-strip-count">
+</div>
+<div class="section" id="libfoo-strip-count">
 <h4>LIBFOO_STRIP_COUNT<a class="headerlink" href="#libfoo-strip-count" title="Permalink to this headline">¶</a></h4>
 <p>Specifies the strip count to use when attempting to extract sources from an
 archive. By default, the extraction process will strip a single directory from
@@ -1662,8 +1661,8 @@ container directories, a higher strip count can be set.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_STRIP_COUNT</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-vcs-type">
+</div>
+<div class="section" id="libfoo-vcs-type">
 <h4>LIBFOO_VCS_TYPE<a class="headerlink" href="#libfoo-vcs-type" title="Permalink to this headline">¶</a></h4>
 <p>Explicitly sets the version control system type to use when acquiring sources.
 releng-tool attempts to automatically determine the VCS type of a package based
@@ -1698,9 +1697,9 @@ module content located in a site to be fetched – specifically, for initial
 development/testing/training scenarios. It is never recommended to store the
 package’s “main content” inside a releng-tool project, thus using the <code class="docutils literal notranslate"><span class="pre">local</span></code>
 type will always generate a warning message.</p>
-</section>
-</section>
-<section id="package-bootstrapping-and-post-processing">
+</div>
+</div>
+<div class="section" id="package-bootstrapping-and-post-processing">
 <span id="package-bootstrapping-and-postprocessing"></span><h3>package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="Permalink to this headline">¶</a></h3>
 <p>Every package, no matter which package <a class="reference internal" href="#libfoo-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></a> is defined, can create a
 bootstrapping or post-processing script to invoke before a package starts a
@@ -1728,8 +1727,8 @@ script (<code class="docutils literal notranslate"><span class="pre">libfoo-post
 scripts are provided for a package, no bootstrapping or post-processing will be
 performed for the package.</p>
 <p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
-</section>
-<section id="site-definitions">
+</div>
+<div class="section" id="site-definitions">
 <span id="id1"></span><h3>site definitions<a class="headerlink" href="#site-definitions" title="Permalink to this headline">¶</a></h3>
 <p>The following outlines the details for defining supported site definitions. If
 attempting to use an extension-provided site type, please consult the
@@ -1740,7 +1739,7 @@ documentation provided by said extension.</p>
 sources) or postfix value; however, this is optional if a package wishes to
 use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> option.</p>
 </div>
-<section id="bazaar-site">
+<div class="section" id="bazaar-site">
 <h4>bazaar site<a class="headerlink" href="#bazaar-site" title="Permalink to this headline">¶</a></h4>
 <p>To define a <a class="reference external" href="https://bazaar.canonical.com">Bazaar</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">bzr+</span></code> value. A site can be defined as follows:</p>
@@ -1753,8 +1752,8 @@ use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docut
 call <a class="footnote-reference brackets" href="#bzrexport" id="id2">1</a>. Content from a Bazaar repository will be fetched and
 archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
-</section>
-<section id="cvs-site">
+</div>
+<div class="section" id="cvs-site">
 <h4>cvs site<a class="headerlink" href="#cvs-site" title="Permalink to this headline">¶</a></h4>
 <p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code>
 value. A site can be defined as follows:</p>
@@ -1766,8 +1765,8 @@ represents the CVSROOT <a class="footnote-reference brackets" href="#cvsroot" id
 module <a class="footnote-reference brackets" href="#cvsmodule" id="id4">2</a>  to use. Content from a CVS repository will be fetched and
 archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
-</section>
-<section id="git-site">
+</div>
+<div class="section" id="git-site">
 <h4>git site<a class="headerlink" href="#git-site" title="Permalink to this headline">¶</a></h4>
 <p>To define a <a class="reference external" href="https://git-scm.com/">Git</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">git+</span></code>
 value or postfixed with the <code class="docutils literal notranslate"><span class="pre">.git</span></code> value. A site can be defined as follows:</p>
@@ -1782,8 +1781,8 @@ directory on first-run. Future runs to fetch a project’s source will use the
 cached Git file system. If a desired revision exists, content will be acquired
 from the cache location. If a desired revision does not exist, the origin remote
 will be fetched for the new revision (if it exists).</p>
-</section>
-<section id="mercurial-site">
+</div>
+<div class="section" id="mercurial-site">
 <h4>mercurial site<a class="headerlink" href="#mercurial-site" title="Permalink to this headline">¶</a></h4>
 <p>To define a <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">hg+</span></code> value. A site can be defined as follows:</p>
@@ -1796,8 +1795,8 @@ first-run. Future runs to fetch a project’s source will use the cached Mercuri
 repository. If a desired revision exists, content will be acquired from the
 cache location. If a desired revision does not exist, the origin remote will be
 pulled for the new revision (if it exists).</p>
-</section>
-<section id="scp-site">
+</div>
+<div class="section" id="scp-site">
 <h4>scp site<a class="headerlink" href="#scp-site" title="Permalink to this headline">¶</a></h4>
 <p>To define an SCP-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">scp+</span></code>
 value. A site can be defined as follows:</p>
@@ -1808,8 +1807,8 @@ value. A site can be defined as follows:</p>
 <a class="footnote-reference brackets" href="#scpcommand" id="id7">6</a> source host value. The SCP site only supports copying a file from
 a remote host. The fetched file will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code> directory. Once
 fetch, the fetch stage will be skipped unless the file is manually removed.</p>
-</section>
-<section id="svn-site">
+</div>
+<div class="section" id="svn-site">
 <h4>svn site<a class="headerlink" href="#svn-site" title="Permalink to this headline">¶</a></h4>
 <p>To define a <a class="reference external" href="https://subversion.apache.org/">Subversion</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">svn+</span></code> value. A site can be defined as follows:</p>
@@ -1820,8 +1819,8 @@ fetch, the fetch stage will be skipped unless the file is manually removed.</p>
 <code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference brackets" href="#svncheckout" id="id8">7</a>. Content from a Subversion repository will
 be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
-</section>
-<section id="url-site-default">
+</div>
+<div class="section" id="url-site-default">
 <h4>url site (default)<a class="headerlink" href="#url-site-default" title="Permalink to this headline">¶</a></h4>
 <p>All packages that do not define a helper prefix/postfix value (as seen in other
 site definitions) or do not explicitly set a <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> value (other
@@ -1834,9 +1833,9 @@ follows:</p>
 supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference brackets" href="#urlopen" id="id9">8</a>,
 which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>, <code class="docutils literal notranslate"><span class="pre">file://</span></code> and
 more.</p>
-</section>
-</section>
-<section id="hash-file">
+</div>
+</div>
+<div class="section" id="hash-file">
 <span id="hash-files"></span><h3>hash file<a class="headerlink" href="#hash-file" title="Permalink to this headline">¶</a></h3>
 <p>When downloading assets from a remote instance, a package’s hash file can be
 used to help verify the integrity of any fetched content. For example, if a
@@ -1877,8 +1876,8 @@ systems:</p>
 sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
 </pre></div>
 </div>
-</section>
-<section id="script-package-default">
+</div>
+<div class="section" id="script-package-default">
 <h3>script package (default)<a class="headerlink" href="#script-package-default" title="Permalink to this headline">¶</a></h3>
 <p>A script-based package is the most basic package type available. By default,
 packages are considered to be script packages unless explicitly configured to be
@@ -1907,8 +1906,8 @@ skipped.</p>
 <p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use an
 <a class="reference internal" href="#package-bootstrapping-and-postprocessing">bootstrapping/post-processing</a> for
 more stage script support.</p>
-</section>
-<section id="autotools-package">
+</div>
+<div class="section" id="autotools-package">
 <h3>autotools package<a class="headerlink" href="#autotools-package" title="Permalink to this headline">¶</a></h3>
 <p>An autotools package provides support for processing a <a class="reference external" href="https://www.gnu.org/software/automake/manual/html_node/index.html">GNU Build System</a>
 supported module.</p>
@@ -1921,7 +1920,7 @@ build stage is reached, <code class="docutils literal notranslate"><span class="
 during the installation stage.</p>
 <p>The following sections outline configuration options are available for an
 autotools package.</p>
-<section id="libfoo-autotools-autoreconf">
+<div class="section" id="libfoo-autotools-autoreconf">
 <h4>LIBFOO_AUTOTOOLS_AUTORECONF<a class="headerlink" href="#libfoo-autotools-autoreconf" title="Permalink to this headline">¶</a></h4>
 <p>Specifies whether or not the package needs to perform an autotools
 re-configuration. This is to assist in the rebuilding of GNU Build System files
@@ -1931,8 +1930,8 @@ invoked.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-build-defs">
+</div>
+<div class="section" id="libfoo-build-defs">
 <span id="autotools-build-defs"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#libfoo-build-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
@@ -1942,8 +1941,8 @@ defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-build-env">
+</div>
+<div class="section" id="libfoo-build-env">
 <span id="autotools-build-env"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#libfoo-build-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
@@ -1954,8 +1953,8 @@ is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-build-opts">
+</div>
+<div class="section" id="libfoo-build-opts">
 <span id="autotools-build-opts"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#libfoo-build-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
@@ -1974,8 +1973,8 @@ This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-conf-defs">
+</div>
+<div class="section" id="libfoo-conf-defs">
 <span id="autotools-conf-defs"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#libfoo-conf-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
@@ -1985,8 +1984,8 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-conf-env">
+</div>
+<div class="section" id="libfoo-conf-env">
 <span id="autotools-conf-env"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#libfoo-conf-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
@@ -1997,8 +1996,8 @@ field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-conf-opts">
+</div>
+<div class="section" id="libfoo-conf-opts">
 <span id="autotools-conf-opts"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#libfoo-conf-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
@@ -2017,8 +2016,8 @@ configuration event. This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-install-defs">
+</div>
+<div class="section" id="libfoo-install-defs">
 <span id="autotools-install-defs"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#libfoo-install-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
@@ -2028,8 +2027,8 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-install-env">
+</div>
+<div class="section" id="libfoo-install-env">
 <span id="autotools-install-env"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#libfoo-install-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
@@ -2040,8 +2039,8 @@ field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-install-opts">
+</div>
+<div class="section" id="libfoo-install-opts">
 <span id="autotools-install-opts"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#libfoo-install-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
@@ -2060,9 +2059,9 @@ installation event. This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="cmake-package">
+</div>
+</div>
+<div class="section" id="cmake-package">
 <h3>cmake package<a class="headerlink" href="#cmake-package" title="Permalink to this headline">¶</a></h3>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported module.</p>
 <p>During the configuration stage of a CMake package, <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked to
@@ -2089,7 +2088,7 @@ can override this option by explicitly adjusting the configuration option
 </div>
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
-<section id="cmake-build-defs">
+<div class="section" id="cmake-build-defs">
 <span id="id10"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
@@ -2099,8 +2098,8 @@ defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-build-env">
+</div>
+<div class="section" id="cmake-build-env">
 <span id="id11"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
@@ -2111,8 +2110,8 @@ is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-build-opts">
+</div>
+<div class="section" id="cmake-build-opts">
 <span id="id12"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
@@ -2131,8 +2130,8 @@ This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-conf-defs">
+</div>
+<div class="section" id="cmake-conf-defs">
 <span id="id13"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
@@ -2142,8 +2141,8 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-conf-env">
+</div>
+<div class="section" id="cmake-conf-env">
 <span id="id14"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
@@ -2154,8 +2153,8 @@ field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-conf-opts">
+</div>
+<div class="section" id="cmake-conf-opts">
 <span id="id15"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
@@ -2174,8 +2173,8 @@ configuration event. This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-install-defs">
+</div>
+<div class="section" id="cmake-install-defs">
 <span id="id16"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
@@ -2185,8 +2184,8 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-install-env">
+</div>
+<div class="section" id="cmake-install-env">
 <span id="id17"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
@@ -2197,8 +2196,8 @@ field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="cmake-install-opts">
+</div>
+<div class="section" id="cmake-install-opts">
 <span id="id18"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
@@ -2217,9 +2216,9 @@ installation event. This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="python-package">
+</div>
+</div>
+<div class="section" id="python-package">
 <h3>python package<a class="headerlink" href="#python-package" title="Permalink to this headline">¶</a></h3>
 <p>A Python package provides support for processing a <a class="reference external" href="https://www.python.org/">Python</a> supported module.</p>
 <p>Only the build and installation phases are used when processing the sources for
@@ -2233,7 +2232,7 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 </div>
 <p>The following sections outline configuration options are available for a Python
 package.</p>
-<section id="python-build-defs">
+<div class="section" id="python-build-defs">
 <span id="id19"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
@@ -2243,8 +2242,8 @@ defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="python-build-env">
+</div>
+<div class="section" id="python-build-env">
 <span id="id20"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
@@ -2255,8 +2254,8 @@ is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="python-build-opts">
+</div>
+<div class="section" id="python-build-opts">
 <span id="id21"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
@@ -2275,8 +2274,8 @@ This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="python-install-defs">
+</div>
+<div class="section" id="python-install-defs">
 <span id="id22"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
@@ -2286,8 +2285,8 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="python-install-env">
+</div>
+<div class="section" id="python-install-env">
 <span id="id23"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
@@ -2298,8 +2297,8 @@ field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="python-install-opts">
+</div>
+<div class="section" id="python-install-opts">
 <span id="id24"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this headline">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
@@ -2318,8 +2317,8 @@ installation event. This field is optional.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="libfoo-python-interpreter">
+</div>
+<div class="section" id="libfoo-python-interpreter">
 <span id="python-interpreter"></span><h4>LIBFOO_PYTHON_INTERPRETER<a class="headerlink" href="#libfoo-python-interpreter" title="Permalink to this headline">¶</a></h4>
 <p>Defines a specific Python interpreter when processing the build and
 installation stages for a package. If not specified, the system’s Python
@@ -2327,12 +2326,12 @@ interpreter will be used. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-<section id="other">
+</div>
+</div>
+</div>
+<div class="section" id="other">
 <h2>other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
-<section id="post-processing">
+<div class="section" id="post-processing">
 <h3>post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2370,8 +2369,8 @@ multiple times. For example, if a developer decides to move a file out of the
 target directory into an interim directory when building an archive, it is most
 likely that a subsequent request to build may fail since the file can no longer
 be found inside the target directory.</p>
-</section>
-<section id="licenses">
+</div>
+<div class="section" id="licenses">
 <span id="license-information"></span><h3>licenses<a class="headerlink" href="#licenses" title="Permalink to this headline">¶</a></h3>
 <p>A releng-tool project can defined multiple packages, each with the possibility
 of having multiple licenses associated with them. Each project may vary: some
@@ -2401,8 +2400,8 @@ the generated document will be prefixed with the header content. For example,
 <p>A side note is that licenses for a project are generated before the
 <a class="reference internal" href="#post-processing">post-processing</a> phase; hence, generated license document(s) may be included
 when attempting to generated final archives/packages.</p>
-</section>
-<section id="patching">
+</div>
+<div class="section" id="patching">
 <h3>patching<a class="headerlink" href="#patching" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2449,8 +2448,8 @@ environment in <a class="reference internal" href="user-guide.html#local-sources
 patches will not be applied to the sources. This is to prevent the patching
 system from making unexpected modifications to a developer’s local source
 variants.</p>
-</section>
-<section id="internal-and-external-packages">
+</div>
+<div class="section" id="internal-and-external-packages">
 <h3>internal and external packages<a class="headerlink" href="#internal-and-external-packages" title="Permalink to this headline">¶</a></h3>
 <p>Packages are either internal packages or external packages. All packages are
 considered external packages by default unless explicitly configured as internal
@@ -2468,8 +2467,8 @@ performed if the package specifies a development revision
 <li><p>When configured for <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>; the fetch, extract and patch
 stages will not be performed.</p></li>
 </ul>
-</section>
-<section id="script-helpers">
+</div>
+<div class="section" id="script-helpers">
 <h3>script helpers<a class="headerlink" href="#script-helpers" title="Permalink to this headline">¶</a></h3>
 <p>releng-tool provides a series of helper functions which can be used in
 script-based packages, post-processing and more. Helper functions provided are
@@ -3168,8 +3167,8 @@ example, import a specific function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">releng_tool</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-</section>
-<section id="vcs-ignore">
+</div>
+<div class="section" id="vcs-ignore">
 <h3>vcs ignore<a class="headerlink" href="#vcs-ignore" title="Permalink to this headline">¶</a></h3>
 <p>When invoking releng-tool on a project, the project’s root directory will be
 populated with cached assets and other output files. A series of standard ignore
@@ -3183,8 +3182,8 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 .releng-flag-*
 </pre></div>
 </div>
-</section>
-<section id="quirks">
+</div>
+<div class="section" id="quirks">
 <span id="id25"></span><h3>quirks<a class="headerlink" href="#quirks" title="Permalink to this headline">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
@@ -3208,8 +3207,8 @@ when a Git-site-defined package is performing a fetch stage.</p></li>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="loading-extensions">
+</div>
+<div class="section" id="loading-extensions">
 <h3>loading extensions<a class="headerlink" href="#loading-extensions" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3260,9 +3259,9 @@ by the providers of said extensions.</p>
 <dd><p><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></p>
 </dd>
 </dl>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
