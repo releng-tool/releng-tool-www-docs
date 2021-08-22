@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="zh" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>附件a - 快速参考 &mdash; releng-tool  文档</title>
@@ -174,6 +175,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -273,6 +275,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">发行说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#development">development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
@@ -366,10 +369,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="annex-a-quick-reference">
+  <section id="annex-a-quick-reference">
 <h1>附件a - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="永久链接至标题">¶</a></h1>
 <p>我们有一个快速参考文档，列出了构建 releng-tool 项目的开发人员的可用选项。有关更多详细信息，请参阅 <a class="reference internal" href="developer-guide.html"><span class="doc">开发人员指南</span></a> 。</p>
-<div class="section" id="configuration-options">
+<section id="configuration-options">
 <h2>configuration options<a class="headerlink" href="#configuration-options" title="永久链接至标题">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
@@ -387,8 +390,8 @@
 <span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="environment-variables">
+</section>
+<section id="environment-variables">
 <h2>environment variables<a class="headerlink" href="#environment-variables" title="永久链接至标题">¶</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
@@ -434,8 +437,8 @@ releng-tool (may vary per context):</p>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_VERSION</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="package-options">
+</section>
+<section id="package-options">
 <h2>package options<a class="headerlink" href="#package-options" title="永久链接至标题">¶</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
@@ -457,6 +460,7 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_GIT_CONFIG</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_GIT_DEPTH</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
 <span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;refspec&gt;&#39;</span><span class="p">]</span> <span class="c1"># e.g. pull</span>
+<span class="n">LIBFOO_GIT_SUBMODULES</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
@@ -477,8 +481,8 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;version&gt;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="script-helpers">
+</section>
+<section id="script-helpers">
 <h2>script helpers<a class="headerlink" href="#script-helpers" title="永久链接至标题">¶</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
@@ -489,6 +493,7 @@ releng-tool (may vary per context):</p>
 <span class="n">releng_copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">releng_env</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span class="n">releng_execute</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">releng_execute_rv</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">releng_exists</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">releng_exit</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 <span class="n">releng_expand</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">kv</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
@@ -504,8 +509,8 @@ releng-tool (may vary per context):</p>
 <span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="quirks">
+</section>
+<section id="quirks">
 <h2>quirks<a class="headerlink" href="#quirks" title="永久链接至标题">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.cmake.disable_parallel_option
@@ -515,8 +520,8 @@ releng.disable_remote_scripts
 releng.git.no_depth
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

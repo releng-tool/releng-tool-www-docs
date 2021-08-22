@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="pl" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>releng-tool &mdash; releng-tool  - dokumentacja</title>
@@ -174,6 +175,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -273,6 +275,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">informacje o wydaniu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#development">development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
@@ -364,7 +367,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="releng-tool">
+  <section id="releng-tool">
 <h1>releng-tool<a class="headerlink" href="#releng-tool" title="Stały odnośnik do tego nagłówka">¶</a></h1>
 <p>releng-tool może pomóc podczas wydawania projektu. Pozwala ono użytkownikowi zdefiniować do przetworzenia jeden lub większą ilość pakietów. Każdy z pakietów ma możliwość wykonania ć kilka etapów: pobierania, dekompresji, łatania, konfigurowania, budowania i instalacji; to od projektu zależy, co dany pakiet będzie definiować. Najprostszym typem pakietu jest pakiet oparty na skryptach, który umożliwia użytkownikowi definiować dowolne skrypty dot. sposobu wykonywania różnych etapów wydawania projektu. Pakiet nie musi obowiązkowo obsługiwać wszystkich etapów. Dostarczone są pakiety pomocnicze, jak na przykład autotools, w przypadku projektów wykorzystujących możliwość wspólnego budowania.</p>
 <img alt="_images/overview.png" class="align-center" src="_images/overview.png" />
@@ -424,7 +427,7 @@
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</div>
+</section>
 
 
            </div>

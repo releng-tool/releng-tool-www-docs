@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="ja" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>必要条件 &mdash; releng-tool  ドキュメント</title>
@@ -175,6 +176,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -274,6 +276,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">バージョンノート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#development">development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
@@ -367,7 +370,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="requirements">
+  <section id="requirements">
 <h1>必要条件<a class="headerlink" href="#requirements" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> and requires either <a class="reference external" href="https://www.python.org/">Python</a> 2.7 or 3.4+ to
 run on a host system. A series of optional tools are required if certain stages
@@ -376,7 +379,7 @@ require the <code class="docutils literal notranslate"><span class="pre">git</sp
 <code class="docutils literal notranslate"><span class="pre">patch</span></code> tool.  While some features may be operating system-specific (e.g.
 autotools features are designed for Linux-based hosts), releng-tool can work on
 various operating system variants.</p>
-</div>
+</section>
 
 
            </div>

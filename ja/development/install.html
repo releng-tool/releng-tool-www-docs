@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="ja" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>インストール &mdash; releng-tool  ドキュメント</title>
@@ -175,6 +176,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -274,6 +276,7 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">バージョンノート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#development">development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
@@ -367,7 +370,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
+  <section id="installation">
 <h1>インストール<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>The recommended method of installation is using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install releng-tool
@@ -381,17 +384,17 @@ python -m pip install releng-tool
 python -m releng_tool --version
 </pre></div>
 </div>
-<div class="section" id="quick-start">
+<section id="quick-start">
 <h2>quick-start<a class="headerlink" href="#quick-start" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>The following provides a series of steps to assist in preparing a new
 environment to use this package. This quick-start will aim to use the most
 recent version of Python.</p>
-<div class="section" id="linux">
+<section id="linux">
 <h3>linux<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>While the use of <a class="reference external" href="https://www.python.org/">Python</a>/<a class="reference external" href="https://pip.pypa.io/">pip</a> is almost consistent between Linux distributions,
 the following are a series of helpful steps to install this package under
 specific distributions of Linux. From a terminal, invoke the following commands:</p>
-<div class="section" id="arch">
+<section id="arch">
 <h4>arch<a class="headerlink" href="#arch" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -Sy
 $ sudo pacman -S python-pip
@@ -400,8 +403,8 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="centos">
+</section>
+<section id="centos">
 <h4>centos<a class="headerlink" href="#centos" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo yum install epel-release
 $ sudo yum install python-pip
@@ -410,8 +413,8 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="fedora">
+</section>
+<section id="fedora">
 <h4>fedora<a class="headerlink" href="#fedora" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo dnf install python-pip
 $ sudo pip install releng-tool
@@ -419,16 +422,16 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="opensuse">
+</section>
+<section id="opensuse">
 <h4>opensuse<a class="headerlink" href="#opensuse" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install releng-tool
 $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="ubuntu">
+</section>
+<section id="ubuntu">
 <h4>ubuntu<a class="headerlink" href="#ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
 $ sudo apt-get install python-pip
@@ -437,9 +440,9 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="os-x">
+</section>
+</section>
+<section id="os-x">
 <h3>os x<a class="headerlink" href="#os-x" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>From a terminal, invoke the following commands:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo easy_install pip
@@ -448,8 +451,8 @@ $ releng-tool --version
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="windows">
+</section>
+<section id="windows">
 <h3>windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>If not already installed, download the most recent version of <a class="reference external" href="https://www.python.org/">Python</a>:</p>
 <blockquote>
@@ -467,17 +470,17 @@ path (the remainder of these steps will assume Python is available in the path).
 releng-tool &lt;version&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="development">
+</section>
+</section>
+<section id="development">
 <h2>development<a class="headerlink" href="#development" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>To install the most recent development sources, the following <a class="reference external" href="https://pip.pypa.io/">pip</a> command can
 be used:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/releng-tool/releng-tool.git
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
