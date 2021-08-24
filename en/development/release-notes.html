@@ -380,10 +380,14 @@ package’s build directory with the cached revision instead of the remote
 revision</p></li>
 <li><p>introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code> for package git-specific configurations</p></li>
 <li><p>introduce <code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code> helper script function</p></li>
+<li><p>introduce statistic tracking (stage durations) which generate to into the
+output folder after execution</p></li>
 <li><p>introduce support for package-specific distclean</p></li>
+<li><p>introduce support for package-specific license processing</p></li>
 <li><p>rework <code class="docutils literal notranslate"><span class="pre">LIBTOOL_GIT_REFSPECS</span></code> to provide more control over custom revisions
 that can be fixed (i.e. no longer fixed on <code class="docutils literal notranslate"><span class="pre">&lt;target&gt;/*/head</span></code>; instead, a
 configured value-wildcard string should be used)</p></li>
+<li><p>support faster git fetching</p></li>
 <li><p>support pruning any remote-tracked references in a git-cached project when a
 forced fetch request is made</p></li>
 <li><p>package-specific extraction/patching no longer requires dependency processing</p></li>

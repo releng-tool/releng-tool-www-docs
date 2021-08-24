@@ -3208,6 +3208,8 @@ remote-defined configurations for a package.</p></li>
 remote-defined scripts for a package.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_depth</span></code> -- Disables the <code class="docutils literal notranslate"><span class="pre">--depth</span></code> option from being injected
 when a Git-site-defined package is performing a fetch stage.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_quick_fetch</span></code> -- Disables quick fetching (a specific reference
+fetch) for any Git-site-defined package.</p></li>
 </ul>
 <p>Quirks are enabled through a configuration (override) script such as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>

@@ -549,14 +549,22 @@ processed before the specified package. If the
 provided package name does not exist, a
 notification will be generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></p></td>
+<td><p>A request to generate the license information
+for a specific package in a project. Note that
+license information requires acquiring license
+documents from the package itself. Therefore,
+the package will be fetched/extracted if not
+already done.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
 <td><p>Performs the patch stage for the package. On
 success, the specified package stage will have
 completed its patch stage. If the provided
 package name does not exist, a notification
 will be generated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a
 package has been built, the package will not
 attempt to be built again. Invoking a rebuild
@@ -575,7 +583,7 @@ rebuild stage are recommended to use
 understand this action's effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a
 package has been built, the package will not
 attempt to be built again. Invoking a rebuild
@@ -593,7 +601,7 @@ recommended to use <code class="docutils literal notranslate"><span class="pre">
 understand this action's effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
 <td><p>Force a re-configuration of a specific package.
 Once a package has been configured, the package
 will not attempt to configure it again.
@@ -614,7 +622,7 @@ instead.</p>
 understand this action's effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
 <td><p>Force a re-configuration of a specific package.
 Once a package has been configured, the package
 will not attempt to configure it again.
@@ -634,7 +642,7 @@ phase are recommended to use
 understand this action's effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
 <td><p>Force a re-installation of a specific package.
 Once a package has been installed, the package
 will not attempt to install it again. Invoking
