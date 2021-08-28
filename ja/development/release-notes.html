@@ -374,6 +374,7 @@ consult the project's <a class="reference external" href="https://github.com/rel
 <div class="section" id="development">
 <h2>development<a class="headerlink" href="#development" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li><p>allow dvcs packages to share caches (to minimize space/time fetching)</p></li>
 <li><p>fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on python
 2.7 with unicode-defined environment variables</p></li>
 <li><p>fixed an issue where a diverged revision in git would incorrectly populate a
@@ -388,6 +389,7 @@ output folder after execution</p></li>
 <li><p>rework <code class="docutils literal notranslate"><span class="pre">LIBTOOL_GIT_REFSPECS</span></code> to provide more control over custom revisions
 that can be fixed (i.e. no longer fixed on <code class="docutils literal notranslate"><span class="pre">&lt;target&gt;/*/head</span></code>; instead, a
 configured value-wildcard string should be used)</p></li>
+<li><p>support auto-detecting python interpreter path overrides in windows</p></li>
 <li><p>support faster git fetching</p></li>
 <li><p>support pruning any remote-tracked references in a git-cached project when a
 forced fetch request is made</p></li>
