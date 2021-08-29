@@ -173,6 +173,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -272,13 +273,14 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">versionshinweise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.8 (2021-08-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id8">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -472,7 +474,7 @@ the following content:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;invoked libx package build stage&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invoked libx package build stage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This is a very simple script-based package (all package options explained later
@@ -489,7 +491,7 @@ in this document). Repeat the same steps for the <code class="docutils literal n
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;invoked liby package build stage&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invoked liby package build stage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>One difference with this package is the definition of <code class="docutils literal notranslate"><span class="pre">LIBY_DEPENDENCIES</span></code>,
@@ -676,7 +678,7 @@ example, if the file <code class="docutils literal notranslate"><span class="pre
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;project target directory: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">TARGET_DIR</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;project target directory: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">TARGET_DIR</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>The target directory will be output to standard out at the end of the build. A
@@ -715,7 +717,7 @@ follows:</p>
 loaded as internal projects. By default, packages
 not explicitly configured as internal or external
 are assumed to be external packages.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_internal</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_internal</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
@@ -864,7 +866,7 @@ For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_translator</span><span class="p">(</span><span class="n">site</span><span class="p">):</span>
     <span class="k">if</span> <span class="s1">&#39;static.example.org&#39;</span> <span class="ow">in</span> <span class="n">site</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;tgz&#39;</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
 <span class="n">cache_ext</span> <span class="o">=</span> <span class="n">my_translator</span>
 </pre></div>
@@ -1434,7 +1436,7 @@ pulling from a branch, releng-tool will not attempt to re-fetch from a site
 since a cached content has already been fetched. If a developer configures a
 package to use a revision value with dynamic content, they may wish to use this
 option to have a user always force fetching new content from a clean state.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -1469,7 +1471,7 @@ option.</p>
 External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
 <a class="reference internal" href="#licenses">licenses</a> are missing. By default, packages are considered external unless
 explicitly configured to be internal.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
@@ -1480,7 +1482,7 @@ explicitly configured to be internal.</p>
 extension-specific capabilities can forward options to extensions by defining a
 dictionary of values.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTOPT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;option-a&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;option-a&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">&#39;option-b&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -1542,6 +1544,22 @@ fetching.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="libfoo-git-submodules">
+<h4>LIBFOO_GIT_SUBMODULES<a class="headerlink" href="#libfoo-git-submodules" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Flag value to indicate whether or not a package’s Git submodules should be
+fetched/extracted during a package’s own fetch/extraction stages. By default,
+submodules are not fetched. Ideally, any dependencies for a package are
+recommended to be defined in their own individual package; however, this may not
+be ideal for all environments. When configured, submodules will be cached in the
+same fashion as other Git-based packages. Note that submodule caching is
+specific to the repository being processed (i.e. they cannot be „shared“ between
+other packages). If multiple packages have the same dependency defined through a
+submodule, it is recommended to create a new package and reference its contents
+instead.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_SUBMODULES</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="libfoo-internal">
 <h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an internal package.
@@ -1550,7 +1568,7 @@ Internal packages will not generate warnings if <a class="reference internal" hr
 sources are searched for in the local directory opposed to site fetched sources.
 By default, packages are considered external unless explicitly configured to be
 internal.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
@@ -1568,7 +1586,7 @@ as building; since no sources are available).</p>
 contents. This feature is primarily used when using releng-tool to fetch content
 for one or more packages (into <code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code>) to be used by another package the
 releng-tool project defines.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>Limitations exist when using the <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> option. Since
@@ -1610,7 +1628,7 @@ by default, has the ability to load configuration information from a package’s
 source. If the package includes a <code class="docutils literal notranslate"><span class="pre">.releng-tool</span></code> file at the root of their
 sources, supported configuration options that have not been populated will be
 registered into the package before invoking a package’s configuration stage.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
@@ -1627,7 +1645,7 @@ a <code class="docutils literal notranslate"><span class="pre">libfoo-configure<
 script cannot be found and remote scripting is permitted for a package, the
 script (if exists) <code class="docutils literal notranslate"><span class="pre">releng-configure</span></code> will be loaded from the root of the
 package’s contents.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
@@ -1692,7 +1710,7 @@ trigger the bootstrapping stage for the package. An example bootstrapping script
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;perform bootstrapping work&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform bootstrapping work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> inside a package directory will
@@ -1701,7 +1719,7 @@ script (<code class="docutils literal notranslate"><span class="pre">libfoo-post
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Bootstrapping or post-processing scripts for a package are optional; thus, if no
@@ -1737,8 +1755,10 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 <div class="section" id="cvs-site">
 <h4>cvs site<a class="headerlink" href="#cvs-site" title="Link zu dieser Überschrift">¶</a></h4>
 <p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code>
-value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;cvs+:pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule&#39;</span>
+or other common CVSROOT value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;:pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule&#39;</span>
+<span class="c1"># (or)</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;cvs+:ext:cvs@cvs.example.org:/usr/local/cvsroot mymodule&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a space-separated pair, where the first part
@@ -1781,7 +1801,7 @@ pulled for the new revision (if it exists).</p>
 <h4>scp site<a class="headerlink" href="#scp-site" title="Link zu dieser Überschrift">¶</a></h4>
 <p>To define an SCP-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">scp+</span></code>
 value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;scp+TODO&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;scp+[user@]host:]file&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">scp</span></code> call’s
@@ -1908,7 +1928,7 @@ re-configuration. This is to assist in the rebuilding of GNU Build System files
 which may be broken or a patch has introduced new build script changes that need
 to be applied. This field is optional. By default, <code class="docutils literal notranslate"><span class="pre">autoreconf</span></code> is not
 invoked.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -2329,7 +2349,7 @@ post-processing script will be invoked in the final stage of a build.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;post processing...&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;post processing...&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The above script will output the newly inserted print message at the end of a
@@ -2616,21 +2636,31 @@ has failed</p>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>helper to easily configure an environment variable</p>
-<p>Provides a caller an simple method to configure an environment variable for
-the current context. This call is the same as if one directly added a
-key-value into <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>.</p>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">key</span></em>, <em class="sig-param"><span class="pre">value=&lt;object</span> <span class="pre">object&gt;</span></em><span class="sig-paren">)</span></dt>
+<dd><p>helper to easily fetch or configure an environment variable</p>
+<p>Provides a caller a simple method to fetch or configure an environment
+variable for the current context. This call is the same as if one directly
+fetched from or managed a key-value with <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>. If <code class="docutils literal notranslate"><span class="pre">value</span></code> is not
+provided, the environment variable’s value (if set) will be returned. If
+<code class="docutils literal notranslate"><span class="pre">value</span></code> is set to a value of <code class="docutils literal notranslate"><span class="pre">None</span></code>, any set environment variable will
+be removed.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get an environment variable</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">)</span>
+
+<span class="c1"># set an environment variable</span>
+<span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameter</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> – the environment key to set the value on</p></li>
-<li><p><strong>value</strong> – the environment value to set</p></li>
+<li><p><strong>key</strong> – the environment key</p></li>
+<li><p><strong>value</strong> (<em>optional</em>) – the environment value to set</p></li>
 </ul>
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p>the value of the environment variable</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2705,7 +2735,51 @@ execution has failed</p>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code></p></td>
+<td><dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute_rv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>execute the provided command/arguments</p>
+<p>Runs the command <code class="docutils literal notranslate"><span class="pre">command</span></code> with provided <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A
+caller can adjust the working directory of the executed command by
+explicitly setting the directory in <code class="docutils literal notranslate"><span class="pre">cwd</span></code>. The execution request will
+return the command’s return code as well as any captured output.</p>
+<p>The environment variables used on execution can be manipulated in two ways.
+First, the environment can be explicitly controlled by applying a new
+environment content using the <code class="docutils literal notranslate"><span class="pre">env</span></code> dictionary. Key of the dictionary will
+be used as environment variable names, whereas the respective values will be
+the respective environment variable’s value. If <code class="docutils literal notranslate"><span class="pre">env</span></code> is not provided, the
+existing environment of the executing context will be used. Second, a caller
+can instead update the existing environment by using the <code class="docutils literal notranslate"><span class="pre">env_update</span></code>
+option. Like <code class="docutils literal notranslate"><span class="pre">env</span></code>, the key-value pairs match to respective environment
+key-value pairs. The difference with this option is that the call will use
+the original environment values and update select values which match in the
+updated environment request. When <code class="docutils literal notranslate"><span class="pre">env</span></code> and <code class="docutils literal notranslate"><span class="pre">env_update</span></code> are both
+provided, <code class="docutils literal notranslate"><span class="pre">env_update</span></code> will be updated the options based off of <code class="docutils literal notranslate"><span class="pre">env</span></code>
+instead of the original environment of the caller.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rv</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">releng_execute_rv</span><span class="p">(</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;env-test&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameter</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> – the command to invoke</p></li>
+<li><p><strong>*args</strong> (<em>optional</em>) – arguments to add to the command</p></li>
+<li><p><strong>**cwd</strong> – working directory to use</p></li>
+<li><p><strong>**env</strong> – environment variables to use for the process</p></li>
+<li><p><strong>**env_update</strong> – environment variables to append for the process</p></li>
+</ul>
+</dd>
+<dt class="field-even">Rückgabe</dt>
+<dd class="field-even"><p>the return code and output of the execution request</p>
+</dd>
+</dl>
+</dd></dl>
+
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -2714,9 +2788,9 @@ execution has failed</p>
 call will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_exists</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the file exists&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the file exists&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the file does not exist&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the file does not exist&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2734,7 +2808,7 @@ call will return <code class="docutils literal notranslate"><span class="pre">Tr
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
@@ -2767,7 +2841,7 @@ if a message is set</p></li>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
@@ -2789,7 +2863,7 @@ duplicate entries.</p>
 
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MY_ENV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;my-environment-variable&#39;</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">releng_expand</span><span class="p">(</span><span class="s1">&#39;$MY_ENV&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="c1"># will output: my-environment-variable</span>
 </pre></div>
 </div>
@@ -2808,7 +2882,7 @@ duplicate entries.</p>
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
 <td><dl class="py method">
 <dt class="sig sig-object py" id="releng_tool.releng_join">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="Link zu dieser Definition">¶</a></dt>
@@ -2817,7 +2891,7 @@ duplicate entries.</p>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
@@ -2829,9 +2903,9 @@ detected, an error message will be output to standard error (unless
 <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_mkdir</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;directory was created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was created&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2851,7 +2925,7 @@ be created</p>
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
@@ -2902,7 +2976,7 @@ has failed</p>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
@@ -2934,19 +3008,19 @@ path could not be removed from the system</p>
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_tmpdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>generate a context-supported temporary directory</p>
-<p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir</span></code> (or system
+<p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir_</span></code> (or system
 default, is not provided). This is a context-supported call and will
 automatically remove the directory when completed. If the provided
 directory does not exist, it will created. If the directory could not be
 created, an <code class="docutils literal notranslate"><span class="pre">FailedToPrepareBaseDirectoryError</span></code> exception will be thrown.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">()</span> <span class="k">as</span> <span class="nb">dir</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">()</span> <span class="k">as</span> <span class="n">dir_</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dir_</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2962,7 +3036,7 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_touch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span></dt>
@@ -2972,9 +3046,9 @@ does not exist, it will be created. This utility call operates in the same
 fashion as the <code class="docutils literal notranslate"><span class="pre">touch</span></code> system command.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_touch</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;file was created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file was created&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;file was not created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file was not created&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2990,7 +3064,7 @@ not be created/updated</p>
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_wd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
@@ -3020,7 +3094,7 @@ thrown.</p>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -3043,7 +3117,7 @@ generating a formatted message</p></li>
 
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -3067,7 +3141,7 @@ generating a formatted message</p></li>
 
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">warn</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">warn</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -3137,6 +3211,8 @@ remote-defined configurations for a package.</p></li>
 remote-defined scripts for a package.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_depth</span></code> – Disables the <code class="docutils literal notranslate"><span class="pre">--depth</span></code> option from being injected
 when a Git-site-defined package is performing a fetch stage.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_quick_fetch</span></code> – Disables quick fetching (a specific reference
+fetch) for any Git-site-defined package.</p></li>
 </ul>
 <p>Quirks are enabled through a configuration (override) script such as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
@@ -3261,11 +3337,11 @@ by the providers of said extensions.</p>
     
       <dd><a href="https://docs.releng.io/de/0.7/">0.7</a></dd>
     
+      <dd><a href="https://docs.releng.io/de/0.7/">0.7</a></dd>
+    
       <dd><a href="https://docs.releng.io/de/0.6/">0.6</a></dd>
     
       <dd><a href="https://docs.releng.io/de/0.5/">0.5</a></dd>
-    
-      <dd><a href="https://docs.releng.io/de/0.4/">0.4</a></dd>
     
   </dl>
   <dl>

@@ -89,7 +89,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">legacy version | <a href="https://docs.releng.io/en/latest/">stable v0.7</a></div>
+    <div class="version-warning">legacy version | <a href="https://docs.releng.io/en/latest/">stable v0.8</a></div>
     
     
             
@@ -466,7 +466,7 @@ the following content:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;invoked libx package build stage&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invoked libx package build stage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This is a very simple script-based package (all package options explained later
@@ -483,7 +483,7 @@ in this document). Repeat the same steps for the <code class="docutils literal n
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;invoked liby package build stage&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invoked liby package build stage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>One difference with this package is the definition of <code class="docutils literal notranslate"><span class="pre">LIBY_DEPENDENCIES</span></code>,
@@ -670,7 +670,7 @@ example, if the file <code class="docutils literal notranslate"><span class="pre
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;project target directory: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">TARGET_DIR</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;project target directory: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">TARGET_DIR</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>The target directory will be output to standard out at the end of the build. A
@@ -709,7 +709,7 @@ follows:</p>
 loaded as internal projects. By default, packages
 not explicitly configured as internal or external
 are assumed to be external packages.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_internal</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_internal</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
@@ -842,7 +842,7 @@ For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_translator</span><span class="p">(</span><span class="n">site</span><span class="p">):</span>
     <span class="k">if</span> <span class="s1">&#39;static.example.org&#39;</span> <span class="ow">in</span> <span class="n">site</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;tgz&#39;</span>
-    <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
 <span class="n">cache_ext</span> <span class="o">=</span> <span class="n">my_translator</span>
 </pre></div>
@@ -1391,7 +1391,7 @@ pulling from a branch, releng-tool will not attempt to re-fetch from a site
 since a cached content has already been fetched. If a developer configures a
 package to use a revision value with dynamic content, they may wish to use this
 option to have a user always force fetching new content from a clean state.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -1426,7 +1426,7 @@ option.</p>
 External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
 <a class="reference internal" href="#licenses">licenses</a> are missing. By default, packages are considered external unless
 explicitly configured to be internal.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
@@ -1437,7 +1437,7 @@ explicitly configured to be internal.</p>
 extension-specific capabilities can forward options to extensions by defining a
 dictionary of values.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTOPT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;option-a&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s1">&#39;option-a&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">&#39;option-b&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -1495,7 +1495,7 @@ Internal packages will not generate warnings if <a class="reference internal" hr
 sources are searched for in the local directory opposed to site fetched sources.
 By default, packages are considered external unless explicitly configured to be
 internal.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
@@ -1513,7 +1513,7 @@ as building; since no sources are available).</p>
 contents. This feature is primarily used when using releng-tool to fetch content
 for one or more packages (into <code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code>) to be used by another package the
 releng-tool project defines.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>Limitations exist when using the <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> option. Since
@@ -1607,7 +1607,7 @@ trigger the bootstrapping stage for the package. An example bootstrapping script
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;perform bootstrapping work&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform bootstrapping work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> inside a package directory will
@@ -1616,7 +1616,7 @@ script (<code class="docutils literal notranslate"><span class="pre">libfoo-post
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Bootstrapping or post-processing scripts for a package are optional; thus, if no
@@ -1822,7 +1822,7 @@ re-configuration. This is to assist in the rebuilding of GNU Build System files
 which may be broken or a patch has introduced new build script changes that need
 to be applied. This field is optional. By default, <code class="docutils literal notranslate"><span class="pre">autoreconf</span></code> is not
 invoked.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -2243,7 +2243,7 @@ post-processing script will be invoked in the final stage of a build.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;post processing...&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;post processing...&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The above script will output the newly inserted print message at the end of a
@@ -2628,9 +2628,9 @@ execution has failed</p>
 call will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_exists</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the file exists&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the file exists&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the file does not exist&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the file does not exist&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2703,7 +2703,7 @@ duplicate entries.</p>
 
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MY_ENV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;my-environment-variable&#39;</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">releng_expand</span><span class="p">(</span><span class="s1">&#39;$MY_ENV&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="c1"># will output: my-environment-variable</span>
 </pre></div>
 </div>
@@ -2743,9 +2743,9 @@ detected, an error message will be output to standard error (unless
 <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_mkdir</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;directory was created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was created&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2860,7 +2860,7 @@ directory does not exist, it will created. If the directory could not be
 created, an <code class="docutils literal notranslate"><span class="pre">FailedToPrepareBaseDirectoryError</span></code> exception will be thrown.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">()</span> <span class="k">as</span> <span class="nb">dir</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2886,9 +2886,9 @@ does not exist, it will be created. This utility call operates in the same
 fashion as the <code class="docutils literal notranslate"><span class="pre">touch</span></code> system command.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_touch</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;file was created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file was created&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;file was not created&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file was not created&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -3169,11 +3169,11 @@ by the providers of said extensions.</p>
     
       <dd><a href="https://docs.releng.io/en/0.7/">0.7</a></dd>
     
+      <dd><a href="https://docs.releng.io/en/0.7/">0.7</a></dd>
+    
       <dd><a href="https://docs.releng.io/en/0.6/">0.6</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.5/">0.5</a></dd>
-    
-      <dd><a href="https://docs.releng.io/en/0.4/">0.4</a></dd>
     
   </dl>
   <dl>

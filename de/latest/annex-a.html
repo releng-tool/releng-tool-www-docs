@@ -173,6 +173,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-config">LIBFOO_GIT_CONFIG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -272,13 +273,14 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">versionshinweise</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.7 (2021-08-08)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.8 (2021-08-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id8">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -458,6 +460,7 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_GIT_CONFIG</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_GIT_DEPTH</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
 <span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;refspec&gt;&#39;</span><span class="p">]</span> <span class="c1"># e.g. pull</span>
+<span class="n">LIBFOO_GIT_SUBMODULES</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
@@ -487,18 +490,19 @@ releng-tool (may vary per context):</p>
 <span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">note</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">releng_env</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="n">releng_execute</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">releng_env</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">releng_execute</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">releng_execute_rv</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">releng_exists</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_exit</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_expand</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">kv</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">releng_exit</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">releng_expand</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">kv</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">releng_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_mkdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">releng_remove</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">releng_tmpdir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_touch</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="n">releng_mkdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">releng_remove</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">releng_tmpdir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">releng_touch</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 <span class="n">releng_wd</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 <span class="n">success</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">verbose</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -514,6 +518,7 @@ releng.disable_prerequisites_check
 releng.disable_remote_configs
 releng.disable_remote_scripts
 releng.git.no_depth
+releng.git.no_quick_fetch
 </pre></div>
 </div>
 </div>
@@ -580,11 +585,11 @@ releng.git.no_depth
     
       <dd><a href="https://docs.releng.io/de/0.7/">0.7</a></dd>
     
+      <dd><a href="https://docs.releng.io/de/0.7/">0.7</a></dd>
+    
       <dd><a href="https://docs.releng.io/de/0.6/">0.6</a></dd>
     
       <dd><a href="https://docs.releng.io/de/0.5/">0.5</a></dd>
-    
-      <dd><a href="https://docs.releng.io/de/0.4/">0.4</a></dd>
     
   </dl>
   <dl>

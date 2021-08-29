@@ -89,7 +89,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">旧版本 | <a href="https://docs.releng.io/zh/latest/">稳定 v0.7</a></div>
+    <div class="version-warning">旧版本 | <a href="https://docs.releng.io/zh/latest/">稳定 v0.8</a></div>
     
     
             
@@ -461,18 +461,18 @@ releng-tool (may vary per context):</p>
 <span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">note</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">releng_env</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<span class="n">releng_execute</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">releng_execute</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">releng_exists</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_exit</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_expand</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">kv</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">releng_exit</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">releng_expand</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">kv</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">releng_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_mkdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">releng_remove</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">releng_tmpdir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">releng_touch</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+<span class="n">releng_mkdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">releng_remove</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">releng_tmpdir</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">releng_touch</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 <span class="n">releng_wd</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 <span class="n">success</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">verbose</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -543,11 +543,11 @@ releng-tool (may vary per context):</p>
     
       <dd><a href="https://docs.releng.io/zh/0.7/">0.7</a></dd>
     
+      <dd><a href="https://docs.releng.io/zh/0.7/">0.7</a></dd>
+    
       <dd><a href="https://docs.releng.io/zh/0.6/">0.6</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.5/">0.5</a></dd>
-    
-      <dd><a href="https://docs.releng.io/zh/0.4/">0.4</a></dd>
     
   </dl>
   <dl>
