@@ -1756,8 +1756,10 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 <div class="section" id="cvs-site">
 <h4>cvs site<a class="headerlink" href="#cvs-site" title="Permalink to this headline">¶</a></h4>
 <p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code>
-value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;cvs+:pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule&#39;</span>
+or other common CVSROOT value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;:pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule&#39;</span>
+<span class="c1"># (or)</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;cvs+:ext:cvs@cvs.example.org:/usr/local/cvsroot mymodule&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a space-separated pair, where the first part
@@ -3012,14 +3014,14 @@ path could not be removed from the system</p>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_tmpdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>generate a context-supported temporary directory</p>
-<p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir</span></code> (or system
+<p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir_</span></code> (or system
 default, is not provided). This is a context-supported call and will
 automatically remove the directory when completed. If the provided
 directory does not exist, it will created. If the directory could not be
 created, an <code class="docutils literal notranslate"><span class="pre">FailedToPrepareBaseDirectoryError</span></code> exception will be thrown.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">()</span> <span class="k">as</span> <span class="nb">dir</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">()</span> <span class="k">as</span> <span class="n">dir_</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dir_</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
