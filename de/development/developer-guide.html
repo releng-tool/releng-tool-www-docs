@@ -176,6 +176,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-git-verify-revision">LIBFOO_GIT_VERIFY_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -198,6 +199,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#hash-file">hash file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ascii-armor">ascii armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#script-package-default">script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#autotools-package">autotools package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-autotools-autoreconf">LIBFOO_AUTOTOOLS_AUTORECONF</a></li>
@@ -1471,9 +1473,9 @@ option.</p>
 <div class="section" id="libfoo-external">
 <h4>LIBFOO_EXTERNAL<a class="headerlink" href="#libfoo-external" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an external package.
-External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
-<a class="reference internal" href="#licenses">licenses</a> are missing. By default, packages are considered external unless
-explicitly configured to be internal.</p>
+External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. By default,
+packages are considered external unless explicitly configured to be internal.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
@@ -1563,14 +1565,25 @@ instead.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="libfoo-git-verify-revision">
+<h4>LIBFOO_GIT_VERIFY_REVISION<a class="headerlink" href="#libfoo-git-verify-revision" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Flag value to indicate whether or not the target revision is required to be
+signed before it can be used. When this value is set, the configured revision
+for a repository will not be extracted unless the GPG signature. This includes
+if the public key for the author is not registered in the local system or if the
+target revision is not signed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_VERIFY_REVISION</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="libfoo-internal">
 <h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an internal package.
-Internal packages will not generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
-<a class="reference internal" href="#licenses">licenses</a> are missing. When configured in <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>, package
-sources are searched for in the local directory opposed to site fetched sources.
-By default, packages are considered external unless explicitly configured to be
-internal.</p>
+Internal packages will not generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. When configured in
+<a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>, package sources are searched for in the local
+directory opposed to site fetched sources. By default, packages are considered
+external unless explicitly configured to be internal.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
@@ -1581,9 +1594,10 @@ internal.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
-define additional <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, define a list of
-<code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> to manage or expect to support various actions (such
-as building; since no sources are available).</p>
+define additional <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, configure an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a>, define a list of <code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code>
+to manage or expect to support various actions (such as building; since no
+sources are available).</p>
 </div>
 <p>Flag value to explicitly indicate that a package should not extract the package
 contents. This feature is primarily used when using releng-tool to fetch content
@@ -1841,9 +1855,15 @@ more.</p>
 </div>
 <div class="section" id="hash-file">
 <span id="hash-files"></span><h3>hash file<a class="headerlink" href="#hash-file" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>An alternative to using a hash to validate a package’s cache is to use an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> instead. Although users can benefit from
+using both validation methods, if desired.</p>
+</div>
 <p>When downloading assets from a remote instance, a package’s hash file can be
 used to help verify the integrity of any fetched content. For example, if a
-package lists a host with a <code class="docutils literal notranslate"><span class="pre">my-archive.tgz</span></code> to download, the fetch process
+package lists a site with a <code class="docutils literal notranslate"><span class="pre">my-archive.tgz</span></code> to download, the fetch process
 will download the archive and verify its hash to a listed entry before
 continuing. If a hash does not match, the build process stops indicating an
 unexpected asset was downloaded.</p>
@@ -1880,6 +1900,24 @@ systems:</p>
 sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
 </pre></div>
 </div>
+</div>
+<div class="section" id="ascii-armor">
+<span id="id10"></span><h3>ascii armor<a class="headerlink" href="#ascii-armor" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>An alternative to using an ASCII-armor to validate a package’s cache is to
+use <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> instead.</p>
+</div>
+<p>When downloading assets from a remote instance, an ASCII-armor file can be used
+to help verify the integrity of any fetched content. For example, if a package
+lists a site with a <code class="docutils literal notranslate"><span class="pre">my-archive.tgz</span></code> to download, the fetch process will
+download the archive and verify its contents with an associated ASCII-armor file
+(if one is provided). If the integrity of the file cannot be verified, the build
+process stops indicating an unexpected asset was downloaded.</p>
+<p>To include an ASCII-armor file for a package, add a <code class="docutils literal notranslate"><span class="pre">&lt;my-package&gt;.asc</span></code> file
+inside the package’s directory. Verification is performed using the host
+system’s <code class="docutils literal notranslate"><span class="pre">gpg</span></code>. For verification’s to succeed, the system must already have
+the required public keys registered.</p>
 </div>
 <div class="section" id="script-package-default">
 <h3>script package (default)<a class="headerlink" href="#script-package-default" title="Link zu dieser Überschrift">¶</a></h3>
@@ -2093,7 +2131,7 @@ can override this option by explicitly adjusting the configuration option
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
 <div class="section" id="cmake-build-defs">
-<span id="id10"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id11"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2104,7 +2142,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-env">
-<span id="id11"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id12"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2116,7 +2154,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-opts">
-<span id="id12"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id13"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2136,7 +2174,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-defs">
-<span id="id13"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id14"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2147,7 +2185,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-env">
-<span id="id14"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id15"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2159,7 +2197,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-opts">
-<span id="id15"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id16"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2179,7 +2217,7 @@ configuration event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-defs">
-<span id="id16"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id17"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2190,7 +2228,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-env">
-<span id="id17"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id18"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2202,7 +2240,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-opts">
-<span id="id18"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id19"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2237,7 +2275,7 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 <p>The following sections outline configuration options are available for a Python
 package.</p>
 <div class="section" id="python-build-defs">
-<span id="id19"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id20"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2248,7 +2286,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-env">
-<span id="id20"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id21"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2260,7 +2298,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-opts">
-<span id="id21"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id22"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2280,7 +2318,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-defs">
-<span id="id22"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id23"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2291,7 +2329,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-env">
-<span id="id23"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id24"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2303,7 +2341,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-opts">
-<span id="id24"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
+<span id="id25"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Link zu dieser Überschrift">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2462,7 +2500,8 @@ configuration <a class="reference internal" href="#conf-default-intern"><code cl
 types are almost treated the same except for the following:</p>
 <ul class="simple">
 <li><p>An internal package will not generate output warnings if the package is
-missing <a class="reference internal" href="#hash-files"><span class="std std-ref">hash information</span></a>.</p></li>
+missing <a class="reference internal" href="#hash-files"><span class="std std-ref">hash information</span></a> or an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a>.</p></li>
 <li><p>An internal package will not generate output warnings if the package is
 missing <a class="reference internal" href="#license-information"><span class="std std-ref">license information</span></a>.</p></li>
 <li><p>When configured for <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>; the patch stage will not be
@@ -3198,7 +3237,7 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 </div>
 </div>
 <div class="section" id="quirks">
-<span id="id25"></span><h3>quirks<a class="headerlink" href="#quirks" title="Link zu dieser Überschrift">¶</a></h3>
+<span id="id26"></span><h3>quirks<a class="headerlink" href="#quirks" title="Link zu dieser Überschrift">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
