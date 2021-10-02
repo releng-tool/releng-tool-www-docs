@@ -1345,7 +1345,10 @@ option to have a user always force fetching new content from a clean state.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
-<p>By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>By default, this option is not defined and results can vary based off the site
+type being fetched. In most cases, fetch operations will treat the default case
+of this option as disabled (<code class="docutils literal notranslate"><span class="pre">False</span></code>). DVCS site types may elect to enable this
+option by default (<code class="docutils literal notranslate"><span class="pre">True</span></code>) if the target revision is a branch.</p>
 </div>
 <div class="section" id="libfoo-devmode-revision">
 <h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="Link zu dieser Überschrift"></a></h4>
