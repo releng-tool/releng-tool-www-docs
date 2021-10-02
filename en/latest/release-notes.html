@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
 
@@ -172,6 +174,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-verify-revision">LIBFOO_GIT_VERIFY_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -194,6 +197,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#hash-file">hash file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#ascii-armor">ascii armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-package-default">script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#autotools-package">autotools package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-autotools-autoreconf">LIBFOO_AUTOTOOLS_AUTORECONF</a></li>
@@ -271,14 +275,15 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">release notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.8 (2021-08-28)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.7 (2021-08-08)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.9 (2021-10-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.8 (2021-08-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -369,7 +374,19 @@
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
 <div class="section" id="id1">
-<h2>0.8 (2021-08-28)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.9 (2021-10-02)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>fixed an import issue when running with python 3.10</p></li>
+<li><p>fixed an issue where a cyclic package check provided a bad message</p></li>
+<li><p>fixed an issue where a git submodule with a target branch may fail to extract</p></li>
+<li><p>post-processing script renamed to <code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code></p></li>
+<li><p>support development mode relaxed branch fetching for git sites</p></li>
+<li><p>support requiring a git source’s revision to be gpg-signed</p></li>
+<li><p>support using ascii-armor (asc) files to package integrity checks</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>0.8 (2021-08-28)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>allow dvcs packages to share caches (to minimize space/time fetching)</p></li>
 <li><p>fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on python
@@ -393,8 +410,8 @@ forced fetch request is made</p></li>
 <li><p>package-specific extraction/patching no longer requires dependency processing</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>0.7 (2021-08-08)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.7 (2021-08-08)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>fetch from an already cached package’s site if the fetch is explicitly
 requested</p></li>
@@ -415,8 +432,8 @@ to force re-invoking a specific stage</p></li>
 <li><p>support loading remote package scripts</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>0.6 (2020-10-10)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>0.6 (2020-10-10)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>always register optional flags inside scripts (allowing developers to use
 flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
@@ -431,14 +448,14 @@ output by default</p></li>
 an interim)</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>0.5 (2020-09-07)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>0.5 (2020-09-07)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>fixed false error when verifying cached git reference</p></li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>0.4 (2020-09-07)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
 <li><p>allow setting quirks in command line</p></li>
@@ -449,8 +466,8 @@ an interim)</p></li>
 <li><p>introduce support for shallow git fetching</p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>allow packages to configure for no-extraction for sources</p></li>
@@ -461,8 +478,8 @@ an interim)</p></li>
 <li><p>introduce support for package-specific bootstrapping stage</p></li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>a project’s host directory will now be registered in the system’s path during
 execution</p></li>
@@ -471,8 +488,8 @@ execution</p></li>
 <li><p>re-work various script names (e.g. <code class="docutils literal notranslate"><span class="pre">releng.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">releng</span></code>)</p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>hello world</p></li>
 </ul>
@@ -537,13 +554,13 @@ execution</p></li>
     
       <dd><a href="https://docs.releng.io/en/latest/">latest</a></dd>
     
+      <dd><a href="https://docs.releng.io/en/0.9/">0.9</a></dd>
+    
       <dd><a href="https://docs.releng.io/en/0.8/">0.8</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.7/">0.7</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.6/">0.6</a></dd>
-    
-      <dd><a href="https://docs.releng.io/en/0.5/">0.5</a></dd>
     
   </dl>
   <dl>

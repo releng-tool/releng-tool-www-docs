@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
 
@@ -174,6 +176,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#libfoo-git-verify-revision">LIBFOO_GIT_VERIFY_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -196,6 +199,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#hash-file">hash file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ascii-armor">ascii armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#script-package-default">script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#autotools-package">autotools package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#libfoo-autotools-autoreconf">LIBFOO_AUTOTOOLS_AUTORECONF</a></li>
@@ -273,14 +277,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">バージョンノート</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.8 (2021-08-28)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.7 (2021-08-08)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id8">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.9 (2021-10-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.8 (2021-08-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id8">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id9">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -455,9 +460,9 @@ processed. If there is no desire to make a simple project example, one may
 venture to the <a class="reference internal" href="#actually-getting-started">actually getting started</a> section.</p>
 <p>To start, make a new folder for the project, two sample packages and move into
 the root folder:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir -p my-project/package/libx
-$ mkdir -p my-project/package/liby
-$ <span class="nb">cd</span> my-project/
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir -p my-project/package/libx
+<span class="gp">$ </span>mkdir -p my-project/package/liby
+<span class="gp">$ </span><span class="nb">cd</span> my-project/
 </pre></div>
 </div>
 <p>Inside the <code class="docutils literal notranslate"><span class="pre">libx</span></code> project, the package definition and script-based files will
@@ -511,19 +516,19 @@ configuration file with the following contents:</p>
 </div>
 <p>This sample project should be ready for a spin. While in the <code class="docutils literal notranslate"><span class="pre">my-project</span></code>
 folder, invoke <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool
-patching libx...
-configuring libx...
-building libx...
-invoked libx package build stage
-installing libx...
-patching liby...
-configuring liby...
-building liby...
-invoked liby package build stage
-installing liby...
-generating license information...
-<span class="o">(</span>success<span class="o">)</span> completed <span class="o">(</span><span class="m">0</span>:00:00<span class="o">)</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
+<span class="go">patching libx...</span>
+<span class="go">configuring libx...</span>
+<span class="go">building libx...</span>
+<span class="go">invoked libx package build stage</span>
+<span class="go">installing libx...</span>
+<span class="go">patching liby...</span>
+<span class="go">configuring liby...</span>
+<span class="go">building liby...</span>
+<span class="go">invoked liby package build stage</span>
+<span class="go">installing liby...</span>
+<span class="go">generating license information...</span>
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">completed (0:00:00)</span>
 </pre></div>
 </div>
 <p>This above output shows that the <code class="docutils literal notranslate"><span class="pre">libx</span></code> package's stage are invoke followed by
@@ -531,7 +536,7 @@ generating license information...
 package script has been invoked. While this example only prints a message, more
 elaborate scripts can be made to handle a package's source to build.</p>
 <p>To clean the project, a <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">clean</span></code> request can be invoked:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool clean
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool clean
 </pre></div>
 </div>
 <p>Now the project is in a state again to perform a fresh build. This concludes the
@@ -542,8 +547,8 @@ prepare for steps to make a real releng-tool project.</p>
 <h2>actually getting started<a class="headerlink" href="#actually-getting-started" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Start building a new releng-tool project by creating the following root and
 package folders for a project, and venture into the root folder:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir -p &lt;my-project&gt;/package
-$ <span class="nb">cd</span> &lt;my-project&gt;/
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir -p &lt;my-project&gt;/package
+<span class="gp">$ </span><span class="nb">cd</span> &lt;my-project&gt;/
 </pre></div>
 </div>
 <p>Inside the root folder, create a releng-tool configuration file <code class="docutils literal notranslate"><span class="pre">releng</span></code> with
@@ -561,7 +566,7 @@ release engineering process. For example, packages can be individual static
 libraries, simple asset fetching (e.g. image/document downloading) and more.</p>
 <p>For each package, create a new folder inside <code class="docutils literal notranslate"><span class="pre">&lt;my-project&gt;/package</span></code> to
 represent the package.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir &lt;my-project&gt;/package/&lt;my-package&gt;
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir &lt;my-project&gt;/package/&lt;my-package&gt;
 </pre></div>
 </div>
 <p>Inside each newly created package, create a package definition file. This
@@ -639,7 +644,7 @@ needs to be explicitly listed:</p>
 and processed like any other package.</p>
 <p>Once all the project's packages are ready, a developer can try their luck by
 attempting to perform the release engineering process:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
 </pre></div>
 </div>
 <p>A developer may not have luck on the first go. Tweaks may be needed on the
@@ -647,16 +652,16 @@ package definitions, custom scripts (if used) and issues found in sources. A
 developer may invoke <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> multiple times to attempt to continue the
 build process for a project. A developer may wish to use the <code class="docutils literal notranslate"><span class="pre">clean</span></code> option to
 remove an existing extracted sources/partially built sources:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool clean
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool clean
 </pre></div>
 </div>
 <p>Or start from a completely fresh state using <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> to remove any built
 images and file mode flags:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool mrproper
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool mrproper
 </pre></div>
 </div>
 <p>There may also be times if a single project needs to be cleaned:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool my-package-clean
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool my-package-clean
 </pre></div>
 </div>
 <p>Consult the <a class="reference internal" href="user-guide.html"><span class="doc">user's guide</span></a> for more action information.</p>
@@ -670,11 +675,11 @@ common that a developer wants to package some assets (whether it be a
 tar/zip/etc. container, pkg/rpm/etc. package or more). A developer could deal
 with such a capability outside the releng-tool process; but if a developer
 wishes to hook the end of the process, a post-processing script can be used.</p>
-<p>A developer may create a post-processing file <code class="docutils literal notranslate"><span class="pre">releng-post</span></code> in the root
+<p>A developer may create a post-processing file <code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code> in the root
 directory. On the completion of processing each package, the post-processing
 script will be invoked. It is important to note that the post-processing script
 may be invoked multiple times if a user attempts to rebuild the project. For
-example, if the file <code class="docutils literal notranslate"><span class="pre">releng-post</span></code> has the following contents:</p>
+example, if the file <code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code> has the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -1439,7 +1444,10 @@ option to have a user always force fetching new content from a clean state.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<p>By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>By default, this option is not defined and results can vary based off the site
+type being fetched. In most cases, fetch operations will treat the default case
+of this option as disabled (<code class="docutils literal notranslate"><span class="pre">False</span></code>). DVCS site types may elect to enable this
+option by default (<code class="docutils literal notranslate"><span class="pre">True</span></code>) if the target revision is a branch.</p>
 </div>
 <div class="section" id="libfoo-devmode-revision">
 <h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -1468,9 +1476,9 @@ option.</p>
 <div class="section" id="libfoo-external">
 <h4>LIBFOO_EXTERNAL<a class="headerlink" href="#libfoo-external" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an external package.
-External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
-<a class="reference internal" href="#licenses">licenses</a> are missing. By default, packages are considered external unless
-explicitly configured to be internal.</p>
+External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. By default,
+packages are considered external unless explicitly configured to be internal.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
@@ -1540,7 +1548,7 @@ Git fetch request will acquire all <code class="docutils literal notranslate"><s
 developer wishes use revisions from different refspecs (for example, a pull
 request), a developer can specify the additional refspecs to acquire when
 fetching.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pull&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pull/*&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1560,14 +1568,25 @@ instead.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="libfoo-git-verify-revision">
+<h4>LIBFOO_GIT_VERIFY_REVISION<a class="headerlink" href="#libfoo-git-verify-revision" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Flag value to indicate whether or not the target revision is required to be
+signed before it can be used. When this value is set, the configured revision
+for a repository will not be extracted unless the GPG signature. This includes
+if the public key for the author is not registered in the local system or if the
+target revision is not signed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_VERIFY_REVISION</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="libfoo-internal">
 <h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an internal package.
-Internal packages will not generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> or
-<a class="reference internal" href="#licenses">licenses</a> are missing. When configured in <a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>, package
-sources are searched for in the local directory opposed to site fetched sources.
-By default, packages are considered external unless explicitly configured to be
-internal.</p>
+Internal packages will not generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. When configured in
+<a class="reference internal" href="user-guide.html#local-sources-mode"><span class="std std-ref">local-sources mode</span></a>, package sources are searched for in the local
+directory opposed to site fetched sources. By default, packages are considered
+external unless explicitly configured to be internal.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
@@ -1578,9 +1597,10 @@ internal.</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
-define additional <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, define a list of
-<code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> to manage or expect to support various actions (such
-as building; since no sources are available).</p>
+define additional <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, configure an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a>, define a list of <code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code>
+to manage or expect to support various actions (such as building; since no
+sources are available).</p>
 </div>
 <p>Flag value to explicitly indicate that a package should not extract the package
 contents. This feature is primarily used when using releng-tool to fetch content
@@ -1838,9 +1858,15 @@ more.</p>
 </div>
 <div class="section" id="hash-file">
 <span id="hash-files"></span><h3>hash file<a class="headerlink" href="#hash-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>An alternative to using a hash to validate a package's cache is to use an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> instead. Although users can benefit from
+using both validation methods, if desired.</p>
+</div>
 <p>When downloading assets from a remote instance, a package's hash file can be
 used to help verify the integrity of any fetched content. For example, if a
-package lists a host with a <code class="docutils literal notranslate"><span class="pre">my-archive.tgz</span></code> to download, the fetch process
+package lists a site with a <code class="docutils literal notranslate"><span class="pre">my-archive.tgz</span></code> to download, the fetch process
 will download the archive and verify its hash to a listed entry before
 continuing. If a hash does not match, the build process stops indicating an
 unexpected asset was downloaded.</p>
@@ -1877,6 +1903,24 @@ systems:</p>
 sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
 </pre></div>
 </div>
+</div>
+<div class="section" id="ascii-armor">
+<span id="id10"></span><h3>ascii armor<a class="headerlink" href="#ascii-armor" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>An alternative to using an ASCII-armor to validate a package's cache is to
+use <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> instead.</p>
+</div>
+<p>When downloading assets from a remote instance, an ASCII-armor file can be used
+to help verify the integrity of any fetched content. For example, if a package
+lists a site with a <code class="docutils literal notranslate"><span class="pre">my-archive.tgz</span></code> to download, the fetch process will
+download the archive and verify its contents with an associated ASCII-armor file
+(if one is provided). If the integrity of the file cannot be verified, the build
+process stops indicating an unexpected asset was downloaded.</p>
+<p>To include an ASCII-armor file for a package, add a <code class="docutils literal notranslate"><span class="pre">&lt;my-package&gt;.asc</span></code> file
+inside the package's directory. Verification is performed using the host
+system's <code class="docutils literal notranslate"><span class="pre">gpg</span></code>. For verification's to succeed, the system must already have
+the required public keys registered.</p>
 </div>
 <div class="section" id="script-package-default">
 <h3>script package (default)<a class="headerlink" href="#script-package-default" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -2090,7 +2134,7 @@ can override this option by explicitly adjusting the configuration option
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
 <div class="section" id="cmake-build-defs">
-<span id="id10"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id11"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2101,7 +2145,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-env">
-<span id="id11"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id12"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable's value. This field
@@ -2113,7 +2157,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-opts">
-<span id="id12"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id13"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings --
 either way defined will generate argument values to include in the build event.
@@ -2133,7 +2177,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-defs">
-<span id="id13"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id14"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2144,7 +2188,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-env">
-<span id="id14"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id15"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -2156,7 +2200,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-opts">
-<span id="id15"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id16"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -2176,7 +2220,7 @@ configuration event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-defs">
-<span id="id16"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id17"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2187,7 +2231,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-env">
-<span id="id17"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id18"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -2199,7 +2243,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-opts">
-<span id="id18"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id19"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -2234,7 +2278,7 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 <p>The following sections outline configuration options are available for a Python
 package.</p>
 <div class="section" id="python-build-defs">
-<span id="id19"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id20"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2245,7 +2289,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-env">
-<span id="id20"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id21"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable's value. This field
@@ -2257,7 +2301,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-opts">
-<span id="id21"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id22"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings --
 either way defined will generate argument values to include in the build event.
@@ -2277,7 +2321,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-defs">
-<span id="id22"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id23"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2288,7 +2332,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-env">
-<span id="id23"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id24"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -2300,7 +2344,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-opts">
-<span id="id24"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<span id="id25"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -2342,10 +2386,10 @@ reaches the final stage of a build.</p>
 <p>After each package has been processed, a project has the ability to perform
 post-processing. Post-processing allows a developer to cleanup the target
 directory, build an archive/package from generated results and more. If a
-project contains a <code class="docutils literal notranslate"><span class="pre">releng-post</span></code> inside the root directory, the
+project contains a <code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code> inside the root directory, the
 post-processing script will be invoked in the final stage of a build.</p>
 <p>A developer may start out with the following post-processing script
-<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/releng-post</span></code>:</p>
+<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/releng-post-build</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -2354,11 +2398,11 @@ post-processing script will be invoked in the final stage of a build.</p>
 </div>
 <p>The above script will output the newly inserted print message at the end of a
 build process:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool
-...
-generating license information...
-post processing...
-<span class="o">(</span>success<span class="o">)</span> completed <span class="o">(</span><span class="m">0</span>:01:30<span class="o">)</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
+<span class="go">...</span>
+<span class="go">generating license information...</span>
+<span class="go">post processing...</span>
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">completed (0:01:30)</span>
 </pre></div>
 </div>
 <p>A developer can take advantage of <a class="reference internal" href="#environment-variables">environment variables</a> and
@@ -2426,13 +2470,13 @@ inside the package folder with the extension <code class="docutils literal notra
 package folder are applied in ascending order. It is recommended to prefix
 patch filenames with a numerical value for clarity. For example, the following
 package patches:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> package/liba
-$ ls *.patch
-<span class="m">0001</span>-accept-linker-flags.patch
-<span class="m">0002</span>-correct-output-path.patch
-<span class="m">0003</span>-support-disabling-test-build.patch
-liba
-lib.hash
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> package/liba
+<span class="gp">$ </span>ls *.patch
+<span class="go">0001-accept-linker-flags.patch</span>
+<span class="go">0002-correct-output-path.patch</span>
+<span class="go">0003-support-disabling-test-build.patch</span>
+<span class="go">liba</span>
+<span class="go">lib.hash</span>
 </pre></div>
 </div>
 <p>With be applied in the following order:</p>
@@ -2459,7 +2503,8 @@ configuration <a class="reference internal" href="#conf-default-intern"><code cl
 types are almost treated the same except for the following:</p>
 <ul class="simple">
 <li><p>An internal package will not generate output warnings if the package is
-missing <a class="reference internal" href="#hash-files"><span class="std std-ref">hash information</span></a>.</p></li>
+missing <a class="reference internal" href="#hash-files"><span class="std std-ref">hash information</span></a> or an
+<a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a>.</p></li>
 <li><p>An internal package will not generate output warnings if the package is
 missing <a class="reference internal" href="#license-information"><span class="std std-ref">license information</span></a>.</p></li>
 <li><p>When configured for <a class="reference internal" href="user-guide.html#development-mode"><span class="std std-ref">development mode</span></a>; the patch stage will not be
@@ -3195,7 +3240,7 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 </div>
 </div>
 <div class="section" id="quirks">
-<span id="id25"></span><h3>quirks<a class="headerlink" href="#quirks" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id26"></span><h3>quirks<a class="headerlink" href="#quirks" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
@@ -3335,13 +3380,13 @@ by the providers of said extensions.</p>
     
       <dd><a href="https://docs.releng.io/ja/latest/">latest</a></dd>
     
+      <dd><a href="https://docs.releng.io/ja/0.9/">0.9</a></dd>
+    
       <dd><a href="https://docs.releng.io/ja/0.8/">0.8</a></dd>
     
       <dd><a href="https://docs.releng.io/ja/0.7/">0.7</a></dd>
     
       <dd><a href="https://docs.releng.io/ja/0.6/">0.6</a></dd>
-    
-      <dd><a href="https://docs.releng.io/ja/0.5/">0.5</a></dd>
     
   </dl>
   <dl>

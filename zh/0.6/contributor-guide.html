@@ -89,7 +89,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">旧版本 | <a href="https://docs.releng.io/zh/latest/">稳定 v0.8</a></div>
+    <div class="version-warning">旧版本 | <a href="https://docs.releng.io/zh/latest/">稳定 v0.9</a></div>
     
     
             
@@ -368,12 +368,12 @@
 <p>The following outlines common directory locations:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - project documentation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/api/</span></code> - api implementation for supporting releng-tool extensions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/engine/</span></code> - core implementation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/ext/</span></code> - extensions that are maintained in the official tree</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/extract/</span></code> - translating fetched content to a build's working area</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/fetch/</span></code> - support for fetching content from package sites</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng/tool/</span></code> - definitions for host tools used by tool features</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/api/</span></code> - api for supporting releng-tool extensions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/engine/</span></code> - core implementation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/ext/</span></code> - extensions that are maintained in the official tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/extract/</span></code> - translate fetched content to a build's working area</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/fetch/</span></code> - support for fetching content from package sites</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/tool/</span></code> - definitions for host tools used by tool features</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code> - testing-related content for this project's implementation</p></li>
 </ul>
 <p>releng-tool is built on the Python language and aims to be the minimum
@@ -437,7 +437,7 @@ tokens.</p>
 <div class="section" id="extensions">
 <span id="contributor-guide-ext"></span><h2>extensions<a class="headerlink" href="#extensions" title="永久链接至标题">¶</a></h2>
 <p>Developers wishing to provide extensions to releng-tool should consult the API
-implementation found in this tool's repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng/api/__init__.py"><code class="docutils literal notranslate"><span class="pre">releng/api/__init__.py</span></code></a>).
+implementation found in this tool's repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py"><code class="docutils literal notranslate"><span class="pre">releng_tool/api/__init__.py</span></code></a>).
 Implementation in the API folder aims to be &quot;API safe&quot; -- there is a strong
 attempt to prevent the changing of classes, methods, etc. to prevent
 compatibility issues as both releng-tool and extensions (if any) evolve. A
@@ -479,7 +479,7 @@ extension to register custom fetching, extraction and package implementations.</
 </pre></div>
 </div>
 <p>For more details for API details, consult the documentation found inside the
-<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng/api/__init__.py">API implementation</a>.</p>
+<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py">API implementation</a>.</p>
 </div>
 <div class="section" id="documentation">
 <h2>documentation<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h2>
@@ -560,13 +560,13 @@ following repositories:</p>
     
       <dd><a href="https://docs.releng.io/zh/latest/">latest</a></dd>
     
+      <dd><a href="https://docs.releng.io/zh/0.9/">0.9</a></dd>
+    
       <dd><a href="https://docs.releng.io/zh/0.8/">0.8</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.7/">0.7</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.6/">0.6</a></dd>
-    
-      <dd><a href="https://docs.releng.io/zh/0.5/">0.5</a></dd>
     
   </dl>
   <dl>

@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
 
@@ -174,6 +176,7 @@
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-depth">LIBFOO_GIT_DEPTH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-refspecs">LIBFOO_GIT_REFSPECS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-submodules">LIBFOO_GIT_SUBMODULES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-git-verify-revision">LIBFOO_GIT_VERIFY_REVISION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-prefix">LIBFOO_PREFIX</a></li>
@@ -196,6 +199,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#hash-file">hash file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#ascii-armor">ascii armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-package-default">script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#autotools-package">autotools package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="developer-guide.html#libfoo-autotools-autoreconf">LIBFOO_AUTOTOOLS_AUTORECONF</a></li>
@@ -273,14 +277,15 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="release-notes.html">informacje o wydaniu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.8 (2021-08-28)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.7 (2021-08-08)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.6 (2020-10-10)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.5 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.4 (2020-09-07)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.3 (2019-10-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.2 (2019-03-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id8">0.1 (2019-02-24)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id1">0.9 (2021-10-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id2">0.8 (2021-08-28)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id3">0.7 (2021-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id4">0.6 (2020-10-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id5">0.5 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id6">0.4 (2020-09-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id7">0.3 (2019-10-19)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id8">0.2 (2019-03-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes.html#id9">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -383,15 +388,15 @@ be referred to as the „root directory”. When invoking <code class="docutils 
 will look into the current working directory for the project information to
 process. For example, if a project found inside <code class="docutils literal notranslate"><span class="pre">my-project</span></code> with the single
 package <code class="docutils literal notranslate"><span class="pre">package-a</span></code> defined, the following output may be observed:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> my-project
-$ releng-tool
-extracting package-a...
-patching package-a...
-configuring package-a...
-building package-a...
-installing package-a...
-generating license information...
-<span class="o">(</span>success<span class="o">)</span> completed <span class="o">(</span><span class="m">0</span>:01:30<span class="o">)</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> my-project
+<span class="gp">$ </span>releng-tool
+<span class="go">extracting package-a...</span>
+<span class="go">patching package-a...</span>
+<span class="go">configuring package-a...</span>
+<span class="go">building package-a...</span>
+<span class="go">installing package-a...</span>
+<span class="go">generating license information...</span>
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">completed (0:01:30)</span>
 </pre></div>
 </div>
 <p>On a successful execution, it is common that the release engineering process
@@ -400,13 +405,13 @@ it is up to the developer of a releng-tool project to decide where generated
 files will be stored.</p>
 <p>If a user wishes to pass the directory of a project location via command line,
 the argument <code class="docutils literal notranslate"><span class="pre">--root-dir</span></code> can be used:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool --root-dir my-project/
-...
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --root-dir my-project/
+<span class="go">...</span>
 </pre></div>
 </div>
 <p>For a complete list of actions and other argument options provided by the tool,
 the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option can be used to show this information:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool --help
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --help
 </pre></div>
 </div>
 </div>
@@ -417,7 +422,7 @@ provide various options to configure the release engineering process. Options
 can be provided before or after an action (if provided). By default, if a user
 does not specify an action, it is assumed that all release engineering steps are
 to be performed. An example of a user invoking a clean action is as follows:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool clean
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool clean
 </pre></div>
 </div>
 <p>The following outlines available actions:</p>
@@ -731,10 +736,10 @@ project.</p>
 <code class="docutils literal notranslate"><span class="pre">module-b</span></code>; therefore, releng-tool will process packages in the order
 <code class="docutils literal notranslate"><span class="pre">module-a</span> <span class="pre">-&gt;</span> <span class="pre">module-b</span> <span class="pre">-&gt;</span> <span class="pre">module-c</span></code>. In this example, the project is building
 until a failure is detected in package <code class="docutils literal notranslate"><span class="pre">module-c</span></code>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool
-<span class="o">[</span>module-a built<span class="o">]</span>
-<span class="o">[</span>module-b built<span class="o">]</span>
-<span class="o">[</span>error <span class="k">in</span> module-c<span class="o">]</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
+<span class="go">[module-a built]</span>
+<span class="go">[module-b built]</span>
+<span class="go">[error in module-c]</span>
 </pre></div>
 </div>
 <p>A developer notices that it is due to an issue found in <code class="docutils literal notranslate"><span class="pre">module-b</span></code>; however,
@@ -742,22 +747,22 @@ instead of attempting to redo everything from a fresh start, the developer
 wishes to test the process by manually making the change in <code class="docutils literal notranslate"><span class="pre">module-b</span></code> to
 complete the build process. The developer makes the change, re-invokes
 <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> but still notices the build error occurs:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool
-<span class="o">[</span>error <span class="k">in</span> module-c<span class="o">]</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
+<span class="go">[error in module-c]</span>
 </pre></div>
 </div>
 <p>The issue here is that since <code class="docutils literal notranslate"><span class="pre">module-b</span></code> has already been processed, none of
 the interim changes made will be available for <code class="docutils literal notranslate"><span class="pre">module-c</span></code> to use. To take
 advantage of the new implementation in <code class="docutils literal notranslate"><span class="pre">module-b</span></code>, the builder can signal for
 the updated package to be rebuilt:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool module-b-rebuild
-<span class="o">[</span>module-b rebuilt<span class="o">]</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool module-b-rebuild
+<span class="go">[module-b rebuilt]</span>
 </pre></div>
 </div>
 <p>With <code class="docutils literal notranslate"><span class="pre">module-b</span></code> in a more desired state, a re-invoke of <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> could
 allow <code class="docutils literal notranslate"><span class="pre">module-c</span></code> to be built.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool
-<span class="o">[</span>module-c built<span class="o">]</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
+<span class="go">[module-c built]</span>
 </pre></div>
 </div>
 <p>This is a very simple example to consider, and attempts to rebuild can vary
@@ -768,7 +773,7 @@ based on the packages, changes and languages used.</p>
 <div class="section" id="offline-builds">
 <h3>offline builds<a class="headerlink" href="#offline-builds" title="Stały odnośnik do tego nagłówka">¶</a></h3>
 <p>A user can prepare for an offline build by using the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> action:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool fetch
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool fetch
 </pre></div>
 </div>
 <p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and/or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
@@ -783,7 +788,7 @@ jobs for a stage equal to the amount of physical cores on the host system. The
 amount of jobs available for a stage can be configured using the <code class="docutils literal notranslate"><span class="pre">--jobs</span></code>
 argument. For example, if a user wishes to override the amount of jobs attempted
 for stages to two jobs, the following can be used:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool --jobs <span class="m">2</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --jobs <span class="m">2</span>
 </pre></div>
 </div>
 <p>Note that a developer may restrict the amount of jobs allowed for a specific
@@ -801,7 +806,7 @@ releng-tool project dirtying or destroying the builder’s host environment.</p>
 package license information (if licenses are defined). If a user wishes to
 compile a project’s list of license information without performing an entire
 build, the <code class="docutils literal notranslate"><span class="pre">licenses</span></code> action can be used:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool licenses
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool licenses
 </pre></div>
 </div>
 <p>License information can then be found in the root directory’s
@@ -824,11 +829,11 @@ development mode, the releng-tool process will instead pull sources from the
 <p>To enable development mode, invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> with the <code class="docutils literal notranslate"><span class="pre">--development</span></code>
 argument will enable the mode. Future calls to releng-tool for the project will
 use the development revision for packages where define. For example:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool --development
-<span class="o">(</span>success<span class="o">)</span> configured root <span class="k">for</span> development mode
-$ releng-tool
-~building against development sources~
-...
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --development
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for development mode</span>
+<span class="gp">$ </span>releng-tool
+<span class="go">~building against development sources~</span>
+<span class="go">...</span>
 </pre></div>
 </div>
 <p>Development mode is persisted through the use of a file flag in the root
@@ -863,11 +868,11 @@ managing a clean <code class="docutils literal notranslate"><span class="pre">li
 <code class="docutils literal notranslate"><span class="pre">--local-sources</span></code> argument will enable the mode. Future calls to releng-tool
 for the project will use local sources for packages defined as internal
 packages. For example:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ releng-tool --local-sources
-<span class="o">(</span>success<span class="o">)</span> configured root <span class="k">for</span> local-sources mode
-$ releng-tool
-~building against <span class="nb">local</span> sources~
-...
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --local-sources
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for local-sources mode</span>
+<span class="gp">$ </span>releng-tool
+<span class="go">~building against local sources~</span>
+<span class="go">...</span>
 </pre></div>
 </div>
 <p>Local-sources mode is persisted through the use of a file flag in the root
@@ -938,9 +943,9 @@ releng-tool process. For example, when invoking CMake-based projects, the tool
 v3.x is desired, the tool <code class="docutils literal notranslate"><span class="pre">cmake3</span></code> needs to be invoked instead. To configure
 this, an environment variable can be set to switch which tool to invoke.
 Consider the following example:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">RELENG_CMAKE</span><span class="o">=</span>cmake3
-$ releng-tool
-<span class="o">[</span>cmake3 will be used <span class="k">for</span> cmake projects<span class="o">]</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span> <span class="nv">RELENG_CMAKE</span><span class="o">=</span>cmake3
+<span class="gp">$ </span>releng-tool
+<span class="go">[cmake3 will be used for cmake projects]</span>
 </pre></div>
 </div>
 </div>
@@ -1013,13 +1018,13 @@ host environment scenarios where releng-tool may be experiencing issues. See
     
       <dd><a href="https://docs.releng.io/pl/latest/">latest</a></dd>
     
+      <dd><a href="https://docs.releng.io/pl/0.9/">0.9</a></dd>
+    
       <dd><a href="https://docs.releng.io/pl/0.8/">0.8</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.7/">0.7</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.6/">0.6</a></dd>
-    
-      <dd><a href="https://docs.releng.io/pl/0.5/">0.5</a></dd>
     
   </dl>
   <dl>
