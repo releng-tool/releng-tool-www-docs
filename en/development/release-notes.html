@@ -224,6 +224,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#development">development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">0.9 (2021-10-02)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">0.8 (2021-08-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">0.7 (2021-08-08)</a></li>
@@ -276,16 +277,21 @@
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
+<div class="section" id="development">
+<h2>development<a class="headerlink" href="#development" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>fixed an issue where <code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code> reports success if the target path is a
+file that already exists</p></li>
+<li><p>fixed an issue where post-processing may be invoked even if a package’s stage
+would fail</p></li>
+</ul>
+</div>
 <div class="section" id="id1">
 <h2>0.9 (2021-10-02)<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>fixed an import issue when running with python 3.10</p></li>
-<li><p>fixed an issue where <code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code> reports success if the target path is a
-file that already exists</p></li>
 <li><p>fixed an issue where a cyclic package check provided a bad message</p></li>
 <li><p>fixed an issue where a git submodule with a target branch may fail to extract</p></li>
-<li><p>fixed an issue where post-processing may be invoked even if a package’s stage
-would fail</p></li>
 <li><p>post-processing script renamed to <code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code></p></li>
 <li><p>support development mode relaxed branch fetching for git sites</p></li>
 <li><p>support requiring a git source’s revision to be gpg-signed</p></li>
