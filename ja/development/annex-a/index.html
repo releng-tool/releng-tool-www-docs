@@ -2,10 +2,10 @@
 <html class="no-js" lang="ja">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="next" title="バージョンノート" href="../release-notes/" /><link rel="prev" title="ヒント" href="../tips/" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="next" title="Release notes" href="../release-notes/" /><link rel="prev" title="Tips" href="../tips/" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>付録A - クイックリファレンス - releng-tool ドキュメント</title>
+        <title>ANNEX A - Quick reference - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
@@ -167,16 +167,16 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../requirements/">必要条件</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install/">インストール</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user-guide/">ユーザーガイド</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer-guide/">開発者ガイド</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributor-guide/">寄稿者ガイド</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips/">ヒント</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">付録A  - クイックリファレンス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../requirements/">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/">User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer-guide/">Developer guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributor-guide/">Contributor guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">ANNEX A - Quick reference</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../release-notes/">バージョンノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes/">Release notes</a></li>
 </ul>
 
 </div>
@@ -214,19 +214,19 @@
         </div>
         <article role="main">
           <div class="section" id="annex-a-quick-reference">
-<h1>付録A  - クイックリファレンス<a class="headerlink" href="#annex-a-quick-reference" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>ANNEX A - Quick reference<a class="headerlink" href="#annex-a-quick-reference" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>A quick reference document listing available options to developers building a
 releng-tool project. Consult the <a class="reference internal" href="../developer-guide/"><span class="doc">developer's guide</span></a> for
 more detailed information.</p>
 <div class="section" id="configuration-options">
-<h2>configuration options<a class="headerlink" href="#configuration-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Configuration options<a class="headerlink" href="#configuration-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">callable</span><span class="o">&gt;</span>
 <span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;extension&gt;'</span><span class="p">,</span> <span class="s1">'&lt;extension&gt;'</span><span class="p">]</span>
 <span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;path&gt;'</span><span class="p">,</span> <span class="s1">'&lt;path&gt;'</span><span class="p">]</span>
 <span class="n">license_header</span> <span class="o">=</span> <span class="s1">'&lt;data&gt;'</span>
-<span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&lt;extension&gt;'</span><span class="p">:</span> <span class="s1">'&lt;tool-path&gt;'</span><span class="p">}</span>
+<span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&lt;tool&gt;'</span><span class="p">:</span> <span class="s1">'&lt;tool-path&gt;'</span><span class="p">}</span>
 <span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&lt;pkg&gt;'</span><span class="p">:</span> <span class="s1">'&lt;revision&gt;'</span><span class="p">}</span>
 <span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&lt;pkg&gt;'</span><span class="p">:</span> <span class="s1">'&lt;site&gt;'</span><span class="p">}</span>
 <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;pkg&gt;'</span><span class="p">,</span> <span class="s1">'&lt;pkg&gt;'</span><span class="p">,</span> <span class="s1">'&lt;pkg&gt;'</span><span class="p">]</span>
@@ -238,7 +238,7 @@ more detailed information.</p>
 </div>
 </div>
 <div class="section" id="environment-variables">
-<h2>environment variables<a class="headerlink" href="#environment-variables" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
@@ -285,7 +285,7 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="package-options">
-<h2>package options<a class="headerlink" href="#package-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Package options<a class="headerlink" href="#package-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
@@ -330,7 +330,7 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="script-helpers">
-<h2>script helpers<a class="headerlink" href="#script-helpers" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Script helpers<a class="headerlink" href="#script-helpers" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -358,7 +358,7 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="quirks">
-<h2>quirks<a class="headerlink" href="#quirks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Quirks<a class="headerlink" href="#quirks" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.cmake.disable_parallel_option
 releng.disable_prerequisites_check
@@ -381,7 +381,7 @@ releng.git.no_quick_fetch
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">バージョンノート</div>
+                <div class="title">Release notes</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -392,7 +392,7 @@ releng.git.no_quick_fetch
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">ヒント</div>
+                <div class="title">Tips</div>
                 
               </div>
             </a>
@@ -417,12 +417,12 @@ releng.git.no_quick_fetch
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">付録A  - クイックリファレンス</a><ul>
-<li><a class="reference internal" href="#configuration-options">configuration options</a></li>
-<li><a class="reference internal" href="#environment-variables">environment variables</a></li>
-<li><a class="reference internal" href="#package-options">package options</a></li>
-<li><a class="reference internal" href="#script-helpers">script helpers</a></li>
-<li><a class="reference internal" href="#quirks">quirks</a></li>
+<li><a class="reference internal" href="#">ANNEX A - Quick reference</a><ul>
+<li><a class="reference internal" href="#configuration-options">Configuration options</a></li>
+<li><a class="reference internal" href="#environment-variables">Environment variables</a></li>
+<li><a class="reference internal" href="#package-options">Package options</a></li>
+<li><a class="reference internal" href="#script-helpers">Script helpers</a></li>
+<li><a class="reference internal" href="#quirks">Quirks</a></li>
 </ul>
 </li>
 </ul>
