@@ -8,6 +8,7 @@
         <title>付録A - クイックリファレンス - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -278,6 +279,7 @@ releng-tool (may vary per context):</p>
 <span class="n">TARGET_DIR</span>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_BUILD_DIR</span>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_BUILD_OUTPUT_DIR</span>
+<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_DEFDIR</span>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_NAME</span>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_REVISION</span>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_VERSION</span>
@@ -324,7 +326,7 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'&lt;site&gt;'</span>
 <span class="n">LIBFOO_STRIP_COUNT</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
 <span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">'&lt;type&gt;'</span> <span class="c1"># autotools, cmake, python, script, ext-&lt;extension&gt;</span>
-<span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">'&lt;vcs-type&gt;'</span> <span class="c1"># bzr, cvs, git, hg, local, none, scp, svn, url</span>
+<span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">'&lt;vcs-type&gt;'</span> <span class="c1"># bzr, cvs, git, hg, local, none, rsync, scp, svn, url</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">'&lt;version&gt;'</span>
 </pre></div>
 </div>
@@ -476,6 +478,7 @@ releng.git.no_quick_fetch
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script src="../_static/translations.js"></script>
     <script src="../_static/theme_overrides_global.js"></script>
     </body>
