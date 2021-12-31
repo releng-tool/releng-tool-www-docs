@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="next" title="寄稿者ガイド" href="../contributor-guide/" /><link rel="prev" title="ユーザーガイド" href="../user-guide/" />
 
-    <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
+    <meta name="generator" content="sphinx-4.3.2, furo 2021.11.23"/>
         <title>開発者ガイド - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
@@ -2023,6 +2023,20 @@ This field is optional.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="libfoo-cmake-noinstall">
+<h4>LIBFOO_CMAKE_NOINSTALL<a class="headerlink" href="#libfoo-cmake-noinstall" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Specifies whether or not the CMake package should skip an attempt to invoke
+the install command. Ideally, projects will have an <a class="reference external" href="https://cmake.org/cmake/help/latest/command/install.html">install</a>
+rule configured to define how a project will install files into a target (or
+staging) environment. Not all CMake projects may have this rule defined, which
+can cause the installation stage for a package to fail. A developer can
+specify this no-install flag to skip a CMake-driven install request and
+managing installation actions through other means (such as post-processing).
+By default, the installation stage is invoked with a value of <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_NOINSTALL</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="cmake-conf-defs">
 <span id="id16"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
@@ -3251,6 +3265,7 @@ by the providers of said extensions.</p>
 <li><a class="reference internal" href="#cmake-build-defs">LIBFOO_BUILD_DEFS</a></li>
 <li><a class="reference internal" href="#cmake-build-env">LIBFOO_BUILD_ENV</a></li>
 <li><a class="reference internal" href="#cmake-build-opts">LIBFOO_BUILD_OPTS</a></li>
+<li><a class="reference internal" href="#libfoo-cmake-noinstall">LIBFOO_CMAKE_NOINSTALL</a></li>
 <li><a class="reference internal" href="#cmake-conf-defs">LIBFOO_CONF_DEFS</a></li>
 <li><a class="reference internal" href="#cmake-conf-env">LIBFOO_CONF_ENV</a></li>
 <li><a class="reference internal" href="#cmake-conf-opts">LIBFOO_CONF_OPTS</a></li>
