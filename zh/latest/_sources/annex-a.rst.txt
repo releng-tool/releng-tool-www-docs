@@ -1,23 +1,23 @@
-annex a - quick reference
+ANNEX A - Quick reference
 =========================
 
 A quick reference document listing available options to developers building a
 releng-tool project. Consult the :doc:`developer's guide <developer-guide>` for
 more detailed information.
 
-configuration options
+Configuration options
 ---------------------
 
 Options which are read by releng-tool from a project's configuration script:
 
 .. code-block:: python
 
-   cache_ext = <function>
+   cache_ext = <callable>
    default_internal = bool
    extensions = ['<extension>', '<extension>']
    external_packages = ['<path>', '<path>']
    license_header = '<data>'
-   override_extract_tools = {'<extension>': '<tool-path>'}
+   override_extract_tools = {'<tool>': '<tool-path>'}
    override_revisions = {'<pkg>': '<revision>'}
    override_sites = {'<pkg>': '<site>'}
    packages = ['<pkg>', '<pkg>', '<pkg>']
@@ -25,8 +25,9 @@ Options which are read by releng-tool from a project's configuration script:
    quirks = ['<quirk-id>']
    sysroot_prefix = '<path>' # '/usr'
    url_mirror = '<mirror-url>'
+   urlopen_context = <ssl.SSLContext>
 
-environment variables
+Environment variables
 ---------------------
 
 Environment (and script) variables available to context's invoked by
@@ -71,11 +72,12 @@ releng-tool (may vary per context):
    TARGET_DIR
    <PKG_NAME>_BUILD_DIR
    <PKG_NAME>_BUILD_OUTPUT_DIR
+   <PKG_NAME>_DEFDIR
    <PKG_NAME>_NAME
    <PKG_NAME>_REVISION
    <PKG_NAME>_VERSION
 
-package options
+Package options
 ---------------
 
 Configuration options parsed by releng-tool for a package definition:
@@ -87,6 +89,7 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_BUILD_ENV = {'FOO': 'BAR'}
    LIBFOO_BUILD_OPTS = {'--option': 'value'} or ['--option', 'value']
    LIBFOO_BUILD_SUBDIR = '<subdir>'
+   LIBFOO_CMAKE_NOINSTALL = bool
    LIBFOO_CONF_DEFS = {'FOO': 'BAR'}
    LIBFOO_CONF_ENV = {'FOO': 'BAR'}
    LIBFOO_CONF_OPTS = {'--option': 'value'} or ['--option', 'value']
@@ -119,10 +122,10 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_SITE = '<site>'
    LIBFOO_STRIP_COUNT = int # >= 0
    LIBFOO_TYPE = '<type>' # autotools, cmake, python, script, ext-<extension>
-   LIBFOO_VCS_TYPE = '<vcs-type>' # bzr, cvs, git, hg, local, none, scp, svn, url
+   LIBFOO_VCS_TYPE = '<vcs-type>' # bzr, cvs, git, hg, local, none, rsync, scp, svn, url
    LIBFOO_VERSION = '<version>'
 
-script helpers
+Script helpers
 --------------
 
 Functions available to scripts invoked by releng-tool or importable via
@@ -152,7 +155,7 @@ Functions available to scripts invoked by releng-tool or importable via
    verbose(msg, *args)
    warn(msg, *args)
 
-quirks
+Quirks
 ------
 
 Quirk options used by releng-tool:
