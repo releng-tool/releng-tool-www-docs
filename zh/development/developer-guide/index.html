@@ -211,12 +211,12 @@
         </div>
         <article role="main">
           <div class="section" id="developer-guide">
-<h1>开发者指南<a class="headerlink" href="#developer-guide" title="永久链接至标题">#</a></h1>
+<h1>开发者指南<a class="headerlink" href="#developer-guide" title="永久链接至标题">¶</a></h1>
 <p>The following will outline details on how to prepare a releng-tool project to
 be used for a project. For details on a user interaction with releng-tool, see
 the <a class="reference internal" href="../user-guide/"><span class="doc">user's guide</span></a>.</p>
 <div class="section" id="prelude">
-<h2>Prelude<a class="headerlink" href="#prelude" title="永久链接至标题">#</a></h2>
+<h2>Prelude<a class="headerlink" href="#prelude" title="永久链接至标题">¶</a></h2>
 <p>A releng-tool project can define multiple packages, each can be based off of
 different languages, configured to use custom toolchains and more. Every package
 has multiple stages (such as fetching, configuring, building, etc.) which can
@@ -285,7 +285,7 @@ features/actions a developer may want in their project (like the examples
 mentioned above), the more a developer will need to manage their project.</p>
 </div>
 <div class="section" id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">#</a></h2>
+<h2>Getting started<a class="headerlink" href="#getting-started" title="永久链接至标题">¶</a></h2>
 <p>releng-tool is made on Python. This document will outline package definitions,
 scripts and more which are most likely Python scripts, and in turn will be
 invoked/processed by the releng-tool. While releng-tool supports running on
@@ -382,7 +382,7 @@ initial getting started example. Feel free to remove the example project and
 prepare for steps to make a real releng-tool project.</p>
 </div>
 <div class="section" id="actually-getting-started">
-<h2>Actually getting started<a class="headerlink" href="#actually-getting-started" title="永久链接至标题">#</a></h2>
+<h2>Actually getting started<a class="headerlink" href="#actually-getting-started" title="永久链接至标题">¶</a></h2>
 <p>Start building a new releng-tool project by creating the following root and
 package folders for a project, and venture into the root folder:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p &lt;my-project&gt;/package
@@ -530,7 +530,7 @@ the contents found in <code class="docutils literal notranslate"><span class="pr
 variables/functions).</p>
 </div>
 <div class="section" id="project-configuration">
-<h2>Project configuration<a class="headerlink" href="#project-configuration" title="永久链接至标题">#</a></h2>
+<h2>Project configuration<a class="headerlink" href="#project-configuration" title="永久链接至标题">¶</a></h2>
 <p>A releng-tool project defines its configuration options inside the a <code class="docutils literal notranslate"><span class="pre">releng</span></code>
 file at the root of a project. The primary configuration option for a developer
 to define is <code class="docutils literal notranslate"><span class="pre">packages</span></code>, which is used to hold a list of packages to be
@@ -775,7 +775,7 @@ a build environment. For example:</p>
 </table></div>
 </div>
 <div class="section" id="environment-variables">
-<h2>Environment variables<a class="headerlink" href="#environment-variables" title="永久链接至标题">#</a></h2>
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="永久链接至标题">¶</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>Avoid using environment variables to configure package options such as
@@ -991,7 +991,7 @@ root user.</p></td>
 </table></div>
 </div>
 <div class="section" id="packages">
-<h2>Packages<a class="headerlink" href="#packages" title="永久链接至标题">#</a></h2>
+<h2>Packages<a class="headerlink" href="#packages" title="永久链接至标题">¶</a></h2>
 <p>Packages are defined inside the <code class="docutils literal notranslate"><span class="pre">package/</span></code> directory. There is no explicit
 limit on the total number of packages a project can have. Packages can consist
 of libraries, programs or even basic assets. Package names are recommended to be
@@ -1024,10 +1024,10 @@ the following can be defined (<code class="docutils literal notranslate"><span c
 </div>
 <p>More details on available configuration options are as follows.</p>
 <div class="section" id="common-package-configurations">
-<h3>Common package configurations<a class="headerlink" href="#common-package-configurations" title="永久链接至标题">#</a></h3>
+<h3>Common package configurations<a class="headerlink" href="#common-package-configurations" title="永久链接至标题">¶</a></h3>
 <p>The following outlines common configuration options available for packages.</p>
 <div class="section" id="libfoo-dependencies">
-<h4>LIBFOO_DEPENDENCIES<a class="headerlink" href="#libfoo-dependencies" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_DEPENDENCIES<a class="headerlink" href="#libfoo-dependencies" title="永久链接至标题">¶</a></h4>
 <p>List of package dependencies a given project has. If a project depends on
 another package, the package name should be listed in this option. This ensures
 releng-tool will process packages in the proper order. The following shows an
@@ -1038,7 +1038,7 @@ processed first:</p>
 </div>
 </div>
 <div class="section" id="libfoo-install-type">
-<h4>LIBFOO_INSTALL_TYPE<a class="headerlink" href="#libfoo-install-type" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_INSTALL_TYPE<a class="headerlink" href="#libfoo-install-type" title="永久链接至标题">¶</a></h4>
 <p>Defines the installation type of this package. A package may be designed to be
 built and installed for just the target area, the stage area, both or maybe in
 the host directory. The following options are available for the installation
@@ -1077,7 +1077,7 @@ type:</p>
 </div>
 </div>
 <div class="section" id="libfoo-license">
-<h4>LIBFOO_LICENSE<a class="headerlink" href="#libfoo-license" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_LICENSE<a class="headerlink" href="#libfoo-license" title="永久链接至标题">¶</a></h4>
 <p>A string or list of strings outlining the license information for a package.
 Outlining the license of a package is always recommended (but not required).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'GPLv2'</span><span class="p">,</span> <span class="s1">'MIT'</span><span class="p">]</span>
@@ -1090,7 +1090,7 @@ Outlining the license of a package is always recommended (but not required).</p>
 <p>See also <a class="reference internal" href="#libfoo-license-files"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-license-files">
-<h4>LIBFOO_LICENSE_FILES<a class="headerlink" href="#libfoo-license-files" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_LICENSE_FILES<a class="headerlink" href="#libfoo-license-files" title="永久链接至标题">¶</a></h4>
 <p>A string or list of strings identifying the license files found inside the
 package sources which match up to the defined <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> entries
 (respectively). Listing the license(s) of a package is always recommended (but
@@ -1108,7 +1108,7 @@ not required).</p>
 <p>See also <a class="reference internal" href="#libfoo-license"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-site">
-<h4>LIBFOO_SITE<a class="headerlink" href="#libfoo-site" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_SITE<a class="headerlink" href="#libfoo-site" title="永久链接至标题">¶</a></h4>
 <p>The site where package sources/assets can be found. The site can be a URL of an
 archive, or describe a source control URL such as Git or SVN. The following
 outline a series of supported site definitions:</p>
@@ -1169,7 +1169,7 @@ custom site protocols.</p>
 <p>See also <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-type">
-<h4>LIBFOO_TYPE<a class="headerlink" href="#libfoo-type" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_TYPE<a class="headerlink" href="#libfoo-type" title="永久链接至标题">¶</a></h4>
 <p>The package type. The default package type is a (Python) script-based package;
 however, releng-tool also provides a series of helper package types for common
 frameworks. The following outline a series of supported site definitions:</p>
@@ -1210,7 +1210,7 @@ host tool is installed on the host system. For example, if a CMake type is set,
 the host system will need to have <code class="docutils literal notranslate"><span class="pre">cmake</span></code> installed on the system.</p>
 </div>
 <div class="section" id="libfoo-version">
-<h4>LIBFOO_VERSION<a class="headerlink" href="#libfoo-version" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_VERSION<a class="headerlink" href="#libfoo-version" title="永久链接至标题">¶</a></h4>
 <p>The version of the package. Typically the version value should be formatted in a
 semantic versioning style; however, it is up to the developer to decide the best
 version value to use for a package. It is important to note that the version
@@ -1226,11 +1226,11 @@ gracefully defined (e.g. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="section" id="advanced-package-configurations">
-<h3>Advanced package configurations<a class="headerlink" href="#advanced-package-configurations" title="永久链接至标题">#</a></h3>
+<h3>Advanced package configurations<a class="headerlink" href="#advanced-package-configurations" title="永久链接至标题">¶</a></h3>
 <p>The following outlines more advanced configuration options available for
 packages.</p>
 <div class="section" id="libfoo-build-subdir">
-<h4>LIBFOO_BUILD_SUBDIR<a class="headerlink" href="#libfoo-build-subdir" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_BUILD_SUBDIR<a class="headerlink" href="#libfoo-build-subdir" title="永久链接至标题">¶</a></h4>
 <p>Sub-directory where a package's extracted sources holds its buildable content.
 Sources for a package may be nested inside one or more directories. A package
 can specify the sub-directory where the configuration, build and installation
@@ -1240,7 +1240,7 @@ processes are invoked from.</p>
 </div>
 </div>
 <div class="section" id="libfoo-devmode-ignore-cache">
-<h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="永久链接至标题">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should ignore any generated
 cache file when operating in development mode. In most cases, users want to take
 advantage of cached sources to prevent having to re-fetch the same content again
@@ -1259,7 +1259,7 @@ of this option as disabled (<code class="docutils literal notranslate"><span cla
 option by default (<code class="docutils literal notranslate"><span class="pre">True</span></code>) if the target revision is a branch.</p>
 </div>
 <div class="section" id="libfoo-devmode-revision">
-<h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="永久链接至标题">¶</a></h4>
 <p>Specifies a development revision for a package. When a project is being built in
 <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">Development mode</span></a>, the development revision is used over the configured
 <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> value. If a development revision is not defined for a
@@ -1271,7 +1271,7 @@ development mode.</p>
 <p>See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-extension">
-<h4>LIBFOO_EXTENSION<a class="headerlink" href="#libfoo-extension" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_EXTENSION<a class="headerlink" href="#libfoo-extension" title="永久链接至标题">¶</a></h4>
 <p>Specifies a filename extension for the package. A package may be cached inside
 the download directory to be used when the extraction phase is invoked.
 releng-tool attempts to determine the most ideal extension for this cache file;
@@ -1283,7 +1283,7 @@ option.</p>
 </div>
 </div>
 <div class="section" id="libfoo-external">
-<h4>LIBFOO_EXTERNAL<a class="headerlink" href="#libfoo-external" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_EXTERNAL<a class="headerlink" href="#libfoo-external" title="永久链接至标题">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an external package.
 External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
 <a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. By default,
@@ -1294,7 +1294,7 @@ packages are considered external unless explicitly configured to be internal.</p
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </div>
 <div class="section" id="libfoo-extopt">
-<h4>LIBFOO_EXTOPT<a class="headerlink" href="#libfoo-extopt" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_EXTOPT<a class="headerlink" href="#libfoo-extopt" title="永久链接至标题">¶</a></h4>
 <p>Specifies extension-specific options. Packages wishing to take advantage of
 extension-specific capabilities can forward options to extensions by defining a
 dictionary of values.</p>
@@ -1306,7 +1306,7 @@ dictionary of values.</p>
 </div>
 </div>
 <div class="section" id="libfoo-extract-type">
-<h4>LIBFOO_EXTRACT_TYPE<a class="headerlink" href="#libfoo-extract-type" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_EXTRACT_TYPE<a class="headerlink" href="#libfoo-extract-type" title="永久链接至标题">¶</a></h4>
 <p>Specifies a custom extraction type for a package. If a configured extension
 supports a custom extraction capability, the registered extraction type can be
 explicitly registered in this option.</p>
@@ -1315,7 +1315,7 @@ explicitly registered in this option.</p>
 </div>
 </div>
 <div class="section" id="libfoo-fetch-opts">
-<h4>LIBFOO_FETCH_OPTS<a class="headerlink" href="#libfoo-fetch-opts" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_FETCH_OPTS<a class="headerlink" href="#libfoo-fetch-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the fetch process. This
 option can be defined as a dictionary of string pairs or a list with strings --
 either way defined will generate argument values which may be included in a
@@ -1336,7 +1336,7 @@ option.</p>
 </div>
 </div>
 <div class="section" id="libfoo-fixed-jobs">
-<h4>LIBFOO_FIXED_JOBS<a class="headerlink" href="#libfoo-fixed-jobs" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_FIXED_JOBS<a class="headerlink" href="#libfoo-fixed-jobs" title="永久链接至标题">¶</a></h4>
 <p>Explicitly configure the total number of jobs a package can use. The primary use
 case for this option is to help limit the total number of jobs for a package
 that cannot support a large or any parallel build environment.</p>
@@ -1345,7 +1345,7 @@ that cannot support a large or any parallel build environment.</p>
 </div>
 </div>
 <div class="section" id="libfoo-git-config">
-<h4>LIBFOO_GIT_CONFIG<a class="headerlink" href="#libfoo-git-config" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_GIT_CONFIG<a class="headerlink" href="#libfoo-git-config" title="永久链接至标题">¶</a></h4>
 <p>Apply additional repository-specific Git configuration settings (<a class="reference external" href="https://git-scm.com/docs/git-config"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></a>)
 after a Git repository cache has been initialized. By default, no
 repository-specific configurations are introduced (i.e. all Git calls will use
@@ -1357,7 +1357,7 @@ the global configuration set).</p>
 </div>
 </div>
 <div class="section" id="libfoo-git-depth">
-<h4>LIBFOO_GIT_DEPTH<a class="headerlink" href="#libfoo-git-depth" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_GIT_DEPTH<a class="headerlink" href="#libfoo-git-depth" title="永久链接至标题">¶</a></h4>
 <p>Limit fetching for a Git-based source to the specified number of commits. The
 value provided will be used with the <a class="reference external" href="https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---depthltdepthgt"><code class="docutils literal notranslate"><span class="pre">--depth</span></code></a> argument. By default, the depth
 will be set to a value of <code class="docutils literal notranslate"><span class="pre">1</span></code>. If a developer wishes use fetch all commits
@@ -1372,7 +1372,7 @@ depth of <code class="docutils literal notranslate"><span class="pre">1</span></
 <p>See also <a class="reference internal" href="#libfoo-git-refspecs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></a> and <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
 </div>
 <div class="section" id="libfoo-git-refspecs">
-<h4>LIBFOO_GIT_REFSPECS<a class="headerlink" href="#libfoo-git-refspecs" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_GIT_REFSPECS<a class="headerlink" href="#libfoo-git-refspecs" title="永久链接至标题">¶</a></h4>
 <p>List of addition refspecs to fetch when using a <code class="docutils literal notranslate"><span class="pre">git</span></code> VCS type. By default, a
 Git fetch request will acquire all <code class="docutils literal notranslate"><span class="pre">heads</span></code> and <code class="docutils literal notranslate"><span class="pre">tags</span></code> refspecs. If a
 developer wishes use revisions from different refspecs (for example, a pull
@@ -1383,7 +1383,7 @@ fetching.</p>
 </div>
 </div>
 <div class="section" id="libfoo-git-submodules">
-<h4>LIBFOO_GIT_SUBMODULES<a class="headerlink" href="#libfoo-git-submodules" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_GIT_SUBMODULES<a class="headerlink" href="#libfoo-git-submodules" title="永久链接至标题">¶</a></h4>
 <p>Flag value to indicate whether or not a package's Git submodules should be
 fetched/extracted during a package's own fetch/extraction stages. By default,
 submodules are not fetched. Ideally, any dependencies for a package are
@@ -1399,7 +1399,7 @@ instead.</p>
 </div>
 </div>
 <div class="section" id="libfoo-git-verify-revision">
-<h4>LIBFOO_GIT_VERIFY_REVISION<a class="headerlink" href="#libfoo-git-verify-revision" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_GIT_VERIFY_REVISION<a class="headerlink" href="#libfoo-git-verify-revision" title="永久链接至标题">¶</a></h4>
 <p>Flag value to indicate whether or not the target revision is required to be
 signed before it can be used. When this value is set, the configured revision
 for a repository will not be extracted unless the GPG signature. This includes
@@ -1410,7 +1410,7 @@ target revision is not signed.</p>
 </div>
 </div>
 <div class="section" id="libfoo-internal">
-<h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="永久链接至标题">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an internal package.
 Internal packages will not generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
 <a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. When configured in
@@ -1423,7 +1423,7 @@ packages are considered external unless explicitly configured to be internal.</p
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </div>
 <div class="section" id="libfoo-no-extraction">
-<h4>LIBFOO_NO_EXTRACTION<a class="headerlink" href="#libfoo-no-extraction" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_NO_EXTRACTION<a class="headerlink" href="#libfoo-no-extraction" title="永久链接至标题">¶</a></h4>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
@@ -1450,7 +1450,7 @@ the no-extraction flag enabled will result in a warning. By default, this option
 is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </div>
 <div class="section" id="libfoo-prefix">
-<h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="永久链接至标题">¶</a></h4>
 <p>Specifies the sysroot prefix value to use for the package. An explicitly
 provided prefix value will override the project-defined or default sysroot
 prefix value.</p>
@@ -1460,7 +1460,7 @@ prefix value.</p>
 <p>See also <a class="reference internal" href="#conf-sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-revision">
-<h4>LIBFOO_REVISION<a class="headerlink" href="#libfoo-revision" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_REVISION<a class="headerlink" href="#libfoo-revision" title="永久链接至标题">¶</a></h4>
 <p>Specifies a revision value for a package. When a package fetches content using
 source management tools, the revision value is used to determine which sources
 should be acquired (e.g. a tag). If a revision is not defined package, a package
@@ -1471,7 +1471,7 @@ will use the configured <a class="reference internal" href="#libfoo-version"><co
 <p>See also <a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-skip-remote-config">
-<h4>LIBFOO_SKIP_REMOTE_CONFIG<a class="headerlink" href="#libfoo-skip-remote-config" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_SKIP_REMOTE_CONFIG<a class="headerlink" href="#libfoo-skip-remote-config" title="永久链接至标题">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should not attempt to load any
 package configurations which may be defined in the package's source. A package,
 by default, has the ability to load configuration information from a package's
@@ -1484,7 +1484,7 @@ registered into the package before invoking a package's configuration stage.</p>
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
 </div>
 <div class="section" id="libfoo-skip-remote-scripts">
-<h4>LIBFOO_SKIP_REMOTE_SCRIPTS<a class="headerlink" href="#libfoo-skip-remote-scripts" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_SKIP_REMOTE_SCRIPTS<a class="headerlink" href="#libfoo-skip-remote-scripts" title="永久链接至标题">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should not attempt to load any
 package scripts which may be defined in the package's source. Typically, a
 script-based package will load configuration, build, etc. scripts from its
@@ -1501,7 +1501,7 @@ package's contents.</p>
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
 </div>
 <div class="section" id="libfoo-strip-count">
-<h4>LIBFOO_STRIP_COUNT<a class="headerlink" href="#libfoo-strip-count" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_STRIP_COUNT<a class="headerlink" href="#libfoo-strip-count" title="永久链接至标题">¶</a></h4>
 <p>Specifies the strip count to use when attempting to extract sources from an
 archive. By default, the extraction process will strip a single directory from
 an archive (value: 1). If a package's archive has no container directory, a
@@ -1512,7 +1512,7 @@ container directories, a higher strip count can be set.</p>
 </div>
 </div>
 <div class="section" id="libfoo-vcs-type">
-<h4>LIBFOO_VCS_TYPE<a class="headerlink" href="#libfoo-vcs-type" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_VCS_TYPE<a class="headerlink" href="#libfoo-vcs-type" title="永久链接至标题">¶</a></h4>
 <p>Explicitly sets the version control system type to use when acquiring sources.
 releng-tool attempts to automatically determine the VCS type of a package based
 off a <a class="reference internal" href="#libfoo-site"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></a> value. In some scenarios, a site value may be unable to
@@ -1550,7 +1550,7 @@ thus using the <code class="docutils literal notranslate"><span class="pre">loca
 </div>
 </div>
 <div class="section" id="package-bootstrapping-and-post-processing">
-<span id="package-bootstrapping-and-postprocessing"></span><h3>Package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="永久链接至标题">#</a></h3>
+<span id="package-bootstrapping-and-postprocessing"></span><h3>Package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="永久链接至标题">¶</a></h3>
 <p>Every package, no matter which package <a class="reference internal" href="#libfoo-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></a> is defined, can create a
 bootstrapping or post-processing script to invoke before a package starts a
 configuration stage or after a package has completed an installation stage,
@@ -1579,7 +1579,7 @@ performed for the package.</p>
 <p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
 </div>
 <div class="section" id="site-definitions">
-<span id="id2"></span><h3>Site definitions<a class="headerlink" href="#site-definitions" title="永久链接至标题">#</a></h3>
+<span id="id2"></span><h3>Site definitions<a class="headerlink" href="#site-definitions" title="永久链接至标题">¶</a></h3>
 <p>The following outlines the details for defining supported site definitions. If
 attempting to use an extension-provided site type, please consult the
 documentation provided by said extension.</p>
@@ -1590,7 +1590,7 @@ sources) or postfix value; however, this is optional if a package wishes to
 use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> option.</p>
 </div>
 <div class="section" id="bazaar-site">
-<h4>Bazaar Site<a class="headerlink" href="#bazaar-site" title="永久链接至标题">#</a></h4>
+<h4>Bazaar Site<a class="headerlink" href="#bazaar-site" title="永久链接至标题">¶</a></h4>
 <p>To define a <a class="reference external" href="https://bazaar.canonical.com">Bazaar</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">bzr+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'bzr+ssh://example.com/project/trunk'</span>
@@ -1604,7 +1604,7 @@ archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="cvs-site">
-<h4>CVS Site<a class="headerlink" href="#cvs-site" title="永久链接至标题">#</a></h4>
+<h4>CVS Site<a class="headerlink" href="#cvs-site" title="永久链接至标题">¶</a></h4>
 <p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code>
 or other common CVSROOT value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">':pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule'</span>
@@ -1619,7 +1619,7 @@ archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="git-site">
-<h4>Git Site<a class="headerlink" href="#git-site" title="永久链接至标题">#</a></h4>
+<h4>Git Site<a class="headerlink" href="#git-site" title="永久链接至标题">¶</a></h4>
 <p>To define a <a class="reference external" href="https://git-scm.com/">Git</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">git+</span></code>
 value or postfixed with the <code class="docutils literal notranslate"><span class="pre">.git</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'https://example.com/libfoo.git'</span>
@@ -1635,7 +1635,7 @@ from the cache location. If a desired revision does not exist, the origin remote
 will be fetched for the new revision (if it exists).</p>
 </div>
 <div class="section" id="mercurial-site">
-<h4>Mercurial Site<a class="headerlink" href="#mercurial-site" title="永久链接至标题">#</a></h4>
+<h4>Mercurial Site<a class="headerlink" href="#mercurial-site" title="永久链接至标题">¶</a></h4>
 <p>To define a <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">hg+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'hg+https://example.com/project'</span>
@@ -1649,7 +1649,7 @@ cache location. If a desired revision does not exist, the origin remote will be
 pulled for the new revision (if it exists).</p>
 </div>
 <div class="section" id="rsync-site">
-<h4>rsync Site<a class="headerlink" href="#rsync-site" title="永久链接至标题">#</a></h4>
+<h4>rsync Site<a class="headerlink" href="#rsync-site" title="永久链接至标题">¶</a></h4>
 <p>To define an rsync-based location, the site value must be prefixed with an
 <code class="docutils literal notranslate"><span class="pre">rsync+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'rsync+&lt;source&gt;'</span>
@@ -1663,7 +1663,7 @@ argument is applied. Adding or replacing options can be done by using the
 <a class="reference internal" href="#libfoo-fetch-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code></a> option.</p>
 </div>
 <div class="section" id="scp-site">
-<h4>SCP Site<a class="headerlink" href="#scp-site" title="永久链接至标题">#</a></h4>
+<h4>SCP Site<a class="headerlink" href="#scp-site" title="永久链接至标题">¶</a></h4>
 <p>To define an SCP-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">scp+</span></code>
 value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'scp+[user@]host:]file'</span>
@@ -1675,7 +1675,7 @@ a remote host. The fetched file will be stored inside the <code class="docutils 
 fetched, the fetch stage will be skipped unless the file is manually removed.</p>
 </div>
 <div class="section" id="svn-site">
-<h4>SVN Site<a class="headerlink" href="#svn-site" title="永久链接至标题">#</a></h4>
+<h4>SVN Site<a class="headerlink" href="#svn-site" title="永久链接至标题">¶</a></h4>
 <p>To define a <a class="reference external" href="https://subversion.apache.org/">Subversion</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">svn+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2'</span>
@@ -1687,7 +1687,7 @@ be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="url-site-default">
-<h4>URL Site (default)<a class="headerlink" href="#url-site-default" title="永久链接至标题">#</a></h4>
+<h4>URL Site (default)<a class="headerlink" href="#url-site-default" title="永久链接至标题">¶</a></h4>
 <p>All packages that do not define a helper prefix/postfix value (as seen in other
 site definitions) or do not explicitly set a <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> value (other
 than <code class="docutils literal notranslate"><span class="pre">url</span></code>), will be considered a URL site. A URL site can be defined as
@@ -1703,7 +1703,7 @@ more.</p>
 </div>
 </div>
 <div class="section" id="hash-file">
-<span id="hash-files"></span><h3>Hash file<a class="headerlink" href="#hash-file" title="永久链接至标题">#</a></h3>
+<span id="hash-files"></span><h3>Hash file<a class="headerlink" href="#hash-file" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>An alternative to using a hash to validate a package's cache is to use an
@@ -1751,7 +1751,7 @@ sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
 </div>
 </div>
 <div class="section" id="ascii-armor">
-<span id="id12"></span><h3>ASCII Armor<a class="headerlink" href="#ascii-armor" title="永久链接至标题">#</a></h3>
+<span id="id12"></span><h3>ASCII Armor<a class="headerlink" href="#ascii-armor" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>An alternative to using an ASCII-armor to validate a package's cache is to
@@ -1769,7 +1769,7 @@ system's <code class="docutils literal notranslate"><span class="pre">gpg</span>
 the required public keys registered.</p>
 </div>
 <div class="section" id="script-package-default">
-<h3>Script Package (default)<a class="headerlink" href="#script-package-default" title="永久链接至标题">#</a></h3>
+<h3>Script Package (default)<a class="headerlink" href="#script-package-default" title="永久链接至标题">¶</a></h3>
 <p>A script-based package is the most basic package type available. By default,
 packages are considered to be script packages unless explicitly configured to be
 another package type (<a class="reference internal" href="#libfoo-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></a>). If a developer wishes to explicitly
@@ -1799,7 +1799,7 @@ skipped.</p>
 more stage script support.</p>
 </div>
 <div class="section" id="autotools-package">
-<h3>Autotools Package<a class="headerlink" href="#autotools-package" title="永久链接至标题">#</a></h3>
+<h3>Autotools Package<a class="headerlink" href="#autotools-package" title="永久链接至标题">¶</a></h3>
 <p>An autotools package provides support for processing a <a class="reference external" href="https://www.gnu.org/software/automake/manual/html_node/index.html">GNU Build System</a>
 supported module.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">'autotools'</span>
@@ -1812,7 +1812,7 @@ during the installation stage.</p>
 <p>The following sections outline configuration options are available for an
 autotools package.</p>
 <div class="section" id="libfoo-autotools-autoreconf">
-<h4>LIBFOO_AUTOTOOLS_AUTORECONF<a class="headerlink" href="#libfoo-autotools-autoreconf" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_AUTOTOOLS_AUTORECONF<a class="headerlink" href="#libfoo-autotools-autoreconf" title="永久链接至标题">¶</a></h4>
 <p>Specifies whether or not the package needs to perform an autotools
 re-configuration. This is to assist in the rebuilding of GNU Build System files
 which may be broken or a patch has introduced new build script changes that need
@@ -1823,7 +1823,7 @@ invoked.</p>
 </div>
 </div>
 <div class="section" id="libfoo-build-defs">
-<span id="autotools-build-defs"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#libfoo-build-defs" title="永久链接至标题">#</a></h4>
+<span id="autotools-build-defs"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#libfoo-build-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -1834,7 +1834,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-build-env">
-<span id="autotools-build-env"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#libfoo-build-env" title="永久链接至标题">#</a></h4>
+<span id="autotools-build-env"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#libfoo-build-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable's value. This field
@@ -1846,7 +1846,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-build-opts">
-<span id="autotools-build-opts"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#libfoo-build-opts" title="永久链接至标题">#</a></h4>
+<span id="autotools-build-opts"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#libfoo-build-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings --
 either way defined will generate argument values to include in the build event.
@@ -1866,7 +1866,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-conf-defs">
-<span id="autotools-conf-defs"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#libfoo-conf-defs" title="永久链接至标题">#</a></h4>
+<span id="autotools-conf-defs"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#libfoo-conf-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -1877,7 +1877,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-conf-env">
-<span id="autotools-conf-env"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#libfoo-conf-env" title="永久链接至标题">#</a></h4>
+<span id="autotools-conf-env"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#libfoo-conf-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -1889,7 +1889,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-conf-opts">
-<span id="autotools-conf-opts"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#libfoo-conf-opts" title="永久链接至标题">#</a></h4>
+<span id="autotools-conf-opts"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#libfoo-conf-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -1909,7 +1909,7 @@ configuration event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-install-defs">
-<span id="autotools-install-defs"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#libfoo-install-defs" title="永久链接至标题">#</a></h4>
+<span id="autotools-install-defs"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#libfoo-install-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -1920,7 +1920,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-install-env">
-<span id="autotools-install-env"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#libfoo-install-env" title="永久链接至标题">#</a></h4>
+<span id="autotools-install-env"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#libfoo-install-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -1932,7 +1932,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-install-opts">
-<span id="autotools-install-opts"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#libfoo-install-opts" title="永久链接至标题">#</a></h4>
+<span id="autotools-install-opts"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#libfoo-install-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -1953,7 +1953,7 @@ installation event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-package">
-<h3>CMake Package<a class="headerlink" href="#cmake-package" title="永久链接至标题">#</a></h3>
+<h3>CMake Package<a class="headerlink" href="#cmake-package" title="永久链接至标题">¶</a></h3>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported module.</p>
 <p>During the configuration stage of a CMake package, <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked to
 generate build files for the module. For the build stage, <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code> will
@@ -1980,7 +1980,7 @@ can override this option by explicitly adjusting the configuration option
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
 <div class="section" id="cmake-build-defs">
-<span id="id13"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="永久链接至标题">#</a></h4>
+<span id="id13"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -1991,7 +1991,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-env">
-<span id="id14"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="永久链接至标题">#</a></h4>
+<span id="id14"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable's value. This field
@@ -2003,7 +2003,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-build-opts">
-<span id="id15"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="永久链接至标题">#</a></h4>
+<span id="id15"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings --
 either way defined will generate argument values to include in the build event.
@@ -2023,7 +2023,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-cmake-noinstall">
-<h4>LIBFOO_CMAKE_NOINSTALL<a class="headerlink" href="#libfoo-cmake-noinstall" title="永久链接至标题">#</a></h4>
+<h4>LIBFOO_CMAKE_NOINSTALL<a class="headerlink" href="#libfoo-cmake-noinstall" title="永久链接至标题">¶</a></h4>
 <p>Specifies whether or not the CMake package should skip an attempt to invoke
 the install command. Ideally, projects will have an <a class="reference external" href="https://cmake.org/cmake/help/latest/command/install.html">install</a>
 rule configured to define how a project will install files into a target (or
@@ -2037,7 +2037,7 @@ By default, the installation stage is invoked with a value of <code class="docut
 </div>
 </div>
 <div class="section" id="cmake-conf-defs">
-<span id="id16"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="永久链接至标题">#</a></h4>
+<span id="id16"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2048,7 +2048,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-env">
-<span id="id17"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="永久链接至标题">#</a></h4>
+<span id="id17"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -2060,7 +2060,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-conf-opts">
-<span id="id18"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="永久链接至标题">#</a></h4>
+<span id="id18"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -2080,7 +2080,7 @@ configuration event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-defs">
-<span id="id19"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="永久链接至标题">#</a></h4>
+<span id="id19"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2091,7 +2091,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-env">
-<span id="id20"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="永久链接至标题">#</a></h4>
+<span id="id20"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -2103,7 +2103,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="cmake-install-opts">
-<span id="id21"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="永久链接至标题">#</a></h4>
+<span id="id21"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -2124,7 +2124,7 @@ installation event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-package">
-<h3>Python Package<a class="headerlink" href="#python-package" title="永久链接至标题">#</a></h3>
+<h3>Python Package<a class="headerlink" href="#python-package" title="永久链接至标题">¶</a></h3>
 <p>A Python package provides support for processing a <a class="reference external" href="https://www.python.org/">Python</a> supported module.</p>
 <p>Only the build and installation phases are used when processing the sources for
 a Python package (i.e. no configuration stage is invoked). The build phase will
@@ -2138,7 +2138,7 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 <p>The following sections outline configuration options are available for a Python
 package.</p>
 <div class="section" id="python-build-defs">
-<span id="id22"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="永久链接至标题">#</a></h4>
+<span id="id22"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2149,7 +2149,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-env">
-<span id="id23"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="永久链接至标题">#</a></h4>
+<span id="id23"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable's value. This field
@@ -2161,7 +2161,7 @@ is optional.</p>
 </div>
 </div>
 <div class="section" id="python-build-opts">
-<span id="id24"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="永久链接至标题">#</a></h4>
+<span id="id24"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings --
 either way defined will generate argument values to include in the build event.
@@ -2181,7 +2181,7 @@ This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-defs">
-<span id="id25"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="永久链接至标题">#</a></h4>
+<span id="id25"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2192,7 +2192,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-env">
-<span id="id26"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="永久链接至标题">#</a></h4>
+<span id="id26"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -2204,7 +2204,7 @@ field is optional.</p>
 </div>
 </div>
 <div class="section" id="python-install-opts">
-<span id="id27"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="永久链接至标题">#</a></h4>
+<span id="id27"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="永久链接至标题">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -2224,7 +2224,7 @@ installation event. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="libfoo-python-interpreter">
-<span id="python-interpreter"></span><h4>LIBFOO_PYTHON_INTERPRETER<a class="headerlink" href="#libfoo-python-interpreter" title="永久链接至标题">#</a></h4>
+<span id="python-interpreter"></span><h4>LIBFOO_PYTHON_INTERPRETER<a class="headerlink" href="#libfoo-python-interpreter" title="永久链接至标题">¶</a></h4>
 <p>Defines a specific Python interpreter when processing the build and
 installation stages for a package. If not specified, the system's Python
 interpreter will be used. This field is optional.</p>
@@ -2235,9 +2235,9 @@ interpreter will be used. This field is optional.</p>
 </div>
 </div>
 <div class="section" id="other">
-<h2>Other<a class="headerlink" href="#other" title="永久链接至标题">#</a></h2>
+<h2>Other<a class="headerlink" href="#other" title="永久链接至标题">¶</a></h2>
 <div class="section" id="post-processing">
-<h3>Post-processing<a class="headerlink" href="#post-processing" title="永久链接至标题">#</a></h3>
+<h3>Post-processing<a class="headerlink" href="#post-processing" title="永久链接至标题">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>A post-processing script (if used) will be invoked each time <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>
@@ -2276,7 +2276,7 @@ likely that a subsequent request to build may fail since the file can no longer
 be found inside the target directory.</p>
 </div>
 <div class="section" id="licenses">
-<span id="license-information"></span><h3>Licenses<a class="headerlink" href="#licenses" title="永久链接至标题">#</a></h3>
+<span id="license-information"></span><h3>Licenses<a class="headerlink" href="#licenses" title="永久链接至标题">¶</a></h3>
 <p>A releng-tool project can defined multiple packages, each with the possibility
 of having multiple licenses associated with them. Each project may vary: some
 may have only proprietary sources and may not care about tracking this
@@ -2307,7 +2307,7 @@ the generated document will be prefixed with the header content. For example,
 when attempting to generated final archives/packages.</p>
 </div>
 <div class="section" id="patching">
-<h3>Patching<a class="headerlink" href="#patching" title="永久链接至标题">#</a></h3>
+<h3>Patching<a class="headerlink" href="#patching" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>Patches are ignored when in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a> for
@@ -2356,7 +2356,7 @@ patching system from making unexpected modifications to a developer's local
 source variants.</p>
 </div>
 <div class="section" id="internal-and-external-packages">
-<h3>Internal and External packages<a class="headerlink" href="#internal-and-external-packages" title="永久链接至标题">#</a></h3>
+<h3>Internal and External packages<a class="headerlink" href="#internal-and-external-packages" title="永久链接至标题">¶</a></h3>
 <p>Packages are either internal packages or external packages. All packages are
 considered external packages by default unless explicitly configured as internal
 through either the package option <a class="reference internal" href="#libfoo-internal"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></a> or using the project
@@ -2376,7 +2376,7 @@ extract and patch stages will not be performed.</p></li>
 </ul>
 </div>
 <div class="section" id="script-helpers">
-<h3>Script helpers<a class="headerlink" href="#script-helpers" title="永久链接至标题">#</a></h3>
+<h3>Script helpers<a class="headerlink" href="#script-helpers" title="永久链接至标题">¶</a></h3>
 <p>releng-tool provides a series of helper functions which can be used in
 script-based packages, post-processing and more. Helper functions provided are
 listed below:</p>
@@ -2765,7 +2765,7 @@ duplicate entries.</p>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
 <td><dl class="py method">
 <dt class="sig sig-object py" id="releng_tool.releng_join">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="永久链接至目标">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="永久链接至目标">¶</a></dt>
 <dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
 </dd></dl>
 </td>
@@ -3076,7 +3076,7 @@ example, import a specific function:</p>
 </div>
 </div>
 <div class="section" id="vcs-ignore">
-<h3>VCS Ignore<a class="headerlink" href="#vcs-ignore" title="永久链接至标题">#</a></h3>
+<h3>VCS Ignore<a class="headerlink" href="#vcs-ignore" title="永久链接至标题">¶</a></h3>
 <p>When invoking releng-tool on a project, the project's root directory will be
 populated with cached assets and other output files. A series of standard ignore
 patterns can be applied to a repository to prevent observing these generated
@@ -3091,7 +3091,7 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 </div>
 </div>
 <div class="section" id="quirks">
-<span id="id28"></span><h3>Quirks<a class="headerlink" href="#quirks" title="永久链接至标题">#</a></h3>
+<span id="id28"></span><h3>Quirks<a class="headerlink" href="#quirks" title="永久链接至标题">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
@@ -3118,7 +3118,7 @@ fetch) for any Git-site-defined package.</p></li>
 </div>
 </div>
 <div class="section" id="loading-extensions">
-<h3>Loading extensions<a class="headerlink" href="#loading-extensions" title="永久链接至标题">#</a></h3>
+<h3>Loading extensions<a class="headerlink" href="#loading-extensions" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>If looking for information on developing extensions for releng-tool, consult
