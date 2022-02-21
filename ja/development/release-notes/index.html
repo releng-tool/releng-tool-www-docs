@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="prev" title="付録A - クイックリファレンス" href="../annex-a/" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
         <title>バージョンノート - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
     
     
 
@@ -45,17 +45,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" />
-      <line x1="4" y1="6" x2="20" y2="6" />
-      <line x1="10" y1="12" x2="20" y2="12" />
-      <line x1="6" y1="18" x2="20" y2="18" />
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
     </svg>
   </symbol>
   <symbol id="svg-menu" viewBox="0 0 24 24">
     <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -64,14 +60,14 @@
   </symbol>
   <symbol id="svg-arrow-right" viewBox="0 0 24 24">
     <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
       <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
   </symbol>
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -86,7 +82,7 @@
   </symbol>
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
@@ -94,7 +90,7 @@
   </symbol>
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
@@ -192,6 +188,7 @@
   </div>
 </div>
 </div>
+
       </div>
       
     </div>
@@ -199,8 +196,7 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -215,15 +211,16 @@
         </div>
         <article role="main">
           <div class="section" id="release-notes">
-<h1>バージョンノート<a class="headerlink" href="#release-notes" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>バージョンノート<a class="headerlink" href="#release-notes" title="このヘッドラインへのパーマリンク">#</a></h1>
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project's <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
 <div class="section" id="development">
-<h2>development<a class="headerlink" href="#development" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>development<a class="headerlink" href="#development" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>always pre-create install directory before package install scripts are invoked</p></li>
 <li><p>fixed an issue where nested zip files could not extract</p></li>
+<li><p>introduce <code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code> helper script function</p></li>
 <li><p>no longer extract with non-local-supported tar command if host format detected</p></li>
 <li><p>no longer warn if hash file is empty for extracted contents check</p></li>
 <li><p>support removing cached assets through a forced fetch argument</p></li>
@@ -231,7 +228,7 @@ consult the project's <a class="reference external" href="https://github.com/rel
 </ul>
 </div>
 <div class="section" id="id1">
-<h2>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fixed an issue where a configured <code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code> bin path would not be
 registered in the script environment's path</p></li>
@@ -251,7 +248,7 @@ would fail</p></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>0.9 (2021-10-02)<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.9 (2021-10-02)<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fixed an import issue when running with python 3.10</p></li>
 <li><p>fixed an issue where a cyclic package check provided a bad message</p></li>
@@ -263,7 +260,7 @@ would fail</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2>0.8 (2021-08-28)<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.8 (2021-08-28)<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>allow dvcs packages to share caches (to minimize space/time fetching)</p></li>
 <li><p>fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on python
@@ -288,7 +285,7 @@ forced fetch request is made</p></li>
 </ul>
 </div>
 <div class="section" id="id4">
-<h2>0.7 (2021-08-08)<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.7 (2021-08-08)<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fetch from an already cached package's site if the fetch is explicitly
 requested</p></li>
@@ -310,7 +307,7 @@ to force re-invoking a specific stage</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
-<h2>0.6 (2020-10-10)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.6 (2020-10-10)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>always register optional flags inside scripts (allowing developers to use
 flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
@@ -326,13 +323,13 @@ an interim)</p></li>
 </ul>
 </div>
 <div class="section" id="id6">
-<h2>0.5 (2020-09-07)<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.5 (2020-09-07)<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fixed false error when verifying cached git reference</p></li>
 </ul>
 </div>
 <div class="section" id="id7">
-<h2>0.4 (2020-09-07)<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
 <li><p>allow setting quirks in command line</p></li>
@@ -344,7 +341,7 @@ an interim)</p></li>
 </ul>
 </div>
 <div class="section" id="id8">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>allow packages to configure for no-extraction for sources</p></li>
@@ -356,7 +353,7 @@ an interim)</p></li>
 </ul>
 </div>
 <div class="section" id="id9">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>a project's host directory will now be registered in the system's path during
 execution</p></li>
@@ -366,7 +363,7 @@ execution</p></li>
 </ul>
 </div>
 <div class="section" id="id10">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>hello world</p></li>
 </ul>
@@ -391,10 +388,18 @@ execution</p></li>
               </div>
             </a>
         </div>
-
-        <div class="related-information">
-          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        <div class="bottom-of-page">
+          <div class="left-details">
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
         </div>
         
       </footer>

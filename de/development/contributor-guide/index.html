@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Stichwortverzeichnis" href="../genindex/" /><link rel="search" title="Suche" href="../search/" /><link rel="next" title="Tipps" href="../tips/" /><link rel="prev" title="Entwicklerhandbuch" href="../developer-guide/" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
         <title>Leitfaden für mitwirkende - releng-tool Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
     
     
 
@@ -45,17 +45,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" />
-      <line x1="4" y1="6" x2="20" y2="6" />
-      <line x1="10" y1="12" x2="20" y2="12" />
-      <line x1="6" y1="18" x2="20" y2="18" />
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
     </svg>
   </symbol>
   <symbol id="svg-menu" viewBox="0 0 24 24">
     <title>Menu</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
       <line x1="3" y1="12" x2="21" y2="12"></line>
       <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -64,14 +60,14 @@
   </symbol>
   <symbol id="svg-arrow-right" viewBox="0 0 24 24">
     <title>Expand</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
       <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
   </symbol>
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -86,7 +82,7 @@
   </symbol>
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
@@ -94,7 +90,7 @@
   </symbol>
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
@@ -192,6 +188,7 @@
   </div>
 </div>
 </div>
+
       </div>
       
     </div>
@@ -199,8 +196,7 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -215,7 +211,7 @@
         </div>
         <article role="main">
           <div class="section" id="contributor-guide">
-<h1>Leitfaden für mitwirkende<a class="headerlink" href="#contributor-guide" title="Link zu dieser Überschrift">¶</a></h1>
+<h1>Leitfaden für mitwirkende<a class="headerlink" href="#contributor-guide" title="Link zu dieser Überschrift">#</a></h1>
 <p>The following outlines common directory locations:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - project documentation</p></li>
@@ -233,7 +229,7 @@ project may require additional tools (e.g. using <a class="reference external" h
 <code class="docutils literal notranslate"><span class="pre">git</span></code> to be installed); however, a user should not be required to install
 tools for features that are not being used.</p>
 <div class="section" id="contributing">
-<h2>Leitfaden für mitwirkende<a class="headerlink" href="#contributing" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Leitfaden für mitwirkende<a class="headerlink" href="#contributing" title="Link zu dieser Überschrift">#</a></h2>
 <p>Developers are free to submit contributions for this project. Developers wishing
 to contribute should consult this project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/CONTRIBUTING.rst">CONTRIBUTING</a> document. A reminder
 that any contributions must be signed off with the
@@ -242,7 +238,7 @@ that any contributions must be signed off with the
 should be provided in English.</p>
 </div>
 <div class="section" id="root-directory">
-<h2>Root directory<a class="headerlink" href="#root-directory" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Root directory<a class="headerlink" href="#root-directory" title="Link zu dieser Überschrift">#</a></h2>
 <p>A user invoking releng-tool will attempt to operate in a project root directory.
 Any content managed by this tool (e.g. creating directories, downloading
 sources, etc.) should all be performed inside the root directory. Some
@@ -250,7 +246,7 @@ exceptions exist where a user requests to adjust the download directory (i.e.
 providing the <code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument).</p>
 </div>
 <div class="section" id="fetching-design">
-<h2>Fetching design<a class="headerlink" href="#fetching-design" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Fetching design<a class="headerlink" href="#fetching-design" title="Link zu dieser Überschrift">#</a></h2>
 <p>Packages can describe where external content should be fetched from. The most
 common fetching method is a simple URI-style fetch such as downloading an
 archive from an HTTP/FTP location. Assets acquired in this manner are downloaded
@@ -267,7 +263,7 @@ the <code class="docutils literal notranslate"><span class="pre">git</span></cod
 <p>Not all packages will fetch content (e.g. placeholder packages).</p>
 </div>
 <div class="section" id="extraction-design">
-<h2>Extraction design<a class="headerlink" href="#extraction-design" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Extraction design<a class="headerlink" href="#extraction-design" title="Link zu dieser Überschrift">#</a></h2>
 <p>In most cases, the extraction phase will process archives (e.g. <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>,
 <code class="docutils literal notranslate"><span class="pre">.zip</span></code>, etc.) and place their content into a package’s build working
 directory. Implementation will vary for fetching implementation which stores
@@ -276,7 +272,7 @@ their own extraction implementations to pull content from their respective
 distributed file systems into a package’s build working directory.</p>
 </div>
 <div class="section" id="host-and-build-environment">
-<h2>Host and Build environment<a class="headerlink" href="#host-and-build-environment" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Host and Build environment<a class="headerlink" href="#host-and-build-environment" title="Link zu dieser Überschrift">#</a></h2>
 <p>releng-tool attempts to minimize the impact of a host system’s environment on a
 project’s build. For example, the build phase of a package should not be pulling
 compiler flags provided from the host system’s environment. These flags should
@@ -286,7 +282,7 @@ exceptions apply such as environment variables dealing with authorization
 tokens.</p>
 </div>
 <div class="section" id="extensions">
-<span id="contributor-guide-ext"></span><h2>Extensions<a class="headerlink" href="#extensions" title="Link zu dieser Überschrift">¶</a></h2>
+<span id="contributor-guide-ext"></span><h2>Extensions<a class="headerlink" href="#extensions" title="Link zu dieser Überschrift">#</a></h2>
 <p>Developers wishing to provide extensions to releng-tool should consult the API
 implementation found in this tool’s repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py"><code class="docutils literal notranslate"><span class="pre">releng_tool/api/__init__.py</span></code></a>).
 Implementation in the API folder aims to be „API safe“ – there is a strong
@@ -333,7 +329,7 @@ extension to register custom fetching, extraction and package implementations.</
 inside the <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/releng_tool/api/__init__.py">API implementation</a>.</p>
 </div>
 <div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link zu dieser Überschrift">#</a></h2>
 <p>Improvements to this project’s documentation (found inside <code class="docutils literal notranslate"><span class="pre">Documentation</span></code>)
 are always welcome – not only for adding/updating documentation for releng-tool
 features but also translations.</p>
@@ -378,10 +374,18 @@ following repositories:</p>
               </div>
             </a>
         </div>
-
-        <div class="related-information">
-          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        <div class="bottom-of-page">
+          <div class="left-details">
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
         </div>
         
       </footer>
