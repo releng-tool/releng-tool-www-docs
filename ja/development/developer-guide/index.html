@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="next" title="寄稿者ガイド" href="../contributor-guide/" /><link rel="prev" title="ユーザーガイド" href="../user-guide/" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.14.1"/>
+    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.23"/>
         <title>開発者ガイド - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=3c656993158f05539f962c5cea52a5e6c184bb8c" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -196,6 +196,12 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
         <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
@@ -695,7 +701,7 @@ releng-tool will internally extract the archive; however, a user
 may wish to override this tool with their own extraction utility.
 Consider the following example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'zip'</span><span class="p">:</span> <span class="s1">'/opt/my-custom-unzip'</span><span class="p">,</span>
+    <span class="s1">'zip'</span><span class="p">:</span> <span class="s1">'/opt/my-custom-unzip </span><span class="si">{file}</span><span class="s1"> </span><span class="si">{dir}</span><span class="s1">'</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2471,7 +2477,32 @@ generating a formatted message</p></li>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_cat</span></code></p></td>
+<td><dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_cat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Attempts to read one or more files provided to this call. For each file, it
+will be read and printed out to the standard output.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_cat</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> -- the file</p></li>
+<li><p><strong>*args</strong> (<em>optional</em>) -- additional files to include</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if all the files exists and were printed to the standard
+output; <code class="docutils literal notranslate"><span class="pre">False</span></code> if one or more files could not be read</p>
+</dd>
+</dl>
+</dd></dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
@@ -2525,7 +2556,7 @@ has failed</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value=&lt;object</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span></dt>
@@ -2557,7 +2588,7 @@ be removed.</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
@@ -2623,7 +2654,7 @@ execution has failed</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute_rv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
@@ -2665,7 +2696,7 @@ instead of the original environment of the caller.</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -2692,7 +2723,7 @@ call will return <code class="docutils literal notranslate"><span class="pre">Tr
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
@@ -2723,7 +2754,7 @@ if a message is set</p></li>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
@@ -2762,11 +2793,34 @@ duplicate entries.</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
 <td><dl class="py method">
 <dt class="sig sig-object py" id="releng_tool.releng_join">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
+</dd></dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_ls</span></code></p></td>
+<td><dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Attempts to read a directory for its contents and prints this information
+to the configured standard output stream.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_ls</span><span class="p">(</span><span class="s1">'my-dir/'</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><p><strong>dir</strong> -- the directory</p>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the directory could be read and its contents have been
+printed to the standard output; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the directory could not
+be read</p>
+</dd>
+</dl>
 </dd></dl>
 </td>
 </tr>
