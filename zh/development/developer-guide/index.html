@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="贡献者指南" href="../contributor-guide/" /><link rel="prev" title="用户指南" href="../user-guide/" />
 
-    <meta name="generator" content="sphinx-4.4.0, furo 2022.02.23"/>
+    <meta name="generator" content="sphinx-4.3.0, furo 2022.02.14.1"/>
         <title>开发者指南 - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=3c656993158f05539f962c5cea52a5e6c184bb8c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -114,7 +114,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     开发版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.10</a> 
+     开发版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.11</a> 
   </aside>
 </div>
 
@@ -196,12 +196,6 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <a href="#" class="back-to-top muted-link">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
-          </svg>
-          <span>Back to top</span>
-        </a>
         <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
@@ -1590,7 +1584,7 @@ performed for the package.</p>
 attempting to use an extension-provided site type, please consult the
 documentation provided by said extension.</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">注解</p>
 <p>All site values can be defined with a prefix value (e.g. <code class="docutils literal notranslate"><span class="pre">git+</span></code> for Git
 sources) or postfix value; however, this is optional if a package wishes to
 use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> option.</p>
@@ -1711,7 +1705,7 @@ more.</p>
 <div class="section" id="hash-file">
 <span id="hash-files"></span><h3>Hash file<a class="headerlink" href="#hash-file" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">注解</p>
 <p>An alternative to using a hash to validate a package's cache is to use an
 <a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> instead. Although users can benefit from
 using both validation methods, if desired.</p>
@@ -1759,7 +1753,7 @@ sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
 <div class="section" id="ascii-armor">
 <span id="id12"></span><h3>ASCII Armor<a class="headerlink" href="#ascii-armor" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">注解</p>
 <p>An alternative to using an ASCII-armor to validate a package's cache is to
 use <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a> instead.</p>
 </div>
@@ -2315,7 +2309,7 @@ when attempting to generated final archives/packages.</p>
 <div class="section" id="patching">
 <h3>Patching<a class="headerlink" href="#patching" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">注解</p>
 <p>Patches are ignored when in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a> for
 packages with a development revision or when in
 <a class="reference internal" href="../user-guide/#local-sources-mode"><span class="std std-ref">local-sources mode</span></a> for internal packages.</p>
@@ -3174,7 +3168,7 @@ fetch) for any Git-site-defined package.</p></li>
 <div class="section" id="loading-extensions">
 <h3>Loading extensions<a class="headerlink" href="#loading-extensions" title="永久链接至标题">¶</a></h3>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">注解</p>
 <p>If looking for information on developing extensions for releng-tool, consult
 the <a class="reference internal" href="../contributor-guide/#contributor-guide-ext"><span class="std std-ref">contributor's guide -- extensions</span></a>.</p>
 </div>
@@ -3423,13 +3417,13 @@ by the providers of said extensions.</p>
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.9/">0.9</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.8/">0.8</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.7/">0.7</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>

@@ -59,6 +59,7 @@ releng-tool (may vary per context):
    RELENG_DEBUG
    RELENG_DEVMODE
    RELENG_DISTCLEAN
+   RELENG_FORCE
    RELENG_LOCALSRCS
    RELENG_MRPROPER
    RELENG_REBUILD
@@ -137,6 +138,7 @@ Functions available to scripts invoked by releng-tool or importable via
    err(msg, *args)
    log(msg, *args)
    note(msg, *args)
+   releng_cat(file, *args)
    releng_copy(src, dst, quiet=False, critical=True)
    releng_env(key, value=None)
    releng_execute(args, cwd=None, env=None, env_update=None, quiet=False, critical=True, poll=False, capture=None)
@@ -145,9 +147,11 @@ Functions available to scripts invoked by releng-tool or importable via
    releng_exit(msg=None, code=None)
    releng_expand(obj, kv=None)
    releng_join(path, *args)
+   releng_ls(dir_)
    releng_mkdir(dir_, quiet=False)
    releng_move(src, dst, quiet=False, critical=True)
    releng_remove(path, quiet=False)
+   releng_require_version(version)
    releng_tmpdir(dir_=None)
    releng_touch(file)
    releng_wd(dir_)
