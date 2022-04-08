@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex/" /><link rel="search" title="Search" href="search/" /><link rel="next" title="Requirements" href="requirements/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.03.04"/>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
         <title>releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
 
@@ -38,11 +38,13 @@
   }
 </style></head>
   <body>
+    
+
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
-
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -171,7 +173,8 @@
 <li class="toctree-l1"><a class="reference internal" href="user-guide/">User guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer-guide/">Developer guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips/">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a/">ANNEX A - Quick reference</a></li>
 </ul>
 <ul>
@@ -220,15 +223,14 @@
         <article role="main">
           <div class="section" id="releng-tool">
 <h1>releng-tool<a class="headerlink" href="#releng-tool" title="Permalink to this headline">¶</a></h1>
-<p>releng-tool can be used to assist in the release engineering of a project. This
+<p>releng-tool can be used to assist in the building of a project. This
 tool allows a user to define one or more packages to process. Each package has
 the ability to perform several stages: fetching, extraction, patching,
 configuration, building and installation. What a package defines will vary for a
 given project. The simplest type of package is script-based that allows a user
-to define custom scripts on how to perform various stages of the release
-engineering process. A package is not required to handle every stage. Helper
-package types are provided, such as autotools, for projects using common build
-capabilities.</p>
+to define custom scripts on how to perform various stages. A package is not
+required to handle every stage. Helper package types are provided
+(e.g. autotools, CMake, etc.), for projects using common build capabilities.</p>
 <svg viewbox="0 0 158.75 66.15" xmlns="http://www.w3.org/2000/svg">
 <path d="m88.03 45.77.03-4.2" fill-opacity=".55" stroke-dasharray=".3 .3" stroke-dashoffset=".18" stroke-width=".3" style="stroke:var(--color-foreground-primary)"></path>
 <path d="M88.06 24.88V14.42" fill-opacity=".55" stroke-dasharray=".3 .3" stroke-width=".3" style="stroke:var(--color-foreground-primary)"></path>
@@ -413,11 +415,8 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l2"><a class="reference internal" href="contributor-guide/#documentation">Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tips/">Tips</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tips/#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tips/#requesting-help">Requesting help</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a/">ANNEX A - Quick reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="annex-a/#configuration-options">Configuration options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a/#environment-variables">Environment variables</a></li>

@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Developer guide" href="../developer-guide/" /><link rel="prev" title="Installation" href="../install/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.03.04"/>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
         <title>User guide - releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
 
@@ -38,11 +38,13 @@
   }
 </style></head>
   <body>
+    
+
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
-
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -171,7 +173,8 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">User guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer-guide/">Developer guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex-a/">ANNEX A - Quick reference</a></li>
 </ul>
 <ul>
@@ -221,7 +224,7 @@
           <div class="section" id="user-guide">
 <h1>User guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
 <p>The following will outline the capabilities on using releng-tool with an already
-defined project. For details on building a releng-tool project, consult the
+defined project. For details on building a releng-tool project, see the
 <a class="reference internal" href="../developer-guide/"><span class="doc">developer’s guide</span></a>.</p>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
@@ -233,7 +236,7 @@ available on the host system, the latter call can be used instead.</p>
 <p>A releng-tool project will be defined by a <code class="docutils literal notranslate"><span class="pre">releng</span></code> configuration file along
 with one or more packages found inside a <code class="docutils literal notranslate"><span class="pre">package/</span></code> folder. This location can
 be referred to as the “root directory”. When invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>, the tool
-will look into the current working directory for the project information to
+will look in the current working directory for project information to
 process. For example, if a project found inside <code class="docutils literal notranslate"><span class="pre">my-project</span></code> with the single
 package <code class="docutils literal notranslate"><span class="pre">package-a</span></code> defined, the following output may be observed:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> my-project
@@ -264,9 +267,9 @@ the <code class="docutils literal notranslate"><span class="pre">--help</span></
 </div>
 <div class="section" id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
-<p>The command line can be used to specify either a single action to perform and/or
+<p>The command line can be used to specify a single action to perform or
 provide various options to configure the releng-tool process. Options
-can be provided before or after an action (if provided). By default, if a user
+can be provided before or after an action (if an explicit action is provided). By default, if a user
 does not specify an action, it is assumed that all steps are
 to be performed. An example of a user invoking a clean action is as follows:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool clean
@@ -324,7 +327,7 @@ or <a class="reference internal" href="#action-distclean"><code class="docutils 
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code></p></td>
 <td><p>Performs the build stage for the package. On success, the specified
-package stage will have completed its build. If a package has any
+package will have completed its build. If a package has any
 package dependencies, these dependencies will be processed before
 the specified package. If the provided package name does not
 exist, a notification will be generated.</p></td>
@@ -336,7 +339,7 @@ exist, a notification will be generated.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code></p></td>
 <td><p>Performs the configure stage for the package. On success, the
-specified package stage will have completed its configuration stage.
+specified package will have completed its configuration stage.
 If a package has any package dependencies, these dependencies will
 be processed before the specified package. If the provided
 package name does not exist, a notification will be generated.</p></td>
@@ -350,7 +353,7 @@ directory associated with the package. See also the
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
 <td><p>Performs the extraction stage for the package. On success, the
-specified package stage will have completed its extraction stage.
+specified package will have completed its extraction stage.
 If the provided package name does not exist, a notification will
 be generated.</p></td>
 </tr>
@@ -362,7 +365,7 @@ generated.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
 <td><p>Performs the installation stage for the package. On success, the
-specified package stage will have completed its installation
+specified package will have completed its installation
 stage. If a package has any package dependencies, these
 dependencies will be processed before the specified package. If
 the provided package name does not exist, a notification will be
@@ -376,7 +379,7 @@ fetched/extracted if not already done.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
 <td><p>Performs the patch stage for the package. On success, the specified
-package stage will have completed its patch stage. If the provided
+package will have completed its patch stage. If the provided
 package name does not exist, a notification will be generated.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
@@ -578,13 +581,13 @@ based on the packages, changes and languages used.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool fetch
 </pre></div>
 </div>
-<p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and/or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
-folders. Future builds for the project will no longer need external access until
-these folders are manually removed.</p>
+<p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
+folders. Future builds for the project should no longer need external access until
+these folders are removed.</p>
 </div>
 <div class="section" id="parallel-builds">
 <h3>Parallel builds<a class="headerlink" href="#parallel-builds" title="Permalink to this headline">¶</a></h3>
-<p>A stage (such as a build stage) for a package can take advantage of multiple
+<p>A stage for a package (such as a build stage) can take advantage of multiple
 cores to perform the step. By default, releng-tool will attempt to run as many
 jobs for a stage equal to the amount of physical cores on the host system. The
 amount of jobs available for a stage can be configured using the <code class="docutils literal notranslate"><span class="pre">--jobs</span></code>
@@ -624,10 +627,10 @@ packages against a development version of sources rather than using fixed
 versions. Consider the following example: if a project has a package which
 sources are pulled from a Git repository, it is most likely the package
 definition will define the explicit tag to clone from (e.g. <code class="docutils literal notranslate"><span class="pre">v1.0</span></code>). However,
-a package may define that the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of a repository is used for the
+a package may define that the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of a repository is used for the
 most recent development revision. If an environment is configured for
 development mode, the releng-tool process will instead pull sources from the
-<code class="docutils literal notranslate"><span class="pre">master</span></code> branch instead of a release tag.</p>
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch instead of a release tag.</p>
 <p>To enable development mode, invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> with the <code class="docutils literal notranslate"><span class="pre">--development</span></code>
 argument will enable the mode. Future calls to releng-tool for the project will
 use the development revision for packages where define. For example:</p>
@@ -650,7 +653,7 @@ directory. A user can either disable development mode by performing a
 sources found alongside the output directory</p>
 </div>
 <p>Local-sources mode provides a way for a developer to build internal-flagged
-packages using sources found alongside the root directory instead of having
+packages using sources found alongside the root directory, instead of having
 releng-tool attempt to fetch them from remote instances. This is primarily for
 developers who desire to manually manage source content outside the releng-tool
 environment. Local-sources mode only works for internally flagged packaged.
@@ -658,7 +661,7 @@ Consider the following example: a releng-tool project has a package called
 <code class="docutils literal notranslate"><span class="pre">liba</span></code>. When releng-tool is invoked in normal configurations, the package will
 do fetching, extraction and patching to prepare the directory
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/build/liba-&lt;version&gt;</span></code>. However, if a builder has configured the
-working root for local-sources mode, sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be checked at the
+working root for local-sources mode, sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be used from the
 folder <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/../liba</span></code> instead. Also, when in local-sources mode, an internal
 package will skip the fetching, extraction and patching stages in order to
 prevent undesired manipulation of developer-prepared sources. Another
@@ -683,10 +686,8 @@ directory. A user can either disable local sources mode by performing a
 </div>
 <div class="section" id="configuration-overrides">
 <span id="conf-overrides"></span><h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="Permalink to this headline">¶</a></h3>
-<p>While it is not recommended to have users manually modify a project’s
-configuration, a series of override options exist to deal with unique build
-scenarios. If a builder needs to override a tool location or package site, a
-user and define either environment options or setup a configuration override
+<p>If a builder needs to (for example) override a tool location or package site, a
+user can define either environment options or setup a configuration override
 script <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code>. It is never recommended to persist a configuration
 overrides file into a project’s source repository.</p>
 <div class="section" id="extraction-tool-overrides">

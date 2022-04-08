@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="next" title="ユーザーガイド" href="../user-guide/" /><link rel="prev" title="必要条件" href="../requirements/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.03.04"/>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
         <title>インストール - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
 
@@ -38,11 +38,13 @@
   }
 </style></head>
   <body>
+    
+
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
-
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -171,7 +173,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/">ユーザーガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer-guide/">開発者ガイド</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/">寄稿者ガイド</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips/">ヒント</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex-a/">付録A  - クイックリファレンス</a></li>
 </ul>
 <ul>
@@ -226,7 +229,7 @@
 python -m pip install -U releng-tool
 </pre></div>
 </div>
-<p>To verify the package has been installed the following command can be used:</p>
+<p>To verify the package has been installed, the following command can be used:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --version
  <span class="o">(</span>or<span class="o">)</span>
 python -m releng_tool --version
@@ -251,8 +254,7 @@ invoke the following commands:</p>
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
-<p>This package is also
-<a class="reference external" href="https://aur.archlinux.org/packages/releng-tool/">available on AUR</a>.</p>
+<p>This package is also <a class="reference external" href="https://aur.archlinux.org/packages/releng-tool/">available on AUR</a>.</p>
 </div>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">CentOS</label><div class="tab-content docutils container">
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo yum install epel-release
@@ -301,13 +303,11 @@ invoke the following commands:</p>
 <input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--3">Windows</label><div class="tab-content docutils container">
 <p>If not already installed, download the most recent version of <a class="reference external" href="https://www.python.org/">Python</a>:</p>
 <blockquote>
-<div><div class="line-block">
-<div class="line">Python - Downloads</div>
-<div class="line"><a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></div>
-</div>
+<div><p>Python -- Downloads <br/>
+<a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
 </div></blockquote>
 <p>When invoking the installer, it is recommended to select the option to
-"Add Python to PATH"; however, users can explicitly invoked Python from
+"Add Python to PATH"; however, users can explicitly invoke Python from
 an absolute path (the remainder of these steps will assume Python is
 available in the path).</p>
 <p>Open a Windows command prompt and invoke the following:</p>
