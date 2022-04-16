@@ -842,19 +842,29 @@ use, the package-defined count will be used instead.</p></td>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code></p></td>
 <td><p>The output directory.</p></td>
 </tr>
-<tr class="row-even"><td><p id="conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></p>
+<tr class="row-even"><td><p id="conf-pkg-build-base-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code></p>
 </td>
-<td><p>The directory for a specific package’s buildable content.</p>
-<p>See also <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>.</p>
+<td><p>The directory for a specific package’s base directory for buildable
+content. In most cases, this value will be the same as
+<a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>; however, if <a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a> is
+configured, <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a> will include the configured
+sub-directory, where this base directory will not.</p>
+<p>See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p id="conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></p>
+<tr class="row-odd"><td><p id="conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></p>
+</td>
+<td><p>The directory for a specific package’s buildable content.</p>
+<p>See also <a class="reference internal" href="#conf-pkg-build-base-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code></a> and  <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p id="conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></p>
 </td>
 <td><p>The directory for where a package’s build output will be stored.</p>
 <p>See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code></p></td>
 <td><p>The location of the cache directory for a package. If a package
 defines a fetch from a repository which can be locally cached, this
 cache directory represents the location where the local cache of
@@ -863,7 +873,7 @@ site, a local cache of the Git repository will be stored in this
 location. Typically, packages should not need to operate on the
 cache directory except for advanced cases.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></p></td>
 <td><p>The location of the cache file for a package. If a package defines
 a fetch of an archive from a remote source, after the fetch stage
 is completed, the archive can be found in this location. For
@@ -871,84 +881,84 @@ example, if a package defines a site
 <code class="docutils literal notranslate"><span class="pre">https://www.example.com/test.tgz</span></code>, the resulting cache file may
 be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/dl/test-1.0.tgz</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></p></td>
 <td><p>The package’s definition directory. For example, for a package
 <code class="docutils literal notranslate"><span class="pre">test</span></code>. the definition directory would be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package/test</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></p></td>
 <td><p>Whether or not the package is considered „internal”. If internal,
 the environment variable will be set to a value of one (i.e.
 <code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL=1</span></code>).</p>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></p></td>
 <td><p>The name of the package.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></p></td>
 <td><p>The site revision of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></p></td>
 <td><p>The site of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-site"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></p></td>
 <td><p>The version of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
 <td><p>The sysroot prefix for the package.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></p></td>
 <td><p>Flag set if performing a clean request.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></p></td>
 <td><p>Flag set if debug-related information should be shown.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">Development mode</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></p></td>
 <td><p>Flag set if performing an extreme pristine clean request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></p></td>
 <td><p>Flag set if performing a forced request from the command line.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="../user-guide/#local-sources-mode"><span class="std std-ref">Local-sources mode</span></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></p></td>
 <td><p>Flag set if performing a pristine clean request.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
 <td><p>Flag set if performing a re-build request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></p></td>
 <td><p>Flag set if performing a re-configuration request.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
 <td><p>Flag set if performing a re-install request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code></p></td>
 <td><p>Flag set if verbose-related information should be shown.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code></p></td>
 <td><p>The version of releng-tool.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
 <td><p>The root directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
 <td><p>The staging area directory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
 <td><p>The symbols area directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
 <td><p>The target area directory.</p></td>
 </tr>
 </tbody>

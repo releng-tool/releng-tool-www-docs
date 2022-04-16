@@ -226,6 +226,17 @@
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>adding <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code> to <code class="docutils literal notranslate"><span class="pre">releng_copy</span></code> for explicit copies to directories</p></li>
+<li><p>fixed where package-specific prefixes/njobs would leak to other projects</p></li>
+<li><p>introduce <code class="docutils literal notranslate"><span class="pre">releng_include</span></code> helper script function</p></li>
+<li><p>introduce the <code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code> environment/script variable</p></li>
+<li><p>support make-styled environment injections via command line</p></li>
+<li><p>support package variable overrides via command line</p></li>
+</ul>
+</div>
 <div class="section" id="id1">
 <h2>0.11 (2022-02-26)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -430,6 +441,7 @@ execution</p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Release notes</a><ul>
+<li><a class="reference internal" href="#development">Development</a></li>
 <li><a class="reference internal" href="#id1">0.11 (2022-02-26)</a></li>
 <li><a class="reference internal" href="#id2">0.10 (2021-12-31)</a></li>
 <li><a class="reference internal" href="#id3">0.9 (2021-10-02)</a></li>
