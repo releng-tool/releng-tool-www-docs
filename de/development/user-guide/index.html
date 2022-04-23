@@ -351,19 +351,35 @@ not only removes the build directory but also any cached file or
 directory associated with the package. See also the
 <a class="reference internal" href="#action-pkg-clean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></a> action.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">"&lt;cmd&gt;"</span></code></p></td>
+<td><p>Invokes a provided command in the package’s build output directory.
+This package action can be useful for developers attempting to
+develop/debug a specific package, allowing an easy way to issue
+commands in a package’s directory without having to manually
+venture to a package’s output directory. Packages will need to
+be processed to at least the patch stage before a provided
+command is issued.</p>
+<p>An example is as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool libfoo-exec <span class="s2">"bash example-script"</span>
+</pre></div>
+</div>
+<p>Package environment variables will be available for the invoked
+command.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
 <td><p>Performs the extraction stage for the package. On success, the
 specified package will have completed its extraction stage.
 If the provided package name does not exist, a notification will
 be generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></p></td>
 <td><p>Performs the fetch stage for the package. On success, the
 specified package stage will have completed its fetch stage. If
 the provided package name does not exist, a notification will be
 generated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
 <td><p>Performs the installation stage for the package. On success, the
 specified package will have completed its installation
 stage. If a package has any package dependencies, these
@@ -371,18 +387,18 @@ dependencies will be processed before the specified package. If
 the provided package name does not exist, a notification will be
 generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></p></td>
 <td><p>A request to generate the license information for a specific package
 in a project. Note that license information requires acquiring license
 documents from the package itself. Therefore, the package will be
 fetched/extracted if not already done.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
 <td><p>Performs the patch stage for the package. On success, the specified
 package will have completed its patch stage. If the provided
 package name does not exist, a notification will be generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a package has been built,
 the package will not attempt to be built again. Invoking a rebuild
 request will tell releng-tool to re-invoke the build step again.
@@ -396,7 +412,7 @@ to use <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a package has been built,
 the package will not attempt to be built again. Invoking a rebuild
 request will tell releng-tool to re-invoke the build step again.
@@ -410,7 +426,7 @@ instead.</p>
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
 <td><p>Force a re-configuration of a specific package. Once a package
 has been configured, the package will not attempt to configure
 it again. Invoking a re-configuration request will tell
@@ -426,7 +442,7 @@ re-configuration stage are recommended to use
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
 <td><p>Force a re-configuration of a specific package. Once a package has
 been configured, the package will not attempt to configure it again.
 Invoking a re-configuration request will tell releng-tool to
@@ -441,7 +457,7 @@ instead.</p>
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
 <td><p>Force a re-installation of a specific package. Once a package has
 been installed, the package will not attempt to install it again.
 Invoking a re-installation request will tell releng-tool to
