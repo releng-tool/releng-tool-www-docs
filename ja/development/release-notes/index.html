@@ -230,9 +230,13 @@ consult the project's <a class="reference external" href="https://github.com/rel
 <h2>Development<a class="headerlink" href="#development" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>adding <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code> to <code class="docutils literal notranslate"><span class="pre">releng_copy</span></code> for explicit copies to directories</p></li>
+<li><p>fixed an issue where forced git-fetches with branch revisions may have stale
+content on first extract</p></li>
 <li><p>fixed where package-specific prefixes/njobs would leak to other projects</p></li>
 <li><p>introduce <code class="docutils literal notranslate"><span class="pre">releng_include</span></code> helper script function</p></li>
+<li><p>introduce the <code class="docutils literal notranslate"><span class="pre">*_[INCLUDE,LIB]_DIR</span></code> environment/script variables</p></li>
 <li><p>introduce the <code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code> environment/script variable</p></li>
+<li><p>introduce the <code class="docutils literal notranslate"><span class="pre">PREFIXED_*_DIR</span></code> environment/script variables</p></li>
 <li><p>support make-styled environment injections via command line</p></li>
 <li><p>support package variable overrides via command line</p></li>
 </ul>

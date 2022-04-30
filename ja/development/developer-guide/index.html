@@ -810,6 +810,12 @@ releng-tool, the following environment variables are available:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code></p></td>
 <td><p>The host directory.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code></p></td>
+<td><p>The host directory's prefixed include directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code></p></td>
+<td><p>The host directory's prefixed library directory.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></p></td>
 <td><p>The images directory.</p></td>
 </tr>
@@ -913,53 +919,74 @@ the environment variable will be set to a value of one (i.e.
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
 <td><p>The sysroot prefix for the package.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code></p></td>
+<td><p>The host directory with the prefix applied.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code></p></td>
+<td><p>The staging area directory with the prefix applied.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code></p></td>
+<td><p>The target area directory with the prefix applied.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></p></td>
 <td><p>Flag set if performing a clean request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></p></td>
 <td><p>Flag set if debug-related information should be shown.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">Development mode</span></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></p></td>
 <td><p>Flag set if performing an extreme pristine clean request.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></p></td>
 <td><p>Flag set if performing a forced request from the command line.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></p></td>
 <td><p>Flag set if in <a class="reference internal" href="../user-guide/#local-sources-mode"><span class="std std-ref">Local-sources mode</span></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></p></td>
 <td><p>Flag set if performing a pristine clean request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></p></td>
 <td><p>Flag set if performing a re-build request.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></p></td>
 <td><p>Flag set if performing a re-configuration request.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></p></td>
 <td><p>Flag set if performing a re-install request.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code></p></td>
 <td><p>Flag set if verbose-related information should be shown.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code></p></td>
 <td><p>The version of releng-tool.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></p></td>
 <td><p>The root directory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
 <td><p>The staging area directory.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code></p></td>
+<td><p>The staging area directory's prefixed include directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code></p></td>
+<td><p>The staging area directory's prefixed library directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
 <td><p>The symbols area directory.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
 <td><p>The target area directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code></p></td>
+<td><p>The target area directory's prefixed include directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code></p></td>
+<td><p>The target area directory's prefixed library directory.</p></td>
 </tr>
 </tbody>
 </table></div>
