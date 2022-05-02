@@ -223,9 +223,7 @@
         <article role="main">
           <div class="section" id="annex-a-quick-reference">
 <h1>Załącznik a – Instrukcja w pigułce<a class="headerlink" href="#annex-a-quick-reference" title="Stały odnośnik do tego nagłówka">¶</a></h1>
-<p>A quick reference document listing available options to developers building a
-releng-tool project. See the <a class="reference internal" href="../developer-guide/"><span class="doc std std-doc">developer’s guide</span></a> for
-more detailed information.</p>
+<p>Poniżej przedstawiono instrukcje w pigułce dla programistów korzystających z releng-tool. Szczegółowe informacje można znaleźć w <a class="reference internal" href="../developer-guide/"><span class="doc">poradniku dla programistów</span></a>.</p>
 <div class="section" id="configuration-options">
 <h2>Opcje konfiguracji<a class="headerlink" href="#configuration-options" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Opcje, które releng-tool czyta ze skryptu konfiguracyjnego projektu:</p>
@@ -352,8 +350,7 @@ more detailed information.</p>
 </div>
 <div class="section" id="script-helpers">
 <h2>Script helpers<a class="headerlink" href="#script-helpers" title="Stały odnośnik do tego nagłówka">¶</a></h2>
-<p>Functions available to scripts invoked by releng-tool or importable via
-<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
+<p>Funkcje dostępne dla skryptów wywoływanych przez releng-tool lub importowane przez <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -385,12 +382,12 @@ more detailed information.</p>
 <div class="section" id="quirks">
 <h2>Quirks<a class="headerlink" href="#quirks" title="Stały odnośnik do tego nagłówka">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">.</span><span class="n">cmake</span><span class="o">.</span><span class="n">disable_parallel_option</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">disable_prerequisites_check</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">disable_remote_configs</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">disable_remote_scripts</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">no_depth</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">no_quick_fetch</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.cmake.disable_parallel_option
+releng.disable_prerequisites_check
+releng.disable_remote_configs
+releng.disable_remote_scripts
+releng.git.no_depth
+releng.git.no_quick_fetch
 </pre></div>
 </div>
 </div>

@@ -225,24 +225,24 @@
 <h1>Contributor guide<a class="headerlink" href="#contributor-guide" title="Permalink to this headline">¶</a></h1>
 <p>The following outlines common directory locations:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - Project documentation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/api/</span></code> - API for supporting releng-tool extensions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/engine/</span></code> - Core implementation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/ext/</span></code> - Extensions that are maintained in the official tree</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/extract/</span></code> - Translate fetched content to a build’s working area</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/fetch/</span></code> - Support for fetching content from package sites</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/tool/</span></code> - Definitions for host tools used by tool features</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tests/</span></code> - Testing-related content for this project’s implementation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Documentation</span></code> - project documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/api/</span></code> - api for supporting releng-tool extensions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/engine/</span></code> - core implementation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/ext/</span></code> - extensions that are maintained in the official tree</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/extract/</span></code> - translate fetched content to a build’s working area</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/fetch/</span></code> - support for fetching content from package sites</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng_tool/tool/</span></code> - definitions for host tools used by tool features</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code> - testing-related content for this project’s implementation</p></li>
 </ul>
-<p>releng-tool is built on the Python language and aims to have no required
-dependencies. Specific features enabled by a developer’s
+<p>releng-tool is built on the Python language and aims to be the minimum
+dependency for users of the tool. Specific features enabled by a developer’s
 project may require additional tools (e.g. using <a class="reference external" href="https://git-scm.com/">Git</a> to fetch sources requires
 <code class="docutils literal notranslate"><span class="pre">git</span></code> to be installed); however, a user should not be required to install
 tools for features that are not being used.</p>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
 <p>Developers are free to submit contributions for this project. Developers wishing
-to contribute should see this project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> document. A reminder
+to contribute should consult this project’s <a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> document. A reminder
 that any contributions must be signed off with the
 <a class="reference external" href="https://developercertificate.org/">Developer Certificate of Origin</a>.</p>
 <p>Implementation (source, comments, commits, etc.) submitted to this project
@@ -308,7 +308,7 @@ the <code class="docutils literal notranslate"><span class="pre">extensions</spa
 <span class="o">...</span>
 
 <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
-   <span class="s1">'ext-custom'</span><span class="p">,</span>
+    <span class="s1">'ext-custom'</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -323,17 +323,17 @@ extension to register custom fetching, extraction and package implementations.</
 <span class="kn">import</span> <span class="nn">releng_tool.api</span>
 
 <span class="k">def</span> <span class="nf">releng_setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
-   <span class="c1"># explicit version check for releng-tool version (if needed)</span>
-   <span class="n">app</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">'&lt;version&gt;'</span><span class="p">)</span>
+    <span class="c1"># explicit version check for releng-tool version (if needed)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">'&lt;version&gt;'</span><span class="p">)</span>
 
-   <span class="c1"># fetch support (for custom fetch implementation)</span>
-   <span class="n">app</span><span class="o">.</span><span class="n">add_fetch_type</span><span class="p">(</span><span class="s1">'ext-myextension'</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="c1"># fetch support (for custom fetch implementation)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_fetch_type</span><span class="p">(</span><span class="s1">'ext-myextension'</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
 
-   <span class="c1"># extraction support (for custom extraction implementation)</span>
-   <span class="n">app</span><span class="o">.</span><span class="n">add_extract_type</span><span class="p">(</span><span class="s1">'ext-myextension'</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="c1"># extraction support (for custom extraction implementation)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_extract_type</span><span class="p">(</span><span class="s1">'ext-myextension'</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
 
-   <span class="c1"># package support (configure, build, installation modifications)</span>
-   <span class="n">app</span><span class="o">.</span><span class="n">add_package_type</span><span class="p">(</span><span class="s1">'ext-myextension'</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
+    <span class="c1"># package support (configure, build, installation modifications)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_package_type</span><span class="p">(</span><span class="s1">'ext-myextension'</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">impl</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For more information on available API interfaces, see the documentation found
@@ -344,13 +344,17 @@ inside the <a class="reference external" href="https://github.com/releng-tool/re
 <p>Improvements to this project’s documentation (found inside <code class="docutils literal notranslate"><span class="pre">Documentation</span></code>)
 are always welcome – not only for adding/updating documentation for releng-tool
 features but also translations.</p>
-<p>For users interested in translations for this project, see the
+<p>For users interested in translations for this project, please consult the
 following repositories:</p>
 <blockquote>
-<div><p>releng-tool - Translations <br/>
-<a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations">https://github.com/releng-tool/releng-tool-doc-translations</a></p>
-<p>releng-tool - Translations Builder  <br/>
-<a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations-builder">https://github.com/releng-tool/releng-tool-doc-translations-builder</a></p>
+<div><div class="line-block">
+<div class="line">releng-tool - Translations</div>
+<div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations">https://github.com/releng-tool/releng-tool-doc-translations</a></div>
+</div>
+<div class="line-block">
+<div class="line">releng-tool - Translations Builder</div>
+<div class="line"><a class="reference external" href="https://github.com/releng-tool/releng-tool-doc-translations-builder">https://github.com/releng-tool/releng-tool-doc-translations-builder</a></div>
+</div>
 </div></blockquote>
 </div>
 </div>
