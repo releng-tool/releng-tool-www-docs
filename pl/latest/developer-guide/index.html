@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Indeks" href="../genindex/" /><link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="Contributor guide" href="../contributor-guide/" /><link rel="prev" title="Podręcznik użytkownika" href="../user-guide/" />
 
-    <meta name="generator" content="sphinx-4.3.0, furo 2022.02.23"/>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
         <title>Poradnik dla programistów - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=3c656993158f05539f962c5cea52a5e6c184bb8c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
 
@@ -22,25 +22,29 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
+
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
-
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -165,11 +169,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/">Podręcznik użytkownika</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Poradnik dla programistów</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips/">Wskazówki</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/">Przykłady</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/">Prośba o pomoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex-a/">Załącznik a – Instrukcja w pigułce</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../release-notes/">Informacje o wydaniu</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/2022-02-26_00.11.00/">0.11 (2022-02-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -801,6 +811,12 @@ releng-tool, the following environment variables are available:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code></p></td>
 <td><p>The host directory.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code></p></td>
+<td><p>The host directory’s prefixed include directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code></p></td>
+<td><p>The host directory’s prefixed library directory.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></p></td>
 <td><p>The images directory.</p></td>
 </tr>
@@ -833,19 +849,29 @@ use, the package-defined count will be used instead.</p></td>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code></p></td>
 <td><p>The output directory.</p></td>
 </tr>
-<tr class="row-even"><td><p id="conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></p>
+<tr class="row-even"><td><p id="conf-pkg-build-base-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code></p>
 </td>
-<td><p>The directory for a specific package’s buildable content.</p>
-<p>See also <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>.</p>
+<td><p>The directory for a specific package’s base directory for buildable
+content. In most cases, this value will be the same as
+<a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>; however, if <a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a> is
+configured, <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a> will include the configured
+sub-directory, where this base directory will not.</p>
+<p>See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p id="conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></p>
+<tr class="row-odd"><td><p id="conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></p>
+</td>
+<td><p>The directory for a specific package’s buildable content.</p>
+<p>See also <a class="reference internal" href="#conf-pkg-build-base-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code></a> and  <a class="reference internal" href="#conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></a>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p id="conf-pkg-build-odir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></p>
 </td>
 <td><p>The directory for where a package’s build output will be stored.</p>
 <p>See also <a class="reference internal" href="#conf-pkg-build-dir"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code></p></td>
 <td><p>The location of the cache directory for a package. If a package
 defines a fetch from a repository which can be locally cached, this
 cache directory represents the location where the local cache of
@@ -854,7 +880,7 @@ site, a local cache of the Git repository will be stored in this
 location. Typically, packages should not need to operate on the
 cache directory except for advanced cases.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></p></td>
 <td><p>The location of the cache file for a package. If a package defines
 a fetch of an archive from a remote source, after the fetch stage
 is completed, the archive can be found in this location. For
@@ -862,37 +888,46 @@ example, if a package defines a site
 <code class="docutils literal notranslate"><span class="pre">https://www.example.com/test.tgz</span></code>, the resulting cache file may
 be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/dl/test-1.0.tgz</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></p></td>
 <td><p>The package’s definition directory. For example, for a package
 <code class="docutils literal notranslate"><span class="pre">test</span></code>. the definition directory would be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package/test</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></p></td>
 <td><p>Whether or not the package is considered „internal”. If internal,
 the environment variable will be set to a value of one (i.e.
 <code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL=1</span></code>).</p>
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></p></td>
 <td><p>The name of the package.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></p></td>
 <td><p>The site revision of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></p></td>
 <td><p>The site of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-site"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></p></td>
 <td><p>The version of the package.</p>
 <p>See also <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></p></td>
 <td><p>The sysroot prefix for the package.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code></p></td>
+<td><p>The host directory with the prefix applied.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code></p></td>
+<td><p>The staging area directory with the prefix applied.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code></p></td>
+<td><p>The target area directory with the prefix applied.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></p></td>
 <td><p>Flag set if performing a clean request.</p></td>
@@ -936,11 +971,23 @@ the environment variable will be set to a value of one (i.e.
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></p></td>
 <td><p>The staging area directory.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code></p></td>
+<td><p>The staging area directory’s prefixed include directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code></p></td>
+<td><p>The staging area directory’s prefixed library directory.</p></td>
+</tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></p></td>
 <td><p>The symbols area directory.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></p></td>
 <td><p>The target area directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code></p></td>
+<td><p>The target area directory’s prefixed include directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code></p></td>
+<td><p>The target area directory’s prefixed library directory.</p></td>
 </tr>
 </tbody>
 </table></div>
@@ -2501,7 +2548,7 @@ output; <code class="docutils literal notranslate"><span class="pre">False</span
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>This call will attempt to copy a provided file or directory, defined by
 <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code>
 is a file, then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file or directory; if <code class="docutils literal notranslate"><span class="pre">src</span></code>
@@ -2539,6 +2586,7 @@ system exit (<code class="docutils literal notranslate"><span class="pre">System
 <li><p><strong>dst</strong> – the destination directory or file* (*if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file)</p></li>
 <li><p><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</p></li>
 <li><p><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</p></li>
+<li><p><strong>dst_dir</strong> (<em>optional</em>) – force hint that the destination is a directory</p></li>
 </ul>
 </dd>
 <dt class="field-even">Zwraca</dt>
@@ -2789,7 +2837,28 @@ duplicate entries.</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_include</span></code></p></td>
+<td><dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>The provided call will execute code at the provided file path. The path
+will be relative to the caller’s script, unless an absolute path is
+provided. The executed script will be initialized with globals matching
+the caller’s script.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load "my-other-script" found alongside the current script</span>
+<span class="n">releng_include</span><span class="p">(</span><span class="s1">'my-other-script'</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parametry</dt>
+<dd class="field-odd"><p><strong>file_path</strong> – the script to invoke</p>
+</dd>
+</dl>
+</dd></dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
 <td><dl class="py method">
 <dt class="sig sig-object py" id="releng_tool.releng_join">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="Stały odnośnik do tej definicji">¶</a></dt>
@@ -2797,7 +2866,7 @@ duplicate entries.</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_ls</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_ls</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
@@ -2820,7 +2889,7 @@ be read</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
@@ -2852,7 +2921,7 @@ be created</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
@@ -2901,7 +2970,7 @@ has failed</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
@@ -2931,7 +3000,7 @@ path could not be removed from the system</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_require_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
@@ -2966,7 +3035,7 @@ has failed</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_tmpdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
@@ -2992,7 +3061,7 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_touch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span></dt>
@@ -3018,7 +3087,7 @@ not be created/updated</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_wd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
@@ -3046,7 +3115,7 @@ thrown.</p>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -3067,7 +3136,7 @@ generating a formatted message</p></li>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -3089,7 +3158,7 @@ generating a formatted message</p></li>
 </dd></dl>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">warn</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">warn</span></code></p></td>
 <td><dl class="py function">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
@@ -3410,6 +3479,8 @@ by the providers of said extensions.</p>
 
             <dd><a href="https://docs.releng.io/ja/latest/">ja</a></dd>
 
+            <dd><a href="https://docs.releng.io/news/latest/">news</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/latest/">pl</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/latest/">zh</a></dd>
@@ -3419,13 +3490,13 @@ by the providers of said extensions.</p>
             <dt>Wersje</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/latest/">Najnowszy</a></dd>
 
+            <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.10/">0.10</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.9/">0.9</a></dd>
-
-            <dd><a href="https://docs.releng.io/pl/0.8/">0.8</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/development/">Rozwój</a></dd>
         </dl>

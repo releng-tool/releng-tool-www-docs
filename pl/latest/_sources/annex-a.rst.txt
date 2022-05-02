@@ -39,11 +39,14 @@ releng-tool (may vary per context):
    CACHE_DIR
    DL_DIR
    HOST_DIR
+   HOST_INCLUDE_DIR
+   HOST_LIB_DIR
    IMAGES_DIR
    LICENSE_DIR
    NJOBS
    NJOBSCONF
    OUTPUT_DIR
+   PKG_BUILD_BASE_DIR
    PKG_BUILD_DIR
    PKG_BUILD_OUTPUT_DIR
    PKG_CACHE_DIR
@@ -55,6 +58,9 @@ releng-tool (may vary per context):
    PKG_SITE
    PKG_VERSION
    PREFIX
+   PREFIXED_HOST_DIR
+   PREFIXED_STAGING_DIR
+   PREFIXED_TARGET_DIR
    RELENG_CLEAN
    RELENG_DEBUG
    RELENG_DEVMODE
@@ -69,8 +75,12 @@ releng-tool (may vary per context):
    RELENG_VERSION
    ROOT_DIR
    STAGING_DIR
+   STAGING_INCLUDE_DIR
+   STAGING_LIB_DIR
    SYMBOLS_DIR
    TARGET_DIR
+   TARGET_INCLUDE_DIR
+   TARGET_LIB_DIR
    <PKG_NAME>_BUILD_DIR
    <PKG_NAME>_BUILD_OUTPUT_DIR
    <PKG_NAME>_DEFDIR
@@ -146,6 +156,7 @@ Functions available to scripts invoked by releng-tool or importable via
    releng_exists(path, *args)
    releng_exit(msg=None, code=None)
    releng_expand(obj, kv=None)
+   releng_include(file_path)
    releng_join(path, *args)
    releng_ls(dir_)
    releng_mkdir(dir_, quiet=False)

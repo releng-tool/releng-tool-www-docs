@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Stichwortverzeichnis" href="../genindex/" /><link rel="search" title="Suche" href="../search/" /><link rel="next" title="Entwicklerhandbuch" href="../developer-guide/" /><link rel="prev" title="Installation" href="../install/" />
 
-    <meta name="generator" content="sphinx-4.3.0, furo 2022.02.23"/>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
         <title>benutzerhandbuch - releng-tool Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=3c656993158f05539f962c5cea52a5e6c184bb8c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
 
@@ -22,25 +22,29 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
+
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
-
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -165,11 +169,17 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">benutzerhandbuch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer-guide/">Entwicklerhandbuch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributor-guide/">Leitfaden für mitwirkende</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tips/">Tipps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/">Beispiele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex-a/">ANHANG A - Kurzreferenz</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../release-notes/">Versionshinweise</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/2022-02-26_00.11.00/">0.11 (2022-02-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -215,7 +225,7 @@
           <div class="section" id="user-guide">
 <h1>benutzerhandbuch<a class="headerlink" href="#user-guide" title="Link zu dieser Überschrift">¶</a></h1>
 <p>The following will outline the capabilities on using releng-tool with an already
-defined project. For details on building a releng-tool project, consult the
+defined project. For details on building a releng-tool project, see the
 <a class="reference internal" href="../developer-guide/"><span class="doc">developer’s guide</span></a>.</p>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Link zu dieser Überschrift">¶</a></h2>
@@ -227,7 +237,7 @@ available on the host system, the latter call can be used instead.</p>
 <p>A releng-tool project will be defined by a <code class="docutils literal notranslate"><span class="pre">releng</span></code> configuration file along
 with one or more packages found inside a <code class="docutils literal notranslate"><span class="pre">package/</span></code> folder. This location can
 be referred to as the „root directory“. When invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>, the tool
-will look into the current working directory for the project information to
+will look in the current working directory for project information to
 process. For example, if a project found inside <code class="docutils literal notranslate"><span class="pre">my-project</span></code> with the single
 package <code class="docutils literal notranslate"><span class="pre">package-a</span></code> defined, the following output may be observed:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> my-project
@@ -258,9 +268,9 @@ the <code class="docutils literal notranslate"><span class="pre">--help</span></
 </div>
 <div class="section" id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="Link zu dieser Überschrift">¶</a></h2>
-<p>The command line can be used to specify either a single action to perform and/or
+<p>The command line can be used to specify a single action to perform or
 provide various options to configure the releng-tool process. Options
-can be provided before or after an action (if provided). By default, if a user
+can be provided before or after an action (if an explicit action is provided). By default, if a user
 does not specify an action, it is assumed that all steps are
 to be performed. An example of a user invoking a clean action is as follows:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool clean
@@ -318,7 +328,7 @@ or <a class="reference internal" href="#action-distclean"><code class="docutils 
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code></p></td>
 <td><p>Performs the build stage for the package. On success, the specified
-package stage will have completed its build. If a package has any
+package will have completed its build. If a package has any
 package dependencies, these dependencies will be processed before
 the specified package. If the provided package name does not
 exist, a notification will be generated.</p></td>
@@ -330,7 +340,7 @@ exist, a notification will be generated.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code></p></td>
 <td><p>Performs the configure stage for the package. On success, the
-specified package stage will have completed its configuration stage.
+specified package will have completed its configuration stage.
 If a package has any package dependencies, these dependencies will
 be processed before the specified package. If the provided
 package name does not exist, a notification will be generated.</p></td>
@@ -342,38 +352,54 @@ not only removes the build directory but also any cached file or
 directory associated with the package. See also the
 <a class="reference internal" href="#action-pkg-clean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></a> action.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">"&lt;cmd&gt;"</span></code></p></td>
+<td><p>Invokes a provided command in the package’s build output directory.
+This package action can be useful for developers attempting to
+develop/debug a specific package, allowing an easy way to issue
+commands in a package’s directory without having to manually
+venture to a package’s output directory. Packages will need to
+be processed to at least the patch stage before a provided
+command is issued.</p>
+<p>An example is as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool libfoo-exec <span class="s2">"mycmd arg1 arg2"</span>
+</pre></div>
+</div>
+<p>Package environment variables will be available for the invoked
+command.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
 <td><p>Performs the extraction stage for the package. On success, the
-specified package stage will have completed its extraction stage.
+specified package will have completed its extraction stage.
 If the provided package name does not exist, a notification will
 be generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></p></td>
 <td><p>Performs the fetch stage for the package. On success, the
 specified package stage will have completed its fetch stage. If
 the provided package name does not exist, a notification will be
 generated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
 <td><p>Performs the installation stage for the package. On success, the
-specified package stage will have completed its installation
+specified package will have completed its installation
 stage. If a package has any package dependencies, these
 dependencies will be processed before the specified package. If
 the provided package name does not exist, a notification will be
 generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></p></td>
 <td><p>A request to generate the license information for a specific package
 in a project. Note that license information requires acquiring license
 documents from the package itself. Therefore, the package will be
 fetched/extracted if not already done.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
 <td><p>Performs the patch stage for the package. On success, the specified
-package stage will have completed its patch stage. If the provided
+package will have completed its patch stage. If the provided
 package name does not exist, a notification will be generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a package has been built,
 the package will not attempt to be built again. Invoking a rebuild
 request will tell releng-tool to re-invoke the build step again.
@@ -387,7 +413,7 @@ to use <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a package has been built,
 the package will not attempt to be built again. Invoking a rebuild
 request will tell releng-tool to re-invoke the build step again.
@@ -401,7 +427,7 @@ instead.</p>
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
 <td><p>Force a re-configuration of a specific package. Once a package
 has been configured, the package will not attempt to configure
 it again. Invoking a re-configuration request will tell
@@ -417,7 +443,7 @@ re-configuration stage are recommended to use
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
 <td><p>Force a re-configuration of a specific package. Once a package has
 been configured, the package will not attempt to configure it again.
 Invoking a re-configuration request will tell releng-tool to
@@ -432,7 +458,7 @@ instead.</p>
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
 <td><p>Force a re-installation of a specific package. Once a package has
 been installed, the package will not attempt to install it again.
 Invoking a re-installation request will tell releng-tool to
@@ -572,13 +598,13 @@ based on the packages, changes and languages used.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool fetch
 </pre></div>
 </div>
-<p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and/or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
-folders. Future builds for the project will no longer need external access until
-these folders are manually removed.</p>
+<p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
+folders. Future builds for the project should no longer need external access until
+these folders are removed.</p>
 </div>
 <div class="section" id="parallel-builds">
 <h3>Parallel builds<a class="headerlink" href="#parallel-builds" title="Link zu dieser Überschrift">¶</a></h3>
-<p>A stage (such as a build stage) for a package can take advantage of multiple
+<p>A stage for a package (such as a build stage) can take advantage of multiple
 cores to perform the step. By default, releng-tool will attempt to run as many
 jobs for a stage equal to the amount of physical cores on the host system. The
 amount of jobs available for a stage can be configured using the <code class="docutils literal notranslate"><span class="pre">--jobs</span></code>
@@ -618,10 +644,10 @@ packages against a development version of sources rather than using fixed
 versions. Consider the following example: if a project has a package which
 sources are pulled from a Git repository, it is most likely the package
 definition will define the explicit tag to clone from (e.g. <code class="docutils literal notranslate"><span class="pre">v1.0</span></code>). However,
-a package may define that the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch of a repository is used for the
+a package may define that the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of a repository is used for the
 most recent development revision. If an environment is configured for
 development mode, the releng-tool process will instead pull sources from the
-<code class="docutils literal notranslate"><span class="pre">master</span></code> branch instead of a release tag.</p>
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch instead of a release tag.</p>
 <p>To enable development mode, invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> with the <code class="docutils literal notranslate"><span class="pre">--development</span></code>
 argument will enable the mode. Future calls to releng-tool for the project will
 use the development revision for packages where define. For example:</p>
@@ -644,7 +670,7 @@ directory. A user can either disable development mode by performing a
 sources found alongside the output directory</p>
 </div>
 <p>Local-sources mode provides a way for a developer to build internal-flagged
-packages using sources found alongside the root directory instead of having
+packages using sources found alongside the root directory, instead of having
 releng-tool attempt to fetch them from remote instances. This is primarily for
 developers who desire to manually manage source content outside the releng-tool
 environment. Local-sources mode only works for internally flagged packaged.
@@ -652,7 +678,7 @@ Consider the following example: a releng-tool project has a package called
 <code class="docutils literal notranslate"><span class="pre">liba</span></code>. When releng-tool is invoked in normal configurations, the package will
 do fetching, extraction and patching to prepare the directory
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/build/liba-&lt;version&gt;</span></code>. However, if a builder has configured the
-working root for local-sources mode, sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be checked at the
+working root for local-sources mode, sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be used from the
 folder <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/../liba</span></code> instead. Also, when in local-sources mode, an internal
 package will skip the fetching, extraction and patching stages in order to
 prevent undesired manipulation of developer-prepared sources. Another
@@ -677,10 +703,8 @@ directory. A user can either disable local sources mode by performing a
 </div>
 <div class="section" id="configuration-overrides">
 <span id="conf-overrides"></span><h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="Link zu dieser Überschrift">¶</a></h3>
-<p>While it is not recommended to have users manually modify a project’s
-configuration, a series of override options exist to deal with unique build
-scenarios. If a builder needs to override a tool location or package site, a
-user and define either environment options or setup a configuration override
+<p>If a builder needs to (for example) override a tool location or package site, a
+user can define either environment options or setup a configuration override
 script <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code>. It is never recommended to persist a configuration
 overrides file into a project’s source repository.</p>
 <div class="section" id="extraction-tool-overrides">
@@ -860,6 +884,8 @@ host environment scenarios where releng-tool may be experiencing issues. See
 
             <dd><a href="https://docs.releng.io/ja/latest/">ja</a></dd>
 
+            <dd><a href="https://docs.releng.io/news/latest/">news</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/latest/">pl</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/latest/">zh</a></dd>
@@ -869,13 +895,13 @@ host environment scenarios where releng-tool may be experiencing issues. See
             <dt>Versionen</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/de/latest/">Neueste</a></dd>
 
+            <dd><a href="https://docs.releng.io/de/0.12/">0.12</a></dd>
+
             <dd><a href="https://docs.releng.io/de/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/de/0.10/">0.10</a></dd>
 
             <dd><a href="https://docs.releng.io/de/0.9/">0.9</a></dd>
-
-            <dd><a href="https://docs.releng.io/de/0.8/">0.8</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/de/development/">Entwicklung</a></dd>
         </dl>

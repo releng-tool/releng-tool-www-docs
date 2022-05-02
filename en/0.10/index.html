@@ -4,14 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex/" /><link rel="search" title="Search" href="search/" /><link rel="next" title="Requirements" href="requirements/" />
 
-    <meta name="generator" content="sphinx-4.3.0, furo 2022.02.23"/>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
         <title>releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=3c656993158f05539f962c5cea52a5e6c184bb8c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides_global.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
 
@@ -22,25 +22,29 @@
   --color-code-foreground: black;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
+
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
-
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -114,7 +118,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     Legacy Version | <a href="https://docs.releng.io//en/latest/">Stable v0.11</a> 
+     Legacy Version | <a href="https://docs.releng.io//en/latest/">Stable v0.12</a> 
   </aside>
 </div>
 
@@ -494,13 +498,13 @@ used and the interaction between the staging/target area and the host system.</p
             <dt>Versions</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/en/latest/">Latest</a></dd>
 
+            <dd><a href="https://docs.releng.io/en/0.12/">0.12</a></dd>
+
             <dd><a href="https://docs.releng.io/en/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/en/0.10/">0.10</a></dd>
 
             <dd><a href="https://docs.releng.io/en/0.9/">0.9</a></dd>
-
-            <dd><a href="https://docs.releng.io/en/0.8/">0.8</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/en/development/">Development</a></dd>
         </dl>
