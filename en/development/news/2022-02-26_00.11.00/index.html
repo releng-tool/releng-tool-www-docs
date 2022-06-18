@@ -2,12 +2,13 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="0.10 (2021-12-31)" href="../2021-12-31_00.10.00/" /><link rel="prev" title="0.12 (2022-05-02)" href="../2022-05-02_00.12.00/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="0.10 (2021-12-31)" href="../2021-12-31_00.10.00/" /><link rel="prev" title="0.12 (2022-05-02)" href="../2022-05-02_00.12.00/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-5.0.2, furo 2022.06.04.1"/>
         <title>0.11 (2022-02-26) - releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides_global.css" />
@@ -212,7 +213,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -226,16 +228,16 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="id1">
-<h1>0.11 (2022-02-26)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="new-script-functions">
-<h2>New script functions<a class="headerlink" href="#new-script-functions" title="Permalink to this headline">¶</a></h2>
+          <section id="id1">
+<h1>0.11 (2022-02-26)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<section id="new-script-functions">
+<h2>New script functions<a class="headerlink" href="#new-script-functions" title="Permalink to this heading">¶</a></h2>
 <p>A series of new helper script functions are now available for projects.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code> helper function has been added to allow
 releng-tool projects to specify the minimum version of releng-tool needed
 to run a project. For example, to indicate that at least v0.11 is required,
 the following can be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_require_version</span><span class="p">(</span><span class="s1">'0.11'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_require_version</span><span class="p">(</span><span class="s1">&#39;0.11&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If the version requirement is not met, the releng-tool process will stop,
@@ -245,16 +247,16 @@ update.</p>
 versions prior to v0.11, as the function is not available in these version. A
 workaround that could be used is the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">releng_require_version</span><span class="p">(</span><span class="s1">'0.11'</span><span class="p">)</span>
+    <span class="n">releng_require_version</span><span class="p">(</span><span class="s1">&#39;0.11&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-    <span class="n">releng_exit</span><span class="p">(</span><span class="s1">'requires releng-tool v0.11 or greater'</span><span class="p">)</span>
+    <span class="n">releng_exit</span><span class="p">(</span><span class="s1">&#39;requires releng-tool v0.11 or greater&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_cat</span></code> and <code class="docutils literal notranslate"><span class="pre">releng_ls</span></code> helper functions have been introduced to help
 developers examine/debug their releng-tool package states. The <code class="docutils literal notranslate"><span class="pre">releng_cat</span></code>
 helper function can be used to dump the contents of a file to the standard
 output stream (similar to the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_cat</span><span class="p">(</span><span class="s1">'config.log'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_cat</span><span class="p">(</span><span class="s1">&#39;config.log&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_ls</span></code> helper function can be used to dump the file listing for
@@ -262,9 +264,9 @@ a directory to the standard output stream (similar to the <code class="docutils 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_ls</span><span class="p">(</span><span class="n">IMAGES_DIR</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="improved-support-for-extracting-zip-files">
-<h2>Improved support for extracting zip files<a class="headerlink" href="#improved-support-for-extracting-zip-files" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="improved-support-for-extracting-zip-files">
+<h2>Improved support for extracting zip files<a class="headerlink" href="#improved-support-for-extracting-zip-files" title="Permalink to this heading">¶</a></h2>
 <p>The initial zip-file extraction for releng-tool would cycle through
 defined directory and file entries in an archive, ensuring directories
 were created before writing extracted files into project’s output
@@ -275,9 +277,9 @@ to a directory which has not been created.</p>
 <p>To be flexible with various zip archive types, this release adjusts the
 extraction for zip files to always attempt to build directory paths, even
 if a directory entry is not specified.</p>
-</div>
-<div class="section" id="introducing-the-force-argument">
-<h2>Introducing the <code class="docutils literal notranslate"><span class="pre">--force</span></code> argument<a class="headerlink" href="#introducing-the-force-argument" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="introducing-the-force-argument">
+<h2>Introducing the <code class="docutils literal notranslate"><span class="pre">--force</span></code> argument<a class="headerlink" href="#introducing-the-force-argument" title="Permalink to this heading">¶</a></h2>
 <p>For developers testing changes in their releng-tool project, or changes with
 one or more packages defined in their project, a developer will most likely
 try to reconfigure/rebuild packages to verify these changes. Since releng-tool
@@ -316,8 +318,8 @@ can be used instead. For example, to re-download a package’s file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">fetch</span> <span class="o">--</span><span class="n">force</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -428,6 +430,7 @@ can be used instead. For example, to re-download a package’s file:</p>
 <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>
