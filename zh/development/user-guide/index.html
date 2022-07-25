@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="开发者指南" href="../developer-guide/" /><link rel="prev" title="安装" href="../install/" />
 
-    <meta name="generator" content="sphinx-5.0.2, furo 2022.06.04.1"/>
+    <meta name="generator" content="sphinx-5.1.0, furo 2022.06.21"/>
         <title>用户指南 - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
@@ -229,10 +229,10 @@
         </div>
         <article role="main">
           <section id="user-guide">
-<h1>用户指南<a class="headerlink" href="#user-guide" title="Permalink to this heading">¶</a></h1>
+<h1>用户指南<a class="headerlink" href="#user-guide" title="此标题的永久链接">¶</a></h1>
 <p>以下将概述将 releng-tool 与已定义项目一起使用的功能。有关构建 releng-tool 项目的详细信息，请参阅 <a class="reference internal" href="../developer-guide/"><span class="doc">开发人员指南</span></a> 。</p>
 <section id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h2>
+<h2>Getting started<a class="headerlink" href="#getting-started" title="此标题的永久链接">¶</a></h2>
 <p>Depending on the host and how releng-tool has been <a class="reference internal" href="../install/"><span class="doc">installed</span></a>,
 the tool can be either executed using the call <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> (if supported) or
 explicitly through a Python invoke <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">releng_tool</span></code>. This guide will
@@ -271,7 +271,7 @@ the <code class="docutils literal notranslate"><span class="pre">--help</span></
 </div>
 </section>
 <section id="arguments">
-<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">¶</a></h2>
+<h2>Arguments<a class="headerlink" href="#arguments" title="此标题的永久链接">¶</a></h2>
 <p>The command line can be used to specify a single action to perform or
 provide various options to configure the releng-tool process. Options
 can be provided before or after an action (if an explicit action is provided). By default, if a user
@@ -515,32 +515,43 @@ deleted to be re-fetched.</p></li>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></p></td>
 <td><p>Show this help.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--images-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
+<td><p>Directory for image outputs (defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/images</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></p></td>
 <td><p>Numbers of jobs to handle (default to <code class="docutils literal notranslate"><span class="pre">0</span></code>; automatic).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--local-sources</span></code></p></td>
-<td><p>Enables <a class="reference internal" href="#local-sources-mode">local-sources mode</a>.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;&#64;]&lt;dir&gt;]</span></code></p></td>
+<td><p>Enables <a class="reference internal" href="#local-sources-mode">local-sources mode</a>.</p>
+<p>Without a directory provided, sources of internal packages will be
+looked for in the parent directory of the configured root
+directory. Users may use this argument multiple times to override
+the local-sources configuration. If a package-specific override
+is provided (a value prefixed with a package's name with an at
+sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>)), sources for that package will be looked for inside
+the provided path.</p>
+</td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></p></td>
 <td><p>Explicitly disable colorized output.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory for output (builds, images, etc.; defaults to
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory to process a releng-tool project (defaults to the
 working directory).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></p></td>
 <td><p>Allows specifying a runtime <a class="reference internal" href="../developer-guide/#quirks"><span class="std std-ref">quirk</span></a> for the
 releng-tool process. This option can be used multiple times to
 apply multiple quirks.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></p></td>
 <td><p>Show additional messages.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--version</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--version</span></code></p></td>
 <td><p>Show releng-tool's version.</p></td>
 </tr>
 </tbody>
@@ -548,7 +559,7 @@ apply multiple quirks.</p></td>
 </div>
 </section>
 <section id="understanding-rebuilds">
-<h2>Understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="Permalink to this heading">¶</a></h2>
+<h2>Understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="此标题的永久链接">¶</a></h2>
 <p>As packages are processed in order (based off of detected dependencies, if any),
 each package will go through their respective stages: fetching, extraction,
 patching, configuration, building and installation. While a package may not take
@@ -599,9 +610,9 @@ allow <code class="docutils literal notranslate"><span class="pre">module-c</spa
 based on the packages, changes and languages used.</p>
 </section>
 <section id="tips">
-<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this heading">¶</a></h2>
+<h2>Tips<a class="headerlink" href="#tips" title="此标题的永久链接">¶</a></h2>
 <section id="offline-builds">
-<h3>Offline builds<a class="headerlink" href="#offline-builds" title="Permalink to this heading">¶</a></h3>
+<h3>Offline builds<a class="headerlink" href="#offline-builds" title="此标题的永久链接">¶</a></h3>
 <p>A user can prepare for an offline build by using the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> action:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool fetch
 </pre></div>
@@ -611,7 +622,7 @@ folders. Future builds for the project should no longer need external access unt
 these folders are removed.</p>
 </section>
 <section id="parallel-builds">
-<h3>Parallel builds<a class="headerlink" href="#parallel-builds" title="Permalink to this heading">¶</a></h3>
+<h3>Parallel builds<a class="headerlink" href="#parallel-builds" title="此标题的永久链接">¶</a></h3>
 <p>A stage for a package (such as a build stage) can take advantage of multiple
 cores to perform the step. By default, releng-tool will attempt to run as many
 jobs for a stage equal to the amount of physical cores on the host system. The
@@ -625,13 +636,13 @@ for stages to two jobs, the following can be used:</p>
 package if a package cannot support parallel processing.</p>
 </section>
 <section id="privileged-builds">
-<h3>Privileged builds<a class="headerlink" href="#privileged-builds" title="Permalink to this heading">¶</a></h3>
+<h3>Privileged builds<a class="headerlink" href="#privileged-builds" title="此标题的永久链接">¶</a></h3>
 <p>It is never recommended to invoke a build with elevated (e.g. root) privileges.
 A builder invoking in an elevated environment runs the risk of a misconfigured
 releng-tool project dirtying or destroying the builder's host environment.</p>
 </section>
 <section id="license-generation">
-<h3>License generation<a class="headerlink" href="#license-generation" title="Permalink to this heading">¶</a></h3>
+<h3>License generation<a class="headerlink" href="#license-generation" title="此标题的永久链接">¶</a></h3>
 <p>At the end of a <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> invoke, the final stages will compile a list of
 package license information (if licenses are defined). If a user wishes to
 compile a project's list of license information without performing an entire
@@ -644,9 +655,9 @@ build, the <code class="docutils literal notranslate"><span class="pre">licenses
 </section>
 </section>
 <section id="advanced-builder-capabilities">
-<h2>Advanced builder capabilities<a class="headerlink" href="#advanced-builder-capabilities" title="Permalink to this heading">¶</a></h2>
+<h2>Advanced builder capabilities<a class="headerlink" href="#advanced-builder-capabilities" title="此标题的永久链接">¶</a></h2>
 <section id="development-mode">
-<span id="id1"></span><h3>Development mode<a class="headerlink" href="#development-mode" title="Permalink to this heading">¶</a></h3>
+<span id="id1"></span><h3>Development mode<a class="headerlink" href="#development-mode" title="此标题的永久链接">¶</a></h3>
 <p>Development mode provides a way for builder to request to process supported
 packages against a development version of sources rather than using fixed
 versions. Consider the following example: if a project has a package which
@@ -671,34 +682,37 @@ directory. A user can either disable development mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
 </section>
 <section id="local-sources-mode">
-<span id="id2"></span><h3>Local-sources mode<a class="headerlink" href="#local-sources-mode" title="Permalink to this heading">¶</a></h3>
+<span id="id2"></span><h3>Local-sources mode<a class="headerlink" href="#local-sources-mode" title="此标题的永久链接">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>Clean events (such as <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">clean</span></code>) will not touch packages using
 sources found alongside the output directory</p>
 </div>
 <p>Local-sources mode provides a way for a developer to build internal-flagged
-packages using sources found alongside the root directory, instead of having
-releng-tool attempt to fetch them from remote instances. This is primarily for
-developers who desire to manually manage source content outside the releng-tool
-environment. Local-sources mode only works for internally flagged packaged.
-Consider the following example: a releng-tool project has a package called
-<code class="docutils literal notranslate"><span class="pre">liba</span></code>. When releng-tool is invoked in normal configurations, the package will
-do fetching, extraction and patching to prepare the directory
-<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/build/liba-&lt;version&gt;</span></code>. However, if a builder has configured the
-working root for local-sources mode, sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be used from the
-folder <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/../liba</span></code> instead. Also, when in local-sources mode, an internal
-package will skip the fetching, extraction and patching stages in order to
-prevent undesired manipulation of developer-prepared sources. Another
-consideration to note is the use of clean operators while in local-sources mode.
-Continuing with the above example, if a user invokes <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">liba-clean</span></code>,
-the operation will not remove the <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/../liba</span></code> folder. Responsibility to
-managing a clean <code class="docutils literal notranslate"><span class="pre">liba</span></code> package will be left with the user.</p>
+packages using sources found alongside the root directory (or a specific
+provided directory), instead of having releng-tool attempt to fetch them
+from remote instances. This is primarily for developers who desire to
+manually manage source content outside the releng-tool environment.
+Local-sources mode only works for internally flagged packaged. Consider
+the following example: a releng-tool project has a package called
+<code class="docutils literal notranslate"><span class="pre">liba</span></code>. When releng-tool is invoked in normal configurations, the
+package will do fetching, extraction and patching to prepare the directory
+<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/build/liba-&lt;version&gt;</span></code>. However, if a builder has
+configured the working root for local-sources mode, sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code>
+will be used from the folder <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/../liba</span></code> instead.</p>
+<p>When in local-sources mode, an internal package will skip the fetching,
+extraction and patching stages in order to prevent undesired manipulation
+of developer-prepared sources. Another consideration to note is the use
+of clean operators while in local-sources mode. Continuing with the above
+example, if a user invokes <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">liba-clean</span></code>, the operation will
+not remove the <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/../liba</span></code> folder. Responsibility to managing a
+clean <code class="docutils literal notranslate"><span class="pre">liba</span></code> package will be left with the user.</p>
 <p>To enable local-sources mode, invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> with the
 <code class="docutils literal notranslate"><span class="pre">--local-sources</span></code> argument will enable the mode. Future calls to releng-tool
 for the project will use local sources for packages defined as internal
 packages. For example:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --local-sources
+<span class="gp gp-VirtualEnv">(*)</span> <span class="go">&lt;parent&gt;</span>
 <span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for local-sources mode</span>
 <span class="gp">$ </span>releng-tool
 <span class="go">~building against local sources~</span>
@@ -706,17 +720,53 @@ packages. For example:</p>
 </pre></div>
 </div>
 <p>Local-sources mode is persisted through the use of a file flag in the root
-directory. A user can either disable local sources mode by performing a
+directory.</p>
+<p>If a user provides a directory for the <code class="docutils literal notranslate"><span class="pre">--local-sources</span></code> argument, packages
+will be looked for in the provided folder instead of the parent of the
+configured root directory. For example:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --local-sources ~/workdir
+<span class="gp gp-VirtualEnv">(*)</span> <span class="go">~/workdir</span>
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for local-sources mode</span>
+<span class="gp">$ </span>releng-tool
+<span class="go">~building against local sources~</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>In the above example, if a project had an internal package <code class="docutils literal notranslate"><span class="pre">liba</span></code>,
+sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be used from the folder <code class="docutils literal notranslate"><span class="pre">~/workdir/liba</span></code>.</p>
+<p>Users can also provide package-specific overrides. If a user provides a
+path which is prefixed with a package's name and at sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>), the
+sources for the provided package will be used from the respective folder:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool -L ~/workdir
+<span class="gp">$ </span>releng-tool -L libb@/mnt/sources/libb
+<span class="gp">$ </span>releng-tool -L libc@
+<span class="gp gp-VirtualEnv">(*)</span> <span class="go">~/workdir</span>
+<span class="gp gp-VirtualEnv">(libb)</span> <span class="go">/mnt/sources/libb</span>
+<span class="gp gp-VirtualEnv">(libc)</span> <span class="go">&lt;unset&gt;</span>
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for local-sources mode</span>
+<span class="gp">$ </span>releng-tool
+<span class="go">~building against local sources~</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>In the above example, if a project had internal packages <code class="docutils literal notranslate"><span class="pre">liba</span></code>,
+<code class="docutils literal notranslate"><span class="pre">libb</span></code> and <code class="docutils literal notranslate"><span class="pre">libc</span></code>, the following paths will be used:</p>
+<ul class="simple">
+<li><p>Sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be used from the folder <code class="docutils literal notranslate"><span class="pre">~/workdir/liba</span></code>,</p></li>
+<li><p>Sources for <code class="docutils literal notranslate"><span class="pre">libb</span></code> will be used from the folder <code class="docutils literal notranslate"><span class="pre">/mnt/sources/libb</span></code>; and,</p></li>
+<li><p>Sources for <code class="docutils literal notranslate"><span class="pre">libc</span></code> will not be fetched locally.</p></li>
+</ul>
+<p>A user can either disable local sources mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
 </section>
 <section id="configuration-overrides">
-<span id="conf-overrides"></span><h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="Permalink to this heading">¶</a></h3>
+<span id="conf-overrides"></span><h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="此标题的永久链接">¶</a></h3>
 <p>If a builder needs to (for example) override a tool location or package site, a
 user can define either environment options or setup a configuration override
 script <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code>. It is never recommended to persist a configuration
 overrides file into a project's source repository.</p>
 <section id="extraction-tool-overrides">
-<h4>Extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="Permalink to this heading">¶</a></h4>
+<h4>Extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="此标题的永久链接">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code> option inside a configuration override script
 allows a dictionary to be provided to map an extension type to an external tool
 to indicate which tool should be used for extraction. For example, when a
@@ -732,7 +782,7 @@ own extraction utility. Consider the following example:</p>
 <code class="docutils literal notranslate"><span class="pre">{dir}</span></code> key will be replaced where the contents should extract to.</p>
 </section>
 <section id="revision-overrides">
-<h4>Revision overrides<a class="headerlink" href="#revision-overrides" title="Permalink to this heading">¶</a></h4>
+<h4>Revision overrides<a class="headerlink" href="#revision-overrides" title="此标题的永久链接">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_revisions</span></code> option inside a configuration override script allows
 a dictionary to be provided to map a package name to a new revision value.
 Consider the following example: a project defines <code class="docutils literal notranslate"><span class="pre">module-a</span></code> and <code class="docutils literal notranslate"><span class="pre">module-b</span></code>
@@ -750,7 +800,7 @@ the developer does not want to explicitly change the revision inside package
 instead of what is defined in the actual package definition.</p>
 </section>
 <section id="site-overrides">
-<h4>Site overrides<a class="headerlink" href="#site-overrides" title="Permalink to this heading">¶</a></h4>
+<h4>Site overrides<a class="headerlink" href="#site-overrides" title="此标题的永久链接">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_sites</span></code> option inside a configuration override script allows a
 dictionary to be provided to map a package name to a new site value. There may
 be times where a host may not have access to a specific package site. To have a
@@ -766,7 +816,7 @@ be access from the host machine. If a mirror location has been setup at
 </div>
 </section>
 <section id="tool-overrides">
-<h4>Tool overrides<a class="headerlink" href="#tool-overrides" title="Permalink to this heading">¶</a></h4>
+<h4>Tool overrides<a class="headerlink" href="#tool-overrides" title="此标题的永久链接">¶</a></h4>
 <p>Environment variables can be used to help override external tool invoked by the
 releng-tool process. For example, when invoking CMake-based projects, the tool
 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked; however, if a builder is running on CentOS and CMake
@@ -780,7 +830,7 @@ Consider the following example:</p>
 </div>
 </section>
 <section id="quirks">
-<h4>Quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h4>
+<h4>Quirks<a class="headerlink" href="#quirks" title="此标题的永久链接">¶</a></h4>
 <p>releng-tool also provides a series of configuration quirks to deal with rare
 host environment scenarios where releng-tool may be experiencing issues. See
 <a class="reference internal" href="../developer-guide/#quirks"><span class="std std-ref">configuration quirks</span></a> for more information.</p>

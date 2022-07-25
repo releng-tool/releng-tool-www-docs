@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="索引" href="../../genindex/" /><link rel="search" title="搜索" href="../../search/" /><link rel="next" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" /><link rel="prev" title="发行说明" href="../../release-notes/" />
 
-    <meta name="generator" content="sphinx-5.0.2, furo 2022.06.04.1"/>
+    <meta name="generator" content="sphinx-5.1.0, furo 2022.06.21"/>
         <title>0.12 (2022-05-02) - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
@@ -229,9 +229,9 @@
         </div>
         <article role="main">
           <section id="id1">
-<h1>0.12 (2022-05-02)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<h1>0.12 (2022-05-02)<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
 <section id="support-package-variable-overrides-using-the-command-line">
-<h2>Support package variable overrides using the command line<a class="headerlink" href="#support-package-variable-overrides-using-the-command-line" title="Permalink to this heading">¶</a></h2>
+<h2>Support package variable overrides using the command line<a class="headerlink" href="#support-package-variable-overrides-using-the-command-line" title="此标题的永久链接">¶</a></h2>
 <p>Package variables can now be overridden from the command line. Consider the
 following site example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git@example.com:base/libfoo.git&#39;</span>
@@ -249,7 +249,7 @@ developer can override the site variable:</p>
 the command line.</p>
 </section>
 <section id="support-environment-variable-injection-using-the-command-line">
-<h2>Support environment variable injection using the command line<a class="headerlink" href="#support-environment-variable-injection-using-the-command-line" title="Permalink to this heading">¶</a></h2>
+<h2>Support environment variable injection using the command line<a class="headerlink" href="#support-environment-variable-injection-using-the-command-line" title="此标题的永久链接">¶</a></h2>
 <p>Environment variables can now be injected into the releng-tool process from
 the command line. While users can use either export/set variables in their
 environments, or (on Unix) prefix a command call with variable assignments;
@@ -279,7 +279,7 @@ as the following:</p>
 </div>
 </section>
 <section id="package-specific-command-line-execution">
-<h2>Package-specific command line execution<a class="headerlink" href="#package-specific-command-line-execution" title="Permalink to this heading">¶</a></h2>
+<h2>Package-specific command line execution<a class="headerlink" href="#package-specific-command-line-execution" title="此标题的永久链接">¶</a></h2>
 <p>Developer now have an easy way to issue raw commands inside a package's
 prepared build directory. For example, developing/testing with an
 autotools project, a developer can issue a manual configuration request
@@ -293,7 +293,7 @@ need to navigate to an output directory, manually preparing environment
 variables and issuing raw commands in an output directory.</p>
 </section>
 <section id="new-environment-script-variables">
-<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="Permalink to this heading">¶</a></h2>
+<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="此标题的永久链接">¶</a></h2>
 <p>This release includes a series of new environment/script variables to help
 developers better tailor their package definitions.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code> has been introduced, providing a way for a package
@@ -321,7 +321,7 @@ variables:</p>
 </ul>
 </section>
 <section id="new-include-script-function">
-<h2>New include script function<a class="headerlink" href="#new-include-script-function" title="Permalink to this heading">¶</a></h2>
+<h2>New include script function<a class="headerlink" href="#new-include-script-function" title="此标题的永久链接">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_include</span></code> helper function has been added to allow releng-tool
 script to load scripts alongside a given script -- providing a way to split
 up a script across multiple files. For example, a script-based package with
@@ -345,7 +345,7 @@ multiple files and include them in their build script:</p>
 </div>
 </section>
 <section id="correct-git-cache-management-with-branch-updates">
-<h2>Correct Git cache management with branch updates<a class="headerlink" href="#correct-git-cache-management-with-branch-updates" title="Permalink to this heading">¶</a></h2>
+<h2>Correct Git cache management with branch updates<a class="headerlink" href="#correct-git-cache-management-with-branch-updates" title="此标题的永久链接">¶</a></h2>
 <p>For VCS-based sites, the revision field can accept a branch value for the
 respective VCS-type. In this case, specifying the branch of a Git repository
 as the version or revision value will fetch the branch from the configured

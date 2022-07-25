@@ -53,6 +53,7 @@ releng-tool (may vary per context):
    PKG_CACHE_FILE
    PKG_DEFDIR
    PKG_INTERNAL
+   PKG_LOCALSRCS
    PKG_NAME
    PKG_REVISION
    PKG_SITE
@@ -179,6 +180,7 @@ Quirk options used by releng-tool:
 
 .. code-block:: none
 
+   releng.bzr.certifi
    releng.cmake.disable_parallel_option
    releng.disable_prerequisites_check
    releng.disable_remote_configs
