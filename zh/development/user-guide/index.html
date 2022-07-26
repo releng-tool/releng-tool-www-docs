@@ -492,16 +492,19 @@ are set.</p>
 <td><p>Directory for distributed version control cache information
 (defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/cache</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--debug</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></p></td>
+<td><p>Configuration file to load (default: <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/releng</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--debug</span></code></p></td>
 <td><p>Show debug-related messages.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span></code></p></td>
 <td><p>Enables <a class="reference internal" href="#development-mode">development mode</a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory for download archives (defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/dl</span></code>).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code></p></td>
 <td><p>Triggers a forced request for the releng-tool invoke. This entails:</p>
 <ul class="simple">
 <li><p>Packages will be processed as if a re-configuration request has
@@ -512,16 +515,16 @@ deleted to be re-fetched.</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></p></td>
 <td><p>Show this help.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--images-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--images-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory for image outputs (defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/images</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></p></td>
 <td><p>Numbers of jobs to handle (default to <code class="docutils literal notranslate"><span class="pre">0</span></code>; automatic).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;&#64;]&lt;dir&gt;]</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;&#64;]&lt;dir&gt;]</span></code></p></td>
 <td><p>Enables <a class="reference internal" href="#local-sources-mode">local-sources mode</a>.</p>
 <p>Without a directory provided, sources of internal packages will be
 looked for in the parent directory of the configured root
@@ -532,26 +535,26 @@ sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span><
 the provided path.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></p></td>
 <td><p>Explicitly disable colorized output.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory for output (builds, images, etc.; defaults to
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory to process a releng-tool project (defaults to the
 working directory).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></p></td>
 <td><p>Allows specifying a runtime <a class="reference internal" href="../developer-guide/#quirks"><span class="std std-ref">quirk</span></a> for the
 releng-tool process. This option can be used multiple times to
 apply multiple quirks.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></p></td>
 <td><p>Show additional messages.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--version</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--version</span></code></p></td>
 <td><p>Show releng-tool's version.</p></td>
 </tr>
 </tbody>
