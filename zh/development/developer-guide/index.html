@@ -954,7 +954,7 @@ will be set to a value of one (i.e. <code class="docutils literal notranslate"><
 <td><p>Flag set if debug-related information should be shown.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></p></td>
-<td><p>Flag set if in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">Development mode</span></a>.</p></td>
+<td><p>The development mode or flag set if in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">Development mode</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></p></td>
 <td><p>Flag set if performing an extreme pristine clean request.</p></td>
@@ -1224,10 +1224,16 @@ outline a series of supported site definitions:</p>
 <pre class="literal-block">LIBFOO_SITE = 'https://example.com/libfoo.git'
 LIBFOO_SITE = 'cvs+:pserver:anonymous&#64;cvs.example.com:/var/lib/cvsroot mymodule'
 LIBFOO_SITE = 'svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2'
-LIBFOO_SITE = 'https://www.example.com/files/libfoo.tar.gz'</pre>
+LIBFOO_SITE = 'https://www.example.com/files/libfoo.tar.gz'
+LIBFOO_SITE = {
+    DEFAULT_SITE: 'https://pkgs.example.com/releases/libfoo-${LIBFOO_VERSION}.tar.gz',
+    '&lt;mode&gt;': 'https://git.example.com/libfoo.git',
+}</pre>
 <p>A developer can also use <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> to explicitly define the version
-control system type without the need for a prefix/postfix entry.</p>
-<p>For more information on each type's formatting, consult
+control system type without the need for a prefix/postfix entry. The use of
+a dictionary value is only useful when operating in
+<a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a>.</p>
+<p>For more information on each type's formatting, see
 <a class="reference internal" href="#site-definitions"><span class="std std-ref">site definitions</span></a>.</p>
 <p>Using a specific type will create a dependency for a project that the respective
 host tool is installed on the host system. For example, if a Git site is set,
@@ -1311,14 +1317,16 @@ processes are invoked from.</p>
 <section id="libfoo-devmode-ignore-cache">
 <h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="此标题的永久链接">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should ignore any generated
-cache file when operating in development mode. In most cases, users want to take
-advantage of cached sources to prevent having to re-fetch the same content again
-between builds. However, some packages may be configured in a way where their
-request for a package's contents varies from a fresh stage. For example, when
-pulling from a branch, releng-tool will not attempt to re-fetch from a site
-since a cached content has already been fetched. If a developer configures a
-package to use a revision value with dynamic content, they may wish to use this
-option to have a user always force fetching new content from a clean state.</p>
+cache file when operating in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a>.
+In most cases, users want to take advantage of cached sources to prevent
+having to re-fetch the same content again between builds. However, some
+packages may be configured in a way where their request for a package's
+contents varies from a fresh stage. For example, when pulling from a
+branch, releng-tool will not attempt to re-fetch from a site since a
+cached content has already been fetched. If a developer configures a
+package to use a revision value with dynamic content, they may wish to use
+this option to have a user always force fetching new content from a
+clean state.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
@@ -1329,11 +1337,11 @@ option by default (<code class="docutils literal notranslate"><span class="pre">
 </section>
 <section id="libfoo-devmode-revision">
 <h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="此标题的永久链接">¶</a></h4>
-<p>Specifies a development revision for a package. When a project is being built in
-<a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">Development mode</span></a>, the development revision is used over the configured
-<a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> value. If a development revision is not defined for a
-project, a package will still use the configured <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> while in
-development mode.</p>
+<p>Specifies a development revision for a package. When a project is being
+built in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a>, the development
+revision is used over the configured <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> value. If a
+development revision is not defined for a project, a package will still
+use the configured <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> while in development mode.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">&#39;feature/alpha&#39;</span>
 </pre></div>
 </div>
@@ -1537,6 +1545,15 @@ will use the configured <a class="reference internal" href="#libfoo-version"><co
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;libfoo-v2.1&#39;</span>
 </pre></div>
 </div>
+<p>For users planning to take advantage of
+<a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a> capabilities, multiple revisions
+can be configured based off the mode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">DEFAULT_REVISION</span><span class="p">:</span> <span class="s1">&#39;libfoo-v2.1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;develop&#39;</span><span class="p">:</span> <span class="s1">&#39;main&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>See also <a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </section>
 <section id="libfoo-skip-remote-config">
@@ -1605,6 +1622,15 @@ type to be used no matter what the site value is configured as.</p>
 </div>
 <p>If a project registers a custom extension which provides a custom VCS type, the
 extension type can be set in this option.</p>
+<p>For users planning to take advantage of
+<a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a> capabilities with mode-specific
+sites, users can provide an explicit VCS type based off a configured mode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">DEFAULT_REVISION</span><span class="p">:</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;legacy&#39;</span><span class="p">:</span> <span class="s1">&#39;cvs&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Using a specific type will create a dependency for a project that the respective
 host tool is installed on the host system. For example, if a Git VCS-type is
 set, the host system will need to have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on the system.</p>
@@ -2027,6 +2053,9 @@ installation event. This field is optional.</p>
 <section id="cmake-package">
 <h3>CMake Package<a class="headerlink" href="#cmake-package" title="此标题的永久链接">¶</a></h3>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;cmake&#39;</span>
+</pre></div>
+</div>
 <p>During the configuration stage of a CMake package, <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked to
 generate build files for the module. For the build stage, <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code> will
 be invoked to generated build files. Similar approach for the installation stage
@@ -2198,6 +2227,9 @@ installation event. This field is optional.</p>
 <section id="python-package">
 <h3>Python Package<a class="headerlink" href="#python-package" title="此标题的永久链接">¶</a></h3>
 <p>A Python package provides support for processing a <a class="reference external" href="https://www.python.org/">Python</a> supported module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
+</pre></div>
+</div>
 <p>Only the build and installation phases are used when processing the sources for
 a Python package (i.e. no configuration stage is invoked). The build phase will
 invoke <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">build</span></code> while the installation stage will invoke
