@@ -120,6 +120,7 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_GIT_REFSPECS = ['<refspec>'] # e.g. pull
    LIBFOO_GIT_SUBMODULES = bool
    LIBFOO_GIT_VERIFY_REVISION = bool
+   LIBFOO_HOST_PROVIDES = '<tool>' or ['<tool-a>', '<tool-b>']
    LIBFOO_INSTALL_DEFS = {'FOO': 'BAR'}
    LIBFOO_INSTALL_ENV = {'FOO': 'BAR'}
    LIBFOO_INSTALL_OPTS = {'--option': 'value'} or ['--option', 'value']
@@ -135,7 +136,7 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_SKIP_REMOTE_SCRIPTS = bool
    LIBFOO_SITE = '<site>'
    LIBFOO_STRIP_COUNT = int # >= 0
-   LIBFOO_TYPE = '<type>' # autotools, cmake, python, script, ext-<extension>
+   LIBFOO_TYPE = '<type>' # autotools, cmake, make, python, scons, script, ext-<extension>
    LIBFOO_VCS_TYPE = '<vcs-type>' # bzr, cvs, git, hg, local, none, rsync, scp, svn, url
    LIBFOO_VERSION = '<version>'
 
