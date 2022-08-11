@@ -2,7 +2,8 @@
 <html class="no-js" lang="pl">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Indeks" href="../../genindex/" /><link rel="search" title="Szukaj" href="../../search/" /><link rel="prev" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Indeks" href="../../genindex/" /><link rel="search" title="Szukaj" href="../../search/" /><link rel="prev" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>0.10 (2021-12-31) - releng-tool - dokumentacja</title>
@@ -228,9 +229,9 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="id1">
+          <section id="id1">
 <h1>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="new-definition-directory-package-environment-script-variable">
+<section id="new-definition-directory-package-environment-script-variable">
 <h2>New „definition directory” package environment/script variable<a class="headerlink" href="#new-definition-directory-package-environment-script-variable" title="Permalink to this heading">¶</a></h2>
 <p>A new environment/script variable has been added to help a project refer
 to a package’s „definition directory” – the specific folder of a package
@@ -240,8 +241,8 @@ package’s definition directory, they can refer to it as follow:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">LIBFOO_DEFDIR</span><span class="p">,</span> <span class="s1">&#39;my-resource.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="suppress-installation-stage-for-cmake-projects">
+</section>
+<section id="suppress-installation-stage-for-cmake-projects">
 <h2>Suppress installation stage for CMake projects<a class="headerlink" href="#suppress-installation-stage-for-cmake-projects" title="Permalink to this heading">¶</a></h2>
 <p>While releng-tool attempts to provide the common „configuration →
 build → install” stages, not all projects support an installation phase.
@@ -253,8 +254,8 @@ to ignore the stage for a package. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_NOINSTALL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="support-rsync-based-sites">
+</section>
+<section id="support-rsync-based-sites">
 <h2>Support rsync-based sites<a class="headerlink" href="#support-rsync-based-sites" title="Permalink to this heading">¶</a></h2>
 <p>releng-tool now supports fetching content from an <a class="reference external" href="https://linux.die.net/man/1/rsync">rsync</a> compatible
 source. By adjusting a package’s <code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code> definition to be prefixed with
@@ -271,8 +272,8 @@ the following could be used:</p>
 </div>
 <p>What specific source paths are support will vary based off the host’s
 installed <code class="docutils literal notranslate"><span class="pre">rsync</span></code> tool.</p>
-</div>
-<div class="section" id="remove-the-requirement-for-a-package-version-configuration">
+</section>
+<section id="remove-the-requirement-for-a-package-version-configuration">
 <h2>Remove the requirement for a package version configuration<a class="headerlink" href="#remove-the-requirement-for-a-package-version-configuration" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code> configuration is the recommended way to define the
 version of a package. It serves two purposes – it can be used to identify
@@ -290,8 +291,8 @@ output files for a build, for example:</p>
 not impose defining a version entry for a package. Therefore, package types
 which do not need a version or have <code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code> defined for a package,
 the <code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code> configuration can be omitted.</p>
-</div>
-<div class="section" id="flexible-asset-management">
+</section>
+<section id="flexible-asset-management">
 <h2>Flexible asset management<a class="headerlink" href="#flexible-asset-management" title="Permalink to this heading">¶</a></h2>
 <p>Typical runs will download files (<code class="docutils literal notranslate"><span class="pre">dl/</span></code>) and cache content (<code class="docutils literal notranslate"><span class="pre">cache/</span></code>) in the
 project’s root directory. While users could override these paths using the
@@ -312,8 +313,8 @@ the following environment variables can be used instead:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
         </article>
       </div>
