@@ -2,12 +2,12 @@
 <html class="no-js" lang="pl">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Indeks" href="../../genindex/" /><link rel="search" title="Szukaj" href="../../search/" /><link rel="next" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" /><link rel="prev" title="Informacje o wydaniu" href="../../release-notes/" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Indeks" href="../../genindex/" /><link rel="search" title="Szukaj" href="../../search/" /><link rel="next" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" /><link rel="prev" title="0.13 (2022-08-10)" href="../2022-08-10_00.13.00/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>0.12 (2022-05-02) - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides_global.css" />
@@ -175,6 +175,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">0.12 (2022-05-02)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2022-02-26_00.11.00/">0.11 (2022-02-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
@@ -208,7 +209,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -223,16 +225,16 @@
         </div>
         <article role="main">
           <div class="section" id="id1">
-<h1>0.12 (2022-05-02)<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<h1>0.12 (2022-05-02)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="support-package-variable-overrides-using-the-command-line">
-<h2>Support package variable overrides using the command line<a class="headerlink" href="#support-package-variable-overrides-using-the-command-line" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Support package variable overrides using the command line<a class="headerlink" href="#support-package-variable-overrides-using-the-command-line" title="Permalink to this heading">¶</a></h2>
 <p>Package variables can now be overridden from the command line. Consider the
 following site example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'git@example.com:base/libfoo.git'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git@example.com:base/libfoo.git&#39;</span>
 </pre></div>
 </div>
 <p>This Git-sourced package will cache the repository found at
-<code class="docutils literal notranslate"><span class="pre">git@example.com:base/libfoo.git</span></code> before extracting the configured revision
+<code class="docutils literal notranslate"><span class="pre">git&#64;example.com:base/libfoo.git</span></code> before extracting the configured revision
 into the package’s build output directory. If a developer wanted to
 temporarily override this option for a build, the following shows how a
 developer can override the site variable:</p>
@@ -243,7 +245,7 @@ developer can override the site variable:</p>
 the command line.</p>
 </div>
 <div class="section" id="support-environment-variable-injection-using-the-command-line">
-<h2>Support environment variable injection using the command line<a class="headerlink" href="#support-environment-variable-injection-using-the-command-line" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Support environment variable injection using the command line<a class="headerlink" href="#support-environment-variable-injection-using-the-command-line" title="Permalink to this heading">¶</a></h2>
 <p>Environment variables can now be injected into the releng-tool process from
 the command line. While users can use either export/set variables in their
 environments, or (on Unix) prefix a command call with variable assignments;
@@ -273,12 +275,12 @@ as the following:</p>
 </div>
 </div>
 <div class="section" id="package-specific-command-line-execution">
-<h2>Package-specific command line execution<a class="headerlink" href="#package-specific-command-line-execution" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Package-specific command line execution<a class="headerlink" href="#package-specific-command-line-execution" title="Permalink to this heading">¶</a></h2>
 <p>Developer now have an easy way to issue raw commands inside a package’s
 prepared build directory. For example, developing/testing with an
 autotools project, a developer can issue a manual configuration request
 to test/sanity check options:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">libfoo</span><span class="o">-</span><span class="n">exec</span> <span class="s2">"./configure --help"</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">libfoo</span><span class="o">-</span><span class="n">exec</span> <span class="s2">&quot;./configure --help&quot;</span>
 </pre></div>
 </div>
 <p>This is to help developers try out alternative commands/actions without
@@ -287,7 +289,7 @@ need to navigate to an output directory, manually preparing environment
 variables and issuing raw commands in an output directory.</p>
 </div>
 <div class="section" id="new-environment-script-variables">
-<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="Permalink to this heading">¶</a></h2>
 <p>This release includes a series of new environment/script variables to help
 developers better tailor their package definitions.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code> has been introduced, providing a way for a package
@@ -315,7 +317,7 @@ variables:</p>
 </ul>
 </div>
 <div class="section" id="new-include-script-function">
-<h2>New include script function<a class="headerlink" href="#new-include-script-function" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>New include script function<a class="headerlink" href="#new-include-script-function" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_include</span></code> helper function has been added to allow releng-tool
 script to load scripts alongside a given script – providing a way to split
 up a script across multiple files. For example, a script-based package with
@@ -323,28 +325,28 @@ a <code class="docutils literal notranslate"><span class="pre">libfoo-build</spa
 multiple files and include them in their build script:</p>
 <p><small><strong>[package/libfoo/libfoo-build]</strong></small></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># perform various tasks</span>
-<span class="n">releng_include</span><span class="p">(</span><span class="s1">'build-task-a'</span><span class="p">)</span>
-<span class="n">releng_include</span><span class="p">(</span><span class="s1">'build-task-b'</span><span class="p">)</span>
+<span class="n">releng_include</span><span class="p">(</span><span class="s1">&#39;build-task-a&#39;</span><span class="p">)</span>
+<span class="n">releng_include</span><span class="p">(</span><span class="s1">&#39;build-task-b&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><small><strong>[package/libfoo/build-task-a]</strong></small></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">'performing task a'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">&#39;performing task a&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 </pre></div>
 </div>
 <p><small><strong>[package/libfoo/build-task-b]</strong></small></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">'performing task b'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">&#39;performing task b&#39;</span><span class="p">)</span>
 <span class="o">...</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="correct-git-cache-management-with-branch-updates">
-<h2>Correct Git cache management with branch updates<a class="headerlink" href="#correct-git-cache-management-with-branch-updates" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Correct Git cache management with branch updates<a class="headerlink" href="#correct-git-cache-management-with-branch-updates" title="Permalink to this heading">¶</a></h2>
 <p>For VCS-based sites, the revision field can accept a branch value for the
 respective VCS-type. In this case, specifying the branch of a Git repository
 as the version or revision value will fetch the branch from the configured
 site before attempting to extract/build the package. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">'my-feature-branch'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;my-feature-branch&#39;</span>
 </pre></div>
 </div>
 <p>With releng-tool, once a package is fetched, it will not be fetched again. For
@@ -380,14 +382,14 @@ for a branch is used after performing a fresh fetch/clean with cached content.</
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../release-notes/">
+          <a class="prev-page" href="../2022-08-10_00.13.00/">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Informacje o wydaniu</div>
+                <div class="title">0.13 (2022-08-10)</div>
                 
               </div>
             </a>
@@ -461,13 +463,13 @@ for a branch is used after performing a fresh fetch/clean with cached content.</
             <dt>Wersje</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/latest/">Najnowszy</a></dd>
 
+            <dd><a href="https://docs.releng.io/pl/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/pl/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/development/">Rozwój</a></dd>
         </dl>
@@ -478,6 +480,7 @@ for a branch is used after performing a fresh fetch/clean with cached content.</
 <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>

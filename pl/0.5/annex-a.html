@@ -36,6 +36,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/translations.js"></script>
     
@@ -90,7 +91,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">Starsza wersja | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.12</a></div>
+    <div class="version-warning">Starsza wersja | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.13</a></div>
     
     
             
@@ -362,10 +363,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="annex-a-quick-reference">
-<h1>załącznik a – instrukcja w pigułce<a class="headerlink" href="#annex-a-quick-reference" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<h1>załącznik a – instrukcja w pigułce<a class="headerlink" href="#annex-a-quick-reference" title="Permalink to this heading">¶</a></h1>
 <p>Poniżej przedstawiono instrukcje w pigułce dla programistów korzystających z releng-tool. Szczegółowe informacje można znaleźć w <a class="reference internal" href="developer-guide.html"><span class="doc">poradniku dla programistów</span></a>.</p>
 <div class="section" id="configuration-options">
-<h2>opcje konfiguracji<a class="headerlink" href="#configuration-options" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>opcje konfiguracji<a class="headerlink" href="#configuration-options" title="Permalink to this heading">¶</a></h2>
 <p>Opcje, które releng-tool czyta ze skryptu konfiguracyjnego projektu:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
 <span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
@@ -383,7 +384,7 @@
 </div>
 </div>
 <div class="section" id="environment-variables">
-<h2>zmienne środowiskowe<a class="headerlink" href="#environment-variables" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>zmienne środowiskowe<a class="headerlink" href="#environment-variables" title="Permalink to this heading">¶</a></h2>
 <p>Poniżej przedstawiono zmienne środowiskowe (i skryptu) dostępne dla kontekstu wywołane przez releng-tool (może się różnić w zależności od kontekstu):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
 <span class="n">CACHE_DIR</span>
@@ -421,7 +422,7 @@
 </div>
 </div>
 <div class="section" id="package-options">
-<h2>opcje pakietów<a class="headerlink" href="#package-options" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>opcje pakietów<a class="headerlink" href="#package-options" title="Permalink to this heading">¶</a></h2>
 <p>Opcje konfiguracyjne analizowane przez releng-tool dla zdefiniowania pakietu:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
@@ -461,7 +462,7 @@
 </div>
 </div>
 <div class="section" id="script-helpers">
-<h2>script helpers<a class="headerlink" href="#script-helpers" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>script helpers<a class="headerlink" href="#script-helpers" title="Permalink to this heading">¶</a></h2>
 <p>Funkcje dostępne dla skryptów wywoływanych przez releng-tool lub importowane przez <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -545,13 +546,13 @@
   <dl>
     <dt>Versions</dt>
     
+      <dd><a href="https://docs.releng.io/pl/0.13/">0.13</a></dd>
+    
       <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.10/">0.10</a></dd>
-    
-      <dd><a href="https://docs.releng.io/pl/0.9/">0.9</a></dd>
     
   </dl>
   <dl>

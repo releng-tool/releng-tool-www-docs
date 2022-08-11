@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Stichwortverzeichnis" href="../genindex/" /><link rel="search" title="Suche" href="../search/" /><link rel="next" title="Entwicklerhandbuch" href="../developer-guide/" /><link rel="prev" title="Installation" href="../install/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>benutzerhandbuch - releng-tool Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -116,7 +116,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     Ältere Version | <a href="https://docs.releng.io//de/latest/">Stabil v0.13</a> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -208,7 +212,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -223,12 +228,12 @@
         </div>
         <article role="main">
           <div class="section" id="user-guide">
-<h1>benutzerhandbuch<a class="headerlink" href="#user-guide" title="Link zu dieser Überschrift">¶</a></h1>
+<h1>benutzerhandbuch<a class="headerlink" href="#user-guide" title="Permalink to this heading">¶</a></h1>
 <p>The following will outline the capabilities on using releng-tool with an already
 defined project. For details on building a releng-tool project, see the
 <a class="reference internal" href="../developer-guide/"><span class="doc">developer’s guide</span></a>.</p>
 <div class="section" id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h2>
 <p>Depending on the host and how releng-tool has been <a class="reference internal" href="../install/"><span class="doc">installed</span></a>,
 the tool can be either executed using the call <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> (if supported) or
 explicitly through a Python invoke <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">releng_tool</span></code>. This guide will
@@ -267,7 +272,7 @@ the <code class="docutils literal notranslate"><span class="pre">--help</span></
 </div>
 </div>
 <div class="section" id="arguments">
-<h2>Arguments<a class="headerlink" href="#arguments" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">¶</a></h2>
 <p>The command line can be used to specify a single action to perform or
 provide various options to configure the releng-tool process. Options
 can be provided before or after an action (if an explicit action is provided). By default, if a user
@@ -277,7 +282,8 @@ to be performed. An example of a user invoking a clean action is as follows:</p>
 </pre></div>
 </div>
 <p>The following outlines available actions:</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p id="action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></p>
 </td>
@@ -352,7 +358,7 @@ not only removes the build directory but also any cached file or
 directory associated with the package. See also the
 <a class="reference internal" href="#action-pkg-clean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></a> action.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">"&lt;cmd&gt;"</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">&quot;&lt;cmd&gt;&quot;</span></code></p></td>
 <td><p>Invokes a provided command in the package’s build output directory.
 This package action can be useful for developers attempting to
 develop/debug a specific package, allowing an easy way to issue
@@ -361,7 +367,7 @@ venture to a package’s output directory. Packages will need to
 be processed to at least the patch stage before a provided
 command is issued.</p>
 <p>An example is as follows:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool libfoo-exec <span class="s2">"mycmd arg1 arg2"</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool libfoo-exec <span class="s2">&quot;mycmd arg1 arg2&quot;</span>
 </pre></div>
 </div>
 <p>Package environment variables will be available for the invoked
@@ -470,9 +476,11 @@ read to understand this action’s effect.</p>
 </td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>The following outlines available options:</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory to hold cache and download folders instead of using a
@@ -537,10 +545,11 @@ apply multiple quirks.</p></td>
 <td><p>Show releng-tool’s version.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </div>
 <div class="section" id="understanding-rebuilds">
-<h2>Understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="Permalink to this heading">¶</a></h2>
 <p>As packages are processed in order (based off of detected dependencies, if any),
 each package will go through their respective stages: fetching, extraction,
 patching, configuration, building and installation. While a package may not take
@@ -591,9 +600,9 @@ allow <code class="docutils literal notranslate"><span class="pre">module-c</spa
 based on the packages, changes and languages used.</p>
 </div>
 <div class="section" id="tips">
-<h2>Tips<a class="headerlink" href="#tips" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="offline-builds">
-<h3>Offline builds<a class="headerlink" href="#offline-builds" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>Offline builds<a class="headerlink" href="#offline-builds" title="Permalink to this heading">¶</a></h3>
 <p>A user can prepare for an offline build by using the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> action:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool fetch
 </pre></div>
@@ -603,7 +612,7 @@ folders. Future builds for the project should no longer need external access unt
 these folders are removed.</p>
 </div>
 <div class="section" id="parallel-builds">
-<h3>Parallel builds<a class="headerlink" href="#parallel-builds" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>Parallel builds<a class="headerlink" href="#parallel-builds" title="Permalink to this heading">¶</a></h3>
 <p>A stage for a package (such as a build stage) can take advantage of multiple
 cores to perform the step. By default, releng-tool will attempt to run as many
 jobs for a stage equal to the amount of physical cores on the host system. The
@@ -617,13 +626,13 @@ for stages to two jobs, the following can be used:</p>
 package if a package cannot support parallel processing.</p>
 </div>
 <div class="section" id="privileged-builds">
-<h3>Privileged builds<a class="headerlink" href="#privileged-builds" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>Privileged builds<a class="headerlink" href="#privileged-builds" title="Permalink to this heading">¶</a></h3>
 <p>It is never recommended to invoke a build with elevated (e.g. root) privileges.
 A builder invoking in an elevated environment runs the risk of a misconfigured
 releng-tool project dirtying or destroying the builder’s host environment.</p>
 </div>
 <div class="section" id="license-generation">
-<h3>License generation<a class="headerlink" href="#license-generation" title="Link zu dieser Überschrift">¶</a></h3>
+<h3>License generation<a class="headerlink" href="#license-generation" title="Permalink to this heading">¶</a></h3>
 <p>At the end of a <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> invoke, the final stages will compile a list of
 package license information (if licenses are defined). If a user wishes to
 compile a project’s list of license information without performing an entire
@@ -636,9 +645,9 @@ build, the <code class="docutils literal notranslate"><span class="pre">licenses
 </div>
 </div>
 <div class="section" id="advanced-builder-capabilities">
-<h2>Advanced builder capabilities<a class="headerlink" href="#advanced-builder-capabilities" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Advanced builder capabilities<a class="headerlink" href="#advanced-builder-capabilities" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="development-mode">
-<span id="id1"></span><h3>Development mode<a class="headerlink" href="#development-mode" title="Link zu dieser Überschrift">¶</a></h3>
+<span id="id1"></span><h3>Development mode<a class="headerlink" href="#development-mode" title="Permalink to this heading">¶</a></h3>
 <p>Development mode provides a way for builder to request to process supported
 packages against a development version of sources rather than using fixed
 versions. Consider the following example: if a project has a package which
@@ -663,7 +672,7 @@ directory. A user can either disable development mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
 </div>
 <div class="section" id="local-sources-mode">
-<span id="id2"></span><h3>Local-sources mode<a class="headerlink" href="#local-sources-mode" title="Link zu dieser Überschrift">¶</a></h3>
+<span id="id2"></span><h3>Local-sources mode<a class="headerlink" href="#local-sources-mode" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Clean events (such as <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">clean</span></code>) will not touch packages using
@@ -702,13 +711,13 @@ directory. A user can either disable local sources mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
 </div>
 <div class="section" id="configuration-overrides">
-<span id="conf-overrides"></span><h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="Link zu dieser Überschrift">¶</a></h3>
+<span id="conf-overrides"></span><h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="Permalink to this heading">¶</a></h3>
 <p>If a builder needs to (for example) override a tool location or package site, a
 user can define either environment options or setup a configuration override
 script <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code>. It is never recommended to persist a configuration
 overrides file into a project’s source repository.</p>
 <div class="section" id="extraction-tool-overrides">
-<h4>Extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>Extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="Permalink to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code> option inside a configuration override script
 allows a dictionary to be provided to map an extension type to an external tool
 to indicate which tool should be used for extraction. For example, when a
@@ -716,7 +725,7 @@ to indicate which tool should be used for extraction. For example, when a
 extract the archive; however, a user may wish to override this tool with their
 own extraction utility. Consider the following example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'zip'</span><span class="p">:</span> <span class="s1">'/opt/my-custom-unzip </span><span class="si">{file}</span><span class="s1"> </span><span class="si">{dir}</span><span class="s1">'</span><span class="p">,</span>
+    <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;/opt/my-custom-unzip </span><span class="si">{file}</span><span class="s1"> </span><span class="si">{dir}</span><span class="s1">&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -724,7 +733,7 @@ own extraction utility. Consider the following example:</p>
 <code class="docutils literal notranslate"><span class="pre">{dir}</span></code> key will be replaced where the contents should extract to.</p>
 </div>
 <div class="section" id="revision-overrides">
-<h4>Revision overrides<a class="headerlink" href="#revision-overrides" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>Revision overrides<a class="headerlink" href="#revision-overrides" title="Permalink to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_revisions</span></code> option inside a configuration override script allows
 a dictionary to be provided to map a package name to a new revision value.
 Consider the following example: a project defines <code class="docutils literal notranslate"><span class="pre">module-a</span></code> and <code class="docutils literal notranslate"><span class="pre">module-b</span></code>
@@ -734,7 +743,7 @@ new capabilities against the current stable version of <code class="docutils lit
 the developer does not want to explicitly change the revision inside package
 <code class="docutils literal notranslate"><span class="pre">module-b</span></code>’s definition. To avoid this, an override can be used instead:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'module-b'</span><span class="p">:</span> <span class="s1">'&lt;test-branch&gt;'</span><span class="p">,</span>
+    <span class="s1">&#39;module-b&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;test-branch&gt;&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -742,23 +751,23 @@ the developer does not want to explicitly change the revision inside package
 instead of what is defined in the actual package definition.</p>
 </div>
 <div class="section" id="site-overrides">
-<h4>Site overrides<a class="headerlink" href="#site-overrides" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>Site overrides<a class="headerlink" href="#site-overrides" title="Permalink to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_sites</span></code> option inside a configuration override script allows a
 dictionary to be provided to map a package name to a new site value. There may
 be times where a host may not have access to a specific package site. To have a
 host to use a mirror location without having to adjust the package definition,
 the site override option can be used. For example, consider a package pulls from
-site <code class="docutils literal notranslate"><span class="pre">git@example.com:myproject.git</span></code>; however, the host <code class="docutils literal notranslate"><span class="pre">example.com</span></code> cannot
+site <code class="docutils literal notranslate"><span class="pre">git&#64;example.com:myproject.git</span></code>; however, the host <code class="docutils literal notranslate"><span class="pre">example.com</span></code> cannot
 be access from the host machine. If a mirror location has been setup at
-<code class="docutils literal notranslate"><span class="pre">git@example.org:myproject.git</span></code>, the following override can be used:</p>
+<code class="docutils literal notranslate"><span class="pre">git&#64;example.org:myproject.git</span></code>, the following override can be used:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'&lt;package-name&gt;'</span><span class="p">:</span> <span class="s1">'git@example.org:myproject.git'</span><span class="p">,</span>
+    <span class="s1">&#39;&lt;package-name&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;git@example.org:myproject.git&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="tool-overrides">
-<h4>Tool overrides<a class="headerlink" href="#tool-overrides" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>Tool overrides<a class="headerlink" href="#tool-overrides" title="Permalink to this heading">¶</a></h4>
 <p>Environment variables can be used to help override external tool invoked by the
 releng-tool process. For example, when invoking CMake-based projects, the tool
 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked; however, if a builder is running on CentOS and CMake
@@ -772,7 +781,7 @@ Consider the following example:</p>
 </div>
 </div>
 <div class="section" id="quirks">
-<h4>Quirks<a class="headerlink" href="#quirks" title="Link zu dieser Überschrift">¶</a></h4>
+<h4>Quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h4>
 <p>releng-tool also provides a series of configuration quirks to deal with rare
 host environment scenarios where releng-tool may be experiencing issues. See
 <a class="reference internal" href="../developer-guide/#quirks"><span class="std std-ref">configuration quirks</span></a> for more information.</p>
@@ -893,13 +902,13 @@ host environment scenarios where releng-tool may be experiencing issues. See
             <dt>Versionen</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/de/latest/">Neueste</a></dd>
 
+            <dd><a href="https://docs.releng.io/de/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/de/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/de/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/de/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/de/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/de/development/">Entwicklung</a></dd>
         </dl>
@@ -910,6 +919,7 @@ host environment scenarios where releng-tool may be experiencing issues. See
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/tabs.js"></script>

@@ -52,7 +52,9 @@ releng-tool (may vary per context):
    PKG_CACHE_DIR
    PKG_CACHE_FILE
    PKG_DEFDIR
+   PKG_DEVMODE
    PKG_INTERNAL
+   PKG_LOCALSRCS
    PKG_NAME
    PKG_REVISION
    PKG_SITE
@@ -71,6 +73,7 @@ releng-tool (may vary per context):
    RELENG_REBUILD
    RELENG_RECONFIGURE
    RELENG_REINSTALL
+   RELENG_TARGET_PKG
    RELENG_VERBOSE
    RELENG_VERSION
    ROOT_DIR
@@ -117,6 +120,7 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_GIT_REFSPECS = ['<refspec>'] # e.g. pull
    LIBFOO_GIT_SUBMODULES = bool
    LIBFOO_GIT_VERIFY_REVISION = bool
+   LIBFOO_HOST_PROVIDES = '<tool>' or ['<tool-a>', '<tool-b>']
    LIBFOO_INSTALL_DEFS = {'FOO': 'BAR'}
    LIBFOO_INSTALL_ENV = {'FOO': 'BAR'}
    LIBFOO_INSTALL_OPTS = {'--option': 'value'} or ['--option', 'value']
@@ -127,12 +131,13 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_LICENSE_FILES = '<file>' or ['<file>', '<file>']
    LIBFOO_PREFIX = '<path>' # '/usr'
    LIBFOO_PYTHON_INTERPRETER = '<path>'
+   LIBFOO_PYTHON_SETUP_TYPE = '<setup-type>' # distutils, setuptools, flit, hatch, pdm, pep517
    LIBFOO_REVISION = '<revision>'
    LIBFOO_SKIP_REMOTE_CONFIG = bool
    LIBFOO_SKIP_REMOTE_SCRIPTS = bool
    LIBFOO_SITE = '<site>'
    LIBFOO_STRIP_COUNT = int # >= 0
-   LIBFOO_TYPE = '<type>' # autotools, cmake, python, script, ext-<extension>
+   LIBFOO_TYPE = '<type>' # autotools, cmake, make, python, scons, script, ext-<extension>
    LIBFOO_VCS_TYPE = '<vcs-type>' # bzr, cvs, git, hg, local, none, rsync, scp, svn, url
    LIBFOO_VERSION = '<version>'
 
@@ -146,10 +151,12 @@ Functions available to scripts invoked by releng-tool or importable via
 
    debug(msg, *args)
    err(msg, *args)
+   hint(msg, *args)
    log(msg, *args)
    note(msg, *args)
    releng_cat(file, *args)
-   releng_copy(src, dst, quiet=False, critical=True)
+   releng_copy(src, dst, quiet=False, critical=True, dst_dir=None)
+   releng_copy_into(src, dst, quiet=False, critical=True)
    releng_env(key, value=None)
    releng_execute(args, cwd=None, env=None, env_update=None, quiet=False, critical=True, poll=False, capture=None)
    releng_execute_rv(command, args, cwd=None, env=None, env_update=None)
@@ -177,6 +184,7 @@ Quirk options used by releng-tool:
 
 .. code-block:: none
 
+   releng.bzr.certifi
    releng.cmake.disable_parallel_option
    releng.disable_prerequisites_check
    releng.disable_remote_configs

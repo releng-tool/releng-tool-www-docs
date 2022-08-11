@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="prev" title="付録A - クイックリファレンス" href="../annex-a/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>バージョンノート - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -118,7 +118,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     レガシーバージョン | <a href="https://docs.releng.io//ja/latest/">安定版 v0.12</a> 
+     レガシーバージョン | <a href="https://docs.releng.io//ja/latest/">安定版 v0.13</a> 
   </aside>
 </div>
 
@@ -206,7 +206,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -221,12 +222,12 @@
         </div>
         <article role="main">
           <div class="section" id="release-notes">
-<h1>バージョンノート<a class="headerlink" href="#release-notes" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>バージョンノート<a class="headerlink" href="#release-notes" title="この見出しへのパーマリンク">#</a></h1>
 <p>The following provides the notable features, bug fixes and more for each release
 of releng-tool. For a complete list of detailed changes to releng-tool, please
 consult the project's <a class="reference external" href="https://github.com/releng-tool/releng-tool/commits">repository commits</a>.</p>
 <div class="section" id="id1">
-<h2>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fixed an issue where a configured <code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code> bin path would not be
 registered in the script environment's path</p></li>
@@ -246,7 +247,7 @@ would fail</p></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>0.9 (2021-10-02)<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.9 (2021-10-02)<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fixed an import issue when running with python 3.10</p></li>
 <li><p>fixed an issue where a cyclic package check provided a bad message</p></li>
@@ -258,7 +259,7 @@ would fail</p></li>
 </ul>
 </div>
 <div class="section" id="id3">
-<h2>0.8 (2021-08-28)<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.8 (2021-08-28)<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>allow dvcs packages to share caches (to minimize space/time fetching)</p></li>
 <li><p>fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on python
@@ -283,7 +284,7 @@ forced fetch request is made</p></li>
 </ul>
 </div>
 <div class="section" id="id4">
-<h2>0.7 (2021-08-08)<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.7 (2021-08-08)<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fetch from an already cached package's site if the fetch is explicitly
 requested</p></li>
@@ -305,7 +306,7 @@ to force re-invoking a specific stage</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
-<h2>0.6 (2020-10-10)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.6 (2020-10-10)<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>always register optional flags inside scripts (allowing developers to use
 flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
@@ -321,13 +322,13 @@ an interim)</p></li>
 </ul>
 </div>
 <div class="section" id="id6">
-<h2>0.5 (2020-09-07)<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.5 (2020-09-07)<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>fixed false error when verifying cached git reference</p></li>
 </ul>
 </div>
 <div class="section" id="id7">
-<h2>0.4 (2020-09-07)<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#id7" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
 <li><p>allow setting quirks in command line</p></li>
@@ -339,7 +340,7 @@ an interim)</p></li>
 </ul>
 </div>
 <div class="section" id="id8">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>allow packages to configure for no-extraction for sources</p></li>
@@ -351,7 +352,7 @@ an interim)</p></li>
 </ul>
 </div>
 <div class="section" id="id9">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#id9" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>a project's host directory will now be registered in the system's path during
 execution</p></li>
@@ -361,7 +362,7 @@ execution</p></li>
 </ul>
 </div>
 <div class="section" id="id10">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#id10" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
 <li><p>hello world</p></li>
 </ul>
@@ -459,13 +460,13 @@ execution</p></li>
             <dt>バージョン</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/latest/">最新</a></dd>
 
+            <dd><a href="https://docs.releng.io/ja/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/ja/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/ja/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/development/">発達</a></dd>
         </dl>
@@ -476,6 +477,7 @@ execution</p></li>
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/tabs.js"></script>

@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Contributor guide" href="../contributor-guide/" /><link rel="prev" title="User guide" href="../user-guide/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>Developer guide - releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -116,7 +116,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     Legacy Version | <a href="https://docs.releng.io//en/latest/">Stable v0.13</a> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -208,7 +212,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -223,12 +228,12 @@
         </div>
         <article role="main">
           <div class="section" id="developer-guide">
-<h1>Developer guide<a class="headerlink" href="#developer-guide" title="Permalink to this headline">¶</a></h1>
+<h1>Developer guide<a class="headerlink" href="#developer-guide" title="Permalink to this heading">¶</a></h1>
 <p>The following will outline details on how to prepare a releng-tool project to
 be used for a project. For details on a user interaction with releng-tool, see
 the <a class="reference internal" href="../user-guide/"><span class="doc">user’s guide</span></a>.</p>
 <div class="section" id="prelude">
-<h2>Prelude<a class="headerlink" href="#prelude" title="Permalink to this headline">¶</a></h2>
+<h2>Prelude<a class="headerlink" href="#prelude" title="Permalink to this heading">¶</a></h2>
 <p>A releng-tool project can define multiple packages, each can be based off of
 different languages, configured to use custom toolchains and more. Every package
 has multiple stages (such as fetching, configuring, building, etc.) which can
@@ -297,7 +302,7 @@ features/actions a developer may want in their project (like the examples
 mentioned above), the more a developer will need to manage their project.</p>
 </div>
 <div class="section" id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h2>
 <p>releng-tool is made on Python. This document will outline package definitions,
 scripts and more which are most likely Python scripts, and in turn will be
 invoked/processed by the releng-tool. While releng-tool supports running on
@@ -321,7 +326,7 @@ the following content:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">LIBX_VERSION</span><span class="o">=</span><span class="s1">'1.0.0'</span>
+<span class="n">LIBX_VERSION</span><span class="o">=</span><span class="s1">&#39;1.0.0&#39;</span>
 </pre></div>
 </div>
 <p>Next, create a build script for the <code class="docutils literal notranslate"><span class="pre">libx</span></code> project
@@ -329,7 +334,7 @@ the following content:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'invoked libx package build stage'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invoked libx package build stage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This is a very simple script-based package (all package options explained later
@@ -338,15 +343,15 @@ in this document). Repeat the same steps for the <code class="docutils literal n
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">LIBY_DEPENDENCIES</span><span class="o">=</span><span class="p">[</span><span class="s1">'libx'</span><span class="p">]</span>
-<span class="n">LIBY_VERSION</span><span class="o">=</span><span class="s1">'2.1.0'</span>
+<span class="n">LIBY_DEPENDENCIES</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;libx&#39;</span><span class="p">]</span>
+<span class="n">LIBY_VERSION</span><span class="o">=</span><span class="s1">&#39;2.1.0&#39;</span>
 </pre></div>
 </div>
 <p>And <code class="docutils literal notranslate"><span class="pre">my-project/liby/libx-build</span></code> containing:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'invoked liby package build stage'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;invoked liby package build stage&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>One difference with this package is the definition of <code class="docutils literal notranslate"><span class="pre">LIBY_DEPENDENCIES</span></code>,
@@ -359,8 +364,8 @@ configuration file with the following contents:</p>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'libx'</span><span class="p">,</span>
-    <span class="s1">'liby'</span><span class="p">,</span>
+    <span class="s1">&#39;libx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;liby&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -394,7 +399,7 @@ initial getting started example. Feel free to remove the example project and
 prepare for steps to make a real releng-tool project.</p>
 </div>
 <div class="section" id="actually-getting-started">
-<h2>Actually getting started<a class="headerlink" href="#actually-getting-started" title="Permalink to this headline">¶</a></h2>
+<h2>Actually getting started<a class="headerlink" href="#actually-getting-started" title="Permalink to this heading">¶</a></h2>
 <p>Start building a new releng-tool project by creating the following root and
 package folders for a project, and venture into the root folder:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p &lt;my-project&gt;/package
@@ -427,11 +432,11 @@ structure for the definition file is as follows:</p>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="n">MY_PACKAGE_DEPENDENCIES</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">MY_PACKAGE_LICENSE</span><span class="o">=</span><span class="p">[</span><span class="s1">'&lt;license name&gt;'</span><span class="p">]</span>
-<span class="n">MY_PACKAGE_LICENSE_FILES</span><span class="o">=</span><span class="p">[</span><span class="s1">'&lt;license file&gt;'</span><span class="p">]</span>
-<span class="n">MY_PACKAGE_SITE</span><span class="o">=</span><span class="s1">'&lt;location for sources&gt;'</span>
-<span class="n">MY_PACKAGE_TYPE</span><span class="o">=</span><span class="s1">'&lt;package-type&gt;'</span>
-<span class="n">MY_PACKAGE_VERSION</span><span class="o">=</span><span class="s1">'&lt;package-version&gt;'</span>
+<span class="n">MY_PACKAGE_LICENSE</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;license name&gt;&#39;</span><span class="p">]</span>
+<span class="n">MY_PACKAGE_LICENSE_FILES</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;license file&gt;&#39;</span><span class="p">]</span>
+<span class="n">MY_PACKAGE_SITE</span><span class="o">=</span><span class="s1">&#39;&lt;location for sources&gt;&#39;</span>
+<span class="n">MY_PACKAGE_TYPE</span><span class="o">=</span><span class="s1">&#39;&lt;package-type&gt;&#39;</span>
+<span class="n">MY_PACKAGE_VERSION</span><span class="o">=</span><span class="s1">&#39;&lt;package-version&gt;&#39;</span>
 </pre></div>
 </div>
 <p>Initial changes to note:</p>
@@ -475,9 +480,9 @@ packages should be built. All packages can be defined in the <code class="docuti
 if desired. For example, if a project has packages <code class="docutils literal notranslate"><span class="pre">liba</span></code>, <code class="docutils literal notranslate"><span class="pre">libb</span></code> and
 <code class="docutils literal notranslate"><span class="pre">programc</span></code>, the following package list can be defined:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'liba'</span><span class="p">,</span>
-    <span class="s1">'libb'</span><span class="p">,</span>
-    <span class="s1">'programc'</span><span class="p">,</span>
+    <span class="s1">&#39;liba&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;libb&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;programc&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -486,7 +491,7 @@ dependencies are configured. Considering the same packages listed above, if
 <code class="docutils literal notranslate"><span class="pre">programc</span></code> depends on both <code class="docutils literal notranslate"><span class="pre">liba</span></code> and <code class="docutils literal notranslate"><span class="pre">libb</span></code> packages, only <code class="docutils literal notranslate"><span class="pre">programc</span></code>
 needs to be explicitly listed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'programc'</span><span class="p">,</span>
+    <span class="s1">&#39;programc&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -533,7 +538,7 @@ example, if the file <code class="docutils literal notranslate"><span class="pre
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'project target directory: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">TARGET_DIR</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;project target directory: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">TARGET_DIR</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>The target directory will be output to standard out at the end of the build. A
@@ -542,7 +547,7 @@ the contents found in <code class="docutils literal notranslate"><span class="pr
 variables/functions).</p>
 </div>
 <div class="section" id="project-configuration">
-<h2>Project configuration<a class="headerlink" href="#project-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Project configuration<a class="headerlink" href="#project-configuration" title="Permalink to this heading">¶</a></h2>
 <p>A releng-tool project defines its configuration options inside the a <code class="docutils literal notranslate"><span class="pre">releng</span></code>
 file at the root of a project. The primary configuration option for a developer
 to define is <code class="docutils literal notranslate"><span class="pre">packages</span></code>, which is used to hold a list of packages to be
@@ -551,16 +556,17 @@ processed:</p>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'package-a'</span><span class="p">,</span>
-    <span class="s1">'package-b'</span><span class="p">,</span>
-    <span class="s1">'package-c'</span><span class="p">,</span>
+    <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 <p>A series of additional configuration options are available to be defined inside
 the project’s configuration. A list of common configuration options are as
 follows:</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p id="conf-default-intern"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></p>
 </td>
@@ -578,8 +584,8 @@ or external are assumed to be external packages.</p>
 If an extension cannot be loaded, releng-tool will stop with detailed
 information.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'ext-a'</span><span class="p">,</span>
-    <span class="s1">'ext-b'</span><span class="p">,</span>
+    <span class="s1">&#39;ext-a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ext-b&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -595,7 +601,7 @@ location/repository. To allow packages to be loaded from another
 package container directory, one or more package locations can be
 provided. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'MY_EXTERNAL_PKG_DIR'</span><span class="p">],</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MY_EXTERNAL_PKG_DIR&#39;</span><span class="p">],</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -607,7 +613,7 @@ provided. For example:</p>
 can be generated containing each package’s license information. If a
 developer wishes to add a custom header to the generated document, a
 header can be defined by project’s configuration. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">license_header</span> <span class="o">=</span> <span class="s1">'my leading content'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">license_header</span> <span class="o">=</span> <span class="s1">&#39;my leading content&#39;</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#licenses">licenses</a>.</p>
@@ -618,9 +624,9 @@ header can be defined by project’s configuration. For example:</p>
 by releng-tool till their completion. Package dependencies not
 explicitly listed will be automatically loaded and processed as well.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'package-a'</span><span class="p">,</span>
-    <span class="s1">'package-b'</span><span class="p">,</span>
-    <span class="s1">'package-c'</span><span class="p">,</span>
+    <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -632,9 +638,9 @@ project. Allows a developer to identify tools to check and fail-fast
 if missing, instead of waiting for a stage which requires a specific
 tool and failing later during a building, packaging, etc. phase.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'tool-a'</span><span class="p">,</span>
-    <span class="s1">'tool-b'</span><span class="p">,</span>
-    <span class="s1">'tool-c'</span><span class="p">,</span>
+    <span class="s1">&#39;tool-a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tool-b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tool-c&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -646,7 +652,7 @@ tool and failing later during a building, packaging, etc. phase.</p>
 configuration, build and installation stages. By default, the sysroot
 prefix is set to <code class="docutils literal notranslate"><span class="pre">/usr</span></code> or <code class="docutils literal notranslate"><span class="pre">\usr</span></code> (based on the system’s
 default character to separate pathname components).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">'/usr'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-prefix"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></a>.</p>
@@ -657,15 +663,17 @@ default character to separate pathname components).</p>
 If this option is set, any URL fetch requests will first be tried
 on the configured mirror before attempting to acquired from the
 defined site in a package definition.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">'ftp://mirror.example.org/data/'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/data/&#39;</span>
 </pre></div>
 </div>
 </td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>A list of more advanced configuration options are as follows:</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></p></td>
 <td><p>A transform for cache extension interpreting. This is an advanced
@@ -688,8 +696,8 @@ releng-tool may not be able to find the extension for the fetched
 asset, but if a developer knows the expected archive types for
 these calls, a custom transform can be defined. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_translator</span><span class="p">(</span><span class="n">site</span><span class="p">):</span>
-    <span class="k">if</span> <span class="s1">'static.example.org'</span> <span class="ow">in</span> <span class="n">site</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">'tgz'</span>
+    <span class="k">if</span> <span class="s1">&#39;static.example.org&#39;</span> <span class="ow">in</span> <span class="n">site</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;tgz&#39;</span>
     <span class="k">return</span> <span class="kc">None</span>
 
 <span class="n">cache_ext</span> <span class="o">=</span> <span class="n">my_translator</span>
@@ -707,7 +715,7 @@ releng-tool will internally extract the archive; however, a user
 may wish to override this tool with their own extraction utility.
 Consider the following example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'zip'</span><span class="p">:</span> <span class="s1">'/opt/my-custom-unzip </span><span class="si">{file}</span><span class="s1"> </span><span class="si">{dir}</span><span class="s1">'</span><span class="p">,</span>
+    <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;/opt/my-custom-unzip </span><span class="si">{file}</span><span class="s1"> </span><span class="si">{dir}</span><span class="s1">&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -726,7 +734,7 @@ developer does not want to explicitly change the revision inside
 package <code class="docutils literal notranslate"><span class="pre">module-b</span></code>’s definition. To avoid this, an override
 can be used instead:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'module-b'</span><span class="p">:</span> <span class="s1">'&lt;test-branch&gt;'</span><span class="p">,</span>
+    <span class="s1">&#39;module-b&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;test-branch&gt;&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -743,12 +751,12 @@ value. There may be times where a host may not have access to a
 specific package site. To have a host to use a mirror location
 without having to adjust the package definition, the site override
 option can be used. For example, consider a package pulls from
-site <code class="docutils literal notranslate"><span class="pre">git@example.com:myproject.git</span></code>; however, the host
+site <code class="docutils literal notranslate"><span class="pre">git&#64;example.com:myproject.git</span></code>; however, the host
 <code class="docutils literal notranslate"><span class="pre">example.com</span></code> cannot be access from the host machine. If a mirror
-location has been setup at <code class="docutils literal notranslate"><span class="pre">git@example.org:myproject.git</span></code>, the
+location has been setup at <code class="docutils literal notranslate"><span class="pre">git&#64;example.org:myproject.git</span></code>, the
 following override can be used:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'&lt;pkg&gt;'</span><span class="p">:</span> <span class="s1">'git@example.org:mywork.git'</span><span class="p">,</span>
+    <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;git@example.org:mywork.git&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -761,7 +769,7 @@ special cases (see also <a class="reference internal" href="../user-guide/#conf-
 <td><p>A list of configuration quirks to apply to deal with corner case
 scenarios which can prevent releng-tool operating on a host system.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'releng.&lt;special-quirk-id&gt;'</span><span class="p">,</span>
+    <span class="s1">&#39;releng.&lt;special-quirk-id&gt;&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -784,10 +792,11 @@ a build environment. For example:</p>
 </td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </div>
 <div class="section" id="environment-variables">
-<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading">¶</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Avoid using environment variables to configure package options such as
@@ -797,7 +806,8 @@ management.</p>
 </div>
 <p>When configuration, package definitions or various scripts are invoked by
 releng-tool, the following environment variables are available:</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BUILD_DIR</span></code></p></td>
 <td><p>The build directory.</p></td>
@@ -990,12 +1000,14 @@ the environment variable will be set to a value of one (i.e.
 <td><p>The target area directory’s prefixed library directory.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>Package-specific environment variables are also available if another package or
 script needs to rely on the (generated) configuration of another package. The
 following package-specific environment variables are available for use (where
 <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;</span></code> translates to a releng-tool’s determined package key):</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code></p></td>
 <td><p>The directory for a defined package’s buildable content.</p></td>
@@ -1017,11 +1029,13 @@ be stored.</p></td>
 <td><p>The version of a defined package.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>releng-tool also accepts environment variables for configuring specific
 features of the releng-tool process. The following environment variables are
 accepted:</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code></p></td>
 <td><p>The asset directory to use.</p></td>
@@ -1037,10 +1051,11 @@ accepted:</p>
 root user.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </div>
 <div class="section" id="packages">
-<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">¶</a></h2>
 <p>Packages are defined inside the <code class="docutils literal notranslate"><span class="pre">package/</span></code> directory. There is no explicit
 limit on the total number of packages a project can have. Packages can consist
 of libraries, programs or even basic assets. Package names are recommended to be
@@ -1068,34 +1083,35 @@ the following can be defined (<code class="docutils literal notranslate"><span c
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">PACKAGE_A_VERSION</span><span class="o">=</span><span class="s1">'1.0.0'</span>
+<span class="n">PACKAGE_A_VERSION</span><span class="o">=</span><span class="s1">&#39;1.0.0&#39;</span>
 </pre></div>
 </div>
 <p>More details on available configuration options are as follows.</p>
 <div class="section" id="common-package-configurations">
-<h3>Common package configurations<a class="headerlink" href="#common-package-configurations" title="Permalink to this headline">¶</a></h3>
+<h3>Common package configurations<a class="headerlink" href="#common-package-configurations" title="Permalink to this heading">¶</a></h3>
 <p>The following outlines common configuration options available for packages.</p>
 <div class="section" id="libfoo-dependencies">
-<h4>LIBFOO_DEPENDENCIES<a class="headerlink" href="#libfoo-dependencies" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_DEPENDENCIES<a class="headerlink" href="#libfoo-dependencies" title="Permalink to this heading">¶</a></h4>
 <p>List of package dependencies a given project has. If a project depends on
 another package, the package name should be listed in this option. This ensures
 releng-tool will process packages in the proper order. The following shows an
 example package <code class="docutils literal notranslate"><span class="pre">libc</span></code> being dependent on <code class="docutils literal notranslate"><span class="pre">liba</span></code> and <code class="docutils literal notranslate"><span class="pre">libb</span></code> being
 processed first:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBC_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'liba'</span><span class="p">,</span> <span class="s1">'libb'</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBC_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;liba&#39;</span><span class="p">,</span> <span class="s1">&#39;libb&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-install-type">
-<h4>LIBFOO_INSTALL_TYPE<a class="headerlink" href="#libfoo-install-type" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_INSTALL_TYPE<a class="headerlink" href="#libfoo-install-type" title="Permalink to this heading">¶</a></h4>
 <p>Defines the installation type of this package. A package may be designed to be
 built and installed for just the target area, the stage area, both or maybe in
 the host directory. The following options are available for the installation
 type:</p>
-<div class="table-wrapper"><table class="docutils align-default">
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 41%"/>
-<col style="width: 59%"/>
+<col style="width: 41%" />
+<col style="width: 59%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -1119,52 +1135,54 @@ type:</p>
 <td><p>The target area.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>The default installation type is <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">'target'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;target&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-license">
-<h4>LIBFOO_LICENSE<a class="headerlink" href="#libfoo-license" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_LICENSE<a class="headerlink" href="#libfoo-license" title="Permalink to this heading">¶</a></h4>
 <p>A string or list of strings outlining the license information for a package.
 Outlining the license of a package is always recommended (but not required).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'GPLv2'</span><span class="p">,</span> <span class="s1">'MIT'</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GPLv2&#39;</span><span class="p">,</span> <span class="s1">&#39;MIT&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">'Proprietary'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">&#39;Proprietary&#39;</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-license-files"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-license-files">
-<h4>LIBFOO_LICENSE_FILES<a class="headerlink" href="#libfoo-license-files" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_LICENSE_FILES<a class="headerlink" href="#libfoo-license-files" title="Permalink to this heading">¶</a></h4>
 <p>A string or list of strings identifying the license files found inside the
 package sources which match up to the defined <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> entries
 (respectively). Listing the license(s) of a package is always recommended (but
 not required).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'LICENSE.GPLv2'</span><span class="p">,</span>
-    <span class="s1">'LICENSE.MIT'</span><span class="p">,</span>
+    <span class="s1">&#39;LICENSE.GPLv2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LICENSE.MIT&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">'LICENSE'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">&#39;LICENSE&#39;</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-license"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-site">
-<h4>LIBFOO_SITE<a class="headerlink" href="#libfoo-site" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_SITE<a class="headerlink" href="#libfoo-site" title="Permalink to this heading">¶</a></h4>
 <p>The site where package sources/assets can be found. The site can be a URL of an
 archive, or describe a source control URL such as Git or SVN. The following
 outline a series of supported site definitions:</p>
-<div class="table-wrapper"><table class="docutils align-default">
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 31%"/>
-<col style="width: 69%"/>
+<col style="width: 31%" />
+<col style="width: 69%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -1197,10 +1215,11 @@ outline a series of supported site definitions:</p>
 <td><p><cite>(wildcard)</cite></p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>Examples include:</p>
 <pre class="literal-block">LIBFOO_SITE = 'https://example.com/libfoo.git'
-LIBFOO_SITE = 'cvs+:pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule'
+LIBFOO_SITE = 'cvs+:pserver:anonymous&#64;cvs.example.com:/var/lib/cvsroot mymodule'
 LIBFOO_SITE = 'svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2'
 LIBFOO_SITE = 'https://www.example.com/files/libfoo.tar.gz'</pre>
 <p>A developer can also use <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> to explicitly define the version
@@ -1218,14 +1237,15 @@ custom site protocols.</p>
 <p>See also <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-type">
-<h4>LIBFOO_TYPE<a class="headerlink" href="#libfoo-type" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_TYPE<a class="headerlink" href="#libfoo-type" title="Permalink to this heading">¶</a></h4>
 <p>The package type. The default package type is a (Python) script-based package;
 however, releng-tool also provides a series of helper package types for common
 frameworks. The following outline a series of supported site definitions:</p>
-<div class="table-wrapper"><table class="docutils align-default">
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 41%"/>
-<col style="width: 59%"/>
+<col style="width: 41%" />
+<col style="width: 59%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -1246,9 +1266,10 @@ frameworks. The following outline a series of supported site definitions:</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">script</span></code></p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">'script'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;script&#39;</span>
 </pre></div>
 </div>
 <p>If no type is defined for a package, it will be considered a script-based
@@ -1259,12 +1280,12 @@ host tool is installed on the host system. For example, if a CMake type is set,
 the host system will need to have <code class="docutils literal notranslate"><span class="pre">cmake</span></code> installed on the system.</p>
 </div>
 <div class="section" id="libfoo-version">
-<h4>LIBFOO_VERSION<a class="headerlink" href="#libfoo-version" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_VERSION<a class="headerlink" href="#libfoo-version" title="Permalink to this heading">¶</a></h4>
 <p>The version of the package. Typically the version value should be formatted in a
 semantic versioning style; however, it is up to the developer to decide the best
 version value to use for a package. It is important to note that the version
 value is used to determine build output folder names, cache files and more.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">'1.0.0'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
 </pre></div>
 </div>
 <p>For some VCS types, the version value will be used to acquire a specific
@@ -1275,21 +1296,21 @@ gracefully defined (e.g. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="section" id="advanced-package-configurations">
-<h3>Advanced package configurations<a class="headerlink" href="#advanced-package-configurations" title="Permalink to this headline">¶</a></h3>
+<h3>Advanced package configurations<a class="headerlink" href="#advanced-package-configurations" title="Permalink to this heading">¶</a></h3>
 <p>The following outlines more advanced configuration options available for
 packages.</p>
 <div class="section" id="libfoo-build-subdir">
-<h4>LIBFOO_BUILD_SUBDIR<a class="headerlink" href="#libfoo-build-subdir" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_BUILD_SUBDIR<a class="headerlink" href="#libfoo-build-subdir" title="Permalink to this heading">¶</a></h4>
 <p>Sub-directory where a package’s extracted sources holds its buildable content.
 Sources for a package may be nested inside one or more directories. A package
 can specify the sub-directory where the configuration, build and installation
 processes are invoked from.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_SUBDIR</span> <span class="o">=</span> <span class="s1">'subdir'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;subdir&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-devmode-ignore-cache">
-<h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_DEVMODE_IGNORE_CACHE<a class="headerlink" href="#libfoo-devmode-ignore-cache" title="Permalink to this heading">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should ignore any generated
 cache file when operating in development mode. In most cases, users want to take
 advantage of cached sources to prevent having to re-fetch the same content again
@@ -1308,31 +1329,31 @@ of this option as disabled (<code class="docutils literal notranslate"><span cla
 option by default (<code class="docutils literal notranslate"><span class="pre">True</span></code>) if the target revision is a branch.</p>
 </div>
 <div class="section" id="libfoo-devmode-revision">
-<h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_DEVMODE_REVISION<a class="headerlink" href="#libfoo-devmode-revision" title="Permalink to this heading">¶</a></h4>
 <p>Specifies a development revision for a package. When a project is being built in
 <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">Development mode</span></a>, the development revision is used over the configured
 <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> value. If a development revision is not defined for a
 project, a package will still use the configured <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> while in
 development mode.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">'feature/alpha'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">&#39;feature/alpha&#39;</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-extension">
-<h4>LIBFOO_EXTENSION<a class="headerlink" href="#libfoo-extension" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_EXTENSION<a class="headerlink" href="#libfoo-extension" title="Permalink to this heading">¶</a></h4>
 <p>Specifies a filename extension for the package. A package may be cached inside
 the download directory to be used when the extraction phase is invoked.
 releng-tool attempts to determine the most ideal extension for this cache file;
 however some cases the detected extension may be incorrect. To deal with this
 situation, a developer can explicitly specify the extension value using this
 option.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTENSION</span> <span class="o">=</span> <span class="s1">'tgz'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTENSION</span> <span class="o">=</span> <span class="s1">&#39;tgz&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-external">
-<h4>LIBFOO_EXTERNAL<a class="headerlink" href="#libfoo-external" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_EXTERNAL<a class="headerlink" href="#libfoo-external" title="Permalink to this heading">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an external package.
 External packages will generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
 <a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. By default,
@@ -1343,49 +1364,49 @@ packages are considered external unless explicitly configured to be internal.</p
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </div>
 <div class="section" id="libfoo-extopt">
-<h4>LIBFOO_EXTOPT<a class="headerlink" href="#libfoo-extopt" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_EXTOPT<a class="headerlink" href="#libfoo-extopt" title="Permalink to this heading">¶</a></h4>
 <p>Specifies extension-specific options. Packages wishing to take advantage of
 extension-specific capabilities can forward options to extensions by defining a
 dictionary of values.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTOPT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'option-a'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">'option-b'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="s1">&#39;option-a&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;option-b&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-extract-type">
-<h4>LIBFOO_EXTRACT_TYPE<a class="headerlink" href="#libfoo-extract-type" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_EXTRACT_TYPE<a class="headerlink" href="#libfoo-extract-type" title="Permalink to this heading">¶</a></h4>
 <p>Specifies a custom extraction type for a package. If a configured extension
 supports a custom extraction capability, the registered extraction type can be
 explicitly registered in this option.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTRACT_TYPE</span> <span class="o">=</span> <span class="s1">'ext-custom-extract'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXTRACT_TYPE</span> <span class="o">=</span> <span class="s1">&#39;ext-custom-extract&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-fetch-opts">
-<h4>LIBFOO_FETCH_OPTS<a class="headerlink" href="#libfoo-fetch-opts" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_FETCH_OPTS<a class="headerlink" href="#libfoo-fetch-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the fetch process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values which may be included in a
 fetch event. This field is optional. Not all site types may support this
 option.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_FETCH_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_FETCH_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-fixed-jobs">
-<h4>LIBFOO_FIXED_JOBS<a class="headerlink" href="#libfoo-fixed-jobs" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_FIXED_JOBS<a class="headerlink" href="#libfoo-fixed-jobs" title="Permalink to this heading">¶</a></h4>
 <p>Explicitly configure the total number of jobs a package can use. The primary use
 case for this option is to help limit the total number of jobs for a package
 that cannot support a large or any parallel build environment.</p>
@@ -1394,19 +1415,19 @@ that cannot support a large or any parallel build environment.</p>
 </div>
 </div>
 <div class="section" id="libfoo-git-config">
-<h4>LIBFOO_GIT_CONFIG<a class="headerlink" href="#libfoo-git-config" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_GIT_CONFIG<a class="headerlink" href="#libfoo-git-config" title="Permalink to this heading">¶</a></h4>
 <p>Apply additional repository-specific Git configuration settings (<a class="reference external" href="https://git-scm.com/docs/git-config"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></a>)
 after a Git repository cache has been initialized. By default, no
 repository-specific configurations are introduced (i.e. all Git calls will use
 the global configuration set).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s1">'core.example'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+   <span class="s1">&#39;core.example&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-git-depth">
-<h4>LIBFOO_GIT_DEPTH<a class="headerlink" href="#libfoo-git-depth" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_GIT_DEPTH<a class="headerlink" href="#libfoo-git-depth" title="Permalink to this heading">¶</a></h4>
 <p>Limit fetching for a Git-based source to the specified number of commits. The
 value provided will be used with the <a class="reference external" href="https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---depthltdepthgt"><code class="docutils literal notranslate"><span class="pre">--depth</span></code></a> argument. By default, the depth
 will be set to a value of <code class="docutils literal notranslate"><span class="pre">1</span></code>. If a developer wishes use fetch all commits
@@ -1421,18 +1442,18 @@ depth of <code class="docutils literal notranslate"><span class="pre">1</span></
 <p>See also <a class="reference internal" href="#libfoo-git-refspecs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></a> and <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
 </div>
 <div class="section" id="libfoo-git-refspecs">
-<h4>LIBFOO_GIT_REFSPECS<a class="headerlink" href="#libfoo-git-refspecs" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_GIT_REFSPECS<a class="headerlink" href="#libfoo-git-refspecs" title="Permalink to this heading">¶</a></h4>
 <p>List of addition refspecs to fetch when using a <code class="docutils literal notranslate"><span class="pre">git</span></code> VCS type. By default, a
 Git fetch request will acquire all <code class="docutils literal notranslate"><span class="pre">heads</span></code> and <code class="docutils literal notranslate"><span class="pre">tags</span></code> refspecs. If a
 developer wishes use revisions from different refspecs (for example, a pull
 request), a developer can specify the additional refspecs to acquire when
 fetching.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'pull/*'</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pull/*&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-git-submodules">
-<h4>LIBFOO_GIT_SUBMODULES<a class="headerlink" href="#libfoo-git-submodules" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_GIT_SUBMODULES<a class="headerlink" href="#libfoo-git-submodules" title="Permalink to this heading">¶</a></h4>
 <p>Flag value to indicate whether or not a package’s Git submodules should be
 fetched/extracted during a package’s own fetch/extraction stages. By default,
 submodules are not fetched. Ideally, any dependencies for a package are
@@ -1448,7 +1469,7 @@ instead.</p>
 </div>
 </div>
 <div class="section" id="libfoo-git-verify-revision">
-<h4>LIBFOO_GIT_VERIFY_REVISION<a class="headerlink" href="#libfoo-git-verify-revision" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_GIT_VERIFY_REVISION<a class="headerlink" href="#libfoo-git-verify-revision" title="Permalink to this heading">¶</a></h4>
 <p>Flag value to indicate whether or not the target revision is required to be
 signed before it can be used. When this value is set, the configured revision
 for a repository will not be extracted unless the GPG signature. This includes
@@ -1459,7 +1480,7 @@ target revision is not signed.</p>
 </div>
 </div>
 <div class="section" id="libfoo-internal">
-<h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_INTERNAL<a class="headerlink" href="#libfoo-internal" title="Permalink to this heading">¶</a></h4>
 <p>Flag value to explicitly indicate that a package is an internal package.
 Internal packages will not generate warnings if <a class="reference internal" href="#hash-files"><span class="std std-ref">hashes</span></a>, an
 <a class="reference internal" href="#ascii-armor"><span class="std std-ref">ASCII-armor</span></a> or <a class="reference internal" href="#licenses">licenses</a> are missing. When configured in
@@ -1472,7 +1493,7 @@ packages are considered external unless explicitly configured to be internal.</p
 <p>See also <a class="reference internal" href="#internal-and-external-packages">internal and external packages</a>.</p>
 </div>
 <div class="section" id="libfoo-no-extraction">
-<h4>LIBFOO_NO_EXTRACTION<a class="headerlink" href="#libfoo-no-extraction" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_NO_EXTRACTION<a class="headerlink" href="#libfoo-no-extraction" title="Permalink to this heading">¶</a></h4>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
@@ -1499,28 +1520,28 @@ the no-extraction flag enabled will result in a warning. By default, this option
 is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </div>
 <div class="section" id="libfoo-prefix">
-<h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="Permalink to this heading">¶</a></h4>
 <p>Specifies the sysroot prefix value to use for the package. An explicitly
 provided prefix value will override the project-defined or default sysroot
 prefix value.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">'/usr'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#conf-sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-revision">
-<h4>LIBFOO_REVISION<a class="headerlink" href="#libfoo-revision" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_REVISION<a class="headerlink" href="#libfoo-revision" title="Permalink to this heading">¶</a></h4>
 <p>Specifies a revision value for a package. When a package fetches content using
 source management tools, the revision value is used to determine which sources
 should be acquired (e.g. a tag). If a revision is not defined package, a package
 will use the configured <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">'libfoo-v2.1'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;libfoo-v2.1&#39;</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a> and <a class="reference internal" href="#libfoo-version"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></a>.</p>
 </div>
 <div class="section" id="libfoo-skip-remote-config">
-<h4>LIBFOO_SKIP_REMOTE_CONFIG<a class="headerlink" href="#libfoo-skip-remote-config" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_SKIP_REMOTE_CONFIG<a class="headerlink" href="#libfoo-skip-remote-config" title="Permalink to this heading">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should not attempt to load any
 package configurations which may be defined in the package’s source. A package,
 by default, has the ability to load configuration information from a package’s
@@ -1533,7 +1554,7 @@ registered into the package before invoking a package’s configuration stage.</
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
 </div>
 <div class="section" id="libfoo-skip-remote-scripts">
-<h4>LIBFOO_SKIP_REMOTE_SCRIPTS<a class="headerlink" href="#libfoo-skip-remote-scripts" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_SKIP_REMOTE_SCRIPTS<a class="headerlink" href="#libfoo-skip-remote-scripts" title="Permalink to this heading">¶</a></h4>
 <p>Flag value to explicitly indicate that a package should not attempt to load any
 package scripts which may be defined in the package’s source. Typically, a
 script-based package will load configuration, build, etc. scripts from its
@@ -1550,7 +1571,7 @@ package’s contents.</p>
 <p>See also <a class="reference internal" href="#quirks"><span class="std std-ref">configuration quirks</span></a>.</p>
 </div>
 <div class="section" id="libfoo-strip-count">
-<h4>LIBFOO_STRIP_COUNT<a class="headerlink" href="#libfoo-strip-count" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_STRIP_COUNT<a class="headerlink" href="#libfoo-strip-count" title="Permalink to this heading">¶</a></h4>
 <p>Specifies the strip count to use when attempting to extract sources from an
 archive. By default, the extraction process will strip a single directory from
 an archive (value: 1). If a package’s archive has no container directory, a
@@ -1561,7 +1582,7 @@ container directories, a higher strip count can be set.</p>
 </div>
 </div>
 <div class="section" id="libfoo-vcs-type">
-<h4>LIBFOO_VCS_TYPE<a class="headerlink" href="#libfoo-vcs-type" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_VCS_TYPE<a class="headerlink" href="#libfoo-vcs-type" title="Permalink to this heading">¶</a></h4>
 <p>Explicitly sets the version control system type to use when acquiring sources.
 releng-tool attempts to automatically determine the VCS type of a package based
 off a <a class="reference internal" href="#libfoo-site"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></a> value. In some scenarios, a site value may be unable to
@@ -1580,7 +1601,7 @@ type to be used no matter what the site value is configured as.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">svn</span></code> (SVN)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> (URL)</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">'git'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">&#39;git&#39;</span>
 </pre></div>
 </div>
 <p>If a project registers a custom extension which provides a custom VCS type, the
@@ -1599,7 +1620,7 @@ thus using the <code class="docutils literal notranslate"><span class="pre">loca
 </div>
 </div>
 <div class="section" id="package-bootstrapping-and-post-processing">
-<span id="package-bootstrapping-and-postprocessing"></span><h3>Package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="Permalink to this headline">¶</a></h3>
+<span id="package-bootstrapping-and-postprocessing"></span><h3>Package bootstrapping and post-processing<a class="headerlink" href="#package-bootstrapping-and-post-processing" title="Permalink to this heading">¶</a></h3>
 <p>Every package, no matter which package <a class="reference internal" href="#libfoo-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></a> is defined, can create a
 bootstrapping or post-processing script to invoke before a package starts a
 configuration stage or after a package has completed an installation stage,
@@ -1610,7 +1631,7 @@ trigger the bootstrapping stage for the package. An example bootstrapping script
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'perform bootstrapping work'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform bootstrapping work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code> inside a package directory will
@@ -1619,7 +1640,7 @@ script (<code class="docutils literal notranslate"><span class="pre">libfoo-post
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'perform post-processing work'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Bootstrapping or post-processing scripts for a package are optional; thus, if no
@@ -1628,7 +1649,7 @@ performed for the package.</p>
 <p>See also <a class="reference internal" href="#script-helpers">script helpers</a> for helper functions/variables available for use.</p>
 </div>
 <div class="section" id="site-definitions">
-<span id="id2"></span><h3>Site definitions<a class="headerlink" href="#site-definitions" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Site definitions<a class="headerlink" href="#site-definitions" title="Permalink to this heading">¶</a></h3>
 <p>The following outlines the details for defining supported site definitions. If
 attempting to use an extension-provided site type, please consult the
 documentation provided by said extension.</p>
@@ -1639,12 +1660,12 @@ sources) or postfix value; however, this is optional if a package wishes to
 use the <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> option.</p>
 </div>
 <div class="section" id="bazaar-site">
-<h4>Bazaar Site<a class="headerlink" href="#bazaar-site" title="Permalink to this headline">¶</a></h4>
+<h4>Bazaar Site<a class="headerlink" href="#bazaar-site" title="Permalink to this heading">¶</a></h4>
 <p>To define a <a class="reference external" href="https://bazaar.canonical.com">Bazaar</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">bzr+</span></code> value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'bzr+ssh://example.com/project/trunk'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;bzr+ssh://example.com/project/trunk&#39;</span>
 <span class="c1"># (or)</span>
-<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'bzr+lp:&lt;project&gt;'</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;bzr+lp:&lt;project&gt;&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">export</span></code>
@@ -1653,12 +1674,12 @@ archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="cvs-site">
-<h4>CVS Site<a class="headerlink" href="#cvs-site" title="Permalink to this headline">¶</a></h4>
+<h4>CVS Site<a class="headerlink" href="#cvs-site" title="Permalink to this heading">¶</a></h4>
 <p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code>
 or other common CVSROOT value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">':pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;:pserver:anonymous@cvs.example.com:/var/lib/cvsroot mymodule&#39;</span>
 <span class="c1"># (or)</span>
-<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'cvs+:ext:cvs@cvs.example.org:/usr/local/cvsroot mymodule'</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;cvs+:ext:cvs@cvs.example.org:/usr/local/cvsroot mymodule&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a space-separated pair, where the first part
@@ -1668,12 +1689,12 @@ archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="git-site">
-<h4>Git Site<a class="headerlink" href="#git-site" title="Permalink to this headline">¶</a></h4>
+<h4>Git Site<a class="headerlink" href="#git-site" title="Permalink to this heading">¶</a></h4>
 <p>To define a <a class="reference external" href="https://git-scm.com/">Git</a>-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">git+</span></code>
 value or postfixed with the <code class="docutils literal notranslate"><span class="pre">.git</span></code> value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'https://example.com/libfoo.git'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/libfoo.git&#39;</span>
 <span class="c1"># (or)</span>
-<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'git+git@example.com:base/libfoo.git'</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
 </pre></div>
 </div>
 <p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference brackets" href="#gitremote" id="id6">4</a> for
@@ -1684,10 +1705,10 @@ from the cache location. If a desired revision does not exist, the origin remote
 will be fetched for the new revision (if it exists).</p>
 </div>
 <div class="section" id="mercurial-site">
-<h4>Mercurial Site<a class="headerlink" href="#mercurial-site" title="Permalink to this headline">¶</a></h4>
+<h4>Mercurial Site<a class="headerlink" href="#mercurial-site" title="Permalink to this heading">¶</a></h4>
 <p>To define a <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">hg+</span></code> value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'hg+https://example.com/project'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://example.com/project&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is used as the <code class="docutils literal notranslate"><span class="pre">SOURCE</span></code> in an <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">clone</span></code> call
@@ -1698,10 +1719,10 @@ cache location. If a desired revision does not exist, the origin remote will be
 pulled for the new revision (if it exists).</p>
 </div>
 <div class="section" id="rsync-site">
-<h4>rsync Site<a class="headerlink" href="#rsync-site" title="Permalink to this headline">¶</a></h4>
+<h4>rsync Site<a class="headerlink" href="#rsync-site" title="Permalink to this heading">¶</a></h4>
 <p>To define an rsync-based location, the site value must be prefixed with an
 <code class="docutils literal notranslate"><span class="pre">rsync+</span></code> value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'rsync+&lt;source&gt;'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;rsync+&lt;source&gt;&#39;</span>
 </pre></div>
 </div>
 <p>The value of <code class="docutils literal notranslate"><span class="pre">&lt;source&gt;</span></code> will be provided to a <code class="docutils literal notranslate"><span class="pre">rsync</span></code> call’s
@@ -1712,10 +1733,10 @@ argument is applied. Adding or replacing options can be done by using the
 <a class="reference internal" href="#libfoo-fetch-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code></a> option.</p>
 </div>
 <div class="section" id="scp-site">
-<h4>SCP Site<a class="headerlink" href="#scp-site" title="Permalink to this headline">¶</a></h4>
+<h4>SCP Site<a class="headerlink" href="#scp-site" title="Permalink to this heading">¶</a></h4>
 <p>To define an SCP-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">scp+</span></code>
 value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'scp+[user@]host:]file'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;scp+[user@]host:]file&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">scp</span></code> call’s
@@ -1724,10 +1745,10 @@ a remote host. The fetched file will be stored inside the <code class="docutils 
 fetched, the fetch stage will be skipped unless the file is manually removed.</p>
 </div>
 <div class="section" id="svn-site">
-<h4>SVN Site<a class="headerlink" href="#svn-site" title="Permalink to this headline">¶</a></h4>
+<h4>SVN Site<a class="headerlink" href="#svn-site" title="Permalink to this heading">¶</a></h4>
 <p>To define a <a class="reference external" href="https://subversion.apache.org/">Subversion</a>-based location, the site value must be prefixed with a
 <code class="docutils literal notranslate"><span class="pre">svn+</span></code> value. A site can be defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2&#39;</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a
@@ -1736,12 +1757,12 @@ be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <div class="section" id="url-site-default">
-<h4>URL Site (default)<a class="headerlink" href="#url-site-default" title="Permalink to this headline">¶</a></h4>
+<h4>URL Site (default)<a class="headerlink" href="#url-site-default" title="Permalink to this heading">¶</a></h4>
 <p>All packages that do not define a helper prefix/postfix value (as seen in other
 site definitions) or do not explicitly set a <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> value (other
 than <code class="docutils literal notranslate"><span class="pre">url</span></code>), will be considered a URL site. A URL site can be defined as
 follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'https://example.com/my-file'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/my-file&#39;</span>
 </pre></div>
 </div>
 <p>The site value provided will be directly used in a URL request. URL values
@@ -1752,7 +1773,7 @@ more.</p>
 </div>
 </div>
 <div class="section" id="hash-file">
-<span id="hash-files"></span><h3>Hash file<a class="headerlink" href="#hash-file" title="Permalink to this headline">¶</a></h3>
+<span id="hash-files"></span><h3>Hash file<a class="headerlink" href="#hash-file" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An alternative to using a hash to validate a package’s cache is to use an
@@ -1800,7 +1821,7 @@ sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
 </div>
 </div>
 <div class="section" id="ascii-armor">
-<span id="id12"></span><h3>ASCII Armor<a class="headerlink" href="#ascii-armor" title="Permalink to this headline">¶</a></h3>
+<span id="id12"></span><h3>ASCII Armor<a class="headerlink" href="#ascii-armor" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>An alternative to using an ASCII-armor to validate a package’s cache is to
@@ -1818,12 +1839,12 @@ system’s <code class="docutils literal notranslate"><span class="pre">gpg</spa
 the required public keys registered.</p>
 </div>
 <div class="section" id="script-package-default">
-<h3>Script Package (default)<a class="headerlink" href="#script-package-default" title="Permalink to this headline">¶</a></h3>
+<h3>Script Package (default)<a class="headerlink" href="#script-package-default" title="Permalink to this heading">¶</a></h3>
 <p>A script-based package is the most basic package type available. By default,
 packages are considered to be script packages unless explicitly configured to be
 another package type (<a class="reference internal" href="#libfoo-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></a>). If a developer wishes to explicitly
 configure a project as script-based, the following configuration can be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">'script'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;script&#39;</span>
 </pre></div>
 </div>
 <p>A script package has the ability to define three Python stage scripts:</p>
@@ -1836,7 +1857,7 @@ configure a project as script-based, the following configuration can be used:</p
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">releng_execute</span><span class="p">([</span><span class="s1">'make'</span><span class="p">])</span>
+<span class="n">releng_execute</span><span class="p">([</span><span class="s1">&#39;make&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>When a package performs a configuration, build or installation stage; the
@@ -1848,10 +1869,10 @@ skipped.</p>
 more stage script support.</p>
 </div>
 <div class="section" id="autotools-package">
-<h3>Autotools Package<a class="headerlink" href="#autotools-package" title="Permalink to this headline">¶</a></h3>
+<h3>Autotools Package<a class="headerlink" href="#autotools-package" title="Permalink to this heading">¶</a></h3>
 <p>An autotools package provides support for processing a <a class="reference external" href="https://www.gnu.org/software/automake/manual/html_node/index.html">GNU Build System</a>
 supported module.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">'autotools'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;autotools&#39;</span>
 </pre></div>
 </div>
 <p>When an autotools package performs a configuration stage, the package may invoke
@@ -1861,7 +1882,7 @@ during the installation stage.</p>
 <p>The following sections outline configuration options are available for an
 autotools package.</p>
 <div class="section" id="libfoo-autotools-autoreconf">
-<h4>LIBFOO_AUTOTOOLS_AUTORECONF<a class="headerlink" href="#libfoo-autotools-autoreconf" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_AUTOTOOLS_AUTORECONF<a class="headerlink" href="#libfoo-autotools-autoreconf" title="Permalink to this heading">¶</a></h4>
 <p>Specifies whether or not the package needs to perform an autotools
 re-configuration. This is to assist in the rebuilding of GNU Build System files
 which may be broken or a patch has introduced new build script changes that need
@@ -1872,137 +1893,137 @@ invoked.</p>
 </div>
 </div>
 <div class="section" id="libfoo-build-defs">
-<span id="autotools-build-defs"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#libfoo-build-defs" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-build-defs"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#libfoo-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-build-env">
-<span id="autotools-build-env"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#libfoo-build-env" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-build-env"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#libfoo-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
 is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-build-opts">
-<span id="autotools-build-opts"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#libfoo-build-opts" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-build-opts"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#libfoo-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
 This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-conf-defs">
-<span id="autotools-conf-defs"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#libfoo-conf-defs" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-conf-defs"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#libfoo-conf-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-conf-env">
-<span id="autotools-conf-env"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#libfoo-conf-env" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-conf-env"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#libfoo-conf-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
 field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-conf-opts">
-<span id="autotools-conf-opts"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#libfoo-conf-opts" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-conf-opts"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#libfoo-conf-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
 configuration event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-install-defs">
-<span id="autotools-install-defs"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#libfoo-install-defs" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-install-defs"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#libfoo-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-install-env">
-<span id="autotools-install-env"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#libfoo-install-env" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-install-env"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#libfoo-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
 field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-install-opts">
-<span id="autotools-install-opts"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#libfoo-install-opts" title="Permalink to this headline">¶</a></h4>
+<span id="autotools-install-opts"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#libfoo-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
 installation event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="cmake-package">
-<h3>CMake Package<a class="headerlink" href="#cmake-package" title="Permalink to this headline">¶</a></h3>
+<h3>CMake Package<a class="headerlink" href="#cmake-package" title="Permalink to this heading">¶</a></h3>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported module.</p>
 <p>During the configuration stage of a CMake package, <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked to
 generate build files for the module. For the build stage, <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code> will
@@ -2014,65 +2035,65 @@ environment variables and options used by the CMake executable.</p>
 can override this option by explicitly adjusting the configuration option
 <code class="docutils literal notranslate"><span class="pre">--config</span></code> to, for example, <code class="docutils literal notranslate"><span class="pre">Debug</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s1">'CMAKE_BUILD_TYPE'</span><span class="p">:</span> <span class="s1">'Debug'</span><span class="p">,</span>
+   <span class="s1">&#39;CMAKE_BUILD_TYPE&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s1">'--config'</span><span class="p">:</span> <span class="s1">'Debug'</span><span class="p">,</span>
+   <span class="s1">&#39;--config&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s1">'--config'</span><span class="p">:</span> <span class="s1">'Debug'</span><span class="p">,</span>
+   <span class="s1">&#39;--config&#39;</span><span class="p">:</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
 <div class="section" id="cmake-build-defs">
-<span id="id13"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Permalink to this headline">¶</a></h4>
+<span id="id13"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cmake-build-env">
-<span id="id14"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Permalink to this headline">¶</a></h4>
+<span id="id14"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
 is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cmake-build-opts">
-<span id="id15"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Permalink to this headline">¶</a></h4>
+<span id="id15"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
 This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-cmake-noinstall">
-<h4>LIBFOO_CMAKE_NOINSTALL<a class="headerlink" href="#libfoo-cmake-noinstall" title="Permalink to this headline">¶</a></h4>
+<h4>LIBFOO_CMAKE_NOINSTALL<a class="headerlink" href="#libfoo-cmake-noinstall" title="Permalink to this heading">¶</a></h4>
 <p>Specifies whether or not the CMake package should skip an attempt to invoke
 the install command. Ideally, projects will have an <a class="reference external" href="https://cmake.org/cmake/help/latest/command/install.html">install</a>
 rule configured to define how a project will install files into a target (or
@@ -2086,94 +2107,94 @@ By default, the installation stage is invoked with a value of <code class="docut
 </div>
 </div>
 <div class="section" id="cmake-conf-defs">
-<span id="id16"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Permalink to this headline">¶</a></h4>
+<span id="id16"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cmake-conf-env">
-<span id="id17"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Permalink to this headline">¶</a></h4>
+<span id="id17"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
 field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cmake-conf-opts">
-<span id="id18"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Permalink to this headline">¶</a></h4>
+<span id="id18"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
 configuration event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cmake-install-defs">
-<span id="id19"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Permalink to this headline">¶</a></h4>
+<span id="id19"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cmake-install-env">
-<span id="id20"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Permalink to this headline">¶</a></h4>
+<span id="id20"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
 field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="cmake-install-opts">
-<span id="id21"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Permalink to this headline">¶</a></h4>
+<span id="id21"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
 installation event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="python-package">
-<h3>Python Package<a class="headerlink" href="#python-package" title="Permalink to this headline">¶</a></h3>
+<h3>Python Package<a class="headerlink" href="#python-package" title="Permalink to this heading">¶</a></h3>
 <p>A Python package provides support for processing a <a class="reference external" href="https://www.python.org/">Python</a> supported module.</p>
 <p>Only the build and installation phases are used when processing the sources for
 a Python package (i.e. no configuration stage is invoked). The build phase will
@@ -2181,112 +2202,112 @@ invoke <code class="docutils literal notranslate"><span class="pre">setup.py</sp
 <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">install</span></code>. When a Python package is process, it will use the system’s
 default Python interpreter. A developer can override what Python interpreter to
 use by configuring the <code class="docutils literal notranslate"><span class="pre">PYTHON_INTERPRETER</span></code> option in a package:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">'/opt/my-custom-python-build/python'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/my-custom-python-build/python&#39;</span>
 </pre></div>
 </div>
 <p>The following sections outline configuration options are available for a Python
 package.</p>
 <div class="section" id="python-build-defs">
-<span id="id22"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this headline">¶</a></h4>
+<span id="id22"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="python-build-env">
-<span id="id23"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this headline">¶</a></h4>
+<span id="id23"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
 is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="python-build-opts">
-<span id="id24"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this headline">¶</a></h4>
+<span id="id24"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
 This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="python-install-defs">
-<span id="id25"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this headline">¶</a></h4>
+<span id="id25"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option=value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="python-install-env">
-<span id="id26"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this headline">¶</a></h4>
+<span id="id26"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
 field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'OPTION'</span><span class="p">:</span> <span class="s1">'VALUE'</span><span class="p">,</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="python-install-opts">
-<span id="id27"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this headline">¶</a></h4>
+<span id="id27"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
 installation event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds "--option value" to the command</span>
-    <span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
 
 <span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds "--some-option" to the command</span>
-    <span class="s1">'--some-option'</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="libfoo-python-interpreter">
-<span id="python-interpreter"></span><h4>LIBFOO_PYTHON_INTERPRETER<a class="headerlink" href="#libfoo-python-interpreter" title="Permalink to this headline">¶</a></h4>
+<span id="python-interpreter"></span><h4>LIBFOO_PYTHON_INTERPRETER<a class="headerlink" href="#libfoo-python-interpreter" title="Permalink to this heading">¶</a></h4>
 <p>Defines a specific Python interpreter when processing the build and
 installation stages for a package. If not specified, the system’s Python
 interpreter will be used. This field is optional.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">'&lt;path&gt;'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="other">
-<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this heading">¶</a></h2>
 <div class="section" id="post-processing">
-<h3>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
+<h3>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A post-processing script (if used) will be invoked each time <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>
@@ -2302,7 +2323,7 @@ post-processing script will be invoked in the final stage of a build.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'post processing...'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;post processing...&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The above script will output the newly inserted print message at the end of a
@@ -2325,7 +2346,7 @@ likely that a subsequent request to build may fail since the file can no longer
 be found inside the target directory.</p>
 </div>
 <div class="section" id="licenses">
-<span id="license-information"></span><h3>Licenses<a class="headerlink" href="#licenses" title="Permalink to this headline">¶</a></h3>
+<span id="license-information"></span><h3>Licenses<a class="headerlink" href="#licenses" title="Permalink to this heading">¶</a></h3>
 <p>A releng-tool project can defined multiple packages, each with the possibility
 of having multiple licenses associated with them. Each project may vary: some
 may have only proprietary sources and may not care about tracking this
@@ -2345,10 +2366,10 @@ the generated document will be prefixed with the header content. For example,
 <span class="o">...</span> <span class="p">(</span><span class="n">other</span> <span class="n">configuration</span> <span class="n">options</span><span class="p">)</span>
 
 <span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<span class="n">license_header_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">'assets'</span><span class="p">,</span> <span class="s1">'license-header.tpl'</span><span class="p">)</span>
+<span class="n">license_header_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_dir</span><span class="p">,</span> <span class="s1">&#39;assets&#39;</span><span class="p">,</span> <span class="s1">&#39;license-header.tpl&#39;</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">license_header_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">license_header</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+    <span class="n">license_header</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>A side note is that licenses for a project are generated before the
@@ -2356,7 +2377,7 @@ the generated document will be prefixed with the header content. For example,
 when attempting to generated final archives/packages.</p>
 </div>
 <div class="section" id="patching">
-<h3>Patching<a class="headerlink" href="#patching" title="Permalink to this headline">¶</a></h3>
+<h3>Patching<a class="headerlink" href="#patching" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Patches are ignored when in <a class="reference internal" href="../user-guide/#development-mode"><span class="std std-ref">development mode</span></a> for
@@ -2405,7 +2426,7 @@ patching system from making unexpected modifications to a developer’s local
 source variants.</p>
 </div>
 <div class="section" id="internal-and-external-packages">
-<h3>Internal and External packages<a class="headerlink" href="#internal-and-external-packages" title="Permalink to this headline">¶</a></h3>
+<h3>Internal and External packages<a class="headerlink" href="#internal-and-external-packages" title="Permalink to this heading">¶</a></h3>
 <p>Packages are either internal packages or external packages. All packages are
 considered external packages by default unless explicitly configured as internal
 through either the package option <a class="reference internal" href="#libfoo-internal"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></a> or using the project
@@ -2425,11 +2446,12 @@ extract and patch stages will not be performed.</p></li>
 </ul>
 </div>
 <div class="section" id="script-helpers">
-<h3>Script helpers<a class="headerlink" href="#script-helpers" title="Permalink to this headline">¶</a></h3>
+<h3>Script helpers<a class="headerlink" href="#script-helpers" title="Permalink to this heading">¶</a></h3>
 <p>releng-tool provides a series of helper functions which can be used in
 script-based packages, post-processing and more. Helper functions provided are
 listed below:</p>
-<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Method</p></th>
 <th class="head"><p>Documentation</p></th>
@@ -2443,7 +2465,7 @@ listed below:</p>
 <dd><p>Logs a debug message to standard out with a trailing new line. By default,
 debug messages will not be output to standard out unless the instance is
 configured with debugging enabled.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="s1">'this is a debug message'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;this is a debug message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2456,6 +2478,7 @@ generating a formatted message</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">err</span></code></p></td>
@@ -2464,7 +2487,7 @@ generating a formatted message</p></li>
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs an error message to standard error with a trailing new line and (if
 enabled) a red colorization.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">err</span><span class="p">(</span><span class="s1">'this is an error message'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">err</span><span class="p">(</span><span class="s1">&#39;this is an error message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2477,6 +2500,7 @@ generating a formatted message</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">log</span></code></p></td>
@@ -2484,7 +2508,7 @@ generating a formatted message</p></li>
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a (normal) message to standard out with a trailing new line.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">'this is a message'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2497,6 +2521,7 @@ generating a formatted message</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">note</span></code></p></td>
@@ -2505,7 +2530,7 @@ generating a formatted message</p></li>
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a notification message to standard out with a trailing new line and (if
 enabled) an inverted colorization.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">'this is a note message'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">&#39;this is a note message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2518,6 +2543,7 @@ generating a formatted message</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_cat</span></code></p></td>
@@ -2527,7 +2553,7 @@ generating a formatted message</p></li>
 <dd><p>Attempts to read one or more files provided to this call. For each file, it
 will be read and printed out to the standard output.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_cat</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_cat</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2543,6 +2569,7 @@ output; <code class="docutils literal notranslate"><span class="pre">False</span
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></p></td>
@@ -2562,16 +2589,16 @@ system exit (<code class="docutils literal notranslate"><span class="pre">System
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># (stage)</span>
 <span class="c1"># my-file</span>
-<span class="n">releng_copy</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">,</span> <span class="s1">'my-file2'</span><span class="p">)</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file2&#39;</span><span class="p">)</span>
 <span class="c1"># (stage)</span>
 <span class="c1"># my-file</span>
 <span class="c1"># my-file2</span>
-<span class="n">releng_copy</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">,</span> <span class="s1">'my-directory/'</span><span class="p">)</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory/&#39;</span><span class="p">)</span>
 <span class="c1"># (stage)</span>
 <span class="c1"># my-directory/my-file</span>
 <span class="c1"># my-file</span>
 <span class="c1"># my-file2</span>
-<span class="n">releng_copy</span><span class="p">(</span><span class="s1">'my-directory/'</span><span class="p">,</span> <span class="s1">'my-directory2/'</span><span class="p">)</span>
+<span class="n">releng_copy</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
 <span class="c1"># (stage)</span>
 <span class="c1"># my-directory/my-file</span>
 <span class="c1"># my-directory2/my-file</span>
@@ -2598,6 +2625,7 @@ has failed</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></p></td>
@@ -2612,10 +2640,10 @@ provided, the environment variable’s value (if set) will be returned. If
 be removed.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get an environment variable</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">releng_env</span><span class="p">(</span><span class="s1">'KEY'</span><span class="p">)</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">)</span>
 
 <span class="c1"># set an environment variable</span>
-<span class="n">releng_env</span><span class="p">(</span><span class="s1">'KEY'</span><span class="p">,</span> <span class="s1">'VALUE'</span><span class="p">)</span>
+<span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2630,6 +2658,7 @@ be removed.</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></p></td>
@@ -2668,7 +2697,7 @@ of <code class="docutils literal notranslate"><span class="pre">True</span></cod
 examination. If a list is provided in the call argument <code class="docutils literal notranslate"><span class="pre">capture</span></code>, the
 list will be populated with the output provided from an invoked process.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_execute</span><span class="p">([</span><span class="s1">'echo'</span><span class="p">,</span> <span class="s1">'$TEST'</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">'TEST'</span><span class="p">:</span> <span class="s1">'this is a test'</span><span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_execute</span><span class="p">([</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;this is a test&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2696,6 +2725,7 @@ execution has failed</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code></p></td>
@@ -2720,7 +2750,7 @@ updated environment request. When <code class="docutils literal notranslate"><sp
 provided, <code class="docutils literal notranslate"><span class="pre">env_update</span></code> will be updated the options based off of <code class="docutils literal notranslate"><span class="pre">env</span></code>
 instead of the original environment of the caller.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rv</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">releng_execute_rv</span><span class="p">(</span><span class="s1">'echo'</span><span class="p">,</span> <span class="s1">'$TEST'</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">'TEST'</span><span class="p">:</span> <span class="s1">'env-test'</span><span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rv</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">releng_execute_rv</span><span class="p">(</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;env-test&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2738,6 +2768,7 @@ instead of the original environment of the caller.</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></p></td>
@@ -2747,10 +2778,10 @@ instead of the original environment of the caller.</p>
 <dd><p>Allows a caller to verify the existence of a file on the file system. This
 call will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_exists</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'the file exists'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_exists</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the file exists&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'the file does not exist'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the file does not exist&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2765,6 +2796,7 @@ call will return <code class="docutils literal notranslate"><span class="pre">Tr
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></p></td>
@@ -2780,7 +2812,7 @@ be <code class="docutils literal notranslate"><span class="pre">1</span></code>.
 In any case, if the caller explicitly sets a code value, the provided code
 value will be used.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_exit</span><span class="p">(</span><span class="s1">'there was an error performing this task'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_exit</span><span class="p">(</span><span class="s1">&#39;there was an error performing this task&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2796,6 +2828,7 @@ if a message is set</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></p></td>
@@ -2817,8 +2850,8 @@ duplicate entries.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="o">...</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'MY_ENV'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'my-environment-variable'</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">releng_expand</span><span class="p">(</span><span class="s1">'$MY_ENV'</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MY_ENV&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;my-environment-variable&#39;</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">releng_expand</span><span class="p">(</span><span class="s1">&#39;$MY_ENV&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="c1"># will output: my-environment-variable</span>
 </pre></div>
@@ -2835,6 +2868,7 @@ duplicate entries.</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_include</span></code></p></td>
@@ -2846,8 +2880,8 @@ will be relative to the caller’s script, unless an absolute path is
 provided. The executed script will be initialized with globals matching
 the caller’s script.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load "my-other-script" found alongside the current script</span>
-<span class="n">releng_include</span><span class="p">(</span><span class="s1">'my-other-script'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load &quot;my-other-script&quot; found alongside the current script</span>
+<span class="n">releng_include</span><span class="p">(</span><span class="s1">&#39;my-other-script&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2856,6 +2890,7 @@ the caller’s script.</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
@@ -2864,6 +2899,7 @@ the caller’s script.</p>
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="Permalink to this definition">¶</a></dt>
 <dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_ls</span></code></p></td>
@@ -2873,7 +2909,7 @@ the caller’s script.</p>
 <dd><p>Attempts to read a directory for its contents and prints this information
 to the configured standard output stream.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_ls</span><span class="p">(</span><span class="s1">'my-dir/'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_ls</span><span class="p">(</span><span class="s1">&#39;my-dir/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2887,6 +2923,7 @@ be read</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></td>
@@ -2899,10 +2936,10 @@ created, this method will return <code class="docutils literal notranslate"><spa
 detected, an error message will be output to standard error (unless
 <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_mkdir</span><span class="p">(</span><span class="s1">'my-directory'</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'directory was created'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_mkdir</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was created&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'directory was not created'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2919,6 +2956,7 @@ be created</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></p></td>
@@ -2941,9 +2979,9 @@ be moved for any reason, this call will issue a system exit
 <span class="c1"># my-directory/another-file</span>
 <span class="c1"># my-file</span>
 <span class="c1"># my-file2</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">,</span> <span class="s1">'my-file3'</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="s1">'my-directory/'</span><span class="p">,</span> <span class="s1">'my-directory2/'</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="s1">'my-file2'</span><span class="p">,</span> <span class="s1">'my-directory2/'</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file3&#39;</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file2&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2/&#39;</span><span class="p">)</span>
 <span class="c1"># (output)</span>
 <span class="c1"># my-directory2/another-file</span>
 <span class="c1"># my-directory2/my-file2</span>
@@ -2968,6 +3006,7 @@ has failed</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></p></td>
@@ -2980,9 +3019,9 @@ method has no effect. In the event that a file or directory could not be
 removed due to an error other than unable to be found, an error message will
 be output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_remove</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_remove</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">)</span>
 <span class="c1"># (or)</span>
-<span class="n">releng_remove</span><span class="p">(</span><span class="s1">'my-directory/'</span><span class="p">)</span>
+<span class="n">releng_remove</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2998,6 +3037,7 @@ path could not be removed from the system</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></p></td>
@@ -3013,7 +3053,7 @@ will be raised if the critical flag is set; otherwise this call will
 return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ensure we are using releng-tool v1</span>
-<span class="n">releng_require_version</span><span class="p">(</span><span class="s1">'1.0.0'</span><span class="p">)</span>
+<span class="n">releng_require_version</span><span class="p">(</span><span class="s1">&#39;1.0.0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -3033,6 +3073,7 @@ has failed</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></p></td>
@@ -3059,6 +3100,7 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></p></td>
@@ -3069,10 +3111,10 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
 does not exist, it will be created. This utility call operates in the same
 fashion as the <code class="docutils literal notranslate"><span class="pre">touch</span></code> system command.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_touch</span><span class="p">(</span><span class="s1">'my-file'</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'file was created'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_touch</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file was created&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'file was not created'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file was not created&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -3085,6 +3127,7 @@ not be created/updated</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></p></td>
@@ -3097,8 +3140,8 @@ directory does not exist, it will created. If the directory could not be
 created, an <code class="docutils literal notranslate"><span class="pre">FailedToPrepareWorkingDirectoryError</span></code> exception will be
 thrown.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_wd</span><span class="p">(</span><span class="s1">'my-directory/'</span><span class="p">):</span>
-    <span class="c1"># invoked in 'my-directory'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_wd</span><span class="p">(</span><span class="s1">&#39;my-directory/&#39;</span><span class="p">):</span>
+    <span class="c1"># invoked in &#39;my-directory&#39;</span>
 
 <span class="c1"># invoked in original working directory</span>
 </pre></div>
@@ -3113,6 +3156,7 @@ thrown.</p>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
@@ -3121,7 +3165,7 @@ thrown.</p>
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a success message to standard error with a trailing new line and (if
 enabled) a green colorization.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">success</span><span class="p">(</span><span class="s1">'this is a success message'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;this is a success message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -3134,6 +3178,7 @@ generating a formatted message</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code></p></td>
@@ -3143,7 +3188,7 @@ generating a formatted message</p></li>
 <dd><p>Logs a verbose message to standard out with a trailing new line and (if
 enabled) an inverted colorization. By default, verbose messages will not be
 output to standard out unless the instance is configured with verbosity.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">'this is a verbose message'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;this is a verbose message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -3156,6 +3201,7 @@ generating a formatted message</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">warn</span></code></p></td>
@@ -3164,7 +3210,7 @@ generating a formatted message</p></li>
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a warning message to standard error with a trailing new line and (if
 enabled) a purple colorization.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warn</span><span class="p">(</span><span class="s1">'this is a warning message'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;this is a warning message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -3177,10 +3223,12 @@ generating a formatted message</p></li>
 </dd>
 </dl>
 </dd></dl>
+
 </td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p>Scripts directly invoked by releng-tool will automatically have these helpers
 registered in the script’s globals module (i.e. no import is necessary). If a
 project defines custom Python modules in their project and wishes to take
@@ -3195,7 +3243,7 @@ example, import a specific function:</p>
 </div>
 </div>
 <div class="section" id="vcs-ignore">
-<h3>VCS Ignore<a class="headerlink" href="#vcs-ignore" title="Permalink to this headline">¶</a></h3>
+<h3>VCS Ignore<a class="headerlink" href="#vcs-ignore" title="Permalink to this heading">¶</a></h3>
 <p>When invoking releng-tool on a project, the project’s root directory will be
 populated with cached assets and other output files. A series of standard ignore
 patterns can be applied to a repository to prevent observing these generated
@@ -3210,7 +3258,7 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 </div>
 </div>
 <div class="section" id="quirks">
-<span id="id28"></span><h3>Quirks<a class="headerlink" href="#quirks" title="Permalink to this headline">¶</a></h3>
+<span id="id28"></span><h3>Quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
@@ -3231,13 +3279,13 @@ fetch) for any Git-site-defined package.</p></li>
 </ul>
 <p>Quirks are enabled through a configuration (override) script such as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'&lt;quirk-value&gt;'</span><span class="p">,</span>
+    <span class="s1">&#39;&lt;quirk-value&gt;&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="loading-extensions">
-<h3>Loading extensions<a class="headerlink" href="#loading-extensions" title="Permalink to this headline">¶</a></h3>
+<h3>Loading extensions<a class="headerlink" href="#loading-extensions" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If looking for information on developing extensions for releng-tool, consult
@@ -3248,8 +3296,8 @@ implemented capabilities. For example, a project can load extensions
 <code class="docutils literal notranslate"><span class="pre">ext-a</span></code> and <code class="docutils literal notranslate"><span class="pre">ext-b</span></code> with the following defined in their project’s
 configuration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'ext-a'</span><span class="p">,</span>
-    <span class="s1">'ext-b'</span><span class="p">,</span>
+    <span class="s1">&#39;ext-a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ext-b&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -3488,13 +3536,13 @@ by the providers of said extensions.</p>
             <dt>Versions</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/en/latest/">Latest</a></dd>
 
+            <dd><a href="https://docs.releng.io/en/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/en/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/en/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/en/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/en/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/en/development/">Development</a></dd>
         </dl>
@@ -3505,6 +3553,7 @@ by the providers of said extensions.</p>
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/tabs.js"></script>

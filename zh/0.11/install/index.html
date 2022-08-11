@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="用户指南" href="../user-guide/" /><link rel="prev" title="要求" href="../requirements/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>安装 - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -118,7 +118,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.12</a> 
+     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.13</a> 
   </aside>
 </div>
 
@@ -206,7 +206,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -221,7 +222,7 @@
         </div>
         <article role="main">
           <div class="section" id="installation">
-<h1>安装<a class="headerlink" href="#installation" title="永久链接至标题">¶</a></h1>
+<h1>安装<a class="headerlink" href="#installation" title="此标题的永久链接">¶</a></h1>
 <p>The recommended method of installing/upgrading releng-tool is using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -U releng-tool
  <span class="o">(</span>or<span class="o">)</span>
@@ -235,14 +236,14 @@ python -m releng_tool --version
 </pre></div>
 </div>
 <div class="section" id="quick-start">
-<h2>快速开始<a class="headerlink" href="#quick-start" title="永久链接至标题">¶</a></h2>
+<h2>快速开始<a class="headerlink" href="#quick-start" title="此标题的永久链接">¶</a></h2>
 <p>The following provides a series of steps to assist in preparing a new
 environment to use this package.</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--1">Linux</label><div class="tab-content docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Linux</label><div class="tab-content docutils container">
 <p>虽然 <a class="reference external" href="https://www.python.org/">Python</a>/<a class="reference external" href="https://pip.pypa.io/">pip</a> 的使用在 Linux 发行版之间几乎是一致的，但以下是在 Linux 的特定发行版下安装此组件的一系列有用步骤。从终端开始，调用以下命令：</p>
 <div class="tab-set docutils container">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--1">Arch</label><div class="tab-content docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Arch</label><div class="tab-content docutils container">
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo pacman -Sy
 <span class="gp">$ </span>sudo pacman -S python-pip
 <span class="gp">$ </span>sudo pip install -U releng-tool
@@ -253,7 +254,7 @@ environment to use this package.</p>
 <p>This package is also
 <a class="reference external" href="https://aur.archlinux.org/packages/releng-tool/">available on AUR</a>.</p>
 </div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--2">CentOS</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">CentOS</label><div class="tab-content docutils container">
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo yum install epel-release
 <span class="gp">$ </span>sudo yum install python-pip
 <span class="gp">$ </span>sudo pip install -U releng-tool
@@ -262,7 +263,7 @@ environment to use this package.</p>
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--3">Fedora</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Fedora</label><div class="tab-content docutils container">
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo dnf install python-pip
 <span class="gp">$ </span>sudo pip install -U releng-tool
 <span class="gp">$ </span>releng-tool --version
@@ -270,14 +271,14 @@ environment to use this package.</p>
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--4">openSUSE</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">openSUSE</label><div class="tab-content docutils container">
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install releng-tool
 <span class="gp">$ </span>releng-tool --version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"/><label class="tab-label" for="tab-set--0-input--5">Ubuntu</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">Ubuntu</label><div class="tab-content docutils container">
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt update
 <span class="gp">$ </span>sudo apt install python-pip
 <span class="gp">$ </span>sudo pip install -U releng-tool
@@ -288,7 +289,7 @@ environment to use this package.</p>
 </div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--2">OS X</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">OS X</label><div class="tab-content docutils container">
 <p>从终端开始，调用以下命令：</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo easy_install pip
 <span class="gp">$ </span>sudo pip install -U releng-tool
@@ -297,7 +298,7 @@ environment to use this package.</p>
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"/><label class="tab-label" for="tab-set--1-input--3">Windows</label><div class="tab-content docutils container">
+<input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">Windows</label><div class="tab-content docutils container">
 <p>请先下载最新版本的 <a class="reference external" href="https://www.python.org/">Python</a>：</p>
 <blockquote>
 <div><div class="line-block">
@@ -305,7 +306,7 @@ environment to use this package.</p>
 <div class="line"><a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></div>
 </div>
 </div></blockquote>
-<p>调用安装程序时，建议选择 ["Add Python to PATH"] 选项。但是，用户可以从绝对路径显式调用 Python （这些步骤的其余部分将假设 Python 在路径中可用）。</p>
+<p>调用安装程序时，建议选择 [&quot;Add Python to PATH&quot;] 选项。但是，用户可以从绝对路径显式调用 Python （这些步骤的其余部分将假设 Python 在路径中可用）。</p>
 <p>打开 Windows 命令提示符并调用以下内容：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> python -m pip install -U releng-tool
 <span class="gp">&gt;</span> python -m releng_tool --version
@@ -316,7 +317,7 @@ environment to use this package.</p>
 </div>
 </div>
 <div class="section" id="development">
-<h2>发展<a class="headerlink" href="#development" title="永久链接至标题">¶</a></h2>
+<h2>发展<a class="headerlink" href="#development" title="此标题的永久链接">¶</a></h2>
 <p>要安装最新的开发源，可以使用以下 <a class="reference external" href="https://pip.pypa.io/">pip</a> 命令：</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/releng-tool/releng-tool.git
 </pre></div>
@@ -415,13 +416,13 @@ environment to use this package.</p>
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>
@@ -432,6 +433,7 @@ environment to use this package.</p>
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/tabs.js"></script>

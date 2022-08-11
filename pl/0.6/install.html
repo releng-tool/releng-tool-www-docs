@@ -36,6 +36,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/translations.js"></script>
     
@@ -90,7 +91,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">Starsza wersja | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.12</a></div>
+    <div class="version-warning">Starsza wersja | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.13</a></div>
     
     
             
@@ -365,7 +366,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="installation">
-<h1>instalacja<a class="headerlink" href="#installation" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<h1>instalacja<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
 <p>releng-tool można zainstalować korzystając z <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install releng-tool
  <span class="o">(</span>or<span class="o">)</span>
@@ -379,13 +380,13 @@ python -m releng_tool --version
 </pre></div>
 </div>
 <div class="section" id="quick-start">
-<h2>szybki start<a class="headerlink" href="#quick-start" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>szybki start<a class="headerlink" href="#quick-start" title="Permalink to this heading">¶</a></h2>
 <p>Poniżej przedstawiono szereg kroków mających na celu pomoc w przygotowaniu nowego środowiska do korzystania z tego pakietu. Quick-start będzie korzystać z najnowszej wersji Pythona.</p>
 <div class="section" id="linux">
-<h3>linuxa<a class="headerlink" href="#linux" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>linuxa<a class="headerlink" href="#linux" title="Permalink to this heading">¶</a></h3>
 <p>Chociaż korzystanie z <a class="reference external" href="https://www.python.org/">Python</a>/<a class="reference external" href="https://pip.pypa.io/">pip</a> jest praktycznie zgodne pomiędzy dystrybucjami Linuxa, poniżej przedstawiono serię kroków pomocniczych, aby zainstalować dany pakiet w określonych dystrybucjach Linuxa. Z terminala wywołaj następujące polecenia:</p>
 <div class="section" id="arch">
-<h4>arch<a class="headerlink" href="#arch" title="Stały odnośnik do tego nagłówka">¶</a></h4>
+<h4>arch<a class="headerlink" href="#arch" title="Permalink to this heading">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo pacman -Sy
 $ sudo pacman -S python-pip
 $ sudo pip install releng-tool
@@ -395,7 +396,7 @@ releng-tool &lt;version&gt;
 </div>
 </div>
 <div class="section" id="centos">
-<h4>centos<a class="headerlink" href="#centos" title="Stały odnośnik do tego nagłówka">¶</a></h4>
+<h4>centos<a class="headerlink" href="#centos" title="Permalink to this heading">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo yum install epel-release
 $ sudo yum install python-pip
 $ sudo pip install releng-tool
@@ -405,7 +406,7 @@ releng-tool &lt;version&gt;
 </div>
 </div>
 <div class="section" id="fedora">
-<h4>fedora<a class="headerlink" href="#fedora" title="Stały odnośnik do tego nagłówka">¶</a></h4>
+<h4>fedora<a class="headerlink" href="#fedora" title="Permalink to this heading">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo dnf install python-pip
 $ sudo pip install releng-tool
 $ releng-tool --version
@@ -414,7 +415,7 @@ releng-tool &lt;version&gt;
 </div>
 </div>
 <div class="section" id="opensuse">
-<h4>opensuse<a class="headerlink" href="#opensuse" title="Stały odnośnik do tego nagłówka">¶</a></h4>
+<h4>opensuse<a class="headerlink" href="#opensuse" title="Permalink to this heading">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install releng-tool
 $ releng-tool --version
 releng-tool &lt;version&gt;
@@ -422,7 +423,7 @@ releng-tool &lt;version&gt;
 </div>
 </div>
 <div class="section" id="ubuntu">
-<h4>ubuntu<a class="headerlink" href="#ubuntu" title="Stały odnośnik do tego nagłówka">¶</a></h4>
+<h4>ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
 $ sudo apt-get install python-pip
 $ sudo pip install releng-tool
@@ -433,7 +434,7 @@ releng-tool &lt;version&gt;
 </div>
 </div>
 <div class="section" id="os-x">
-<h3>os x<a class="headerlink" href="#os-x" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>os x<a class="headerlink" href="#os-x" title="Permalink to this heading">¶</a></h3>
 <p>Z terminala wywołaj następujące polecenia:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo easy_install pip
 $ sudo pip install releng-tool
@@ -443,7 +444,7 @@ releng-tool &lt;version&gt;
 </div>
 </div>
 <div class="section" id="windows">
-<h3>windows<a class="headerlink" href="#windows" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<h3>windows<a class="headerlink" href="#windows" title="Permalink to this heading">¶</a></h3>
 <p>Należy upewnić się, że najnowsza wersja <a class="reference external" href="https://www.python.org/">Pythona</a> jest zainstalowana.</p>
 <blockquote>
 <div><div class="line-block">
@@ -461,7 +462,7 @@ releng-tool &lt;version&gt;
 </div>
 </div>
 <div class="section" id="development">
-<h2>oprogramowanie<a class="headerlink" href="#development" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>oprogramowanie<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h2>
 <p>Aby zainstalować najnowsze źródła oprogramowania, można skorzystać z następującego polecenia <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/releng-tool/releng-tool.git
 </pre></div>
@@ -526,13 +527,13 @@ releng-tool &lt;version&gt;
   <dl>
     <dt>Versions</dt>
     
+      <dd><a href="https://docs.releng.io/pl/0.13/">0.13</a></dd>
+    
       <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
     
       <dd><a href="https://docs.releng.io/pl/0.10/">0.10</a></dd>
-    
-      <dd><a href="https://docs.releng.io/pl/0.9/">0.9</a></dd>
     
   </dl>
   <dl>

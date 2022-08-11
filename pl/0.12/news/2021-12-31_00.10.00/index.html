@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="Indeks" href="../../genindex/" /><link rel="search" title="Szukaj" href="../../search/" /><link rel="prev" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>0.10 (2021-12-31) - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides_global.css" />
@@ -116,7 +116,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     Starsza wersja | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.13</a> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -208,7 +212,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -223,20 +228,20 @@
         </div>
         <article role="main">
           <div class="section" id="id1">
-<h1>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<h1>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="new-definition-directory-package-environment-script-variable">
-<h2>New „definition directory” package environment/script variable<a class="headerlink" href="#new-definition-directory-package-environment-script-variable" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>New „definition directory” package environment/script variable<a class="headerlink" href="#new-definition-directory-package-environment-script-variable" title="Permalink to this heading">¶</a></h2>
 <p>A new environment/script variable has been added to help a project refer
 to a package’s „definition directory” – the specific folder of a package
 found under <code class="docutils literal notranslate"><span class="pre">package/</span></code>. The key for this variable is <code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_DEFDIR</span></code>.</p>
 <p>For example, if a package script wishes to use content from inside the
 package’s definition directory, they can refer to it as follow:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">LIBFOO_DEFDIR</span><span class="p">,</span> <span class="s1">'my-resource.txt'</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">LIBFOO_DEFDIR</span><span class="p">,</span> <span class="s1">&#39;my-resource.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="suppress-installation-stage-for-cmake-projects">
-<h2>Suppress installation stage for CMake projects<a class="headerlink" href="#suppress-installation-stage-for-cmake-projects" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Suppress installation stage for CMake projects<a class="headerlink" href="#suppress-installation-stage-for-cmake-projects" title="Permalink to this heading">¶</a></h2>
 <p>While releng-tool attempts to provide the common „configuration →
 build → install” stages, not all projects support an installation phase.
 CMake projects which did not define an <a class="reference external" href="https://cmake.org/cmake/help/latest/command/install.html"><code class="docutils literal notranslate"><span class="pre">install</span></code></a> rule, the
@@ -249,25 +254,25 @@ to ignore the stage for a package. For example:</p>
 </div>
 </div>
 <div class="section" id="support-rsync-based-sites">
-<h2>Support rsync-based sites<a class="headerlink" href="#support-rsync-based-sites" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Support rsync-based sites<a class="headerlink" href="#support-rsync-based-sites" title="Permalink to this heading">¶</a></h2>
 <p>releng-tool now supports fetching content from an <a class="reference external" href="https://linux.die.net/man/1/rsync">rsync</a> compatible
 source. By adjusting a package’s <code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code> definition to be prefixed with
 <code class="docutils literal notranslate"><span class="pre">rsync+</span></code>, the trailing value can be used to define the rsync source to copy
 content from.</p>
 <p>For example, to copy content from a mounted NAS location at <code class="docutils literal notranslate"><span class="pre">/mnt/nas/project</span></code>,
 the following could be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'rsync+/mnt/nas/project'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;rsync+/mnt/nas/project&#39;</span>
 </pre></div>
 </div>
 <p>Packages can also pull content from a remote source:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'rsync+anonymous@192.51.100.4:~/project'</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;rsync+anonymous@192.51.100.4:~/project&#39;</span>
 </pre></div>
 </div>
 <p>What specific source paths are support will vary based off the host’s
 installed <code class="docutils literal notranslate"><span class="pre">rsync</span></code> tool.</p>
 </div>
 <div class="section" id="remove-the-requirement-for-a-package-version-configuration">
-<h2>Remove the requirement for a package version configuration<a class="headerlink" href="#remove-the-requirement-for-a-package-version-configuration" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Remove the requirement for a package version configuration<a class="headerlink" href="#remove-the-requirement-for-a-package-version-configuration" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code> configuration is the recommended way to define the
 version of a package. It serves two purposes – it can be used to identify
 the version to use when pulling content from a remote repository, as well as
@@ -286,7 +291,7 @@ which do not need a version or have <code class="docutils literal notranslate"><
 the <code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code> configuration can be omitted.</p>
 </div>
 <div class="section" id="flexible-asset-management">
-<h2>Flexible asset management<a class="headerlink" href="#flexible-asset-management" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<h2>Flexible asset management<a class="headerlink" href="#flexible-asset-management" title="Permalink to this heading">¶</a></h2>
 <p>Typical runs will download files (<code class="docutils literal notranslate"><span class="pre">dl/</span></code>) and cache content (<code class="docutils literal notranslate"><span class="pre">cache/</span></code>) in the
 project’s root directory. While users could override these paths using the
 <code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code> command line options:</p>
@@ -395,13 +400,13 @@ the following environment variables can be used instead:</p>
             <dt>Wersje</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/latest/">Najnowszy</a></dd>
 
+            <dd><a href="https://docs.releng.io/pl/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/pl/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/development/">Rozwój</a></dd>
         </dl>
@@ -412,6 +417,7 @@ the following environment variables can be used instead:</p>
 <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>

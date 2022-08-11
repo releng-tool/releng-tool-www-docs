@@ -2,8 +2,7 @@
 <html class="no-js" lang="zh">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="发行说明" href="../release-notes/" /><link rel="prev" title="请求协助" href="../help/" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="发行说明" href="../release-notes/" /><link rel="prev" title="请求协助" href="../help/" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>附件 A - 快速参考 - releng-tool 文档</title>
@@ -119,7 +118,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     开发版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.12</a> 
+     开发版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.13</a> 
   </aside>
 </div>
 
@@ -229,10 +228,10 @@
           </label>
         </div>
         <article role="main">
-          <section id="annex-a-quick-reference">
+          <div class="section" id="annex-a-quick-reference">
 <h1>附件 A - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="此标题的永久链接">¶</a></h1>
 <p>我们有一个快速参考文档，列出了构建 releng-tool 项目的开发人员的可用选项。有关更多详细信息，请参阅 <a class="reference internal" href="../developer-guide/"><span class="doc">开发人员指南</span></a> 。</p>
-<section id="configuration-options">
+<div class="section" id="configuration-options">
 <h2>Configuration options<a class="headerlink" href="#configuration-options" title="此标题的永久链接">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">callable</span><span class="o">&gt;</span>
@@ -251,8 +250,8 @@
 <span class="n">urlopen_context</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</section>
-<section id="environment-variables">
+</div>
+<div class="section" id="environment-variables">
 <h2>Environment variables<a class="headerlink" href="#environment-variables" title="此标题的永久链接">¶</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
@@ -313,8 +312,8 @@ releng-tool (may vary per context):</p>
 <span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_VERSION</span>
 </pre></div>
 </div>
-</section>
-<section id="package-options">
+</div>
+<div class="section" id="package-options">
 <h2>Package options<a class="headerlink" href="#package-options" title="此标题的永久链接">¶</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
@@ -361,8 +360,8 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;version&gt;&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="script-helpers">
+</div>
+<div class="section" id="script-helpers">
 <h2>Script helpers<a class="headerlink" href="#script-helpers" title="此标题的永久链接">¶</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
@@ -395,8 +394,8 @@ releng-tool (may vary per context):</p>
 <span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="quirks">
+</div>
+<div class="section" id="quirks">
 <h2>Quirks<a class="headerlink" href="#quirks" title="此标题的永久链接">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.bzr.certifi
@@ -408,8 +407,8 @@ releng.git.no_depth
 releng.git.no_quick_fetch
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
         </article>
       </div>
@@ -505,13 +504,13 @@ releng.git.no_quick_fetch
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>

@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="发行说明" href="../release-notes/" /><link rel="prev" title="提示" href="../tips/" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07.dev1"/>
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>附件 A - 快速参考 - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=410c44456bb9ce09c9c8dc36fc6cb82bc0ce7c30" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -118,7 +118,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.12</a> 
+     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.13</a> 
   </aside>
 </div>
 
@@ -206,7 +206,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -221,30 +222,30 @@
         </div>
         <article role="main">
           <div class="section" id="annex-a-quick-reference">
-<h1>附件 A - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="永久链接至标题">#</a></h1>
+<h1>附件 A - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="此标题的永久链接">#</a></h1>
 <p>我们有一个快速参考文档，列出了构建 releng-tool 项目的开发人员的可用选项。有关更多详细信息，请参阅 <a class="reference internal" href="../developer-guide/"><span class="doc">开发人员指南</span></a> 。</p>
 <div class="section" id="configuration-options">
-<h2>Configuration options<a class="headerlink" href="#configuration-options" title="永久链接至标题">#</a></h2>
+<h2>Configuration options<a class="headerlink" href="#configuration-options" title="此标题的永久链接">#</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">callable</span><span class="o">&gt;</span>
 <span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;extension&gt;'</span><span class="p">,</span> <span class="s1">'&lt;extension&gt;'</span><span class="p">]</span>
-<span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;path&gt;'</span><span class="p">,</span> <span class="s1">'&lt;path&gt;'</span><span class="p">]</span>
-<span class="n">license_header</span> <span class="o">=</span> <span class="s1">'&lt;data&gt;'</span>
-<span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&lt;tool&gt;'</span><span class="p">:</span> <span class="s1">'&lt;tool-path&gt;'</span><span class="p">}</span>
-<span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&lt;pkg&gt;'</span><span class="p">:</span> <span class="s1">'&lt;revision&gt;'</span><span class="p">}</span>
-<span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&lt;pkg&gt;'</span><span class="p">:</span> <span class="s1">'&lt;site&gt;'</span><span class="p">}</span>
-<span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;pkg&gt;'</span><span class="p">,</span> <span class="s1">'&lt;pkg&gt;'</span><span class="p">,</span> <span class="s1">'&lt;pkg&gt;'</span><span class="p">]</span>
-<span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;tool&gt;'</span><span class="p">,</span> <span class="s1">'&lt;tool&gt;'</span><span class="p">,</span> <span class="s1">'&lt;tool&gt;'</span><span class="p">]</span>
-<span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;quirk-id&gt;'</span><span class="p">]</span>
-<span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">'&lt;path&gt;'</span> <span class="c1"># '/usr'</span>
-<span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">'&lt;mirror-url&gt;'</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">]</span>
+<span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;path&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;path&gt;&#39;</span><span class="p">]</span>
+<span class="n">license_header</span> <span class="o">=</span> <span class="s1">&#39;&lt;data&gt;&#39;</span>
+<span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;tool-path&gt;&#39;</span><span class="p">}</span>
+<span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span><span class="p">}</span>
+<span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;site&gt;&#39;</span><span class="p">}</span>
+<span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
+<span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">]</span>
+<span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;quirk-id&gt;&#39;</span><span class="p">]</span>
+<span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
+<span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
 <span class="n">urlopen_context</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="environment-variables">
-<h2>Environment variables<a class="headerlink" href="#environment-variables" title="永久链接至标题">#</a></h2>
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="此标题的永久链接">#</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
@@ -292,53 +293,53 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="package-options">
-<h2>Package options<a class="headerlink" href="#package-options" title="永久链接至标题">#</a></h2>
+<h2>Package options<a class="headerlink" href="#package-options" title="此标题的永久链接">#</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
-<span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
-<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">'--option'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">]</span>
-<span class="n">LIBFOO_BUILD_SUBDIR</span> <span class="o">=</span> <span class="s1">'&lt;subdir&gt;'</span>
+<span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
+<span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
+<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
+<span class="n">LIBFOO_BUILD_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;&lt;subdir&gt;&#39;</span>
 <span class="n">LIBFOO_CMAKE_NOINSTALL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
-<span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
-<span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">'--option'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">]</span>
-<span class="n">LIBFOO_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;pkg&gt;'</span><span class="p">,</span> <span class="s1">'&lt;pkg&gt;'</span><span class="p">]</span>
+<span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
+<span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
+<span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
+<span class="n">LIBFOO_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
 <span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">'&lt;revision&gt;'</span>
-<span class="n">LIBFOO_EXTENSION</span> <span class="o">=</span> <span class="s1">'&lt;extension&gt;'</span>
+<span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span>
+<span class="n">LIBFOO_EXTENSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;extension&gt;&#39;</span>
 <span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_EXTOPT</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
-<span class="n">LIBFOO_EXTRACT_TYPE</span> <span class="o">=</span> <span class="s1">'ext-&lt;extraction-extension&gt;'</span>
+<span class="n">LIBFOO_EXTOPT</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
+<span class="n">LIBFOO_EXTRACT_TYPE</span> <span class="o">=</span> <span class="s1">&#39;ext-&lt;extraction-extension&gt;&#39;</span>
 <span class="n">LIBFOO_FIXED_JOBS</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 1</span>
-<span class="n">LIBFOO_GIT_CONFIG</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
+<span class="n">LIBFOO_GIT_CONFIG</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
 <span class="n">LIBFOO_GIT_DEPTH</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
-<span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'&lt;refspec&gt;'</span><span class="p">]</span> <span class="c1"># e.g. pull</span>
+<span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;refspec&gt;&#39;</span><span class="p">]</span> <span class="c1"># e.g. pull</span>
 <span class="n">LIBFOO_GIT_SUBMODULES</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_GIT_VERIFY_REVISION</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
-<span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'FOO'</span><span class="p">:</span> <span class="s1">'BAR'</span><span class="p">}</span>
-<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'--option'</span><span class="p">:</span> <span class="s1">'value'</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">'--option'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">]</span>
-<span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">'&lt;install-type&gt;'</span> <span class="c1"># host, images, staging, staging_and_target, target</span>
+<span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
+<span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
+<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
+<span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;install-type&gt;&#39;</span> <span class="c1"># host, images, staging, staging_and_target, target</span>
 <span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">'&lt;license&gt;'</span>  <span class="ow">or</span> <span class="p">[</span><span class="s1">'&lt;license&gt;'</span><span class="p">,</span> <span class="s1">'&lt;license&gt;'</span><span class="p">]</span>
-<span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">'&lt;file&gt;'</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">'&lt;file&gt;'</span><span class="p">,</span> <span class="s1">'&lt;file&gt;'</span><span class="p">]</span>
-<span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">'&lt;path&gt;'</span> <span class="c1"># '/usr'</span>
-<span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">'&lt;path&gt;'</span>
-<span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">'&lt;revision&gt;'</span>
+<span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">&#39;&lt;license&gt;&#39;</span>  <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">]</span>
+<span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">&#39;&lt;file&gt;&#39;</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">]</span>
+<span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
+<span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
+<span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span>
 <span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_SKIP_REMOTE_SCRIPTS</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">'&lt;site&gt;'</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;&lt;site&gt;&#39;</span>
 <span class="n">LIBFOO_STRIP_COUNT</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
-<span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">'&lt;type&gt;'</span> <span class="c1"># autotools, cmake, python, script, ext-&lt;extension&gt;</span>
-<span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">'&lt;vcs-type&gt;'</span> <span class="c1"># bzr, cvs, git, hg, local, none, rsync, scp, svn, url</span>
-<span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">'&lt;version&gt;'</span>
+<span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;type&gt;&#39;</span> <span class="c1"># autotools, cmake, python, script, ext-&lt;extension&gt;</span>
+<span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;vcs-type&gt;&#39;</span> <span class="c1"># bzr, cvs, git, hg, local, none, rsync, scp, svn, url</span>
+<span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;version&gt;&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="script-helpers">
-<h2>Script helpers<a class="headerlink" href="#script-helpers" title="永久链接至标题">#</a></h2>
+<h2>Script helpers<a class="headerlink" href="#script-helpers" title="此标题的永久链接">#</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -366,7 +367,7 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="quirks">
-<h2>Quirks<a class="headerlink" href="#quirks" title="永久链接至标题">#</a></h2>
+<h2>Quirks<a class="headerlink" href="#quirks" title="此标题的永久链接">#</a></h2>
 <p>Quirk options used by releng-tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.cmake.disable_parallel_option
 releng.disable_prerequisites_check
@@ -473,13 +474,13 @@ releng.git.no_quick_fetch
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.9/">0.9</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>
@@ -490,6 +491,7 @@ releng.git.no_quick_fetch
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/tabs.js"></script>

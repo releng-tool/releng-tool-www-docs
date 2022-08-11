@@ -36,6 +36,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/translations.js"></script>
     
@@ -90,7 +91,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">レガシーバージョン | <a href="https://docs.releng.io//ja/latest/">安定版 v0.12</a></div>
+    <div class="version-warning">レガシーバージョン | <a href="https://docs.releng.io//ja/latest/">安定版 v0.13</a></div>
     
     
             
@@ -368,12 +369,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="annex-a-quick-reference">
-<h1>付録A  - クイックリファレンス<a class="headerlink" href="#annex-a-quick-reference" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>付録A  - クイックリファレンス<a class="headerlink" href="#annex-a-quick-reference" title="この見出しへのパーマリンク">¶</a></h1>
 <p>A quick reference document listing available options to developers building a
 releng-tool project. Consult the <a class="reference internal" href="developer-guide.html"><span class="doc">developer's guide</span></a> for
 more detailed information.</p>
 <div class="section" id="configuration-options">
-<h2>configuration options<a class="headerlink" href="#configuration-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>configuration options<a class="headerlink" href="#configuration-options" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
 <span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
@@ -392,7 +393,7 @@ more detailed information.</p>
 </div>
 </div>
 <div class="section" id="environment-variables">
-<h2>environment variables<a class="headerlink" href="#environment-variables" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>environment variables<a class="headerlink" href="#environment-variables" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
@@ -439,7 +440,7 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="package-options">
-<h2>package options<a class="headerlink" href="#package-options" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>package options<a class="headerlink" href="#package-options" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
@@ -482,7 +483,7 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="script-helpers">
-<h2>script helpers<a class="headerlink" href="#script-helpers" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>script helpers<a class="headerlink" href="#script-helpers" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -509,7 +510,7 @@ releng-tool (may vary per context):</p>
 </div>
 </div>
 <div class="section" id="quirks">
-<h2>quirks<a class="headerlink" href="#quirks" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>quirks<a class="headerlink" href="#quirks" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng.cmake.disable_parallel_option
 releng.disable_prerequisites_check
@@ -578,13 +579,13 @@ releng.git.no_depth
   <dl>
     <dt>Versions</dt>
     
+      <dd><a href="https://docs.releng.io/ja/0.13/">0.13</a></dd>
+    
       <dd><a href="https://docs.releng.io/ja/0.12/">0.12</a></dd>
     
       <dd><a href="https://docs.releng.io/ja/0.11/">0.11</a></dd>
     
       <dd><a href="https://docs.releng.io/ja/0.10/">0.10</a></dd>
-    
-      <dd><a href="https://docs.releng.io/ja/0.9/">0.9</a></dd>
     
   </dl>
   <dl>

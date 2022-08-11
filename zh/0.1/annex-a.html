@@ -36,6 +36,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -88,7 +89,7 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
     
-    <div class="version-warning">旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.12</a></div>
+    <div class="version-warning">旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.13</a></div>
     
     
             
@@ -338,10 +339,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="annex-a-quick-reference">
-<h1>附件a - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="永久链接至标题">¶</a></h1>
+<h1>附件a - 快速参考<a class="headerlink" href="#annex-a-quick-reference" title="此标题的永久链接">¶</a></h1>
 <p>我们有一个快速参考文档，列出了构建 releng-tool 项目的开发人员的可用选项。有关更多详细信息，请参阅 <a class="reference internal" href="developer-guide.html"><span class="doc">开发人员指南</span></a> 。</p>
 <div class="section" id="configuration-options">
-<h2>配置选项<a class="headerlink" href="#configuration-options" title="永久链接至标题">¶</a></h2>
+<h2>配置选项<a class="headerlink" href="#configuration-options" title="此标题的永久链接">¶</a></h2>
 <p>releng-tool 从项目的配置脚本中所读取的选项：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">function</span><span class="o">&gt;</span>
 <span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
@@ -358,7 +359,7 @@
 </div>
 </div>
 <div class="section" id="environment-variables">
-<h2>环境变量<a class="headerlink" href="#environment-variables" title="永久链接至标题">¶</a></h2>
+<h2>环境变量<a class="headerlink" href="#environment-variables" title="此标题的永久链接">¶</a></h2>
 <p>环境（和脚本）变量可用于 releng-tool 调用的上下文（可能因上下文而异）：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
 <span class="n">CACHE_DIR</span>
@@ -395,7 +396,7 @@
 </div>
 </div>
 <div class="section" id="package-options">
-<h2>包装选项<a class="headerlink" href="#package-options" title="永久链接至标题">¶</a></h2>
+<h2>包装选项<a class="headerlink" href="#package-options" title="此标题的永久链接">¶</a></h2>
 <p>releng-tool 为组件定义解析的配置选项：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
@@ -431,7 +432,7 @@
 </div>
 </div>
 <div class="section" id="script-helpers">
-<h2>脚本助手<a class="headerlink" href="#script-helpers" title="永久链接至标题">¶</a></h2>
+<h2>脚本助手<a class="headerlink" href="#script-helpers" title="此标题的永久链接">¶</a></h2>
 <p>releng-tool 调用的脚本可用的函数，或者 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng</span> <span class="pre">import</span> <span class="pre">*</span></code> 可导入的脚本：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
 <span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -512,13 +513,13 @@
   <dl>
     <dt>Versions</dt>
     
+      <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
+    
       <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
-    
-      <dd><a href="https://docs.releng.io/zh/0.9/">0.9</a></dd>
     
   </dl>
   <dl>
