@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Indeks" href="../genindex/" /><link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="Contributor guide" href="../contributor-guide/" /><link rel="prev" title="Podręcznik użytkownika" href="../user-guide/" />
 
-    <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
         <title>Poradnik dla programistów - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -163,7 +163,7 @@
 
 
 </a><form class="sidebar-search-container" method="get" action="../search/" role="search">
-  <input class="sidebar-search" placeholder=Szukaj name="q" aria-label="Szukaj">
+  <input class="sidebar-search" placeholder="Szukaj" name="q" aria-label="Szukaj">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -318,9 +318,9 @@ processed. If there is no desire to make a simple project example, one may
 venture to the <a class="reference internal" href="#actually-getting-started">actually getting started</a> section.</p>
 <p>To start, make a new folder for the project, two sample packages and move into
 the root folder:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir -p my-project/package/libx
-<span class="gp">$ </span>mkdir -p my-project/package/liby
-<span class="gp">$ </span><span class="nb">cd</span> my-project/
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>my-project/package/libx
+<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>my-project/package/liby
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project/
 </pre></div>
 </div>
 <p>Inside the <code class="docutils literal notranslate"><span class="pre">libx</span></code> project, the package definition and script-based files will
@@ -329,7 +329,7 @@ the following content:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">LIBX_VERSION</span><span class="o">=</span><span class="s1">&#39;1.0.0&#39;</span>
+<span class="n">LIBX_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
 </pre></div>
 </div>
 <p>Next, create a build script for the <code class="docutils literal notranslate"><span class="pre">libx</span></code> project
@@ -346,8 +346,8 @@ in this document). Repeat the same steps for the <code class="docutils literal n
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">LIBY_DEPENDENCIES</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;libx&#39;</span><span class="p">]</span>
-<span class="n">LIBY_VERSION</span><span class="o">=</span><span class="s1">&#39;2.1.0&#39;</span>
+<span class="n">LIBY_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;libx&#39;</span><span class="p">]</span>
+<span class="n">LIBY_VERSION</span> <span class="o">=</span> <span class="s1">&#39;2.1.0&#39;</span>
 </pre></div>
 </div>
 <p>And <code class="docutils literal notranslate"><span class="pre">my-project/liby/libx-build</span></code> containing:</p>
@@ -394,7 +394,7 @@ folder, invoke <code class="docutils literal notranslate"><span class="pre">rele
 package script has been invoked. While this example only prints a message, more
 elaborate scripts can be made to handle a package’s source to build.</p>
 <p>To clean the project, a <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">clean</span></code> request can be invoked:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool clean
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>Now the project is in a state again to perform a fresh build. This concludes the
@@ -405,8 +405,8 @@ prepare for steps to make a real releng-tool project.</p>
 <h2>Actually getting started<a class="headerlink" href="#actually-getting-started" title="Permalink to this heading">¶</a></h2>
 <p>Start building a new releng-tool project by creating the following root and
 package folders for a project, and venture into the root folder:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p &lt;my-project&gt;/package
-<span class="nb">cd</span> &lt;my-project&gt;/
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>&lt;my-project&gt;/package
+<span class="nb">cd</span><span class="w"> </span>&lt;my-project&gt;/
 </pre></div>
 </div>
 <p>Inside the root folder, create a releng-tool configuration file <code class="docutils literal notranslate"><span class="pre">releng</span></code> with
@@ -424,7 +424,7 @@ example, packages can be individual static libraries, simple asset fetching
 (e.g. image/document downloading) and more.</p>
 <p>For each package, create a new folder inside <code class="docutils literal notranslate"><span class="pre">&lt;my-project&gt;/package</span></code> to
 represent the package.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir &lt;my-project&gt;/package/&lt;my-package&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>&lt;my-project&gt;/package/&lt;my-package&gt;
 </pre></div>
 </div>
 <p>Inside each newly created package, create a package definition file. This
@@ -434,12 +434,12 @@ structure for the definition file is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">MY_PACKAGE_DEPENDENCIES</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">MY_PACKAGE_LICENSE</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;license name&gt;&#39;</span><span class="p">]</span>
-<span class="n">MY_PACKAGE_LICENSE_FILES</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;license file&gt;&#39;</span><span class="p">]</span>
-<span class="n">MY_PACKAGE_SITE</span><span class="o">=</span><span class="s1">&#39;&lt;location for sources&gt;&#39;</span>
-<span class="n">MY_PACKAGE_TYPE</span><span class="o">=</span><span class="s1">&#39;&lt;package-type&gt;&#39;</span>
-<span class="n">MY_PACKAGE_VERSION</span><span class="o">=</span><span class="s1">&#39;&lt;package-version&gt;&#39;</span>
+<span class="n">MY_PACKAGE_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">MY_PACKAGE_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;license name&gt;&#39;</span><span class="p">]</span>
+<span class="n">MY_PACKAGE_LICENSE_FILES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;license file&gt;&#39;</span><span class="p">]</span>
+<span class="n">MY_PACKAGE_SITE</span> <span class="o">=</span> <span class="s1">&#39;&lt;location for sources&gt;&#39;</span>
+<span class="n">MY_PACKAGE_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;package-type&gt;&#39;</span>
+<span class="n">MY_PACKAGE_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;package-version&gt;&#39;</span>
 </pre></div>
 </div>
 <p>Initial changes to note:</p>
@@ -510,16 +510,16 @@ package definitions, custom scripts (if used) and issues found in sources. A
 developer may invoke <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> multiple times to attempt to continue the
 build process for a project. A developer may wish to use the <code class="docutils literal notranslate"><span class="pre">clean</span></code> option to
 remove an existing extracted sources/partially built sources:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool clean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>Or start from a completely fresh state using <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> to remove any built
 images and file mode flags:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool mrproper
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>mrproper
 </pre></div>
 </div>
 <p>There may also be times if a single project needs to be cleaned:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool my-package-clean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>my-package-clean
 </pre></div>
 </div>
 <p>Consult the <a class="reference internal" href="../user-guide/"><span class="doc">user’s guide</span></a> for more action information.</p>
@@ -708,6 +708,34 @@ these calls, a custom transform can be defined. For example:</p>
 </div>
 <p>The above transform indicates that all packages using the
 <code class="docutils literal notranslate"><span class="pre">static.example.org</span></code> site will be <code class="docutils literal notranslate"><span class="pre">tgz</span></code> archives.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></p></td>
+<td><p>A dictionary to define extra license exceptions that are permitted
+in package definitions. Packages which define license exceptions in
+a <a class="reference internal" href="#libfoo-license"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></a> option are expected to use
+<a class="reference external" href="https://spdx.org/licenses/exceptions-index.html">SPDX License Exceptions</a>. If not, a warning is generated by default.
+A project can define their own custom exceptions by adding them into
+a project’s <code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code> option to avoid this warning:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_license_exceptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;My-Exception-ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Exception Name&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></p></td>
+<td><p>A dictionary to define extra licenses that are permitted in package
+definitions. Packages which define licenses in a <a class="reference internal" href="#libfoo-license"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></a>
+option are expected to use a licensed defined in the
+<a class="reference external" href="https://spdx.org/licenses/">SPDX License List</a>. If not, a warning is generated by default. A
+project can define their own custom license by adding them into a
+project’s <code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code> option to avoid this warning:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_licenses</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;My-License-ID&#39;</span><span class="p">:</span> <span class="s1">&#39;License Name&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></p></td>
@@ -1113,7 +1141,7 @@ the following can be defined (<code class="docutils literal notranslate"><span c
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
-<span class="n">PACKAGE_A_VERSION</span><span class="o">=</span><span class="s1">&#39;1.0.0&#39;</span>
+<span class="n">PACKAGE_A_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
 </pre></div>
 </div>
 <p>More details on available configuration options are as follows.</p>
@@ -1172,8 +1200,13 @@ type:</p>
 <section id="libfoo-license">
 <h4>LIBFOO_LICENSE<a class="headerlink" href="#libfoo-license" title="Permalink to this heading">¶</a></h4>
 <p>A string or list of strings outlining the license information for a package.
-Outlining the license of a package is always recommended (but not required).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GPLv2&#39;</span><span class="p">,</span> <span class="s1">&#39;MIT&#39;</span><span class="p">]</span>
+Outlining the license of a package is always recommended (but not required).
+It is recommended to use <a class="reference external" href="SPDXLicenseList">SPDX registered licenses</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GPL-2.0-only&#39;</span><span class="p">,</span> <span class="s1">&#39;MIT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">&#39;GPL-2.0-or-later WITH Bison-exception-2.2&#39;</span>
 </pre></div>
 </div>
 <p>or</p>
@@ -2915,8 +2948,8 @@ inside the package folder with the extension <code class="docutils literal notra
 package folder are applied in ascending order. It is recommended to prefix
 patch filenames with a numerical value for clarity. For example, the following
 package patches:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> package/liba
-<span class="gp">$ </span>ls *.patch
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>package/liba
+<span class="gp">$ </span>ls<span class="w"> </span>*.patch
 <span class="go">0001-accept-linker-flags.patch</span>
 <span class="go">0002-correct-output-path.patch</span>
 <span class="go">0003-support-disabling-test-build.patch</span>
@@ -4028,9 +4061,7 @@ by the providers of said extensions.</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
