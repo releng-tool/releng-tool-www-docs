@@ -1294,8 +1294,9 @@ the host system will need to have <code class="docutils literal notranslate"><sp
 <p>If no site is defined for a package, it will be considered a virtual package
 (i.e. has no content). If applicable, loaded extensions may provide support for
 custom site protocols.</p>
-<p>Specifying a site value of <code class="docutils literal notranslate"><span class="pre">local</span></code> will automatically configure a VCS-type of
-<code class="docutils literal notranslate"><span class="pre">local</span></code> (see <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> for more information).</p>
+<p>Specifying a <a class="reference internal" href="#local-site"><span class="std std-ref">local site</span></a> value with <code class="docutils literal notranslate"><span class="pre">local</span></code> will
+automatically configure a VCS-type of <code class="docutils literal notranslate"><span class="pre">local</span></code> (see <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a>
+for more information).</p>
 <p>See also <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a>.</p>
 </section>
 <section id="libfoo-type">
@@ -1723,8 +1724,8 @@ sites, users can provide an explicit VCS type based off a configured mode:</p>
 host tool is installed on the host system. For example, if a Git VCS-type is
 set, the host system will need to have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on the system.</p>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">local</span></code> type is designed to be a special/development-helper type
-only. When set, this option allows placing the contents of a module directly
-inside the definition folder (alongside the definition file). This approach is
+only. When set, this option allows placing the sources of a package directly
+inside a <code class="docutils literal notranslate"><span class="pre">local</span></code> folder inside the definition folder. This approach is
 similar to using <a class="reference internal" href="../user-guide/#local-sources-mode"><span class="std std-ref">local-sources mode</span></a> where it avoids
 the need to have the module content located in a site to be fetched –
 specifically, for initial development/testing/training scenarios. It is never
@@ -1817,6 +1818,17 @@ cached Git file system. If a desired revision exists, content will be acquired
 from the cache location. If a desired revision does not exist, the origin remote
 will be fetched for the new revision (if it exists).</p>
 </section>
+<section id="local-site">
+<span id="id7"></span><h4>Local Site<a class="headerlink" href="#local-site" title="Permalink to this heading">¶</a></h4>
+<p>To define a package to use local site/sources, the site value can be set
+to <code class="docutils literal notranslate"><span class="pre">local</span></code>. A local site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span>
+</pre></div>
+</div>
+<p>This is equivalent to configuring <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> to a <code class="docutils literal notranslate"><span class="pre">local</span></code> VCS type
+as well. Note that a local package is intended for development/testing/training
+purposes. See <a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a> for more information.</p>
+</section>
 <section id="mercurial-site">
 <h4>Mercurial Site<a class="headerlink" href="#mercurial-site" title="Permalink to this heading">¶</a></h4>
 <p>To define a <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a>-based location, the site value must be prefixed with a
@@ -1825,7 +1837,7 @@ will be fetched for the new revision (if it exists).</p>
 </pre></div>
 </div>
 <p>The value after the prefix is used as the <code class="docutils literal notranslate"><span class="pre">SOURCE</span></code> in an <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">clone</span></code> call
-<a class="footnote-reference brackets" href="#hgclone" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
+<a class="footnote-reference brackets" href="#hgclone" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
 first-run. Future runs to fetch a project’s source will use the cached Mercurial
 repository. If a desired revision exists, content will be acquired from the
 cache location. If a desired revision does not exist, the origin remote will be
@@ -1839,7 +1851,7 @@ pulled for the new revision (if it exists).</p>
 </pre></div>
 </div>
 <p>The value of <code class="docutils literal notranslate"><span class="pre">&lt;source&gt;</span></code> will be provided to a <code class="docutils literal notranslate"><span class="pre">rsync</span></code> call’s
-<a class="footnote-reference brackets" href="#rsynccommand" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> <code class="docutils literal notranslate"><span class="pre">SRC</span></code> value. Fetched content will be stored in an archive
+<a class="footnote-reference brackets" href="#rsynccommand" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> <code class="docutils literal notranslate"><span class="pre">SRC</span></code> value. Fetched content will be stored in an archive
 inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code> directory. Once fetched, the fetch stage will be skipped
 unless the archive is manually removed. By default, the <code class="docutils literal notranslate"><span class="pre">--recursive</span></code>
 argument is applied. Adding or replacing options can be done by using the
@@ -1853,7 +1865,7 @@ value. A site can be defined as follows:</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">scp</span></code> call’s
-<a class="footnote-reference brackets" href="#scpcommand" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a> source host value. The SCP site only supports copying a file from
+<a class="footnote-reference brackets" href="#scpcommand" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a> source host value. The SCP site only supports copying a file from
 a remote host. The fetched file will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code> directory. Once
 fetched, the fetch stage will be skipped unless the file is manually removed.</p>
 </section>
@@ -1865,7 +1877,7 @@ fetched, the fetch stage will be skipped unless the file is manually removed.</p
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a
-<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference brackets" href="#svncheckout" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>. Content from a Subversion repository will
+<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference brackets" href="#svncheckout" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>. Content from a Subversion repository will
 be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
@@ -1879,7 +1891,7 @@ follows:</p>
 </pre></div>
 </div>
 <p>The site value provided will be directly used in a URL request. URL values
-supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference brackets" href="#urlopen" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>,
+supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference brackets" href="#urlopen" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>,
 which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>, <code class="docutils literal notranslate"><span class="pre">file://</span></code> and
 more.</p>
 <p>See also <a class="reference internal" href="#conf-urlopen-context"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></a>.</p>
@@ -1919,7 +1931,7 @@ sha1 602effb4893c7504ffee8a8efcd265d86cd21609 LICENSE
 </div>
 <p>Comments are permitted in the file. Lines leading with a <code class="docutils literal notranslate"><span class="pre">#</span></code> character or
 inlined leading <code class="docutils literal notranslate"><span class="pre">#</span></code> character after a whitespace character will be ignored.</p>
-<p>Supported hash types will vary on the Python interpreter <a class="footnote-reference brackets" href="#hashlib" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> used.
+<p>Supported hash types will vary on the Python interpreter <a class="footnote-reference brackets" href="#hashlib" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a> used.
 Typically, this include FIPS secure hash algorithms (e.g. <code class="docutils literal notranslate"><span class="pre">sha1</span></code>,
 <code class="docutils literal notranslate"><span class="pre">sha224</span></code>, <code class="docutils literal notranslate"><span class="pre">sha256</span></code>, <code class="docutils literal notranslate"><span class="pre">sha384</span></code> and <code class="docutils literal notranslate"><span class="pre">sha512</span></code>) as well as (but not
 recommended) RSA’S MD5 algorithm. For hash algorithms requiring a key length,
@@ -1937,7 +1949,7 @@ sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
 </div>
 </section>
 <section id="ascii-armor">
-<span id="id13"></span><h3>ASCII Armor<a class="headerlink" href="#ascii-armor" title="Permalink to this heading">¶</a></h3>
+<span id="id14"></span><h3>ASCII Armor<a class="headerlink" href="#ascii-armor" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
 <p>An alternative to using an ASCII-armor to validate a package’s cache is to
@@ -2169,7 +2181,7 @@ can override this option by explicitly adjusting the configuration option
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
 <section id="cmake-build-defs">
-<span id="id14"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id15"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#cmake-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2180,7 +2192,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="cmake-build-env">
-<span id="id15"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Permalink to this heading">¶</a></h4>
+<span id="id16"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#cmake-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2192,7 +2204,7 @@ is optional.</p>
 </div>
 </section>
 <section id="cmake-build-opts">
-<span id="id16"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id17"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#cmake-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2226,7 +2238,7 @@ By default, the installation stage is invoked with a value of <code class="docut
 </div>
 </section>
 <section id="cmake-conf-defs">
-<span id="id17"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id18"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#cmake-conf-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2237,7 +2249,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="cmake-conf-env">
-<span id="id18"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Permalink to this heading">¶</a></h4>
+<span id="id19"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#cmake-conf-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2249,7 +2261,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="cmake-conf-opts">
-<span id="id19"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id20"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#cmake-conf-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2269,7 +2281,7 @@ configuration event. This field is optional.</p>
 </div>
 </section>
 <section id="cmake-install-defs">
-<span id="id20"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id21"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#cmake-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2280,7 +2292,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="cmake-install-env">
-<span id="id21"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Permalink to this heading">¶</a></h4>
+<span id="id22"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#cmake-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2292,7 +2304,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="cmake-install-opts">
-<span id="id22"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id23"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#cmake-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2355,7 +2367,7 @@ during the configuration stage, the following can be used:</p>
 <p>The following sections outline configuration options are available for a make
 package.</p>
 <section id="make-build-defs">
-<span id="id23"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#make-build-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id24"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#make-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2366,7 +2378,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="make-build-env">
-<span id="id24"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#make-build-env" title="Permalink to this heading">¶</a></h4>
+<span id="id25"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#make-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2378,7 +2390,7 @@ is optional.</p>
 </div>
 </section>
 <section id="make-build-opts">
-<span id="id25"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#make-build-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id26"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#make-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2398,7 +2410,7 @@ This field is optional.</p>
 </div>
 </section>
 <section id="make-conf-defs">
-<span id="id26"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#make-conf-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id27"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#make-conf-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2409,7 +2421,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="make-conf-env">
-<span id="id27"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#make-conf-env" title="Permalink to this heading">¶</a></h4>
+<span id="id28"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#make-conf-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2421,7 +2433,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="make-conf-opts">
-<span id="id28"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#make-conf-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id29"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#make-conf-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2441,7 +2453,7 @@ configuration event. This field is optional.</p>
 </div>
 </section>
 <section id="make-install-defs">
-<span id="id29"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#make-install-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id30"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#make-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2452,7 +2464,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="make-install-env">
-<span id="id30"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#make-install-env" title="Permalink to this heading">¶</a></h4>
+<span id="id31"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#make-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2464,7 +2476,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="make-install-opts">
-<span id="id31"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#make-install-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id32"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#make-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2516,7 +2528,7 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 <p>The following sections outline configuration options are available for a Python
 package.</p>
 <section id="python-build-defs">
-<span id="id32"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id33"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2527,7 +2539,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="python-build-env">
-<span id="id33"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this heading">¶</a></h4>
+<span id="id34"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2539,7 +2551,7 @@ is optional.</p>
 </div>
 </section>
 <section id="python-build-opts">
-<span id="id34"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id35"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2559,7 +2571,7 @@ This field is optional.</p>
 </div>
 </section>
 <section id="python-install-defs">
-<span id="id35"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id36"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2570,7 +2582,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="python-install-env">
-<span id="id36"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this heading">¶</a></h4>
+<span id="id37"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2582,7 +2594,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="python-install-opts">
-<span id="id37"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id38"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2708,7 +2720,7 @@ during the configuration stage, the following can be used:</p>
 <p>The following sections outline configuration options are available for a SCons
 package.</p>
 <section id="scons-build-defs">
-<span id="id38"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#scons-build-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id39"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#scons-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2719,7 +2731,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="scons-build-env">
-<span id="id39"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#scons-build-env" title="Permalink to this heading">¶</a></h4>
+<span id="id40"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#scons-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2731,7 +2743,7 @@ is optional.</p>
 </div>
 </section>
 <section id="scons-build-opts">
-<span id="id40"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#scons-build-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id41"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#scons-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2751,7 +2763,7 @@ This field is optional.</p>
 </div>
 </section>
 <section id="scons-conf-defs">
-<span id="id41"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#scons-conf-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id42"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#scons-conf-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2762,7 +2774,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="scons-conf-env">
-<span id="id42"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#scons-conf-env" title="Permalink to this heading">¶</a></h4>
+<span id="id43"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#scons-conf-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2774,7 +2786,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="scons-conf-opts">
-<span id="id43"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#scons-conf-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id44"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#scons-conf-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2794,7 +2806,7 @@ configuration event. This field is optional.</p>
 </div>
 </section>
 <section id="scons-install-defs">
-<span id="id44"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#scons-install-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id45"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#scons-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2805,7 +2817,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="scons-install-env">
-<span id="id45"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#scons-install-env" title="Permalink to this heading">¶</a></h4>
+<span id="id46"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#scons-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2817,7 +2829,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="scons-install-opts">
-<span id="id46"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#scons-install-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id47"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#scons-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -3928,7 +3940,7 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 </div>
 </section>
 <section id="quirks">
-<span id="id47"></span><h3>Quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h3>
+<span id="id48"></span><h3>Quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
@@ -3998,28 +4010,28 @@ by the providers of said extensions.</p>
 <p><a class="reference external" href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a></p>
 </aside>
 <aside class="footnote brackets" id="hashlib" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">5</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">5</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://docs.python.org/library/hashlib.html">https://docs.python.org/library/hashlib.html</a></p>
 </aside>
 <aside class="footnote brackets" id="hgclone" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">6</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">6</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://www.selenic.com/mercurial/hg.1.html#clone">https://www.selenic.com/mercurial/hg.1.html#clone</a></p>
 </aside>
 <aside class="footnote brackets" id="rsynccommand" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">7</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">7</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://linux.die.net/man/1/rsync">https://linux.die.net/man/1/rsync</a></p>
 </aside>
 <aside class="footnote brackets" id="scpcommand" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">8</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">8</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://linux.die.net/man/1/scp">https://linux.die.net/man/1/scp</a></p>
 </aside>
 <aside class="footnote brackets" id="svncheckout" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">9</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">9</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html</a></p>
 </aside>
 <aside class="footnote brackets" id="urlopen" role="note">
 <span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id11">2</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id12">2</a>)</span>
 <p><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></p>
 </aside>
 </aside>
@@ -4127,6 +4139,7 @@ by the providers of said extensions.</p>
 <li><a class="reference internal" href="#bazaar-site">Bazaar Site</a></li>
 <li><a class="reference internal" href="#cvs-site">CVS Site</a></li>
 <li><a class="reference internal" href="#git-site">Git Site</a></li>
+<li><a class="reference internal" href="#local-site">Local Site</a></li>
 <li><a class="reference internal" href="#mercurial-site">Mercurial Site</a></li>
 <li><a class="reference internal" href="#rsync-site">rsync Site</a></li>
 <li><a class="reference internal" href="#scp-site">SCP Site</a></li>
