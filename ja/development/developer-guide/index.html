@@ -3945,6 +3945,11 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.bzr.certifi</span></code> -- Use <a class="reference external" href="https://pypi.org/project/certifi/"><code class="docutils literal notranslate"><span class="pre">certifi</span></code></a> certificates for <code class="docutils literal notranslate"><span class="pre">bzr</span></code> exports.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code> -- Disables injecting include
+directories into CMake configuration stages for host, staging and target
+include directories (when applicable). This can be used to prevent possible
+issues when building a CMake project with a toolchain file which has issues
+with standard include overrides from releng-tool.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_parallel_option</span></code> -- Disables the <code class="docutils literal notranslate"><span class="pre">--parallel</span></code> option
 from being injected when a CMake-package is performing a build stage. This is
 to help support host systems running variants of CMake which do not explicitly
@@ -3955,6 +3960,8 @@ check from running.</p></li>
 remote-defined configurations for a package.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_scripts</span></code> -- Disables any attempt to load
 remote-defined scripts for a package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.disable_spdx_check</span></code> -- Disables any attempt to compare package
+licenses to SPDX license identifiers.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_depth</span></code> -- Disables the <code class="docutils literal notranslate"><span class="pre">--depth</span></code> option from being injected
 when a Git-site-defined package is performing a fetch stage.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_quick_fetch</span></code> -- Disables quick fetching (a specific reference

@@ -252,11 +252,14 @@ see the project's <a class="reference external" href="https://github.com/releng-
 <h3>Development<a class="headerlink" href="#development" title="此标题的永久链接">¶</a></h3>
 <ul class="simple">
 <li><p><strong>(note)</strong> The deprecated <code class="docutils literal notranslate"><span class="pre">releng</span></code> namespace has been removed</p></li>
+<li><p>Fixed issue where CMake projects with implicit target area installs have
+issues finding includes/libraries with <code class="docutils literal notranslate"><span class="pre">find_&lt;x&gt;</span></code> calls</p></li>
 <li><p>Fixed issue where <code class="docutils literal notranslate"><span class="pre">libfoo-exec</span></code> action with an <code class="docutils literal notranslate"><span class="pre">=</span></code> character would crash</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">*_BIN_DIR</span></code> environment/script variables</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">releng_move_into</span></code> helper script function</p></li>
 <li><p>Local VCS-type packages should now place sources inside a <code class="docutils literal notranslate"><span class="pre">local</span></code> folder</p></li>
 <li><p>Promote the use of SPDX license identifiers in package license options</p></li>
+<li><p>Support automatic include injection for CMake staging/target/host areas</p></li>
 <li><p>Support for Poetry Python setup type</p></li>
 <li><p>Support treating releng-tool warnings as errors with <code class="docutils literal notranslate"><span class="pre">--werror</span></code> argument</p></li>
 </ul>
