@@ -2,12 +2,13 @@
 <html class="no-js" lang="ja">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex/" /><link rel="search" title="検索" href="search/" /><link rel="next" title="必要条件" href="requirements/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="索引" href="genindex/" /><link rel="search" title="検索" href="search/" /><link rel="next" title="必要条件" href="requirements/" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides_global.css" />
@@ -118,7 +119,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     レガシーバージョン | <a href="https://docs.releng.io//ja/latest/">安定版 v0.13</a> 
+     レガシーバージョン | <a href="https://docs.releng.io//ja/latest/">安定版 v0.14</a> 
   </aside>
 </div>
 
@@ -142,7 +143,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -162,7 +163,7 @@
 
 
 </a><form class="sidebar-search-container" method="get" action="search/" role="search">
-  <input class="sidebar-search" placeholder=検索 name="q" aria-label="検索">
+  <input class="sidebar-search" placeholder="検索" name="q" aria-label="検索">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -213,7 +214,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -221,13 +223,13 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <div class="section" id="releng-tool">
+          <section id="releng-tool">
 <h1>releng-tool<a class="headerlink" href="#releng-tool" title="この見出しへのパーマリンク">¶</a></h1>
 <p>releng-toolはプロジェクトのリリースエンジニアリングをアシストするために利用する事ができます。このツールを使用する事により、ユーザーは処理する単一もしくは複数のパッケージを定義する事が可能になります。各パッケージには、フェッチ、抽出、パッチ適用、構成、構築、およびインストールといった複数の段階を実行する機能を備えています。パッケージが定義するものは、プロジェクトに応じて異なります。最もシンプルな種類のパッケージはスクリプトベースのものであり、これを使用すると、リリースエンジニアリングプロセスの様々な段階を実行する方法に関連するカスタムスクリプトをユーザーが定義できます。パッケージはすべての段階を処理する必要はありません。autotoolsなど、一般的なビルド機能を使用するプロジェクト用のヘルパーパッケージタイプが提供されています。</p>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158.75 66.15">
@@ -393,7 +395,10 @@
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#licenses">Licenses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#patching">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#internal-and-external-packages">Internal and External packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer-guide/#script-helpers">Script helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide/#script-helpers">Script helpers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide/#releng_tool.releng_join"><code class="docutils literal notranslate"><span class="pre">releng_join()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#vcs-ignore">VCS Ignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#quirks">Quirks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#loading-extensions">Loading extensions</a></li>
@@ -428,7 +433,7 @@
 <li class="toctree-l1"><a class="reference internal" href="release-notes/">バージョンノート</a></li>
 </ul>
 </div>
-</div>
+</section>
 
         </article>
       </div>
@@ -442,7 +447,7 @@
                 </div>
                 <div class="title">必要条件</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           
         </div>
@@ -454,34 +459,14 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            コンテンツ
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">releng-tool</a><ul>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
@@ -509,13 +494,13 @@
             <dt>バージョン</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/latest/">最新</a></dd>
 
+            <dd><a href="https://docs.releng.io/ja/0.14/">0.14</a></dd>
+
             <dd><a href="https://docs.releng.io/ja/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.11/">0.11</a></dd>
-
-            <dd><a href="https://docs.releng.io/ja/0.10/">0.10</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/development/">発達</a></dd>
         </dl>
@@ -524,10 +509,8 @@
 <noscript><style>#doc-versions { display:none; }</style></noscript>
 
 <script data-url_root="#" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/translations.js"></script>

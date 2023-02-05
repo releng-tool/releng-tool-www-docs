@@ -2,12 +2,13 @@
 <html class="no-js" lang="pl">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Indeks" href="../../genindex/" /><link rel="search" title="Szukaj" href="../../search/" /><link rel="next" title="0.12 (2022-05-02)" href="../2022-05-02_00.12.00/" /><link rel="prev" title="Informacje o wydaniu" href="../../release-notes/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Indeks" href="../../genindex/" /><link rel="search" title="Szukaj" href="../../search/" /><link rel="next" title="0.12 (2022-05-02)" href="../2022-05-02_00.12.00/" /><link rel="prev" title="0.14 (2023-02-05)" href="../2023-02-05_00.14.00/" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>0.13 (2022-08-10) - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides_global.css" />
@@ -158,7 +159,7 @@
 
 
 </a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
-  <input class="sidebar-search" placeholder=Szukaj name="q" aria-label="Szukaj">
+  <input class="sidebar-search" placeholder="Szukaj" name="q" aria-label="Szukaj">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -175,6 +176,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">0.13 (2022-08-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2022-02-26_00.11.00/">0.11 (2022-02-26)</a></li>
@@ -210,7 +212,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -224,9 +227,9 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="id1">
+          <section id="id1">
 <h1>0.13 (2022-08-10)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="allow-project-configuration-path-overrides">
+<section id="allow-project-configuration-path-overrides">
 <h2>Allow project configuration path overrides<a class="headerlink" href="#allow-project-configuration-path-overrides" title="Permalink to this heading">¶</a></h2>
 <p>When loading a project’s configuration file, releng-tool will look for
 a configuration file found in the <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/releng</span></code> path. If a user wishes to
@@ -236,14 +239,14 @@ configuration file to load using the <code class="docutils literal notranslate">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng-tool --config my-second-config
 </pre></div>
 </div>
-</div>
-<div class="section" id="support-for-make-and-scons-package-types">
+</section>
+<section id="support-for-make-and-scons-package-types">
 <h2>Support for make and SCons package types<a class="headerlink" href="#support-for-make-and-scons-package-types" title="Permalink to this heading">¶</a></h2>
 <p>Introduction of the <code class="docutils literal notranslate"><span class="pre">make</span></code> and <code class="docutils literal notranslate"><span class="pre">scons</span></code> package types. These new package types
 allow a developer to easily invoke Make and SCons targets at various stages,
 without needing invoke these tools inside a scripts package.</p>
-</div>
-<div class="section" id="support-for-python-setup-types">
+</section>
+<section id="support-for-python-setup-types">
 <h2>Support for Python setup types<a class="headerlink" href="#support-for-python-setup-types" title="Permalink to this heading">¶</a></h2>
 <p>Python packages can now tailor their build and installation stages by
 configuration setup types. Packages would originally be processed as if
@@ -264,8 +267,8 @@ can be used:</p>
 </div>
 <p>For PEP 517 build systems, the <a class="reference external" href="https://installer.readthedocs.io">installer</a>
 module will be used to install packages to host, staging and target areas.</p>
-</div>
-<div class="section" id="support-development-modes">
+</section>
+<section id="support-development-modes">
 <h2>Support development modes<a class="headerlink" href="#support-development-modes" title="Permalink to this heading">¶</a></h2>
 <p>Specific development modes are now supported for a releng-tool run. Developers
 can switch between a development version of a package over a stable version by
@@ -304,8 +307,8 @@ package definition:</p>
 configured version value. When operating in a <code class="docutils literal notranslate"><span class="pre">test</span></code> development mode, sources
 for <code class="docutils literal notranslate"><span class="pre">LIBFOO</span></code> will now be fetched from the provided Git repository using the
 <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
-</div>
-<div class="section" id="support-path-overrides-for-local-sources-mode">
+</section>
+<section id="support-path-overrides-for-local-sources-mode">
 <h2>Support path overrides for local-sources mode<a class="headerlink" href="#support-path-overrides-for-local-sources-mode" title="Permalink to this heading">¶</a></h2>
 <p>Users have had the ability to enable local-sources mode to load sources of
 internal-marked packages from a local file system. This was achieved using
@@ -349,8 +352,8 @@ looked for inside <code class="docutils literal notranslate"><span class="pre">~
 checkout sources normally as if local-sources mode was not enabled.</p>
 <p>Reminder that users can disable local-sources mode by performing a <code class="docutils literal notranslate"><span class="pre">distclean</span></code>
 action, or manually removing the <code class="docutils literal notranslate"><span class="pre">.releng-flag-local-sources</span></code> file.</p>
-</div>
-<div class="section" id="new-copy-into-script-function">
+</section>
+<section id="new-copy-into-script-function">
 <h2>New copy-into script function<a class="headerlink" href="#new-copy-into-script-function" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_copy_into</span></code> helper function has been added to allow releng-tool
 script to explicitly copy a source into a target directory. This can be helpful
@@ -361,8 +364,8 @@ is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_copy_into</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="support-certificates-override-for-bzr">
+</section>
+<section id="support-certificates-override-for-bzr">
 <h2>Support certificates override for bzr<a class="headerlink" href="#support-certificates-override-for-bzr" title="Permalink to this heading">¶</a></h2>
 <p>When a package is configured to fetch <a class="reference external" href="https://bazaar.canonical.com">bzr</a> sources, select environments
 may have issues attempting to download from Launchpad (or other hosting) due
@@ -377,8 +380,8 @@ certificates instead. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng-tool --quirk releng.bzr.certifi
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -392,16 +395,16 @@ certificates instead. For example:</p>
                 </div>
                 <div class="title">0.12 (2022-05-02)</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../release-notes/">
-              <svg><use href="#svg-arrow-right"></use></svg>
+          <a class="prev-page" href="../2023-02-05_00.14.00/">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Informacje o wydaniu</div>
+                <div class="title">0.14 (2023-02-05)</div>
                 
               </div>
             </a>
@@ -414,9 +417,7 @@ certificates instead. For example:</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -428,7 +429,7 @@ certificates instead. For example:</p>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Treść
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -476,13 +477,13 @@ certificates instead. For example:</p>
             <dt>Wersje</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/latest/">Najnowszy</a></dd>
 
+            <dd><a href="https://docs.releng.io/pl/0.14/">0.14</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
-
-            <dd><a href="https://docs.releng.io/pl/0.10/">0.10</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/development/">Rozwój</a></dd>
         </dl>
@@ -491,10 +492,8 @@ certificates instead. For example:</p>
 <noscript><style>#doc-versions { display:none; }</style></noscript>
 
 <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/translations.js"></script>

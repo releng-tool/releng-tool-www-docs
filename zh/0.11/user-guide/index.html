@@ -2,12 +2,13 @@
 <html class="no-js" lang="zh">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="开发者指南" href="../developer-guide/" /><link rel="prev" title="安装" href="../install/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="开发者指南" href="../developer-guide/" /><link rel="prev" title="安装" href="../install/" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>用户指南 - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -118,7 +119,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.13</a> 
+     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.14</a> 
   </aside>
 </div>
 
@@ -162,7 +163,7 @@
 
 
 </a><form class="sidebar-search-container" method="get" action="../search/" role="search">
-  <input class="sidebar-search" placeholder=搜索 name="q" aria-label="搜索">
+  <input class="sidebar-search" placeholder="搜索" name="q" aria-label="搜索">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -207,7 +208,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -221,10 +223,10 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="user-guide">
+          <section id="user-guide">
 <h1>用户指南<a class="headerlink" href="#user-guide" title="此标题的永久链接">¶</a></h1>
 <p>以下将概述将 releng-tool 与已定义项目一起使用的功能。有关构建 releng-tool 项目的详细信息，请参阅 <a class="reference internal" href="../developer-guide/"><span class="doc">开发人员指南</span></a> 。</p>
-<div class="section" id="getting-started">
+<section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="此标题的永久链接">¶</a></h2>
 <p>Depending on the host and how releng-tool has been <a class="reference internal" href="../install/"><span class="doc">installed</span></a>,
 the tool can be either executed using the call <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> (if supported) or
@@ -262,8 +264,8 @@ the <code class="docutils literal notranslate"><span class="pre">--help</span></
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --help
 </pre></div>
 </div>
-</div>
-<div class="section" id="arguments">
+</section>
+<section id="arguments">
 <h2>Arguments<a class="headerlink" href="#arguments" title="此标题的永久链接">¶</a></h2>
 <p>The command line can be used to specify either a single action to perform and/or
 provide various options to configure the releng-tool process. Options
@@ -275,7 +277,7 @@ to be performed. An example of a user invoking a clean action is as follows:</p>
 </div>
 <p>The following outlines available actions:</p>
 <div class="table-wrapper colwidths-auto docutils container">
-<table class="colwidths-auto docutils align-default">
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p id="action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></p>
 </td>
@@ -456,7 +458,7 @@ read to understand this action's effect.</p>
 </div>
 <p>The following outlines available options:</p>
 <div class="table-wrapper colwidths-auto docutils container">
-<table class="colwidths-auto docutils align-default">
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory to hold cache and download folders instead of using a
@@ -523,8 +525,8 @@ apply multiple quirks.</p></td>
 </tbody>
 </table>
 </div>
-</div>
-<div class="section" id="understanding-rebuilds">
+</section>
+<section id="understanding-rebuilds">
 <h2>Understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="此标题的永久链接">¶</a></h2>
 <p>As packages are processed in order (based off of detected dependencies, if any),
 each package will go through their respective stages: fetching, extraction,
@@ -574,10 +576,10 @@ allow <code class="docutils literal notranslate"><span class="pre">module-c</spa
 </div>
 <p>This is a very simple example to consider, and attempts to rebuild can vary
 based on the packages, changes and languages used.</p>
-</div>
-<div class="section" id="tips">
+</section>
+<section id="tips">
 <h2>Tips<a class="headerlink" href="#tips" title="此标题的永久链接">¶</a></h2>
-<div class="section" id="offline-builds">
+<section id="offline-builds">
 <h3>Offline builds<a class="headerlink" href="#offline-builds" title="此标题的永久链接">¶</a></h3>
 <p>A user can prepare for an offline build by using the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> action:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool fetch
@@ -586,8 +588,8 @@ based on the packages, changes and languages used.</p>
 <p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and/or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
 folders. Future builds for the project will no longer need external access until
 these folders are manually removed.</p>
-</div>
-<div class="section" id="parallel-builds">
+</section>
+<section id="parallel-builds">
 <h3>Parallel builds<a class="headerlink" href="#parallel-builds" title="此标题的永久链接">¶</a></h3>
 <p>A stage (such as a build stage) for a package can take advantage of multiple
 cores to perform the step. By default, releng-tool will attempt to run as many
@@ -600,14 +602,14 @@ for stages to two jobs, the following can be used:</p>
 </div>
 <p>Note that a developer may restrict the amount of jobs allowed for a specific
 package if a package cannot support parallel processing.</p>
-</div>
-<div class="section" id="privileged-builds">
+</section>
+<section id="privileged-builds">
 <h3>Privileged builds<a class="headerlink" href="#privileged-builds" title="此标题的永久链接">¶</a></h3>
 <p>It is never recommended to invoke a build with elevated (e.g. root) privileges.
 A builder invoking in an elevated environment runs the risk of a misconfigured
 releng-tool project dirtying or destroying the builder's host environment.</p>
-</div>
-<div class="section" id="license-generation">
+</section>
+<section id="license-generation">
 <h3>License generation<a class="headerlink" href="#license-generation" title="此标题的永久链接">¶</a></h3>
 <p>At the end of a <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> invoke, the final stages will compile a list of
 package license information (if licenses are defined). If a user wishes to
@@ -618,11 +620,11 @@ build, the <code class="docutils literal notranslate"><span class="pre">licenses
 </div>
 <p>License information can then be found in the root directory's
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/licenses</span></code> folder.</p>
-</div>
-</div>
-<div class="section" id="advanced-builder-capabilities">
+</section>
+</section>
+<section id="advanced-builder-capabilities">
 <h2>Advanced builder capabilities<a class="headerlink" href="#advanced-builder-capabilities" title="此标题的永久链接">¶</a></h2>
-<div class="section" id="development-mode">
+<section id="development-mode">
 <span id="id1"></span><h3>Development mode<a class="headerlink" href="#development-mode" title="此标题的永久链接">¶</a></h3>
 <p>Development mode provides a way for builder to request to process supported
 packages against a development version of sources rather than using fixed
@@ -646,8 +648,8 @@ use the development revision for packages where define. For example:</p>
 <p>Development mode is persisted through the use of a file flag in the root
 directory. A user can either disable development mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
-</div>
-<div class="section" id="local-sources-mode">
+</section>
+<section id="local-sources-mode">
 <span id="id2"></span><h3>Local-sources mode<a class="headerlink" href="#local-sources-mode" title="此标题的永久链接">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
@@ -685,8 +687,8 @@ packages. For example:</p>
 <p>Local-sources mode is persisted through the use of a file flag in the root
 directory. A user can either disable local sources mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
-</div>
-<div class="section" id="configuration-overrides">
+</section>
+<section id="configuration-overrides">
 <span id="conf-overrides"></span><h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="此标题的永久链接">¶</a></h3>
 <p>While it is not recommended to have users manually modify a project's
 configuration, a series of override options exist to deal with unique build
@@ -694,7 +696,7 @@ scenarios. If a builder needs to override a tool location or package site, a
 user and define either environment options or setup a configuration override
 script <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code>. It is never recommended to persist a configuration
 overrides file into a project's source repository.</p>
-<div class="section" id="extraction-tool-overrides">
+<section id="extraction-tool-overrides">
 <h4>Extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="此标题的永久链接">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code> option inside a configuration override script
 allows a dictionary to be provided to map an extension type to an external tool
@@ -709,8 +711,8 @@ own extraction utility. Consider the following example:</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">{file}</span></code> key will be replaced with the file to be extracted, and the
 <code class="docutils literal notranslate"><span class="pre">{dir}</span></code> key will be replaced where the contents should extract to.</p>
-</div>
-<div class="section" id="revision-overrides">
+</section>
+<section id="revision-overrides">
 <h4>Revision overrides<a class="headerlink" href="#revision-overrides" title="此标题的永久链接">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_revisions</span></code> option inside a configuration override script allows
 a dictionary to be provided to map a package name to a new revision value.
@@ -727,8 +729,8 @@ the developer does not want to explicitly change the revision inside package
 </div>
 <p>The above example shows that package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> will fetch using a test branch
 instead of what is defined in the actual package definition.</p>
-</div>
-<div class="section" id="site-overrides">
+</section>
+<section id="site-overrides">
 <h4>Site overrides<a class="headerlink" href="#site-overrides" title="此标题的永久链接">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_sites</span></code> option inside a configuration override script allows a
 dictionary to be provided to map a package name to a new site value. There may
@@ -743,8 +745,8 @@ be access from the host machine. If a mirror location has been setup at
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tool-overrides">
+</section>
+<section id="tool-overrides">
 <h4>Tool overrides<a class="headerlink" href="#tool-overrides" title="此标题的永久链接">¶</a></h4>
 <p>Environment variables can be used to help override external tool invoked by the
 releng-tool process. For example, when invoking CMake-based projects, the tool
@@ -757,16 +759,16 @@ Consider the following example:</p>
 <span class="go">[cmake3 will be used for cmake projects]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="quirks">
+</section>
+<section id="quirks">
 <h4>Quirks<a class="headerlink" href="#quirks" title="此标题的永久链接">¶</a></h4>
 <p>releng-tool also provides a series of configuration quirks to deal with rare
 host environment scenarios where releng-tool may be experiencing issues. See
 <a class="reference internal" href="../developer-guide/#quirks"><span class="std std-ref">configuration quirks</span></a> for more information.</p>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
         </article>
       </div>
@@ -780,10 +782,10 @@ host environment scenarios where releng-tool may be experiencing issues. See
                 </div>
                 <div class="title">开发者指南</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="../install/">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -802,9 +804,7 @@ host environment scenarios where releng-tool may be experiencing issues. See
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -816,7 +816,7 @@ host environment scenarios where releng-tool may be experiencing issues. See
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            目录
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -880,13 +880,13 @@ host environment scenarios where releng-tool may be experiencing issues. See
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.14/">0.14</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>
@@ -895,10 +895,8 @@ host environment scenarios where releng-tool may be experiencing issues. See
 <noscript><style>#doc-versions { display:none; }</style></noscript>
 
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/tabs.js"></script>
     <script src="../_static/theme_overrides_global.js"></script>

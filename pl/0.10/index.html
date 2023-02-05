@@ -2,12 +2,13 @@
 <html class="no-js" lang="pl">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Indeks" href="genindex/" /><link rel="search" title="Szukaj" href="search/" /><link rel="next" title="Wymagania" href="requirements/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Indeks" href="genindex/" /><link rel="search" title="Szukaj" href="search/" /><link rel="next" title="Wymagania" href="requirements/" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="_static/theme_overrides_global.css" />
@@ -118,7 +119,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     Starsza wersja | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.13</a> 
+     Starsza wersja | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.14</a> 
   </aside>
 </div>
 
@@ -142,7 +143,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -162,7 +163,7 @@
 
 
 </a><form class="sidebar-search-container" method="get" action="search/" role="search">
-  <input class="sidebar-search" placeholder=Szukaj name="q" aria-label="Szukaj">
+  <input class="sidebar-search" placeholder="Szukaj" name="q" aria-label="Szukaj">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -207,7 +208,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -215,13 +217,13 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <div class="section" id="releng-tool">
+          <section id="releng-tool">
 <h1>releng-tool<a class="headerlink" href="#releng-tool" title="Permalink to this heading">#</a></h1>
 <p>releng-tool może pomóc podczas wydawania projektu. Pozwala ono użytkownikowi zdefiniować do przetworzenia jeden lub większą ilość pakietów. Każdy z pakietów ma możliwość wykonania ć kilka etapów: pobierania, dekompresji, łatania, konfigurowania, budowania i instalacji; to od projektu zależy, co dany pakiet będzie definiować. Najprostszym typem pakietu jest pakiet oparty na skryptach, który umożliwia użytkownikowi definiować dowolne skrypty dot. sposobu wykonywania różnych etapów wydawania projektu. Pakiet nie musi obowiązkowo obsługiwać wszystkich etapów. Dostarczone są pakiety pomocnicze, jak na przykład autotools, w przypadku projektów wykorzystujących możliwość wspólnego budowania.</p>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158.75 66.15">
@@ -387,7 +389,10 @@
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#licenses">Licenses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#patching">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#internal-and-external-packages">Internal and External packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer-guide/#script-helpers">Script helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide/#script-helpers">Script helpers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide/#releng_tool.releng_join"><code class="docutils literal notranslate"><span class="pre">releng_join()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#vcs-ignore">VCS Ignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#quirks">Quirks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide/#loading-extensions">Loading extensions</a></li>
@@ -425,7 +430,7 @@
 <li class="toctree-l1"><a class="reference internal" href="release-notes/">Informacje o wydaniu</a></li>
 </ul>
 </div>
-</div>
+</section>
 
         </article>
       </div>
@@ -439,7 +444,7 @@
                 </div>
                 <div class="title">Wymagania</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           
         </div>
@@ -451,34 +456,14 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Treść
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">releng-tool</a><ul>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
@@ -506,13 +491,13 @@
             <dt>Wersje</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/latest/">Najnowszy</a></dd>
 
+            <dd><a href="https://docs.releng.io/pl/0.14/">0.14</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
-
-            <dd><a href="https://docs.releng.io/pl/0.10/">0.10</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/development/">Rozwój</a></dd>
         </dl>
@@ -521,10 +506,8 @@
 <noscript><style>#doc-versions { display:none; }</style></noscript>
 
 <script data-url_root="#" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/tabs.js"></script>
     <script src="_static/translations.js"></script>

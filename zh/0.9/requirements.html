@@ -1,105 +1,51 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="zh" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>要求 &mdash; releng-tool  文档</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
-
-  
-  
-
-  
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
     <link rel="canonical" href="https://docs.releng.io/requirements.html"/>
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="安装" href="install.html" />
     <link rel="prev" title="releng-tool" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> releng-tool
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.9
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="text" name="q" placeholder="搜索文档" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
     
-    <div class="version-warning">旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.13</a></div>
+    <div class="version-warning">旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.14</a></div>
     
     
-            
-            
-              
-            
-            
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">releng-tool</a></li>
 </ul>
@@ -245,7 +191,10 @@
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#licenses">licenses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#patching">patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#internal-and-external-packages">internal and external packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-helpers">script helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-helpers">script helpers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#releng_tool.releng_join"><code class="docutils literal notranslate"><span class="pre">releng_join()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#vcs-ignore">vcs ignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#quirks">quirks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#loading-extensions">loading extensions</a></li>
@@ -292,8 +241,6 @@
 </li>
 </ul>
 
-            
-          
 <div><hr style="margin: 10px 0;" /></div>
 <div>
     <a class="reference external" href="https://releng.io/">releng.io</a>
@@ -303,114 +250,60 @@
 </div>
 
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">releng-tool</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>要求</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">要求</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/requirements.rst.txt" rel="nofollow"> 查看页面源码</a>
-          
-        
       </li>
-    
-  </ul>
-
-  
-  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
-      
-        <a href="install.html" class="btn btn-neutral float-right" title="安装" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-      
-      
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="顺序式页面导航">
         <a href="index.html" class="btn btn-neutral float-left" title="releng-tool" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-      
+        <a href="install.html" class="btn btn-neutral float-right" title="安装" accesskey="n">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="requirements">
-<h1>要求<a class="headerlink" href="#requirements" title="此标题的永久链接">¶</a></h1>
+             
+  <section id="requirements">
+<h1>要求<a class="headerlink" href="#requirements" title="此标题的永久链接"></a></h1>
 <p>releng-tool 是在 <a class="reference external" href="https://www.python.org/">Python</a> 中开发的，需要 <a class="reference external" href="https://www.python.org/">Python</a> 2.7或3.4+ 才能在主机系统上运行。如果使用某些阶段和/或特征，则需要一系列可选工具。例如，从 <a class="reference external" href="https://git-scm.com/">Git</a> 获取源的项目将需要安装 <code class="docutils literal notranslate"><span class="pre">git</span></code> 工具; 带修补程式的项目则需要 <code class="docutils literal notranslate"><span class="pre">patch</span></code> 工具。虽然某些功能可能是特定于操作系统的（例如 autotools 功能是为基于 Linux 的主机设计的），但 releng-tool 可以适用于各种操作系统变体。</p>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="install.html" class="btn btn-neutral float-right" title="安装" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
         <a href="index.html" class="btn btn-neutral float-left" title="releng-tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="install.html" class="btn btn-neutral float-right" title="安装" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-
-    </p>
+    <p></p>
   </div>
-    
-    
-    
-    利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
-    
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
-    
-    由 <a href="https://readthedocs.org">Read the Docs</a>开发. 
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
   <div class="rst-versions" data-toggle="rst-versions">
 <span class="rst-current-version" data-toggle="rst-current-version">
@@ -436,30 +329,23 @@
   <dl>
     <dt>Versions</dt>
     
+      <dd><a href="https://docs.releng.io/zh/0.14/">0.14</a></dd>
+    
       <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
     
       <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
     
-      <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
-    
   </dl>
   <dl>
     <dd><a href="https://docs.releng.io/zh/development/">development</a></dd>
   </dl>
-</div>
-
-  <script type="text/javascript">
+</div><script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -2,12 +2,13 @@
 <html class="no-js" lang="zh">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../../genindex/" /><link rel="search" title="搜索" href="../../search/" /><link rel="prev" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="索引" href="../../genindex/" /><link rel="search" title="搜索" href="../../search/" /><link rel="prev" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>0.10 (2021-12-31) - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides_global.css" />
@@ -118,7 +119,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.13</a> 
+     旧版本 | <a href="https://docs.releng.io//zh/latest/">稳定 v0.14</a> 
   </aside>
 </div>
 
@@ -162,7 +163,7 @@
 
 
 </a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
-  <input class="sidebar-search" placeholder=搜索 name="q" aria-label="搜索">
+  <input class="sidebar-search" placeholder="搜索" name="q" aria-label="搜索">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -213,7 +214,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -227,9 +229,9 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="id1">
+          <section id="id1">
 <h1>0.10 (2021-12-31)<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
-<div class="section" id="new-definition-directory-package-environment-script-variable">
+<section id="new-definition-directory-package-environment-script-variable">
 <h2>New &quot;definition directory&quot; package environment/script variable<a class="headerlink" href="#new-definition-directory-package-environment-script-variable" title="此标题的永久链接">¶</a></h2>
 <p>A new environment/script variable has been added to help a project refer
 to a package's &quot;definition directory&quot; -- the specific folder of a package
@@ -239,8 +241,8 @@ package's definition directory, they can refer to it as follow:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">LIBFOO_DEFDIR</span><span class="p">,</span> <span class="s1">&#39;my-resource.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="suppress-installation-stage-for-cmake-projects">
+</section>
+<section id="suppress-installation-stage-for-cmake-projects">
 <h2>Suppress installation stage for CMake projects<a class="headerlink" href="#suppress-installation-stage-for-cmake-projects" title="此标题的永久链接">¶</a></h2>
 <p>While releng-tool attempts to provide the common &quot;configuration →
 build → install&quot; stages, not all projects support an installation phase.
@@ -252,8 +254,8 @@ to ignore the stage for a package. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_NOINSTALL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="support-rsync-based-sites">
+</section>
+<section id="support-rsync-based-sites">
 <h2>Support rsync-based sites<a class="headerlink" href="#support-rsync-based-sites" title="此标题的永久链接">¶</a></h2>
 <p>releng-tool now supports fetching content from an <a class="reference external" href="https://linux.die.net/man/1/rsync">rsync</a> compatible
 source. By adjusting a package's <code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code> definition to be prefixed with
@@ -270,8 +272,8 @@ the following could be used:</p>
 </div>
 <p>What specific source paths are support will vary based off the host's
 installed <code class="docutils literal notranslate"><span class="pre">rsync</span></code> tool.</p>
-</div>
-<div class="section" id="remove-the-requirement-for-a-package-version-configuration">
+</section>
+<section id="remove-the-requirement-for-a-package-version-configuration">
 <h2>Remove the requirement for a package version configuration<a class="headerlink" href="#remove-the-requirement-for-a-package-version-configuration" title="此标题的永久链接">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code> configuration is the recommended way to define the
 version of a package. It serves two purposes -- it can be used to identify
@@ -289,8 +291,8 @@ output files for a build, for example:</p>
 not impose defining a version entry for a package. Therefore, package types
 which do not need a version or have <code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code> defined for a package,
 the <code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code> configuration can be omitted.</p>
-</div>
-<div class="section" id="flexible-asset-management">
+</section>
+<section id="flexible-asset-management">
 <h2>Flexible asset management<a class="headerlink" href="#flexible-asset-management" title="此标题的永久链接">¶</a></h2>
 <p>Typical runs will download files (<code class="docutils literal notranslate"><span class="pre">dl/</span></code>) and cache content (<code class="docutils literal notranslate"><span class="pre">cache/</span></code>) in the
 project's root directory. While users could override these paths using the
@@ -311,8 +313,8 @@ the following environment variables can be used instead:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
         </article>
       </div>
@@ -321,7 +323,7 @@ the following environment variables can be used instead:</p>
         <div class="related-pages">
           
           <a class="prev-page" href="../2022-02-26_00.11.00/">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -340,9 +342,7 @@ the following environment variables can be used instead:</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -354,7 +354,7 @@ the following environment variables can be used instead:</p>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            目录
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -400,13 +400,13 @@ the following environment variables can be used instead:</p>
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.14/">0.14</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.10/">0.10</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>
@@ -415,10 +415,8 @@ the following environment variables can be used instead:</p>
 <noscript><style>#doc-versions { display:none; }</style></noscript>
 
 <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/theme_overrides_global.js"></script>

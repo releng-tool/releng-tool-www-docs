@@ -16,6 +16,8 @@ Options which are read by releng-tool from a project's configuration script:
    default_internal = bool
    extensions = ['<extension>', '<extension>']
    external_packages = ['<path>', '<path>']
+   extra_license_exceptions = {'<short-exception-id>': '<exception-name>'}
+   extra_licenses = {'<short-license-id>': '<license-name>'}
    license_header = '<data>'
    override_extract_tools = {'<tool>': '<tool-path>'}
    override_revisions = {'<pkg>': '<revision>'}
@@ -38,6 +40,7 @@ releng-tool (may vary per context):
    BUILD_DIR
    CACHE_DIR
    DL_DIR
+   HOST_BIN_DIR
    HOST_DIR
    HOST_INCLUDE_DIR
    HOST_LIB_DIR
@@ -77,10 +80,12 @@ releng-tool (may vary per context):
    RELENG_VERBOSE
    RELENG_VERSION
    ROOT_DIR
+   STAGING_BIN_DIR
    STAGING_DIR
    STAGING_INCLUDE_DIR
    STAGING_LIB_DIR
    SYMBOLS_DIR
+   TARGET_BIN_DIR
    TARGET_DIR
    TARGET_INCLUDE_DIR
    TARGET_LIB_DIR
@@ -131,7 +136,7 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_LICENSE_FILES = '<file>' or ['<file>', '<file>']
    LIBFOO_PREFIX = '<path>' # '/usr'
    LIBFOO_PYTHON_INTERPRETER = '<path>'
-   LIBFOO_PYTHON_SETUP_TYPE = '<setup-type>' # distutils, setuptools, flit, hatch, pdm, pep517
+   LIBFOO_PYTHON_SETUP_TYPE = '<setup-type>' # distutils, setuptools, flit, hatch, pdm, pep517, poetry
    LIBFOO_REVISION = '<revision>'
    LIBFOO_SKIP_REMOTE_CONFIG = bool
    LIBFOO_SKIP_REMOTE_SCRIPTS = bool
@@ -167,7 +172,8 @@ Functions available to scripts invoked by releng-tool or importable via
    releng_join(path, *args)
    releng_ls(dir_)
    releng_mkdir(dir_, quiet=False)
-   releng_move(src, dst, quiet=False, critical=True)
+   releng_move(src, dst, quiet=False, critical=True, dst_dir=None)
+   releng_move_into(src, dst, quiet=False, critical=True)
    releng_remove(path, quiet=False)
    releng_require_version(version)
    releng_tmpdir(dir_=None)
@@ -185,9 +191,11 @@ Quirk options used by releng-tool:
 .. code-block:: none
 
    releng.bzr.certifi
+   releng.cmake.disable_direct_includes
    releng.cmake.disable_parallel_option
    releng.disable_prerequisites_check
    releng.disable_remote_configs
    releng.disable_remote_scripts
+   releng.disable_spdx_check
    releng.git.no_depth
    releng.git.no_quick_fetch
