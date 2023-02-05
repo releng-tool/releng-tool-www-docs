@@ -1,39 +1,82 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
+  <meta charset="utf-8" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>user guide &mdash; releng-tool  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
-      <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides_global.css" type="text/css" />
+
+  
+  
+
+  
+  
     <link rel="canonical" href="https://docs.releng.io/user-guide.html"/>
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/js/theme.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="developer guide" href="developer-guide.html" />
     <link rel="prev" title="installation" href="install.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="index.html" class="icon icon-home"> releng-tool
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
                 0.9
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -41,11 +84,22 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
     
-    <div class="version-warning">Legacy Version | <a href="https://docs.releng.io//en/latest/">Stable v0.14</a></div>
+    <div class="version-warning">Legacy Version | <a href="https://docs.releng.io//en/latest/">Stable v0.13</a></div>
     
     
+            
+            
+              
+            
+            
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">releng-tool</a></li>
 </ul>
@@ -191,10 +245,7 @@
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#licenses">licenses</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#patching">patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#internal-and-external-packages">internal and external packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-helpers">script helpers</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="developer-guide.html#releng_tool.releng_join"><code class="docutils literal notranslate"><span class="pre">releng_join()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide.html#script-helpers">script helpers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#vcs-ignore">vcs ignore</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#quirks">quirks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-guide.html#loading-extensions">loading extensions</a></li>
@@ -241,6 +292,8 @@
 </li>
 </ul>
 
+            
+          
 <div><hr style="margin: 10px 0;" /></div>
 <div>
     <a class="reference external" href="https://releng.io/">releng.io</a>
@@ -250,39 +303,84 @@
 </div>
 
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">releng-tool</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content style-external-links">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">user guide</li>
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>user guide</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="_sources/user-guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="install.html" class="btn btn-neutral float-left" title="installation" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
         <a href="developer-guide.html" class="btn btn-neutral float-right" title="developer guide" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="installation" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
   </div>
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
-  <section id="user-guide">
-<h1>user guide<a class="headerlink" href="#user-guide" title="Permalink to this heading"></a></h1>
+            
+  <div class="section" id="user-guide">
+<h1>user guide<a class="headerlink" href="#user-guide" title="Permalink to this heading">¶</a></h1>
 <p>The following will outline the capabilities on using releng-tool with an already
 defined project. For details on building a releng-tool project, consult the
 <a class="reference internal" href="developer-guide.html"><span class="doc">developer’s guide</span></a>.</p>
-<section id="getting-started">
-<h2>getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
+<div class="section" id="getting-started">
+<h2>getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h2>
 <p>Depending on the host and how releng-tool has been <a class="reference internal" href="install.html"><span class="doc">installed</span></a>,
 the tool can be either executed using the call <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> (if supported) or
 explicitly through a Python invoke <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">releng_tool</span></code>. This guide will
@@ -320,9 +418,9 @@ the <code class="docutils literal notranslate"><span class="pre">--help</span></
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --help
 </pre></div>
 </div>
-</section>
-<section id="arguments">
-<h2>arguments<a class="headerlink" href="#arguments" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="arguments">
+<h2>arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">¶</a></h2>
 <p>The command line can be used to specify either a single action to perform and/or
 provide various options to configure the release engineering process. Options
 can be provided before or after an action (if provided). By default, if a user
@@ -333,6 +431,10 @@ to be performed. An example of a user invoking a clean action is as follows:</p>
 </div>
 <p>The following outlines available actions:</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p id="action-clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></p>
 </td>
@@ -564,6 +666,10 @@ understand this action’s effect.</p>
 </table>
 <p>The following outlines available options:</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></p></td>
 <td><p>Directory for distributed version control cache
@@ -614,9 +720,9 @@ to apply multiple quirks.</p></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="understanding-rebuilds">
-<h2>understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="Permalink to this heading"></a></h2>
+</div>
+<div class="section" id="understanding-rebuilds">
+<h2>understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="Permalink to this heading">¶</a></h2>
 <p>As packages are processed in order (based off of detected dependencies, if any),
 each package will go through their respective stages: fetching, extraction,
 patching, configuration, building and installation. While a package may not take
@@ -665,11 +771,11 @@ allow <code class="docutils literal notranslate"><span class="pre">module-c</spa
 </div>
 <p>This is a very simple example to consider, and attempts to rebuild can vary
 based on the packages, changes and languages used.</p>
-</section>
-<section id="tips">
-<h2>tips<a class="headerlink" href="#tips" title="Permalink to this heading"></a></h2>
-<section id="offline-builds">
-<h3>offline builds<a class="headerlink" href="#offline-builds" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="tips">
+<h2>tips<a class="headerlink" href="#tips" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="offline-builds">
+<h3>offline builds<a class="headerlink" href="#offline-builds" title="Permalink to this heading">¶</a></h3>
 <p>A user can prepare for an offline build by using the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> action:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool fetch
 </pre></div>
@@ -677,9 +783,9 @@ based on the packages, changes and languages used.</p>
 <p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and/or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
 folders. Future builds for the project will no longer need external access until
 these folders are manually removed.</p>
-</section>
-<section id="parallel-builds">
-<h3>parallel builds<a class="headerlink" href="#parallel-builds" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="parallel-builds">
+<h3>parallel builds<a class="headerlink" href="#parallel-builds" title="Permalink to this heading">¶</a></h3>
 <p>A stage (such as a build stage) for a package can take advantage of multiple
 cores to perform the step. By default, releng-tool will attempt to run as many
 jobs for a stage equal to the amount of physical cores on the host system. The
@@ -691,15 +797,15 @@ for stages to two jobs, the following can be used:</p>
 </div>
 <p>Note that a developer may restrict the amount of jobs allowed for a specific
 package if a package cannot support parallel processing.</p>
-</section>
-<section id="privileged-builds">
-<h3>privileged builds<a class="headerlink" href="#privileged-builds" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="privileged-builds">
+<h3>privileged builds<a class="headerlink" href="#privileged-builds" title="Permalink to this heading">¶</a></h3>
 <p>It is never recommended to invoke a build with elevated (e.g. root) privileges.
 A builder invoking in an elevated environment runs the risk of a misconfigured
 releng-tool project dirtying or destroying the builder’s host environment.</p>
-</section>
-<section id="license-generation">
-<h3>license generation<a class="headerlink" href="#license-generation" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="license-generation">
+<h3>license generation<a class="headerlink" href="#license-generation" title="Permalink to this heading">¶</a></h3>
 <p>At the end of a <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> invoke, the final stages will compile a list of
 package license information (if licenses are defined). If a user wishes to
 compile a project’s list of license information without performing an entire
@@ -709,12 +815,12 @@ build, the <code class="docutils literal notranslate"><span class="pre">licenses
 </div>
 <p>License information can then be found in the root directory’s
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/licenses</span></code> folder.</p>
-</section>
-</section>
-<section id="advanced-builder-capabilities">
-<h2>advanced builder capabilities<a class="headerlink" href="#advanced-builder-capabilities" title="Permalink to this heading"></a></h2>
-<section id="development-mode">
-<span id="id1"></span><h3>development mode<a class="headerlink" href="#development-mode" title="Permalink to this heading"></a></h3>
+</div>
+</div>
+<div class="section" id="advanced-builder-capabilities">
+<h2>advanced builder capabilities<a class="headerlink" href="#advanced-builder-capabilities" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="development-mode">
+<span id="id1"></span><h3>development mode<a class="headerlink" href="#development-mode" title="Permalink to this heading">¶</a></h3>
 <p>Development mode provides a way for builder to request to process supported
 packages against a development version of sources rather than using fixed
 versions. Consider the following example: if a project has a package which
@@ -737,9 +843,9 @@ use the development revision for packages where define. For example:</p>
 <p>Development mode is persisted through the use of a file flag in the root
 directory. A user can either disable development mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
-</section>
-<section id="local-sources-mode">
-<span id="id2"></span><h3>local-sources mode<a class="headerlink" href="#local-sources-mode" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="local-sources-mode">
+<span id="id2"></span><h3>local-sources mode<a class="headerlink" href="#local-sources-mode" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Clean events (such as <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">clean</span></code>) will not touch packages using
@@ -776,17 +882,17 @@ packages. For example:</p>
 <p>Local-sources mode is persisted through the use of a file flag in the root
 directory. A user can either disable local sources mode by performing a
 <a class="reference internal" href="#action-mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a> or can manually remove the file flag.</p>
-</section>
-<section id="configuration-overrides">
-<span id="conf-overrides"></span><h3>configuration overrides<a class="headerlink" href="#configuration-overrides" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="configuration-overrides">
+<span id="conf-overrides"></span><h3>configuration overrides<a class="headerlink" href="#configuration-overrides" title="Permalink to this heading">¶</a></h3>
 <p>While it is not recommended to have users manually modify a project’s
 configuration, a series of override options exist to deal with unique build
 scenarios. If a builder needs to override a tool location or package site, a
 user and define either environment options or setup a configuration override
 script <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code>. It is never recommended to persist a configuration
 overrides file into a project’s source repository.</p>
-<section id="extraction-tool-overrides">
-<h4>extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="Permalink to this heading"></a></h4>
+<div class="section" id="extraction-tool-overrides">
+<h4>extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="Permalink to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code> option inside a configuration override script
 allows a dictionary to be provided to map an extension type to an external tool
 to indicate which tool should be used for extraction. For example, when a
@@ -798,9 +904,9 @@ own extraction utility. Consider the following example:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="revision-overrides">
-<h4>revision overrides<a class="headerlink" href="#revision-overrides" title="Permalink to this heading"></a></h4>
+</div>
+<div class="section" id="revision-overrides">
+<h4>revision overrides<a class="headerlink" href="#revision-overrides" title="Permalink to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_revisions</span></code> option inside a configuration override script allows
 a dictionary to be provided to map a package name to a new revision value.
 Consider the following example: a project defines <code class="docutils literal notranslate"><span class="pre">module-a</span></code> and <code class="docutils literal notranslate"><span class="pre">module-b</span></code>
@@ -816,9 +922,9 @@ the developer does not want to explicitly change the revision inside package
 </div>
 <p>The above example shows that package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> will fetch using a test branch
 instead of what is defined in the actual package definition.</p>
-</section>
-<section id="site-overrides">
-<h4>site overrides<a class="headerlink" href="#site-overrides" title="Permalink to this heading"></a></h4>
+</div>
+<div class="section" id="site-overrides">
+<h4>site overrides<a class="headerlink" href="#site-overrides" title="Permalink to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">override_sites</span></code> option inside a configuration override script allows a
 dictionary to be provided to map a package name to a new site value. There may
 be times where a host may not have access to a specific package site. To have a
@@ -832,9 +938,9 @@ be access from the host machine. If a mirror location has been setup at
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="tool-overrides">
-<h4>tool overrides<a class="headerlink" href="#tool-overrides" title="Permalink to this heading"></a></h4>
+</div>
+<div class="section" id="tool-overrides">
+<h4>tool overrides<a class="headerlink" href="#tool-overrides" title="Permalink to this heading">¶</a></h4>
 <p>Environment variables can be used to help override external tool invoked by the
 releng-tool process. For example, when invoking CMake-based projects, the tool
 <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked; however, if a builder is running on CentOS and CMake
@@ -846,40 +952,49 @@ Consider the following example:</p>
 <span class="go">[cmake3 will be used for cmake projects]</span>
 </pre></div>
 </div>
-</section>
-<section id="quirks">
-<h4>quirks<a class="headerlink" href="#quirks" title="Permalink to this heading"></a></h4>
+</div>
+<div class="section" id="quirks">
+<h4>quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h4>
 <p>releng-tool also provides a series of configuration quirks to deal with rare
 host environment scenarios where releng-tool may be experiencing issues. See
 <a class="reference internal" href="developer-guide.html#quirks"><span class="std std-ref">configuration quirks</span></a> for more information.</p>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="install.html" class="btn btn-neutral float-left" title="installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="developer-guide.html" class="btn btn-neutral float-right" title="developer guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p></p>
-  </div>
+    <p>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
   <div class="rst-versions" data-toggle="rst-versions">
 <span class="rst-current-version" data-toggle="rst-current-version">
@@ -905,23 +1020,30 @@ host environment scenarios where releng-tool may be experiencing issues. See
   <dl>
     <dt>Versions</dt>
     
-      <dd><a href="https://docs.releng.io/en/0.14/">0.14</a></dd>
-    
       <dd><a href="https://docs.releng.io/en/0.13/">0.13</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.12/">0.12</a></dd>
     
       <dd><a href="https://docs.releng.io/en/0.11/">0.11</a></dd>
     
+      <dd><a href="https://docs.releng.io/en/0.10/">0.10</a></dd>
+    
   </dl>
   <dl>
     <dd><a href="https://docs.releng.io/en/development/">development</a></dd>
   </dl>
-</div><script>
+</div>
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
