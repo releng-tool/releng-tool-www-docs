@@ -333,33 +333,40 @@ or <a class="reference internal" href="#action-distclean"><code class="docutils 
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">patch</span></code></p></td>
 <td><p>All packages will be processed up to the patch phase (inclusive).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code></p></td>
+<tr class="row-odd"><td><p id="action-sbom"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></p>
+</td>
+<td><p>A request to generate a software build of materials (SBOM) for
+the project. By default, a releng-tool run will generate an
+SBOM file at the end of a run. This action can be used to
+generate an SBOM without requiring a build.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code></p></td>
 <td><p>Performs the build stage for the package. On success, the specified
 package will have completed its build. If a package has any
 package dependencies, these dependencies will be processed before
 the specified package. If the provided package name does not
 exist, a notification will be generated.</p></td>
 </tr>
-<tr class="row-even"><td><p id="action-pkg-clean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></p>
+<tr class="row-odd"><td><p id="action-pkg-clean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></p>
 </td>
 <td><p>Cleans the build directory for package (if it exists). See also the
 <a class="reference internal" href="#action-pkg-distclean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code></a> action.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code></p></td>
 <td><p>Performs the configure stage for the package. On success, the
 specified package will have completed its configuration stage.
 If a package has any package dependencies, these dependencies will
 be processed before the specified package. If the provided
 package name does not exist, a notification will be generated.</p></td>
 </tr>
-<tr class="row-even"><td><p id="action-pkg-distclean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code></p>
+<tr class="row-odd"><td><p id="action-pkg-distclean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code></p>
 </td>
 <td><p>Perform a pristine clean of a releng-tool package. This request
 not only removes the build directory but also any cached file or
 directory associated with the package. See also the
 <a class="reference internal" href="#action-pkg-clean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></a> action.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">&quot;&lt;cmd&gt;&quot;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">&quot;&lt;cmd&gt;&quot;</span></code></p></td>
 <td><p>Invokes a provided command in the package’s build output directory.
 This package action can be useful for developers attempting to
 develop/debug a specific package, allowing an easy way to issue
@@ -375,19 +382,19 @@ command is issued.</p>
 command.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></p></td>
 <td><p>Performs the extraction stage for the package. On success, the
 specified package will have completed its extraction stage.
 If the provided package name does not exist, a notification will
 be generated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></p></td>
 <td><p>Performs the fetch stage for the package. On success, the
 specified package stage will have completed its fetch stage. If
 the provided package name does not exist, a notification will be
 generated.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></p></td>
 <td><p>Performs the installation stage for the package. On success, the
 specified package will have completed its installation
 stage. If a package has any package dependencies, these
@@ -395,18 +402,18 @@ dependencies will be processed before the specified package. If
 the provided package name does not exist, a notification will be
 generated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></p></td>
 <td><p>A request to generate the license information for a specific package
 in a project. Note that license information requires acquiring license
 documents from the package itself. Therefore, the package will be
 fetched/extracted if not already done.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></p></td>
 <td><p>Performs the patch stage for the package. On success, the specified
 package will have completed its patch stage. If the provided
 package name does not exist, a notification will be generated.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a package has been built,
 the package will not attempt to be built again. Invoking a rebuild
 request will tell releng-tool to re-invoke the build step again.
@@ -420,7 +427,7 @@ to use <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></p></td>
 <td><p>Force a rebuild of a specific package. Once a package has been built,
 the package will not attempt to be built again. Invoking a rebuild
 request will tell releng-tool to re-invoke the build step again.
@@ -434,7 +441,7 @@ instead.</p>
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></p></td>
 <td><p>Force a re-configuration of a specific package. Once a package
 has been configured, the package will not attempt to configure
 it again. Invoking a re-configuration request will tell
@@ -450,7 +457,7 @@ re-configuration stage are recommended to use
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></p></td>
 <td><p>Force a re-configuration of a specific package. Once a package has
 been configured, the package will not attempt to configure it again.
 Invoking a re-configuration request will tell releng-tool to
@@ -465,7 +472,7 @@ instead.</p>
 read to understand this action’s effect.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></p></td>
 <td><p>Force a re-installation of a specific package. Once a package has
 been installed, the package will not attempt to install it again.
 Invoking a re-installation request will tell releng-tool to
@@ -548,18 +555,54 @@ the provided path.</p>
 <td><p>Directory to process a releng-tool project (defaults to the
 working directory).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></p></td>
+<td><p>The format to use when generating a software build of materials
+(SBOM). Multiple formats can be provided (comma-separated).</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSV</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>HTML</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">html</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>JSON</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">json</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Text</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">text</span></code> (default)</p></td>
+</tr>
+<tr class="row-even"><td><p>XML</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">xml</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>See also <a class="reference internal" href="#action-sbom"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></a>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></p></td>
 <td><p>Allows specifying a runtime <a class="reference internal" href="../developer-guide/#quirks"><span class="std std-ref">quirk</span></a> for the
 releng-tool process. This option can be used multiple times to
 apply multiple quirks.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></p></td>
 <td><p>Show additional messages.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--version</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--version</span></code></p></td>
 <td><p>Show releng-tool’s version.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></p></td>
 <td><p>Treat warnings from releng-tool as errors.</p></td>
 </tr>
 </tbody>
