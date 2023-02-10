@@ -1616,6 +1616,18 @@ project's license file. Specifying <code class="docutils literal notranslate"><s
 the no-extraction flag enabled will result in a warning. By default, this option
 is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </section>
+<section id="libfoo-patch-subdir">
+<h4>LIBFOO_PATCH_SUBDIR<a class="headerlink" href="#libfoo-patch-subdir" title="此标题的永久链接">¶</a></h4>
+<p>Sub-directory where any package patches should be applied to. By default,
+patches are applied to the root of the extracted sources for a package. This
+option can be useful for packages which utilize <a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a> to
+work in a container directory for sources which contain multiple modules, but
+has prepared patches tailored for the specific module being targeted.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PATCH_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;subdir&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a>.</p>
+</section>
 <section id="libfoo-prefix">
 <h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="此标题的永久链接">¶</a></h4>
 <p>Specifies the sysroot prefix value to use for the package. An explicitly
@@ -4134,6 +4146,7 @@ by the providers of said extensions.</p>
 <li><a class="reference internal" href="#libfoo-host-provides">LIBFOO_HOST_PROVIDES</a></li>
 <li><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
+<li><a class="reference internal" href="#libfoo-patch-subdir">LIBFOO_PATCH_SUBDIR</a></li>
 <li><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li><a class="reference internal" href="#libfoo-revision">LIBFOO_REVISION</a></li>
 <li><a class="reference internal" href="#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
