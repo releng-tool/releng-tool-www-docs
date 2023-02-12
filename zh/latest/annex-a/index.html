@@ -176,6 +176,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">发行说明</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
@@ -246,6 +247,7 @@
 <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
 <span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">]</span>
 <span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;quirk-id&gt;&#39;</span><span class="p">]</span>
+<span class="n">sbom_format</span> <span class="o">=</span> <span class="s1">&#39;&lt;format&gt;&#39;</span> <span class="c1"># csv, html, json, text, xml</span>
 <span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
 <span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
 <span class="n">urlopen_context</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="o">&gt;</span>
@@ -351,6 +353,7 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">&#39;&lt;license&gt;&#39;</span>  <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">]</span>
 <span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">&#39;&lt;file&gt;&#39;</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">]</span>
+<span class="n">LIBFOO_PATCH_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;&lt;subdir&gt;&#39;</span>
 <span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
 <span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
 <span class="n">LIBFOO_PYTHON_SETUP_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;setup-type&gt;&#39;</span> <span class="c1"># distutils, setuptools, flit, hatch, pdm, pep517, poetry</span>
@@ -412,6 +415,7 @@ releng.disable_remote_scripts
 releng.disable_spdx_check
 releng.git.no_depth
 releng.git.no_quick_fetch
+releng.stats.no_pdf
 </pre></div>
 </div>
 </section>
@@ -509,13 +513,13 @@ releng.git.no_quick_fetch
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.15/">0.15</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.14/">0.14</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>

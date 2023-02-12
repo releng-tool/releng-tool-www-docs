@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Indeks" href="../genindex/" /><link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="Podręcznik użytkownika" href="../user-guide/" /><link rel="prev" title="Wymagania" href="../requirements/" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>Instalacja - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
@@ -119,7 +119,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     Wersja rozwojowa | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.14</a> 
+     Wersja rozwojowa | <a href="https://docs.releng.io//pl/latest/">Stabilny v0.15</a> 
   </aside>
 </div>
 
@@ -235,15 +235,15 @@
           <section id="installation">
 <h1>Instalacja<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
 <p>The recommended method of installing/upgrading releng-tool is using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="w"> </span><span class="o">(</span>or<span class="o">)</span>
-python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -U releng-tool
+ <span class="o">(</span>or<span class="o">)</span>
+python -m pip install -U releng-tool
 </pre></div>
 </div>
 <p>Następujące polecenie sprawdza, czy pakiet został zainstalowany:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>--version
-<span class="w"> </span><span class="o">(</span>or<span class="o">)</span>
-python<span class="w"> </span>-m<span class="w"> </span>releng-tool<span class="w"> </span>--version
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --version
+ <span class="o">(</span>or<span class="o">)</span>
+python -m releng-tool --version
 </pre></div>
 </div>
 <section id="quick-start">
@@ -255,10 +255,10 @@ environment to use this package.</p>
 <p>Chociaż korzystanie z <a class="reference external" href="https://www.python.org/">Python</a>/<a class="reference external" href="https://pip.pypa.io/">pip</a> jest praktycznie zgodne pomiędzy dystrybucjami Linuxa, poniżej przedstawiono serię kroków pomocniczych, aby zainstalować dany pakiet w określonych dystrybucjach Linuxa. Z terminala wywołaj następujące polecenia:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Arch</label><div class="tab-content docutils container">
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-Sy
-<span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo pacman -Sy
+<span class="gp">$ </span>sudo pacman -S python-pip
+<span class="gp">$ </span>sudo pip install -U releng-tool
+<span class="gp">$ </span>releng-tool --version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
@@ -266,34 +266,34 @@ environment to use this package.</p>
 <a class="reference external" href="https://aur.archlinux.org/packages/releng-tool/">available on AUR</a>.</p>
 </div>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">CentOS</label><div class="tab-content docutils container">
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
-<span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>python-pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo yum install epel-release
+<span class="gp">$ </span>sudo yum install python-pip
+<span class="gp">$ </span>sudo pip install -U releng-tool
+<span class="gp">$ </span>releng-tool --version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Fedora</label><div class="tab-content docutils container">
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python-pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo dnf install python-pip
+<span class="gp">$ </span>sudo pip install -U releng-tool
+<span class="gp">$ </span>releng-tool --version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">openSUSE</label><div class="tab-content docutils container">
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip install -U releng-tool
+<span class="gp">$ </span>releng-tool --version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">Ubuntu</label><div class="tab-content docutils container">
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python-pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt update
+<span class="gp">$ </span>sudo apt install python-pip
+<span class="gp">$ </span>sudo pip install -U releng-tool
+<span class="gp">$ </span>releng-tool --version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
@@ -302,9 +302,9 @@ environment to use this package.</p>
 </div>
 <input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">OS X</label><div class="tab-content docutils container">
 <p>Z terminala wywołaj następujące polecenia:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>easy_install<span class="w"> </span>pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo easy_install pip
+<span class="gp">$ </span>sudo pip install -U releng-tool
+<span class="gp">$ </span>releng-tool --version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
@@ -330,7 +330,7 @@ environment to use this package.</p>
 <section id="development">
 <h2>Oprogramowanie<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h2>
 <p>Aby zainstalować najnowsze źródła oprogramowania, można skorzystać z następującego polecenia <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/releng-tool/releng-tool.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/releng-tool/releng-tool.git
 </pre></div>
 </div>
 </section>
@@ -425,13 +425,13 @@ environment to use this package.</p>
             <dt>Wersje</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/latest/">Najnowszy</a></dd>
 
+            <dd><a href="https://docs.releng.io/pl/0.15/">0.15</a></dd>
+
             <dd><a href="https://docs.releng.io/pl/0.14/">0.14</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/pl/0.12/">0.12</a></dd>
-
-            <dd><a href="https://docs.releng.io/pl/0.11/">0.11</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/pl/development/">Rozwój</a></dd>
         </dl>
@@ -440,9 +440,6 @@ environment to use this package.</p>
 <noscript><style>#doc-versions { display:none; }</style></noscript>
 
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>

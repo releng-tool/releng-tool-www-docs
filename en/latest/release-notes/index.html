@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="0.14 (2023-02-05)" href="../news/2023-02-05_00.14.00/" /><link rel="prev" title="ANNEX A - Quick reference" href="../annex-a/" />
+<link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="0.15 (2023-02-12)" href="../news/2023-02-12_00.15.00/" /><link rel="prev" title="ANNEX A - Quick reference" href="../annex-a/" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>Release notes - releng-tool documentation</title>
@@ -176,6 +176,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Release notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
@@ -236,6 +237,7 @@ see the project’s <a class="reference external" href="https://github.com/relen
 <h2>News<a class="headerlink" href="#news" title="Permalink to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
@@ -247,7 +249,21 @@ see the project’s <a class="reference external" href="https://github.com/relen
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <section id="id1">
-<h3>0.14 (2023-02-05)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h3>0.15 (2023-02-12)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>CMake install events will now always skip dependency checks</p></li>
+<li><p>Fixed issue where extension loading may cause issues in Python 2.7</p></li>
+<li><p>Fixed issue where reconfiguration may not flag rebuild flags (and related)</p></li>
+<li><p>Fixed issue where statistics (PDF) may fail on legacy matplotlib environments</p></li>
+<li><p>Improve support for patching a root build directory and sub-directories</p></li>
+<li><p>Introduce extension support for event listeners</p></li>
+<li><p>Make projects will now be provided a <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> override</p></li>
+<li><p>Source distribution now includes completion scripts and tests</p></li>
+<li><p>Support setting software build of materials format in project configuration</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>0.14 (2023-02-05)<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><strong>(note)</strong> The deprecated <code class="docutils literal notranslate"><span class="pre">releng</span></code> namespace has been removed</p></li>
 <li><p>CMake install events will now always force installs by default</p></li>
@@ -266,8 +282,8 @@ issues finding includes/libraries with <code class="docutils literal notranslate
 <li><p>Support user paths in package-specific local-sources overrides</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>0.13 (2022-08-10)<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<section id="id3">
+<h3>0.13 (2022-08-10)<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Avoid interaction with target area when using CMake projects that only
 uses the staging area</p></li>
@@ -295,16 +311,16 @@ source revisions</p></li>
 operating in local-sources mode</p></li>
 <li><p>Introduce support for make-based packages</p></li>
 <li><p>Support <code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code> usage inside a package’s definition</p></li>
-<li><p>Support bzr quirk to utilize <code class="docutils literal notranslate"><span class="pre">certifi</span></code> certificates</p></li>
+<li><p>Support Bazaar quirk to utilize <code class="docutils literal notranslate"><span class="pre">certifi</span></code> certificates</p></li>
 <li><p>Support users overriding a project’s configuration path from command line</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>0.12 (2022-05-02)<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<section id="id4">
+<h3>0.12 (2022-05-02)<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Adding <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code> to <code class="docutils literal notranslate"><span class="pre">releng_copy</span></code> for explicit copies to directories</p></li>
 <li><p>Adjust automatic job detection to use physical cores instead of logical cores</p></li>
-<li><p>Fixed an issue where forced git-fetches with branch revisions may have stale
+<li><p>Fixed an issue where forced Git-fetches with branch revisions may have stale
 content on first extract</p></li>
 <li><p>Fixed where package-specific prefixes/njobs would leak to other projects</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">*_[INCLUDE,LIB]_DIR</span></code> environment/script variables</p></li>
@@ -312,12 +328,12 @@ content on first extract</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">PREFIXED_*_DIR</span></code> environment/script variables</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">libfoo-exec</span></code> action</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">releng_include</span></code> helper script function</p></li>
-<li><p>Support make-styled environment injections via command line</p></li>
+<li><p>Support Make-styled environment injections via command line</p></li>
 <li><p>Support package variable overrides via command line</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3>0.11 (2022-02-26)<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<section id="id5">
+<h3>0.11 (2022-02-26)<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Always pre-create install directory before package install scripts are invoked</p></li>
 <li><p>Fixed an issue where nested zip files could not extract</p></li>
@@ -330,48 +346,48 @@ content on first extract</p></li>
 <li><p>Support triggering a reconfiguration of all packages through a force argument</p></li>
 </ul>
 </section>
-<section id="id5">
-<h3>0.10 (2021-12-31)<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<section id="id6">
+<h3>0.10 (2021-12-31)<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Fixed an issue where a configured <code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code> bin path would not be
 registered in the script environment’s path</p></li>
 <li><p>Fixed an issue where <code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code> reports success if the target path is a
 file that already exists</p></li>
-<li><p>Fixed an issue where extensions may not load on python 2.7</p></li>
+<li><p>Fixed an issue where extensions may not load on Python 2.7</p></li>
 <li><p>Fixed an issue where post-processing may be invoked even if a package’s stage
 would fail</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_DEFDIR</span></code> environment/script variable</p></li>
-<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_NOINSTALL</span></code> for cmake packages with no install rule</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_NOINSTALL</span></code> for CMake packages with no install rule</p></li>
 <li><p>Introduce support for rsync sites</p></li>
 <li><p>Provide an option to suppress root warning (for zero-uid containers)</p></li>
 <li><p>Remove the requirement to have a package version entry</p></li>
 <li><p>Support configuring cache/download directories using environment variables</p></li>
-<li><p>Support custom ssl context overrides via <code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></p></li>
+<li><p>Support custom SSL context overrides via <code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></p></li>
 <li><p>Support providing an assets container directory (for cache/download folders)</p></li>
 </ul>
 </section>
-<section id="id6">
-<h3>0.9 (2021-10-02)<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<section id="id7">
+<h3>0.9 (2021-10-02)<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Fixed an import issue when running with python 3.10</p></li>
+<li><p>Fixed an import issue when running with Python 3.10</p></li>
 <li><p>Fixed an issue where a cyclic package check provided a bad message</p></li>
-<li><p>Fixed an issue where a git submodule with a target branch may fail to extract</p></li>
+<li><p>Fixed an issue where a Git submodule with a target branch may fail to extract</p></li>
 <li><p>Post-processing script renamed to <code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code></p></li>
-<li><p>Support development mode relaxed branch fetching for git sites</p></li>
-<li><p>Support requiring a git source’s revision to be gpg-signed</p></li>
-<li><p>Support using ascii-armor (asc) files to package integrity checks</p></li>
+<li><p>Support development mode relaxed branch fetching for Git sites</p></li>
+<li><p>Support requiring a Git source’s revision to be GnuPG-signed (GPG)</p></li>
+<li><p>Support using ASCII-armor (asc) files to package integrity checks</p></li>
 </ul>
 </section>
-<section id="id7">
-<h3>0.8 (2021-08-28)<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<section id="id8">
+<h3>0.8 (2021-08-28)<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Allow dvcs packages to share caches (to minimize space/time fetching)</p></li>
-<li><p>Fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on python
-2.7 with unicode-defined environment variables</p></li>
-<li><p>Fixed an issue where a diverged revision in git would incorrectly populate a
+<li><p>Allow DVCS packages to share caches (to minimize space/time fetching)</p></li>
+<li><p>Fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on Python
+2.7 with Unicode-defined environment variables</p></li>
+<li><p>Fixed an issue where a diverged revision in Git would incorrectly populate a
 package’s build directory with the cached revision instead of the remote
 revision</p></li>
-<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code> for package git-specific configurations</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code> for package Git-specific configurations</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code> helper script function</p></li>
 <li><p>Introduce statistic tracking (stage durations) which generate to into the
 output folder after execution</p></li>
@@ -381,18 +397,18 @@ output folder after execution</p></li>
 <li><p>Rework <code class="docutils literal notranslate"><span class="pre">LIBTOOL_GIT_REFSPECS</span></code> to provide more control over custom revisions
 that can be fixed (i.e. no longer fixed on <code class="docutils literal notranslate"><span class="pre">&lt;target&gt;/*/head</span></code>; instead, a
 configured value-wildcard string should be used)</p></li>
-<li><p>Support auto-detecting python interpreter path overrides in windows</p></li>
-<li><p>Support faster git fetching</p></li>
-<li><p>Support pruning any remote-tracked references in a git-cached project when a
+<li><p>Support auto-detecting Python interpreter path overrides in windows</p></li>
+<li><p>Support faster Git fetching</p></li>
+<li><p>Support pruning any remote-tracked references in a Git-cached project when a
 forced fetch request is made</p></li>
 </ul>
 </section>
-<section id="id8">
-<h3>0.7 (2021-08-08)<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<section id="id9">
+<h3>0.7 (2021-08-08)<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Fetch from an already cached package’s site if the fetch is explicitly
 requested</p></li>
-<li><p>Fixed an issue with registry failing to import on python 2.7</p></li>
+<li><p>Fixed an issue with registry failing to import on Python 2.7</p></li>
 <li><p>Fixed issue where build/install definitions where not used in in their
 respective stages</p></li>
 <li><p>Fixed issue where mercurial packages fetched using the version option instead
@@ -400,7 +416,7 @@ of the revision option</p></li>
 <li><p>Fixed issue where the host directory was not registered in a stage’s path</p></li>
 <li><p>Introduce clean, logging flags and releng-version into the script environments</p></li>
 <li><p>Only fetch a single package if only said package is requested to be fetched</p></li>
-<li><p>Package without a site will throw an error when vcs-type is set</p></li>
+<li><p>Package without a site will throw an error when VCS-type is set</p></li>
 <li><p>Reconfigure/rebuild requests will now perform all trailing stages for the
 package(s) being redone; rebuild/reconfigure-only actions have been introduced
 to force re-invoking a specific stage</p></li>
@@ -409,8 +425,8 @@ to force re-invoking a specific stage</p></li>
 <li><p>releng-tool will now full stop if external package definition fails to load</p></li>
 </ul>
 </section>
-<section id="id9">
-<h3>0.6 (2020-10-10)<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<section id="id10">
+<h3>0.6 (2020-10-10)<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Always register optional flags inside scripts (allowing developers to use
 flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
@@ -425,38 +441,38 @@ output by default</p></li>
 an interim)</p></li>
 </ul>
 </section>
-<section id="id10">
-<h3>0.5 (2020-09-07)<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>Fixed false error when verifying cached git reference</p></li>
-</ul>
-</section>
 <section id="id11">
-<h3>0.4 (2020-09-07)<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<h3>0.5 (2020-09-07)<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>Allow developers to fetch from addition git refspecs (e.g. pull requests)</p></li>
-<li><p>Allow setting quirks in command line</p></li>
-<li><p>Fixed a scenario where a git extraction stage could fetch sources</p></li>
-<li><p>Fixed git fetch/extraction if package is cached and site has changed</p></li>
-<li><p>Improved handling of output files which may set the readonly attribute</p></li>
-<li><p>Introduce support for local interim-development package content</p></li>
-<li><p>Introduce support for shallow git fetching</p></li>
+<li><p>Fixed false error when verifying cached Git reference</p></li>
 </ul>
 </section>
 <section id="id12">
-<h3>0.3 (2019-10-19)<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<h3>0.4 (2020-09-07)<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Allow developers to fetch from addition Git refspecs (e.g. pull requests)</p></li>
+<li><p>Allow setting quirks in command line</p></li>
+<li><p>Fixed a scenario where a Git extraction stage could fetch sources</p></li>
+<li><p>Fixed Git fetch/extraction if package is cached and site has changed</p></li>
+<li><p>Improved handling of output files which may set the readonly attribute</p></li>
+<li><p>Introduce support for local interim-development package content</p></li>
+<li><p>Introduce support for shallow Git fetching</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>0.3 (2019-10-19)<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>Allow packages to configure for no-extraction for sources</p></li>
-<li><p>Fixed default interpreter detection for python packages</p></li>
-<li><p>Fixed fetching from mercurial sources</p></li>
-<li><p>Fixed fetching from newer git hashes if repository was already cached</p></li>
+<li><p>Fixed default interpreter detection for Python packages</p></li>
+<li><p>Fixed fetching from Mercurial sources</p></li>
+<li><p>Fixed fetching from newer Git hashes if repository was already cached</p></li>
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">releng_env</span></code> and <code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code> helper script functions</p></li>
 <li><p>Introduce support for package-specific bootstrapping stage</p></li>
 </ul>
 </section>
-<section id="id13">
-<h3>0.2 (2019-03-15)<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
+<section id="id14">
+<h3>0.2 (2019-03-15)<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A project’s host directory will now be registered in the system’s path during
 execution</p></li>
@@ -465,8 +481,8 @@ execution</p></li>
 <li><p>Re-work various script names (e.g. <code class="docutils literal notranslate"><span class="pre">releng.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">releng</span></code>)</p></li>
 </ul>
 </section>
-<section id="id14">
-<h3>0.1 (2019-02-24)<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
+<section id="id15">
+<h3>0.1 (2019-02-24)<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Hello world</p></li>
 </ul>
@@ -479,12 +495,12 @@ execution</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../news/2023-02-05_00.14.00/">
+          <a class="next-page" href="../news/2023-02-12_00.15.00/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">0.14 (2023-02-05)</div>
+                <div class="title">0.15 (2023-02-12)</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -529,20 +545,21 @@ execution</p></li>
 <li><a class="reference internal" href="#">Release notes</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
 <li><a class="reference internal" href="#summary">Summary</a><ul>
-<li><a class="reference internal" href="#id1">0.14 (2023-02-05)</a></li>
-<li><a class="reference internal" href="#id2">0.13 (2022-08-10)</a></li>
-<li><a class="reference internal" href="#id3">0.12 (2022-05-02)</a></li>
-<li><a class="reference internal" href="#id4">0.11 (2022-02-26)</a></li>
-<li><a class="reference internal" href="#id5">0.10 (2021-12-31)</a></li>
-<li><a class="reference internal" href="#id6">0.9 (2021-10-02)</a></li>
-<li><a class="reference internal" href="#id7">0.8 (2021-08-28)</a></li>
-<li><a class="reference internal" href="#id8">0.7 (2021-08-08)</a></li>
-<li><a class="reference internal" href="#id9">0.6 (2020-10-10)</a></li>
-<li><a class="reference internal" href="#id10">0.5 (2020-09-07)</a></li>
-<li><a class="reference internal" href="#id11">0.4 (2020-09-07)</a></li>
-<li><a class="reference internal" href="#id12">0.3 (2019-10-19)</a></li>
-<li><a class="reference internal" href="#id13">0.2 (2019-03-15)</a></li>
-<li><a class="reference internal" href="#id14">0.1 (2019-02-24)</a></li>
+<li><a class="reference internal" href="#id1">0.15 (2023-02-12)</a></li>
+<li><a class="reference internal" href="#id2">0.14 (2023-02-05)</a></li>
+<li><a class="reference internal" href="#id3">0.13 (2022-08-10)</a></li>
+<li><a class="reference internal" href="#id4">0.12 (2022-05-02)</a></li>
+<li><a class="reference internal" href="#id5">0.11 (2022-02-26)</a></li>
+<li><a class="reference internal" href="#id6">0.10 (2021-12-31)</a></li>
+<li><a class="reference internal" href="#id7">0.9 (2021-10-02)</a></li>
+<li><a class="reference internal" href="#id8">0.8 (2021-08-28)</a></li>
+<li><a class="reference internal" href="#id9">0.7 (2021-08-08)</a></li>
+<li><a class="reference internal" href="#id10">0.6 (2020-10-10)</a></li>
+<li><a class="reference internal" href="#id11">0.5 (2020-09-07)</a></li>
+<li><a class="reference internal" href="#id12">0.4 (2020-09-07)</a></li>
+<li><a class="reference internal" href="#id13">0.3 (2019-10-19)</a></li>
+<li><a class="reference internal" href="#id14">0.2 (2019-03-15)</a></li>
+<li><a class="reference internal" href="#id15">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -579,13 +596,13 @@ execution</p></li>
             <dt>Versions</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/en/latest/">Latest</a></dd>
 
+            <dd><a href="https://docs.releng.io/en/0.15/">0.15</a></dd>
+
             <dd><a href="https://docs.releng.io/en/0.14/">0.14</a></dd>
 
             <dd><a href="https://docs.releng.io/en/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/en/0.12/">0.12</a></dd>
-
-            <dd><a href="https://docs.releng.io/en/0.11/">0.11</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/en/development/">Development</a></dd>
         </dl>

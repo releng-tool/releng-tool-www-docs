@@ -25,6 +25,7 @@ Options which are read by releng-tool from a project's configuration script:
    packages = ['<pkg>', '<pkg>', '<pkg>']
    prerequisites = ['<tool>', '<tool>', '<tool>']
    quirks = ['<quirk-id>']
+   sbom_format = '<format>' # csv, html, json, text, xml
    sysroot_prefix = '<path>' # '/usr'
    url_mirror = '<mirror-url>'
    urlopen_context = <ssl.SSLContext>
@@ -134,6 +135,7 @@ Configuration options parsed by releng-tool for a package definition:
    LIBFOO_NO_EXTRACTION = bool
    LIBFOO_LICENSE = '<license>'  or ['<license>', '<license>']
    LIBFOO_LICENSE_FILES = '<file>' or ['<file>', '<file>']
+   LIBFOO_PATCH_SUBDIR = '<subdir>'
    LIBFOO_PREFIX = '<path>' # '/usr'
    LIBFOO_PYTHON_INTERPRETER = '<path>'
    LIBFOO_PYTHON_SETUP_TYPE = '<setup-type>' # distutils, setuptools, flit, hatch, pdm, pep517, poetry
@@ -199,3 +201,4 @@ Quirk options used by releng-tool:
    releng.disable_spdx_check
    releng.git.no_depth
    releng.git.no_quick_fetch
+   releng.stats.no_pdf

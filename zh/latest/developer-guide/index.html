@@ -176,6 +176,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">发行说明</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
@@ -646,7 +647,54 @@ tool and failing later during a building, packaging, etc. phase.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p id="conf-sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></p>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></p></td>
+<td><p>Configures the default format to use when generating a software
+build of materials (SBOM). By default, <code class="docutils literal notranslate"><span class="pre">text</span></code> format SBOMs are
+generated for a project.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sbom_format</span> <span class="o">=</span> <span class="s1">&#39;xml&#39;</span>
+</pre></div>
+</div>
+<p>The following lists the available formats supported:</p>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSV</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>HTML</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">html</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>JSON</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">json</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Text</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">text</span></code> (default)</p></td>
+</tr>
+<tr class="row-even"><td><p>XML</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">xml</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Multiple formats can be provided. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sbom_format</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;html&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p id="conf-sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></p>
 </td>
 <td><p>Define a custom sysroot prefix to provide to packages during their
 configuration, build and installation stages. By default, the sysroot
@@ -658,7 +706,7 @@ default character to separate pathname components).</p>
 <p>See also <a class="reference internal" href="#libfoo-prefix"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></a>.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></p></td>
 <td><p>Specifies a mirror base site to be used for URL fetch requests.
 If this option is set, any URL fetch requests will first be tried
 on the configured mirror before attempting to acquired from the
@@ -1611,6 +1659,18 @@ extracted contents of an archive, it is unable to acquire a copy of the
 project's license file. Specifying <code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code> for projects with
 the no-extraction flag enabled will result in a warning. By default, this option
 is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</section>
+<section id="libfoo-patch-subdir">
+<h4>LIBFOO_PATCH_SUBDIR<a class="headerlink" href="#libfoo-patch-subdir" title="此标题的永久链接">¶</a></h4>
+<p>Sub-directory where any package patches should be applied to. By default,
+patches are applied to the root of the extracted sources for a package. This
+option can be useful for packages which utilize <a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a> to
+work in a container directory for sources which contain multiple modules, but
+has prepared patches tailored for the specific module being targeted.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PATCH_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;subdir&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a>.</p>
 </section>
 <section id="libfoo-prefix">
 <h4>LIBFOO_PREFIX<a class="headerlink" href="#libfoo-prefix" title="此标题的永久链接">¶</a></h4>
@@ -3521,8 +3581,8 @@ the caller's script.</p>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></p></td>
 <td><dl class="py method">
-<dt class="sig sig-object py" id="releng_tool.releng_join">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_join" title="永久链接至目标">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>An alias for <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join"><code class="docutils literal notranslate"><span class="pre">os.path.join</span></code></a>.</p>
 </dd></dl>
 
@@ -3963,6 +4023,8 @@ licenses to SPDX license identifiers.</p></li>
 when a Git-site-defined package is performing a fetch stage.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">releng.git.no_quick_fetch</span></code> -- Disables quick fetching (a specific reference
 fetch) for any Git-site-defined package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">releng.stats.no_pdf</span></code> -- Never attempt to generate a PDF-format statistics
+output (for matplotlib-enabled environments).</p></li>
 </ul>
 <p>Quirks are enabled through a configuration (override) script such as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
@@ -4130,6 +4192,7 @@ by the providers of said extensions.</p>
 <li><a class="reference internal" href="#libfoo-host-provides">LIBFOO_HOST_PROVIDES</a></li>
 <li><a class="reference internal" href="#libfoo-internal">LIBFOO_INTERNAL</a></li>
 <li><a class="reference internal" href="#libfoo-no-extraction">LIBFOO_NO_EXTRACTION</a></li>
+<li><a class="reference internal" href="#libfoo-patch-subdir">LIBFOO_PATCH_SUBDIR</a></li>
 <li><a class="reference internal" href="#libfoo-prefix">LIBFOO_PREFIX</a></li>
 <li><a class="reference internal" href="#libfoo-revision">LIBFOO_REVISION</a></li>
 <li><a class="reference internal" href="#libfoo-skip-remote-config">LIBFOO_SKIP_REMOTE_CONFIG</a></li>
@@ -4224,10 +4287,7 @@ by the providers of said extensions.</p>
 <li><a class="reference internal" href="#licenses">Licenses</a></li>
 <li><a class="reference internal" href="#patching">Patching</a></li>
 <li><a class="reference internal" href="#internal-and-external-packages">Internal and External packages</a></li>
-<li><a class="reference internal" href="#script-helpers">Script helpers</a><ul>
-<li><a class="reference internal" href="#releng_tool.releng_join"><code class="docutils literal notranslate"><span class="pre">releng_join()</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#script-helpers">Script helpers</a></li>
 <li><a class="reference internal" href="#vcs-ignore">VCS Ignore</a></li>
 <li><a class="reference internal" href="#quirks">Quirks</a></li>
 <li><a class="reference internal" href="#loading-extensions">Loading extensions</a></li>
@@ -4267,13 +4327,13 @@ by the providers of said extensions.</p>
             <dt>版本</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/latest/">最近的</a></dd>
 
+            <dd><a href="https://docs.releng.io/zh/0.15/">0.15</a></dd>
+
             <dd><a href="https://docs.releng.io/zh/0.14/">0.14</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.13/">0.13</a></dd>
 
             <dd><a href="https://docs.releng.io/zh/0.12/">0.12</a></dd>
-
-            <dd><a href="https://docs.releng.io/zh/0.11/">0.11</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/zh/development/">发展</a></dd>
         </dl>
