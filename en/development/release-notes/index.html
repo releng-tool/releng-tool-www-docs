@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="0.15 (2023-02-12)" href="../news/2023-02-12_00.15.00/" /><link rel="prev" title="ANNEX A - Quick reference" href="../annex-a/" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.23 -->
         <title>Release notes - releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -252,6 +252,17 @@ see the project’s <a class="reference external" href="https://github.com/relen
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
+<section id="development">
+<h3>Development<a class="headerlink" href="#development" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Enforce strict hash checking in development mode for external packages which
+define a development revision</p></li>
+<li><p>Fixed issue where <code class="docutils literal notranslate"><span class="pre">releng_copy</span></code> may fail when provided a single part
+relative destination</p></li>
+<li><p>Support module-specific local-sources to accept <code class="docutils literal notranslate"><span class="pre">:</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>,
+allowing certain shells to take advantage of path auto-completion</p></li>
+</ul>
+</section>
 <section id="id1">
 <h3>0.15 (2023-02-12)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
@@ -549,6 +560,7 @@ execution</p></li>
 <li><a class="reference internal" href="#">Release notes</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
 <li><a class="reference internal" href="#summary">Summary</a><ul>
+<li><a class="reference internal" href="#development">Development</a></li>
 <li><a class="reference internal" href="#id1">0.15 (2023-02-12)</a></li>
 <li><a class="reference internal" href="#id2">0.14 (2023-02-05)</a></li>
 <li><a class="reference internal" href="#id3">0.13 (2022-08-10)</a></li>
