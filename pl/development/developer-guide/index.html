@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Indeks" href="../genindex/" /><link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="Contributor guide" href="../contributor-guide/" /><link rel="prev" title="Podręcznik użytkownika" href="../user-guide/" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
         <title>Poradnik dla programistów - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
@@ -1380,13 +1380,16 @@ frameworks. The following outline a series of supported type definitions:</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#make-pkg"><span class="std std-ref">Make</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">make</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#python-pkg"><span class="std std-ref">Python</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#meson-pkg"><span class="std std-ref">Meson</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">meson</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#python-pkg"><span class="std std-ref">Python</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#scons-pkg"><span class="std std-ref">SCons</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#scons-pkg"><span class="std std-ref">SCons</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">scons</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#script-pkg"><span class="std std-ref">Script</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#script-pkg"><span class="std std-ref">Script</span></a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">script</span></code></p></td>
 </tr>
 </tbody>
@@ -2225,7 +2228,7 @@ installation event. This field is optional.</p>
 </div>
 <p>During the configuration stage of a CMake package, <code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked to
 generate build files for the module. For the build stage, <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code> will
-be invoked to generated build files. Similar approach for the installation stage
+invoke the generated build files. Similar approach for the installation stage
 where the build option is invoked again but with the <code class="docutils literal notranslate"><span class="pre">install</span></code> target invoked:
 <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">--target</span> <span class="pre">install</span></code>. Each stage can be configured to manipulate
 environment variables and options used by the CMake executable.</p>
@@ -2252,8 +2255,8 @@ package.</p>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="c1"># adds &quot;-Doption=value&quot; to the command</span>
+    <span class="s1">&#39;option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2309,8 +2312,8 @@ By default, the installation stage is invoked with a value of <code class="docut
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="c1"># adds &quot;-Doption=value&quot; to the command</span>
+    <span class="s1">&#39;option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2352,8 +2355,8 @@ configuration event. This field is optional.</p>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="c1"># adds &quot;-Doption=value&quot; to the command</span>
+    <span class="s1">&#39;option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2577,6 +2580,172 @@ By default, the installation stage is invoked with a value of <code class="docut
 </div>
 </section>
 </section>
+<section id="meson-package">
+<span id="meson-pkg"></span><h3>Meson Package<a class="headerlink" href="#meson-package" title="Permalink to this heading">¶</a></h3>
+<p>A Meson package provides support for processing a <a class="reference external" href="https://mesonbuild.com/">Meson</a> supported module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;meson&#39;</span>
+</pre></div>
+</div>
+<p>During the configuration stage of a Meson package, <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span></code> will be
+invoked to generate build files for the module. For the build stage,
+<code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">compile</span></code> will invoke the generated build files. For the installation
+stage (if enabled), <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">install</span></code> will be used. Each stage can be
+configured to manipulate environment variables and options used by Meson.</p>
+<p>The default configuration built for projects is <code class="docutils literal notranslate"><span class="pre">debugoptimized</span></code>. A developer
+can override this option by explicitly adjusting the define option
+<code class="docutils literal notranslate"><span class="pre">buildtype</span></code> to, for example, <code class="docutils literal notranslate"><span class="pre">debug</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;buildtype&#39;</span><span class="p">:</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following sections outline configuration options are available for a Meson
+package.</p>
+<section id="meson-build-defs">
+<span id="id33"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#meson-build-defs" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass definitions into the build process. This option can is
+defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;-Doption=value&quot; to the command</span>
+    <span class="s1">&#39;option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-build-env">
+<span id="id34"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#meson-build-env" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass environment variables into the build process. This
+option is defined as a dictionary with key-value pairs where the key is the
+environment name and the value is the environment variable’s value. This field
+is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-build-opts">
+<span id="id35"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#meson-build-opts" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass command line options into the build process. This
+option can be defined as a dictionary of string pairs or a list with strings –
+either way defined will generate argument values to include in the build event.
+This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># (or)</span>
+
+<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="libfoo-meson-noinstall">
+<h4>LIBFOO_MESON_NOINSTALL<a class="headerlink" href="#libfoo-meson-noinstall" title="Permalink to this heading">¶</a></h4>
+<p>Specifies whether the Meson package should skip an attempt to invoke the
+install command. Ideally, projects will have an <a class="reference external" href="https://mesonbuild.com/Commands.html#install">install</a>
+options configured to define how a project will install files into a target (or
+staging) environment. Not all Meson projects have installation options
+configured, or there can be cases where installation stage for a package to
+fail due to issues with some host environments. A developer can specify this
+no-install flag to skip a Meson-driven install request and manage installation
+actions through other means (such as post-processing). By default, the
+installation stage is invoked with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_MESON_NOINSTALL</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-conf-defs">
+<span id="id36"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#meson-conf-defs" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass definitions into the configuration process. This option
+can is defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;-Doption=value&quot; to the command</span>
+    <span class="s1">&#39;option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-conf-env">
+<span id="id37"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#meson-conf-env" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass environment variables into the configuration process.
+This option is defined as a dictionary with key-value pairs where the key is
+the environment name and the value is the environment variable’s value. This
+field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-conf-opts">
+<span id="id38"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#meson-conf-opts" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass command line options into the configuration process.
+This option can be defined as a dictionary of string pairs or a list with
+strings – either way defined will generate argument values to include in the
+configuration event. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># (or)</span>
+
+<span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-install-defs">
+<span id="id39"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#meson-install-defs" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass definitions into the installation process. This option
+can is defined as a dictionary of string pairs. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;-Doption=value&quot; to the command</span>
+    <span class="s1">&#39;option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-install-env">
+<span id="id40"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#meson-install-env" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass environment variables into the installation process.
+This option is defined as a dictionary with key-value pairs where the key is
+the environment name and the value is the environment variable’s value. This
+field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="meson-install-opts">
+<span id="id41"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#meson-install-opts" title="Permalink to this heading">¶</a></h4>
+<p>Provides a means to pass command line options into the installation process.
+This option can be defined as a dictionary of string pairs or a list with
+strings – either way defined will generate argument values to include in the
+installation event. This field is optional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># adds &quot;--option value&quot; to the command</span>
+    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># (or)</span>
+
+<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
+    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="python-package">
 <span id="python-pkg"></span><h3>Python Package<a class="headerlink" href="#python-package" title="Permalink to this heading">¶</a></h3>
 <p>A Python package provides support for processing a <a class="reference external" href="https://www.python.org/">Python</a> supported module.</p>
@@ -2595,7 +2764,7 @@ use by configuring the <code class="docutils literal notranslate"><span class="p
 <p>The following sections outline configuration options are available for a Python
 package.</p>
 <section id="python-build-defs">
-<span id="id33"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id42"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#python-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2606,7 +2775,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="python-build-env">
-<span id="id34"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this heading">¶</a></h4>
+<span id="id43"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#python-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2618,7 +2787,7 @@ is optional.</p>
 </div>
 </section>
 <section id="python-build-opts">
-<span id="id35"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id44"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#python-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2638,7 +2807,7 @@ This field is optional.</p>
 </div>
 </section>
 <section id="python-install-defs">
-<span id="id36"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id45"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#python-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2649,7 +2818,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="python-install-env">
-<span id="id37"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this heading">¶</a></h4>
+<span id="id46"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#python-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2661,7 +2830,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="python-install-opts">
-<span id="id38"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id47"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#python-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2787,7 +2956,7 @@ during the configuration stage, the following can be used:</p>
 <p>The following sections outline configuration options are available for a SCons
 package.</p>
 <section id="scons-build-defs">
-<span id="id39"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#scons-build-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id48"></span><h4>LIBFOO_BUILD_DEFS<a class="headerlink" href="#scons-build-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the build process. This option can is
 defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2798,7 +2967,7 @@ defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="scons-build-env">
-<span id="id40"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#scons-build-env" title="Permalink to this heading">¶</a></h4>
+<span id="id49"></span><h4>LIBFOO_BUILD_ENV<a class="headerlink" href="#scons-build-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable’s value. This field
@@ -2810,7 +2979,7 @@ is optional.</p>
 </div>
 </section>
 <section id="scons-build-opts">
-<span id="id41"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#scons-build-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id50"></span><h4>LIBFOO_BUILD_OPTS<a class="headerlink" href="#scons-build-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with strings –
 either way defined will generate argument values to include in the build event.
@@ -2830,7 +2999,7 @@ This field is optional.</p>
 </div>
 </section>
 <section id="scons-conf-defs">
-<span id="id42"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#scons-conf-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id51"></span><h4>LIBFOO_CONF_DEFS<a class="headerlink" href="#scons-conf-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the configuration process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2841,7 +3010,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="scons-conf-env">
-<span id="id43"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#scons-conf-env" title="Permalink to this heading">¶</a></h4>
+<span id="id52"></span><h4>LIBFOO_CONF_ENV<a class="headerlink" href="#scons-conf-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2853,7 +3022,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="scons-conf-opts">
-<span id="id44"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#scons-conf-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id53"></span><h4>LIBFOO_CONF_OPTS<a class="headerlink" href="#scons-conf-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -2873,7 +3042,7 @@ configuration event. This field is optional.</p>
 </div>
 </section>
 <section id="scons-install-defs">
-<span id="id45"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#scons-install-defs" title="Permalink to this heading">¶</a></h4>
+<span id="id54"></span><h4>LIBFOO_INSTALL_DEFS<a class="headerlink" href="#scons-install-defs" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass definitions into the installation process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -2884,7 +3053,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="scons-install-env">
-<span id="id46"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#scons-install-env" title="Permalink to this heading">¶</a></h4>
+<span id="id55"></span><h4>LIBFOO_INSTALL_ENV<a class="headerlink" href="#scons-install-env" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable’s value. This
@@ -2896,7 +3065,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="scons-install-opts">
-<span id="id47"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#scons-install-opts" title="Permalink to this heading">¶</a></h4>
+<span id="id56"></span><h4>LIBFOO_INSTALL_OPTS<a class="headerlink" href="#scons-install-opts" title="Permalink to this heading">¶</a></h4>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings – either way defined will generate argument values to include in the
@@ -4007,7 +4176,7 @@ can be applied for Git-based repositories (via <code class="docutils literal not
 </div>
 </section>
 <section id="quirks">
-<span id="id48"></span><h3>Quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h3>
+<span id="id57"></span><h3>Quirks<a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h3>
 <p>The following outlines a series of configuration <a class="reference internal" href="#conf-quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a> that can be
 applied to deal with rare host environment scenarios.</p>
 <ul class="simple">
@@ -4264,6 +4433,19 @@ by the providers of said extensions.</p>
 <li><a class="reference internal" href="#make-install-env">LIBFOO_INSTALL_ENV</a></li>
 <li><a class="reference internal" href="#make-install-opts">LIBFOO_INSTALL_OPTS</a></li>
 <li><a class="reference internal" href="#libfoo-make-noinstall">LIBFOO_MAKE_NOINSTALL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#meson-package">Meson Package</a><ul>
+<li><a class="reference internal" href="#meson-build-defs">LIBFOO_BUILD_DEFS</a></li>
+<li><a class="reference internal" href="#meson-build-env">LIBFOO_BUILD_ENV</a></li>
+<li><a class="reference internal" href="#meson-build-opts">LIBFOO_BUILD_OPTS</a></li>
+<li><a class="reference internal" href="#libfoo-meson-noinstall">LIBFOO_MESON_NOINSTALL</a></li>
+<li><a class="reference internal" href="#meson-conf-defs">LIBFOO_CONF_DEFS</a></li>
+<li><a class="reference internal" href="#meson-conf-env">LIBFOO_CONF_ENV</a></li>
+<li><a class="reference internal" href="#meson-conf-opts">LIBFOO_CONF_OPTS</a></li>
+<li><a class="reference internal" href="#meson-install-defs">LIBFOO_INSTALL_DEFS</a></li>
+<li><a class="reference internal" href="#meson-install-env">LIBFOO_INSTALL_ENV</a></li>
+<li><a class="reference internal" href="#meson-install-opts">LIBFOO_INSTALL_OPTS</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#python-package">Python Package</a><ul>
