@@ -176,6 +176,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
@@ -533,15 +534,15 @@ deleted to be re-fetched.</p></li>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></p></td>
 <td><p>Numbers of jobs to handle (default to <code class="docutils literal notranslate"><span class="pre">0</span></code>; automatic).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;&#64;]&lt;dir&gt;]</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code></p></td>
 <td><p>Enables <a class="reference internal" href="#local-sources-mode">local-sources mode</a>.</p>
 <p>Without a directory provided, sources of internal packages will be
 looked for in the parent directory of the configured root
 directory. Users may use this argument multiple times to override
 the local-sources configuration. If a package-specific override
-is provided (a value prefixed with a package’s name with an at
-sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>)), sources for that package will be looked for inside
-the provided path.</p>
+is provided (a value prefixed with a package’s name with either a
+colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) or an at sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>)), sources for that package will
+be looked for inside the provided path.</p>
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></p></td>
@@ -578,6 +579,12 @@ working directory).</p></td>
 </tr>
 <tr class="row-even"><td><p>JSON</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">json</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>JSON (SPDX)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">json-spdx</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>RDP (SPDX)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rdp-spdx</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>Text</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">text</span></code> (default)</p></td>
@@ -830,11 +837,12 @@ configured root directory. For example:</p>
 <p>In the above example, if a project had an internal package <code class="docutils literal notranslate"><span class="pre">liba</span></code>,
 sources for <code class="docutils literal notranslate"><span class="pre">liba</span></code> will be used from the folder <code class="docutils literal notranslate"><span class="pre">~/workdir/liba</span></code>.</p>
 <p>Users can also provide package-specific overrides. If a user provides a
-path which is prefixed with a package’s name and at sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>), the
-sources for the provided package will be used from the respective folder:</p>
+path which is prefixed with a package’s name with either a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) or
+at sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>), the sources for the provided package will be used from
+the respective folder:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool -L ~/workdir
-<span class="gp">$ </span>releng-tool -L libb@/mnt/sources/libb
-<span class="gp">$ </span>releng-tool -L libc@
+<span class="gp">$ </span>releng-tool -L libb:/mnt/sources/libb
+<span class="gp">$ </span>releng-tool -L libc:
 <span class="gp gp-VirtualEnv">(*)</span> <span class="go">~/workdir</span>
 <span class="gp gp-VirtualEnv">(libb)</span> <span class="go">/mnt/sources/libb</span>
 <span class="gp gp-VirtualEnv">(libc)</span> <span class="go">&lt;unset&gt;</span>
@@ -1044,13 +1052,13 @@ host environment scenarios where releng-tool may be experiencing issues. See
             <dt>Versionen</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/de/latest/">Neueste</a></dd>
 
+            <dd><a href="https://docs.releng.io/de/0.16/">0.16</a></dd>
+
             <dd><a href="https://docs.releng.io/de/0.15/">0.15</a></dd>
 
             <dd><a href="https://docs.releng.io/de/0.14/">0.14</a></dd>
 
             <dd><a href="https://docs.releng.io/de/0.13/">0.13</a></dd>
-
-            <dd><a href="https://docs.releng.io/de/0.12/">0.12</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/de/development/">Entwicklung</a></dd>
         </dl>

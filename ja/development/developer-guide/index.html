@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="next" title="寄稿者ガイド" href="../contributor-guide/" /><link rel="prev" title="ユーザーガイド" href="../user-guide/" />
 
-    <!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
+    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
         <title>開発者ガイド - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -119,7 +119,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     開発版 | <a href="https://docs.releng.io//ja/latest/">安定版 v0.15</a> 
+     開発版 | <a href="https://docs.releng.io//ja/latest/">安定版 v0.16</a> 
   </aside>
 </div>
 
@@ -321,9 +321,9 @@ processed. If there is no desire to make a simple project example, one may
 venture to the <a class="reference internal" href="#actually-getting-started">actually getting started</a> section.</p>
 <p>To start, make a new folder for the project, two sample packages and move into
 the root folder:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>my-project/package/libx
-<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>my-project/package/liby
-<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project/
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir -p my-project/package/libx
+<span class="gp">$ </span>mkdir -p my-project/package/liby
+<span class="gp">$ </span><span class="nb">cd</span> my-project/
 </pre></div>
 </div>
 <p>Inside the <code class="docutils literal notranslate"><span class="pre">libx</span></code> project, the package definition and script-based files will
@@ -397,7 +397,7 @@ folder, invoke <code class="docutils literal notranslate"><span class="pre">rele
 package script has been invoked. While this example only prints a message, more
 elaborate scripts can be made to handle a package's source to build.</p>
 <p>To clean the project, a <code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">clean</span></code> request can be invoked:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>clean
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool clean
 </pre></div>
 </div>
 <p>Now the project is in a state again to perform a fresh build. This concludes the
@@ -408,8 +408,8 @@ prepare for steps to make a real releng-tool project.</p>
 <h2>Actually getting started<a class="headerlink" href="#actually-getting-started" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Start building a new releng-tool project by creating the following root and
 package folders for a project, and venture into the root folder:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>&lt;my-project&gt;/package
-<span class="nb">cd</span><span class="w"> </span>&lt;my-project&gt;/
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p &lt;my-project&gt;/package
+<span class="nb">cd</span> &lt;my-project&gt;/
 </pre></div>
 </div>
 <p>Inside the root folder, create a releng-tool configuration file <code class="docutils literal notranslate"><span class="pre">releng</span></code> with
@@ -427,7 +427,7 @@ example, packages can be individual static libraries, simple asset fetching
 (e.g. image/document downloading) and more.</p>
 <p>For each package, create a new folder inside <code class="docutils literal notranslate"><span class="pre">&lt;my-project&gt;/package</span></code> to
 represent the package.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>&lt;my-project&gt;/package/&lt;my-package&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir &lt;my-project&gt;/package/&lt;my-package&gt;
 </pre></div>
 </div>
 <p>Inside each newly created package, create a package definition file. This
@@ -513,16 +513,16 @@ package definitions, custom scripts (if used) and issues found in sources. A
 developer may invoke <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> multiple times to attempt to continue the
 build process for a project. A developer may wish to use the <code class="docutils literal notranslate"><span class="pre">clean</span></code> option to
 remove an existing extracted sources/partially built sources:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>clean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool clean
 </pre></div>
 </div>
 <p>Or start from a completely fresh state using <code class="docutils literal notranslate"><span class="pre">mrproper</span></code> to remove any built
 images and file mode flags:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>mrproper
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool mrproper
 </pre></div>
 </div>
 <p>There may also be times if a single project needs to be cleaned:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>my-package-clean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool my-package-clean
 </pre></div>
 </div>
 <p>Consult the <a class="reference internal" href="../user-guide/"><span class="doc">user's guide</span></a> for more action information.</p>
@@ -3197,8 +3197,8 @@ inside the package folder with the extension <code class="docutils literal notra
 package folder are applied in ascending order. It is recommended to prefix
 patch filenames with a numerical value for clarity. For example, the following
 package patches:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>package/liba
-<span class="gp">$ </span>ls<span class="w"> </span>*.patch
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> package/liba
+<span class="gp">$ </span>ls *.patch
 <span class="go">0001-accept-linker-flags.patch</span>
 <span class="go">0002-correct-output-path.patch</span>
 <span class="go">0003-support-disabling-test-build.patch</span>
@@ -4520,13 +4520,13 @@ by the providers of said extensions.</p>
             <dt>バージョン</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/latest/">最新</a></dd>
 
+            <dd><a href="https://docs.releng.io/ja/0.16/">0.16</a></dd>
+
             <dd><a href="https://docs.releng.io/ja/0.15/">0.15</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.14/">0.14</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.13/">0.13</a></dd>
-
-            <dd><a href="https://docs.releng.io/ja/0.12/">0.12</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/development/">発達</a></dd>
         </dl>

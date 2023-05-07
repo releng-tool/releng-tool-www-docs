@@ -176,6 +176,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
@@ -249,7 +250,7 @@ more detailed information.</p>
 <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
 <span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">]</span>
 <span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;quirk-id&gt;&#39;</span><span class="p">]</span>
-<span class="n">sbom_format</span> <span class="o">=</span> <span class="s1">&#39;&lt;format&gt;&#39;</span> <span class="c1"># csv, html, json, text, xml</span>
+<span class="n">sbom_format</span> <span class="o">=</span> <span class="s1">&#39;&lt;format&gt;&#39;</span> <span class="c1"># csv, html, json, json-spdx, rdp-spdx, text, xml</span>
 <span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
 <span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
 <span class="n">urlopen_context</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="o">&gt;</span>
@@ -352,6 +353,7 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
 <span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;install-type&gt;&#39;</span> <span class="c1"># host, images, staging, staging_and_target, target</span>
 <span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="nb">bool</span>
+<span class="n">LIBFOO_MESON_NOINSTALL</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">&#39;&lt;license&gt;&#39;</span>  <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">]</span>
 <span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">&#39;&lt;file&gt;&#39;</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">]</span>
@@ -364,7 +366,7 @@ releng-tool (may vary per context):</p>
 <span class="n">LIBFOO_SKIP_REMOTE_SCRIPTS</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;&lt;site&gt;&#39;</span>
 <span class="n">LIBFOO_STRIP_COUNT</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
-<span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;type&gt;&#39;</span> <span class="c1"># autotools, cmake, make, python, scons, script, ext-&lt;extension&gt;</span>
+<span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;type&gt;&#39;</span> <span class="c1"># autotools, cmake, make, meson, python, scons, script, ext-&lt;extension&gt;</span>
 <span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;vcs-type&gt;&#39;</span> <span class="c1"># bzr, cvs, git, hg, local, none, rsync, scp, svn, url</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;version&gt;&#39;</span>
 </pre></div>
@@ -515,13 +517,13 @@ releng.stats.no_pdf
             <dt>バージョン</dt>
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/latest/">最新</a></dd>
 
+            <dd><a href="https://docs.releng.io/ja/0.16/">0.16</a></dd>
+
             <dd><a href="https://docs.releng.io/ja/0.15/">0.15</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.14/">0.14</a></dd>
 
             <dd><a href="https://docs.releng.io/ja/0.13/">0.13</a></dd>
-
-            <dd><a href="https://docs.releng.io/ja/0.12/">0.12</a></dd>
 
             <dd class="doc-versions-special"><a href="https://docs.releng.io/ja/development/">発達</a></dd>
         </dl>
