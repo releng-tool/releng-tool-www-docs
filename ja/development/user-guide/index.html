@@ -2,13 +2,13 @@
 <html class="no-js" lang="ja">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="索引" href="../genindex/" /><link rel="search" title="検索" href="../search/" /><link rel="next" title="開発者ガイド" href="../developer-guide/" /><link rel="prev" title="インストール" href="../install/" />
 
-    <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>ユーザーガイド - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides_global.css" />
@@ -179,7 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../annex-a/">付録A  - クイックリファレンス</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
@@ -251,7 +251,7 @@ be referred to as the &quot;root directory&quot;. When invoking <code class="doc
 will look in the current working directory for project information to
 process. For example, if a project found inside <code class="docutils literal notranslate"><span class="pre">my-project</span></code> with the single
 package <code class="docutils literal notranslate"><span class="pre">package-a</span></code> defined, the following output may be observed:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span> my-project
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project
 <span class="gp">$ </span>releng-tool
 <span class="go">extracting package-a...</span>
 <span class="go">patching package-a...</span>
@@ -268,12 +268,12 @@ it is up to the developer of a releng-tool project to decide where generated
 files will be stored.</p>
 <p>If a user wishes to pass the directory of a project location via command line,
 the argument <code class="docutils literal notranslate"><span class="pre">--root-dir</span></code> can be used:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --root-dir my-project/
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>--root-dir<span class="w"> </span>my-project/
 </pre></div>
 </div>
 <p>For a complete list of actions and other argument options provided by the tool,
 the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option can be used to show this information:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --help
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>--help
 </pre></div>
 </div>
 </section>
@@ -284,7 +284,7 @@ provide various options to configure the releng-tool process. Options
 can be provided before or after an action (if an explicit action is provided). By default, if a user
 does not specify an action, it is assumed that all steps are
 to be performed. An example of a user invoking a clean action is as follows:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool clean
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>The following outlines available actions:</p>
@@ -380,7 +380,7 @@ venture to a package's output directory. Packages will need to
 be processed to at least the patch stage before a provided
 command is issued.</p>
 <p>An example is as follows:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool libfoo-exec <span class="s2">&quot;mycmd arg1 arg2&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>libfoo-exec<span class="w"> </span><span class="s2">&quot;mycmd arg1 arg2&quot;</span>
 </pre></div>
 </div>
 <p>Package environment variables will be available for the invoked
@@ -658,7 +658,7 @@ complete the build process. The developer makes the change, re-invokes
 the interim changes made will be available for <code class="docutils literal notranslate"><span class="pre">module-c</span></code> to use. To take
 advantage of the new implementation in <code class="docutils literal notranslate"><span class="pre">module-b</span></code>, the builder can signal for
 the updated package to be rebuilt:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool module-b-rebuild
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>module-b-rebuild
 <span class="go">[module-b rebuilt]</span>
 </pre></div>
 </div>
@@ -676,7 +676,7 @@ based on the packages, changes and languages used.</p>
 <section id="offline-builds">
 <h3>Offline builds<a class="headerlink" href="#offline-builds" title="この見出しへのパーマリンク">¶</a></h3>
 <p>A user can prepare for an offline build by using the <code class="docutils literal notranslate"><span class="pre">fetch</span></code> action:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool fetch
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>fetch
 </pre></div>
 </div>
 <p>Package content will be downloaded into the respective <code class="docutils literal notranslate"><span class="pre">dl/</span></code> or <code class="docutils literal notranslate"><span class="pre">cache/</span></code>
@@ -691,7 +691,7 @@ jobs for a stage equal to the amount of physical cores on the host system. The
 amount of jobs available for a stage can be configured using the <code class="docutils literal notranslate"><span class="pre">--jobs</span></code>
 argument. For example, if a user wishes to override the amount of jobs attempted
 for stages to two jobs, the following can be used:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool --jobs <span class="m">2</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>--jobs<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
 <p>Note that a developer may restrict the amount of jobs allowed for a specific
@@ -709,7 +709,7 @@ releng-tool project dirtying or destroying the builder's host environment.</p>
 package license information (if licenses are defined). If a user wishes to
 compile a project's list of license information without performing an entire
 build, the <code class="docutils literal notranslate"><span class="pre">licenses</span></code> action can be used:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool licenses
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>licenses
 </pre></div>
 </div>
 <p>License information can then be found in the root directory's
@@ -731,7 +731,7 @@ specific revisions if running in development mode.</p>
 <p>To enable development mode, invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code> with the <code class="docutils literal notranslate"><span class="pre">--development</span></code>
 argument will enable the mode. Future calls to releng-tool for the project
 will use a development revision for packages where appropriate. For example:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --development <span class="o">[</span>&lt;mode&gt;<span class="o">]</span>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>--development<span class="w"> </span><span class="o">[</span>&lt;mode&gt;<span class="o">]</span>
 <span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for development mode</span>
 <span class="gp">$ </span>releng-tool
 <span class="go">~building against development sources~</span>
@@ -752,7 +752,7 @@ fetch sources from:</p>
 </div>
 <p>A build would normally use the <code class="docutils literal notranslate"><span class="pre">1.2</span></code> tag for this package. However, if
 an environment is configured to use the <code class="docutils literal notranslate"><span class="pre">develop</span></code> development mode:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --development develop
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>--development<span class="w"> </span>develop
 </pre></div>
 </div>
 <p>This package would use the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch instead.</p>
@@ -780,7 +780,7 @@ mode, sources will be fetched from the Git repository on the <code class="docuti
 </div>
 <p>A build would normally use the <code class="docutils literal notranslate"><span class="pre">v3.0</span></code> tag for this package. However, if
 an environment is configured a non-explicit development mode:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --development
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>--development
 </pre></div>
 </div>
 <p>This package would use the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch instead.</p>
@@ -817,7 +817,7 @@ clean <code class="docutils literal notranslate"><span class="pre">liba</span></
 <code class="docutils literal notranslate"><span class="pre">--local-sources</span></code> argument will enable the mode. Future calls to releng-tool
 for the project will use local sources for packages defined as internal
 packages. For example:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --local-sources
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>--local-sources
 <span class="gp gp-VirtualEnv">(*)</span> <span class="go">&lt;parent&gt;</span>
 <span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for local-sources mode</span>
 <span class="gp">$ </span>releng-tool
@@ -830,7 +830,7 @@ directory.</p>
 <p>If a user provides a directory for the <code class="docutils literal notranslate"><span class="pre">--local-sources</span></code> argument, packages
 will be looked for in the provided folder instead of the parent of the
 configured root directory. For example:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool --local-sources ~/workdir
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>--local-sources<span class="w"> </span>~/workdir
 <span class="gp gp-VirtualEnv">(*)</span> <span class="go">~/workdir</span>
 <span class="gp gp-VirtualEnv">(success)</span> <span class="go">configured root for local-sources mode</span>
 <span class="gp">$ </span>releng-tool
@@ -844,9 +844,9 @@ sources for <code class="docutils literal notranslate"><span class="pre">liba</s
 path which is prefixed with a package's name with either a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) or
 at sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>), the sources for the provided package will be used from
 the respective folder:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool -L ~/workdir
-<span class="gp">$ </span>releng-tool -L libb:/mnt/sources/libb
-<span class="gp">$ </span>releng-tool -L libc:
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>-L<span class="w"> </span>~/workdir
+<span class="gp">$ </span>releng-tool<span class="w"> </span>-L<span class="w"> </span>libb:/mnt/sources/libb
+<span class="gp">$ </span>releng-tool<span class="w"> </span>-L<span class="w"> </span>libc:
 <span class="gp gp-VirtualEnv">(*)</span> <span class="go">~/workdir</span>
 <span class="gp gp-VirtualEnv">(libb)</span> <span class="go">/mnt/sources/libb</span>
 <span class="gp gp-VirtualEnv">(libc)</span> <span class="go">&lt;unset&gt;</span>
@@ -930,7 +930,7 @@ releng-tool process. For example, when invoking CMake-based projects, the tool
 v3.x is desired, the tool <code class="docutils literal notranslate"><span class="pre">cmake3</span></code> needs to be invoked instead. To configure
 this, an environment variable can be set to switch which tool to invoke.
 Consider the following example:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span> <span class="nv">RELENG_CMAKE</span><span class="o">=</span>cmake3
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">RELENG_CMAKE</span><span class="o">=</span>cmake3
 <span class="gp">$ </span>releng-tool
 <span class="go">[cmake3 will be used for cmake projects]</span>
 </pre></div>
