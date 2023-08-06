@@ -1,0 +1,906 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="search" title="検索" href="../../search/" /><link rel="next" title="Configuration" href="../configuration/" /><link rel="prev" title="User guides" href="../guides/" />
+
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+        <title>Arguments - releng-tool ドキュメント</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=315ca4e6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">releng-tool  ドキュメント</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  
+
+<div class="sidebar-logo-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 8.02" class="sidebar-logo" alt="releng-tool">
+        <path d="M3.48 0a.2.2 0 0 0-.01 0 .2.2 0 0 0-.1.04l-1.6.93a.2.2 0 0 0-.05.03l-1.6.92a.2.2 0 0 0-.01.01.2.2 0 0 0-.02.01.2.2 0 0 0-.02.02.2.2 0 0 0-.02.01V2a.2.2 0 0 0-.03 0 .2.2 0 0 0-.02.04.2.2 0 0 0 0 .02v.01a.2.2 0 0 0 0 .03.2.2 0 0 0 0 .02.2.2 0 0 0 0 .02V5.9c0 .04 0 .07.02.1v.02a.2.2 0 0 0 .02.04l.08.05 3.25 1.88h.01V8h.02l.01.02a.2.2 0 0 0 .12.01.2.2 0 0 0 .02 0h.02A.2.2 0 0 0 3.61 8h.02l3.24-1.9a.2.2 0 0 0 .1-.07V6l.01-.02A.2.2 0 0 0 7 5.9V2.14a.2.2 0 0 0 0-.02.2.2 0 0 0 0-.02.2.2 0 0 0 0-.03.2.2 0 0 0-.01-.02.2.2 0 0 0-.07-.1H6.9l-.01-.01h-.01v-.01h-.02L3.62.05A.2.2 0 0 0 3.48 0Zm.02.43 2.9 1.68-1.26.72-2.91-1.67Zm-1.65.95 2.91 1.68-1.26.73L.6 2.1ZM.4 2.45l2.9 1.68v3.36L.4 5.8Zm6.2 0v3.36L3.7 7.49V4.13Z" style="fill:var(--color-foreground-primary)"/>
+    </svg>
+</div>
+
+
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+  <input class="sidebar-search" placeholder="検索" name="q" aria-label="検索">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../requirements/">必要条件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">インストール</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/getting-started/">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/prelude/">Prelude</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started/tutorials/">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/tutorial-basic/">Tutorial "Basic packages"</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/tutorial-sdl/">Tutorial "An SDL example"</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/tutorial-toolchain/">Tutorial "A toolchain example"</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/rebuilds/">Understanding rebuilds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/fetching/">Understanding fetching</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../guides/">User guides</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of User guides</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../environment/">Environment variables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../packages/common-pkg-options/">Common options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/bootstrapping/">Bootstrapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/post-processing/">Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/site-definitions/">Site definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/hash-file/">Hash file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/ascii-armor/">ASCII armor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-script/">Script package (default)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-cmake/">CMake package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-make/">Make package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-meson/">Meson package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../post-processing/">Post-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../script-helpers/">Script helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licenses/">Licenses</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">ヒント</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of ヒント</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/parallel-builds/">Parallel builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/alternative-extensions/">Alternative extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/vcs-ignore/">VCS Ignore</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Advanced</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_spdx_check/">releng.disable_spdx_check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../extensions/extensions/">Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../extensions/making-a-custom-post-build-action/">Making a custom post-build action extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../extensions/making-a-custom-package-type/">Making a custom package type extension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/">例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/">Requesting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors/">寄稿者ガイド</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">付録 A - クイックリファレンス</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2022-02-26_00.11.00/">0.11 (2022-02-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<div class="sidebar-scroll">
+  <div class="sidebar-tree">
+    <hr class="injected-sidebar-tree-spacer" />
+    <ul>
+      <li><a class="reference external" href="https://releng.io/">releng.io</a></li>
+      <li><a class="reference external" href="https://github.com/releng-tool/releng-tool">releng-tool GitHub</a></li>
+    </ul>
+
+    <hr class="injected-sidebar-tree-spacer" />
+    <div class="injected-sidebar-i8n">
+      🕮
+
+      · <a class="notranslate" href="https://docs.releng.io/en/">English</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/de/">Deutsch</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/es/">español</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/ja/">日本語</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/pl/">polski</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/zh_Hans/">中文 (简体)</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/zh_Hant/">中文 (繁體)</a>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="arguments">
+<h1>Arguments<a class="headerlink" href="#arguments" title="この見出しへのパーマリンク">¶</a></h1>
+<p>The command line can be used to specify a single action to perform or
+provide various options to configure the releng-tool process. Options
+can be provided before or after an action (if an explicit action is provided).
+By default, if a user does not specify an action, it is assumed that all
+steps are to be performed.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;options&gt;<span class="w"> </span><span class="o">[</span>action<span class="o">]</span>
+</pre></div>
+</div>
+<section id="global-actions">
+<h2>Global actions<a class="headerlink" href="#global-actions" title="この見出しへのパーマリンク">¶</a></h2>
+<p>The following outlines available global actions:</p>
+<section id="clean">
+<span id="action-clean"></span><h3><code class="docutils literal notranslate"><span class="pre">clean</span></code><a class="headerlink" href="#clean" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Clean (removes) a series of folders holding content such as extracted
+archives, built libraries and more.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>clean
+</pre></div>
+</div>
+<p>Images and downloaded assets/cache are not removed (see
+<a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> for a more through all cleaning operation).
+This clean operation will remove files based off the configured output
+directory. If an output directory is provided (i.e. <code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code>)
+during a clean event, select folders inside this directory will be removed
+instead of the output directory (if any) found in the root directory.</p>
+</section>
+<section id="distclean">
+<span id="action-distclean"></span><h3><code class="docutils literal notranslate"><span class="pre">distclean</span></code><a class="headerlink" href="#distclean" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Perform a more extreme pristine clean of the releng-tool project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>distclean
+</pre></div>
+</div>
+<p>This request removes the <code class="docutils literal notranslate"><span class="pre">cache/</span></code>, <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and <code class="docutils literal notranslate"><span class="pre">output/</span></code> directories found
+in the root directory or overridden by respective arguments, as well as
+any mode file flags which may be set. See also the <a class="reference internal" href="#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a>
+or <a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> actions.</p>
+</section>
+<section id="extract">
+<h3><code class="docutils literal notranslate"><span class="pre">extract</span></code><a class="headerlink" href="#extract" title="この見出しへのパーマリンク">¶</a></h3>
+<p>All packages will be processed up to the extraction phase (inclusive).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>extract
+</pre></div>
+</div>
+</section>
+<section id="fetch">
+<span id="action-fetch"></span><h3><code class="docutils literal notranslate"><span class="pre">fetch</span></code><a class="headerlink" href="#fetch" title="この見出しへのパーマリンク">¶</a></h3>
+<p>All packages will be processed up to the fetch phase (inclusive).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>fetch
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When a <code class="docutils literal notranslate"><span class="pre">fetch</span></code> is explicitly requested for DVCS sources (e.g. Git), the
+local cache kept for the repository will be updated against the
+configured remote. This can be helpful for packages which use a branch
+for their target revision, or wishing to use a tag which has been moved.</p>
+<p>Users may also take advantage of explicit re-fetching of downloaded
+artifacts when using this action in combination with the <a class="reference internal" href="#arg-force"><span class="std std-ref">-F, --force</span></a>
+argument.</p>
+</div>
+<p>See also <a class="reference internal" href="../tips/offline-builds/"><span class="doc std std-doc">offline builds</span></a>.</p>
+</section>
+<section id="init">
+<h3><code class="docutils literal notranslate"><span class="pre">init</span></code><a class="headerlink" href="#init" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Initialize an empty root directory with a sample project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>init
+</pre></div>
+</div>
+</section>
+<section id="licenses">
+<h3><code class="docutils literal notranslate"><span class="pre">licenses</span></code><a class="headerlink" href="#licenses" title="この見出しへのパーマリンク">¶</a></h3>
+<p>A request to generate all license information for the project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>licenses
+</pre></div>
+</div>
+<p>Note that license information requires acquiring license documents from
+packages. Therefore, packages will be fetched/extracted if not already done.</p>
+</section>
+<section id="mrproper">
+<span id="action-mrproper"></span><h3><code class="docutils literal notranslate"><span class="pre">mrproper</span></code><a class="headerlink" href="#mrproper" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Perform a pristine clean of the releng-tool project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>mrproper
+</pre></div>
+</div>
+<p>This request removes the <code class="docutils literal notranslate"><span class="pre">output/</span></code> directory found in the root directory or
+overridden by the <code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument, as well as any mode file flags
+which may be set. The <code class="docutils literal notranslate"><span class="pre">cache/</span></code> and <code class="docutils literal notranslate"><span class="pre">dl/</span></code> directories will remain untouched.
+See also the <a class="reference internal" href="#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a> or <a class="reference internal" href="#action-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></span></a>
+actions.</p>
+</section>
+<section id="patch">
+<h3><code class="docutils literal notranslate"><span class="pre">patch</span></code><a class="headerlink" href="#patch" title="この見出しへのパーマリンク">¶</a></h3>
+<p>All packages will be processed up to the patch phase (inclusive).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>patch
+</pre></div>
+</div>
+</section>
+<section id="sbom">
+<span id="action-sbom"></span><h3><code class="docutils literal notranslate"><span class="pre">sbom</span></code><a class="headerlink" href="#sbom" title="この見出しへのパーマリンク">¶</a></h3>
+<p>A request to generate a software build of materials (SBOM) for the project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>sbom
+</pre></div>
+</div>
+<p>By default, a releng-tool run will generate an SBOM file at the end of a
+run. This action can be used to generate an SBOM without requiring a build.</p>
+</section>
+<section id="state">
+<h3><code class="docutils literal notranslate"><span class="pre">state</span></code><a class="headerlink" href="#state" title="この見出しへのパーマリンク">¶</a></h3>
+<p>A request to dump active state information for a project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>state
+</pre></div>
+</div>
+<p>A state request can be used to dump any active configuration and operating
+modes.</p>
+</section>
+</section>
+<section id="package-actions">
+<h2>Package actions<a class="headerlink" href="#package-actions" title="この見出しへのパーマリンク">¶</a></h2>
+<p>The following outlines available package-specific actions:</p>
+<section id="pkg-build">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code><a class="headerlink" href="#pkg-build" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Performs the build stage for the package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-build
+</pre></div>
+</div>
+<p>On success, the specified package will have completed its build.
+If a package has any package dependencies, these dependencies will be
+processed before the specified package. If the provided package name does
+not exist, a notification will be generated.</p>
+</section>
+<section id="pkg-clean">
+<span id="action-pkg-clean"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code><a class="headerlink" href="#pkg-clean" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Cleans the build directory for package (if it exists).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-clean
+</pre></div>
+</div>
+<p>See also the <a class="reference internal" href="#action-pkg-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code></span></a> action.</p>
+</section>
+<section id="pkg-configure">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code><a class="headerlink" href="#pkg-configure" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Performs the configure stage for the package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-configure
+</pre></div>
+</div>
+<p>On success, the specified package will have completed its configuration
+stage. If a package has any package dependencies, these dependencies will
+be processed before the specified package. If the provided package name
+does not exist, a notification will be generated.</p>
+</section>
+<section id="pkg-distclean">
+<span id="action-pkg-distclean"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code><a class="headerlink" href="#pkg-distclean" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Perform a pristine clean of a releng-tool package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-distclean
+</pre></div>
+</div>
+<p>This request not only removes the build directory but also any cached file
+or directory associated with the package. See also the
+<a class="reference internal" href="#action-pkg-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></span></a> action.</p>
+</section>
+<section id="pkg-exec-cmd">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">&quot;&lt;cmd&gt;&quot;</span></code><a class="headerlink" href="#pkg-exec-cmd" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Invokes a provided command in the package's build output directory. This
+package action can be useful for developers attempting to develop/debug a
+specific package, allowing an easy way to issue commands in a package's
+directory without having to manually venture to a package's output
+directory. Packages will need to be processed to at least the patch stage
+before a provided command is issued.</p>
+<p>An example is as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>libfoo-exec<span class="w"> </span><span class="s2">&quot;mycmd arg1 arg2&quot;</span>
+</pre></div>
+</div>
+<p>Package environment variables will be available for the invoked command.</p>
+</section>
+<section id="pkg-extract">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code><a class="headerlink" href="#pkg-extract" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Performs the extraction stage for the package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-extract
+</pre></div>
+</div>
+<p>On success, the specified package will have completed its extraction stage.
+If the provided package name does not exist, a notification will be
+generated.</p>
+</section>
+<section id="pkg-fetch">
+<span id="action-pkg-fetch"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code><a class="headerlink" href="#pkg-fetch" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Performs the fetch stage for the package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-fetch
+</pre></div>
+</div>
+<p>On success, the specified package stage will have completed its fetch stage.
+If the provided package name does not exist, a notification will be
+generated.</p>
+</section>
+<section id="pkg-install">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code><a class="headerlink" href="#pkg-install" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Performs the installation stage for the package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-install
+</pre></div>
+</div>
+<p>On success, the specified package will have completed its installation
+stage. If a package has any package dependencies, these dependencies will
+be processed before the specified package. If the provided package name
+does not exist, a notification will be generated.</p>
+</section>
+<section id="pkg-license">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code><a class="headerlink" href="#pkg-license" title="この見出しへのパーマリンク">¶</a></h3>
+<p>A request to generate the license information for a specific package
+in a project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-license
+</pre></div>
+</div>
+<p>Note that license information requires acquiring license documents from
+the package itself. Therefore, the package will be fetched/extracted if
+not already done.</p>
+</section>
+<section id="pkg-patch">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code><a class="headerlink" href="#pkg-patch" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Performs the patch stage for the package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-patch
+</pre></div>
+</div>
+<p>On success, the specified package will have completed its patch stage.
+If the provided package name does not exist, a notification will be generated.</p>
+</section>
+<section id="pkg-rebuild">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code><a class="headerlink" href="#pkg-rebuild" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Force a rebuild of a specific package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-rebuild
+</pre></div>
+</div>
+<p>Once a package has been built, the package will not attempt to be built
+again. Invoking a rebuild request will tell releng-tool to re-invoke the
+build step again. This can be useful during times of development where a
+developer attempts to change a package definition or sources between build
+attempts. After completing a rebuild, releng-tool will perform the
+remaining stages of the package (i.e. the installation phase). Users
+wishing to perform only the rebuild stage are recommended to use
+<code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code> instead.</p>
+<p>If using this action, ensure
+<a class="reference internal" href="../../getting-started/rebuilds/"><span class="doc std std-doc">understanding rebuilds</span></a> has been read to
+understand this action's effect.</p>
+</section>
+<section id="pkg-rebuild-only">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code><a class="headerlink" href="#pkg-rebuild-only" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Force a rebuild of a specific package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-rebuild-only
+</pre></div>
+</div>
+<p>Once a package has been built, the package will not attempt to be built
+again. Invoking a rebuild request will tell releng-tool to re-invoke the
+build step again. This can be useful during times of development where
+a developer attempts to change a package definition or sources between
+build attempts. After completing a rebuild, releng-tool will stop and
+perform no other changes. Users wishing to perform a rebuild to the
+installation phase are recommended to use <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code> instead.</p>
+<p>If using this action, ensure
+<a class="reference internal" href="../../getting-started/rebuilds/"><span class="doc std std-doc">understanding rebuilds</span></a> has been read to
+understand this action's effect.</p>
+</section>
+<section id="pkg-reconfigure">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code><a class="headerlink" href="#pkg-reconfigure" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Force a re-configuration of a specific package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-rebuild-reconfigure
+</pre></div>
+</div>
+<p>Once a package has been configured, the package will not attempt to
+configure it again. Invoking a re-configuration request will tell
+releng-tool to re-invoke the configuration step again. This can be useful
+during times of development where a developer attempts to change a package
+definition or sources between configuration attempts. After completing a
+re-configuration, releng-tool will perform the remaining stages of the
+package (i.e. all the way to the installation phase). Users wishing to
+perform only the re-configuration stage are recommended to use
+<code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code> instead.</p>
+<p>If using this action, ensure
+<a class="reference internal" href="../../getting-started/rebuilds/"><span class="doc std std-doc">understanding rebuilds</span></a> has been read to
+understand this action's effect.</p>
+</section>
+<section id="pkg-reconfigure-only">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code><a class="headerlink" href="#pkg-reconfigure-only" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Force a re-configuration of a specific package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-reconfigure-only
+</pre></div>
+</div>
+<p>Once a package has been configured, the package will not attempt to
+configure it again. Invoking a re-configuration request will tell
+releng-tool to re-invoke the configuration step again. This can be useful
+during times of development where a developer attempts to change a package
+definition or sources between configuration attempts. After completing a
+re-configuration, releng-tool will stop and perform no other changes.
+Users wishing to perform a re-configuration to the installation phase are
+recommended to use <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code> instead.</p>
+<p>If using this action, ensure
+<a class="reference internal" href="../../getting-started/rebuilds/"><span class="doc std std-doc">understanding rebuilds</span></a> has been read to
+understand this action's effect.</p>
+</section>
+<section id="pkg-reinstall">
+<h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code><a class="headerlink" href="#pkg-reinstall" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Force a re-installation of a specific package.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-reinstall
+</pre></div>
+</div>
+<p>Once a package has been installed, the package will not attempt to install
+it again. Invoking a re-installation request will tell releng-tool to
+re-invoke the installation step again. This can be useful during times of
+development where a developer attempts to change a package definition or
+sources between installation attempts.</p>
+<p>If using this action, ensure
+<a class="reference internal" href="../../getting-started/rebuilds/"><span class="doc std std-doc">understanding rebuilds</span></a> has been read to
+understand this action's effect.</p>
+</section>
+</section>
+<section id="option-arguments">
+<h2>Option arguments<a class="headerlink" href="#option-arguments" title="この見出しへのパーマリンク">¶</a></h2>
+<p>The following outlines available options:</p>
+<section id="assets-dir-dir">
+<span id="arg-assets-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#assets-dir-dir" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Directory to hold cache and download folders instead of using a configured
+root directory.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Configuring an asset directory override is only helpful when attempting to
+configure a container for all assets. If a user also specifies <code class="docutils literal notranslate"><span class="pre">--cache-dir</span></code>
+or <code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> overrides, this argument has no effect.</p>
+</div>
+<p>See also <a class="reference internal" href="../environment/#env-releng-assets-dir"><span class="std std-ref">RELENG_ASSETS_DIR=&lt;dir&gt;</span></a>.</p>
+</section>
+<section id="cache-dir-dir">
+<span id="arg-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#cache-dir-dir" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Directory for distributed version control cache information (defaults to
+<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/cache</span></code>).</p>
+<p>See also <a class="reference internal" href="../environment/#env-releng-cache-dir"><span class="std std-ref">RELENG_CACHE_DIR=&lt;dir&gt;</span></a>.</p>
+</section>
+<section id="config-file">
+<h3><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code><a class="headerlink" href="#config-file" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Configuration file to load (defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/releng</span></code>).</p>
+</section>
+<section id="debug">
+<h3><code class="docutils literal notranslate"><span class="pre">--debug</span></code><a class="headerlink" href="#debug" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Show debug-related messages.</p>
+</section>
+<section id="d-development-mode">
+<h3><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span> <span class="pre">[&lt;mode&gt;]</span></code><a class="headerlink" href="#d-development-mode" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Enables <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>.</p>
+</section>
+<section id="dl-dir-dir">
+<span id="arg-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#dl-dir-dir" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Directory for download archives (defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/dl</span></code>).</p>
+<p>See also <a class="reference internal" href="../environment/#env-releng-dl-dir"><span class="std std-ref">RELENG_DL_DIR=&lt;dir&gt;</span></a>.</p>
+</section>
+<section id="f-force">
+<span id="arg-force"></span><h3><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code><a class="headerlink" href="#f-force" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Triggers a forced request for the releng-tool invoke. This entails:</p>
+<ul class="simple">
+<li><p>Packages will be processed as if a re-configuration request has
+been made.</p></li>
+<li><p>If an explicit fetch request is made (<a class="reference internal" href="#action-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">fetch</span></code></span></a> or
+<a class="reference internal" href="#action-pkg-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></span></a>), any packages which cache to a file
+will have their cache files deleted to be re-fetched.</p></li>
+</ul>
+</section>
+<section id="h-help">
+<h3><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code><a class="headerlink" href="#h-help" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Show a list of all arguments available by releng-tool.</p>
+</section>
+<section id="images-dir-dir">
+<h3><code class="docutils literal notranslate"><span class="pre">--images-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#images-dir-dir" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Directory for image outputs (defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/images</span></code>).</p>
+</section>
+<section id="j-jobs-jobs">
+<h3><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code><a class="headerlink" href="#j-jobs-jobs" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Numbers of jobs to handle (defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>; automatic).</p>
+</section>
+<section id="l-local-sources-pkg-dir">
+<h3><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code><a class="headerlink" href="#l-local-sources-pkg-dir" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Enables <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a>.</p>
+<p>Without a directory provided, sources of internal packages will be looked
+for in the parent directory of the configured root directory. Users may
+use this argument multiple times to override the local-sources
+configuration. If a package-specific override is provided, sources for
+that package will be looked for inside the provided path.</p>
+</section>
+<section id="nocolorout">
+<h3><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code><a class="headerlink" href="#nocolorout" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Explicitly disable colorized output.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>releng-tool respects the <code class="docutils literal notranslate"><span class="pre">NO_COLOR</span></code> environment variable, if configured
+in the running environment.</p>
+</div>
+</section>
+<section id="out-dir-dir">
+<h3><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#out-dir-dir" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Directory for output (builds, images, etc.; defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>).</p>
+</section>
+<section id="root-dir-dir">
+<h3><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#root-dir-dir" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Directory to process a releng-tool project (defaults to the working
+directory).</p>
+</section>
+<section id="sbom-format-fmt">
+<h3><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code><a class="headerlink" href="#sbom-format-fmt" title="この見出しへのパーマリンク">¶</a></h3>
+<p>The format to use when generating a software build of materials (SBOM).
+Multiple formats can be provided (comma-separated).</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Type</p></th>
+<th class="head text-left"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>CSV</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">csv</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>HTML</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">html</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>JSON</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">json</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>JSON (SPDX)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">json-spdx</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>RDP (SPDX)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rdp-spdx</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>Text</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">text</span></code> (default)</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>XML</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">xml</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>See also <a class="reference internal" href="#action-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></span></a>.</p>
+</section>
+<section id="quirk-quirk-id">
+<h3><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code><a class="headerlink" href="#quirk-quirk-id" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Allows specifying a runtime <a class="reference internal" href="../quirks/quirks/"><span class="doc std std-doc">quirk</span></a> for the releng-tool
+process. This option can be used multiple times to apply multiple quirks.</p>
+</section>
+<section id="v-verbose">
+<h3><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code><a class="headerlink" href="#v-verbose" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Show additional messages.</p>
+</section>
+<section id="version">
+<h3><code class="docutils literal notranslate"><span class="pre">--version</span></code><a class="headerlink" href="#version" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Show releng-tool's version.</p>
+</section>
+<section id="werror-werror">
+<h3><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code><a class="headerlink" href="#werror-werror" title="この見出しへのパーマリンク">¶</a></h3>
+<p>Treat warnings from releng-tool as errors.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../configuration/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Configuration</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../guides/">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">User guides</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Arguments</a><ul>
+<li><a class="reference internal" href="#global-actions">Global actions</a><ul>
+<li><a class="reference internal" href="#clean"><code class="docutils literal notranslate"><span class="pre">clean</span></code></a></li>
+<li><a class="reference internal" href="#distclean"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></a></li>
+<li><a class="reference internal" href="#extract"><code class="docutils literal notranslate"><span class="pre">extract</span></code></a></li>
+<li><a class="reference internal" href="#fetch"><code class="docutils literal notranslate"><span class="pre">fetch</span></code></a></li>
+<li><a class="reference internal" href="#init"><code class="docutils literal notranslate"><span class="pre">init</span></code></a></li>
+<li><a class="reference internal" href="#licenses"><code class="docutils literal notranslate"><span class="pre">licenses</span></code></a></li>
+<li><a class="reference internal" href="#mrproper"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></a></li>
+<li><a class="reference internal" href="#patch"><code class="docutils literal notranslate"><span class="pre">patch</span></code></a></li>
+<li><a class="reference internal" href="#sbom"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></a></li>
+<li><a class="reference internal" href="#state"><code class="docutils literal notranslate"><span class="pre">state</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#package-actions">Package actions</a><ul>
+<li><a class="reference internal" href="#pkg-build"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code></a></li>
+<li><a class="reference internal" href="#pkg-clean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></a></li>
+<li><a class="reference internal" href="#pkg-configure"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code></a></li>
+<li><a class="reference internal" href="#pkg-distclean"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code></a></li>
+<li><a class="reference internal" href="#pkg-exec-cmd"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">&quot;&lt;cmd&gt;&quot;</span></code></a></li>
+<li><a class="reference internal" href="#pkg-extract"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></a></li>
+<li><a class="reference internal" href="#pkg-fetch"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></a></li>
+<li><a class="reference internal" href="#pkg-install"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></a></li>
+<li><a class="reference internal" href="#pkg-license"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></a></li>
+<li><a class="reference internal" href="#pkg-patch"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></a></li>
+<li><a class="reference internal" href="#pkg-rebuild"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></a></li>
+<li><a class="reference internal" href="#pkg-rebuild-only"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></a></li>
+<li><a class="reference internal" href="#pkg-reconfigure"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></a></li>
+<li><a class="reference internal" href="#pkg-reconfigure-only"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></a></li>
+<li><a class="reference internal" href="#pkg-reinstall"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#option-arguments">Option arguments</a><ul>
+<li><a class="reference internal" href="#assets-dir-dir"><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#cache-dir-dir"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#config-file"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></a></li>
+<li><a class="reference internal" href="#debug"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></a></li>
+<li><a class="reference internal" href="#d-development-mode"><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span> <span class="pre">[&lt;mode&gt;]</span></code></a></li>
+<li><a class="reference internal" href="#dl-dir-dir"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#f-force"><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code></a></li>
+<li><a class="reference internal" href="#h-help"><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></a></li>
+<li><a class="reference internal" href="#images-dir-dir"><code class="docutils literal notranslate"><span class="pre">--images-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#j-jobs-jobs"><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></a></li>
+<li><a class="reference internal" href="#l-local-sources-pkg-dir"><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code></a></li>
+<li><a class="reference internal" href="#nocolorout"><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></a></li>
+<li><a class="reference internal" href="#out-dir-dir"><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#root-dir-dir"><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#sbom-format-fmt"><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></a></li>
+<li><a class="reference internal" href="#quirk-quirk-id"><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></a></li>
+<li><a class="reference internal" href="#v-verbose"><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></a></li>
+<li><a class="reference internal" href="#version"><code class="docutils literal notranslate"><span class="pre">--version</span></code></a></li>
+<li><a class="reference internal" href="#werror-werror"><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=948bdcac"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/translations.js?v=4dbe4bdc"></script>
+    </body>
+</html>

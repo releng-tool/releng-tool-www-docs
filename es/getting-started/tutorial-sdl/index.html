@@ -1,0 +1,837 @@
+<!doctype html>
+<html class="no-js" lang="es">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="search" title="Búsqueda" href="../../search/" /><link rel="next" title="Tutorial «A toolchain example»" href="../tutorial-toolchain/" /><link rel="prev" title="Tutorial «Basic packages»" href="../tutorial-basic/" />
+
+    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+        <title>Tutorial «An SDL example» - documentación de releng-tool -</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=315ca4e6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">documentación de releng-tool - </div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  
+
+<div class="sidebar-logo-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 8.02" class="sidebar-logo" alt="releng-tool">
+        <path d="M3.48 0a.2.2 0 0 0-.01 0 .2.2 0 0 0-.1.04l-1.6.93a.2.2 0 0 0-.05.03l-1.6.92a.2.2 0 0 0-.01.01.2.2 0 0 0-.02.01.2.2 0 0 0-.02.02.2.2 0 0 0-.02.01V2a.2.2 0 0 0-.03 0 .2.2 0 0 0-.02.04.2.2 0 0 0 0 .02v.01a.2.2 0 0 0 0 .03.2.2 0 0 0 0 .02.2.2 0 0 0 0 .02V5.9c0 .04 0 .07.02.1v.02a.2.2 0 0 0 .02.04l.08.05 3.25 1.88h.01V8h.02l.01.02a.2.2 0 0 0 .12.01.2.2 0 0 0 .02 0h.02A.2.2 0 0 0 3.61 8h.02l3.24-1.9a.2.2 0 0 0 .1-.07V6l.01-.02A.2.2 0 0 0 7 5.9V2.14a.2.2 0 0 0 0-.02.2.2 0 0 0 0-.02.2.2 0 0 0 0-.03.2.2 0 0 0-.01-.02.2.2 0 0 0-.07-.1H6.9l-.01-.01h-.01v-.01h-.02L3.62.05A.2.2 0 0 0 3.48 0Zm.02.43 2.9 1.68-1.26.72-2.91-1.67Zm-1.65.95 2.91 1.68-1.26.73L.6 2.1ZM.4 2.45l2.9 1.68v3.36L.4 5.8Zm6.2 0v3.36L3.7 7.49V4.13Z" style="fill:var(--color-foreground-primary)"/>
+    </svg>
+</div>
+
+
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+  <input class="sidebar-search" placeholder="Búsqueda" name="q" aria-label="Búsqueda">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../requirements/">Requisitos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">Installation</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../getting-started/">Getting started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../prelude/">Preludio</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../tutorials/">Tutoriales</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutoriales</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../tutorial-basic/">Tutorial «Basic packages»</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Tutorial «An SDL example»</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial-toolchain/">Tutorial «A toolchain example»</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rebuilds/">Understanding rebuilds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fetching/">Understanding fetching</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../guides/guides/">User guides</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of User guides</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/arguments/">Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/configuration/">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/environment/">Environment variables</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/common-pkg-options/">Common options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/bootstrapping/">Bootstrapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/post-processing/">Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/site-definitions/">Site definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/hash-file/">Hash file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/ascii-armor/">ASCII armor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-script/">Script package (default)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-cmake/">CMake package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-make/">Make package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-meson/">Meson package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-python/">Python package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-scons/">SCons package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/post-processing/">Post-processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/script-helpers/">Script helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/licenses/">Licenses</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/tips/tips/">Consejos</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Consejos</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/offline-builds/">Offline builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/parallel-builds/">Parallel builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/alternative-extensions/">Alternative extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/vcs-ignore/">VCS Ignore</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/advanced-guides/">Advanced</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Advanced</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/patching/">Patching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/intern-extern-pkgs/">Internal/external packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/development-mode/">Development mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/configuration-overrides/">Configuration overrides</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../guides/quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_spdx_check/">releng.disable_spdx_check</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/extensions/extensions/">Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/extensions/making-a-custom-post-build-action/">Making a custom post-build action extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/extensions/making-a-custom-package-type/">Making a custom package type extension</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/">Requesting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributors/">Guía del colaborador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANEXO A - Guía rápida</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-05_00.14.00/">0.14 (2023-02-05)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2022-08-10_00.13.00/">0.13 (2022-08-10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2022-05-02_00.12.00/">0.12 (2022-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2022-02-26_00.11.00/">0.11 (2022-02-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<div class="sidebar-scroll">
+  <div class="sidebar-tree">
+    <hr class="injected-sidebar-tree-spacer" />
+    <ul>
+      <li><a class="reference external" href="https://releng.io/">releng.io</a></li>
+      <li><a class="reference external" href="https://github.com/releng-tool/releng-tool">releng-tool GitHub</a></li>
+    </ul>
+
+    <hr class="injected-sidebar-tree-spacer" />
+    <div class="injected-sidebar-i8n">
+      🕮
+
+      · <a class="notranslate" href="https://docs.releng.io/en/">English</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/de/">Deutsch</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/es/">español</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/ja/">日本語</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/pl/">polski</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/zh_Hans/">中文 (简体)</a>
+
+      · <a class="notranslate" href="https://docs.releng.io/zh_Hant/">中文 (繁體)</a>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="tutorial-an-sdl-example">
+<h1>Tutorial «An SDL example»<a class="headerlink" href="#tutorial-an-sdl-example" title="Enlace permanente a este encabezado">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The goal of this tutorial is to show an example of C-based project, which
+is built using a host’s pre-installed tools (compilers, etc.). The sample
+application created will be run on the host system to show the results of
+a build. Typically, a project would configure/use toolchains to build
+projects to ensure the resulting files can run on a desired target.</p>
+</div>
+<p>This tutorial shows an example using creating a <a class="reference external" href="https://www.libsdl.org/">Simple DirectMedia Layer</a>
+(SDL) sample project, utilizing CMake, which can be built on various
+platforms (Linux, OS X or Windows). Users of this tutorial can use any
+platform they desire (commands may vary).</p>
+<section id="preparing">
+<h2>Preparing<a class="headerlink" href="#preparing" title="Enlace permanente a este encabezado">¶</a></h2>
+<p>To start, make a new folder for the project, folders for each package and
+move into the root folder:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>my-sdl-project/package/libsdl
+<span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>my-sdl-project/package/sample
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-sdl-project/
+</pre></div>
+</div>
+<p>The «libsdl» package will be used to manage the use of <a class="reference external" href="https://www.libsdl.org/">SDL</a>, and the
+«sample» package will be a representation of our sample application that
+uses the SDL library.</p>
+</section>
+<section id="the-libsdl-package">
+<h2>The libsdl package<a class="headerlink" href="#the-libsdl-package" title="Enlace permanente a este encabezado">¶</a></h2>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package, create a package definition
+<code class="docutils literal notranslate"><span class="pre">my-project/libsdl/libsdl</span></code> with the following contents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBSDL_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Zlib&#39;</span><span class="p">]</span>
+<span class="n">LIBSDL_LICENSE_FILES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LICENSE.txt&#39;</span><span class="p">]</span>
+<span class="n">LIBSDL_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://www.libsdl.org/release/SDL2-$</span><span class="si">{LIBSDL_VERSION}</span><span class="s1">.tar.gz&#39;</span>
+<span class="n">LIBSDL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;cmake&#39;</span>
+<span class="n">LIBSDL_VERSION</span> <span class="o">=</span> <span class="s1">&#39;2.28.0&#39;</span>
+
+<span class="n">LIBSDL_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;SDL_SHARED&#39;</span><span class="p">:</span> <span class="s1">&#39;ON&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SDL_STATIC&#39;</span><span class="p">:</span> <span class="s1">&#39;OFF&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SDL_TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;OFF&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The SDL library uses a zlib license. We configure <code class="docutils literal notranslate"><span class="pre">LIBSDL_LICENSE</span></code> to the
+equivalent <a class="reference external" href="https://spdx.org/licenses/">SPDX</a> license identifier, as well as define
+<code class="docutils literal notranslate"><span class="pre">LIBSDL_LICENSE_FILES</span></code> to point to a copy of the license text. Specifying
+license information is not required, but can be helpful when generating
+license data or software bill of materials (SBOM) for a project.</p></li>
+<li><p>This example uses SDL v2.28, which we set in the <code class="docutils literal notranslate"><span class="pre">LIBSDL_VERSION</span></code> option.
+The version value is useful for managing output folders and logging versions
+of packages.</p></li>
+<li><p>We specify the location to download sources in <code class="docutils literal notranslate"><span class="pre">LIBSDL_SITE</span></code>. We take
+advantage of the <code class="docutils literal notranslate"><span class="pre">LIBSDL_VERSION</span></code> configuration to point to the specific
+version we desire.</p></li>
+<li><p>The SDL library uses CMake. This means we can use <code class="docutils literal notranslate"><span class="pre">LIBSDL_TYPE</span></code> to configure
+the helper type and avoid the need to create configure/build scripts to
+run CMake for us (since releng-tool will handle this for us).</p></li>
+<li><p>This package has a series of custom options available in its library. We
+use <code class="docutils literal notranslate"><span class="pre">LIBSDL_CONF_DEFS</span></code> to configure various CMake options, for example,
+disabling unit tests. Configuration options will vary per package.</p></li>
+</ul>
+<p>The above <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package specifies a remote URL to download library
+sources. These sources should be validated to ensure data is not corrupted
+or manipulated. To do this, create a hash file alongside the package
+definition called <code class="docutils literal notranslate"><span class="pre">libsdl.hash</span></code> with the contents:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># gpg verified SDL2-2.28.0.tar.gz.sig | 1528635D8053A57F77D1E08630A59377A7763BE6
+sha256 d215ae4541e69d628953711496cd7b0e8b8d5c8d811d5b0f98fdc7fd1422998a libsdl-2.28.0.tar.gz
+# locally computed
+sha256 9928507f684c1965d07f2b6ef4b4723d5efc2f6b4ab731f743a413c51c319927 LICENSE.txt
+</pre></div>
+</div>
+<p>In this hash file, expected hashes for resources can be configured and checked
+when releng-tool attempts to fetch resources from remote sources. Ideally,
+hashes provided from a third-party package release can be directly added into
+these files (<code class="docutils literal notranslate"><span class="pre">&lt;hash-type&gt;</span> <span class="pre">&lt;hash&gt;</span> <span class="pre">&lt;file&gt;</span></code>). In this example, SDL provides
+GPG signatures of their archives. We manually download the archive and
+signature file to verify its contents. Once verified, we generated our own
+SHA-256 sum and place it into this hash file (with a helpful comment).</p>
+<p>In addition, we also provide a hash of the license document. While not
+required, this can be useful in detecting if the license of a package
+changes between versions.</p>
+<p>Finally, the following shows an example of a patch scenario. For v2.28 SDL’s
+CMake projects, the library’s implementation has trouble when the
+installation prefix is empty (which releng-tool may set in Windows
+environments). To help fix the CMake definition, we want to patch it before
+running a configuration script. Along side the package definition, create
+a patch
+<a class="reference download internal" download="" href="../../_downloads/31f2ac3a135a26d2d3dae5e8647ed7c9/001-empty-prefix-support.patch"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">001-empty-prefix-support.patch</span></code></span></a>
+with the following contents:</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gh">diff -u a/CMakeLists.txt b/CMakeLists.txt</span>
+
+CMAKE_INSTALL_PREFIX may be empty, causing the set of bin_prefix_relpath
+to fail. To avoid a failure, avoid using CMAKE_INSTALL_PREFIX when empty.
+
+<span class="gd">--- a/CMakeLists.txt    2023-06-20 14:27:57.000000000 -0400</span>
+<span class="gi">+++ b/CMakeLists.txt    2023-06-25 17:41:30.823627100 -0400</span>
+<span class="gu">@@ -3067,7 +3067,11 @@</span>
+<span class="w"> </span>endif()
+
+<span class="w"> </span>set(prefix ${CMAKE_INSTALL_PREFIX})
+<span class="gd">-file(RELATIVE_PATH bin_prefix_relpath &quot;${CMAKE_INSTALL_FULL_BINDIR}&quot; &quot;${CMAKE_INSTALL_PREFIX}&quot;)</span>
+<span class="gi">+if(CMAKE_INSTALL_PREFIX STREQUAL &quot;&quot;)</span>
+<span class="gi">+  set(bin_prefix_relpath ${CMAKE_INSTALL_FULL_BINDIR})</span>
+<span class="gi">+else()</span>
+<span class="gi">+  file(RELATIVE_PATH bin_prefix_relpath &quot;${CMAKE_INSTALL_FULL_BINDIR}&quot; &quot;${CMAKE_INSTALL_PREFIX}&quot;)</span>
+<span class="gi">+endif()</span>
+
+<span class="w"> </span>set(exec_prefix &quot;\${prefix}&quot;)
+<span class="w"> </span>set(libdir &quot;\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}&quot;)
+</pre></div>
+</div>
+<p>Without getting into the specifics of the patch, the existence of this
+patch file will ensure the extracted <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> is updated before
+<code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package performs its configuration stage. This should ensure this
+third-party library can be built on all the platforms we wish to support.</p>
+<p>The following shows the expected file structure at this stage of this
+tutorial:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-sdl-project/
+    └── package/
+        ├── libsdl/
+        │   ├── 001-empty-prefix-support.patch
+        │   ├── libsdl
+        │   └── libsdl.hash
+        └── sample/
+</pre></div>
+</div>
+</section>
+<section id="the-sample-package">
+<h2>The sample package<a class="headerlink" href="#the-sample-package" title="Enlace permanente a este encabezado">¶</a></h2>
+<p>Next, we will create a «sample» project. The sources for this sample
+project would typically be stored in a version control system such as a
+Git repository. To simplify this tutorial, we will utilize a <code class="docutils literal notranslate"><span class="pre">local</span></code> VCS
+type (typically used for interim development) to help demonstrate the
+sample project.</p>
+<p>Create a package definition <code class="docutils literal notranslate"><span class="pre">my-sdl-project/sample/sample</span></code> with the
+following contents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SAMPLE_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;libsdl&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">SAMPLE_INTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">SAMPLE_TYPE</span> <span class="o">=</span> <span class="s1">&#39;cmake&#39;</span>
+<span class="n">SAMPLE_VCS_TYPE</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>We specify a dependency on the <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package by adding this package in
+a <code class="docutils literal notranslate"><span class="pre">SAMPLE_DEPENDENCIES</span></code> list. One or more packages can be specified here
+if needed, and will ensure that <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> is built before any attempts to
+configure/build the sample package.</p></li>
+<li><p>This package is then flagged as internal (<code class="docutils literal notranslate"><span class="pre">SAMPLE_INTERNAL</span></code>). We do this
+since this is our own custom package and flagging an internal package
+avoids warnings generated for missing license files or hash files
+(although developers can add hash checks for internal sources if desired).</p></li>
+<li><p>The sample program will also be a CMake-based project, so <code class="docutils literal notranslate"><span class="pre">SAMPLE_TYPE</span></code>
+will be configured.</p></li>
+<li><p>Lastly, we wil configure the custom <code class="docutils literal notranslate"><span class="pre">local</span></code> type in <code class="docutils literal notranslate"><span class="pre">SAMPLE_VCS_TYPE</span></code> to
+indicate our implementation will be found inside the package folder (until
+we can later add it to Git/etc. repository in the future).</p></li>
+</ul>
+<p>Next, we want to create the sample implementation for this demonstration.
+Inside the <code class="docutils literal notranslate"><span class="pre">sample</span></code> package folder, create the following file structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── local/
+    ├── src/
+    │   └── sample/
+    │       └── main.c
+    └── CMakeLists.txt
+</pre></div>
+</div>
+<p>With the following contents:</p>
+<p><a class="reference download internal" download="" href="../../_downloads/13ccd861ae7be5084efebf12527f22ac/CMakeLists.txt"><span class="xref download myst">(<em>CMakeLists.txt</em>)</span></a></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.11</span><span class="p">)</span>
+
+<span class="nb">set</span><span class="p">(</span><span class="s">BASE_DIR</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">INC_DIR</span><span class="w"> </span><span class="o">${</span><span class="nv">BASE_DIR</span><span class="o">}</span><span class="s">/src</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">SRC_DIR</span><span class="w"> </span><span class="o">${</span><span class="nv">BASE_DIR</span><span class="o">}</span><span class="s">/src/sample</span><span class="p">)</span>
+
+<span class="c">########################################################################</span>
+<span class="c">## support</span>
+<span class="c">########################################################################</span>
+
+<span class="c"># targeting c11</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_C_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+<span class="nb">enable_language</span><span class="p">(</span><span class="s">C</span><span class="p">)</span><span class="w"> </span><span class="c"># msvc hint</span>
+
+<span class="c"># includes</span>
+<span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">INC_DIR</span><span class="o">}</span><span class="p">)</span>
+
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_MACOSX_RPATH</span><span class="w"> </span><span class="s">1</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_INSTALL_RPATH</span><span class="w"> </span><span class="s2">&quot;${CMAKE_INSTALL_PREFIX}/lib&quot;</span><span class="p">)</span>
+
+<span class="c">########################################################################</span>
+<span class="c">## dependencies</span>
+<span class="c">########################################################################</span>
+
+<span class="nb">find_package</span><span class="p">(</span><span class="s">SDL2</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">Threads</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+
+<span class="c">########################################################################</span>
+<span class="c">## project</span>
+<span class="c">########################################################################</span>
+
+<span class="nb">project</span><span class="p">(</span><span class="s">sample</span><span class="p">)</span>
+
+<span class="nb">set</span><span class="p">(</span><span class="s">SAMPLE_SRCS</span>
+<span class="w">    </span><span class="o">${</span><span class="nv">SRC_DIR</span><span class="o">}</span><span class="s">/main.c</span>
+<span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">sample</span><span class="w"> </span><span class="o">${</span><span class="nv">SAMPLE_SRCS</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">sample</span><span class="w"> </span><span class="s">SDL2::SDL2</span><span class="w"> </span><span class="s">SDL2::SDL2main</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">sample</span><span class="w"> </span><span class="s">Threads::Threads</span><span class="p">)</span>
+<span class="nb">install</span><span class="w"> </span><span class="p">(</span><span class="s">TARGETS</span><span class="w"> </span><span class="s">sample</span><span class="w"> </span><span class="s">RUNTIME</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">bin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../_downloads/13ccd861ae7be5084efebf12527f22ac/CMakeLists.txt"><span class="xref download myst">(<em>main.c</em>)</span></a></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SDL2/SDL.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdbool.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">err</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;(error) &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">va_list</span><span class="w"> </span><span class="n">args</span><span class="p">;</span>
+<span class="w">    </span><span class="n">va_start</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">);</span>
+<span class="w">    </span><span class="n">vfprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span>
+<span class="w">    </span><span class="n">va_end</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fflush</span><span class="p">(</span><span class="n">stderr</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">SDL_Renderer</span><span class="o">*</span><span class="w"> </span><span class="n">renderer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">SDL_Surface</span><span class="o">*</span><span class="w"> </span><span class="n">imgSurface</span><span class="p">;</span>
+<span class="w">    </span><span class="n">SDL_Texture</span><span class="o">*</span><span class="w"> </span><span class="n">imgTexture</span><span class="p">;</span>
+<span class="w">    </span><span class="n">SDL_Window</span><span class="o">*</span><span class="w"> </span><span class="n">window</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_VIDEO</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">SDL_INIT_EVENTS</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">err</span><span class="p">(</span><span class="s">&quot;sdl2 init: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SDL_GetError</span><span class="p">());</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">&quot;releng-tool&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">SDL_WINDOWPOS_CENTERED</span><span class="p">,</span><span class="w"> </span><span class="n">SDL_WINDOWPOS_CENTERED</span><span class="p">,</span>
+<span class="w">        </span><span class="mi">1280</span><span class="p">,</span><span class="w"> </span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="n">SDL_WINDOW_OPENGL</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">err</span><span class="p">(</span><span class="s">&quot;failed to create window&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">window</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">SDL_RENDERER_ACCELERATED</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">renderer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">err</span><span class="p">(</span><span class="s">&quot;failed to create renderer&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// read the image into a texture</span>
+<span class="w">    </span><span class="n">imgSurface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SDL_LoadBMP</span><span class="p">(</span><span class="s">&quot;releng-tool.bmp&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">imgSurface</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">err</span><span class="p">(</span><span class="s">&quot;failed to load image: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SDL_GetError</span><span class="p">());</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">imgTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span><span class="w"> </span><span class="n">imgSurface</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">imgTexture</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">err</span><span class="p">(</span><span class="s">&quot;failed to create texture&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">imgSurface</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// wait until a quit is issued</span>
+<span class="w">        </span><span class="n">SDL_Event</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SDL_PollEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">e</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SDL_QUIT</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// render the image</span>
+<span class="w">        </span><span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span><span class="w"> </span><span class="n">imgTexture</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// cleanup</span>
+<span class="w">    </span><span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">imgTexture</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SDL_Quit</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Without getting into specifics of this sample program, the overall goal
+is to have an SDL program create a window and show an image.</p>
+<p>The following shows the expected file structure at this stage of this
+tutorial:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-sdl-project/
+    └── package/
+        ├── libsdl/
+        │   ├── 001-empty-prefix-support.patch
+        │   ├── libsdl
+        │   └── libsdl.hash
+        └── sample/
+            ├── local/
+            │   ├── src/
+            │   │   └── sample/
+            │   │       └── main.c
+            │   └── CMakeLists.txt
+            └── sample
+</pre></div>
+</div>
+</section>
+<section id="project-configuration-and-post-build-script">
+<h2>Project configuration and post-build script<a class="headerlink" href="#project-configuration-and-post-build-script" title="Enlace permanente a este encabezado">¶</a></h2>
+<p>The project has both <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> and <code class="docutils literal notranslate"><span class="pre">sample</span></code> packages ready to build. For
+the <code class="docutils literal notranslate"><span class="pre">sample</span></code> project, the implementation references a <code class="docutils literal notranslate"><span class="pre">releng-tool.bmp</span></code>
+image to render for a window, which has not been setup. This file should
+be added into the build system and installed into the target in the
+post-build stages.</p>
+<p>Create a new <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder at the root of the project folder. Inside,
+place a copy of the <a class="reference download internal" download="" href="../../_downloads/76c9d3887ce802f79198650cea36484b/releng-tool.bmp"><span class="xref download myst">releng-tool.bmp</span></a> image.
+At the root of the project folder, create a post-build script named
+<code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code> with the following contents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">assets_dir</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="s1">&#39;assets&#39;</span><span class="p">)</span>
+<span class="n">sample_img</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">assets_dir</span><span class="p">,</span> <span class="s1">&#39;releng-tool.bmp&#39;</span><span class="p">)</span>
+<span class="n">releng_copy_into</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">TARGET_BIN_DIR</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In this example script, we find the project’s root path using a <code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code>
+helper to find where we locally store the <code class="docutils literal notranslate"><span class="pre">releng-tool.bmp</span></code> image file.</p></li>
+<li><p>We then copy the image into the target directory’s bin folder to be
+placed alongside the executable we plan to build.</p></li>
+</ul>
+<p>Lastly, we need to create our releng-tool configuration file for the project.
+In the root folder, create a <code class="docutils literal notranslate"><span class="pre">releng</span></code> file with the following contents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;sample&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>We explicitly configure releng-tool to load the <code class="docutils literal notranslate"><span class="pre">sample</span></code> package to build.</p></li>
+<li><p>Note that we do not need to specify the <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package since the <code class="docutils literal notranslate"><span class="pre">sample</span></code>
+package will load it implicitly through its dependency configuration.</p></li>
+</ul>
+<p>The following shows the expected file structure at this stage of this
+tutorial:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-sdl-project/
+    ├── assets/
+    │   └── releng-tool.bmp
+    ├── package/
+    │   ├── libsdl/
+    │   │   ├── 001-empty-prefix-support.patch
+    │   │   ├── libsdl
+    │   │   └── libsdl.hash
+    │   └── sample/
+    │       ├── local/
+    │       │   ├── src/
+    │       │   │   └── sample/
+    │       │   │       └── main.c
+    │       │   └── CMakeLists.txt
+    │       └── sample
+    ├── releng
+    └── releng-post-build
+</pre></div>
+</div>
+</section>
+<section id="performing-a-build">
+<h2>Performing a build<a class="headerlink" href="#performing-a-build" title="Enlace permanente a este encabezado">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Users will want to run a build in a shell which has the host tools needed
+to perform a build (e.g. the compiler). For Windows, this may be invoking
+releng-tool in a Visual Studio command prompt on a system with <code class="docutils literal notranslate"><span class="pre">patch</span></code>
+installed. For example:</p>
+<ol class="arabic simple">
+<li><p>Start Git SCM Bash shell.</p></li>
+<li><p>Load Visual Studio support into the shell (for example, when using VS2019):
+<code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Microsoft</span> <span class="pre">Visual</span> <span class="pre">Studio\2019\Community\Common7\Tools\VsDevCmd.bat</span></code></p></li>
+<li><p>Navigate to the project directory.</p></li>
+<li><p>Invoke <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>.</p></li>
+</ol>
+</div>
+<p>With packages, assets and configurations prepared, the project should be
+ready to be built. While in the <code class="docutils literal notranslate"><span class="pre">my-sdl-project</span></code> folder, invoke
+<code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
+<span class="go">fetching libsdl...</span>
+<span class="go">requesting: https://www.libsdl.org/release/SDL2-2.28.0.tar.gz</span>
+<span class="go">[100%] libsdl-2.28.0.tar.gz: 7.7 MiB of 7.7 MiB</span>
+<span class="go">completed download (7.7 MiB)</span>
+<span class="go">extracting libsdl...</span>
+<span class="go">WhatsNew.txt</span>
+<span class="go">Xcode</span>
+<span class="go">android-project</span>
+<span class="go">VisualC-WinRT</span>
+<span class="go">...</span>
+<span class="go">patching libsdl...</span>
+<span class="gp gp-VirtualEnv">(001-empty-prefix-support.patch)</span>
+<span class="go">patching file CMakeLists.txt</span>
+<span class="go">configuring libsdl...</span>
+<span class="go">building libsdl...</span>
+<span class="go">installing libsdl...</span>
+<span class="go">configuring sample...</span>
+<span class="go">building sample...</span>
+<span class="go">installing sample...</span>
+<span class="go">generating sbom information...</span>
+<span class="go">generating license information...</span>
+<span class="gp gp-VirtualEnv">(success)</span> <span class="go">completed (0:01:15)</span>
+</pre></div>
+</div>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Enlace permanente a este encabezado">¶</a></h2>
+<p>With the project built, we will run the recently created SDL application
+to verify our initial releng-tool project definitions. With Linux or
+OS X, navigate to the target directory’s bin path and invoke the created
+sample application:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>output/target/usr/bin
+<span class="gp">$ </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>../lib<span class="w"> </span>./sample
+</pre></div>
+</div>
+<p>With Windows, users can navigate to <code class="docutils literal notranslate"><span class="pre">output/target/bin</span></code> using the file
+explorer and click-open the <code class="docutils literal notranslate"><span class="pre">sample.exe</span></code> executable.</p>
+<p>In all cases, a window should be presented with the releng-tool logo:</p>
+<p><img alt="Sample Linux" src="../../_images/sdl-sample-linux.png" />
+<img alt="Sample OS X" src="../../_images/sdl-sample-osx.png" />
+<img alt="Sample Windows" src="../../_images/sdl-sample-win32.png" /></p>
+<p>This concludes this tutorial.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../tutorial-toolchain/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tutorial «A toolchain example»</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../tutorial-basic/">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Tutorial «Basic packages»</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial «An SDL example»</a><ul>
+<li><a class="reference internal" href="#preparing">Preparing</a></li>
+<li><a class="reference internal" href="#the-libsdl-package">The libsdl package</a></li>
+<li><a class="reference internal" href="#the-sample-package">The sample package</a></li>
+<li><a class="reference internal" href="#project-configuration-and-post-build-script">Project configuration and post-build script</a></li>
+<li><a class="reference internal" href="#performing-a-build">Performing a build</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=074b6137"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../_static/translations.js?v=efdbd0b9"></script>
+    </body>
+</html>

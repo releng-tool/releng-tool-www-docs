@@ -1,14 +1,14 @@
-var stable = 'latest';
-var base = '/en/' + stable;
-
+var base = '/en';
 var ln = window.navigator.language || navigator.browserLanguage;
 ln = ln.substring(0,2);
-switch(ln)
-{
-case 'de': base = '/de/' + stable; break;
-case 'jp': base = '/jp/' + stable; break;
-case 'pl': base = '/pl/' + stable; break;
-case 'zh': base = '/zh/' + stable; break;
+switch(ln) {
+case 'en': base = '/en'; break;
+case 'de': base = '/de'; break;
+case 'es': base = '/es'; break;
+case 'ja': base = '/ja'; break;
+case 'pl': base = '/pl'; break;
+case 'zh_Hans': base = '/zh_Hans'; break;
+case 'zh_Hant': base = '/zh_Hant'; break;
 default:
     // use default
 }
