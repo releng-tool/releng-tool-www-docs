@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="es">
+<html class="no-js" lang="es" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Búsqueda" href="../../search/" /><link rel="next" title="0.13 (2022-08-10)" href="../2022-08-10_00.13.00/" /><link rel="prev" title="0.15 (2023-02-12)" href="../2023-02-12_00.15.00/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>0.14 (2023-02-05) - documentación de releng-tool -</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,9 +322,9 @@
         </div>
         <article role="main">
           <section id="id1">
-<h1>0.14 (2023-02-05)<a class="headerlink" href="#id1" title="Enlace permanente a este encabezado">¶</a></h1>
+<h1>0.14 (2023-02-05)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="removal-of-the-deprecated-releng-namespace">
-<h2>Removal of the deprecated <code class="docutils literal notranslate"><span class="pre">releng</span></code> namespace<a class="headerlink" href="#removal-of-the-deprecated-releng-namespace" title="Enlace permanente a este encabezado">¶</a></h2>
+<h2>Removal of the deprecated <code class="docutils literal notranslate"><span class="pre">releng</span></code> namespace<a class="headerlink" href="#removal-of-the-deprecated-releng-namespace" title="Link to this heading">¶</a></h2>
 <p>It has been over two years since the switch from the <code class="docutils literal notranslate"><span class="pre">releng</span></code> namespace to
 the <code class="docutils literal notranslate"><span class="pre">releng_tool</span></code> namespace. Projects using the obsolete namespace for
 project scripting support will now be required to update there scripts to
@@ -341,7 +342,7 @@ implementation such as:</p>
 new namespace.</p>
 </section>
 <section id="software-build-of-materials">
-<h2>Software build of materials<a class="headerlink" href="#software-build-of-materials" title="Enlace permanente a este encabezado">¶</a></h2>
+<h2>Software build of materials<a class="headerlink" href="#software-build-of-materials" title="Link to this heading">¶</a></h2>
 <p>Projects will now automatically generate a software build of materials
 (SBOM) at the end of a build. This can be helpful for environments
 which want to have a summary (and even parsable) description of the
@@ -357,7 +358,7 @@ a build, if desired – users can generate an SBOM by using the action
 </div>
 </section>
 <section id="promotion-of-spdx-license-identifiers">
-<h2>Promotion of SPDX license identifiers<a class="headerlink" href="#promotion-of-spdx-license-identifiers" title="Enlace permanente a este encabezado">¶</a></h2>
+<h2>Promotion of SPDX license identifiers<a class="headerlink" href="#promotion-of-spdx-license-identifiers" title="Link to this heading">¶</a></h2>
 <p>It is now recommended to use <a class="reference external" href="https://spdx.org/licenses/">SPDX license identifiers</a> for package
 licenses. The goal is to help promote the use of standardized short
 identifier for license entries, which can be helpful for environments
@@ -375,7 +376,7 @@ for more details.</p>
 <code class="docutils literal notranslate"><span class="pre">Proprietary</span></code> is provided.</p>
 </section>
 <section id="new-environment-script-variables">
-<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="Enlace permanente a este encabezado">¶</a></h2>
+<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="Link to this heading">¶</a></h2>
 <p>This release includes the <code class="docutils literal notranslate"><span class="pre">*_BIN_DIR</span></code> environment/script variables. These
 can be used to allow a developer to reference specific bin paths for the
 host, staging or target areas. The following lists the newly added
@@ -387,7 +388,7 @@ variables:</p>
 </ul>
 </section>
 <section id="new-move-into-script-function">
-<h2>New move-into script function<a class="headerlink" href="#new-move-into-script-function" title="Enlace permanente a este encabezado">¶</a></h2>
+<h2>New move-into script function<a class="headerlink" href="#new-move-into-script-function" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_move_into</span></code> helper function has been added to allow releng-tool
 script to explicitly move a source into a target directory. This can be
 helpful for users who wish to avoid scenarios using <code class="docutils literal notranslate"><span class="pre">releng_move</span></code> and
@@ -399,7 +400,7 @@ An example of this new call is as follows:</p>
 </div>
 </section>
 <section id="support-for-poetry-python-setup-type">
-<h2>Support for Poetry Python setup type<a class="headerlink" href="#support-for-poetry-python-setup-type" title="Enlace permanente a este encabezado">¶</a></h2>
+<h2>Support for Poetry Python setup type<a class="headerlink" href="#support-for-poetry-python-setup-type" title="Link to this heading">¶</a></h2>
 <p>The previous release of releng-tool introduces support for processing
 Python packages using various common setup types. This release extends
 on this by adding support for <a class="reference external" href="https://python-poetry.org/">Poetry</a>.</p>
@@ -481,9 +482,9 @@ on this by adding support for <a class="reference external" href="https://python
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=074b6137"></script>
+</div><script src="../../_static/documentation_options.js?v=c073757f"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/translations.js?v=efdbd0b9"></script>

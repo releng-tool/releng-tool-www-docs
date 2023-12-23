@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="de">
+<html class="no-js" lang="de" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Suche" href="../../search/" /><link rel="next" title="Tutorial „A toolchain example“" href="../tutorial-toolchain/" /><link rel="prev" title="Tutorial „Basic packages“" href="../tutorial-basic/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Tutorial „An SDL example“ - releng-tool Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,7 +322,7 @@
         </div>
         <article role="main">
           <section id="tutorial-an-sdl-example">
-<h1>Tutorial „An SDL example“<a class="headerlink" href="#tutorial-an-sdl-example" title="Permalink to this heading">¶</a></h1>
+<h1>Tutorial „An SDL example“<a class="headerlink" href="#tutorial-an-sdl-example" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>The goal of this tutorial is to show an example of C-based project, which
@@ -330,12 +331,12 @@ application created will be run on the host system to show the results of
 a build. Typically, a project would configure/use toolchains to build
 projects to ensure the resulting files can run on a desired target.</p>
 </div>
-<p>This tutorial shows an example using creating a <a class="reference external" href="https://www.libsdl.org/">Simple DirectMedia Layer</a>
+<p>This tutorial shows an example creating a <a class="reference external" href="https://www.libsdl.org/">Simple DirectMedia Layer</a>
 (SDL) sample project, utilizing CMake, which can be built on various
 platforms (Linux, OS X or Windows). Users of this tutorial can use any
 platform they desire (commands may vary).</p>
 <section id="preparing">
-<h2>Preparing<a class="headerlink" href="#preparing" title="Permalink to this heading">¶</a></h2>
+<h2>Preparing<a class="headerlink" href="#preparing" title="Link to this heading">¶</a></h2>
 <p>To start, make a new folder for the project, folders for each package and
 move into the root folder:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>my-sdl-project/package/libsdl
@@ -348,7 +349,7 @@ move into the root folder:</p>
 uses the SDL library.</p>
 </section>
 <section id="the-libsdl-package">
-<h2>The libsdl package<a class="headerlink" href="#the-libsdl-package" title="Permalink to this heading">¶</a></h2>
+<h2>The libsdl package<a class="headerlink" href="#the-libsdl-package" title="Link to this heading">¶</a></h2>
 <p>Inside the <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package, create a package definition
 <code class="docutils literal notranslate"><span class="pre">my-project/libsdl/libsdl</span></code> with the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBSDL_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Zlib&#39;</span><span class="p">]</span>
@@ -450,7 +451,7 @@ tutorial:</p>
 </div>
 </section>
 <section id="the-sample-package">
-<h2>The sample package<a class="headerlink" href="#the-sample-package" title="Permalink to this heading">¶</a></h2>
+<h2>The sample package<a class="headerlink" href="#the-sample-package" title="Link to this heading">¶</a></h2>
 <p>Next, we will create a „sample“ project. The sources for this sample
 project would typically be stored in a version control system such as a
 Git repository. To simplify this tutorial, we will utilize a <code class="docutils literal notranslate"><span class="pre">local</span></code> VCS
@@ -637,10 +638,10 @@ tutorial:</p>
 </div>
 </section>
 <section id="project-configuration-and-post-build-script">
-<h2>Project configuration and post-build script<a class="headerlink" href="#project-configuration-and-post-build-script" title="Permalink to this heading">¶</a></h2>
+<h2>Project configuration and post-build script<a class="headerlink" href="#project-configuration-and-post-build-script" title="Link to this heading">¶</a></h2>
 <p>The project has both <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> and <code class="docutils literal notranslate"><span class="pre">sample</span></code> packages ready to build. For
 the <code class="docutils literal notranslate"><span class="pre">sample</span></code> project, the implementation references a <code class="docutils literal notranslate"><span class="pre">releng-tool.bmp</span></code>
-image to render for a window, which has not been setup. This file should
+image to render for a window, which has not yet been setup. This file should
 be added into the build system and installed into the target in the
 post-build stages.</p>
 <p>Create a new <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder at the root of the project folder. Inside,
@@ -693,7 +694,7 @@ tutorial:</p>
 </div>
 </section>
 <section id="performing-a-build">
-<h2>Performing a build<a class="headerlink" href="#performing-a-build" title="Permalink to this heading">¶</a></h2>
+<h2>Performing a build<a class="headerlink" href="#performing-a-build" title="Link to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Users will want to run a build in a shell which has the host tools needed
@@ -738,12 +739,12 @@ ready to be built. While in the <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
 <p>With the project built, we will run the recently created SDL application
 to verify our initial releng-tool project definitions. With Linux or
 OS X, navigate to the target directory’s bin path and invoke the created
 sample application:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>output/target/usr/bin
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>output/target/usr/bin
 <span class="gp">$ </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>../lib<span class="w"> </span>./sample
 </pre></div>
 </div>
@@ -827,9 +828,9 @@ explorer and click-open the <code class="docutils literal notranslate"><span cla
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=12dfd784"></script>
+</div><script src="../../_static/documentation_options.js?v=d5e7c3cc"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/translations.js?v=70a09b52"></script>

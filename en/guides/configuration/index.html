@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Search" href="../../search/" /><link rel="next" title="Environment variables" href="../environment/" /><link rel="prev" title="Arguments" href="../arguments/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Configuration - releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,7 +322,7 @@
         </div>
         <article role="main">
           <section id="configuration">
-<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h1>
+<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h1>
 <p>A releng-tool project defines its configuration options inside the a <code class="docutils literal notranslate"><span class="pre">releng</span></code>
 file at the root of a project (or <code class="docutils literal notranslate"><span class="pre">releng.releng</span></code>/<code class="docutils literal notranslate"><span class="pre">releng.py</span></code> file; see also
 <a class="reference internal" href="../tips/alternative-extensions/"><span class="doc std std-doc">alternative extensions</span></a>). The primary
@@ -358,12 +359,12 @@ configuration file:</p>
 </pre></div>
 </div>
 <section id="common-options">
-<h2>Common options<a class="headerlink" href="#common-options" title="Permalink to this heading">¶</a></h2>
+<h2>Common options<a class="headerlink" href="#common-options" title="Link to this heading">¶</a></h2>
 <p>A series of additional configuration options are available to be defined inside
 the project’s configuration. A list of common configuration options are as
 follows:</p>
 <section id="default-internal">
-<span id="conf-default-internal"></span><h3><code class="docutils literal notranslate"><span class="pre">default_internal</span></code><a class="headerlink" href="#default-internal" title="Permalink to this heading">¶</a></h3>
+<span id="conf-default-internal"></span><h3><code class="docutils literal notranslate"><span class="pre">default_internal</span></code><a class="headerlink" href="#default-internal" title="Link to this heading">¶</a></h3>
 <p>A flag to indicate that projects are implicitly loaded as internal projects.
 By default, packages not explicitly configured as internal or external are
 assumed to be external packages.</p>
@@ -373,7 +374,7 @@ assumed to be external packages.</p>
 <p>See also <a class="reference internal" href="../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
 </section>
 <section id="extensions">
-<h3><code class="docutils literal notranslate"><span class="pre">extensions</span></code><a class="headerlink" href="#extensions" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">extensions</span></code><a class="headerlink" href="#extensions" title="Link to this heading">¶</a></h3>
 <p>A list of extensions to load before processing a releng-tool project. If an
 extension cannot be loaded, releng-tool will stop with information on why
 an extension could not be loaded.</p>
@@ -386,7 +387,7 @@ an extension could not be loaded.</p>
 <p>See also <a class="reference internal" href="../extensions/extensions/"><span class="doc std std-doc">Extensions</span></a>.</p>
 </section>
 <section id="external-packages">
-<h3><code class="docutils literal notranslate"><span class="pre">external_packages</span></code><a class="headerlink" href="#external-packages" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">external_packages</span></code><a class="headerlink" href="#external-packages" title="Link to this heading">¶</a></h3>
 <p>A list of external package locations. By default, packages for a project
 will be searched for in root directory’s package folder (<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package</span></code>).
 In some build environments, some packages may be required or may be preferred
@@ -400,7 +401,7 @@ locations can be provided. For example:</p>
 </div>
 </section>
 <section id="license-header">
-<span id="conf-license-header"></span><h3><code class="docutils literal notranslate"><span class="pre">license_header</span></code><a class="headerlink" href="#license-header" title="Permalink to this heading">¶</a></h3>
+<span id="conf-license-header"></span><h3><code class="docutils literal notranslate"><span class="pre">license_header</span></code><a class="headerlink" href="#license-header" title="Link to this heading">¶</a></h3>
 <p>As the releng-tool build process is finalized, a license document can be
 generated containing each package’s license information. If a developer
 wishes to add a custom header to the generated document, a header can be
@@ -411,7 +412,7 @@ defined by project’s configuration. For example:</p>
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
 </section>
 <section id="packages">
-<h3><code class="docutils literal notranslate"><span class="pre">packages</span></code><a class="headerlink" href="#packages" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">packages</span></code><a class="headerlink" href="#packages" title="Link to this heading">¶</a></h3>
 <p>A list of packages to process. Packages listed will be processed by
 releng-tool till their completion. Package dependencies not explicitly
 listed will be automatically loaded and processed as well.</p>
@@ -424,7 +425,7 @@ listed will be automatically loaded and processed as well.</p>
 </div>
 </section>
 <section id="prerequisites">
-<h3><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code><a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h3>
 <p>A list of host tools to check for before running a releng-tool project.
 Allows a developer to identify tools to check and fail-fast if missing,
 instead of waiting for a stage which requires a specific tool and failing
@@ -438,7 +439,7 @@ later during a building, packaging, etc. phase.</p>
 </div>
 </section>
 <section id="sbom-format">
-<h3><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code><a class="headerlink" href="#sbom-format" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code><a class="headerlink" href="#sbom-format" title="Link to this heading">¶</a></h3>
 <p>Configures the default format to use when generating a software build of
 materials (SBOM). By default, <code class="docutils literal notranslate"><span class="pre">text</span></code> format SBOMs are generated for a
 project.</p>
@@ -487,7 +488,7 @@ project.</p>
 </div>
 </section>
 <section id="sysroot-prefix">
-<span id="conf-sysroot-prefix"></span><h3><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code><a class="headerlink" href="#sysroot-prefix" title="Permalink to this heading">¶</a></h3>
+<span id="conf-sysroot-prefix"></span><h3><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code><a class="headerlink" href="#sysroot-prefix" title="Link to this heading">¶</a></h3>
 <p>Define a custom sysroot prefix to provide to packages during their
 configuration, build and installation stages. By default, the sysroot
 prefix is typically set to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>; for Windows, the value is empty.</p>
@@ -497,7 +498,7 @@ prefix is typically set to <code class="docutils literal notranslate"><span clas
 <p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref">LIBFOO_PREFIX</span></a>.</p>
 </section>
 <section id="url-mirror">
-<h3><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code><a class="headerlink" href="#url-mirror" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code><a class="headerlink" href="#url-mirror" title="Link to this heading">¶</a></h3>
 <p>Specifies a mirror base site to be used for URL fetch requests. If this
 option is set, any URL fetch requests will first be tried on the configured
 mirror before attempting to acquired from the defined site in a package
@@ -508,10 +509,10 @@ definition.</p>
 </section>
 </section>
 <section id="advanced-options">
-<h2>Advanced options<a class="headerlink" href="#advanced-options" title="Permalink to this heading">¶</a></h2>
+<h2>Advanced options<a class="headerlink" href="#advanced-options" title="Link to this heading">¶</a></h2>
 <p>A list of more advanced configuration options are as follows:</p>
 <section id="cache-ext">
-<h3><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code><a class="headerlink" href="#cache-ext" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code><a class="headerlink" href="#cache-ext" title="Link to this heading">¶</a></h3>
 <p>A transform for cache extension interpreting. This is an advanced
 configuration and is not recommended for use except for special use cases
 outlined below.</p>
@@ -542,7 +543,7 @@ For example:</p>
 <code class="docutils literal notranslate"><span class="pre">static.example.org</span></code> site will be <code class="docutils literal notranslate"><span class="pre">tgz</span></code> archives.</p>
 </section>
 <section id="extra-license-exceptions">
-<h3><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code><a class="headerlink" href="#extra-license-exceptions" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code><a class="headerlink" href="#extra-license-exceptions" title="Link to this heading">¶</a></h3>
 <p>A dictionary to define extra license exceptions that are permitted in
 package definitions. Packages which define license exceptions in a
 <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref">LIBFOO_LICENSE</span></a> option are expected to use
@@ -557,7 +558,7 @@ into a project’s <code class="docutils literal notranslate"><span class="pre">
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
 </section>
 <section id="extra-licenses">
-<h3><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code><a class="headerlink" href="#extra-licenses" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code><a class="headerlink" href="#extra-licenses" title="Link to this heading">¶</a></h3>
 <p>A dictionary to define extra licenses that are permitted in package
 definitions. Packages which define licenses in a <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref">LIBFOO_LICENSE</span></a> option
 are expected to use a licensed defined in the
@@ -572,7 +573,7 @@ a project’s <code class="docutils literal notranslate"><span class="pre">extra
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
 </section>
 <section id="override-extract-tools">
-<h3><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code><a class="headerlink" href="#override-extract-tools" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code><a class="headerlink" href="#override-extract-tools" title="Link to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The use of an override option should only be used in special cases (see
@@ -590,7 +591,7 @@ tool with their own extraction utility. Consider the following example:</p>
 </div>
 </section>
 <section id="override-revisions">
-<h3><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code><a class="headerlink" href="#override-revisions" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code><a class="headerlink" href="#override-revisions" title="Link to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The use of an override option should only be used in special cases (see
@@ -613,7 +614,7 @@ can be used instead:</p>
 branch instead of what is defined in the actual package definition.</p>
 </section>
 <section id="override-sites">
-<h3><code class="docutils literal notranslate"><span class="pre">override_sites</span></code><a class="headerlink" href="#override-sites" title="Permalink to this heading">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">override_sites</span></code><a class="headerlink" href="#override-sites" title="Link to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The use of an override option should only be used in special cases (see
@@ -634,7 +635,7 @@ can be used:</p>
 </div>
 </section>
 <section id="quirks">
-<span id="conf-quirks"></span><h3><code class="docutils literal notranslate"><span class="pre">quirks</span></code><a class="headerlink" href="#quirks" title="Permalink to this heading">¶</a></h3>
+<span id="conf-quirks"></span><h3><code class="docutils literal notranslate"><span class="pre">quirks</span></code><a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h3>
 <p>A list of configuration quirks to apply to deal with corner cases which
 can prevent releng-tool operating on a host system.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
@@ -645,7 +646,7 @@ can prevent releng-tool operating on a host system.</p>
 <p>For a list of available quirks, see <a class="reference internal" href="../quirks/quirks/"><span class="doc std std-doc">quirks</span></a>.</p>
 </section>
 <section id="urlopen-context">
-<span id="conf-urlopen-context"></span><h3><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code><a class="headerlink" href="#urlopen-context" title="Permalink to this heading">¶</a></h3>
+<span id="conf-urlopen-context"></span><h3><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code><a class="headerlink" href="#urlopen-context" title="Link to this heading">¶</a></h3>
 <p>Allows a project to specify a custom SSL context <a class="footnote-reference brackets" href="#urlopen" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> to apply for
 URL fetch requests. This can be useful for environments which may
 experience <code class="docutils literal notranslate"><span class="pre">CERTIFICATE_VERIFY_FAILED</span></code> errors when attempting to fetch
@@ -755,9 +756,9 @@ environment. For example:</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=bd3e2256"></script>
+</div><script src="../../_static/documentation_options.js?v=7a06361e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     </body>

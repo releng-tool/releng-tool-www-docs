@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="ja">
+<html class="no-js" lang="ja" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="検索" href="../../search/" /><link rel="next" title="User guides" href="../../guides/guides/" /><link rel="prev" title="Understanding rebuilds" href="../rebuilds/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Understanding fetching - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,7 +322,7 @@
         </div>
         <article role="main">
           <section id="understanding-fetching">
-<h1>Understanding fetching<a class="headerlink" href="#understanding-fetching" title="この見出しへのパーマリンク">¶</a></h1>
+<h1>Understanding fetching<a class="headerlink" href="#understanding-fetching" title="Link to this heading">¶</a></h1>
 <p>The first stage packages go through is the &quot;fetch&quot; phase. For packages
 which have content to acquire, files can be downloaded or version control
 sources may be locally cached. For example, if a package has a link to a
@@ -374,7 +375,7 @@ archive has been updated, if a tag has been moved or if a target branch
 has been updated. The following will present a series of ways a user can
 deal with these use cases.</p>
 <section id="start-fresh">
-<h2>Start fresh!<a class="headerlink" href="#start-fresh" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Start fresh!<a class="headerlink" href="#start-fresh" title="Link to this heading">¶</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>While this approach ensures the most recent sources for the existing
@@ -392,7 +393,7 @@ local downloads/cache for a project. This can be achieved using
 from the local system, ensuring a next-build to download fresh sources.</p>
 </section>
 <section id="force-re-fetch-of-dvcs-sources">
-<h2>Force re-fetch of DVCS sources<a class="headerlink" href="#force-re-fetch-of-dvcs-sources" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Force re-fetch of DVCS sources<a class="headerlink" href="#force-re-fetch-of-dvcs-sources" title="Link to this heading">¶</a></h2>
 <p>When a DVCS-based package goes through its fetch stage, the contents can
 be locally stored in the configured cache directory. For a package definition
 as follows:</p>
@@ -414,7 +415,7 @@ from the remote site. For example:</p>
 made will use the new reference implementation.</p>
 </section>
 <section id="force-re-fetch-of-fixed-sources">
-<h2>Force re-fetch of fixed sources<a class="headerlink" href="#force-re-fetch-of-fixed-sources" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Force re-fetch of fixed sources<a class="headerlink" href="#force-re-fetch-of-fixed-sources" title="Link to this heading">¶</a></h2>
 <p>For packages which reference a fixed artifact, once a package has completed
 its fetch stage, the artifact will no longer need to be downloaded
 again. For example:</p>
@@ -432,7 +433,7 @@ delete the local cache file and re-download it from the configured site:</p>
 </div>
 </section>
 <section id="automatically-re-fetch-development-branches">
-<h2>Automatically re-fetch development branches<a class="headerlink" href="#automatically-re-fetch-development-branches" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Automatically re-fetch development branches<a class="headerlink" href="#automatically-re-fetch-development-branches" title="Link to this heading">¶</a></h2>
 <p>When operating in <a class="reference internal" href="../../guides/development-mode/"><span class="doc std std-doc">development mode</span></a> where a
 package has a development-specific source based off a branch, it may be
 preferred to always ensure the most recent sources are fetched. For
@@ -549,9 +550,9 @@ package's <code class="docutils literal notranslate"><span class="pre">main</spa
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=948bdcac"></script>
+</div><script src="../../_static/documentation_options.js?v=53b3c8e4"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/translations.js?v=4dbe4bdc"></script>

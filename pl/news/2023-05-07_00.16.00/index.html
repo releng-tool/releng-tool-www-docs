@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="pl">
+<html class="no-js" lang="pl" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Szukaj" href="../../search/" /><link rel="next" title="0.15 (2023-02-12)" href="../2023-02-12_00.15.00/" /><link rel="prev" title="0.17 (2023-08-06)" href="../2023-08-06_00.17.00/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>0.16 (2023-05-07) - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,9 +322,9 @@
         </div>
         <article role="main">
           <section id="id1">
-<h1>0.16 (2023-05-07)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<h1>0.16 (2023-05-07)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="support-for-spdx-formatted-software-build-of-materials-sbom">
-<h2>Support for SPDX-formatted software build of materials (SBOM)<a class="headerlink" href="#support-for-spdx-formatted-software-build-of-materials-sbom" title="Permalink to this heading">¶</a></h2>
+<h2>Support for SPDX-formatted software build of materials (SBOM)<a class="headerlink" href="#support-for-spdx-formatted-software-build-of-materials-sbom" title="Link to this heading">¶</a></h2>
 <p>As of v0.14, releng-tool supported a series of formats to use for generating a
 SBOM document. All these formats are generic documents, not following any
 specification. With v0.16, this release introduces initial support for
@@ -333,13 +334,13 @@ projects use valid <a class="reference external" href="https://spdx.org/licenses
 documents should be compliant with the specification.</p>
 </section>
 <section id="support-for-meson-package-types">
-<h2>Support for Meson package types<a class="headerlink" href="#support-for-meson-package-types" title="Permalink to this heading">¶</a></h2>
+<h2>Support for Meson package types<a class="headerlink" href="#support-for-meson-package-types" title="Link to this heading">¶</a></h2>
 <p>Introduction of the <code class="docutils literal notranslate"><span class="pre">meson</span></code> package type. These new package types allow a
 developer to easily invoke Meson targets at various stages, without needing
 invoke these tools inside a scripts package.</p>
 </section>
 <section id="accept-module-specific-local-sources-using">
-<h2>Accept module-specific local-sources using <code class="docutils literal notranslate"><span class="pre">:</span></code><a class="headerlink" href="#accept-module-specific-local-sources-using" title="Permalink to this heading">¶</a></h2>
+<h2>Accept module-specific local-sources using <code class="docutils literal notranslate"><span class="pre">:</span></code><a class="headerlink" href="#accept-module-specific-local-sources-using" title="Link to this heading">¶</a></h2>
 <p>Users overriding module-specific local-sources could do so using an at sign
 (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) to identify between a package and a target path. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">sources</span> <span class="n">libfoo</span><span class="o">@~/</span><span class="n">devwork</span><span class="o">/</span><span class="n">libfoo</span>
@@ -355,7 +356,7 @@ format using a colon (<code class="docutils literal notranslate"><span class="pr
 <p>Both formats are supported.</p>
 </section>
 <section id="notable-fixes">
-<h2>Notable fixes<a class="headerlink" href="#notable-fixes" title="Permalink to this heading">¶</a></h2>
+<h2>Notable fixes<a class="headerlink" href="#notable-fixes" title="Link to this heading">¶</a></h2>
 <p>Two notable issues have been addressed from previous releases:</p>
 <ol class="arabic simple">
 <li><p>SBOM support when using the <code class="docutils literal notranslate"><span class="pre">html</span></code> format would generate a document with
@@ -438,9 +439,9 @@ this new release, <code class="docutils literal notranslate"><span class="pre">r
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=7c373f82"></script>
+</div><script src="../../_static/documentation_options.js?v=bb0f2bca"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/translations.js?v=a186e9ce"></script>

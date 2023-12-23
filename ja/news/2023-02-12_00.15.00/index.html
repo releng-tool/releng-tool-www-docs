@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="ja">
+<html class="no-js" lang="ja" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="検索" href="../../search/" /><link rel="next" title="0.14 (2023-02-05)" href="../2023-02-05_00.14.00/" /><link rel="prev" title="0.16 (2023-05-07)" href="../2023-05-07_00.16.00/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>0.15 (2023-02-12) - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">0.15 (2023-02-12)</a></li>
@@ -321,9 +322,9 @@
         </div>
         <article role="main">
           <section id="id1">
-<h1>0.15 (2023-02-12)<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h1>
+<h1>0.15 (2023-02-12)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="introduce-extension-support-for-event-listeners">
-<h2>Introduce extension support for event listeners<a class="headerlink" href="#introduce-extension-support-for-event-listeners" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Introduce extension support for event listeners<a class="headerlink" href="#introduce-extension-support-for-event-listeners" title="Link to this heading">¶</a></h2>
 <p>Support has been added for extensions to listen on various events generated
 by releng-tool. Extensions can react to certain events to either manipulate
 build content at certain stages or even manipulate the script environment.
@@ -352,7 +353,7 @@ extensions in general, see the API implementation found in this tool's
 repository (<a class="reference external" href="https://github.com/releng-tool/releng-tool/blob/main/releng_tool/api/__init__.py">releng_tool/api/<strong>init</strong>.py</a>).</p>
 </section>
 <section id="support-setting-software-build-of-materials-format-in-project-configuration">
-<h2>Support setting software build of materials format in project configuration<a class="headerlink" href="#support-setting-software-build-of-materials-format-in-project-configuration" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Support setting software build of materials format in project configuration<a class="headerlink" href="#support-setting-software-build-of-materials-format-in-project-configuration" title="Link to this heading">¶</a></h2>
 <p>Developers can now specify a target software build of materials (SBOM) format
 in a project's configuration file. For example, to produce a JSON formatted
 SBOM file over a default text file, the following can be used:</p>
@@ -364,7 +365,7 @@ their builds without needing to supply <code class="docutils literal notranslate
 an external build script.</p>
 </section>
 <section id="directory-configuration-for-package-patching">
-<h2>Directory configuration for package patching<a class="headerlink" href="#directory-configuration-for-package-patching" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Directory configuration for package patching<a class="headerlink" href="#directory-configuration-for-package-patching" title="Link to this heading">¶</a></h2>
 <p>When a package includes patches to apply after extraction, the target directory
 where patches were applied could vary if a project utilized the
 <code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code> option. This made the use of patches difficult for users
@@ -376,7 +377,7 @@ Users who need to utilize patching in a subdirectory of a package can now
 use the <code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code> option.</p>
 </section>
 <section id="make-projects-provided-prefix-in-installation-stage">
-<h2>Make projects provided prefix in installation stage<a class="headerlink" href="#make-projects-provided-prefix-in-installation-stage" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Make projects provided prefix in installation stage<a class="headerlink" href="#make-projects-provided-prefix-in-installation-stage" title="Link to this heading">¶</a></h2>
 <p>Project supporting an installation stage will typically handle a destination
 directory option (e.g. <code class="docutils literal notranslate"><span class="pre">DESTDIR</span></code>) and a prefix option (<code class="docutils literal notranslate"><span class="pre">PREFIX</span></code>; if
 applicable). While various project types are configured/provided these
@@ -388,7 +389,7 @@ project's package definition.</p>
 Make-based project's installation stage occurs.</p>
 </section>
 <section id="fixed-issue-where-reconfiguration-rebuild-flags-may-not-be-set">
-<h2>Fixed issue where reconfiguration/rebuild flags may not be set<a class="headerlink" href="#fixed-issue-where-reconfiguration-rebuild-flags-may-not-be-set" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Fixed issue where reconfiguration/rebuild flags may not be set<a class="headerlink" href="#fixed-issue-where-reconfiguration-rebuild-flags-may-not-be-set" title="Link to this heading">¶</a></h2>
 <p>Projects may define various build conditionals whether the system is a fresh
 build or a rebuild. releng-tool provides a series of flags to help projects
 understand the running state: <code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code>, <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> and
@@ -474,9 +475,9 @@ request will now ensure <code class="docutils literal notranslate"><span class="
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=948bdcac"></script>
+</div><script src="../../_static/documentation_options.js?v=53b3c8e4"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/translations.js?v=4dbe4bdc"></script>

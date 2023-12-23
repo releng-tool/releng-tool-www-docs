@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="zh-Hans">
+<html class="no-js" lang="zh-Hans" data-content_root="../../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="搜索" href="../../../search/" /><link rel="next" title="Hash file" href="../hash-file/" /><link rel="prev" title="Package post-processing" href="../post-processing/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Site definitions - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,7 +322,7 @@
         </div>
         <article role="main">
           <section id="site-definitions">
-<h1>Site definitions<a class="headerlink" href="#site-definitions" title="此标题的永久链接">¶</a></h1>
+<h1>Site definitions<a class="headerlink" href="#site-definitions" title="Link to this heading">¶</a></h1>
 <p>The following outlines the details for defining supported site definitions.
 If attempting to use an extension-provided site type, please refer to the
 documentation provided by the extension.</p>
@@ -332,7 +333,7 @@ Git sources); however, this is optional if a package wishes to use the
 <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref">LIBFOO_VCS_TYPE</span></a> option.</p>
 </div>
 <section id="bazaar-site">
-<h2>Bazaar site<a class="headerlink" href="#bazaar-site" title="此标题的永久链接">¶</a></h2>
+<h2>Bazaar site<a class="headerlink" href="#bazaar-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Bazaar">Bazaar</a>-based location, the site value must be
 prefixed with a <code class="docutils literal notranslate"><span class="pre">bzr+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;bzr+ssh://example.com/project/trunk&#39;</span>
@@ -346,7 +347,7 @@ archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
 <section id="cvs-site">
-<h2>CVS site<a class="headerlink" href="#cvs-site" title="此标题的永久链接">¶</a></h2>
+<h2>CVS site<a class="headerlink" href="#cvs-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed
 with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code> or other common CVSROOT value. A site can be defined as
 follows:</p>
@@ -363,7 +364,7 @@ is made, the fetch stage will be skipped unless the archive is manually
 removed.</p>
 </section>
 <section id="git-site">
-<h2>Git site<a class="headerlink" href="#git-site" title="此标题的永久链接">¶</a></h2>
+<h2>Git site<a class="headerlink" href="#git-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://git-scm.com/">Git</a>-based location, the site value must be prefixed with
 a <code class="docutils literal notranslate"><span class="pre">git+</span></code> value or postfixed with the <code class="docutils literal notranslate"><span class="pre">.git</span></code> value. A site can be defined
 as follows:</p>
@@ -380,7 +381,7 @@ will be acquired from the cache location. If a desired revision does not
 exist, the origin remote will be fetched for the new revision (if it exists).</p>
 </section>
 <section id="local-site">
-<span id="site-local"></span><h2>Local site<a class="headerlink" href="#local-site" title="此标题的永久链接">¶</a></h2>
+<span id="site-local"></span><h2>Local site<a class="headerlink" href="#local-site" title="Link to this heading">¶</a></h2>
 <p>To define a package to use local site/sources, the site value can be set
 to <code class="docutils literal notranslate"><span class="pre">local</span></code>. A local site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span>
@@ -391,7 +392,7 @@ as well. Note that a local package is intended for development/testing/training
 purposes. See <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref">LIBFOO_VCS_TYPE</span></a> for more information.</p>
 </section>
 <section id="mercurial-site">
-<h2>Mercurial site<a class="headerlink" href="#mercurial-site" title="此标题的永久链接">¶</a></h2>
+<h2>Mercurial site<a class="headerlink" href="#mercurial-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a>-based location, the site value must be
 prefixed with a <code class="docutils literal notranslate"><span class="pre">hg+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://example.com/project&#39;</span>
@@ -405,7 +406,7 @@ cache location. If a desired revision does not exist, the origin remote will be
 pulled for the new revision (if it exists).</p>
 </section>
 <section id="perforce-site">
-<h2>Perforce site<a class="headerlink" href="#perforce-site" title="此标题的永久链接">¶</a></h2>
+<h2>Perforce site<a class="headerlink" href="#perforce-site" title="Link to this heading">¶</a></h2>
 <p>To define a Perforce-based location, the site value must be prefixed with
 an <code class="docutils literal notranslate"><span class="pre">perforce+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;perforce+srcs.example.com:1666 //base/libfoo/main&#39;</span>
@@ -423,7 +424,7 @@ a file during fetch stage. Once a cached archive is made, the fetch stage
 ill be skipped unless the archive is manually removed.</p>
 </section>
 <section id="rsync-site">
-<h2>rsync site<a class="headerlink" href="#rsync-site" title="此标题的永久链接">¶</a></h2>
+<h2>rsync site<a class="headerlink" href="#rsync-site" title="Link to this heading">¶</a></h2>
 <p>To define an rsync-based location, the site value must be prefixed with an
 <code class="docutils literal notranslate"><span class="pre">rsync+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;rsync+&lt;source&gt;&#39;</span>
@@ -437,7 +438,7 @@ Adding or replacing options can be done by using the <a class="reference interna
 option.</p>
 </section>
 <section id="scp-site">
-<h2>SCP site<a class="headerlink" href="#scp-site" title="此标题的永久链接">¶</a></h2>
+<h2>SCP site<a class="headerlink" href="#scp-site" title="Link to this heading">¶</a></h2>
 <p>To define an SCP-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">scp+</span></code>
 value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;scp+[user@]host:]file&#39;</span>
@@ -449,7 +450,7 @@ a remote host. The fetched file will be stored inside the <code class="docutils 
 fetched, the fetch stage will be skipped unless the file is manually removed.</p>
 </section>
 <section id="svn-site">
-<h2>SVN site<a class="headerlink" href="#svn-site" title="此标题的永久链接">¶</a></h2>
+<h2>SVN site<a class="headerlink" href="#svn-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://subversion.apache.org/">Subversion</a>-based location, the site value must be
 prefixed with a <code class="docutils literal notranslate"><span class="pre">svn+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2&#39;</span>
@@ -461,7 +462,7 @@ be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
 <section id="url-site-default">
-<h2>URL site (default)<a class="headerlink" href="#url-site-default" title="此标题的永久链接">¶</a></h2>
+<h2>URL site (default)<a class="headerlink" href="#url-site-default" title="Link to this heading">¶</a></h2>
 <p>All packages that do not define a helper prefix/postfix value (as seen in other
 site definitions) or do not explicitly set a <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref">LIBFOO_VCS_TYPE</span></a> value (other
 than <code class="docutils literal notranslate"><span class="pre">url</span></code>), will be considered a URL site. A URL site can be defined as
@@ -598,9 +599,9 @@ more.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=4893a62a"></script>
+</div><script src="../../../_static/documentation_options.js?v=51a880cb"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
     </body>

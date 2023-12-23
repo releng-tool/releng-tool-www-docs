@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="zh-Hans">
+<html class="no-js" lang="zh-Hans" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="搜索" href="../search/" /><link rel="next" title="Release notes" href="../release-notes/" /><link rel="prev" title="Contributor guide" href="../contributors/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>ANNEX A - Quick reference - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,11 +322,11 @@
         </div>
         <article role="main">
           <section id="annex-a-quick-reference">
-<h1>ANNEX A - Quick reference<a class="headerlink" href="#annex-a-quick-reference" title="此标题的永久链接">¶</a></h1>
+<h1>ANNEX A - Quick reference<a class="headerlink" href="#annex-a-quick-reference" title="Link to this heading">¶</a></h1>
 <p>A quick reference document listing available options to developers building a
 releng-tool project.</p>
 <section id="configuration-options">
-<h2>Configuration options<a class="headerlink" href="#configuration-options" title="此标题的永久链接">¶</a></h2>
+<h2>Configuration options<a class="headerlink" href="#configuration-options" title="Link to this heading">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nb">callable</span><span class="o">&gt;</span>
 <span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
@@ -348,7 +349,7 @@ releng-tool project.</p>
 </div>
 </section>
 <section id="environment-variables">
-<h2>Environment variables<a class="headerlink" href="#environment-variables" title="此标题的永久链接">¶</a></h2>
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading">¶</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
@@ -390,6 +391,8 @@ releng-tool (may vary per context):</p>
 <span class="n">RELENG_REBUILD</span>
 <span class="n">RELENG_RECONFIGURE</span>
 <span class="n">RELENG_REINSTALL</span>
+<span class="n">RELENG_SCRIPT</span>
+<span class="n">RELENG_SCRIPT_DIR</span>
 <span class="n">RELENG_TARGET_PKG</span>
 <span class="n">RELENG_VERBOSE</span>
 <span class="n">RELENG_VERSION</span>
@@ -413,7 +416,7 @@ releng-tool (may vary per context):</p>
 </div>
 </section>
 <section id="package-options">
-<h2>Package options<a class="headerlink" href="#package-options" title="此标题的永久链接">¶</a></h2>
+<h2>Package options<a class="headerlink" href="#package-options" title="Link to this heading">¶</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
 <span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
@@ -464,7 +467,7 @@ releng-tool (may vary per context):</p>
 </div>
 </section>
 <section id="script-helpers">
-<h2>Script helpers<a class="headerlink" href="#script-helpers" title="此标题的永久链接">¶</a></h2>
+<h2>Script helpers<a class="headerlink" href="#script-helpers" title="Link to this heading">¶</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
@@ -499,7 +502,7 @@ releng-tool (may vary per context):</p>
 </div>
 </section>
 <section id="quirks">
-<h2>Quirks<a class="headerlink" href="#quirks" title="此标题的永久链接">¶</a></h2>
+<h2>Quirks<a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">.</span><span class="n">bzr</span><span class="o">.</span><span class="n">certifi</span>
 <span class="n">releng</span><span class="o">.</span><span class="n">cmake</span><span class="o">.</span><span class="n">disable_direct_includes</span>
@@ -585,9 +588,9 @@ releng-tool (may vary per context):</p>
       
     </aside>
   </div>
-</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=4893a62a"></script>
+</div><script src="../_static/documentation_options.js?v=51a880cb"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/tabs.js?v=3ee01567"></script>
     </body>

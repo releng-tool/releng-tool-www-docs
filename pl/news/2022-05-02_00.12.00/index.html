@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="pl">
+<html class="no-js" lang="pl" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Szukaj" href="../../search/" /><link rel="next" title="0.11 (2022-02-26)" href="../2022-02-26_00.11.00/" /><link rel="prev" title="0.13 (2022-08-10)" href="../2022-08-10_00.13.00/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>0.12 (2022-05-02) - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,9 +322,9 @@
         </div>
         <article role="main">
           <section id="id1">
-<h1>0.12 (2022-05-02)<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<h1>0.12 (2022-05-02)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <section id="support-package-variable-overrides-using-the-command-line">
-<h2>Support package variable overrides using the command line<a class="headerlink" href="#support-package-variable-overrides-using-the-command-line" title="Permalink to this heading">¶</a></h2>
+<h2>Support package variable overrides using the command line<a class="headerlink" href="#support-package-variable-overrides-using-the-command-line" title="Link to this heading">¶</a></h2>
 <p>Package variables can now be overridden from the command line. Consider the
 following site example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git@example.com:base/libfoo.git&#39;</span>
@@ -341,7 +342,7 @@ developer can override the site variable:</p>
 the command line.</p>
 </section>
 <section id="support-environment-variable-injection-using-the-command-line">
-<h2>Support environment variable injection using the command line<a class="headerlink" href="#support-environment-variable-injection-using-the-command-line" title="Permalink to this heading">¶</a></h2>
+<h2>Support environment variable injection using the command line<a class="headerlink" href="#support-environment-variable-injection-using-the-command-line" title="Link to this heading">¶</a></h2>
 <p>Environment variables can now be injected into the releng-tool process from
 the command line. While users can use either export/set variables in their
 environments, or (on Unix) prefix a command call with variable assignments;
@@ -371,7 +372,7 @@ as the following:</p>
 </div>
 </section>
 <section id="package-specific-command-line-execution">
-<h2>Package-specific command line execution<a class="headerlink" href="#package-specific-command-line-execution" title="Permalink to this heading">¶</a></h2>
+<h2>Package-specific command line execution<a class="headerlink" href="#package-specific-command-line-execution" title="Link to this heading">¶</a></h2>
 <p>Developer now have an easy way to issue raw commands inside a package’s
 prepared build directory. For example, developing/testing with an
 autotools project, a developer can issue a manual configuration request
@@ -385,7 +386,7 @@ need to navigate to an output directory, manually preparing environment
 variables and issuing raw commands in an output directory.</p>
 </section>
 <section id="new-environment-script-variables">
-<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="Permalink to this heading">¶</a></h2>
+<h2>New environment/script variables<a class="headerlink" href="#new-environment-script-variables" title="Link to this heading">¶</a></h2>
 <p>This release includes a series of new environment/script variables to help
 developers better tailor their package definitions.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code> has been introduced, providing a way for a package
@@ -413,7 +414,7 @@ variables:</p>
 </ul>
 </section>
 <section id="new-include-script-function">
-<h2>New include script function<a class="headerlink" href="#new-include-script-function" title="Permalink to this heading">¶</a></h2>
+<h2>New include script function<a class="headerlink" href="#new-include-script-function" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">releng_include</span></code> helper function has been added to allow releng-tool
 script to load scripts alongside a given script – providing a way to split
 up a script across multiple files. For example, a script-based package with
@@ -437,7 +438,7 @@ multiple files and include them in their build script:</p>
 </div>
 </section>
 <section id="correct-git-cache-management-with-branch-updates">
-<h2>Correct Git cache management with branch updates<a class="headerlink" href="#correct-git-cache-management-with-branch-updates" title="Permalink to this heading">¶</a></h2>
+<h2>Correct Git cache management with branch updates<a class="headerlink" href="#correct-git-cache-management-with-branch-updates" title="Link to this heading">¶</a></h2>
 <p>For VCS-based sites, the revision field can accept a branch value for the
 respective VCS-type. In this case, specifying the branch of a Git repository
 as the version or revision value will fetch the branch from the configured
@@ -534,9 +535,9 @@ for a branch is used after performing a fresh fetch/clean with cached content.</
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=7c373f82"></script>
+</div><script src="../../_static/documentation_options.js?v=bb0f2bca"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/translations.js?v=a186e9ce"></script>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="ja">
+<html class="no-js" lang="ja" data-content_root="../../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="検索" href="../../../search/" /><link rel="next" title="Advanced package options" href="../advanced-pkg-options/" /><link rel="prev" title="Packages" href="../packages/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Common package options - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,10 +322,10 @@
         </div>
         <article role="main">
           <section id="common-package-options">
-<h1>Common package options<a class="headerlink" href="#common-package-options" title="この見出しへのパーマリンク">¶</a></h1>
+<h1>Common package options<a class="headerlink" href="#common-package-options" title="Link to this heading">¶</a></h1>
 <p>The following outlines common configuration options available for packages.</p>
 <section id="libfoo-dependencies">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEPENDENCIES</span></code><a class="headerlink" href="#libfoo-dependencies" title="この見出しへのパーマリンク">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEPENDENCIES</span></code><a class="headerlink" href="#libfoo-dependencies" title="Link to this heading">¶</a></h2>
 <p>List of package dependencies a given project has. If a project depends on
 another package, the package name should be listed in this option. This ensures
 releng-tool will process packages in the proper order. The following shows an
@@ -338,7 +339,7 @@ processed first:</p>
 </div>
 </section>
 <section id="libfoo-install-type">
-<span id="pkg-opt-install-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code><a class="headerlink" href="#libfoo-install-type" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="pkg-opt-install-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code><a class="headerlink" href="#libfoo-install-type" title="Link to this heading">¶</a></h2>
 <p>Defines the installation type of this package. A package may be designed to be
 built and installed for just the target area, the stage area, both or maybe in
 the host directory. The following options are available for the installation
@@ -376,7 +377,7 @@ type:</p>
 <p>See also <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-host-provides"><span class="std std-ref">LIBFOO_HOST_PROVIDES</span></a>.</p>
 </section>
 <section id="libfoo-license">
-<span id="pkg-opt-license"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code><a class="headerlink" href="#libfoo-license" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="pkg-opt-license"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code><a class="headerlink" href="#libfoo-license" title="Link to this heading">¶</a></h2>
 <p>A string or list of strings outlining the license information for a package.
 Outlining the license of a package is recommended.
 It is recommended to use <a class="reference external" href="https://spdx.org/licenses/">SPDX registered licenses</a>.</p>
@@ -394,7 +395,7 @@ It is recommended to use <a class="reference external" href="https://spdx.org/li
 <p>See also <a class="reference internal" href="#pkg-opt-license-files"><span class="std std-ref">LIBFOO_LICENSE_FILES</span></a>.</p>
 </section>
 <section id="libfoo-license-files">
-<span id="pkg-opt-license-files"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code><a class="headerlink" href="#libfoo-license-files" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="pkg-opt-license-files"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code><a class="headerlink" href="#libfoo-license-files" title="Link to this heading">¶</a></h2>
 <p>A string or list of strings identifying the license files found inside the
 package sources which typically would match up to the defined <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>
 entries (respectively).</p>
@@ -411,7 +412,7 @@ entries (respectively).</p>
 <p>See also <a class="reference internal" href="#pkg-opt-license"><span class="std std-ref">LIBFOO_LICENSE</span></a>.</p>
 </section>
 <section id="libfoo-site">
-<span id="pkg-opt-site"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code><a class="headerlink" href="#libfoo-site" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="pkg-opt-site"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code><a class="headerlink" href="#libfoo-site" title="Link to this heading">¶</a></h2>
 <p>The site where package sources/assets can be found. The site can be a URL
 of an archive, or describe a source control URL such as Git or SVN. The
 following outline a series of supported site definitions:</p>
@@ -481,7 +482,7 @@ configure a VCS-type of <code class="docutils literal notranslate"><span class="
 <p>See also <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref">LIBFOO_VCS_TYPE</span></a>.</p>
 </section>
 <section id="libfoo-type">
-<span id="pkg-opt-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code><a class="headerlink" href="#libfoo-type" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="pkg-opt-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code><a class="headerlink" href="#libfoo-type" title="Link to this heading">¶</a></h2>
 <p>The package type. The default package type is a (Python) script-based package.
 releng-tool also provides a series of helper package types for common
 frameworks. The following outline a series of supported type definitions:</p>
@@ -530,7 +531,7 @@ CMake type is set, the host system will need to have <code class="docutils liter
 the system.</p>
 </section>
 <section id="libfoo-version">
-<span id="pkg-opt-version"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code><a class="headerlink" href="#libfoo-version" title="この見出しへのパーマリンク">¶</a></h2>
+<span id="pkg-opt-version"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code><a class="headerlink" href="#libfoo-version" title="Link to this heading">¶</a></h2>
 <p>The version of the package. Typically the version value should be formatted
 in a semantic versioning style, but it is up to the developer to decide
 the best version value to use for a package. It is important to note that
@@ -618,9 +619,9 @@ directories such as <code class="docutils literal notranslate"><span class="pre"
       
     </aside>
   </div>
-</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=948bdcac"></script>
+</div><script src="../../../_static/documentation_options.js?v=53b3c8e4"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../../_static/translations.js?v=4dbe4bdc"></script>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Search" href="../../search/" /><link rel="next" title="Understanding rebuilds" href="../rebuilds/" /><link rel="prev" title="Tutorial “An SDL example”" href="../tutorial-sdl/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Tutorial “A toolchain example” - releng-tool documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,8 +322,8 @@
         </div>
         <article role="main">
           <section id="tutorial-a-toolchain-example">
-<h1>Tutorial “A toolchain example”<a class="headerlink" href="#tutorial-a-toolchain-example" title="Permalink to this heading">¶</a></h1>
-<p>This tutorial shows an example using creating an application using a
+<h1>Tutorial “A toolchain example”<a class="headerlink" href="#tutorial-a-toolchain-example" title="Link to this heading">¶</a></h1>
+<p>This tutorial shows an example creating an application using a
 pre-built toolchain. In this example, we will use a pre-built toolchain
 which (in theory) has been used to prepare a Linux image for an embedded
 device. With the same toolchain, we can define a releng-tool project that
@@ -330,7 +331,7 @@ prepares an application that can run on this embedded device.</p>
 <p>This example will attempt to prepare a static build of <a class="reference external" href="https://htop.dev/">htop</a> that
 can run on an aarch64 system.</p>
 <section id="preparing-the-host-environment">
-<h2>Preparing the host environment<a class="headerlink" href="#preparing-the-host-environment" title="Permalink to this heading">¶</a></h2>
+<h2>Preparing the host environment<a class="headerlink" href="#preparing-the-host-environment" title="Link to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A releng-tool project may create a package to download/setup a toolchain
@@ -368,7 +369,7 @@ toolchain to whatever path they desire:</p>
 </div>
 </section>
 <section id="preparing-a-new-releng-tool-project">
-<h2>Preparing a new releng-tool project<a class="headerlink" href="#preparing-a-new-releng-tool-project" title="Permalink to this heading">¶</a></h2>
+<h2>Preparing a new releng-tool project<a class="headerlink" href="#preparing-a-new-releng-tool-project" title="Link to this heading">¶</a></h2>
 <p>To build <a class="reference external" href="https://htop.dev/">htop</a>, this requires two dependencies:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://invisible-island.net/ncurses/">Ncurses</a></p></li>
@@ -392,7 +393,7 @@ package, dependencies and project configuration:</p>
 </div>
 </section>
 <section id="the-configuration">
-<h2>The configuration<a class="headerlink" href="#the-configuration" title="Permalink to this heading">¶</a></h2>
+<h2>The configuration<a class="headerlink" href="#the-configuration" title="Link to this heading">¶</a></h2>
 <p>The first changes we will make to our releng-tool project is to define the
 specifics of the project configuration in <code class="docutils literal notranslate"><span class="pre">releng</span></code>. Apply the following
 contents to the configuration:</p>
@@ -438,8 +439,8 @@ configured by environment variables or using command line arguments, but
 this will not be done here to simplify this tutorial.</p></li>
 <li><p>We configure <code class="docutils literal notranslate"><span class="pre">BR_COMPILER_PARANOID_UNSAFE_PATH</span></code>, an option supported by
 the generated Bootlin (Buildroot) toolchain to error when using an unsafe
-path when performing a build (i.e. using the system’s <code class="docutils literal notranslate"><span class="pre">/usr/include</span></code> path
-over a releng-tool sysroot path).</p></li>
+path when performing a build (i.e. throw an error when using the system’s
+<code class="docutils literal notranslate"><span class="pre">/usr/include</span></code> path over a releng-tool sysroot path).</p></li>
 <li><p>Prepares two variables <code class="docutils literal notranslate"><span class="pre">MY_TOOLCHAIN_CONF_ENV</span></code> and <code class="docutils literal notranslate"><span class="pre">MY_TOOLCHAIN_CONF_DEFS</span></code>
 which we can later use for the Autotools packages we have. These values
 help configure toolchain and desired releng-tool paths. Variables set
@@ -452,7 +453,7 @@ are configured with a CMake toolchain file).</p></li>
 definitions/hashes for each package.</p>
 </section>
 <section id="the-libnl-package">
-<h2>The libnl package<a class="headerlink" href="#the-libnl-package" title="Permalink to this heading">¶</a></h2>
+<h2>The libnl package<a class="headerlink" href="#the-libnl-package" title="Link to this heading">¶</a></h2>
 <p>Update the <code class="docutils literal notranslate"><span class="pre">libnl</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/libnl/libnl</span></code>) with
 the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBNL_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;staging&#39;</span>
@@ -530,7 +531,7 @@ required, this can be useful in detecting if the license of a package
 changes between versions.</p>
 </section>
 <section id="the-ncurses-package">
-<h2>The ncurses package<a class="headerlink" href="#the-ncurses-package" title="Permalink to this heading">¶</a></h2>
+<h2>The ncurses package<a class="headerlink" href="#the-ncurses-package" title="Link to this heading">¶</a></h2>
 <p>Update the <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/ncurses/ncurses</span></code>)
 with the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NCURSES_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;staging&#39;</span>
@@ -587,7 +588,7 @@ verified, we generated our own SHA-256 sum and place it into this hash file
 provide a hash of the license document.</p>
 </section>
 <section id="the-htop-package">
-<h2>The htop package<a class="headerlink" href="#the-htop-package" title="Permalink to this heading">¶</a></h2>
+<h2>The htop package<a class="headerlink" href="#the-htop-package" title="Link to this heading">¶</a></h2>
 <p>Update the <code class="docutils literal notranslate"><span class="pre">htop</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/htop/htop</span></code>) with the
 following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HTOP_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span>
@@ -632,7 +633,7 @@ sha256 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643 COPYING
 </div>
 </section>
 <section id="performing-a-build">
-<h2>Performing a build<a class="headerlink" href="#performing-a-build" title="Permalink to this heading">¶</a></h2>
+<h2>Performing a build<a class="headerlink" href="#performing-a-build" title="Link to this heading">¶</a></h2>
 <p>With a configuration and packages prepared, the project should be ready to
 be built. While in the <code class="docutils literal notranslate"><span class="pre">my-tc-project</span></code> folder, invoke <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool
@@ -724,9 +725,9 @@ that can be copied over to and run on an aarch64-running target.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=bd3e2256"></script>
+</div><script src="../../_static/documentation_options.js?v=7a06361e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     </body>

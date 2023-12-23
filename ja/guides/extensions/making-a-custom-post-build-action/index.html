@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="ja">
+<html class="no-js" lang="ja" data-content_root="../../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="検索" href="../../../search/" /><link rel="next" title="Making a custom package type extension" href="../making-a-custom-package-type/" /><link rel="prev" title="Extensions" href="../extensions/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Making a custom post-build action extension - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,7 +322,7 @@
         </div>
         <article role="main">
           <section id="making-a-custom-post-build-action-extension">
-<h1>Making a custom post-build action extension<a class="headerlink" href="#making-a-custom-post-build-action-extension" title="この見出しへのパーマリンク">¶</a></h1>
+<h1>Making a custom post-build action extension<a class="headerlink" href="#making-a-custom-post-build-action-extension" title="Link to this heading">¶</a></h1>
 <p>This is an extension example for the following use case:</p>
 <blockquote>
 <div><p>After performing a build for any of my releng-tool projects, I want to
@@ -330,7 +331,7 @@ attempt to package the contents. I want to do this using an extension to
 avoid the need to repeat the process across all my releng-tool projects.</p>
 </div></blockquote>
 <section id="prelude">
-<h2>Prelude<a class="headerlink" href="#prelude" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Prelude<a class="headerlink" href="#prelude" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>This extension example uses the name <code class="docutils literal notranslate"><span class="pre">my-awesome-extension</span></code>. Developers are
 free to change this with whatever name is applicable for their own
@@ -346,7 +347,7 @@ that already manages the installation of the extension).</p></li>
 </ul>
 </section>
 <section id="creating-the-post-build-action-extension">
-<h2>Creating the post-build action extension<a class="headerlink" href="#creating-the-post-build-action-extension" title="この見出しへのパーマリンク">¶</a></h2>
+<h2>Creating the post-build action extension<a class="headerlink" href="#creating-the-post-build-action-extension" title="Link to this heading">¶</a></h2>
 <p>A first step is to setup the initial file structure for the extension. Assuming
 there exists a checked out releng-tool project (<code class="docutils literal notranslate"><span class="pre">my-releng-tool-project</span></code>) to
 be tested against, create a new extension folder named <code class="docutils literal notranslate"><span class="pre">my-awesome-extension</span></code>
@@ -498,9 +499,9 @@ see the documentation found inside the <a class="reference external" href="https
       
     </aside>
   </div>
-</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=948bdcac"></script>
+</div><script src="../../../_static/documentation_options.js?v=53b3c8e4"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../../_static/translations.js?v=4dbe4bdc"></script>

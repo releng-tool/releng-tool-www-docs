@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="zh-Hant">
+<html class="no-js" lang="zh-Hant" data-content_root="../../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="搜索" href="../../../search/" /><link rel="next" title="Package bootstrapping" href="../bootstrapping/" /><link rel="prev" title="Common package options" href="../common-pkg-options/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Advanced package options - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,11 +322,11 @@
         </div>
         <article role="main">
           <section id="advanced-package-options">
-<h1>Advanced package options<a class="headerlink" href="#advanced-package-options" title="此标题的永久链接">¶</a></h1>
+<h1>Advanced package options<a class="headerlink" href="#advanced-package-options" title="Link to this heading">¶</a></h1>
 <p>The following outlines more advanced configuration options available for
 packages.</p>
 <section id="libfoo-build-subdir">
-<span id="pkg-opt-build-subdir"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code><a class="headerlink" href="#libfoo-build-subdir" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-build-subdir"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code><a class="headerlink" href="#libfoo-build-subdir" title="Link to this heading">¶</a></h2>
 <p>Sub-directory where a package's extracted sources holds its buildable content.
 Sources for a package may be nested inside one or more directories. A package
 can specify the sub-directory where the configuration, build and installation
@@ -335,7 +336,7 @@ processes are invoked from.</p>
 </div>
 </section>
 <section id="libfoo-devmode-ignore-cache">
-<span id="pkg-opt-devmode-ignore-cache"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code><a class="headerlink" href="#libfoo-devmode-ignore-cache" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-devmode-ignore-cache"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code><a class="headerlink" href="#libfoo-devmode-ignore-cache" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate that a package should ignore any generated cache
 file when operating in <a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>.
 In most cases, users want to take advantage of cached sources to prevent
@@ -356,7 +357,7 @@ of this option as disabled (<code class="docutils literal notranslate"><span cla
 option by default (<code class="docutils literal notranslate"><span class="pre">True</span></code>) if the target revision is a branch.</p>
 </section>
 <section id="libfoo-devmode-revision">
-<span id="pkg-opt-devmode-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code><a class="headerlink" href="#libfoo-devmode-revision" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-devmode-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code><a class="headerlink" href="#libfoo-devmode-revision" title="Link to this heading">¶</a></h2>
 <p>Specifies a development revision for a package. When a project is being
 built in <a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>, the development
 revision is used over the configured <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref">LIBFOO_REVISION</span></a> value. If a
@@ -368,7 +369,7 @@ use the configured <a class="reference internal" href="#pkg-opt-revision"><span 
 <p>See also <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref">LIBFOO_REVISION</span></a> and <a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref">LIBFOO_VERSION</span></a>.</p>
 </section>
 <section id="libfoo-extension">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code><a class="headerlink" href="#libfoo-extension" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code><a class="headerlink" href="#libfoo-extension" title="Link to this heading">¶</a></h2>
 <p>Specifies a filename extension for the package. A package may be cached inside
 the download directory to be used when the extraction phase is invoked.
 releng-tool attempts to determine the most ideal extension for this cache file;
@@ -380,7 +381,7 @@ option.</p>
 </div>
 </section>
 <section id="libfoo-external">
-<span id="pkg-opt-external"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code><a class="headerlink" href="#libfoo-external" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-external"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code><a class="headerlink" href="#libfoo-external" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate that a package is an external package. External
 packages will generate warnings if <a class="reference internal" href="../hash-file/"><span class="doc std std-doc">hashes</span></a>, an
 <a class="reference internal" href="../ascii-armor/"><span class="doc std std-doc">ASCII-armor</span></a> or <a class="reference internal" href="../../licenses/"><span class="doc std std-doc">licenses</span></a> are missing. By
@@ -392,7 +393,7 @@ be internal.</p>
 <p>See also <a class="reference internal" href="../../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
 </section>
 <section id="libfoo-extopt">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code><a class="headerlink" href="#libfoo-extopt" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code><a class="headerlink" href="#libfoo-extopt" title="Link to this heading">¶</a></h2>
 <p>Specifies extension-specific options. Packages wishing to take advantage of
 extension-specific capabilities can forward options to extensions by defining
 a dictionary of values.</p>
@@ -404,7 +405,7 @@ a dictionary of values.</p>
 </div>
 </section>
 <section id="libfoo-extract-type">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code><a class="headerlink" href="#libfoo-extract-type" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code><a class="headerlink" href="#libfoo-extract-type" title="Link to this heading">¶</a></h2>
 <p>Specifies a custom extraction type for a package. If a configured extension
 supports a custom extraction capability, the registered extraction type can
 be explicitly registered in this option.</p>
@@ -413,7 +414,7 @@ be explicitly registered in this option.</p>
 </div>
 </section>
 <section id="libfoo-fetch-opts">
-<span id="pkg-opt-fetch-opts"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code><a class="headerlink" href="#libfoo-fetch-opts" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-fetch-opts"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code><a class="headerlink" href="#libfoo-fetch-opts" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass command line options into the fetch process. This
 option can be defined as a dictionary of string pairs or a list with strings
 -- either way defined will generate argument values which may be included
@@ -434,7 +435,7 @@ this option.</p>
 </div>
 </section>
 <section id="libfoo-fixed-jobs">
-<span id="pkg-opt-fixed-jobs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code><a class="headerlink" href="#libfoo-fixed-jobs" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-fixed-jobs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code><a class="headerlink" href="#libfoo-fixed-jobs" title="Link to this heading">¶</a></h2>
 <p>Explicitly configure the total number of jobs a package can use. The
 primary use case for this option is to help limit the total number of jobs
 for a package that cannot support a large or any parallel build environment.</p>
@@ -443,7 +444,7 @@ for a package that cannot support a large or any parallel build environment.</p>
 </div>
 </section>
 <section id="libfoo-git-config">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="Link to this heading">¶</a></h2>
 <p>Apply additional repository-specific Git configuration settings
 (<a class="reference external" href="https://git-scm.com/docs/git-config"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></a>) after a Git repository cache has been
 initialized. By default, no repository-specific configurations are
@@ -455,7 +456,7 @@ introduced (i.e. all Git calls will use the global configuration set).</p>
 </div>
 </section>
 <section id="libfoo-git-depth">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code><a class="headerlink" href="#libfoo-git-depth" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code><a class="headerlink" href="#libfoo-git-depth" title="Link to this heading">¶</a></h2>
 <p>Limit fetching for a Git-based source to the specified number of commits. The
 value provided will be used with the <a class="reference external" href="https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---depthltdepthgt"><code class="docutils literal notranslate"><span class="pre">--depth</span></code></a> argument. By
 default, the depth will be set to a value of <code class="docutils literal notranslate"><span class="pre">1</span></code>. If a developer wishes use
@@ -471,7 +472,7 @@ depth of <code class="docutils literal notranslate"><span class="pre">1</span></
 <a class="reference internal" href="../../quirks/quirks/"><span class="doc std std-doc">configuration quirks</span></a>.</p>
 </section>
 <section id="libfoo-git-refspecs">
-<span id="pkg-opt-git-refspecs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code><a class="headerlink" href="#libfoo-git-refspecs" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-git-refspecs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code><a class="headerlink" href="#libfoo-git-refspecs" title="Link to this heading">¶</a></h2>
 <p>List of addition refspecs to fetch when using a <code class="docutils literal notranslate"><span class="pre">git</span></code> VCS type. By default,
 a Git fetch request will acquire all <code class="docutils literal notranslate"><span class="pre">heads</span></code> and <code class="docutils literal notranslate"><span class="pre">tags</span></code> refspecs. If a
 developer wishes use revisions from different refspecs (for example, a pull
@@ -482,7 +483,7 @@ fetching.</p>
 </div>
 </section>
 <section id="libfoo-git-submodules">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code><a class="headerlink" href="#libfoo-git-submodules" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code><a class="headerlink" href="#libfoo-git-submodules" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate whether a package's Git submodules should be
 fetched/extracted during a package's own fetch/extraction stages. By default,
 submodules are not fetched. Ideally, any dependencies for a package are
@@ -498,7 +499,7 @@ package and reference its contents instead.</p>
 </div>
 </section>
 <section id="libfoo-git-verify-revision">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code><a class="headerlink" href="#libfoo-git-verify-revision" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code><a class="headerlink" href="#libfoo-git-verify-revision" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate whether the target revision is required to be signed
 before it can be used. When this value is set, the configured revision for a
 repository will not be extracted unless the GPG signature is verified. This
@@ -509,7 +510,7 @@ system or if the target revision is not signed.</p>
 </div>
 </section>
 <section id="libfoo-host-provides">
-<span id="pkg-opt-host-provides"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_HOST_PROVIDES</span></code><a class="headerlink" href="#libfoo-host-provides" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-host-provides"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_HOST_PROVIDES</span></code><a class="headerlink" href="#libfoo-host-provides" title="Link to this heading">¶</a></h2>
 <p>Hints at what host tools this package may be providing. A project may have a
 series of prerequisites, which are checked at the start of a run. This is to
 help ensure required host tools are available before attempting to build a
@@ -534,7 +535,7 @@ check will not fail if a tool is not available at the start of a run.</p>
 <p>See also <a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref">LIBFOO_INSTALL_TYPE</span></a>.</p>
 </section>
 <section id="libfoo-internal">
-<span id="pkg-opt-internal"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code><a class="headerlink" href="#libfoo-internal" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-internal"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code><a class="headerlink" href="#libfoo-internal" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate that a package is an internal package. Internal
 packages will not generate warnings if <a class="reference internal" href="../hash-file/"><span class="doc std std-doc">hashes</span></a>, an
 <a class="reference internal" href="../ascii-armor/"><span class="doc std std-doc">ASCII-armor</span></a> or <a class="reference internal" href="../../licenses/"><span class="doc std std-doc">licenses</span></a> are missing.
@@ -548,7 +549,7 @@ configured to be internal.</p>
 <p>See also <a class="reference internal" href="../../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
 </section>
 <section id="libfoo-no-extraction">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code><a class="headerlink" href="#libfoo-no-extraction" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code><a class="headerlink" href="#libfoo-no-extraction" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
@@ -575,7 +576,7 @@ projects with the no-extraction flag enabled will result in a warning. By
 default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </section>
 <section id="libfoo-patch-subdir">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code><a class="headerlink" href="#libfoo-patch-subdir" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code><a class="headerlink" href="#libfoo-patch-subdir" title="Link to this heading">¶</a></h2>
 <p>Sub-directory where any package patches should be applied to. By default,
 patches are applied to the root of the extracted sources for a package. This
 option can be useful for packages which utilize <a class="reference internal" href="#pkg-opt-build-subdir"><span class="std std-ref">LIBFOO_BUILD_SUBDIR</span></a> to
@@ -587,7 +588,7 @@ has prepared patches tailored for the specific module being targeted.</p>
 <p>See also <a class="reference internal" href="#pkg-opt-build-subdir"><span class="std std-ref">LIBFOO_BUILD_SUBDIR</span></a>.</p>
 </section>
 <section id="libfoo-prefix">
-<span id="pkg-opt-prefix"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code><a class="headerlink" href="#libfoo-prefix" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-prefix"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code><a class="headerlink" href="#libfoo-prefix" title="Link to this heading">¶</a></h2>
 <p>Specifies the sysroot prefix value to use for the package. An explicitly
 provided prefix value will override the project-defined or default sysroot
 prefix value.</p>
@@ -597,7 +598,7 @@ prefix value.</p>
 <p>See also <a class="reference internal" href="../../configuration/#conf-sysroot-prefix"><span class="std std-ref">sysroot_prefix</span></a>.</p>
 </section>
 <section id="libfoo-revision">
-<span id="pkg-opt-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code><a class="headerlink" href="#libfoo-revision" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code><a class="headerlink" href="#libfoo-revision" title="Link to this heading">¶</a></h2>
 <p>Specifies a revision value for a package. When a package fetches content
 using source management tools, the revision value is used to determine
 which sources should be acquired (e.g. a tag). If a revision is not
@@ -617,7 +618,7 @@ revisions can be configured based off the mode:</p>
 <p>See also <a class="reference internal" href="#pkg-opt-devmode-revision"><span class="std std-ref">LIBFOO_DEVMODE_REVISION</span></a> and <a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref">LIBFOO_VERSION</span></a>.</p>
 </section>
 <section id="libfoo-skip-remote-config">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_CONFIG</span></code><a class="headerlink" href="#libfoo-skip-remote-config" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_CONFIG</span></code><a class="headerlink" href="#libfoo-skip-remote-config" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate that a package should not attempt to load any
 package configurations which may be defined in the package's source. A
 package, by default, has the ability to load configuration information from
@@ -631,7 +632,7 @@ configuration stage.</p>
 <p>See also <a class="reference internal" href="../../quirks/quirks/"><span class="doc std std-doc">configuration quirks</span></a>.</p>
 </section>
 <section id="libfoo-skip-remote-scripts">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_SCRIPTS</span></code><a class="headerlink" href="#libfoo-skip-remote-scripts" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_SCRIPTS</span></code><a class="headerlink" href="#libfoo-skip-remote-scripts" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate that a package should not attempt to load any package
 scripts which may be defined in the package's source. Typically, a
 script-based package will load configuration, build, etc. scripts from its
@@ -648,7 +649,7 @@ package's contents.</p>
 <p>See also <a class="reference internal" href="../../quirks/quirks/"><span class="doc std std-doc">configuration quirks</span></a>.</p>
 </section>
 <section id="libfoo-strip-count">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code><a class="headerlink" href="#libfoo-strip-count" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code><a class="headerlink" href="#libfoo-strip-count" title="Link to this heading">¶</a></h2>
 <p>Specifies the strip count to use when attempting to extract sources from an
 archive. By default, the extraction process will strip a single directory
 from an archive (value: <code class="docutils literal notranslate"><span class="pre">1</span></code>). If a package's archive has no container
@@ -659,7 +660,7 @@ contains multiple container directories, a higher strip count can be set.</p>
 </div>
 </section>
 <section id="libfoo-vcs-type">
-<span id="pkg-opt-vcs-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code><a class="headerlink" href="#libfoo-vcs-type" title="此标题的永久链接">¶</a></h2>
+<span id="pkg-opt-vcs-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code><a class="headerlink" href="#libfoo-vcs-type" title="Link to this heading">¶</a></h2>
 <p>Explicitly sets the version control system type to use when acquiring
 sources. releng-tool attempts to automatically determine the VCS type of
 a package based off a <a class="reference internal" href="../common-pkg-options/#pkg-opt-site"><span class="std std-ref">LIBFOO_SITE</span></a> value. In some scenarios, a site
@@ -812,9 +813,9 @@ warning message.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=f2ee9b8c"></script>
+</div><script src="../../../_static/documentation_options.js?v=ebd5bd6d"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
     </body>

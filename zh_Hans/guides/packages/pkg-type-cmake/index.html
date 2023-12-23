@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="zh-Hans">
+<html class="no-js" lang="zh-Hans" data-content_root="../../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="搜索" href="../../../search/" /><link rel="next" title="Make package" href="../pkg-type-make/" /><link rel="prev" title="Autotools package" href="../pkg-type-autotools/" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>CMake package - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2023-02-12_00.15.00/">0.15 (2023-02-12)</a></li>
@@ -321,7 +322,7 @@
         </div>
         <article role="main">
           <section id="cmake-package">
-<h1>CMake package<a class="headerlink" href="#cmake-package" title="此标题的永久链接">¶</a></h1>
+<h1>CMake package<a class="headerlink" href="#cmake-package" title="Link to this heading">¶</a></h1>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported
 module.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;cmake&#39;</span>
@@ -342,7 +343,7 @@ can override this option by explicitly adjusting the configuration option
 <p>The following sections outline configuration options are available for a CMake
 package.</p>
 <section id="libfoo-build-defs">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code><a class="headerlink" href="#libfoo-build-defs" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code><a class="headerlink" href="#libfoo-build-defs" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass definitions into the build process. This option
 can is defined as a dictionary of string pairs. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
@@ -353,7 +354,7 @@ can is defined as a dictionary of string pairs. This field is optional.</p>
 </div>
 </section>
 <section id="libfoo-build-env">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_ENV</span></code><a class="headerlink" href="#libfoo-build-env" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_ENV</span></code><a class="headerlink" href="#libfoo-build-env" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass environment variables into the build process. This
 option is defined as a dictionary with key-value pairs where the key is the
 environment name and the value is the environment variable's value. This
@@ -365,7 +366,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="libfoo-build-opts">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_OPTS</span></code><a class="headerlink" href="#libfoo-build-opts" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_OPTS</span></code><a class="headerlink" href="#libfoo-build-opts" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass command line options into the build process. This
 option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in
@@ -385,7 +386,7 @@ the build event. This field is optional.</p>
 </div>
 </section>
 <section id="libfoo-cmake-build-type">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_BUILD_TYPE</span></code><a class="headerlink" href="#libfoo-cmake-build-type" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_BUILD_TYPE</span></code><a class="headerlink" href="#libfoo-cmake-build-type" title="Link to this heading">¶</a></h2>
 <p>Specifies the build type used for the CMake package. A package may use a
 common build type (<code class="docutils literal notranslate"><span class="pre">Debug</span></code>, <code class="docutils literal notranslate"><span class="pre">Release</span></code>, <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code> or <code class="docutils literal notranslate"><span class="pre">MinSizeRel</span></code>),
 or may have a custom build type defined. A developer needing to use a
@@ -397,7 +398,7 @@ all CMake packages.</p>
 </div>
 </section>
 <section id="libfoo-cmake-noinstall">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_NOINSTALL</span></code><a class="headerlink" href="#libfoo-cmake-noinstall" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_NOINSTALL</span></code><a class="headerlink" href="#libfoo-cmake-noinstall" title="Link to this heading">¶</a></h2>
 <p>Specifies whether the CMake package should skip an attempt to invoke the
 install command. Ideally, projects will have an <a class="reference external" href="https://cmake.org/cmake/help/latest/command/install.html">install</a>
 rule configured to define how a project will install files into a target (or
@@ -411,7 +412,7 @@ By default, the installation stage is invoked with a value of <code class="docut
 </div>
 </section>
 <section id="libfoo-conf-defs">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code><a class="headerlink" href="#libfoo-conf-defs" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code><a class="headerlink" href="#libfoo-conf-defs" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass definitions into the configuration process. This
 option can is defined as a dictionary of string pairs. This field is
 optional.</p>
@@ -423,7 +424,7 @@ optional.</p>
 </div>
 </section>
 <section id="libfoo-conf-env">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_ENV</span></code><a class="headerlink" href="#libfoo-conf-env" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_ENV</span></code><a class="headerlink" href="#libfoo-conf-env" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass environment variables into the configuration process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -435,7 +436,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="libfoo-conf-opts">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_OPTS</span></code><a class="headerlink" href="#libfoo-conf-opts" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_OPTS</span></code><a class="headerlink" href="#libfoo-conf-opts" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass command line options into the configuration process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in the
@@ -455,7 +456,7 @@ configuration event. This field is optional.</p>
 </div>
 </section>
 <section id="libfoo-env">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_ENV</span></code><a class="headerlink" href="#libfoo-env" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_ENV</span></code><a class="headerlink" href="#libfoo-env" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass environment variables into all stages for a
 package. This option is defined as a dictionary with key-value pairs where
 the key is the environment name and the value is the environment variable's
@@ -467,7 +468,7 @@ value. This field is optional.</p>
 </div>
 </section>
 <section id="libfoo-install-defs">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code><a class="headerlink" href="#libfoo-install-defs" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code><a class="headerlink" href="#libfoo-install-defs" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass definitions into the installation process. This
 option can is defined as a dictionary of string pairs. This field is
 optional.</p>
@@ -479,7 +480,7 @@ optional.</p>
 </div>
 </section>
 <section id="libfoo-install-env">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code><a class="headerlink" href="#libfoo-install-env" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code><a class="headerlink" href="#libfoo-install-env" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass environment variables into the installation process.
 This option is defined as a dictionary with key-value pairs where the key is
 the environment name and the value is the environment variable's value. This
@@ -491,7 +492,7 @@ field is optional.</p>
 </div>
 </section>
 <section id="libfoo-install-opts">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code><a class="headerlink" href="#libfoo-install-opts" title="此标题的永久链接">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code><a class="headerlink" href="#libfoo-install-opts" title="Link to this heading">¶</a></h2>
 <p>Provides a means to pass command line options into the installation process.
 This option can be defined as a dictionary of string pairs or a list with
 strings -- either way defined will generate argument values to include in
@@ -588,9 +589,9 @@ the installation event. This field is optional.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=4893a62a"></script>
+</div><script src="../../../_static/documentation_options.js?v=51a880cb"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
     </body>
