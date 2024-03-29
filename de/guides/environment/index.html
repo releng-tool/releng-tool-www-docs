@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=315ca4e6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=dd935299" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -245,6 +245,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2023-05-07_00.16.00/">0.16 (2023-05-07)</a></li>
@@ -419,7 +420,7 @@ overrides the number of jobs to use, the
 <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-fixed-jobs"><span class="std std-ref">package-defined count</span></a> will be used instead.</p>
 </section>
 <section id="output-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code><a class="headerlink" href="#output-dir" title="Link to this heading">¶</a></h3>
+<span id="env-output-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code><a class="headerlink" href="#output-dir" title="Link to this heading">¶</a></h3>
 <p>The output directory.  By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">output</span></code> found inside
 the configured root directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output
@@ -844,20 +845,82 @@ content.</p>
 <span id="env-releng-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-cache-dir-dir" title="Link to this heading">¶</a></h3>
 <p>The cache directory to use. By default, the cache directory used is configured
 to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/cache</span></code>. If a user does not override a cache directory using the
-<a class="reference internal" href="../arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code> can be
-used (if set) to override this location.</p>
+<a class="reference internal" href="../arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code> option can
+be used to override this location.</p>
 </section>
 <section id="releng-dl-dir-dir">
 <span id="env-releng-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-dl-dir-dir" title="Link to this heading">¶</a></h3>
 <p>The download directory to use. By default, the download directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/dl</span></code>. If a user does not override a download directory
-using the <a class="reference internal" href="../arguments/#arg-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code> can be used
-(if set) to override this location.</p>
+using the <a class="reference internal" href="../arguments/#arg-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code> option
+can be used to override this location.</p>
+</section>
+<section id="releng-global-output-container-dir-dir">
+<span id="env-releng-global-out-container-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-global-output-container-dir-dir" title="Link to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>This environment variable is always ignored when either the
+<a class="reference internal" href="../arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument</span></a> or
+<a class="reference internal" href="#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a> environment variable is used.</p>
+</div>
+<p>Configures a „global“ container directory used to hold the output contents
+of releng-tool projects. Projects will typically generate output contents
+inside a project’s <code class="docutils literal notranslate"><span class="pre">&lt;root-dir&gt;/output</span></code> directory. This can be overridden
+using the <a class="reference internal" href="../arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument</span></a> or
+<a class="reference internal" href="#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a> environment variable, if a user
+wishes to generate a build on a different path/partition. While these
+overrides can help, users managing multiple releng-tool projects will need
+to tailor a specific output directory value for each project they wish to
+build. This may be less than ideal if projects typically build in an
+output folder in a common directory. To help avoid this, this environment
+variable can be used.</p>
+<p>When configuring this option, the default output folder for projects will be
+set to the provided container directory along with a project’s root directory
+name:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$RELENG_GLOBAL_OUTPUT_CONTAINER_DIR/&lt;root-directory-name&gt;
+</pre></div>
+</div>
+<p>This allows a user to build multiple releng-tool projects with output data
+placed inside a common directory path without needing to explicitly configure
+a specific output directory each project’s build.</p>
+<p>For example, if a user stores multiple projects inside a <code class="docutils literal notranslate"><span class="pre">~/projects/</span></code> path
+and configures this option to the path <code class="docutils literal notranslate"><span class="pre">/mnt/extern-disk</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span><span class="o">=/</span><span class="n">mnt</span><span class="o">/</span><span class="n">extern</span><span class="o">-</span><span class="n">disk</span>
+</pre></div>
+</div>
+<p>The following folder structure should be expected:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── usr/
+│   └── home/
+│       └── myuser/
+│           └── projects/
+│               ├── my-project-a/
+│               │   ├── ...
+│               │   └── releng.py
+│               └── my-project-b/
+│                   ├── ...
+│                   └── releng.py
+└── mnt/
+    └── extern-disk/
+        ├── my-project-a/
+        │   └── ...
+        └── my-project-b/
+            └── ...
+</pre></div>
+</div>
 </section>
 <section id="releng-ignore-running-as-root-1">
 <span id="env-releng-ignore-running-as-root"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code><a class="headerlink" href="#releng-ignore-running-as-root-1" title="Link to this heading">¶</a></h3>
 <p>Suppress the <a class="reference internal" href="../tips/privileged-builds/"><span class="doc std std-doc">warning</span></a> generated when running
 releng-tool with an elevated user.</p>
+</section>
+<section id="releng-output-dir-dir">
+<span id="env-releng-out-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-output-dir-dir" title="Link to this heading">¶</a></h3>
+<p>The output directory to use. By default, the output directory used is
+configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>. If a user does not override an output
+directory using the <a class="reference internal" href="../arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument</span></a>, the
+<code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code> option can be used to override this location.</p>
+<p>See also
+<a class="reference internal" href="#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a>.</p>
 </section>
 </section>
 </section>
@@ -985,7 +1048,9 @@ releng-tool with an elevated user.</p>
 <li><a class="reference internal" href="#releng-assets-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-cache-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-dl-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-global-output-container-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-running-as-root-1"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code></a></li>
+<li><a class="reference internal" href="#releng-output-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>
