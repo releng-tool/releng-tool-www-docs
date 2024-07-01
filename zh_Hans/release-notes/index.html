@@ -3,12 +3,12 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="搜索" href="../search/" /><link rel="next" title="1.1 (2024-03-29)" href="../news/2024-03-29_01.01.00/" /><link rel="prev" title="ANNEX A - Quick reference" href="../annex-a/" />
+<link rel="search" title="搜索" href="../search/" /><link rel="next" title="1.2 (2024-07-01)" href="../news/2024-07-01_01.02.00/" /><link rel="prev" title="ANNEX A - Quick reference" href="../annex-a/" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>Release notes - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=dd935299" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
@@ -70,7 +70,7 @@
   <symbol id="svg-sun" viewBox="0 0 24 24">
     <title>Light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -85,7 +85,7 @@
   <symbol id="svg-moon" viewBox="0 0 24 24">
     <title>Dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
@@ -93,7 +93,7 @@
   <symbol id="svg-sun-half" viewBox="0 0 24 24">
     <title>Auto light/dark mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
       <circle cx="12" cy="12" r="9" />
       <path d="M13 12h5" />
@@ -101,6 +101,60 @@
       <path d="M13 18h1" />
       <path d="M13 9h4" />
       <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
     </svg>
   </symbol>
 </svg>
@@ -113,6 +167,8 @@
 <label class="overlay toc-overlay" for="__toc">
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
 
 
@@ -131,7 +187,8 @@
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
           <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
@@ -245,6 +302,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Release notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
@@ -308,10 +366,12 @@
         </a>
         <div class="content-icon-container">
           
+
 <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
-              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
@@ -321,7 +381,7 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="release-notes">
 <h1>Release notes<a class="headerlink" href="#release-notes" title="Link to this heading">¶</a></h1>
 <p>The following provides the notable features, bug fixes and more for each
@@ -331,6 +391,7 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <h2>News<a class="headerlink" href="#news" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2023-12-22_01.00.00/">1.0 (2023-12-22)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2023-08-06_00.17.00/">0.17 (2023-08-06)</a></li>
@@ -348,7 +409,15 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
 </section>
 <section id="id1">
-<h2>1.1 (2024-03-29)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2>1.2 (2024-07-01)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Introduce the <code class="docutils literal notranslate"><span class="pre">punch</span></code> action to support forced rebuild of packages</p></li>
+<li><p>Support automatic package preparation for compatible local-sourced packages</p></li>
+<li><p>Update SPDX license database to v3.24</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>1.1 (2024-03-29)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Prevent SSH authentication prompts that may occur when using Git</p></li>
 <li><p>Support SPDX license identifier field for custom licenses</p></li>
@@ -357,15 +426,15 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <li><p>Update SPDX license database to v3.23</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>1.0 (2023-12-22)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="id3">
+<h2>1.0 (2023-12-22)<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT</span></code> and <code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT_DIR</span></code> variables</p></li>
 <li><p>Update SPDX license database to v3.22</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>0.17 (2023-08-06)<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<section id="id4">
+<h2>0.17 (2023-08-06)<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed issue with CMake-generated export targets missing prefix overrides</p></li>
 <li><p>Fixed issue with local-source configurations when provided relative paths</p></li>
@@ -379,8 +448,8 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <li><p>Update SPDX license database to v3.21</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>0.16 (2023-05-07)<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<section id="id5">
+<h2>0.16 (2023-05-07)<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Enforce strict hash checking in development mode for external packages which
 define a development revision</p></li>
@@ -394,8 +463,8 @@ relative destination</p></li>
 allowing certain shells to take advantage of path auto-completion</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>0.15 (2023-02-12)<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<section id="id6">
+<h2>0.15 (2023-02-12)<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>CMake install events will now always skip dependency checks</p></li>
 <li><p>Fixed issue where extension loading may cause issues in Python 2.7</p></li>
@@ -408,8 +477,8 @@ allowing certain shells to take advantage of path auto-completion</p></li>
 <li><p>Support setting software build of materials format in project configuration</p></li>
 </ul>
 </section>
-<section id="id6">
-<h2>0.14 (2023-02-05)<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<section id="id7">
+<h2>0.14 (2023-02-05)<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><strong>(note)</strong> The deprecated <code class="docutils literal notranslate"><span class="pre">releng</span></code> namespace has been removed</p></li>
 <li><p>CMake install events will now always force installs by default</p></li>
@@ -428,8 +497,8 @@ issues finding includes/libraries with <code class="docutils literal notranslate
 <li><p>Support user paths in package-specific local-sources overrides</p></li>
 </ul>
 </section>
-<section id="id7">
-<h2>0.13 (2022-08-10)<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<section id="id8">
+<h2>0.13 (2022-08-10)<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Avoid interaction with target area when using CMake projects that only
 uses the staging area</p></li>
@@ -461,8 +530,8 @@ operating in local-sources mode</p></li>
 <li><p>Support users overriding a project's configuration path from command line</p></li>
 </ul>
 </section>
-<section id="id8">
-<h2>0.12 (2022-05-02)<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<section id="id9">
+<h2>0.12 (2022-05-02)<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Adding <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code> to <code class="docutils literal notranslate"><span class="pre">releng_copy</span></code> for explicit copies to directories</p></li>
 <li><p>Adjust automatic job detection to use physical cores instead of logical cores</p></li>
@@ -478,8 +547,8 @@ content on first extract</p></li>
 <li><p>Support package variable overrides via command line</p></li>
 </ul>
 </section>
-<section id="id9">
-<h2>0.11 (2022-02-26)<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<section id="id10">
+<h2>0.11 (2022-02-26)<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Always pre-create install directory before package install scripts are invoked</p></li>
 <li><p>Fixed an issue where nested zip files could not extract</p></li>
@@ -492,8 +561,8 @@ content on first extract</p></li>
 <li><p>Support triggering a reconfiguration of all packages through a force argument</p></li>
 </ul>
 </section>
-<section id="id10">
-<h2>0.10 (2021-12-31)<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
+<section id="id11">
+<h2>0.10 (2021-12-31)<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed an issue where a configured <code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code> bin path would not be
 registered in the script environment's path</p></li>
@@ -512,8 +581,8 @@ would fail</p></li>
 <li><p>Support providing an assets container directory (for cache/download folders)</p></li>
 </ul>
 </section>
-<section id="id11">
-<h2>0.9 (2021-10-02)<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
+<section id="id12">
+<h2>0.9 (2021-10-02)<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed an import issue when running with Python 3.10</p></li>
 <li><p>Fixed an issue where a cyclic package check provided a bad message</p></li>
@@ -524,8 +593,8 @@ would fail</p></li>
 <li><p>Support using ASCII-armor (asc) files to package integrity checks</p></li>
 </ul>
 </section>
-<section id="id12">
-<h2>0.8 (2021-08-28)<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
+<section id="id13">
+<h2>0.8 (2021-08-28)<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Allow DVCS packages to share caches (to minimize space/time fetching)</p></li>
 <li><p>Fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on Python
@@ -549,8 +618,8 @@ configured value-wildcard string should be used)</p></li>
 forced fetch request is made</p></li>
 </ul>
 </section>
-<section id="id13">
-<h2>0.7 (2021-08-08)<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
+<section id="id14">
+<h2>0.7 (2021-08-08)<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fetch from an already cached package's site if the fetch is explicitly
 requested</p></li>
@@ -571,8 +640,8 @@ to force re-invoking a specific stage</p></li>
 <li><p>releng-tool will now full stop if external package definition fails to load</p></li>
 </ul>
 </section>
-<section id="id14">
-<h2>0.6 (2020-10-10)<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
+<section id="id15">
+<h2>0.6 (2020-10-10)<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Always register optional flags inside scripts (allowing developers to use
 flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
@@ -587,14 +656,14 @@ output by default</p></li>
 an interim)</p></li>
 </ul>
 </section>
-<section id="id15">
-<h2>0.5 (2020-09-07)<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
+<section id="id16">
+<h2>0.5 (2020-09-07)<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed false error when verifying cached Git reference</p></li>
 </ul>
 </section>
-<section id="id16">
-<h2>0.4 (2020-09-07)<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
+<section id="id17">
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Allow developers to fetch from addition Git refspecs (e.g. pull requests)</p></li>
 <li><p>Allow setting quirks in command line</p></li>
@@ -605,8 +674,8 @@ an interim)</p></li>
 <li><p>Introduce support for shallow Git fetching</p></li>
 </ul>
 </section>
-<section id="id17">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
+<section id="id18">
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>Allow packages to configure for no-extraction for sources</p></li>
@@ -617,8 +686,8 @@ an interim)</p></li>
 <li><p>Introduce support for package-specific bootstrapping stage</p></li>
 </ul>
 </section>
-<section id="id18">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h2>
+<section id="id19">
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>A project's host directory will now be registered in the system's path during
 execution</p></li>
@@ -627,8 +696,8 @@ execution</p></li>
 <li><p>Re-work various script names (e.g. <code class="docutils literal notranslate"><span class="pre">releng.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">releng</span></code>)</p></li>
 </ul>
 </section>
-<section id="id19">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h2>
+<section id="id20">
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Hello world</p></li>
 </ul>
@@ -640,12 +709,12 @@ execution</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../news/2024-03-29_01.01.00/">
+          <a class="next-page" href="../news/2024-07-01_01.02.00/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">1.1 (2024-03-29)</div>
+                <div class="title">1.2 (2024-07-01)</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -690,25 +759,26 @@ execution</p></li>
 <li><a class="reference internal" href="#">Release notes</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
 <li><a class="reference internal" href="#summary">Summary</a></li>
-<li><a class="reference internal" href="#id1">1.1 (2024-03-29)</a></li>
-<li><a class="reference internal" href="#id2">1.0 (2023-12-22)</a></li>
-<li><a class="reference internal" href="#id3">0.17 (2023-08-06)</a></li>
-<li><a class="reference internal" href="#id4">0.16 (2023-05-07)</a></li>
-<li><a class="reference internal" href="#id5">0.15 (2023-02-12)</a></li>
-<li><a class="reference internal" href="#id6">0.14 (2023-02-05)</a></li>
-<li><a class="reference internal" href="#id7">0.13 (2022-08-10)</a></li>
-<li><a class="reference internal" href="#id8">0.12 (2022-05-02)</a></li>
-<li><a class="reference internal" href="#id9">0.11 (2022-02-26)</a></li>
-<li><a class="reference internal" href="#id10">0.10 (2021-12-31)</a></li>
-<li><a class="reference internal" href="#id11">0.9 (2021-10-02)</a></li>
-<li><a class="reference internal" href="#id12">0.8 (2021-08-28)</a></li>
-<li><a class="reference internal" href="#id13">0.7 (2021-08-08)</a></li>
-<li><a class="reference internal" href="#id14">0.6 (2020-10-10)</a></li>
-<li><a class="reference internal" href="#id15">0.5 (2020-09-07)</a></li>
-<li><a class="reference internal" href="#id16">0.4 (2020-09-07)</a></li>
-<li><a class="reference internal" href="#id17">0.3 (2019-10-19)</a></li>
-<li><a class="reference internal" href="#id18">0.2 (2019-03-15)</a></li>
-<li><a class="reference internal" href="#id19">0.1 (2019-02-24)</a></li>
+<li><a class="reference internal" href="#id1">1.2 (2024-07-01)</a></li>
+<li><a class="reference internal" href="#id2">1.1 (2024-03-29)</a></li>
+<li><a class="reference internal" href="#id3">1.0 (2023-12-22)</a></li>
+<li><a class="reference internal" href="#id4">0.17 (2023-08-06)</a></li>
+<li><a class="reference internal" href="#id5">0.16 (2023-05-07)</a></li>
+<li><a class="reference internal" href="#id6">0.15 (2023-02-12)</a></li>
+<li><a class="reference internal" href="#id7">0.14 (2023-02-05)</a></li>
+<li><a class="reference internal" href="#id8">0.13 (2022-08-10)</a></li>
+<li><a class="reference internal" href="#id9">0.12 (2022-05-02)</a></li>
+<li><a class="reference internal" href="#id10">0.11 (2022-02-26)</a></li>
+<li><a class="reference internal" href="#id11">0.10 (2021-12-31)</a></li>
+<li><a class="reference internal" href="#id12">0.9 (2021-10-02)</a></li>
+<li><a class="reference internal" href="#id13">0.8 (2021-08-28)</a></li>
+<li><a class="reference internal" href="#id14">0.7 (2021-08-08)</a></li>
+<li><a class="reference internal" href="#id15">0.6 (2020-10-10)</a></li>
+<li><a class="reference internal" href="#id16">0.5 (2020-09-07)</a></li>
+<li><a class="reference internal" href="#id17">0.4 (2020-09-07)</a></li>
+<li><a class="reference internal" href="#id18">0.3 (2019-10-19)</a></li>
+<li><a class="reference internal" href="#id19">0.2 (2019-03-15)</a></li>
+<li><a class="reference internal" href="#id20">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
@@ -721,9 +791,9 @@ execution</p></li>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=51a880cb"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="../_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="../_static/tabs.js?v=3ee01567"></script>
     </body>
 </html>
