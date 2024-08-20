@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=dd935299" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -247,11 +247,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/ascii-armor/">ASCII armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-script/">Script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-cargo/">Cargo package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-cmake/">CMake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-make/">Make package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../guides/post-processing/">Post-processing</a></li>
@@ -283,6 +285,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
 </li>
@@ -365,9 +368,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/blob/main/content/getting-started/fetching.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/getting-started/fetching.md" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -421,8 +432,8 @@ use:</p>
 </div>
 <p>Once a package has completed its fetch stage, releng-tool should never need
 to remotely fetch content for that package again (until site, version, etc.
-changes). In the event that a user invokes a <code class="docutils literal notranslate"><span class="pre">clean</span></code> action followed by a
-full build:</p>
+changes). In the event that a user invokes a <a class="reference internal" href="../../guides/arguments/#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a> action
+followed by a full build:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>releng-tool<span class="w"> </span>clean
 <span class="gp">$ </span>releng-tool
 <span class="go">...</span>
@@ -453,6 +464,19 @@ local downloads/cache for a project. This can be achieved using
 <p>This will ensure all downloaded files, cached content, etc. are removed
 from the local system, ensuring a next-build to download fresh sources.</p>
 </section>
+<section id="full-fetching">
+<h2>Full fetching<a class="headerlink" href="#full-fetching" title="Link to this heading">¶</a></h2>
+<p>Most package sources are acquired during the fetch stage. However, some
+packages define dependencies within their sources. This can require
+releng-tool to first fetch a defined package’s sources, extract the
+package, followed by fetching any defined dependencies. Post-fetching
+will be automatically performed for supported packages (e.g. Cargo) after
+their extraction stage. Users can invoke the <a class="reference internal" href="../../guides/arguments/#action-fetch-full"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">fetch-full</span></code></span></a>
+action to explicitly process releng-tool’s fetch-post operations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">fetch</span><span class="o">-</span><span class="n">full</span>
+</pre></div>
+</div>
+</section>
 <section id="force-re-fetch-of-dvcs-sources">
 <h2>Force re-fetch of DVCS sources<a class="headerlink" href="#force-re-fetch-of-dvcs-sources" title="Link to this heading">¶</a></h2>
 <p>When a DVCS-based package goes through its fetch stage, the contents can
@@ -467,8 +491,8 @@ is cleaned and rebuilt again, releng-tool will referred to the locally
 cached tag. In the event that the remote site changes the tag location,
 clean builds will not be using the most recent tag location. If a user
 knows the reference for a site has been updated, they can explicitly
-request a <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code> on a package which should trigger a forced update
-from the remote site. For example:</p>
+request a <a class="reference internal" href="../../guides/arguments/#action-pkg-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></span></a> on a package which should
+trigger a forced update from the remote site. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">libfoo</span><span class="o">-</span><span class="n">fetch</span>
 </pre></div>
 </div>
@@ -485,10 +509,11 @@ again. For example:</p>
 </div>
 <p>The archive <code class="docutils literal notranslate"><span class="pre">libfoo-1.0.tgz</span></code> will be locally store and used in future
 builds. In the event where a site’s archive is known to have been changed,
-a user can force re-fetch these artifacts by using the <a class="reference internal" href="../../guides/arguments/#action-pkg-fetch"><span class="std std-ref">&lt;pkg&gt;-fetch</span></a>
-action along with the <a class="reference internal" href="../../guides/arguments/#arg-force"><span class="std std-ref">-F, --force</span></a> argument. For example, even if
-<code class="docutils literal notranslate"><span class="pre">libfoo-1.0.tgz</span></code> was already downloaded locally, a request as follows will
-delete the local cache file and re-download it from the configured site:</p>
+a user can force re-fetch these artifacts by using the
+<a class="reference internal" href="../../guides/arguments/#action-pkg-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></span></a> action along with the
+<a class="reference internal" href="../../guides/arguments/#arg-force"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-F,</span> <span class="pre">--force</span></code></span></a> argument. For example, even if <code class="docutils literal notranslate"><span class="pre">libfoo-1.0.tgz</span></code>
+was already downloaded locally, a request as follows will delete the local
+cache file and re-download it from the configured site:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">libfoo</span><span class="o">-</span><span class="n">fetch</span> <span class="o">--</span><span class="n">force</span>
 </pre></div>
 </div>
@@ -519,8 +544,9 @@ updates on the remote branch:</p>
 </pre></div>
 </div>
 <p>If a user wants to automatically re-fetch new updates on a development
-branch, they can take advantage of the <a class="reference internal" href="../../guides/packages/advanced-pkg-options/#pkg-opt-devmode-ignore-cache"><span class="std std-ref">LIBFOO_DEVMODE_IGNORE_CACHE</span></a>
-option. For example, if a site definition had:</p>
+branch, they can take advantage of the
+<a class="reference internal" href="../../guides/packages/advanced-pkg-options/#pkg-opt-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code></span></a> option. For
+example, if a site definition had:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
 <span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v1.0&#39;</span>
 <span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">&#39;main&#39;</span>
@@ -577,7 +603,14 @@ package’s <code class="docutils literal notranslate"><span class="pre">main</s
             
           </div>
           <div class="right-details">
-            
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/releng-tool/releng-tool" aria-label="GitHub">
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+            </a>
+              
+            </div>
           </div>
         </div>
         
@@ -597,6 +630,7 @@ package’s <code class="docutils literal notranslate"><span class="pre">main</s
             <ul>
 <li><a class="reference internal" href="#">Understanding fetching</a><ul>
 <li><a class="reference internal" href="#start-fresh">Start fresh!</a></li>
+<li><a class="reference internal" href="#full-fetching">Full fetching</a></li>
 <li><a class="reference internal" href="#force-re-fetch-of-dvcs-sources">Force re-fetch of DVCS sources</a></li>
 <li><a class="reference internal" href="#force-re-fetch-of-fixed-sources">Force re-fetch of fixed sources</a></li>
 <li><a class="reference internal" href="#automatically-re-fetch-development-branches">Automatically re-fetch development branches</a></li>

@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=dd935299" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -247,11 +247,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/ascii-armor/">ASCII armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-script/">Script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-cargo/">Cargo package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-cmake/">CMake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-make/">Make package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../post-processing/">Post-processing</a></li>
@@ -283,6 +285,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
 </li>
@@ -365,9 +368,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/blob/main/content/guides/script-helpers.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/script-helpers.md" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -389,7 +400,7 @@ script-based packages, post-processing and more. Helper functions provided
 are listed below:</p>
 <section id="available-functions">
 <h2>Available functions<a class="headerlink" href="#available-functions" title="Link to this heading">¶</a></h2>
-<dl class="py function">
+<dl class="py function" id="script-debug">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a debug message to standard out with a trailing new line. By default,
@@ -409,7 +420,7 @@ generating a formatted message</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-err">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs an error message to standard error with a trailing new line and (if
@@ -428,7 +439,7 @@ generating a formatted message</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-hint">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">hint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a hint message to standard out with a trailing new line and (if
@@ -447,7 +458,7 @@ generating a formatted message</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-log">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a (normal) message to standard out with a trailing new line.</p>
@@ -465,7 +476,7 @@ generating a formatted message</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-note">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a notification message to standard out with a trailing new line and (if
@@ -484,7 +495,7 @@ generating a formatted message</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-cat">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_cat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Attempts to read one or more files provided to this call. For each file, it
@@ -507,7 +518,7 @@ output; <code class="docutils literal notranslate"><span class="pre">False</span
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-copy">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>This call will attempt to copy a provided file or directory, defined by
@@ -560,7 +571,7 @@ has failed</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-copy-into">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>This call will attempt to copy a provided file or directory, defined by
@@ -604,7 +615,7 @@ has failed</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-env">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value=&lt;object</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Provides a caller a simple method to fetch or configure an environment
@@ -634,9 +645,9 @@ be removed.</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-execute">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
 the working directory of the executed command by explicitly setting the
 directory in <code class="docutils literal notranslate"><span class="pre">cwd</span></code>. The execution request will return <code class="docutils literal notranslate"><span class="pre">True</span></code> on a
@@ -686,6 +697,7 @@ list will be populated with the output provided from an invoked process.</p>
 <li><p><strong>poll</strong> (<em>optional</em>) -- force polling stdin/stdout for output data (defaults to
 <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
 <li><p><strong>capture</strong> (<em>optional</em>) -- list to capture output into</p></li>
+<li><p><strong>expand</strong> (<em>optional</em>) -- perform variable expansion on arguments</p></li>
 </ul>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
@@ -698,7 +710,7 @@ execution has failed</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-execute-rv">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute_rv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Runs the command <code class="docutils literal notranslate"><span class="pre">command</span></code> with provided <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A
@@ -730,6 +742,7 @@ instead of the original environment of the caller.</p>
 <li><p><strong>**cwd</strong> -- working directory to use</p></li>
 <li><p><strong>**env</strong> -- environment variables to use for the process</p></li>
 <li><p><strong>**env_update</strong> -- environment variables to append for the process</p></li>
+<li><p><strong>**expand</strong> -- perform variable expansion on arguments</p></li>
 </ul>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
@@ -738,7 +751,7 @@ instead of the original environment of the caller.</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-exists">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Allows a caller to verify the existence of a file on the file system. This
@@ -763,7 +776,7 @@ call will return <code class="docutils literal notranslate"><span class="pre">Tr
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-exit">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Provides a convenience method to help invoke a system exit call without
@@ -792,7 +805,7 @@ if a message is set</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-expand">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_expand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>This expand utility method will attempt to expand variables in detected
@@ -829,7 +842,7 @@ duplicate entries.</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-include">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>The provided call will execute code at the provided file path. The path
@@ -848,14 +861,14 @@ the caller's script.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="py method" id="script-releng-tool">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">paths</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>An alias for <code class="docutils literal notranslate"><span class="pre">os.path.join</span></code>. See also
 <a class="reference external" href="https://docs.python.org/library/os.path.html#os.path.join">https://docs.python.org/library/os.path.html#os.path.join</a>.</p>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-ls">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Attempts to read a directory for its contents and prints this information
@@ -876,17 +889,24 @@ be read</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-mkdir">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Attempts to create the provided directory. If the directory already exists,
 this method has no effect. If the directory does not exist and could not be
-created, this method will return <code class="docutils literal notranslate"><span class="pre">False</span></code>. Also, if an error has been
+created, this method will return <code class="docutils literal notranslate"><span class="pre">None</span></code>. Also, if an error has been
 detected, an error message will be output to standard error (unless
 <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">releng_mkdir</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was created&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
+
+<span class="n">target_dir</span> <span class="o">=</span> <span class="n">releng_mkdir</span><span class="p">(</span><span class="n">TARGET_DIR</span><span class="p">,</span> <span class="s1">&#39;sub-folder&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">target_dir</span><span class="p">:</span>
+    <span class="c1"># output] target directory: &lt;target&gt;/sub-folder</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;target directory:&#39;</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;directory was not created&#39;</span><span class="p">)</span>
 </pre></div>
@@ -895,20 +915,21 @@ detected, an error message will be output to standard error (unless
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dir</strong> -- the directory</p></li>
-<li><p><strong>quiet</strong> (<em>optional</em>) -- whether or not to suppress output (defaults to
-<code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
-<li><p><strong>critical</strong> (<em>optional</em>) -- whether or not to stop execution on failure
-(defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>*args</strong> (<em>optional</em>) -- additional components of the directory</p></li>
+<li><p><strong>**quiet</strong> (<em>optional</em>) -- whether or not to suppress output (defaults
+to <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>**critical</strong> (<em>optional</em>) -- whether or not to stop execution on
+failure (defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the directory exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the directory could not
+<dd class="field-even"><p>the directory that exists; <code class="docutils literal notranslate"><span class="pre">None</span></code> if the directory could not
 be created</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-move">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>This call will attempt to move a provided file or directory's contents,
@@ -956,7 +977,7 @@ has failed</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-move-into">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>This call will attempt to move a provided file or directory's contents,
@@ -1000,7 +1021,7 @@ has failed</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-remove">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Attempts to remove the provided path if it exists. The path value can either
@@ -1028,7 +1049,7 @@ path could not be removed from the system</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-require-version">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_require_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Enables a caller to explicitly check for a required releng-tool version.
@@ -1061,7 +1082,7 @@ has failed</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-tmpdir">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_tmpdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir_</span></code> (or system
@@ -1085,7 +1106,7 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-touch">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_touch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Attempts to update the access/modifications times on a file. If the file
@@ -1109,7 +1130,7 @@ not be created/updated</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-releng-wd">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_wd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Moves the current context into the provided working directory <code class="docutils literal notranslate"><span class="pre">dir</span></code>. When
@@ -1135,7 +1156,7 @@ thrown.</p>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-success">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a success message to standard error with a trailing new line and (if
@@ -1154,7 +1175,7 @@ generating a formatted message</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-verbose">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a verbose message to standard out with a trailing new line and (if
@@ -1174,7 +1195,7 @@ generating a formatted message</p></li>
 </dl>
 </dd></dl>
 
-<dl class="py function">
+<dl class="py function" id="script-warn">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Logs a warning message to standard error with a trailing new line and (if
@@ -1248,7 +1269,14 @@ example, import a specific function:</p>
             
           </div>
           <div class="right-details">
-            
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/releng-tool/releng-tool" aria-label="GitHub">
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+            </a>
+              
+            </div>
           </div>
         </div>
         

@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=dd935299" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -247,11 +247,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/ascii-armor/">ASCII armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-script/">Script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-cargo/">Cargo package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-cmake/">CMake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-make/">Make package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../post-processing/">Post-processing</a></li>
@@ -283,6 +285,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
 </li>
@@ -365,9 +368,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/blob/main/content/guides/configuration.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/configuration.md" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -434,8 +445,19 @@ assumed to be external packages.</p>
 </div>
 <p>See also <a class="reference internal" href="../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
 </section>
+<section id="environment">
+<span id="conf-environment"></span><h3><code class="docutils literal notranslate"><span class="pre">environment</span></code><a class="headerlink" href="#environment" title="Link to this heading">¶</a></h3>
+<p>A dictionary to define environment variables to apply to all stages of
+releng-tool.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">environment</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;MY_ENV_1&#39;</span><span class="p">:</span> <span class="s1">&#39;First example&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MY_ENV_2&#39;</span><span class="p">:</span> <span class="s1">&#39;Another example&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 <section id="extensions">
-<h3><code class="docutils literal notranslate"><span class="pre">extensions</span></code><a class="headerlink" href="#extensions" title="Link to this heading">¶</a></h3>
+<span id="conf-extensions"></span><h3><code class="docutils literal notranslate"><span class="pre">extensions</span></code><a class="headerlink" href="#extensions" title="Link to this heading">¶</a></h3>
 <p>A list of extensions to load before processing a releng-tool project. If an
 extension cannot be loaded, releng-tool will stop with information on why
 an extension could not be loaded.</p>
@@ -445,10 +467,10 @@ an extension could not be loaded.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../extensions/extensions/"><span class="doc std std-doc">Extensions</span></a>.</p>
+<p>See also <a class="reference internal" href="../extensions/extensions/"><span class="doc std std-doc">extensions</span></a>.</p>
 </section>
 <section id="external-packages">
-<h3><code class="docutils literal notranslate"><span class="pre">external_packages</span></code><a class="headerlink" href="#external-packages" title="Link to this heading">¶</a></h3>
+<span id="conf-external-packages"></span><h3><code class="docutils literal notranslate"><span class="pre">external_packages</span></code><a class="headerlink" href="#external-packages" title="Link to this heading">¶</a></h3>
 <p>A list of external package locations. By default, packages for a project
 will be searched for in root directory’s package folder (<code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package</span></code>).
 In some build environments, some packages may be required or may be preferred
@@ -473,7 +495,7 @@ defined by project’s configuration. For example:</p>
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
 </section>
 <section id="packages">
-<h3><code class="docutils literal notranslate"><span class="pre">packages</span></code><a class="headerlink" href="#packages" title="Link to this heading">¶</a></h3>
+<span id="conf-packages"></span><h3><code class="docutils literal notranslate"><span class="pre">packages</span></code><a class="headerlink" href="#packages" title="Link to this heading">¶</a></h3>
 <p>A list of packages to process. Packages listed will be processed by
 releng-tool till their completion. Package dependencies not explicitly
 listed will be automatically loaded and processed as well.</p>
@@ -486,7 +508,7 @@ listed will be automatically loaded and processed as well.</p>
 </div>
 </section>
 <section id="prerequisites">
-<h3><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h3>
+<span id="conf-prerequisites"></span><h3><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h3>
 <p>A list of host tools to check for before running a releng-tool project.
 Allows a developer to identify tools to check and fail-fast if missing,
 instead of waiting for a stage which requires a specific tool and failing
@@ -500,7 +522,7 @@ later during a building, packaging, etc. phase.</p>
 </div>
 </section>
 <section id="sbom-format">
-<h3><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code><a class="headerlink" href="#sbom-format" title="Link to this heading">¶</a></h3>
+<span id="conf-sbom-format"></span><h3><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code><a class="headerlink" href="#sbom-format" title="Link to this heading">¶</a></h3>
 <p>Configures the default format to use when generating a software build of
 materials (SBOM). By default, <code class="docutils literal notranslate"><span class="pre">text</span></code> format SBOMs are generated for a
 project.</p>
@@ -556,10 +578,10 @@ prefix is typically set to <code class="docutils literal notranslate"><span clas
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref">LIBFOO_PREFIX</span></a>.</p>
+<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a>.</p>
 </section>
 <section id="url-mirror">
-<h3><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code><a class="headerlink" href="#url-mirror" title="Link to this heading">¶</a></h3>
+<span id="conf-url-mirror"></span><h3><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code><a class="headerlink" href="#url-mirror" title="Link to this heading">¶</a></h3>
 <p>Specifies a mirror base site to be used for URL fetch requests. If this
 option is set, any URL fetch requests will first be tried on the configured
 mirror before attempting to acquired from the defined site in a package
@@ -573,7 +595,7 @@ definition.</p>
 <h2>Advanced options<a class="headerlink" href="#advanced-options" title="Link to this heading">¶</a></h2>
 <p>A list of more advanced configuration options are as follows:</p>
 <section id="cache-ext">
-<h3><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code><a class="headerlink" href="#cache-ext" title="Link to this heading">¶</a></h3>
+<span id="conf-cache-ext"></span><h3><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code><a class="headerlink" href="#cache-ext" title="Link to this heading">¶</a></h3>
 <p>A transform for cache extension interpreting. This is an advanced
 configuration and is not recommended for use except for special use cases
 outlined below.</p>
@@ -604,10 +626,10 @@ For example:</p>
 <code class="docutils literal notranslate"><span class="pre">static.example.org</span></code> site will be <code class="docutils literal notranslate"><span class="pre">tgz</span></code> archives.</p>
 </section>
 <section id="extra-license-exceptions">
-<h3><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code><a class="headerlink" href="#extra-license-exceptions" title="Link to this heading">¶</a></h3>
+<span id="conf-extra-license-exceptions"></span><h3><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code><a class="headerlink" href="#extra-license-exceptions" title="Link to this heading">¶</a></h3>
 <p>A dictionary to define extra license exceptions that are permitted in
 package definitions. Packages which define license exceptions in a
-<a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref">LIBFOO_LICENSE</span></a> option are expected to use
+<a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></span></a> option are expected to use
 <a class="reference external" href="https://spdx.org/licenses/exceptions-index.html">SPDX License Exceptions</a>. If not, a warning is generated
 by default. A project can define their own custom exceptions by adding them
 into a project’s <code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code> option to avoid this warning:</p>
@@ -619,13 +641,13 @@ into a project’s <code class="docutils literal notranslate"><span class="pre">
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
 </section>
 <section id="extra-licenses">
-<h3><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code><a class="headerlink" href="#extra-licenses" title="Link to this heading">¶</a></h3>
+<span id="conf-extra-licenses"></span><h3><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code><a class="headerlink" href="#extra-licenses" title="Link to this heading">¶</a></h3>
 <p>A dictionary to define extra licenses that are permitted in package
-definitions. Packages which define licenses in a <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref">LIBFOO_LICENSE</span></a> option
-are expected to use a licensed defined in the
-<a class="reference external" href="https://spdx.org/licenses/">SPDX License List</a>. If not, a warning is generated by
-default. A project can define their own custom license by adding them into
-a project’s <code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code> option to avoid this warning:</p>
+definitions. Packages which define licenses in a
+<a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></span></a> option are expected to use a licensed
+defined in the <a class="reference external" href="https://spdx.org/licenses/">SPDX License List</a>. If not, a warning is
+generated by default. A project can define their own custom license by
+adding them into a project’s <code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code> option to avoid this warning:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_licenses</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;My-License-ID&#39;</span><span class="p">:</span> <span class="s1">&#39;License Name&#39;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -634,7 +656,7 @@ a project’s <code class="docutils literal notranslate"><span class="pre">extra
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
 </section>
 <section id="override-extract-tools">
-<h3><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code><a class="headerlink" href="#override-extract-tools" title="Link to this heading">¶</a></h3>
+<span id="conf-override-extract-tools"></span><h3><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code><a class="headerlink" href="#override-extract-tools" title="Link to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
 <p>The use of an override option should only be used in special cases (see
@@ -652,7 +674,7 @@ tool with their own extraction utility. Consider the following example:</p>
 </div>
 </section>
 <section id="override-revisions">
-<h3><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code><a class="headerlink" href="#override-revisions" title="Link to this heading">¶</a></h3>
+<span id="conf-override-revisions"></span><h3><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code><a class="headerlink" href="#override-revisions" title="Link to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
 <p>The use of an override option should only be used in special cases (see
@@ -675,7 +697,7 @@ can be used instead:</p>
 branch instead of what is defined in the actual package definition.</p>
 </section>
 <section id="override-sites">
-<h3><code class="docutils literal notranslate"><span class="pre">override_sites</span></code><a class="headerlink" href="#override-sites" title="Link to this heading">¶</a></h3>
+<span id="conf-override-sites"></span><h3><code class="docutils literal notranslate"><span class="pre">override_sites</span></code><a class="headerlink" href="#override-sites" title="Link to this heading">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warnung</p>
 <p>The use of an override option should only be used in special cases (see
@@ -723,7 +745,7 @@ environment. For example:</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="urlopen" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/3.7/library/urllib.request.html#urllib.request.urlopen</a></p>
+<p><a class="reference external" href="https://docs.python.org/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/library/urllib.request.html#urllib.request.urlopen</a></p>
 </aside>
 </aside>
 </section>
@@ -764,7 +786,14 @@ environment. For example:</p>
             
           </div>
           <div class="right-details">
-            
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/releng-tool/releng-tool" aria-label="GitHub">
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+            </a>
+              
+            </div>
           </div>
         </div>
         
@@ -785,6 +814,7 @@ environment. For example:</p>
 <li><a class="reference internal" href="#">Configuration</a><ul>
 <li><a class="reference internal" href="#common-options">Common options</a><ul>
 <li><a class="reference internal" href="#default-internal"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></a></li>
+<li><a class="reference internal" href="#environment"><code class="docutils literal notranslate"><span class="pre">environment</span></code></a></li>
 <li><a class="reference internal" href="#extensions"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a></li>
 <li><a class="reference internal" href="#external-packages"><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></a></li>
 <li><a class="reference internal" href="#license-header"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></a></li>

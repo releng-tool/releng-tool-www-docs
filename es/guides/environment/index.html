@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=dd935299" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -247,11 +247,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/ascii-armor/">ASCII armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-script/">Script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-cargo/">Cargo package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-cmake/">CMake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-make/">Make package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../post-processing/">Post-processing</a></li>
@@ -283,6 +285,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
 </li>
@@ -365,9 +368,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/blob/main/content/guides/environment.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/environment.md" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -396,7 +407,7 @@ definitions can improve configuration management.</p>
 <p>When configuration, package definitions or various scripts are invoked by
 releng-tool, the following environment variables are available:</p>
 <section id="build-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">BUILD_DIR</span></code><a class="headerlink" href="#build-dir" title="Link to this heading">¶</a></h3>
+<span id="env-build-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">BUILD_DIR</span></code><a class="headerlink" href="#build-dir" title="Link to this heading">¶</a></h3>
 <p>The build directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">build</span></code> found inside
 the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/build
@@ -404,7 +415,7 @@ the configured output directory. For example:</p>
 </div>
 </section>
 <section id="cache-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">CACHE_DIR</span></code><a class="headerlink" href="#cache-dir" title="Link to this heading">¶</a></h3>
+<span id="env-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">CACHE_DIR</span></code><a class="headerlink" href="#cache-dir" title="Link to this heading">¶</a></h3>
 <p>The cache directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">cache</span></code> found inside
 the configured root directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/cache
@@ -412,7 +423,7 @@ the configured root directory. For example:</p>
 </div>
 </section>
 <section id="dl-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code><a class="headerlink" href="#dl-dir" title="Link to this heading">¶</a></h3>
+<span id="env-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code><a class="headerlink" href="#dl-dir" title="Link to this heading">¶</a></h3>
 <p>The download directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">dl</span></code> found inside
 the configured root directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/dl
@@ -420,14 +431,14 @@ the configured root directory. For example:</p>
 </div>
 </section>
 <section id="host-bin-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">HOST_BIN_DIR</span></code><a class="headerlink" href="#host-bin-dir" title="Link to this heading">¶</a></h3>
+<span id="env-host-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_BIN_DIR</span></code><a class="headerlink" href="#host-bin-dir" title="Link to this heading">¶</a></h3>
 <p>The host directory’s prefixed bin directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/build
 </pre></div>
 </div>
 </section>
 <section id="host-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code><a class="headerlink" href="#host-dir" title="Link to this heading">¶</a></h3>
+<span id="env-host-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code><a class="headerlink" href="#host-dir" title="Link to this heading">¶</a></h3>
 <p>The host directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">host</span></code> found inside
 the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/host
@@ -435,15 +446,15 @@ the configured output directory. For example:</p>
 </div>
 </section>
 <section id="host-include-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code><a class="headerlink" href="#host-include-dir" title="Link to this heading">¶</a></h3>
+<span id="env-host-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code><a class="headerlink" href="#host-include-dir" title="Link to this heading">¶</a></h3>
 <p>The host directory’s prefixed include directory.</p>
 </section>
 <section id="host-lib-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code><a class="headerlink" href="#host-lib-dir" title="Link to this heading">¶</a></h3>
+<span id="env-host-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code><a class="headerlink" href="#host-lib-dir" title="Link to this heading">¶</a></h3>
 <p>The host directory’s prefixed library directory.</p>
 </section>
 <section id="images-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code><a class="headerlink" href="#images-dir" title="Link to this heading">¶</a></h3>
+<span id="env-images-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code><a class="headerlink" href="#images-dir" title="Link to this heading">¶</a></h3>
 <p>The images directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">images</span></code> found inside
 the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/images
@@ -451,7 +462,7 @@ the configured output directory. For example:</p>
 </div>
 </section>
 <section id="license-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">LICENSE_DIR</span></code><a class="headerlink" href="#license-dir" title="Link to this heading">¶</a></h3>
+<span id="env-license-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">LICENSE_DIR</span></code><a class="headerlink" href="#license-dir" title="Link to this heading">¶</a></h3>
 <p>The licenses directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">licenses</span></code> found
 inside the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/licenses
@@ -491,10 +502,11 @@ the configured root directory. For example:</p>
 <span id="env-pkg-build-base-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code><a class="headerlink" href="#pkg-build-base-dir" title="Link to this heading">¶</a></h3>
 <p>The directory for a specific package’s base directory for buildable content.
 In most cases, this value will be the same as
-<a class="reference internal" href="#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a>. However, if <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-build-subdir"><span class="std std-ref">LIBFOO_BUILD_SUBDIR</span></a>
-is configured, <a class="reference internal" href="#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a> will also include the
-configured sub-directory. The value of <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-build-subdir"><span class="std std-ref">LIBFOO_BUILD_SUBDIR</span></a> does not
-adjust the value of <code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code>.</p>
+<a class="reference internal" href="#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a>. However, if
+<a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-build-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></span></a> is configured,
+<a class="reference internal" href="#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a> will also include the configured
+sub-directory. The value of <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-build-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></span></a>
+does not adjust the value of <code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code>.</p>
 <p>See also <a class="reference internal" href="#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a>.</p>
 </section>
 <section id="pkg-build-dir">
@@ -509,7 +521,7 @@ adjust the value of <code class="docutils literal notranslate"><span class="pre"
 <p>See also <a class="reference internal" href="#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a>.</p>
 </section>
 <section id="pkg-cache-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code><a class="headerlink" href="#pkg-cache-dir" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code><a class="headerlink" href="#pkg-cache-dir" title="Link to this heading">¶</a></h3>
 <p>The location of the cache directory for a package. If a package defines
 a fetch from a repository which can be locally cached, this cache
 directory represents the location where the local cache of content will
@@ -519,7 +531,7 @@ packages should not need to operate on the cache directory except for
 advanced cases.</p>
 </section>
 <section id="pkg-cache-file">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code><a class="headerlink" href="#pkg-cache-file" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-cache-file"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code><a class="headerlink" href="#pkg-cache-file" title="Link to this heading">¶</a></h3>
 <p>The location of the cache file for a package. If a package defines a fetch
 of an archive from a remote source, after the fetch stage is completed, the
 archive can be found in this location.</p>
@@ -527,58 +539,58 @@ archive can be found in this location.</p>
 the resulting cache file may be <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/dl/test-1.0.tgz</span></code>.</p>
 </section>
 <section id="pkg-defdir">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code><a class="headerlink" href="#pkg-defdir" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-defdir"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code><a class="headerlink" href="#pkg-defdir" title="Link to this heading">¶</a></h3>
 <p>The package’s definition directory.</p>
 <p>For example, for a package <code class="docutils literal notranslate"><span class="pre">test</span></code>, the definition directory would be
 <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/package/test</span></code>.</p>
 </section>
 <section id="pkg-devmode">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE</span></code><a class="headerlink" href="#pkg-devmode" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-defmode"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE</span></code><a class="headerlink" href="#pkg-devmode" title="Link to this heading">¶</a></h3>
 <p>Whether the package is configured for development mode. If a package is
 configured for development mode, the environment variable will be set to a
 value of one (i.e. <code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE=1</span></code>).</p>
 <p>See also <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>.</p>
 </section>
 <section id="pkg-internal">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code><a class="headerlink" href="#pkg-internal" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-internal"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code><a class="headerlink" href="#pkg-internal" title="Link to this heading">¶</a></h3>
 <p>Whether or not the package is considered «internal». If internal, the
 environment variable will be set to a value of one (i.e. <code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL=1</span></code>).</p>
 <p>See also <a class="reference internal" href="../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
 </section>
 <section id="pkg-localsrcs">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_LOCALSRCS</span></code><a class="headerlink" href="#pkg-localsrcs" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-localsrcs"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_LOCALSRCS</span></code><a class="headerlink" href="#pkg-localsrcs" title="Link to this heading">¶</a></h3>
 <p>Whether the package is configured for local-sources mode. If a package is
 configured for local-sources, the environment variable will be set to a
 value of one (i.e. <code class="docutils literal notranslate"><span class="pre">PKG_LOCALSRCS=1</span></code>).</p>
 <p>See also <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a>.</p>
 </section>
 <section id="pkg-name">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code><a class="headerlink" href="#pkg-name" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-name"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code><a class="headerlink" href="#pkg-name" title="Link to this heading">¶</a></h3>
 <p>The name of the package.</p>
 </section>
 <section id="pkg-revision">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code><a class="headerlink" href="#pkg-revision" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-revision"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code><a class="headerlink" href="#pkg-revision" title="Link to this heading">¶</a></h3>
 <p>The site revision of the package.</p>
-<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref">LIBFOO_REVISION</span></a>.</p>
+<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a>.</p>
 </section>
 <section id="pkg-site">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code><a class="headerlink" href="#pkg-site" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-site"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code><a class="headerlink" href="#pkg-site" title="Link to this heading">¶</a></h3>
 <p>The site of the package.</p>
-<p>See also <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-site"><span class="std std-ref">LIBFOO_SITE</span></a>.</p>
+<p>See also <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a>.</p>
 </section>
 <section id="pkg-version">
-<h3><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code><a class="headerlink" href="#pkg-version" title="Link to this heading">¶</a></h3>
+<span id="env-pkg-version"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code><a class="headerlink" href="#pkg-version" title="Link to this heading">¶</a></h3>
 <p>The version of the package.</p>
-<p>See also <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref">LIBFOO_VERSION</span></a>.</p>
+<p>See also <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a>.</p>
 </section>
 <section id="prefix">
-<h3><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code><a class="headerlink" href="#prefix" title="Link to this heading">¶</a></h3>
+<span id="env-prefix"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code><a class="headerlink" href="#prefix" title="Link to this heading">¶</a></h3>
 <p>The sysroot prefix for the package. By default, this value is configured
 to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>; with the exception of Windows builds where this value is empty
 by default.</p>
 </section>
 <section id="prefixed-host-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code><a class="headerlink" href="#prefixed-host-dir" title="Link to this heading">¶</a></h3>
+<span id="env-prefixed-host-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code><a class="headerlink" href="#prefixed-host-dir" title="Link to this heading">¶</a></h3>
 <p>The host directory with the prefix applied. An example prefixed
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/host/usr
@@ -586,7 +598,7 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="prefixed-staging-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code><a class="headerlink" href="#prefixed-staging-dir" title="Link to this heading">¶</a></h3>
+<span id="env-prefixed-staging-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code><a class="headerlink" href="#prefixed-staging-dir" title="Link to this heading">¶</a></h3>
 <p>The staging area directory with the prefix applied. An example prefixed
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr
@@ -594,7 +606,7 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="prefixed-target-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code><a class="headerlink" href="#prefixed-target-dir" title="Link to this heading">¶</a></h3>
+<span id="env-prefixed-target-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code><a class="headerlink" href="#prefixed-target-dir" title="Link to this heading">¶</a></h3>
 <p>The target area directory with the prefix applied. An example prefixed
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr
@@ -602,43 +614,43 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="releng-clean">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code><a class="headerlink" href="#releng-clean" title="Link to this heading">¶</a></h3>
+<span id="env-releng-clean"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code><a class="headerlink" href="#releng-clean" title="Link to this heading">¶</a></h3>
 <p>Flag set if performing a clean request.</p>
 </section>
 <section id="releng-debug">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code><a class="headerlink" href="#releng-debug" title="Link to this heading">¶</a></h3>
+<span id="env-releng-debug"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code><a class="headerlink" href="#releng-debug" title="Link to this heading">¶</a></h3>
 <p>Flag set if debug-related information should be shown.</p>
 </section>
 <section id="releng-devmode">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code><a class="headerlink" href="#releng-devmode" title="Link to this heading">¶</a></h3>
+<span id="env-releng-devmode"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code><a class="headerlink" href="#releng-devmode" title="Link to this heading">¶</a></h3>
 <p>The development mode or flag set if in <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>.</p>
 </section>
 <section id="releng-distclean">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code><a class="headerlink" href="#releng-distclean" title="Link to this heading">¶</a></h3>
+<span id="env-releng-distclean"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code><a class="headerlink" href="#releng-distclean" title="Link to this heading">¶</a></h3>
 <p>Flag set if performing an extreme pristine clean request.</p>
 </section>
 <section id="releng-force">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code><a class="headerlink" href="#releng-force" title="Link to this heading">¶</a></h3>
+<span id="env-releng-force"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code><a class="headerlink" href="#releng-force" title="Link to this heading">¶</a></h3>
 <p>Flag set if performing a forced request from the command line.</p>
 </section>
 <section id="releng-localsrcs">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code><a class="headerlink" href="#releng-localsrcs" title="Link to this heading">¶</a></h3>
+<span id="env-releng-localsrcs"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code><a class="headerlink" href="#releng-localsrcs" title="Link to this heading">¶</a></h3>
 <p>Flag set if in <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a>.</p>
 </section>
 <section id="releng-mrproper">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code><a class="headerlink" href="#releng-mrproper" title="Link to this heading">¶</a></h3>
+<span id="env-releng-mrproper"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code><a class="headerlink" href="#releng-mrproper" title="Link to this heading">¶</a></h3>
 <p>Flag set if performing a pristine clean request.</p>
 </section>
 <section id="releng-rebuild">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code><a class="headerlink" href="#releng-rebuild" title="Link to this heading">¶</a></h3>
+<span id="env-releng-rebuild"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code><a class="headerlink" href="#releng-rebuild" title="Link to this heading">¶</a></h3>
 <p>Flag set if performing a re-build request.</p>
 </section>
 <section id="releng-reconfigure">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code><a class="headerlink" href="#releng-reconfigure" title="Link to this heading">¶</a></h3>
+<span id="env-releng-reconfigure"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code><a class="headerlink" href="#releng-reconfigure" title="Link to this heading">¶</a></h3>
 <p>Flag set if performing a re-configuration request.</p>
 </section>
 <section id="releng-reinstall">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code><a class="headerlink" href="#releng-reinstall" title="Link to this heading">¶</a></h3>
+<span id="env-releng-reinstall"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code><a class="headerlink" href="#releng-reinstall" title="Link to this heading">¶</a></h3>
 <p>Flag set if performing a re-install request.</p>
 </section>
 <section id="releng-script">
@@ -650,23 +662,23 @@ directory may be as follows:</p>
 <p>The path of the directory holding the script currently being executed.</p>
 </section>
 <section id="releng-target-pkg">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_TARGET_PKG</span></code><a class="headerlink" href="#releng-target-pkg" title="Link to this heading">¶</a></h3>
+<span id="env-releng-target-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_TARGET_PKG</span></code><a class="headerlink" href="#releng-target-pkg" title="Link to this heading">¶</a></h3>
 <p>The name of the target package (if any) provided by the command line.</p>
 </section>
 <section id="releng-verbose">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code><a class="headerlink" href="#releng-verbose" title="Link to this heading">¶</a></h3>
+<span id="env-releng-verbose"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code><a class="headerlink" href="#releng-verbose" title="Link to this heading">¶</a></h3>
 <p>Flag set if verbose-related information should be shown.</p>
 </section>
 <section id="releng-version">
-<h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h3>
+<span id="env-releng-version"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h3>
 <p>The version of releng-tool.</p>
 </section>
 <section id="root-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code><a class="headerlink" href="#root-dir" title="Link to this heading">¶</a></h3>
+<span id="env-root-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code><a class="headerlink" href="#root-dir" title="Link to this heading">¶</a></h3>
 <p>The root directory.</p>
 </section>
 <section id="staging-bin-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">STAGING_BIN_DIR</span></code><a class="headerlink" href="#staging-bin-dir" title="Link to this heading">¶</a></h3>
+<span id="env-staging-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_BIN_DIR</span></code><a class="headerlink" href="#staging-bin-dir" title="Link to this heading">¶</a></h3>
 <p>The staging area directory’s prefixed bin directory. An example binary
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr/bin
@@ -674,7 +686,7 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="staging-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code><a class="headerlink" href="#staging-dir" title="Link to this heading">¶</a></h3>
+<span id="env-staging-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code><a class="headerlink" href="#staging-dir" title="Link to this heading">¶</a></h3>
 <p>The staging area directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">staging</span></code> found
 inside the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging
@@ -682,7 +694,7 @@ inside the configured output directory. For example:</p>
 </div>
 </section>
 <section id="staging-include-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code><a class="headerlink" href="#staging-include-dir" title="Link to this heading">¶</a></h3>
+<span id="env-staging-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code><a class="headerlink" href="#staging-include-dir" title="Link to this heading">¶</a></h3>
 <p>The staging area directory’s prefixed include directory. An example include
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr/include
@@ -690,7 +702,7 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="staging-lib-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code><a class="headerlink" href="#staging-lib-dir" title="Link to this heading">¶</a></h3>
+<span id="env-staging-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code><a class="headerlink" href="#staging-lib-dir" title="Link to this heading">¶</a></h3>
 <p>The staging area directory’s prefixed library directory. An example library
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr/lib
@@ -698,7 +710,7 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="symbols-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code><a class="headerlink" href="#symbols-dir" title="Link to this heading">¶</a></h3>
+<span id="env-symbols-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code><a class="headerlink" href="#symbols-dir" title="Link to this heading">¶</a></h3>
 <p>The symbols area directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">symbols</span></code> found
 inside the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/symbols
@@ -706,7 +718,7 @@ inside the configured output directory. For example:</p>
 </div>
 </section>
 <section id="target-bin-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">TARGET_BIN_DIR</span></code><a class="headerlink" href="#target-bin-dir" title="Link to this heading">¶</a></h3>
+<span id="env-target-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_BIN_DIR</span></code><a class="headerlink" href="#target-bin-dir" title="Link to this heading">¶</a></h3>
 <p>The target area directory’s prefixed bin directory. An example binary
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr/bin
@@ -714,7 +726,7 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="target-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code><a class="headerlink" href="#target-dir" title="Link to this heading">¶</a></h3>
+<span id="env-target-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code><a class="headerlink" href="#target-dir" title="Link to this heading">¶</a></h3>
 <p>The target area directory. By default, this will be a folder <code class="docutils literal notranslate"><span class="pre">target</span></code> found
 inside the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target
@@ -722,7 +734,7 @@ inside the configured output directory. For example:</p>
 </div>
 </section>
 <section id="target-include-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code><a class="headerlink" href="#target-include-dir" title="Link to this heading">¶</a></h3>
+<span id="env-target-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code><a class="headerlink" href="#target-include-dir" title="Link to this heading">¶</a></h3>
 <p>The target area directory’s prefixed include directory. An example include
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr/include
@@ -730,7 +742,7 @@ directory may be as follows:</p>
 </div>
 </section>
 <section id="target-lib-dir">
-<h3><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code><a class="headerlink" href="#target-lib-dir" title="Link to this heading">¶</a></h3>
+<span id="env-target-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code><a class="headerlink" href="#target-lib-dir" title="Link to this heading">¶</a></h3>
 <p>The target area directory’s prefixed library directory. An example library
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr/lib
@@ -750,8 +762,8 @@ example, if a package <code class="docutils literal notranslate"><span class="pr
 in other configurations and script files. The following package-specific
 environment variables are available for use, where <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;</span></code> translates to a
 releng-tool’s determined package key:</p>
-<section id="id1">
-<h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<section id="pkg-var-build-dir">
+<span id="env-pkg-var-build-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code><a class="headerlink" href="#pkg-var-build-dir" title="Link to this heading">¶</a></h3>
 <p>The directory for a defined package’s buildable content.</p>
 <p>For most packages, this path will match the value specified in
 <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code>. For package types that do not support in-tree
@@ -805,8 +817,8 @@ the package’s definition directory:</p>
 </pre></div>
 </div>
 </section>
-<section id="id2">
-<h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="pkg-var-build-output-dir">
+<span id="env-pkg-var-output-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code><a class="headerlink" href="#pkg-var-build-output-dir" title="Link to this heading">¶</a></h3>
 <p>The directory for where a defined package’s build output will be stored.</p>
 <p>This location is a path is a folder inside the project’s <code class="docutils literal notranslate"><span class="pre">output/build</span></code>
 directory. The name is typically a combination of the package’s name and
@@ -854,8 +866,8 @@ for package types like CMake. For example:</p>
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_DEFDIR</span></code><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<section id="pkg-var-defdir">
+<span id="env-pkg-var-defdir"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_DEFDIR</span></code><a class="headerlink" href="#pkg-var-defdir" title="Link to this heading">¶</a></h3>
 <p>The directory where a defined package’s definition is stored.</p>
 <p>For example, if a package <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> exists, the <code class="docutils literal notranslate"><span class="pre">LIBFOO_DEFDIR</span></code> environment
 variable will contain a directory path matching the path seen below:</p>
@@ -868,23 +880,39 @@ variable will contain a directory path matching the path seen below:</p>
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code><a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<section id="pkg-var-name">
+<span id="env-pkg-var-name"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code><a class="headerlink" href="#pkg-var-name" title="Link to this heading">¶</a></h3>
 <p>The name of the package.</p>
 <p>For example, if a package <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> exists, the <code class="docutils literal notranslate"><span class="pre">LIBFOO_NAME</span></code> environment
 variable will have a value of <code class="docutils literal notranslate"><span class="pre">libfoo</span></code>.</p>
 </section>
-<section id="id5">
-<h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_REVISION</span></code><a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<section id="pkg-var-revision">
+<span id="env-pkg-var-revision"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_REVISION</span></code><a class="headerlink" href="#pkg-var-revision" title="Link to this heading">¶</a></h3>
 <p>The revision of a defined package. If a package does not define a revision,
 the value used will match the version value (if set). If no version value
 exists, this variable may be empty.</p>
 </section>
-<section id="id6">
-<h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code><a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<section id="pkg-var-version">
+<span id="env-pkg-var-version"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code><a class="headerlink" href="#pkg-var-version" title="Link to this heading">¶</a></h3>
 <p>The version of a defined package. If a package does not define a version,
 the value used will match the revision value (if set). If no revision value
 exists, this variable may be empty.</p>
+</section>
+</section>
+<section id="script-only-variables">
+<h2>Script-only variables<a class="headerlink" href="#script-only-variables" title="Link to this heading">¶</a></h2>
+<p>A series a script-only variables are also available at certain stages of
+releng-tool.</p>
+<section id="releng-generated-licenses">
+<span id="env-releng-generated-licenses"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code><a class="headerlink" href="#releng-generated-licenses" title="Link to this heading">¶</a></h3>
+<p>Defines a list of generated license files at the end of package processing
+that is available for post-processing actions to use.</p>
+</section>
+<section id="releng-generated-sboms">
+<span id="env-releng-generated-sboms"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code><a class="headerlink" href="#releng-generated-sboms" title="Link to this heading">¶</a></h3>
+<p>Defines a list of generated software build of materials (SBOM) files at the
+end of package processing that is available for post-processing actions
+to use.</p>
 </section>
 </section>
 <section id="other-variables">
@@ -892,8 +920,8 @@ exists, this variable may be empty.</p>
 <p>releng-tool also accepts environment variables for configuring specific
 features of the releng-tool process. The following environment variables are
 accepted:</p>
-<section id="releng-assets-dir-dir">
-<span id="env-releng-assets-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-assets-dir-dir" title="Link to this heading">¶</a></h3>
+<section id="releng-assets-dir">
+<span id="env-releng-assets-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-assets-dir" title="Link to this heading">¶</a></h3>
 <p>The asset directory to use. The asset directory is the container directory
 to use for both cache and download content. By default, no asset directory
 is configured. If a user does not override an asset directory using the
@@ -901,22 +929,22 @@ is configured. If a user does not override an asset directory using the
 used as the container directory override for both cache and download
 content.</p>
 </section>
-<section id="releng-cache-dir-dir">
-<span id="env-releng-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-cache-dir-dir" title="Link to this heading">¶</a></h3>
+<section id="releng-cache-dir">
+<span id="env-releng-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-cache-dir" title="Link to this heading">¶</a></h3>
 <p>The cache directory to use. By default, the cache directory used is configured
 to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/cache</span></code>. If a user does not override a cache directory using the
 <a class="reference internal" href="../arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code> option can
 be used to override this location.</p>
 </section>
-<section id="releng-dl-dir-dir">
-<span id="env-releng-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-dl-dir-dir" title="Link to this heading">¶</a></h3>
+<section id="releng-dl-dir">
+<span id="env-releng-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-dl-dir" title="Link to this heading">¶</a></h3>
 <p>The download directory to use. By default, the download directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/dl</span></code>. If a user does not override a download directory
 using the <a class="reference internal" href="../arguments/#arg-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code> option
 can be used to override this location.</p>
 </section>
-<section id="releng-global-output-container-dir-dir">
-<span id="env-releng-global-out-container-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-global-output-container-dir-dir" title="Link to this heading">¶</a></h3>
+<section id="releng-global-output-container-dir">
+<span id="env-releng-global-out-container-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-global-output-container-dir" title="Link to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>This environment variable is always ignored when either the
@@ -968,13 +996,19 @@ and configures this option to the path <code class="docutils literal notranslate
 </pre></div>
 </div>
 </section>
-<section id="releng-ignore-running-as-root-1">
-<span id="env-releng-ignore-running-as-root"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code><a class="headerlink" href="#releng-ignore-running-as-root-1" title="Link to this heading">¶</a></h3>
+<section id="releng-ignore-running-as-root">
+<span id="env-releng-ignore-running-as-root"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code><a class="headerlink" href="#releng-ignore-running-as-root" title="Link to this heading">¶</a></h3>
 <p>Suppress the <a class="reference internal" href="../tips/privileged-builds/"><span class="doc std std-doc">warning</span></a> generated when running
 releng-tool with an elevated user.</p>
 </section>
-<section id="releng-output-dir-dir">
-<span id="env-releng-out-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-output-dir-dir" title="Link to this heading">¶</a></h3>
+<section id="releng-ignore-unknown-args">
+<span id="env-releng-ignore-unknown-args"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code><a class="headerlink" href="#releng-ignore-unknown-args" title="Link to this heading">¶</a></h3>
+<p>Suppress the warning/error generated when running releng-tool with unknown
+arguments.</p>
+<p>See also the <a class="reference internal" href="../arguments/#arg-relaxed-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code> argument</span></a>.</p>
+</section>
+<section id="releng-output-dir">
+<span id="env-releng-out-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-output-dir" title="Link to this heading">¶</a></h3>
 <p>The output directory to use. By default, the output directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>. If a user does not override an output
 directory using the <a class="reference internal" href="../arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument</span></a>, the
@@ -1019,7 +1053,14 @@ directory using the <a class="reference internal" href="../arguments/#arg-out-di
             
           </div>
           <div class="right-details">
-            
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/releng-tool/releng-tool" aria-label="GitHub">
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+            </a>
+              
+            </div>
           </div>
         </div>
         
@@ -1096,21 +1137,27 @@ directory using the <a class="reference internal" href="../arguments/#arg-out-di
 </ul>
 </li>
 <li><a class="reference internal" href="#package-specific-variables">Package-specific variables</a><ul>
-<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code></a></li>
-<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code></a></li>
-<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_DEFDIR</span></code></a></li>
-<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code></a></li>
-<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_REVISION</span></code></a></li>
-<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code></a></li>
+<li><a class="reference internal" href="#pkg-var-build-dir"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_DIR</span></code></a></li>
+<li><a class="reference internal" href="#pkg-var-build-output-dir"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUILD_OUTPUT_DIR</span></code></a></li>
+<li><a class="reference internal" href="#pkg-var-defdir"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_DEFDIR</span></code></a></li>
+<li><a class="reference internal" href="#pkg-var-name"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_NAME</span></code></a></li>
+<li><a class="reference internal" href="#pkg-var-revision"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_REVISION</span></code></a></li>
+<li><a class="reference internal" href="#pkg-var-version"><code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_VERSION</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#script-only-variables">Script-only variables</a><ul>
+<li><a class="reference internal" href="#releng-generated-licenses"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code></a></li>
+<li><a class="reference internal" href="#releng-generated-sboms"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#other-variables">Other variables</a><ul>
-<li><a class="reference internal" href="#releng-assets-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code></a></li>
-<li><a class="reference internal" href="#releng-cache-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code></a></li>
-<li><a class="reference internal" href="#releng-dl-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code></a></li>
-<li><a class="reference internal" href="#releng-global-output-container-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code></a></li>
-<li><a class="reference internal" href="#releng-ignore-running-as-root-1"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code></a></li>
-<li><a class="reference internal" href="#releng-output-dir-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-assets-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-cache-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-dl-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-global-output-container-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-ignore-running-as-root"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code></a></li>
+<li><a class="reference internal" href="#releng-ignore-unknown-args"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code></a></li>
+<li><a class="reference internal" href="#releng-output-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code></a></li>
 </ul>
 </li>
 </ul>

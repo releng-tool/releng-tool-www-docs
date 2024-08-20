@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=dd935299" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=df54547a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -247,11 +247,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/ascii-armor/">ASCII armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-script/">Script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-cargo/">Cargo package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-cmake/">CMake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-make/">Make package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/post-processing/">Post-processing</a></li>
@@ -283,6 +285,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
 </li>
@@ -365,9 +368,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/blob/main/content/annex-a.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/annex-a.md" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -389,196 +400,221 @@ releng-tool project.</p>
 <section id="configuration-options">
 <h2>Configuration options<a class="headerlink" href="#configuration-options" title="Link to this heading">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cache_ext</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nb">callable</span><span class="o">&gt;</span>
-<span class="n">default_internal</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;extension&gt;&#39;</span><span class="p">]</span>
-<span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;path&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;path&gt;&#39;</span><span class="p">]</span>
-<span class="n">extra_license_exceptions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;short-exception-id&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;exception-name&gt;&#39;</span><span class="p">}</span>
-<span class="n">extra_licenses</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;short-license-id&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;license-name&gt;&#39;</span><span class="p">}</span>
-<span class="n">license_header</span> <span class="o">=</span> <span class="s1">&#39;&lt;data&gt;&#39;</span>
-<span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;tool-path&gt;&#39;</span><span class="p">}</span>
-<span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span><span class="p">}</span>
-<span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;site&gt;&#39;</span><span class="p">}</span>
-<span class="n">packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
-<span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span><span class="p">]</span>
-<span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;quirk-id&gt;&#39;</span><span class="p">]</span>
-<span class="n">sbom_format</span> <span class="o">=</span> <span class="s1">&#39;&lt;format&gt;&#39;</span> <span class="c1"># csv, html, json, json-spdx, rdp-spdx, text, xml</span>
-<span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
-<span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;&lt;mirror-url&gt;&#39;</span>
-<span class="n">urlopen_context</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="o">&gt;</span>
-</pre></div>
-</div>
+<pre class="literal-block"><a class="reference internal" href="../guides/configuration/#conf-cache-ext"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></span></a> = &lt;callable&gt;
+<a class="reference internal" href="../guides/configuration/#conf-default-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></span></a> = bool
+<a class="reference internal" href="../guides/configuration/#conf-environment"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">environment</span></code></span></a> = {'&lt;key&gt;': '&lt;val&gt;'}
+<a class="reference internal" href="../guides/configuration/#conf-extensions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></span></a> = ['&lt;extension&gt;', '&lt;extension&gt;']
+<a class="reference internal" href="../guides/configuration/#conf-external-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></span></a> = ['&lt;path&gt;', '&lt;path&gt;']
+<a class="reference internal" href="../guides/configuration/#conf-extra-license-exceptions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></span></a> = {'&lt;short-exception-id&gt;': '&lt;exception-name&gt;'}
+<a class="reference internal" href="../guides/configuration/#conf-extra-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></span></a> = {'&lt;short-license-id&gt;': '&lt;license-name&gt;'}
+<a class="reference internal" href="../guides/configuration/#conf-license-header"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></span></a> = '&lt;data&gt;'
+<a class="reference internal" href="../guides/configuration/#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a> = {'&lt;tool&gt;': '&lt;tool-path&gt;'}
+<a class="reference internal" href="../guides/configuration/#conf-override-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code></span></a> = {'&lt;pkg&gt;': '&lt;revision&gt;'}
+<a class="reference internal" href="../guides/configuration/#conf-override-sites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_sites</span></code></span></a> = {'&lt;pkg&gt;': '&lt;site&gt;'}
+<a class="reference internal" href="../guides/configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;', '&lt;pkg&gt;']
+<a class="reference internal" href="../guides/configuration/#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a> = ['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;']
+<a class="reference internal" href="../guides/configuration/#conf-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></span></a> = ['&lt;quirk-id&gt;']
+<a class="reference internal" href="../guides/configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a> = '&lt;format&gt;'
+  └── csv, html, json, json-spdx, rdp-spdx, text, xml
+<a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a> = '&lt;path&gt;' # '/usr'
+<a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a> = '&lt;mirror-url&gt;'
+<a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;</pre>
 </section>
 <section id="environment-variables">
 <h2>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading">¶</a></h2>
 <p>Environment (and script) variables available to context's invoked by
 releng-tool (may vary per context):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUILD_DIR</span>
-<span class="n">CACHE_DIR</span>
-<span class="n">DL_DIR</span>
-<span class="n">HOST_BIN_DIR</span>
-<span class="n">HOST_DIR</span>
-<span class="n">HOST_INCLUDE_DIR</span>
-<span class="n">HOST_LIB_DIR</span>
-<span class="n">IMAGES_DIR</span>
-<span class="n">LICENSE_DIR</span>
-<span class="n">NJOBS</span>
-<span class="n">NJOBSCONF</span>
-<span class="n">OUTPUT_DIR</span>
-<span class="n">PKG_BUILD_BASE_DIR</span>
-<span class="n">PKG_BUILD_DIR</span>
-<span class="n">PKG_BUILD_OUTPUT_DIR</span>
-<span class="n">PKG_CACHE_DIR</span>
-<span class="n">PKG_CACHE_FILE</span>
-<span class="n">PKG_DEFDIR</span>
-<span class="n">PKG_DEVMODE</span>
-<span class="n">PKG_INTERNAL</span>
-<span class="n">PKG_LOCALSRCS</span>
-<span class="n">PKG_NAME</span>
-<span class="n">PKG_REVISION</span>
-<span class="n">PKG_SITE</span>
-<span class="n">PKG_VERSION</span>
-<span class="n">PREFIX</span>
-<span class="n">PREFIXED_HOST_DIR</span>
-<span class="n">PREFIXED_STAGING_DIR</span>
-<span class="n">PREFIXED_TARGET_DIR</span>
-<span class="n">RELENG_CLEAN</span>
-<span class="n">RELENG_DEBUG</span>
-<span class="n">RELENG_DEVMODE</span>
-<span class="n">RELENG_DISTCLEAN</span>
-<span class="n">RELENG_FORCE</span>
-<span class="n">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span>
-<span class="n">RELENG_LOCALSRCS</span>
-<span class="n">RELENG_MRPROPER</span>
-<span class="n">RELENG_OUTPUT_DIR</span>
-<span class="n">RELENG_REBUILD</span>
-<span class="n">RELENG_RECONFIGURE</span>
-<span class="n">RELENG_REINSTALL</span>
-<span class="n">RELENG_SCRIPT</span>
-<span class="n">RELENG_SCRIPT_DIR</span>
-<span class="n">RELENG_TARGET_PKG</span>
-<span class="n">RELENG_VERBOSE</span>
-<span class="n">RELENG_VERSION</span>
-<span class="n">ROOT_DIR</span>
-<span class="n">STAGING_BIN_DIR</span>
-<span class="n">STAGING_DIR</span>
-<span class="n">STAGING_INCLUDE_DIR</span>
-<span class="n">STAGING_LIB_DIR</span>
-<span class="n">SYMBOLS_DIR</span>
-<span class="n">TARGET_BIN_DIR</span>
-<span class="n">TARGET_DIR</span>
-<span class="n">TARGET_INCLUDE_DIR</span>
-<span class="n">TARGET_LIB_DIR</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_BUILD_DIR</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_BUILD_OUTPUT_DIR</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_DEFDIR</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_NAME</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_REVISION</span>
-<span class="o">&lt;</span><span class="n">PKG_NAME</span><span class="o">&gt;</span><span class="n">_VERSION</span>
-</pre></div>
-</div>
+<pre class="literal-block"><a class="reference internal" href="../guides/environment/#env-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">BUILD_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">CACHE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-host-bin-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_BIN_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-host-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-host-include-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-host-lib-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-license-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LICENSE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-njobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-njobsconf"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">NJOBSCONF</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-output-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-build-base-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-build-output-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-cache-file"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_CACHE_FILE</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-defdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-defmode"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_INTERNAL</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-localsrcs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_LOCALSRCS</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-name"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_NAME</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_REVISION</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_SITE</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_VERSION</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-prefixed-host-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-prefixed-staging-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-prefixed-target-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-devmode"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-force"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-generated-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-generated-sboms"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-localsrcs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-rebuild"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-reconfigure"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-reinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-script"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-script-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-target-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_TARGET_PKG</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-root-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-staging-bin-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_BIN_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-staging-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-staging-include-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-staging-lib-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-symbols-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-target-bin-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_BIN_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-target-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-target-include-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-target-lib-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-var-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_BUILD_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-var-output-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_BUILD_OUTPUT_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-var-defdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_DEFDIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-var-name"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_NAME</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-var-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_REVISION</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-pkg-var-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_VERSION</span></code></span></a></pre>
+<p>Other environment variables accepted by releng-tool:</p>
+<pre class="literal-block"><code class="docutils literal notranslate"><span class="pre">NO_COLOR</span></code>
+<a class="reference internal" href="../guides/environment/#env-releng-assets-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-ignore-running-as-root"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-ignore-unknown-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a></pre>
 </section>
 <section id="package-options">
 <h2>Package options<a class="headerlink" href="#package-options" title="Link to this heading">¶</a></h2>
 <p>Configuration options parsed by releng-tool for a package definition:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_AUTOTOOLS_AUTORECONF</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_BUILD_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_BUILD_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_BUILD_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;&lt;subdir&gt;&#39;</span>
-<span class="n">LIBFOO_CMAKE_NOINSTALL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_CONF_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_DEPENDENCIES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span>
-<span class="n">LIBFOO_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_EXTENSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;extension&gt;&#39;</span>
-<span class="n">LIBFOO_EXTERNAL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_EXTOPT</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_EXTRACT_TYPE</span> <span class="o">=</span> <span class="s1">&#39;ext-&lt;extraction-extension&gt;&#39;</span>
-<span class="n">LIBFOO_FIXED_JOBS</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 1</span>
-<span class="n">LIBFOO_GIT_CONFIG</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_GIT_DEPTH</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
-<span class="n">LIBFOO_GIT_REFSPECS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;refspec&gt;&#39;</span><span class="p">]</span> <span class="c1"># e.g. pull</span>
-<span class="n">LIBFOO_GIT_SUBMODULES</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_GIT_VERIFY_REVISION</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_HOST_PROVIDES</span> <span class="o">=</span> <span class="s1">&#39;&lt;tool&gt;&#39;</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;tool-a&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;tool-b&gt;&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;FOO&#39;</span><span class="p">:</span> <span class="s1">&#39;BAR&#39;</span><span class="p">}</span>
-<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;--option&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;install-type&gt;&#39;</span> <span class="c1"># host, images, staging, staging_and_target, target</span>
-<span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_MESON_NOINSTALL</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_NO_EXTRACTION</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_LICENSE</span> <span class="o">=</span> <span class="s1">&#39;&lt;license&gt;&#39;</span>  <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;license&gt;&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_LICENSE_FILES</span> <span class="o">=</span> <span class="s1">&#39;&lt;file&gt;&#39;</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">]</span>
-<span class="n">LIBFOO_PATCH_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;&lt;subdir&gt;&#39;</span>
-<span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span> <span class="c1"># &#39;/usr&#39;</span>
-<span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;&lt;path&gt;&#39;</span>
-<span class="n">LIBFOO_PYTHON_SETUP_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;setup-type&gt;&#39;</span> <span class="c1"># distutils, setuptools, flit, hatch, pdm, pep517, poetry</span>
-<span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;&lt;revision&gt;&#39;</span>
-<span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_SKIP_REMOTE_SCRIPTS</span> <span class="o">=</span> <span class="nb">bool</span>
-<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;&lt;site&gt;&#39;</span>
-<span class="n">LIBFOO_STRIP_COUNT</span> <span class="o">=</span> <span class="nb">int</span> <span class="c1"># &gt;= 0</span>
-<span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;type&gt;&#39;</span> <span class="c1"># autotools, cmake, make, meson, python, scons, script, ext-&lt;extension&gt;</span>
-<span class="n">LIBFOO_VCS_TYPE</span> <span class="o">=</span> <span class="s1">&#39;&lt;vcs-type&gt;&#39;</span> <span class="c1"># bzr, cvs, git, hg, local, none, perforce, rsync, scp, svn, url</span>
-<span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;&lt;version&gt;&#39;</span>
-</pre></div>
-</div>
+<pre class="literal-block"><a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-autoreconf"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_AUTOTOOLS_AUTORECONF</span></code></span></a> = bool
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code> = {'FOO': 'BAR'}
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-build-defs"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-build-defs"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-build-defs"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-build-defs"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-build-defs"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-build-defs"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-build-defs"><span class="std std-ref">SCons</span></a>)</em>
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_ENV</span></code> = {'FOO': 'BAR'}
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-build-env"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-build-env"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-build-env"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-build-env"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-build-env"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-build-env"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-build-env"><span class="std std-ref">SCons</span></a>)</em>
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_OPTS</span></code> = {'--option': 'value'} or ['--option', 'value']
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-build-opts"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-build-opts"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-build-opts"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-build-opts"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-build-opts"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-build-opts"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-build-opts"><span class="std std-ref">SCons</span></a>)</em>
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-build-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></span></a> = '&lt;subdir&gt;'
+<a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_BUILD_TYPE</span></code></span></a> = str
+<a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_NOINSTALL</span></code></span></a> = bool
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code> = {'FOO': 'BAR'}
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-conf-defs"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-conf-defs"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-conf-defs"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-conf-defs"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-conf-defs"><span class="std std-ref">SCons</span></a>)</em>
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_ENV</span></code> = {'FOO': 'BAR'}
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-conf-env"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-conf-env"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-conf-env"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-conf-env"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-conf-env"><span class="std std-ref">SCons</span></a>)</em>
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_OPTS</span></code> = {'--option': 'value'} or ['--option', 'value']
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-conf-opts"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-conf-opts"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-conf-opts"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-conf-opts"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-conf-opts"><span class="std std-ref">SCons</span></a>)</em>
+<a class="reference internal" href="../guides/packages/deprecated-pkg-options/#pkg-opt-dependencies"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEPENDENCIES</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;']
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-devmode-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></span></a> = '&lt;revision&gt;'
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_ENV</span></code> = {'FOO': 'BAR'}
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-env"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-env"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-env"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-env"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-env"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-env"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-env"><span class="std std-ref">SCons</span></a>)</em>
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-extension"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></span></a> = '&lt;extension&gt;'
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-external"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-extopt"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code></span></a> = {'FOO': 'BAR'}
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-extract-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code></span></a> = 'ext-&lt;extraction-extension&gt;'
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-fetch-opts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code></span></a> = {'--option': 'value'} or ['--option', 'value']
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-fixed-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></span></a> = int # &gt;= 1
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code></span></a> = {'FOO': 'BAR'}
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code></span></a> = int # &gt;= 0
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-refspecs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></span></a> = ['&lt;refspec&gt;'] # e.g. pull
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-submodules"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-verify-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-host-provides"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_HOST_PROVIDES</span></code></span></a> = '&lt;tool&gt;' or ['&lt;tool-a&gt;', '&lt;tool-b&gt;']
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code> = {'FOO': 'BAR'}
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-install-defs"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-install-defs"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-install-defs"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-install-defs"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-install-defs"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-install-defs"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-install-defs"><span class="std std-ref">SCons</span></a>)</em>
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code> = {'FOO': 'BAR'}
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-install-env"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-install-env"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-install-env"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-install-env"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-install-env"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-install-env"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-install-env"><span class="std std-ref">SCons</span></a>)</em>
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code> = {'--option': 'value'} or ['--option', 'value']
+  └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-install-opts"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-install-opts"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-install-opts"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-install-opts"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-install-opts"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-install-opts"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-install-opts"><span class="std std-ref">SCons</span></a>)</em>
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-install-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code></span></a> = '&lt;install-type&gt;'
+  └── host, images, staging, staging_and_target, target
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAKE_NOINSTALL</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_NOINSTALL</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-needs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NEEDS</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;']
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-no-extraction"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></span></a> = '&lt;license&gt;'  or ['&lt;license&gt;', '&lt;license&gt;']
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-license-files"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code></span></a> = '&lt;file&gt;' or ['&lt;file&gt;', '&lt;file&gt;']
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-patch-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></span></a> = '&lt;subdir&gt;'
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a> = '&lt;path&gt;' # '/usr'
+<a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-interpreter"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INTERPRETER</span></code></span></a> = '&lt;path&gt;'
+<a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-setup-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_SETUP_TYPE</span></code></span></a> = '&lt;setup-type&gt;'
+  └── distutils, setuptools, flit, hatch, pdm, pep517, poetry
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-remote-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> = '&lt;revision&gt;'
+<a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SCONS_NOINSTALL</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/deprecated-pkg-options/#pkg-opt-skip-remote-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_CONFIG</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/deprecated-pkg-options/#pkg-opt-skip-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_SCRIPTS</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a> = '&lt;site&gt;'
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-strip-count"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code></span></a> = int # &gt;= 0
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></span></a> = '&lt;type&gt;'
+  └── autotools, cargo, cmake, make, meson, python, scons, script, ext-&lt;extension&gt;
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> = '&lt;vcs-type&gt;'
+  └── bzr, cvs, git, hg, local, none, perforce, rsync, scp, svn, url
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> = '&lt;version&gt;'</pre>
 </section>
 <section id="script-helpers">
 <h2>Script helpers<a class="headerlink" href="#script-helpers" title="Link to this heading">¶</a></h2>
 <p>Functions available to scripts invoked by releng-tool or importable via
 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">releng_tool</span> <span class="pre">import</span> <span class="pre">*</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">err</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">hint</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">log</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">note</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_cat</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_copy</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dst_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_copy_into</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">releng_env</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_execute</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">capture</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_execute_rv</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_update</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_exists</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_exit</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_expand</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">kv</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_include</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<span class="n">releng_join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">releng_ls</span><span class="p">(</span><span class="n">dir_</span><span class="p">)</span>
-<span class="n">releng_mkdir</span><span class="p">(</span><span class="n">dir_</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dst_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_move_into</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">critical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">releng_remove</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">releng_require_version</span><span class="p">(</span><span class="n">version</span><span class="p">)</span>
-<span class="n">releng_tmpdir</span><span class="p">(</span><span class="n">dir_</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">releng_touch</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<span class="n">releng_wd</span><span class="p">(</span><span class="n">dir_</span><span class="p">)</span>
-<span class="n">success</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">verbose</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-</pre></div>
-</div>
+<pre class="literal-block"><a class="reference internal" href="../guides/script-helpers/#script-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">debug</span></code></span></a>(msg, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-err"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">err</span></code></span></a>(msg, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-hint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">hint</span></code></span></a>(msg, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-log"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">log</span></code></span></a>(msg, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-note"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">note</span></code></span></a>(msg, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-cat"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_cat</span></code></span></a>(file, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-copy"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-copy-into"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_copy_into</span></code></span></a>(src, dst, quiet=False, critical=True)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-env"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></span></a>(key, value=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-execute"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></span></a>(args, cwd=None, env=None, env_update=None,
+               quiet=False, critical=True, poll=False,
+               capture=None, expand=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-execute-rv"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code></span></a>(command, args, cwd=None, env=None, env_update=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-exists"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></span></a>(path, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-exit"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></span></a>(msg=None, code=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-expand"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></span></a>(obj, kv=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-include"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_include</span></code></span></a>(file_path)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-tool"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></span></a>(path, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-ls"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_ls</span></code></span></a>(dir_)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-mkdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></span></a>(dir_, quiet=False)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-move"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-move-into"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_move_into</span></code></span></a>(src, dst, quiet=False, critical=True)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-remove"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></span></a>(path, quiet=False)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-require-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></span></a>(version)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-tmpdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></span></a>(dir_=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-touch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></span></a>(file)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-wd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></span></a>(dir_)
+<a class="reference internal" href="../guides/script-helpers/#script-success"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">success</span></code></span></a>(msg, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-verbose"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">verbose</span></code></span></a>(msg, *args)
+<a class="reference internal" href="../guides/script-helpers/#script-warn"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">warn</span></code></span></a>(msg, *args)</pre>
 </section>
 <section id="quirks">
 <h2>Quirks<a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">.</span><span class="n">bzr</span><span class="o">.</span><span class="n">certifi</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">cmake</span><span class="o">.</span><span class="n">disable_direct_includes</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">disable_prerequisites_check</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">disable_remote_configs</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">disable_remote_scripts</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">disable_spdx_check</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">no_depth</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">no_quick_fetch</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">git</span><span class="o">.</span><span class="n">replicate_cache</span>
-<span class="n">releng</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">no_pdf</span>
-</pre></div>
-</div>
+<pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/#quirk-releng-bzr-certifi"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.bzr.certifi</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/#quirk-releng-disable-prerequisites-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-disable_remote_scripts/#quirk-releng-disable-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_scripts</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-disable_spdx_check/#quirk-releng-disable-spdx-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_spdx_check</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-git-no_depth/#quirk-releng-git-no-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.no_depth</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/#quirk-releng-git-no-quick-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.no_quick_fetch</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/#quirk-releng-git-replicate-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.replicate_cache</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-log-execute_env/#quirk-releng-log-execute-env"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.log.execute_env</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/#quirk-releng-stats-no-pdf"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.stats.no_pdf</span></code></span></a></pre>
 </section>
 </section>
 
@@ -616,7 +652,14 @@ releng-tool (may vary per context):</p>
             
           </div>
           <div class="right-details">
-            
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/releng-tool/releng-tool" aria-label="GitHub">
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+            </a>
+              
+            </div>
           </div>
         </div>
         

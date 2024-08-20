@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=dd935299" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=df54547a" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -247,11 +247,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../ascii-armor/">ASCII armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-script/">Script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg-type-cargo/">Cargo package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-cmake/">CMake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-make/">Make package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../post-processing/">Post-processing</a></li>
@@ -283,6 +285,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
 </li>
@@ -365,9 +368,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/blob/main/content/guides/packages/advanced-pkg-options.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/packages/advanced-pkg-options.md" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -421,16 +432,18 @@ option by default (<code class="docutils literal notranslate"><span class="pre">
 <span id="pkg-opt-devmode-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code><a class="headerlink" href="#libfoo-devmode-revision" title="Link to this heading">¶</a></h2>
 <p>Specifies a development revision for a package. When a project is being
 built in <a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>, the development
-revision is used over the configured <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref">LIBFOO_REVISION</span></a> value. If a
-development revision is not defined for a project, a package will still
-use the configured <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref">LIBFOO_REVISION</span></a> while in development mode.</p>
+revision is used over the configured <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a>
+value. If a development revision is not defined for a project, a package
+will still use the configured <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> while
+in development mode.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_REVISION</span> <span class="o">=</span> <span class="s1">&#39;feature/alpha&#39;</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref">LIBFOO_REVISION</span></a> and <a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref">LIBFOO_VERSION</span></a>.</p>
+<p>See also <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> and
+<a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a>.</p>
 </section>
 <section id="libfoo-extension">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code><a class="headerlink" href="#libfoo-extension" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-extension"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code><a class="headerlink" href="#libfoo-extension" title="Link to this heading">¶</a></h2>
 <p>Specifies a filename extension for the package. A package may be cached inside
 the download directory to be used when the extraction phase is invoked.
 releng-tool attempts to determine the most ideal extension for this cache file;
@@ -454,7 +467,7 @@ be internal.</p>
 <p>See also <a class="reference internal" href="../../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
 </section>
 <section id="libfoo-extopt">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code><a class="headerlink" href="#libfoo-extopt" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-extopt"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code><a class="headerlink" href="#libfoo-extopt" title="Link to this heading">¶</a></h2>
 <p>Specifies extension-specific options. Packages wishing to take advantage of
 extension-specific capabilities can forward options to extensions by defining
 a dictionary of values.</p>
@@ -466,7 +479,7 @@ a dictionary of values.</p>
 </div>
 </section>
 <section id="libfoo-extract-type">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code><a class="headerlink" href="#libfoo-extract-type" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-extract-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code><a class="headerlink" href="#libfoo-extract-type" title="Link to this heading">¶</a></h2>
 <p>Specifies a custom extraction type for a package. If a configured extension
 supports a custom extraction capability, the registered extraction type can
 be explicitly registered in this option.</p>
@@ -505,7 +518,7 @@ for a package that cannot support a large or any parallel build environment.</p>
 </div>
 </section>
 <section id="libfoo-git-config">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-git-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="Link to this heading">¶</a></h2>
 <p>Apply additional repository-specific Git configuration settings
 (<a class="reference external" href="https://git-scm.com/docs/git-config"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code></a>) after a Git repository cache has been
 initialized. By default, no repository-specific configurations are
@@ -517,19 +530,20 @@ introduced (i.e. all Git calls will use the global configuration set).</p>
 </div>
 </section>
 <section id="libfoo-git-depth">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code><a class="headerlink" href="#libfoo-git-depth" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-git-depth"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code><a class="headerlink" href="#libfoo-git-depth" title="Link to this heading">¶</a></h2>
 <p>Limit fetching for a Git-based source to the specified number of commits. The
 value provided will be used with the <a class="reference external" href="https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---depthltdepthgt"><code class="docutils literal notranslate"><span class="pre">--depth</span></code></a> argument. By
 default, the depth will be set to a value of <code class="docutils literal notranslate"><span class="pre">1</span></code>. If a developer wishes use
 fetch all commits from all refspecs, a developer can specify a value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>While the default depth is a value of <code class="docutils literal notranslate"><span class="pre">1</span></code>, an exception is made when the depth
-is not explicitly set and the <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref">LIBFOO_REVISION</span></a> value defined is a hash. For
-this case, if the revision is not found with the implicitly-defined shallow
-depth of <code class="docutils literal notranslate"><span class="pre">1</span></code>, the entire history of the repository will be fetched.</p>
+is not explicitly set and the <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> value
+defined is a hash. For this case, if the revision is not found with the
+implicitly-defined shallow depth of <code class="docutils literal notranslate"><span class="pre">1</span></code>, the entire history of the
+repository will be fetched.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_GIT_DEPTH</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="#pkg-opt-git-refspecs"><span class="std std-ref">LIBFOO_GIT_REFSPECS</span></a> and
+<p>See also <a class="reference internal" href="#pkg-opt-git-refspecs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></span></a> and
 <a class="reference internal" href="../../quirks/quirks/"><span class="doc std std-doc">configuration quirks</span></a>.</p>
 </section>
 <section id="libfoo-git-refspecs">
@@ -544,7 +558,7 @@ fetching.</p>
 </div>
 </section>
 <section id="libfoo-git-submodules">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code><a class="headerlink" href="#libfoo-git-submodules" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-git-submodules"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code><a class="headerlink" href="#libfoo-git-submodules" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate whether a package’s Git submodules should be
 fetched/extracted during a package’s own fetch/extraction stages. By default,
 submodules are not fetched. Ideally, any dependencies for a package are
@@ -560,7 +574,7 @@ package and reference its contents instead.</p>
 </div>
 </section>
 <section id="libfoo-git-verify-revision">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code><a class="headerlink" href="#libfoo-git-verify-revision" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-git-verify-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code><a class="headerlink" href="#libfoo-git-verify-revision" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate whether the target revision is required to be signed
 before it can be used. When this value is set, the configured revision for a
 repository will not be extracted unless the GPG signature is verified. This
@@ -576,12 +590,13 @@ system or if the target revision is not signed.</p>
 series of prerequisites, which are checked at the start of a run. This is to
 help ensure required host tools are available before attempting to build a
 project. If a package is designed to provide a host package (e.g. when using
-<a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref">LIBFOO_INSTALL_TYPE</span></a> with the <code class="docutils literal notranslate"><span class="pre">host</span></code> option), these packages can provide
-tools other packages may rely on. However, prerequisites checks will occur
-before these packages may be built, preventing a build from running. This
-option allows a developer to hint at what tools a host package may provide.
-By specifying the name of a tool in this option, an initial prerequisites
-check will not fail if a tool is not available at the start of a run.</p>
+<a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code></span></a> with the <code class="docutils literal notranslate"><span class="pre">host</span></code> option),
+these packages can provide tools other packages may rely on. However,
+prerequisites checks will occur before these packages may be built,
+preventing a build from running. This option allows a developer to hint
+at what tools a host package may provide. By specifying the name of a tool
+in this option, an initial prerequisites check will not fail if a tool is
+not available at the start of a run.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_HOST_PROVIDES</span> <span class="o">=</span> <span class="s1">&#39;some-tool&#39;</span>
 
 <span class="c1"># (or)</span>
@@ -593,7 +608,7 @@ check will not fail if a tool is not available at the start of a run.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref">LIBFOO_INSTALL_TYPE</span></a>.</p>
+<p>See also <a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code></span></a>.</p>
 </section>
 <section id="libfoo-internal">
 <span id="pkg-opt-internal"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code><a class="headerlink" href="#libfoo-internal" title="Link to this heading">¶</a></h2>
@@ -610,7 +625,7 @@ configured to be internal.</p>
 <p>See also <a class="reference internal" href="../../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
 </section>
 <section id="libfoo-no-extraction">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code><a class="headerlink" href="#libfoo-no-extraction" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-no-extraction"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code><a class="headerlink" href="#libfoo-no-extraction" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code> is configured for a package, the package cannot
@@ -637,16 +652,17 @@ projects with the no-extraction flag enabled will result in a warning. By
 default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </section>
 <section id="libfoo-patch-subdir">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code><a class="headerlink" href="#libfoo-patch-subdir" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-patch-subdir"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code><a class="headerlink" href="#libfoo-patch-subdir" title="Link to this heading">¶</a></h2>
 <p>Sub-directory where any package patches should be applied to. By default,
 patches are applied to the root of the extracted sources for a package. This
-option can be useful for packages which utilize <a class="reference internal" href="#pkg-opt-build-subdir"><span class="std std-ref">LIBFOO_BUILD_SUBDIR</span></a> to
-work in a container directory for sources which contain multiple modules, but
-has prepared patches tailored for the specific module being targeted.</p>
+option can be useful for packages which utilize
+<a class="reference internal" href="#pkg-opt-build-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></span></a> to work in a container
+directory for sources which contain multiple modules, but has prepared
+patches tailored for the specific module being targeted.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PATCH_SUBDIR</span> <span class="o">=</span> <span class="s1">&#39;subdir&#39;</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="#pkg-opt-build-subdir"><span class="std std-ref">LIBFOO_BUILD_SUBDIR</span></a>.</p>
+<p>See also <a class="reference internal" href="#pkg-opt-build-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></span></a>.</p>
 </section>
 <section id="libfoo-prefix">
 <span id="pkg-opt-prefix"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code><a class="headerlink" href="#libfoo-prefix" title="Link to this heading">¶</a></h2>
@@ -656,14 +672,46 @@ prefix value.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PREFIX</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../../configuration/#conf-sysroot-prefix"><span class="std std-ref">sysroot_prefix</span></a>.</p>
+<p>See also <a class="reference internal" href="../../configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a>.</p>
+</section>
+<section id="libfoo-remote-config">
+<span id="pkg-opt-remote-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code><a class="headerlink" href="#libfoo-remote-config" title="Link to this heading">¶</a></h2>
+<p>Flag value to indicate that a package should attempt to load any package
+configurations which may be defined in the package’s source. If the package
+includes a <code class="docutils literal notranslate"><span class="pre">.releng-tool</span></code> file at the root of their sources, supported
+configuration options that have not been populated will be registered into
+the package before invoking a package’s configuration stage.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>See also
+<a class="reference internal" href="../../quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code> quirk</span></a>.</p>
+</section>
+<section id="libfoo-remote-scripts">
+<span id="pkg-opt-remote-scripts"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code><a class="headerlink" href="#libfoo-remote-scripts" title="Link to this heading">¶</a></h2>
+<p>Flag value to indicate that a package should attempt to load any package
+scripts which may be defined in the package’s source. Typically, a
+script-based package will load configuration, build, etc. scripts from its
+package definition folder. If a script-based package is missing a stage script
+to invoke and finds an associated script in the package’s source, the detected
+script will be invoked. For example, if <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> package may attempt to load
+a <code class="docutils literal notranslate"><span class="pre">libfoo-configure</span></code> script for a configuration stage. In the event that the
+script cannot be found and remote scripting is permitted for a package, the
+script (if exists) <code class="docutils literal notranslate"><span class="pre">releng-configure</span></code> will be loaded from the root of the
+package’s contents.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>See also
+<a class="reference internal" href="../../quirks/quirk-disable_remote_scripts/#quirk-releng-disable-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_scripts</span></code> quirk</span></a>.</p>
 </section>
 <section id="libfoo-revision">
 <span id="pkg-opt-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code><a class="headerlink" href="#libfoo-revision" title="Link to this heading">¶</a></h2>
 <p>Specifies a revision value for a package. When a package fetches content
 using source management tools, the revision value is used to determine
 which sources should be acquired (e.g. a tag). If a revision is not
-defined package, a package will use the configured <a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref">LIBFOO_VERSION</span></a>.</p>
+defined package, a package will use the configured
+<a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;libfoo-v2.1&#39;</span>
 </pre></div>
 </div>
@@ -676,41 +724,11 @@ revisions can be configured based off the mode:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="#pkg-opt-devmode-revision"><span class="std std-ref">LIBFOO_DEVMODE_REVISION</span></a> and <a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref">LIBFOO_VERSION</span></a>.</p>
-</section>
-<section id="libfoo-skip-remote-config">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_CONFIG</span></code><a class="headerlink" href="#libfoo-skip-remote-config" title="Link to this heading">¶</a></h2>
-<p>Flag value to indicate that a package should not attempt to load any
-package configurations which may be defined in the package’s source. A
-package, by default, has the ability to load configuration information from
-a package’s source. If the package includes a <code class="docutils literal notranslate"><span class="pre">.releng-tool</span></code> file at the
-root of their sources, supported configuration options that have not been
-populated will be registered into the package before invoking a package’s
-configuration stage.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-<p>See also <a class="reference internal" href="../../quirks/quirks/"><span class="doc std std-doc">configuration quirks</span></a>.</p>
-</section>
-<section id="libfoo-skip-remote-scripts">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_SCRIPTS</span></code><a class="headerlink" href="#libfoo-skip-remote-scripts" title="Link to this heading">¶</a></h2>
-<p>Flag value to indicate that a package should not attempt to load any package
-scripts which may be defined in the package’s source. Typically, a
-script-based package will load configuration, build, etc. scripts from its
-package definition folder. If a script-based package is missing a stage script
-to invoke and finds an associated script in the package’s source, the detected
-script will be invoked. For example, if <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> package may attempt to load
-a <code class="docutils literal notranslate"><span class="pre">libfoo-configure</span></code> script for a configuration stage. In the event that the
-script cannot be found and remote scripting is permitted for a package, the
-script (if exists) <code class="docutils literal notranslate"><span class="pre">releng-configure</span></code> will be loaded from the root of the
-package’s contents.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SKIP_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-<p>See also <a class="reference internal" href="../../quirks/quirks/"><span class="doc std std-doc">configuration quirks</span></a>.</p>
+<p>See also <a class="reference internal" href="#pkg-opt-devmode-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></span></a> and
+<a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a>.</p>
 </section>
 <section id="libfoo-strip-count">
-<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code><a class="headerlink" href="#libfoo-strip-count" title="Link to this heading">¶</a></h2>
+<span id="pkg-opt-strip-count"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code><a class="headerlink" href="#libfoo-strip-count" title="Link to this heading">¶</a></h2>
 <p>Specifies the strip count to use when attempting to extract sources from an
 archive. By default, the extraction process will strip a single directory
 from an archive (value: <code class="docutils literal notranslate"><span class="pre">1</span></code>). If a package’s archive has no container
@@ -724,10 +742,10 @@ contains multiple container directories, a higher strip count can be set.</p>
 <span id="pkg-opt-vcs-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code><a class="headerlink" href="#libfoo-vcs-type" title="Link to this heading">¶</a></h2>
 <p>Explicitly sets the version control system type to use when acquiring
 sources. releng-tool attempts to automatically determine the VCS type of
-a package based off a <a class="reference internal" href="../common-pkg-options/#pkg-opt-site"><span class="std std-ref">LIBFOO_SITE</span></a> value. In some scenarios, a site
-value may be unable to specify a desired prefix/postfix. A developer can
-instead explicitly set the VCS type to be used no matter what the site
-value is configured as.</p>
+a package based off a <a class="reference internal" href="../common-pkg-options/#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a> value. In some
+scenarios, a site value may be unable to specify a desired prefix/postfix.
+A developer can instead explicitly set the VCS type to be used no matter
+what the site value is configured as.</p>
 <p>Supported types are as follows:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bzr</span></code> (Bazaar)</p></li>
@@ -820,7 +838,14 @@ warning message.</p>
             
           </div>
           <div class="right-details">
-            
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/releng-tool/releng-tool" aria-label="GitHub">
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+            </a>
+              
+            </div>
           </div>
         </div>
         
@@ -858,9 +883,9 @@ warning message.</p>
 <li><a class="reference internal" href="#libfoo-no-extraction"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-patch-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-prefix"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-remote-config"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-remote-scripts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></a></li>
-<li><a class="reference internal" href="#libfoo-skip-remote-config"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_CONFIG</span></code></a></li>
-<li><a class="reference internal" href="#libfoo-skip-remote-scripts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_SCRIPTS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-strip-count"><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a></li>
 </ul>

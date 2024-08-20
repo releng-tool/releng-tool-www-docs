@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=dd935299" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=df54547a" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -247,11 +247,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/ascii-armor/">ASCII armor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-script/">Script package (default)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-autotools/">Autotools package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-cargo/">Cargo package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-cmake/">CMake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-make/">Make package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/post-processing/">Post-processing</a></li>
@@ -283,6 +285,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
 </li>
@@ -365,9 +368,17 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          
-
-<div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/blob/main/content/release-notes.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/release-notes.md" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -405,19 +416,37 @@ releng-tool, please see the project's <a class="reference external" href="https:
 </ul>
 </div>
 </section>
-<section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<section id="v1-3-2024-08-19">
+<h2>1.3 (2024-08-19)<a class="headerlink" href="#v1-3-2024-08-19" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Automatic debugging mode when detecting CI debugging runs</p></li>
+<li><p>Correct unexpected dot in prefix path variables for empty prefixed builds</p></li>
+<li><p>Fixed incorrect specification version tag in RDF/SPDX SBOM documents</p></li>
+<li><p>Fixed issue where an aborted Mercurial fetch could require manual cleanup</p></li>
+<li><p>Include license list version in SPDX SBOM documents</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_NEEDS</span></code> to replace <code class="docutils literal notranslate"><span class="pre">LIBFOO_DEPENDENCIES</span></code></p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code> script variable</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code> script variable</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">environment</span></code> project configuration</p></li>
+<li><p>Introduce support for Cargo-based packages</p></li>
+<li><p>Remote package configuration/scripting is now opt-in</p></li>
+<li><p>Script helper <code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code> will now return the path</p></li>
+<li><p>Support multiple path components in <code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></p></li>
+<li><p>Support variable expansion for <code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> arguments</p></li>
+<li><p>Unknown arguments will now generate an error by default</p></li>
+<li><p>Update SPDX license database to v3.25</p></li>
+</ul>
 </section>
-<section id="id1">
-<h2>1.2 (2024-07-01)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="v1-2-2024-07-01">
+<h2>1.2 (2024-07-01)<a class="headerlink" href="#v1-2-2024-07-01" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Introduce the <code class="docutils literal notranslate"><span class="pre">punch</span></code> action to support forced rebuild of packages</p></li>
 <li><p>Support automatic package preparation for compatible local-sourced packages</p></li>
 <li><p>Update SPDX license database to v3.24</p></li>
 </ul>
 </section>
-<section id="id2">
-<h2>1.1 (2024-03-29)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="v1-1-2024-03-29">
+<h2>1.1 (2024-03-29)<a class="headerlink" href="#v1-1-2024-03-29" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Prevent SSH authentication prompts that may occur when using Git</p></li>
 <li><p>Support SPDX license identifier field for custom licenses</p></li>
@@ -426,15 +455,15 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <li><p>Update SPDX license database to v3.23</p></li>
 </ul>
 </section>
-<section id="id3">
-<h2>1.0 (2023-12-22)<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<section id="v1-0-2023-12-22">
+<h2>1.0 (2023-12-22)<a class="headerlink" href="#v1-0-2023-12-22" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Introduce <code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT</span></code> and <code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT_DIR</span></code> variables</p></li>
 <li><p>Update SPDX license database to v3.22</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>0.17 (2023-08-06)<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<section id="v0-17-2023-08-06">
+<h2>0.17 (2023-08-06)<a class="headerlink" href="#v0-17-2023-08-06" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed issue with CMake-generated export targets missing prefix overrides</p></li>
 <li><p>Fixed issue with local-source configurations when provided relative paths</p></li>
@@ -448,8 +477,8 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <li><p>Update SPDX license database to v3.21</p></li>
 </ul>
 </section>
-<section id="id5">
-<h2>0.16 (2023-05-07)<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<section id="v0-16-2023-05-07">
+<h2>0.16 (2023-05-07)<a class="headerlink" href="#v0-16-2023-05-07" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Enforce strict hash checking in development mode for external packages which
 define a development revision</p></li>
@@ -463,8 +492,8 @@ relative destination</p></li>
 allowing certain shells to take advantage of path auto-completion</p></li>
 </ul>
 </section>
-<section id="id6">
-<h2>0.15 (2023-02-12)<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<section id="v0-15-2023-02-12">
+<h2>0.15 (2023-02-12)<a class="headerlink" href="#v0-15-2023-02-12" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>CMake install events will now always skip dependency checks</p></li>
 <li><p>Fixed issue where extension loading may cause issues in Python 2.7</p></li>
@@ -477,8 +506,8 @@ allowing certain shells to take advantage of path auto-completion</p></li>
 <li><p>Support setting software build of materials format in project configuration</p></li>
 </ul>
 </section>
-<section id="id7">
-<h2>0.14 (2023-02-05)<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<section id="v0-14-2023-02-05">
+<h2>0.14 (2023-02-05)<a class="headerlink" href="#v0-14-2023-02-05" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><strong>(note)</strong> The deprecated <code class="docutils literal notranslate"><span class="pre">releng</span></code> namespace has been removed</p></li>
 <li><p>CMake install events will now always force installs by default</p></li>
@@ -497,8 +526,8 @@ issues finding includes/libraries with <code class="docutils literal notranslate
 <li><p>Support user paths in package-specific local-sources overrides</p></li>
 </ul>
 </section>
-<section id="id8">
-<h2>0.13 (2022-08-10)<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<section id="v0-13-2022-08-10">
+<h2>0.13 (2022-08-10)<a class="headerlink" href="#v0-13-2022-08-10" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Avoid interaction with target area when using CMake projects that only
 uses the staging area</p></li>
@@ -530,8 +559,8 @@ operating in local-sources mode</p></li>
 <li><p>Support users overriding a project's configuration path from command line</p></li>
 </ul>
 </section>
-<section id="id9">
-<h2>0.12 (2022-05-02)<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<section id="v0-12-2022-05-02">
+<h2>0.12 (2022-05-02)<a class="headerlink" href="#v0-12-2022-05-02" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Adding <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code> to <code class="docutils literal notranslate"><span class="pre">releng_copy</span></code> for explicit copies to directories</p></li>
 <li><p>Adjust automatic job detection to use physical cores instead of logical cores</p></li>
@@ -547,8 +576,8 @@ content on first extract</p></li>
 <li><p>Support package variable overrides via command line</p></li>
 </ul>
 </section>
-<section id="id10">
-<h2>0.11 (2022-02-26)<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
+<section id="v0-11-2022-02-26">
+<h2>0.11 (2022-02-26)<a class="headerlink" href="#v0-11-2022-02-26" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Always pre-create install directory before package install scripts are invoked</p></li>
 <li><p>Fixed an issue where nested zip files could not extract</p></li>
@@ -561,8 +590,8 @@ content on first extract</p></li>
 <li><p>Support triggering a reconfiguration of all packages through a force argument</p></li>
 </ul>
 </section>
-<section id="id11">
-<h2>0.10 (2021-12-31)<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
+<section id="v0-10-2021-12-31">
+<h2>0.10 (2021-12-31)<a class="headerlink" href="#v0-10-2021-12-31" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed an issue where a configured <code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code> bin path would not be
 registered in the script environment's path</p></li>
@@ -581,8 +610,8 @@ would fail</p></li>
 <li><p>Support providing an assets container directory (for cache/download folders)</p></li>
 </ul>
 </section>
-<section id="id12">
-<h2>0.9 (2021-10-02)<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
+<section id="v0-9-2021-10-02">
+<h2>0.9 (2021-10-02)<a class="headerlink" href="#v0-9-2021-10-02" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed an import issue when running with Python 3.10</p></li>
 <li><p>Fixed an issue where a cyclic package check provided a bad message</p></li>
@@ -593,8 +622,8 @@ would fail</p></li>
 <li><p>Support using ASCII-armor (asc) files to package integrity checks</p></li>
 </ul>
 </section>
-<section id="id13">
-<h2>0.8 (2021-08-28)<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
+<section id="v0-8-2021-08-28">
+<h2>0.8 (2021-08-28)<a class="headerlink" href="#v0-8-2021-08-28" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Allow DVCS packages to share caches (to minimize space/time fetching)</p></li>
 <li><p>Fixed an issue where tools/<code class="docutils literal notranslate"><span class="pre">releng_execute</span></code> requests would fail on Python
@@ -618,8 +647,8 @@ configured value-wildcard string should be used)</p></li>
 forced fetch request is made</p></li>
 </ul>
 </section>
-<section id="id14">
-<h2>0.7 (2021-08-08)<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
+<section id="v0-7-2021-08-08">
+<h2>0.7 (2021-08-08)<a class="headerlink" href="#v0-7-2021-08-08" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fetch from an already cached package's site if the fetch is explicitly
 requested</p></li>
@@ -640,8 +669,8 @@ to force re-invoking a specific stage</p></li>
 <li><p>releng-tool will now full stop if external package definition fails to load</p></li>
 </ul>
 </section>
-<section id="id15">
-<h2>0.6 (2020-10-10)<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
+<section id="v0-6-2020-10-10">
+<h2>0.6 (2020-10-10)<a class="headerlink" href="#v0-6-2020-10-10" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Always register optional flags inside scripts (allowing developers to use
 flags like <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> without needing to check environment
@@ -656,14 +685,14 @@ output by default</p></li>
 an interim)</p></li>
 </ul>
 </section>
-<section id="id16">
-<h2>0.5 (2020-09-07)<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
+<section id="v0-5-2020-09-07">
+<h2>0.5 (2020-09-07)<a class="headerlink" href="#v0-5-2020-09-07" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Fixed false error when verifying cached Git reference</p></li>
 </ul>
 </section>
-<section id="id17">
-<h2>0.4 (2020-09-07)<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
+<section id="v0-4-2020-09-07">
+<h2>0.4 (2020-09-07)<a class="headerlink" href="#v0-4-2020-09-07" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Allow developers to fetch from addition Git refspecs (e.g. pull requests)</p></li>
 <li><p>Allow setting quirks in command line</p></li>
@@ -674,8 +703,8 @@ an interim)</p></li>
 <li><p>Introduce support for shallow Git fetching</p></li>
 </ul>
 </section>
-<section id="id18">
-<h2>0.3 (2019-10-19)<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h2>
+<section id="v0-3-2019-10-19">
+<h2>0.3 (2019-10-19)<a class="headerlink" href="#v0-3-2019-10-19" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Allow packages to configure to ignore cache while in development mode</p></li>
 <li><p>Allow packages to configure for no-extraction for sources</p></li>
@@ -686,8 +715,8 @@ an interim)</p></li>
 <li><p>Introduce support for package-specific bootstrapping stage</p></li>
 </ul>
 </section>
-<section id="id19">
-<h2>0.2 (2019-03-15)<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h2>
+<section id="v0-2-2019-03-15">
+<h2>0.2 (2019-03-15)<a class="headerlink" href="#v0-2-2019-03-15" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>A project's host directory will now be registered in the system's path during
 execution</p></li>
@@ -696,8 +725,8 @@ execution</p></li>
 <li><p>Re-work various script names (e.g. <code class="docutils literal notranslate"><span class="pre">releng.py</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">releng</span></code>)</p></li>
 </ul>
 </section>
-<section id="id20">
-<h2>0.1 (2019-02-24)<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h2>
+<section id="v0-1-2019-02-24">
+<h2>0.1 (2019-02-24)<a class="headerlink" href="#v0-1-2019-02-24" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Hello world</p></li>
 </ul>
@@ -738,7 +767,14 @@ execution</p></li>
             
           </div>
           <div class="right-details">
-            
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/releng-tool/releng-tool" aria-label="GitHub">
+<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+            </a>
+              
+            </div>
           </div>
         </div>
         
@@ -758,27 +794,27 @@ execution</p></li>
             <ul>
 <li><a class="reference internal" href="#">バージョンノート</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
-<li><a class="reference internal" href="#summary">Summary</a></li>
-<li><a class="reference internal" href="#id1">1.2 (2024-07-01)</a></li>
-<li><a class="reference internal" href="#id2">1.1 (2024-03-29)</a></li>
-<li><a class="reference internal" href="#id3">1.0 (2023-12-22)</a></li>
-<li><a class="reference internal" href="#id4">0.17 (2023-08-06)</a></li>
-<li><a class="reference internal" href="#id5">0.16 (2023-05-07)</a></li>
-<li><a class="reference internal" href="#id6">0.15 (2023-02-12)</a></li>
-<li><a class="reference internal" href="#id7">0.14 (2023-02-05)</a></li>
-<li><a class="reference internal" href="#id8">0.13 (2022-08-10)</a></li>
-<li><a class="reference internal" href="#id9">0.12 (2022-05-02)</a></li>
-<li><a class="reference internal" href="#id10">0.11 (2022-02-26)</a></li>
-<li><a class="reference internal" href="#id11">0.10 (2021-12-31)</a></li>
-<li><a class="reference internal" href="#id12">0.9 (2021-10-02)</a></li>
-<li><a class="reference internal" href="#id13">0.8 (2021-08-28)</a></li>
-<li><a class="reference internal" href="#id14">0.7 (2021-08-08)</a></li>
-<li><a class="reference internal" href="#id15">0.6 (2020-10-10)</a></li>
-<li><a class="reference internal" href="#id16">0.5 (2020-09-07)</a></li>
-<li><a class="reference internal" href="#id17">0.4 (2020-09-07)</a></li>
-<li><a class="reference internal" href="#id18">0.3 (2019-10-19)</a></li>
-<li><a class="reference internal" href="#id19">0.2 (2019-03-15)</a></li>
-<li><a class="reference internal" href="#id20">0.1 (2019-02-24)</a></li>
+<li><a class="reference internal" href="#v1-3-2024-08-19">1.3 (2024-08-19)</a></li>
+<li><a class="reference internal" href="#v1-2-2024-07-01">1.2 (2024-07-01)</a></li>
+<li><a class="reference internal" href="#v1-1-2024-03-29">1.1 (2024-03-29)</a></li>
+<li><a class="reference internal" href="#v1-0-2023-12-22">1.0 (2023-12-22)</a></li>
+<li><a class="reference internal" href="#v0-17-2023-08-06">0.17 (2023-08-06)</a></li>
+<li><a class="reference internal" href="#v0-16-2023-05-07">0.16 (2023-05-07)</a></li>
+<li><a class="reference internal" href="#v0-15-2023-02-12">0.15 (2023-02-12)</a></li>
+<li><a class="reference internal" href="#v0-14-2023-02-05">0.14 (2023-02-05)</a></li>
+<li><a class="reference internal" href="#v0-13-2022-08-10">0.13 (2022-08-10)</a></li>
+<li><a class="reference internal" href="#v0-12-2022-05-02">0.12 (2022-05-02)</a></li>
+<li><a class="reference internal" href="#v0-11-2022-02-26">0.11 (2022-02-26)</a></li>
+<li><a class="reference internal" href="#v0-10-2021-12-31">0.10 (2021-12-31)</a></li>
+<li><a class="reference internal" href="#v0-9-2021-10-02">0.9 (2021-10-02)</a></li>
+<li><a class="reference internal" href="#v0-8-2021-08-28">0.8 (2021-08-28)</a></li>
+<li><a class="reference internal" href="#v0-7-2021-08-08">0.7 (2021-08-08)</a></li>
+<li><a class="reference internal" href="#v0-6-2020-10-10">0.6 (2020-10-10)</a></li>
+<li><a class="reference internal" href="#v0-5-2020-09-07">0.5 (2020-09-07)</a></li>
+<li><a class="reference internal" href="#v0-4-2020-09-07">0.4 (2020-09-07)</a></li>
+<li><a class="reference internal" href="#v0-3-2019-10-19">0.3 (2019-10-19)</a></li>
+<li><a class="reference internal" href="#v0-2-2019-03-15">0.2 (2019-03-15)</a></li>
+<li><a class="reference internal" href="#v0-1-2019-02-24">0.1 (2019-02-24)</a></li>
 </ul>
 </li>
 </ul>
