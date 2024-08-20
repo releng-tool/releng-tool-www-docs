@@ -5045,6 +5045,76 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://docs.releng.io/en/news/2024-08-01_01.03.00/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2024-08-01_01.03.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/news/2024-08-01_01.03.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2024-08-01_01.03.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/news/2024-08-01_01.03.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2024-08-01_01.03.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/news/2024-08-01_01.03.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2024-08-01_01.03.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/news/2024-08-01_01.03.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2024-08-01_01.03.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/news/2024-08-01_01.03.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2024-08-01_01.03.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/news/2024-08-01_01.03.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2024-08-01_01.03.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2024-08-01_01.03.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://docs.releng.io/en/news/2023-05-07_00.16.00/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2023-05-07_00.16.00/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2023-05-07_00.16.00/"/>
