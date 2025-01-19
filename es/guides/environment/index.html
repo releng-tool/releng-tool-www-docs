@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -433,6 +437,9 @@ the configured root directory. For example:</p>
 </section>
 <section id="host-bin-dir">
 <span id="env-host-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_BIN_DIR</span></code><a class="headerlink" href="#host-bin-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.14.</span></p>
+</div>
 <p>The host directory’s prefixed bin directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/build
 </pre></div>
@@ -448,10 +455,16 @@ the configured output directory. For example:</p>
 </section>
 <section id="host-include-dir">
 <span id="env-host-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code><a class="headerlink" href="#host-include-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The host directory’s prefixed include directory.</p>
 </section>
 <section id="host-lib-dir">
 <span id="env-host-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code><a class="headerlink" href="#host-lib-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The host directory’s prefixed library directory.</p>
 </section>
 <section id="images-dir">
@@ -501,6 +514,9 @@ the configured root directory. For example:</p>
 </section>
 <section id="pkg-build-base-dir">
 <span id="env-pkg-build-base-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code><a class="headerlink" href="#pkg-build-base-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The directory for a specific package’s base directory for buildable content.
 In most cases, this value will be the same as
 <a class="reference internal" href="#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a>. However, if
@@ -547,6 +563,9 @@ the resulting cache file may be <code class="docutils literal notranslate"><span
 </section>
 <section id="pkg-devmode">
 <span id="env-pkg-defmode"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE</span></code><a class="headerlink" href="#pkg-devmode" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
+</div>
 <p>Whether the package is configured for development mode. If a package is
 configured for development mode, the environment variable will be set to a
 value of one (i.e. <code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE=1</span></code>).</p>
@@ -560,6 +579,9 @@ environment variable will be set to a value of one (i.e. <code class="docutils l
 </section>
 <section id="pkg-localsrcs">
 <span id="env-pkg-localsrcs"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_LOCALSRCS</span></code><a class="headerlink" href="#pkg-localsrcs" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
+</div>
 <p>Whether the package is configured for local-sources mode. If a package is
 configured for local-sources, the environment variable will be set to a
 value of one (i.e. <code class="docutils literal notranslate"><span class="pre">PKG_LOCALSRCS=1</span></code>).</p>
@@ -592,6 +614,9 @@ by default.</p>
 </section>
 <section id="prefixed-host-dir">
 <span id="env-prefixed-host-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code><a class="headerlink" href="#prefixed-host-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The host directory with the prefix applied. An example prefixed
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/host/usr
@@ -600,6 +625,9 @@ directory may be as follows:</p>
 </section>
 <section id="prefixed-staging-dir">
 <span id="env-prefixed-staging-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code><a class="headerlink" href="#prefixed-staging-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The staging area directory with the prefix applied. An example prefixed
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr
@@ -608,6 +636,9 @@ directory may be as follows:</p>
 </section>
 <section id="prefixed-target-dir">
 <span id="env-prefixed-target-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code><a class="headerlink" href="#prefixed-target-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The target area directory with the prefix applied. An example prefixed
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr
@@ -616,26 +647,51 @@ directory may be as follows:</p>
 </section>
 <section id="releng-clean">
 <span id="env-releng-clean"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code><a class="headerlink" href="#releng-clean" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
+</div>
 <p>Flag set if performing a clean request.</p>
 </section>
 <section id="releng-debug">
 <span id="env-releng-debug"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code><a class="headerlink" href="#releng-debug" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
+</div>
 <p>Flag set if debug-related information should be shown.</p>
 </section>
 <section id="releng-devmode">
 <span id="env-releng-devmode"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code><a class="headerlink" href="#releng-devmode" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.2.</span></p>
+</div>
 <p>The development mode or flag set if in <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>.</p>
 </section>
 <section id="releng-distclean">
 <span id="env-releng-distclean"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code><a class="headerlink" href="#releng-distclean" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
+</div>
 <p>Flag set if performing an extreme pristine clean request.</p>
+</section>
+<section id="releng-exec">
+<span id="env-releng-exec"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_EXEC</span></code><a class="headerlink" href="#releng-exec" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.4.</span></p>
+</div>
+<p>Flag set if performing a <a class="reference internal" href="../arguments/#action-pkg-exec"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span></code></span></a> request.</p>
 </section>
 <section id="releng-force">
 <span id="env-releng-force"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code><a class="headerlink" href="#releng-force" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
+</div>
 <p>Flag set if performing a forced request from the command line.</p>
 </section>
 <section id="releng-localsrcs">
 <span id="env-releng-localsrcs"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code><a class="headerlink" href="#releng-localsrcs" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.2.</span></p>
+</div>
 <p>Flag set if in <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a>.</p>
 </section>
 <section id="releng-mrproper">
@@ -656,22 +712,37 @@ directory may be as follows:</p>
 </section>
 <section id="releng-script">
 <span id="env-releng-script"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT</span></code><a class="headerlink" href="#releng-script" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
+</div>
 <p>The path of the script currently being executed.</p>
 </section>
 <section id="releng-script-dir">
 <span id="env-releng-script-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT_DIR</span></code><a class="headerlink" href="#releng-script-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
+</div>
 <p>The path of the directory holding the script currently being executed.</p>
 </section>
 <section id="releng-target-pkg">
 <span id="env-releng-target-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_TARGET_PKG</span></code><a class="headerlink" href="#releng-target-pkg" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
+</div>
 <p>The name of the target package (if any) provided by the command line.</p>
 </section>
 <section id="releng-verbose">
 <span id="env-releng-verbose"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code><a class="headerlink" href="#releng-verbose" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
+</div>
 <p>Flag set if verbose-related information should be shown.</p>
 </section>
 <section id="releng-version">
 <span id="env-releng-version"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
+</div>
 <p>The version of releng-tool.</p>
 </section>
 <section id="root-dir">
@@ -680,6 +751,9 @@ directory may be as follows:</p>
 </section>
 <section id="staging-bin-dir">
 <span id="env-staging-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_BIN_DIR</span></code><a class="headerlink" href="#staging-bin-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.14.</span></p>
+</div>
 <p>The staging area directory’s prefixed bin directory. An example binary
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr/bin
@@ -696,6 +770,9 @@ inside the configured output directory. For example:</p>
 </section>
 <section id="staging-include-dir">
 <span id="env-staging-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code><a class="headerlink" href="#staging-include-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The staging area directory’s prefixed include directory. An example include
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr/include
@@ -704,6 +781,9 @@ directory may be as follows:</p>
 </section>
 <section id="staging-lib-dir">
 <span id="env-staging-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code><a class="headerlink" href="#staging-lib-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The staging area directory’s prefixed library directory. An example library
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/staging/usr/lib
@@ -720,6 +800,9 @@ inside the configured output directory. For example:</p>
 </section>
 <section id="target-bin-dir">
 <span id="env-target-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_BIN_DIR</span></code><a class="headerlink" href="#target-bin-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.14.</span></p>
+</div>
 <p>The target area directory’s prefixed bin directory. An example binary
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr/bin
@@ -736,6 +819,9 @@ inside the configured output directory. For example:</p>
 </section>
 <section id="target-include-dir">
 <span id="env-target-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code><a class="headerlink" href="#target-include-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The target area directory’s prefixed include directory. An example include
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr/include
@@ -744,6 +830,9 @@ directory may be as follows:</p>
 </section>
 <section id="target-lib-dir">
 <span id="env-target-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code><a class="headerlink" href="#target-lib-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
 <p>The target area directory’s prefixed library directory. An example library
 directory may be as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/target/usr/lib
@@ -778,8 +867,8 @@ in <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUIL
     │               └── ...
     ├── package/
     │   └── libfoo/
-    │       └── libfoo.py
-    ├── releng
+    │       └── libfoo.rt
+    ├── releng-tool.rt
     ...
 </pre></div>
 </div>
@@ -796,8 +885,8 @@ out of the root directory:</p>
     │           └── ...
     ├── package/
     │   └── libfoo/
-    │       └── libfoo.py
-    ├── releng
+    │       └── libfoo.rt
+    ├── releng-tool.rt
     ...
 </pre></div>
 </div>
@@ -812,8 +901,8 @@ the package’s definition directory:</p>
     │   └── libfoo/
     │       └── local/                &lt;---- LIBFOO_BUILD_DIR
     │           └── ...
-    │       └── libfoo.py
-    ├── releng
+    │       └── libfoo.rt
+    ├── releng-tool.rt
     ...
 </pre></div>
 </div>
@@ -831,8 +920,8 @@ version (e.g. <code class="docutils literal notranslate"><span class="pre">libfo
     │           └── ...
     ├── package/
     │   └── libfoo/
-    │       └── libfoo.py
-    ├── releng
+    │       └── libfoo.rt
+    ├── releng-tool.rt
     ...
 </pre></div>
 </div>
@@ -845,8 +934,8 @@ just be <code class="docutils literal notranslate"><span class="pre">libfoo</spa
     │           └── ...
     ├── package/
     │   └── libfoo/
-    │       └── libfoo.py
-    ├── releng
+    │       └── libfoo.rt
+    ├── releng-tool.rt
     ...
 </pre></div>
 </div>
@@ -861,8 +950,8 @@ for package types like CMake. For example:</p>
     │               └── ...
     ├── package/
     │   └── libfoo/
-    │       └── libfoo.py
-    ├── releng
+    │       └── libfoo.rt
+    ├── releng-tool.rt
     ...
 </pre></div>
 </div>
@@ -875,8 +964,8 @@ variable will contain a directory path matching the path seen below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-releng-tool-project/
     ├── package/
     │   └── libfoo/                   &lt;---- LIBFOO_DEFDIR
-    │       └── libfoo.py
-    ├── releng
+    │       └── libfoo.rt
+    ├── releng-tool.rt
     ...
 </pre></div>
 </div>
@@ -906,11 +995,17 @@ exists, this variable may be empty.</p>
 releng-tool.</p>
 <section id="releng-generated-licenses">
 <span id="env-releng-generated-licenses"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code><a class="headerlink" href="#releng-generated-licenses" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
 <p>Defines a list of generated license files at the end of package processing
 that is available for post-processing actions to use.</p>
 </section>
 <section id="releng-generated-sboms">
 <span id="env-releng-generated-sboms"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code><a class="headerlink" href="#releng-generated-sboms" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
 <p>Defines a list of generated software build of materials (SBOM) files at the
 end of package processing that is available for post-processing actions
 to use.</p>
@@ -923,6 +1018,9 @@ features of the releng-tool process. The following environment variables are
 accepted:</p>
 <section id="releng-assets-dir">
 <span id="env-releng-assets-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-assets-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
+</div>
 <p>The asset directory to use. The asset directory is the container directory
 to use for both cache and download content. By default, no asset directory
 is configured. If a user does not override an asset directory using the
@@ -932,6 +1030,9 @@ content.</p>
 </section>
 <section id="releng-cache-dir">
 <span id="env-releng-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-cache-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
+</div>
 <p>The cache directory to use. By default, the cache directory used is configured
 to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/cache</span></code>. If a user does not override a cache directory using the
 <a class="reference internal" href="../arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code> option can
@@ -939,6 +1040,9 @@ be used to override this location.</p>
 </section>
 <section id="releng-dl-dir">
 <span id="env-releng-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-dl-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
+</div>
 <p>The download directory to use. By default, the download directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/dl</span></code>. If a user does not override a download directory
 using the <a class="reference internal" href="../arguments/#arg-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code> option
@@ -951,6 +1055,9 @@ can be used to override this location.</p>
 <p>This environment variable is always ignored when either the
 <a class="reference internal" href="../arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument</span></a> or
 <a class="reference internal" href="#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a> environment variable is used.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.1.</span></p>
 </div>
 <p>Configures a «global» container directory used to hold the output contents
 of releng-tool projects. Projects will typically generate output contents
@@ -984,10 +1091,10 @@ and configures this option to the path <code class="docutils literal notranslate
 │           └── projects/
 │               ├── my-project-a/
 │               │   ├── ...
-│               │   └── releng.py
+│               │   └── releng-tool.rt
 │               └── my-project-b/
 │                   ├── ...
-│                   └── releng.py
+│                   └── releng-tool.rt
 └── mnt/
     └── extern-disk/
         ├── my-project-a/
@@ -999,17 +1106,26 @@ and configures this option to the path <code class="docutils literal notranslate
 </section>
 <section id="releng-ignore-running-as-root">
 <span id="env-releng-ignore-running-as-root"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code><a class="headerlink" href="#releng-ignore-running-as-root" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
+</div>
 <p>Suppress the <a class="reference internal" href="../tips/privileged-builds/"><span class="doc std std-doc">warning</span></a> generated when running
 releng-tool with an elevated user.</p>
 </section>
 <section id="releng-ignore-unknown-args">
 <span id="env-releng-ignore-unknown-args"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code><a class="headerlink" href="#releng-ignore-unknown-args" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
 <p>Suppress the warning/error generated when running releng-tool with unknown
 arguments.</p>
 <p>See also the <a class="reference internal" href="../arguments/#arg-relaxed-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code> argument</span></a>.</p>
 </section>
 <section id="releng-output-dir">
 <span id="env-releng-out-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-output-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.1.</span></p>
+</div>
 <p>The output directory to use. By default, the output directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>. If a user does not override an output
 directory using the <a class="reference internal" href="../arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument</span></a>, the
@@ -1114,6 +1230,7 @@ directory using the <a class="reference internal" href="../arguments/#arg-out-di
 <li><a class="reference internal" href="#releng-debug"><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></a></li>
 <li><a class="reference internal" href="#releng-devmode"><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></a></li>
 <li><a class="reference internal" href="#releng-distclean"><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></a></li>
+<li><a class="reference internal" href="#releng-exec"><code class="docutils literal notranslate"><span class="pre">RELENG_EXEC</span></code></a></li>
 <li><a class="reference internal" href="#releng-force"><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></a></li>
 <li><a class="reference internal" href="#releng-localsrcs"><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></a></li>
 <li><a class="reference internal" href="#releng-mrproper"><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></a></li>

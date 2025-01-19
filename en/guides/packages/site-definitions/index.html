@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../packages/">Packages</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../post-processing/">Post-processing</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -405,6 +409,20 @@ documentation provided by the extension.</p>
 Git sources); however, this is optional if a package wishes to use the
 <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> option.</p>
 </div>
+<section id="breezy-site">
+<h2>Breezy site<a class="headerlink" href="#breezy-site" title="Link to this heading">¶</a></h2>
+<p>To define a <a class="reference external" href="https://www.breezy-vcs.org/">Breezy</a>-based location, the site value must be
+prefixed with a <code class="docutils literal notranslate"><span class="pre">brz+</span></code> value. A site can be defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;brz+https://example.com/project/trunk&#39;</span>
+<span class="c1"># (or)</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;brz+lp:&lt;project&gt;&#39;</span>
+</pre></div>
+</div>
+<p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">brz</span> <span class="pre">export</span></code>
+call <a class="footnote-reference brackets" href="#brzexport" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Content from a Bazaar or Git repository will be fetched and
+archived into a file during fetch stage. Once a cached archive is made, the
+fetch stage will be skipped unless the archive is manually removed.</p>
+</section>
 <section id="bazaar-site">
 <h2>Bazaar site<a class="headerlink" href="#bazaar-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://wikipedia.org/wiki/GNU_Bazaar">Bazaar</a>-based location, the site value must be
@@ -415,7 +433,7 @@ prefixed with a <code class="docutils literal notranslate"><span class="pre">bzr
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">export</span></code>
-call <a class="footnote-reference brackets" href="#bzrexport" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Content from a Bazaar repository will be fetched and
+call <a class="footnote-reference brackets" href="#bzrexport" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Content from a Bazaar repository will be fetched and
 archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
@@ -430,8 +448,8 @@ follows:</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a space-separated pair, where the first part
-represents the CVSROOT <a class="footnote-reference brackets" href="#cvsroot" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> to use and the second part specifies the
-CVS module <a class="footnote-reference brackets" href="#cvsmodule" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>  to use. Content from a CVS repository will be
+represents the CVSROOT <a class="footnote-reference brackets" href="#cvsroot" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> to use and the second part specifies the
+CVS module <a class="footnote-reference brackets" href="#cvsmodule" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>  to use. Content from a CVS repository will be
 fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually
 removed.</p>
@@ -446,7 +464,7 @@ as follows:</p>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
 </pre></div>
 </div>
-<p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference brackets" href="#gitremote" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>
+<p>The site value (less prefix, if used) is used as a Git remote <a class="footnote-reference brackets" href="#gitremote" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>
 for a locally managed cache source. Git sources will be cached inside the
 <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on first-run. Future runs to fetch a project’s source
 will use the cached Git file system. If a desired revision exists, content
@@ -473,7 +491,7 @@ prefixed with a <code class="docutils literal notranslate"><span class="pre">hg+
 </pre></div>
 </div>
 <p>The value after the prefix is used as the <code class="docutils literal notranslate"><span class="pre">SOURCE</span></code> in an <code class="docutils literal notranslate"><span class="pre">hg</span> <span class="pre">clone</span></code> call
-<a class="footnote-reference brackets" href="#hgclone" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
+<a class="footnote-reference brackets" href="#hgclone" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>. Mercurial sources will be cached inside the <code class="docutils literal notranslate"><span class="pre">cache</span></code> directory on
 first-run. Future runs to fetch a project’s source will use the cached Mercurial
 repository. If a desired revision exists, content will be acquired from the
 cache location. If a desired revision does not exist, the origin remote will be
@@ -489,9 +507,9 @@ an <code class="docutils literal notranslate"><span class="pre">perforce+</span>
 </pre></div>
 </div>
 <p>The value after the prefix is a space-separated pair, where the first part
-represents the Perforce service (<code class="docutils literal notranslate"><span class="pre">P4PORT</span></code> <a class="footnote-reference brackets" href="#p4port" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>) to use and the second
+represents the Perforce service (<code class="docutils literal notranslate"><span class="pre">P4PORT</span></code> <a class="footnote-reference brackets" href="#p4port" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a>) to use and the second
 part specifies the Perforce depot path. Perforce data is fetched using
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">p4</span> <span class="pre">&lt;option&gt;</span></code> <a class="footnote-reference brackets" href="#git-p4" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> command. This requires a host to have both
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">p4</span> <span class="pre">&lt;option&gt;</span></code> <a class="footnote-reference brackets" href="#git-p4" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a> command. This requires a host to have both
 <a class="reference external" href="https://git-scm.com/">Git</a> and Perforce’s <a class="reference external" href="https://www.perforce.com/manuals/p4guide/Content/P4Guide/chapter.install.html">Helix Command-Line Client (P4)</a>
 installed. Content from a Perforce depot will be fetched and archived into
 a file during fetch stage. Once a cached archive is made, the fetch stage
@@ -504,7 +522,7 @@ ill be skipped unless the archive is manually removed.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;rsync+&lt;source&gt;&#39;</span>
 </pre></div>
 </div>
-<p>The value of <code class="docutils literal notranslate"><span class="pre">&lt;source&gt;</span></code> will be provided to a <code class="docutils literal notranslate"><span class="pre">rsync</span></code> call’s <a class="footnote-reference brackets" href="#rsynccommand" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></a>
+<p>The value of <code class="docutils literal notranslate"><span class="pre">&lt;source&gt;</span></code> will be provided to a <code class="docutils literal notranslate"><span class="pre">rsync</span></code> call’s <a class="footnote-reference brackets" href="#rsynccommand" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a>
 <code class="docutils literal notranslate"><span class="pre">SRC</span></code> value. Fetched content will be stored in an archive inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code>
 directory. Once fetched, the fetch stage will be skipped unless the archive
 is manually removed. By default, the <code class="docutils literal notranslate"><span class="pre">--recursive</span></code> argument is applied.
@@ -519,7 +537,7 @@ value. A site can be defined as follows:</p>
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a <code class="docutils literal notranslate"><span class="pre">scp</span></code> call’s
-<a class="footnote-reference brackets" href="#scpcommand" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></a> source host value. The SCP site only supports copying a file from
+<a class="footnote-reference brackets" href="#scpcommand" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a> source host value. The SCP site only supports copying a file from
 a remote host. The fetched file will be stored inside the <code class="docutils literal notranslate"><span class="pre">dl</span></code> directory. Once
 fetched, the fetch stage will be skipped unless the file is manually removed.</p>
 </section>
@@ -531,7 +549,7 @@ prefixed with a <code class="docutils literal notranslate"><span class="pre">svn
 </pre></div>
 </div>
 <p>The value after the prefix is a path which will be provided to a
-<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference brackets" href="#svncheckout" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></a>. Content from a Subversion repository will
+<code class="docutils literal notranslate"><span class="pre">svn</span> <span class="pre">checkout</span></code> call <a class="footnote-reference brackets" href="#svncheckout" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>. Content from a Subversion repository will
 be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
@@ -545,54 +563,58 @@ considered a URL site. A URL site can be defined as follows:</p>
 </pre></div>
 </div>
 <p>The site value provided will be directly used in a URL request. URL values
-supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference brackets" href="#urlopen" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></a>,
+supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference brackets" href="#urlopen" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a>,
 which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>, <code class="docutils literal notranslate"><span class="pre">file://</span></code> and
 more.</p>
 <p>See also <a class="reference internal" href="../../configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a>.</p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="bzrexport" role="doc-footnote">
+<aside class="footnote brackets" id="brzexport" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://www.breezy-vcs.org/doc/en/user-reference/export-help.html">https://www.breezy-vcs.org/doc/en/user-reference/export-help.html</a></p>
+</aside>
+<aside class="footnote brackets" id="bzrexport" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://web.archive.org/web/http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html">https://web.archive.org/web/http://doc.bazaar.canonical.com/bzr.2.7/en/user-reference/export-help.html</a></p>
 </aside>
 <aside class="footnote brackets" id="cvsroot" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/Specifying-a-repository.html</a></p>
 </aside>
 <aside class="footnote brackets" id="cvsmodule" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout">https://www.gnu.org/software/trans-coord/manual/cvs/html_node/checkout.html#checkout</a></p>
 </aside>
 <aside class="footnote brackets" id="gitremote" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a></p>
 </aside>
 <aside class="footnote brackets" id="hgclone" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://www.mercurial-scm.org/doc/hg.1.html#clone">https://www.mercurial-scm.org/doc/hg.1.html#clone</a></p>
 </aside>
 <aside class="footnote brackets" id="p4port" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://www.perforce.com/manuals/cmdref/Content/CmdRef/P4PORT.html">https://www.perforce.com/manuals/cmdref/Content/CmdRef/P4PORT.html</a></p>
 </aside>
 <aside class="footnote brackets" id="git-p4" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">8</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://git-scm.com/docs/git-p4">https://git-scm.com/docs/git-p4</a></p>
 </aside>
 <aside class="footnote brackets" id="rsynccommand" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">8</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">9</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://linux.die.net/man/1/rsync">https://linux.die.net/man/1/rsync</a></p>
 </aside>
 <aside class="footnote brackets" id="scpcommand" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">9</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">10</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://linux.die.net/man/1/scp">https://linux.die.net/man/1/scp</a></p>
 </aside>
 <aside class="footnote brackets" id="svncheckout" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">10</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">11</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html">http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.checkout.html</a></p>
 </aside>
 <aside class="footnote brackets" id="urlopen" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">11</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">12</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://docs.python.org/library/urllib.request.html#urllib.request.urlopen">https://docs.python.org/library/urllib.request.html#urllib.request.urlopen</a></p>
 </aside>
 </aside>
@@ -659,6 +681,7 @@ more.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Site definitions</a><ul>
+<li><a class="reference internal" href="#breezy-site">Breezy site</a></li>
 <li><a class="reference internal" href="#bazaar-site">Bazaar site</a></li>
 <li><a class="reference internal" href="#cvs-site">CVS site</a></li>
 <li><a class="reference internal" href="#git-site">Git site</a></li>

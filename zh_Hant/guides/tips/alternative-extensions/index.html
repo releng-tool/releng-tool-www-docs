@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -396,28 +400,32 @@
         <article role="main" id="furo-main-content">
           <section id="alternative-extensions">
 <h1>Alternative extensions<a class="headerlink" href="#alternative-extensions" title="Link to this heading">¶</a></h1>
-<p>A default configuration file is typically a file named <code class="docutils literal notranslate"><span class="pre">releng</span></code> at the root
-of a project. Consider the following example of a project with a <code class="docutils literal notranslate"><span class="pre">libfoo</span></code>
-package with various stage scripts:</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">自 2.0 版本弃用: </span>The <code class="docutils literal notranslate"><span class="pre">.releng</span></code> extension is no longer recommended and may be removed in
+a future release.</p>
+</div>
+<p>A default configuration file is typically a file named <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>
+at the root of a project. Consider the following example of a project
+with a <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> package with various stage scripts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-project/
+    ├── package/
+    │   └── libfoo/
+    │       └── libfoo.rt
+    │       └── libfoo-build.rt
+    │       └── libfoo-install.rt
+    └── releng-tool.rt
+</pre></div>
+</div>
+<p>Developers who do not perfer the <code class="docutils literal notranslate"><span class="pre">.rt</span></code> extension may use alternatives,
+such as the <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension or no extension at all. For example, the
+above example is equivalent to the structure:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-project/
     ├── package/
     │   └── libfoo/
     │       └── libfoo
     │       └── libfoo-build
     │       └── libfoo-install
-    └── releng
-</pre></div>
-</div>
-<p>If a developer prefers to define extensions for various configurations and
-scripts, files detected with a <code class="docutils literal notranslate"><span class="pre">.releng</span></code> or <code class="docutils literal notranslate"><span class="pre">.py</span></code> extensions can be used
-instead. For example, the above example is equivalent to the structure:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-project/
-    ├── package/
-    │   └── libfoo/
-    │       └── libfoo.releng
-    │       └── libfoo-build.releng
-    │       └── libfoo-install.releng
-    └── releng.releng
+    └── releng-tool
 </pre></div>
 </div>
 <p>Or the structure:</p>
@@ -427,13 +435,14 @@ instead. For example, the above example is equivalent to the structure:</p>
     │       └── libfoo.py
     │       └── libfoo-build.py
     │       └── libfoo-install.py
-    └── releng.py
+    └── releng-tool.py
 </pre></div>
 </div>
 <p>For a specific file to be loaded, releng-tool uses the following priority:</p>
 <ol class="arabic simple">
 <li><p>File without an extension</p></li>
-<li><p>File with a <code class="docutils literal notranslate"><span class="pre">.releng</span></code> extension</p></li>
+<li><p>File with a <code class="docutils literal notranslate"><span class="pre">.rt</span></code> extension</p></li>
+<li><p>File with a <code class="docutils literal notranslate"><span class="pre">.releng</span></code> extension (<em>deprecated</em>)</p></li>
 <li><p>File with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension</p></li>
 </ol>
 <p>Only the first detected file will be loaded. For example, if a project has
@@ -442,12 +451,11 @@ multiple releng-tool configuration files with different extensions:</p>
     ├── package/
     │   └── libfoo/
     │       └── ...
-    ├── releng
-    ├── releng.releng
-    └── releng.py
+    ├── releng-tool.rt
+    └── releng-tool.py
 </pre></div>
 </div>
-<p>Only the <code class="docutils literal notranslate"><span class="pre">releng</span></code> configuration script will be used.</p>
+<p>Only the <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code> configuration script will be used.</p>
 </section>
 
         </article>

@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -453,23 +457,23 @@ package, dependencies and project configuration:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-tc-project/
     ├── package/
     │   ├── htop/
-    │   │   ├── htop
+    │   │   ├── htop.rt
     │   │   └── htop.hash
     │   ├── libnl/
-    │   │   ├── libnl
+    │   │   ├── libnl.rt
     │   │   └── libnl.hash
     │   └── ncurses/
-    │       ├── ncurses
+    │       ├── ncurses.rt
     │       └── ncurses.hash
-    └── releng
+    └── releng-tool.rt
 </pre></div>
 </div>
 </section>
 <section id="the-configuration">
 <h2>The configuration<a class="headerlink" href="#the-configuration" title="Link to this heading">¶</a></h2>
 <p>The first changes we will make to our releng-tool project is to define the
-specifics of the project configuration in <code class="docutils literal notranslate"><span class="pre">releng</span></code>. Apply the following
-contents to the configuration:</p>
+specifics of the project configuration in <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>. Apply the
+following contents to the configuration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;htop&#39;</span><span class="p">,</span>
 <span class="p">]</span>
@@ -527,7 +531,7 @@ definitions/hashes for each package.</p>
 </section>
 <section id="the-libnl-package">
 <h2>The libnl package<a class="headerlink" href="#the-libnl-package" title="Link to this heading">¶</a></h2>
-<p>Update the <code class="docutils literal notranslate"><span class="pre">libnl</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/libnl/libnl</span></code>) with
+<p>Update the <code class="docutils literal notranslate"><span class="pre">libnl</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/libnl/libnl.rt</span></code>) with
 the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBNL_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;staging&#39;</span>
 <span class="n">LIBNL_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LGPL-2.1-or-later&#39;</span><span class="p">]</span>
@@ -605,7 +609,7 @@ changes between versions.</p>
 </section>
 <section id="the-ncurses-package">
 <h2>The ncurses package<a class="headerlink" href="#the-ncurses-package" title="Link to this heading">¶</a></h2>
-<p>Update the <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/ncurses/ncurses</span></code>)
+<p>Update the <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/ncurses/ncurses.rt</span></code>)
 with the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NCURSES_INSTALL_TYPE</span> <span class="o">=</span> <span class="s1">&#39;staging&#39;</span>
 <span class="n">NCURSES_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X11&#39;</span><span class="p">]</span>
@@ -662,7 +666,7 @@ provide a hash of the license document.</p>
 </section>
 <section id="the-htop-package">
 <h2>The htop package<a class="headerlink" href="#the-htop-package" title="Link to this heading">¶</a></h2>
-<p>Update the <code class="docutils literal notranslate"><span class="pre">htop</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/htop/htop</span></code>) with the
+<p>Update the <code class="docutils literal notranslate"><span class="pre">htop</span></code> package definition (<code class="docutils literal notranslate"><span class="pre">my-tc-project/htop/htop.rt</span></code>) with the
 following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HTOP_NEEDS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;libnl&#39;</span><span class="p">,</span>

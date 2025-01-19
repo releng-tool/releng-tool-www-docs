@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -424,7 +428,7 @@ uses the SDL library.</p>
 <section id="the-libsdl-package">
 <h2>The libsdl package<a class="headerlink" href="#the-libsdl-package" title="Link to this heading">¶</a></h2>
 <p>Inside the <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package, create a package definition
-<code class="docutils literal notranslate"><span class="pre">my-project/libsdl/libsdl</span></code> with the following contents:</p>
+<code class="docutils literal notranslate"><span class="pre">my-project/package/libsdl/libsdl.rt</span></code> with the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBSDL_LICENSE</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Zlib&#39;</span><span class="p">]</span>
 <span class="n">LIBSDL_LICENSE_FILES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LICENSE.txt&#39;</span><span class="p">]</span>
 <span class="n">LIBSDL_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://www.libsdl.org/release/SDL2-$</span><span class="si">{LIBSDL_VERSION}</span><span class="s1">.tar.gz&#39;</span>
@@ -517,7 +521,7 @@ tutorial:</p>
     └── package/
         ├── libsdl/
         │   ├── 001-empty-prefix-support.patch
-        │   ├── libsdl
+        │   ├── libsdl.rt
         │   └── libsdl.hash
         └── sample/
 </pre></div>
@@ -530,7 +534,7 @@ project would typically be stored in a version control system such as a
 Git repository. To simplify this tutorial, we will utilize a <code class="docutils literal notranslate"><span class="pre">local</span></code> VCS
 type (typically used for interim development) to help demonstrate the
 sample project.</p>
-<p>Create a package definition <code class="docutils literal notranslate"><span class="pre">my-sdl-project/sample/sample</span></code> with the
+<p>Create a package definition <code class="docutils literal notranslate"><span class="pre">my-sdl-project/sample/sample.rt</span></code> with the
 following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SAMPLE_NEEDS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;libsdl&#39;</span><span class="p">,</span>
@@ -698,7 +702,7 @@ tutorial:</p>
     └── package/
         ├── libsdl/
         │   ├── 001-empty-prefix-support.patch
-        │   ├── libsdl
+        │   ├── libsdl.rt
         │   └── libsdl.hash
         └── sample/
             ├── local/
@@ -706,7 +710,7 @@ tutorial:</p>
             │   │   └── sample/
             │   │       └── main.c
             │   └── CMakeLists.txt
-            └── sample
+            └── sample.rt
 </pre></div>
 </div>
 </section>
@@ -720,7 +724,7 @@ post-build stages.</p>
 <p>Create a new <code class="docutils literal notranslate"><span class="pre">assets</span></code> folder at the root of the project folder. Inside,
 place a copy of the <a class="reference download internal" download="" href="../../_downloads/76c9d3887ce802f79198650cea36484b/releng-tool.bmp"><span class="xref download myst">releng-tool.bmp</span></a> image.
 At the root of the project folder, create a post-build script named
-<code class="docutils literal notranslate"><span class="pre">releng-post-build</span></code> with the following contents:</p>
+<code class="docutils literal notranslate"><span class="pre">releng-tool-post-build.rt</span></code> with the following contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">assets_dir</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="p">,</span> <span class="s1">&#39;assets&#39;</span><span class="p">)</span>
 <span class="n">sample_img</span> <span class="o">=</span> <span class="n">releng_join</span><span class="p">(</span><span class="n">assets_dir</span><span class="p">,</span> <span class="s1">&#39;releng-tool.bmp&#39;</span><span class="p">)</span>
 <span class="n">releng_copy_into</span><span class="p">(</span><span class="n">sample_img</span><span class="p">,</span> <span class="n">TARGET_BIN_DIR</span><span class="p">)</span>
@@ -733,16 +737,21 @@ helper to find where we locally store the <code class="docutils literal notransl
 placed alongside the executable we plan to build.</p></li>
 </ul>
 <p>Lastly, we need to create our releng-tool configuration file for the project.
-In the root folder, create a <code class="docutils literal notranslate"><span class="pre">releng</span></code> file with the following contents:</p>
+In the root folder, create a <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code> file with the following
+contents:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;sample&#39;</span><span class="p">,</span>
 <span class="p">]</span>
+
+<span class="n">vsdevcmd</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>We explicitly configure releng-tool to load the <code class="docutils literal notranslate"><span class="pre">sample</span></code> package to build.</p></li>
 <li><p>Note that we do not need to specify the <code class="docutils literal notranslate"><span class="pre">libsdl</span></code> package since the <code class="docutils literal notranslate"><span class="pre">sample</span></code>
 package will load it implicitly through its dependency configuration.</p></li>
+<li><p>Adding <code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code> will auto-load Visual Studio developer environment
+variables to support Windows-based builds.</p></li>
 </ul>
 <p>The following shows the expected file structure at this stage of this
 tutorial:</p>
@@ -752,7 +761,7 @@ tutorial:</p>
     ├── package/
     │   ├── libsdl/
     │   │   ├── 001-empty-prefix-support.patch
-    │   │   ├── libsdl
+    │   │   ├── libsdl.rt
     │   │   └── libsdl.hash
     │   └── sample/
     │       ├── local/
@@ -760,28 +769,14 @@ tutorial:</p>
     │       │   │   └── sample/
     │       │   │       └── main.c
     │       │   └── CMakeLists.txt
-    │       └── sample
-    ├── releng
-    └── releng-post-build
+    │       └── sample.rt
+    ├── releng-tool.rt
+    └── releng-tool-post-build.rt
 </pre></div>
 </div>
 </section>
 <section id="performing-a-build">
 <h2>Performing a build<a class="headerlink" href="#performing-a-build" title="Link to this heading">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>Users will want to run a build in a shell which has the host tools needed
-to perform a build (e.g. the compiler). For Windows, this may be invoking
-releng-tool in a Visual Studio command prompt on a system with <code class="docutils literal notranslate"><span class="pre">patch</span></code>
-installed. For example:</p>
-<ol class="arabic simple">
-<li><p>Start Git SCM Bash shell.</p></li>
-<li><p>Load Visual Studio support into the shell (for example, when using VS2019):
-<code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Microsoft</span> <span class="pre">Visual</span> <span class="pre">Studio\2019\Community\Common7\Tools\VsDevCmd.bat</span></code></p></li>
-<li><p>Navigate to the project directory.</p></li>
-<li><p>Invoke <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>.</p></li>
-</ol>
-</div>
 <p>With packages, assets and configurations prepared, the project should be
 ready to be built. While in the <code class="docutils literal notranslate"><span class="pre">my-sdl-project</span></code> folder, invoke
 <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>:</p>

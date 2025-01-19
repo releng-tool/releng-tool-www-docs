@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../packages/">Packages</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -398,19 +402,19 @@
 <h1>Package post-processing<a class="headerlink" href="#package-post-processing" title="Link to this heading">¶</a></h1>
 <p>Every package, no matter which package <a class="reference internal" href="../common-pkg-options/#pkg-opt-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></span></a> is
 defined, can create a post-processing script to invoke after a package
-has completed an installation stage. The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post</span></code>
+has completed an installation stage. The existence of a <code class="docutils literal notranslate"><span class="pre">&lt;package&gt;-post.rt</span></code>
 inside a package directory will trigger the post-processing stage for
 the package. An example post-processing script for a package <code class="docutils literal notranslate"><span class="pre">libfoo</span></code>
-would be named <code class="docutils literal notranslate"><span class="pre">libfoo-post</span></code>:</p>
+would be named <code class="docutils literal notranslate"><span class="pre">libfoo-post.rt</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-releng-tool-project/
     ├── package/
     │   └── libfoo/
-    │       └── libfoo
-    │       └── libfoo-post           &lt;----
+    │       ├── libfoo.rt
+    │       └── libfoo-post.rt        &lt;----
     ...
 </pre></div>
 </div>
-<p>With the contents of <code class="docutils literal notranslate"><span class="pre">libfoo-post</span></code> being set to:</p>
+<p>With the contents of <code class="docutils literal notranslate"><span class="pre">libfoo-post.rt</span></code> being set to:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;perform post-processing work&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -3,14 +3,14 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="搜索" href="../search/" /><link rel="next" title="1.3 (2024-08-19)" href="../news/2024-08-01_01.03.00/" /><link rel="prev" title="ANNEX A - Quick reference" href="../annex-a/" />
+<link rel="search" title="搜索" href="../search/" /><link rel="next" title="1.4 (2025-01-19)" href="../news/2025-01-19_01.04.00/" /><link rel="prev" title="ANNEX A - Quick reference" href="../annex-a/" />
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>Release notes - releng-tool 文档</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../guides/packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Release notes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -403,6 +407,7 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <h2>News<a class="headerlink" href="#news" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -417,6 +422,39 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <li class="toctree-l1"><a class="reference internal" href="../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
 </ul>
 </div>
+</section>
+<section id="v1-4-2025-01-19">
+<h2>1.4 (2025-01-19)<a class="headerlink" href="#v1-4-2025-01-19" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Allow adding a package without a definition that defines at least one script</p></li>
+<li><p>Allow users to suppress local-site package warnings</p></li>
+<li><p>Correct <code class="docutils literal notranslate"><span class="pre">hint</span></code> missing from script environments</p></li>
+<li><p>Disable garbage collection and maintenance tasks for Git caches</p></li>
+<li><p>Disable update checks for PDM when processing PDM packages</p></li>
+<li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">punch</span></code> action triggers the post-build stage</p></li>
+<li><p>Fixed configuration failure when using older Meson (pre-v1.1.1)</p></li>
+<li><p>Fixed incorrect JSON/SPDX SBOM documents for projects with empty/local sites</p></li>
+<li><p>Fixed issue where <code class="docutils literal notranslate"><span class="pre">releng_copy</span></code> could not copy a broken symbolic link</p></li>
+<li><p>Fixed issue where <code class="docutils literal notranslate"><span class="pre">releng_remove</span></code> could not remove a broken symbolic link</p></li>
+<li><p>Fixed patch overrides not supporting alternative file extensions</p></li>
+<li><p>Flag <code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code> when using the <code class="docutils literal notranslate"><span class="pre">punch</span></code> action</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_CARGO_NOINSTALL</span></code> to support Cargo libraries</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">RELENG_EXEC</span></code> environment/script variable</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">libfoo-fresh</span></code> action</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">releng_symlink</span></code> helper script function</p></li>
+<li><p>Introduce a <code class="docutils literal notranslate"><span class="pre">nested</span></code> option for I/O copy/move utility calls</p></li>
+<li><p>Introduce a shared build target for Cargo packages</p></li>
+<li><p>Perform automatic Cargo patching for project-managed dependencies</p></li>
+<li><p>Post-fetching Cargo dependencies now occurs after a package's patch stage</p></li>
+<li><p>Promote use of <code class="docutils literal notranslate"><span class="pre">.rt</span></code> extensions for definitions/scripts</p></li>
+<li><p>Promote use of <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code> for project configuration</p></li>
+<li><p>Support Breezy VCS-type</p></li>
+<li><p>Support injecting Visual Studio development environment variables</p></li>
+<li><p>Support newer GitLab CI flag for automatic debugging mode</p></li>
+<li><p>Support preallocated list/dictionary package configurations</p></li>
+<li><p>Update SPDX license database to v3.26</p></li>
+<li><p>Utilize forwarded arguments as fallback for <code class="docutils literal notranslate"><span class="pre">libfoo-exec</span></code> action</p></li>
+</ul>
 </section>
 <section id="v1-3-2024-08-19">
 <h2>1.3 (2024-08-19)<a class="headerlink" href="#v1-3-2024-08-19" title="Link to this heading">¶</a></h2>
@@ -740,12 +778,12 @@ execution</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../news/2024-08-01_01.03.00/">
+          <a class="next-page" href="../news/2025-01-19_01.04.00/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">1.3 (2024-08-19)</div>
+                <div class="title">1.4 (2025-01-19)</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -796,6 +834,7 @@ execution</p></li>
             <ul>
 <li><a class="reference internal" href="#">Release notes</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
+<li><a class="reference internal" href="#v1-4-2025-01-19">1.4 (2025-01-19)</a></li>
 <li><a class="reference internal" href="#v1-3-2024-08-19">1.3 (2024-08-19)</a></li>
 <li><a class="reference internal" href="#v1-2-2024-07-01">1.2 (2024-07-01)</a></li>
 <li><a class="reference internal" href="#v1-1-2024-03-29">1.1 (2024-03-29)</a></li>

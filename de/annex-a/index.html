@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../guides/packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -398,6 +402,59 @@
 <h1>ANHANG A - Kurzreferenz<a class="headerlink" href="#annex-a-quick-reference" title="Link to this heading">¶</a></h1>
 <p>A quick reference document listing available options to developers building a
 releng-tool project.</p>
+<section id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Link to this heading">¶</a></h2>
+<p>Arguments which are accepted by releng-tool from the command line:</p>
+<pre class="literal-block"><a class="reference internal" href="../guides/arguments/#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-extract"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extract</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">fetch</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-fetch-full"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">fetch-full</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-init"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">init</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">licenses</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-patch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">patch</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-punch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">punch</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-state"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">state</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-build"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-build</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-configure"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-configure</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-exec"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">&quot;&lt;cmd&gt;&quot;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-extract"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-fetch-full"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch-full</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-fresh"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fresh</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-install"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-license"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-patch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-rebuild"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-rebuild-only"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-rebuild-only</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-reconfigure"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-reconfigure-only"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-pkg-reinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-assets-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-development"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span> <span class="pre">[&lt;mode&gt;]</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-force"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-help"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--images-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-local-sources"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-nocolorout"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-relaxed-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-root-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-quirk"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-verbose"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--version</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-werror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></span></a></pre>
+</section>
 <section id="configuration-options">
 <h2>Configuration options<a class="headerlink" href="#configuration-options" title="Link to this heading">¶</a></h2>
 <p>Options which are read by releng-tool from a project’s configuration script:</p>
@@ -419,7 +476,8 @@ releng-tool project.</p>
   └── csv, html, json, json-spdx, rdp-spdx, text, xml
 <a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a> = '&lt;path&gt;' # '/usr'
 <a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a> = '&lt;mirror-url&gt;'
-<a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;</pre>
+<a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;
+<a class="reference internal" href="../guides/configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> = bool or str</pre>
 </section>
 <section id="environment-variables">
 <h2>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading">¶</a></h2>
@@ -458,6 +516,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/environment/#env-releng-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-devmode"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-exec"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_EXEC</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-force"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-generated-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-generated-sboms"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code></span></a>
@@ -508,6 +567,8 @@ releng-tool (may vary per context):</p>
 <code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_OPTS</span></code> = {'--option': 'value'} or ['--option', 'value']
   └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-build-opts"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-build-opts"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-build-opts"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-build-opts"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-build-opts"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-build-opts"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-build-opts"><span class="std std-ref">SCons</span></a>)</em>
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-build-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></span></a> = '&lt;subdir&gt;'
+<a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-name"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CARGO_NAME</span></code></span></a> = str
+<a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CARGO_NOINSTALL</span></code></span></a> = bool
 <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_BUILD_TYPE</span></code></span></a> = str
 <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_NOINSTALL</span></code></span></a> = bool
 <code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code> = {'FOO': 'BAR'}
@@ -546,7 +607,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_NOINSTALL</span></code></span></a> = bool
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-needs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NEEDS</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;']
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-no-extraction"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code></span></a> = bool
-<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></span></a> = '&lt;license&gt;'  or ['&lt;license&gt;', '&lt;license&gt;']
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-license"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE</span></code></span></a> = '&lt;license&gt;' or ['&lt;license&gt;', '&lt;license&gt;']
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-license-files"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_LICENSE_FILES</span></code></span></a> = '&lt;file&gt;' or ['&lt;file&gt;', '&lt;file&gt;']
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-patch-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></span></a> = '&lt;subdir&gt;'
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a> = '&lt;path&gt;' # '/usr'
@@ -564,8 +625,9 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></span></a> = '&lt;type&gt;'
   └── autotools, cargo, cmake, make, meson, python, scons, script, ext-&lt;extension&gt;
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> = '&lt;vcs-type&gt;'
-  └── bzr, cvs, git, hg, local, none, perforce, rsync, scp, svn, url
-<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> = '&lt;version&gt;'</pre>
+  └── brz, bzr, cvs, git, hg, local, none, perforce, rsync, scp, svn, url
+<a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> = '&lt;version&gt;'
+<a class="reference internal" href="../guides/packages/system-pkg-options/#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a> = bool or str</pre>
 </section>
 <section id="script-helpers">
 <h2>Script helpers<a class="headerlink" href="#script-helpers" title="Link to this heading">¶</a></h2>
@@ -577,13 +639,12 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/script-helpers/#script-log"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">log</span></code></span></a>(msg, *args)
 <a class="reference internal" href="../guides/script-helpers/#script-note"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">note</span></code></span></a>(msg, *args)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-cat"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_cat</span></code></span></a>(file, *args)
-<a class="reference internal" href="../guides/script-helpers/#script-releng-copy"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None)
-<a class="reference internal" href="../guides/script-helpers/#script-releng-copy-into"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_copy_into</span></code></span></a>(src, dst, quiet=False, critical=True)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-copy"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_copy</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None, nested=False)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-copy-into"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_copy_into</span></code></span></a>(src, dst, quiet=False, critical=True, nested=False)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-env"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_env</span></code></span></a>(key, value=None)
-<a class="reference internal" href="../guides/script-helpers/#script-releng-execute"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></span></a>(args, cwd=None, env=None, env_update=None,
-               quiet=False, critical=True, poll=False,
-               capture=None, expand=None)
-<a class="reference internal" href="../guides/script-helpers/#script-releng-execute-rv"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code></span></a>(command, args, cwd=None, env=None, env_update=None)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-execute"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_execute</span></code></span></a>(args, cwd=None, env=None, env_update=None, quiet=False, critical=True,
+               poll=False, capture=None, expand=None, args_native=False)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-execute-rv"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_execute_rv</span></code></span></a>(command, args, cwd=None, env=None, env_update=None, args_native=False)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-exists"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_exists</span></code></span></a>(path, *args)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-exit"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></span></a>(msg=None, code=None)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-expand"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></span></a>(obj, kv=None)
@@ -591,10 +652,11 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/script-helpers/#script-releng-tool"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></span></a>(path, *args)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-ls"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_ls</span></code></span></a>(dir_)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-mkdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></span></a>(dir_, quiet=False)
-<a class="reference internal" href="../guides/script-helpers/#script-releng-move"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None)
-<a class="reference internal" href="../guides/script-helpers/#script-releng-move-into"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_move_into</span></code></span></a>(src, dst, quiet=False, critical=True)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-move"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None, nested=False)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-move-into"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_move_into</span></code></span></a>(src, dst, quiet=False, critical=True, nested=False)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-remove"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></span></a>(path, quiet=False)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-require-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></span></a>(version)
+<a class="reference internal" href="../guides/script-helpers/#script-releng-symlink"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_symlink</span></code></span></a>(target, link_path, quiet=False, critical=True, lpd=False, relative=True)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-tmpdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_tmpdir</span></code></span></a>(dir_=None)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-touch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_touch</span></code></span></a>(file)
 <a class="reference internal" href="../guides/script-helpers/#script-releng-wd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_wd</span></code></span></a>(dir_)
@@ -607,6 +669,7 @@ releng-tool (may vary per context):</p>
 <p>Quirk options used by releng-tool:</p>
 <pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/#quirk-releng-bzr-certifi"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.bzr.certifi</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-disable_local_site_warn/#quirk-releng-disable-local-site-warn"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_local_site_warn</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/#quirk-releng-disable-prerequisites-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_remote_scripts/#quirk-releng-disable-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_scripts</span></code></span></a>
@@ -614,6 +677,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/quirks/quirk-git-no_depth/#quirk-releng-git-no-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.no_depth</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/#quirk-releng-git-no-quick-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.no_quick_fetch</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/#quirk-releng-git-replicate-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.replicate_cache</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-log-execute_args/#quirk-releng-log-execute-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.log.execute_args</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-log-execute_env/#quirk-releng-log-execute-env"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.log.execute_env</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/#quirk-releng-stats-no-pdf"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.stats.no_pdf</span></code></span></a></pre>
 </section>
@@ -679,6 +743,7 @@ releng-tool (may vary per context):</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">ANHANG A - Kurzreferenz</a><ul>
+<li><a class="reference internal" href="#arguments">Arguments</a></li>
 <li><a class="reference internal" href="#configuration-options">Configuration options</a></li>
 <li><a class="reference internal" href="#environment-variables">Environment variables</a></li>
 <li><a class="reference internal" href="#package-options">Package options</a></li>

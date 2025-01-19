@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="guides/packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -396,14 +400,15 @@
         <article role="main" id="furo-main-content">
           <section id="releng-tool">
 <h1>releng-tool<a class="headerlink" href="#releng-tool" title="Link to this heading">¶</a></h1>
-<p>releng-tool can be used to assist in the building of a project. This
-tool allows a user to define one or more packages to process. Each package has
-the ability to perform several stages: fetching, extraction, patching,
-configuration, building and installation. What a package defines will vary for a
-given project. The simplest type of package is script-based that allows a user
-to define custom scripts on how to perform various stages. A package is not
-required to handle every stage. Helper package types are provided
-(e.g. autotools, CMake, etc.), for projects using common build capabilities.</p>
+<p>releng-tool aims to provide a way for developers to tailor the building of
+multiple software components to help prepare packages for desired runtime
+environments (e.g. cross-platform portable packages, embedded targets, etc.).
+When building a package, assets may be located in multiple locations and may
+require various methods to extract, build and more. releng-tool allows
+developers to define a set of packages, specifying where resources should be
+fetched from, how packages should be extracted and the processes for
+patching, configuring, building and installing each package for a target
+sysroot.</p>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158.75 66.15">
   <path style="stroke:var(--color-foreground-primary)" fill-opacity=".55" stroke-dasharray=".3 .3" stroke-dashoffset=".18" stroke-width=".3" d="m88.03 45.77.03-4.2"/>
   <path style="stroke:var(--color-foreground-primary)" fill-opacity=".55" stroke-dasharray=".3 .3" stroke-width=".3" d="M88.06 24.88V14.42"/>
@@ -432,10 +437,15 @@ required to handle every stage. Helper package types are provided
   <path style="fill:var(--color-foreground-secondary)" d="M92.65 25.98h-.6v1.34l.57-.01a6 6 0 0 1 1.98.36c.42.2.74.56 1.13 1.46l.02.04c.34.78.96 1.1 1.74 1.46.7.3 1.47.32 2.48.4h7.07V29.7h-6.97c-.7-.01-1.4-.11-2.08-.3-.4-.16-.66-.08-1.04-.82a4.07 4.07 0 0 0-1.74-2.1c-.74-.36-1.53-.41-2.48-.5h-.07zm-8.57.03-22.07.13v1.33l22.07-.13z"/>
   <path style="fill:var(--color-foreground-primary)" d="M109.16 44.42a.1.1 0 0 0-.1.1v3.71c0 .06.05.1.11.1h3.71a.1.1 0 0 0 .1-.1v-3.71a.1.1 0 0 0-.1-.1h-3.71zm0-16.08a.1.1 0 0 0-.1.1v3.72c0 .05.05.1.11.1h3.71a.1.1 0 0 0 .1-.1v-3.72a.1.1 0 0 0-.1-.1h-3.71zm0-13a.1.1 0 0 0-.1.1v3.72c0 .05.05.1.11.1h3.71a.1.1 0 0 0 .1-.1v-3.72a.1.1 0 0 0-.1-.1h-3.71z"/>
 </svg>
-<p>While this tool can assist in the configuration and building of a project, the
-framework does not attempt to provide a perfect sandbox for the process. Users
-defining their projects will have ownership on what compilers/toolchains are
-used and the interaction between the staging/target area and the host system.</p>
+<p>The structure of a package depends on the specific project. The simplest
+type is a script-based package, where users can define custom scripts for
+various stages. A package does not need to handle every stage. Helper
+package types are available (e.g. autotools, Cargo, CMake, Make, Meson,
+various Python types, and SCons) for projects using common build systems.</p>
+<p>While releng-tool assists in configuring and building projects, it does not
+aim to provide a perfect sandbox for the process. Users are responsible
+for defining the compilers/toolchains used and managing the interaction
+between the staging/target area and the host system.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="requirements/">Requirements</a></li>
@@ -511,6 +521,7 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#pkg-var-extract"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-extract</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#pkg-var-fetch"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#pkg-var-fetch-full"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fetch-full</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#pkg-var-fresh"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-fresh</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#pkg-var-install"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-install</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#pkg-var-license"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-license</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#pkg-var-patch"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code></a></li>
@@ -569,6 +580,7 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#override-sites"><code class="docutils literal notranslate"><span class="pre">override_sites</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#urlopen-context"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuration/#vsdevcmd"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -608,6 +620,7 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-debug"><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-devmode"><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-distclean"><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-exec"><code class="docutils literal notranslate"><span class="pre">RELENG_EXEC</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-force"><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-localsrcs"><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-mrproper"><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></a></li>
@@ -697,9 +710,14 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-vcs-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/system-pkg-options/">System-specific options</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="guides/packages/system-pkg-options/#libfoo-vsdevcmd"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/site-definitions/">Site definitions</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="guides/packages/site-definitions/#breezy-site">Breezy site</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/site-definitions/#bazaar-site">Bazaar site</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/site-definitions/#cvs-site">CVS site</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/site-definitions/#git-site">Git site</a></li>
@@ -733,6 +751,8 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-build-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-build-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_ENV</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-build-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_OPTS</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-cargo-name"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CARGO_NAME</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-cargo-noinstall"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CARGO_NOINSTALL</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_ENV</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-install-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/pkg-type-cargo/#libfoo-install-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code></a></li>
@@ -853,6 +873,7 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -860,6 +881,7 @@ used and the interaction between the staging/target area and the host system.</p
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -898,6 +920,7 @@ used and the interaction between the staging/target area and the host system.</p
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="annex-a/">ANNEX A - Quick reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annex-a/#arguments">Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a/#configuration-options">Configuration options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a/#environment-variables">Environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="annex-a/#package-options">Package options</a></li>

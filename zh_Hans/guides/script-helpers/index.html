@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=df54547a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=ddcdc2ba" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
@@ -240,6 +240,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/advanced-pkg-options/">Advanced options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/system-pkg-options/">System-specific options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/bootstrapping/">Bootstrapping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/post-processing/">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/site-definitions/">Site definitions</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
@@ -285,6 +287,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 </ul>
@@ -305,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-03-29_01.01.00/">1.1 (2024-03-29)</a></li>
@@ -443,7 +447,13 @@ generating a formatted message</p></li>
 <dl class="py function" id="script-hint">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">hint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Logs a hint message to standard out with a trailing new line and (if
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.4 版本发生变更: </span>Ensure availability in script helpers.</p>
+</div>
+<p>Logs a hint message to standard out with a trailing new line and (if
 enabled) a cyan colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hint</span><span class="p">(</span><span class="s1">&#39;this is a hint message&#39;</span><span class="p">)</span>
 </pre></div>
@@ -499,7 +509,10 @@ generating a formatted message</p></li>
 <dl class="py function" id="script-releng-cat">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_cat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Attempts to read one or more files provided to this call. For each file, it
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
+</div>
+<p>Attempts to read one or more files provided to this call. For each file, it
 will be read and printed out to the standard output.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_cat</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">)</span>
@@ -521,11 +534,18 @@ output; <code class="docutils literal notranslate"><span class="pre">False</span
 
 <dl class="py function" id="script-releng-copy">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This call will attempt to copy a provided file or directory, defined by
-<code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code>
-is a file, then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file or directory; if <code class="docutils literal notranslate"><span class="pre">src</span></code>
-is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a target
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">在 0.12 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.4 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">nested</span></code>.</p>
+</div>
+<p>This call will attempt to copy a provided file, directory's contents or
+directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
+destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file,
+then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file or directory; if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a
+directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a target
 directory or target file's directory does not exist, it will be
 automatically created. In the event that a file or directory could not be
 copied, an error message will be output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code>
@@ -560,6 +580,7 @@ system exit (<code class="docutils literal notranslate"><span class="pre">System
 <li><p><strong>quiet</strong> (<em>optional</em>) -- whether or not to suppress output</p></li>
 <li><p><strong>critical</strong> (<em>optional</em>) -- whether or not to stop execution on failure</p></li>
 <li><p><strong>dst_dir</strong> (<em>optional</em>) -- force hint that the destination is a directory</p></li>
+<li><p><strong>nested</strong> (<em>optional</em>) -- nest a source directory into the destination</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -574,15 +595,21 @@ has failed</p>
 
 <dl class="py function" id="script-releng-copy-into">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This call will attempt to copy a provided file or directory, defined by
-<code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If a target
-directory does not exist, it will be automatically created. In the event
-that a file or directory could not be copied, an error message will be
-output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If
-<code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the specified file/directory could
-not be copied for any reason, this call will issue a system exit
-(<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_copy_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.4 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">nested</span></code>.</p>
+</div>
+<p>This call will attempt to copy a provided file, directory's contents or
+directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
+destination directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If a target directory does not
+exist, it will be automatically created. In the event that a file or
+directory could not be copied, an error message will be output to
+standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If <code class="docutils literal notranslate"><span class="pre">critical</span></code>
+is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the specified file/directory could not be copied
+for any reason, this call will issue a system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># (stage)</span>
 <span class="c1"># my-file</span>
@@ -595,6 +622,12 @@ not be copied for any reason, this call will issue a system exit
 <span class="c1"># my-directory/my-file</span>
 <span class="c1"># my-directory2/my-file</span>
 <span class="c1"># my-file</span>
+<span class="n">releng_copy_into</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory3&#39;</span><span class="p">,</span> <span class="n">nested</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># (stage)</span>
+<span class="c1"># my-directory/my-file</span>
+<span class="c1"># my-directory2/my-file</span>
+<span class="c1"># my-directory3/directory/my-file</span>
+<span class="c1"># my-file</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -604,6 +637,7 @@ not be copied for any reason, this call will issue a system exit
 <li><p><strong>dst</strong> -- the destination directory</p></li>
 <li><p><strong>quiet</strong> (<em>optional</em>) -- whether or not to suppress output</p></li>
 <li><p><strong>critical</strong> (<em>optional</em>) -- whether or not to stop execution on failure</p></li>
+<li><p><strong>nested</strong> (<em>optional</em>) -- nest a source directory into the destination</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -619,7 +653,10 @@ has failed</p>
 <dl class="py function" id="script-releng-env">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_env</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value=&lt;object</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Provides a caller a simple method to fetch or configure an environment
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.3.</span></p>
+</div>
+<p>Provides a caller a simple method to fetch or configure an environment
 variable for the current context. This call is the same as if one directly
 fetched from or managed a key-value with <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>. If <code class="docutils literal notranslate"><span class="pre">value</span></code> is not
 provided, the environment variable's value (if set) will be returned. If
@@ -648,8 +685,14 @@ be removed.</p>
 
 <dl class="py function" id="script-releng-execute">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">在 1.13 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">expand</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.14 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">args_str</span></code>.</p>
+</div>
+<p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
 the working directory of the executed command by explicitly setting the
 directory in <code class="docutils literal notranslate"><span class="pre">cwd</span></code>. The execution request will return <code class="docutils literal notranslate"><span class="pre">True</span></code> on a
 successful execution; <code class="docutils literal notranslate"><span class="pre">False</span></code> if an issue has been detected (e.g. bad
@@ -699,6 +742,7 @@ list will be populated with the output provided from an invoked process.</p>
 <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
 <li><p><strong>capture</strong> (<em>optional</em>) -- list to capture output into</p></li>
 <li><p><strong>expand</strong> (<em>optional</em>) -- perform variable expansion on arguments</p></li>
+<li><p><strong>args_str</strong> (<em>optional</em>) -- invoke arguments as a single string</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -714,7 +758,10 @@ execution has failed</p>
 <dl class="py function" id="script-releng-execute-rv">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute_rv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Runs the command <code class="docutils literal notranslate"><span class="pre">command</span></code> with provided <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.8.</span></p>
+</div>
+<p>Runs the command <code class="docutils literal notranslate"><span class="pre">command</span></code> with provided <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A
 caller can adjust the working directory of the executed command by
 explicitly setting the directory in <code class="docutils literal notranslate"><span class="pre">cwd</span></code>. The execution request will
 return the command's return code as well as any captured output.</p>
@@ -744,6 +791,7 @@ instead of the original environment of the caller.</p>
 <li><p><strong>**env</strong> -- environment variables to use for the process</p></li>
 <li><p><strong>**env_update</strong> -- environment variables to append for the process</p></li>
 <li><p><strong>**expand</strong> -- perform variable expansion on arguments</p></li>
+<li><p><strong>**args_str</strong> -- invoke arguments as a single string</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -846,7 +894,10 @@ duplicate entries.</p>
 <dl class="py function" id="script-releng-include">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>The provided call will execute code at the provided file path. The path
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
+<p>The provided call will execute code at the provided file path. The path
 will be relative to the caller's script, unless an absolute path is
 provided. The executed script will be initialized with globals matching
 the caller's script.</p>
@@ -872,7 +923,10 @@ the caller's script.</p>
 <dl class="py function" id="script-releng-ls">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Attempts to read a directory for its contents and prints this information
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
+</div>
+<p>Attempts to read a directory for its contents and prints this information
 to the configured standard output stream.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_ls</span><span class="p">(</span><span class="s1">&#39;my-dir/&#39;</span><span class="p">)</span>
@@ -893,7 +947,19 @@ be read</p>
 <dl class="py function" id="script-releng-mkdir">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Attempts to create the provided directory. If the directory already exists,
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.3.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 0.13 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">critical</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.3 版本发生变更: </span>Accepts multiple paths components.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.3 版本发生变更: </span>Returns the created path.</p>
+</div>
+<p>Attempts to create the provided directory. If the directory already exists,
 this method has no effect. If the directory does not exist and could not be
 created, this method will return <code class="docutils literal notranslate"><span class="pre">None</span></code>. Also, if an error has been
 detected, an error message will be output to standard error (unless
@@ -932,12 +998,19 @@ be created</p>
 
 <dl class="py function" id="script-releng-move">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This call will attempt to move a provided file or directory's contents,
-defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>.
-If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file, then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file or directory;
-if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a
-target directory or target file's directory does not exist, it will be
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">在 0.14 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">dst_dir</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.4 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">nested</span></code>.</p>
+</div>
+<p>This call will attempt to move a provided file, directory's contents or
+directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
+destination file or directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If <code class="docutils literal notranslate"><span class="pre">src</span></code> is a file,
+then <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered to be a file or directory; if <code class="docutils literal notranslate"><span class="pre">src</span></code> is a
+directory, <code class="docutils literal notranslate"><span class="pre">dst</span></code> is considered a target directory. If a target
+directory or target file's directory does not exist, it will be
 automatically created.</p>
 <p>In the event that a file or directory could not be moved, an error message
 will be output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If
@@ -966,6 +1039,7 @@ be moved for any reason, this call will issue a system exit
 <li><p><strong>quiet</strong> (<em>optional</em>) -- whether or not to suppress output</p></li>
 <li><p><strong>critical</strong> (<em>optional</em>) -- whether or not to stop execution on failure</p></li>
 <li><p><strong>dst_dir</strong> (<em>optional</em>) -- force hint that the destination is a directory</p></li>
+<li><p><strong>nested</strong> (<em>optional</em>) -- nest a source directory into the destination</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -980,10 +1054,17 @@ has failed</p>
 
 <dl class="py function" id="script-releng-move-into">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>This call will attempt to move a provided file or directory's contents,
-defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a destination directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If a
-target directory directory does not exist, it will be automatically created.</p>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_move_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.14.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 1.4 版本发生变更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">nested</span></code>.</p>
+</div>
+<p>This call will attempt to move a provided file, directory's contents or
+directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
+destination directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If a target directory directory
+does not exist, it will be automatically created.</p>
 <p>In the event that a file or directory could not be moved, an error message
 will be output to standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If
 <code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the specified file/directory could not
@@ -992,14 +1073,17 @@ be moved for any reason, this call will issue a system exit
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># (input)</span>
 <span class="c1"># my-directory/another-file</span>
+<span class="c1"># my-directory2/another-file2</span>
 <span class="c1"># my-file</span>
 <span class="c1"># my-file2</span>
 <span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-file3&#39;</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2&#39;</span><span class="p">)</span>
-<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file2&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory2&#39;</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-directory&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory3&#39;</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-file2&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory3&#39;</span><span class="p">)</span>
+<span class="n">releng_move</span><span class="p">(</span><span class="s1">&#39;my-directory2&#39;</span><span class="p">,</span> <span class="s1">&#39;my-directory3&#39;</span><span class="p">,</span> <span class="n">nested</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># (output)</span>
-<span class="c1"># my-directory2/another-file</span>
-<span class="c1"># my-directory2/my-file2</span>
+<span class="c1"># my-directory3/my-directory2/another-file2</span>
+<span class="c1"># my-directory3/another-file</span>
+<span class="c1"># my-directory3/my-file2</span>
 <span class="c1"># my-file3</span>
 </pre></div>
 </div>
@@ -1010,6 +1094,7 @@ be moved for any reason, this call will issue a system exit
 <li><p><strong>dst</strong> -- the destination directory</p></li>
 <li><p><strong>quiet</strong> (<em>optional</em>) -- whether or not to suppress output</p></li>
 <li><p><strong>critical</strong> (<em>optional</em>) -- whether or not to stop execution on failure</p></li>
+<li><p><strong>nested</strong> (<em>optional</em>) -- nest a source directory into the destination</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
@@ -1050,10 +1135,79 @@ path could not be removed from the system</p>
 </dl>
 </dd></dl>
 
+<dl class="py function" id="script-releng-symlink">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_symlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<dd><div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>this call may not work in Windows environments if the user invoking
+releng-tool does not have permission to create symbolic links.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.4.</span></p>
+</div>
+<p>This call will attempt to create a symbolic link to a <code class="docutils literal notranslate"><span class="pre">target</span></code> path.
+A provided <code class="docutils literal notranslate"><span class="pre">link_path</span></code> determines where the symbolic link will be
+created. By default, the <code class="docutils literal notranslate"><span class="pre">link_path</span></code> identifies the symbolic link file
+to be created. However, if <code class="docutils literal notranslate"><span class="pre">lpd</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, it will consider
+the <code class="docutils literal notranslate"><span class="pre">link_path</span></code> as a directory to create a symbolic link in. For this
+case, the resulting symbolic link's filename will match the basename of
+the provided <code class="docutils literal notranslate"><span class="pre">target</span></code> path.</p>
+<p>If a symbolic link already exists at the provided link path, the
+symbolic link will be replaced with the new <code class="docutils literal notranslate"><span class="pre">target</span></code>. If the resolved
+link path already exists and is not a symbolic link, this operation will
+not attempt to create a symbolic link.</p>
+<p>If the directory structure of a provided <code class="docutils literal notranslate"><span class="pre">link_path</span></code> does not exist,
+it will be automatically created. In the event that a symbolic link or
+directory could not be created, an error message will be output to
+standard error (unless <code class="docutils literal notranslate"><span class="pre">quiet</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>). If <code class="docutils literal notranslate"><span class="pre">critical</span></code> is
+set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the symbolic link could not be created for any
+reason, this call will issue a system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my-link -&gt; my-file</span>
+<span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-link&#39;</span><span class="p">)</span>
+
+<span class="c1"># my-link -&gt; container/my-file</span>
+<span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;container/my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;my-link&#39;</span><span class="p">)</span>
+
+<span class="c1"># some/folder/my-link -&gt; ../../my-file</span>
+<span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;some/folder/my-link&#39;</span><span class="p">)</span>
+
+<span class="c1"># my-file -&gt; container/my-file</span>
+<span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;container&#39;</span><span class="p">,</span> <span class="n">ldp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># some-path/my-link -&gt; &lt;workdir&gt;/folder/my-file</span>
+<span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;folder/my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;some-path/my-link&#39;</span><span class="p">,</span> <span class="n">relative</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> -- the source path to link to</p></li>
+<li><p><strong>link_path</strong> -- the symbolic link path</p></li>
+<li><p><strong>quiet</strong> (<em>optional</em>) -- whether to suppress output</p></li>
+<li><p><strong>critical</strong> (<em>optional</em>) -- whether to stop execution on failure</p></li>
+<li><p><strong>lpd</strong> (<em>optional</em>) -- hint that the link is a directory to create in</p></li>
+<li><p><strong>relative</strong> (<em>optional</em>) -- whether to build a relative link</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the symbolic link has been created; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the
+symbolic link could not be created</p>
+</dd>
+<dt class="field-odd">抛出<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SystemExit</strong> -- if the symbolic link operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function" id="script-releng-require-version">
 <dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_require_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Enables a caller to explicitly check for a required releng-tool version.
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
+</div>
+<p>Enables a caller to explicitly check for a required releng-tool version.
 Invoking this function with a dotted-separated <code class="docutils literal notranslate"><span class="pre">version</span></code> string, the
 string will be parsed and compared with the running releng-tool version.
 If the required version is met, this method will have no effect. In the
