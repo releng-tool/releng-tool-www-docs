@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="1.4 (2025-01-19)" href="../news/2025-01-19_01.04.00/" /><link rel="prev" title="Załącznik a – Instrukcja w pigułce" href="../annex-a/" />
+<link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="2.0 (2025-02-09)" href="../news/2025-02-09_02.00.00/" /><link rel="prev" title="ANNEX A — Quick reference" href="../annex-a/" />
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>Informacje o wydaniu - releng-tool - dokumentacja</title>
@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/">Przykłady</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help/">Prośba o pomoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../annex-a/">Załącznik a – Instrukcja w pigułce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Informacje o wydaniu</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -407,6 +408,7 @@ releng-tool, please see the project’s <a class="reference external" href="http
 <h2>News<a class="headerlink" href="#news" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -422,6 +424,33 @@ releng-tool, please see the project’s <a class="reference external" href="http
 <li class="toctree-l1"><a class="reference internal" href="../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
 </ul>
 </div>
+</section>
+<section id="v2-0-2025-02-09">
+<h2>2.0 (2025-02-09)<a class="headerlink" href="#v2-0-2025-02-09" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>(note)</strong> Support for non-LTS version of Python have been dropped</p></li>
+<li><p>Fixed handling of Git submodules using incorrect revisions</p></li>
+<li><p>Fixed issue where configured prefixes could be ignored in Python packages</p></li>
+<li><p>Fixed issue where file URIs sites may prevent other URL sites from fetching</p></li>
+<li><p>Fixed issue where triggering a re-install on select Python packages would fail</p></li>
+<li><p>Improved support for host tool integration with Python packages</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">--only-mirror</span></code> argument to force external package fetch with mirror</p></li>
+<li><p>Introduce alternative hash-files for package development revisions</p></li>
+<li><p>Overhaul of Python package processing with install scheme configuration
+via <code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_SCHEME</span></code>, launcher configuration via
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_LAUNCHER_KIND</span></code> and dist overrides via
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_DIST_PATH</span></code></p></li>
+<li><p>Script function <code class="docutils literal notranslate"><span class="pre">releng_ls</span></code> now accepts a <code class="docutils literal notranslate"><span class="pre">recursive</span></code> argument</p></li>
+<li><p>Support URL fetch retries on transient errors</p></li>
+<li><p>Support for GNU Bazaar sites is deprecated</p></li>
+<li><p>Support for Python distutils packages is deprecated</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">override_revisions</span></code> is deprecated</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">override_sites</span></code> is deprecated</p></li>
+<li><p>Support format hints in <code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></p></li>
+<li><p>Support ignoring <code class="docutils literal notranslate"><span class="pre">stderr</span></code> output in execute calls</p></li>
+<li><p>Support maximum checks when using <code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></p></li>
+<li><p>Use of Python’s <code class="docutils literal notranslate"><span class="pre">installer</span></code> required for all Python packages</p></li>
+</ul>
 </section>
 <section id="v1-4-2025-01-19">
 <h2>1.4 (2025-01-19)<a class="headerlink" href="#v1-4-2025-01-19" title="Link to this heading">¶</a></h2>
@@ -778,12 +807,12 @@ execution</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../news/2025-01-19_01.04.00/">
+          <a class="next-page" href="../news/2025-02-09_02.00.00/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">1.4 (2025-01-19)</div>
+                <div class="title">2.0 (2025-02-09)</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -794,7 +823,7 @@ execution</p></li>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Załącznik a – Instrukcja w pigułce</div>
+                <div class="title">ANNEX A — Quick reference</div>
                 
               </div>
             </a>
@@ -834,6 +863,7 @@ execution</p></li>
             <ul>
 <li><a class="reference internal" href="#">Informacje o wydaniu</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
+<li><a class="reference internal" href="#v2-0-2025-02-09">2.0 (2025-02-09)</a></li>
 <li><a class="reference internal" href="#v1-4-2025-01-19">1.4 (2025-01-19)</a></li>
 <li><a class="reference internal" href="#v1-3-2024-08-19">1.3 (2024-08-19)</a></li>
 <li><a class="reference internal" href="#v1-2-2024-07-01">1.2 (2024-07-01)</a></li>

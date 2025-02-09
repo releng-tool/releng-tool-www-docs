@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/">Przykłady</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Prośba o pomoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">Załącznik a – Instrukcja w pigułce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -479,46 +480,129 @@ value. This field is optional.</p>
 </div>
 </section>
 <section id="libfoo-install-defs">
-<span id="pkg-opt-python-install-defs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code><a class="headerlink" href="#libfoo-install-defs" title="Link to this heading">¶</a></h2>
-<p>Provides a means to pass definitions into the installation process. This
-option can is defined as a dictionary of string pairs. This field is
-optional.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option=value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code><a class="headerlink" href="#libfoo-install-defs" title="Link to this heading">¶</a></h2>
+<div class="versionremoved">
+<p><span class="versionmodified removed">Removed in version 2.0: </span>No longer applicable as all Python packages are  installed using the
+<a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> module.</p>
 </div>
 </section>
 <section id="libfoo-install-env">
-<span id="pkg-opt-python-install-env"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code><a class="headerlink" href="#libfoo-install-env" title="Link to this heading">¶</a></h2>
-<p>Provides a means to pass environment variables into the installation process.
-This option is defined as a dictionary with key-value pairs where the key is
-the environment name and the value is the environment variable’s value. This
-field is optional.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_ENV</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;OPTION&#39;</span><span class="p">:</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code><a class="headerlink" href="#libfoo-install-env" title="Link to this heading">¶</a></h2>
+<div class="versionremoved">
+<p><span class="versionmodified removed">Removed in version 2.0: </span>No longer applicable as all Python packages are installed using the
+<a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> module.</p>
 </div>
 </section>
 <section id="libfoo-install-opts">
-<span id="pkg-opt-python-install-opts"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code><a class="headerlink" href="#libfoo-install-opts" title="Link to this heading">¶</a></h2>
-<p>Provides a means to pass command line options into the installation process.
-This option can be defined as a dictionary of string pairs or a list with
-strings – either way defined will generate argument values to include in
-the installation event. This field is optional.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># adds &quot;--option value&quot; to the command</span>
-    <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+<h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code><a class="headerlink" href="#libfoo-install-opts" title="Link to this heading">¶</a></h2>
+<div class="versionremoved">
+<p><span class="versionmodified removed">Removed in version 2.0: </span>No longer applicable as all Python packages are installed using the
+<a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> module.</p>
+</div>
+</section>
+<section id="libfoo-python-dist-path">
+<span id="pkg-opt-python-dist-path"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_DIST_PATH</span></code><a class="headerlink" href="#libfoo-python-dist-path" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
+</div>
+<p>When a Python package is built, it will scan the <code class="docutils literal notranslate"><span class="pre">dist/</span></code> directory in
+package’s output directory for a wheel package. It is possible for some
+Python packages to configure their projects to output built wheels into an
+alternative path. If an alternative path is configured, releng-tool will
+fail to find and install the package.</p>
+<p>This option informs releng-tool what container folder hosts the provided
+wheel package. For example, if the Python package configures itself to
+output into <code class="docutils literal notranslate"><span class="pre">build/dist</span></code>, the following configuration can be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_DIST_PATH</span> <span class="o">=</span> <span class="s1">&#39;build/dist&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="libfoo-python-installer-launcher-kind">
+<span id="pkg-opt-python-installer-launcher-kind"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_LAUNCHER_KIND</span></code><a class="headerlink" href="#libfoo-python-installer-launcher-kind" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
+</div>
+<p>Defines the launcher-kind to build when generating any executable scripts
+defined in the Python package’s project configuration (<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>).
+By default, the launcher-kind is chosen based on the host platform building
+the package. Supported options are dictated by <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a>.
+Options may include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">posix</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win-amd64</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win-arm64</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win-arm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win-ia32</span></code></p></li>
+</ul>
+<p>For example, to explicitly build POSIX executable scripts, the following
+configuration can be defined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="libfoo-python-installer-scheme">
+<span id="pkg-opt-python-installer-scheme"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_SCHEME</span></code><a class="headerlink" href="#libfoo-python-installer-scheme" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.0.</span></p>
+</div>
+<p>Defines the installation scheme used for Python packages. By default,
+releng-tool uses the following scheme entries:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Path</p></th>
+<th class="head text-left"><p>Installation directory</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>data</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>include</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix/include/python</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>platinclude</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix/include/python</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>platlib</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix/lib/python</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>platstdlib</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix/lib/python</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>purelib</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix/lib/python</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>scripts</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix/bin</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>stdlib</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prefix/lib/python</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A package can be configured with a scheme <code class="docutils literal notranslate"><span class="pre">native</span></code> to use the default
+install target based on the native system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;native&#39;</span>
+</pre></div>
+</div>
+<p>Packages can also use schemes supported by Python’s <a class="reference external" href="https://docs.python.org/3/library/sysconfig.html"><code class="docutils literal notranslate"><span class="pre">sysconfig</span></code></a>
+module. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix_prefix&#39;</span>
+</pre></div>
+</div>
+<p>A package may also define a custom scheme:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span>        <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;include&#39;</span><span class="p">:</span>     <span class="s1">&#39;include/python&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;platinclude&#39;</span><span class="p">:</span> <span class="s1">&#39;include/python&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;platlib&#39;</span><span class="p">:</span>     <span class="s1">&#39;lib/python&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;platstdlib&#39;</span><span class="p">:</span>  <span class="s1">&#39;lib/python&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;purelib&#39;</span><span class="p">:</span>     <span class="s1">&#39;lib/python&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;scripts&#39;</span><span class="p">:</span>     <span class="s1">&#39;bin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stdlib&#39;</span><span class="p">:</span>      <span class="s1">&#39;lib/python&#39;</span><span class="p">,</span>
 <span class="p">}</span>
-
-<span class="c1"># (or)</span>
-
-<span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># adds &quot;--some-option&quot; to the command</span>
-    <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
-<span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -538,6 +622,12 @@ interpreter will be used. This field is optional.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 0.14: </span>Support added for <code class="docutils literal notranslate"><span class="pre">poetry</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.0: </span>Use of <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> is required for all package types.</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Niezalecane od wersji 2.0: </span>Support for <code class="docutils literal notranslate"><span class="pre">distutils</span></code> packages is deprecated.</p>
 </div>
 <p>The setup type will configure how a Python package is built and installed.
 The default setup type used for a Python package is a distutils package. It
@@ -579,13 +669,15 @@ The following outlines available setup types in releng-tool:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_SETUP_TYPE</span> <span class="o">=</span> <span class="s1">&#39;setuptools&#39;</span>
 </pre></div>
 </div>
-<p>For setup types other than Setuptools/distutils, the <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a>
-module will be used to install packages to their destination folders.</p>
 <p>Host environments are required to pre-install needed packages in their
 running Python environment to support setup types not available in a
 standard Python distribution. For example, if a PDM setup type is set,
 the host system will need to have <code class="docutils literal notranslate"><span class="pre">pdm</span></code> Python module installed on
 the system.</p>
+<p>The <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> module will be used to install packages to
+their destination folders. For  Setuptools/distutils packages, ensure
+<a class="reference external" href="https://wheel.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">wheel</span></code></a> is available to help build as packages will be built
+with <code class="docutils literal notranslate"><span class="pre">bdist_wheel</span></code>.</p>
 </section>
 </section>
 
@@ -656,6 +748,9 @@ the system.</p>
 <li><a class="reference internal" href="#libfoo-install-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-install-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-install-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-python-dist-path"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_DIST_PATH</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-python-installer-launcher-kind"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_LAUNCHER_KIND</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-python-installer-scheme"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_SCHEME</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-python-interpreter"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INTERPRETER</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-python-setup-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_SETUP_TYPE</span></code></a></li>
 </ul>

@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/">Beispiele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Leitfaden für Mitwirkende</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANHANG A - Kurzreferenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -510,6 +511,12 @@ following outline a series of supported site definitions:</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Geändert in Version 1.4: </span>Support added for <code class="docutils literal notranslate"><span class="pre">brz+</span></code>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Geändert in Version 2.0: </span>Support added for <code class="docutils literal notranslate"><span class="pre">file+</span></code>.</p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Veraltet ab Version 2.0: </span>Support for Bazaar sites is deprecated.</p>
+</div>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -518,34 +525,37 @@ following outline a series of supported site definitions:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-right"><p>Breezy</p></td>
+<tr class="row-even"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-breezy"><span class="std std-ref">Breezy</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">brz+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-right"><p>Bazaar</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">bzr+</span></code></p></td>
+<tr class="row-odd"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-bazaar"><span class="std std-ref">Bazaar</span></a></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">bzr+</span></code> <em>(deprecated)</em></p></td>
 </tr>
-<tr class="row-even"><td class="text-right"><p>CVS</p></td>
+<tr class="row-even"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-cvs"><span class="std std-ref">CVS</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">cvs+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-right"><p>Git</p></td>
+<tr class="row-odd"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-file"><span class="std std-ref">File</span></a></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">file+</span></code> or <code class="docutils literal notranslate"><span class="pre">file://</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-git"><span class="std std-ref">Git</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">git+</span></code> or <code class="docutils literal notranslate"><span class="pre">.git</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-right"><p>Mercurial</p></td>
+<tr class="row-odd"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-mercurial"><span class="std std-ref">Mercurial</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">hg+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-right"><p>Perforce</p></td>
+<tr class="row-even"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-perforce"><span class="std std-ref">Perforce</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">perforce+</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-right"><p>rsync</p></td>
+<tr class="row-odd"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-rsync"><span class="std std-ref">rsync</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rsync+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-right"><p>SCP</p></td>
+<tr class="row-even"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-scp"><span class="std std-ref">SCP</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">scp+</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-right"><p>SVN</p></td>
+<tr class="row-odd"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-svn"><span class="std std-ref">SVN</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">svn+</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-right"><p>URL</p></td>
+<tr class="row-even"><td class="text-right"><p><a class="reference internal" href="../site-definitions/#site-url"><span class="std std-ref">URL</span></a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">(wildcard)</span></code></p></td>
 </tr>
 </tbody>
@@ -565,8 +575,7 @@ following outline a series of supported site definitions:</p>
 <p>A developer can also use <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> to
 explicitly define the version control system type without the need for a
 prefix hint. The use of a dictionary value is only useful when operating in
-<a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>. For more information on each
-type’s formatting, see <a class="reference internal" href="../site-definitions/"><span class="doc std std-doc">site definitions</span></a>.</p>
+<a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>.</p>
 <p>Using a specific type will create a dependency for a project that the
 respective host tool is installed on the host system. For example, if a
 Git site is set, the host system will need to have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on the
@@ -576,7 +585,8 @@ system.</p>
 for custom site protocols.</p>
 <p>Specifying a <a class="reference internal" href="../site-definitions/#site-local"><span class="std std-ref">local site</span></a> value with <code class="docutils literal notranslate"><span class="pre">local</span></code> will automatically
 configure a VCS-type of <code class="docutils literal notranslate"><span class="pre">local</span></code>.</p>
-<p>See also <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a>.</p>
+<p>See also <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> and
+<a class="reference internal" href="../site-definitions/"><span class="doc std std-doc">site definitions</span></a>.</p>
 </section>
 <section id="libfoo-type">
 <span id="pkg-opt-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code><a class="headerlink" href="#libfoo-type" title="Link to this heading">¶</a></h2>

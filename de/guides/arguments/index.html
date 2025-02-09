@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/">Beispiele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors/">Leitfaden für Mitwirkende</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANHANG A - Kurzreferenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -908,6 +909,15 @@ looked for inside the provided path.</p>
 configured in the running environment.</p>
 </div>
 </section>
+<section id="only-mirror">
+<span id="arg-only-mirror"></span><h3><code class="docutils literal notranslate"><span class="pre">--only-mirror</span></code><a class="headerlink" href="#only-mirror" title="Link to this heading">¶</a></h3>
+<p>Only fetch <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-external"><span class="std std-ref">external</span></a> projects with configured mirror.</p>
+<p>When releng-tool is fetching sources with <a class="reference internal" href="../configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a>
+configured, package downloads will be first attempted on the mirror before
+using their package-defined site. If a developer wishes to enforce a build
+to only download external packages from the configured mirror, this option
+can be provided when invoking releng-tool.</p>
+</section>
 <section id="out-dir-dir-var">
 <span id="arg-out-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#out-dir-dir-var" title="Link to this heading">¶</a></h3>
 <p>Directory for output (builds, images, etc.; defaults to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>).</p>
@@ -990,6 +1000,22 @@ process. This option can be used multiple times to apply multiple quirks.</p>
 </div>
 <p>Treat warnings from releng-tool as errors.</p>
 </section>
+</section>
+<section id="variable-injection">
+<span id="arg-variable-injection"></span><h2>Variable injection<a class="headerlink" href="#variable-injection" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
+</div>
+<p>Users can override a select set of variables by defining them in the command
+line arguments. For example, consider a project that defines a <code class="docutils literal notranslate"><span class="pre">libfoo</span></code>
+package with a version <code class="docutils literal notranslate"><span class="pre">1.0</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span>
+</pre></div>
+</div>
+<p>If a user wants to override this a run with <code class="docutils literal notranslate"><span class="pre">1.1</span></code>, the following can be used:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span><span class="nv">LIBFOO_VERSION</span><span class="o">=</span><span class="m">1</span>.1
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -1101,6 +1127,7 @@ process. This option can be used multiple times to apply multiple quirks.</p>
 <li><a class="reference internal" href="#j-jobs-jobs-var"><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></a></li>
 <li><a class="reference internal" href="#l-local-sources-pkg-var-dir-var"><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code></a></li>
 <li><a class="reference internal" href="#nocolorout"><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></a></li>
+<li><a class="reference internal" href="#only-mirror"><code class="docutils literal notranslate"><span class="pre">--only-mirror</span></code></a></li>
 <li><a class="reference internal" href="#out-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#relaxed-args"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code></a></li>
 <li><a class="reference internal" href="#root-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
@@ -1111,6 +1138,7 @@ process. This option can be used multiple times to apply multiple quirks.</p>
 <li><a class="reference internal" href="#werror-werror"><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#variable-injection">Variable injection</a></li>
 </ul>
 </li>
 </ul>

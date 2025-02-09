@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../examples/">Przykłady</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help/">Prośba o pomoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../annex-a/">Załącznik a – Instrukcja w pigułce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -400,7 +401,14 @@
         <article role="main" id="furo-main-content">
           <section id="requirements">
 <h1>Wymagania<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h1>
-<p>releng-tool zostało zaprojektowane w języku [Python][python] i wymaga [Python][python] 2.7 lub 3.4+ aby działał w systemie hosta. W przypadku niektórych etapów czy funkcji, mogą być potrzebne opcjonalne narzędzia. Na przykład, projekty pobierające źródła z [Git][git] będą wymagały zainstalowania narzędzi <code class="docutils literal notranslate"><span class="pre">git</span></code>; projekty z łataniem będą wymagały narzędzia <code class="docutils literal notranslate"><span class="pre">patch</span></code>. Chociaż niektóre funkcje mogą działać na niektórych konkretnych systemach (np. funkcje autotools są przeznaczone do Linuxa), releng-tool może działać na kilku systemach operacyjnych.</p>
+<p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> and requires either
+<a class="reference external" href="https://www.python.org/">Python</a> 3.9+ to run on a host system. A series of optional
+tools are required if certain stages or features are used. For example,
+projects fetching sources from <a class="reference external" href="https://git-scm.com/">Git</a> will require the <code class="docutils literal notranslate"><span class="pre">git</span></code> tool
+installed; projects with patches will required the <code class="docutils literal notranslate"><span class="pre">patch</span></code> tool. While
+some features may be operating system-specific (e.g. autotools features are
+designed for Linux-based hosts), releng-tool can work on various operating
+system variants.</p>
 </section>
 
         </article>

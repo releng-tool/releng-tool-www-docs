@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/">Ejemplos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors/">Guía del colaborador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANEXO A - Guía rápida</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -611,6 +612,8 @@ value of one (i.e. <code class="docutils literal notranslate"><span class="pre">
 <p>The sysroot prefix for the package. By default, this value is configured
 to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>; with the exception of Windows builds where this value is empty
 by default.</p>
+<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a> and
+<a class="reference internal" href="../configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a>.</p>
 </section>
 <section id="prefixed-host-dir">
 <span id="env-prefixed-host-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code><a class="headerlink" href="#prefixed-host-dir" title="Link to this heading">¶</a></h3>
@@ -1133,6 +1136,20 @@ directory using the <a class="reference internal" href="../arguments/#arg-out-di
 <p>See also
 <a class="reference internal" href="#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a>.</p>
 </section>
+<section id="tool-overrides">
+<span id="env-tool-overrides"></span><h3>Tool overrides<a class="headerlink" href="#tool-overrides" title="Link to this heading">¶</a></h3>
+<p>Environment variables can be used to help override external tool invoked by the
+releng-tool process. For example, when invoking CMake-based projects, the tool
+<code class="docutils literal notranslate"><span class="pre">cmake</span></code> will be invoked. However, if a builder is running on CentOS and CMake
+v3.x is desired, the tool <code class="docutils literal notranslate"><span class="pre">cmake3</span></code> needs to be invoked instead. To configure
+this, an environment variable can be set to switch which tool to invoke.
+Consider the following example:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">RELENG_CMAKE</span><span class="o">=</span>cmake3
+<span class="gp">$ </span>releng-tool
+<span class="go">[cmake3 will be used for cmake projects]</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1276,6 +1293,7 @@ directory using the <a class="reference internal" href="../arguments/#arg-out-di
 <li><a class="reference internal" href="#releng-ignore-running-as-root"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-unknown-args"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code></a></li>
 <li><a class="reference internal" href="#releng-output-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#tool-overrides">Tool overrides</a></li>
 </ul>
 </li>
 </ul>

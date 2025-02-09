@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANNEX A - Quick reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -457,6 +458,23 @@ from Git may use Windows line-ending on Windows system, and Unix-line
 endings on other systems:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sha1 602effb4893c7504ffee8a8efcd265d86cd21609 LICENSE
 sha1 9e79b84ef32e911f8056d80a311cf281b2121469 LICENSE
+</pre></div>
+</div>
+<p>If operating in a <a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a> where an
+external package is configured with an alternative revision, hash checks
+will for a package can fail. A developer can override hash checks for a
+specific revision by adding an additional file in the package directory.
+The format is <code class="docutils literal notranslate"><span class="pre">libfoo.hash-&lt;revision&gt;</span></code>. For example, if a development
+run points to a package revision <code class="docutils literal notranslate"><span class="pre">canary</span></code>, if a file named
+<code class="docutils literal notranslate"><span class="pre">libfoo.hash-canary</span></code> exists, it will be used as the source of hashes for
+this revision.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-releng-tool-project/
+    ├── package/
+    │   └── libfoo/
+    │       ├── libfoo.hash
+    │       ├── libfoo.hash-canary    &lt;----
+    │       └── libfoo.rt
+    ...
 </pre></div>
 </div>
 <hr class="footnotes docutils" />

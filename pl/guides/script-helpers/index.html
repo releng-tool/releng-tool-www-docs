@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/">Przykłady</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Prośba o pomoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">Załącznik a – Instrukcja w pigułce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -685,12 +686,15 @@ be removed.</p>
 
 <dl class="py function" id="script-releng-execute">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poll</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_stderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
 <dd><div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 1.13: </span>Add support for <code class="docutils literal notranslate"><span class="pre">expand</span></code>.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 1.14: </span>Add support for <code class="docutils literal notranslate"><span class="pre">args_str</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.0: </span>Add support for <code class="docutils literal notranslate"><span class="pre">ignore_stderr</span></code>.</p>
 </div>
 <p>Runs the command described by <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A caller can adjust
 the working directory of the executed command by explicitly setting the
@@ -743,6 +747,7 @@ list will be populated with the output provided from an invoked process.</p>
 <li><p><strong>capture</strong> (<em>optional</em>) – list to capture output into</p></li>
 <li><p><strong>expand</strong> (<em>optional</em>) – perform variable expansion on arguments</p></li>
 <li><p><strong>args_str</strong> (<em>optional</em>) – invoke arguments as a single string</p></li>
+<li><p><strong>ignore_stderr</strong> (<em>optional</em>) – ignore any stderr output</p></li>
 </ul>
 </dd>
 <dt class="field-even">Zwraca<span class="colon">:</span></dt>
@@ -760,6 +765,15 @@ execution has failed</p>
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_execute_rv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.8.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 1.13: </span>Add support for <code class="docutils literal notranslate"><span class="pre">expand</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 1.14: </span>Add support for <code class="docutils literal notranslate"><span class="pre">args_str</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.0: </span>Add support for <code class="docutils literal notranslate"><span class="pre">ignore_stderr</span></code>.</p>
 </div>
 <p>Runs the command <code class="docutils literal notranslate"><span class="pre">command</span></code> with provided <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A
 caller can adjust the working directory of the executed command by
@@ -792,6 +806,7 @@ instead of the original environment of the caller.</p>
 <li><p><strong>**env_update</strong> – environment variables to append for the process</p></li>
 <li><p><strong>**expand</strong> – perform variable expansion on arguments</p></li>
 <li><p><strong>**args_str</strong> – invoke arguments as a single string</p></li>
+<li><p><strong>**ignore_stderr</strong> – ignore any stderr output</p></li>
 </ul>
 </dd>
 <dt class="field-even">Zwraca<span class="colon">:</span></dt>
@@ -922,9 +937,12 @@ the caller’s script.</p>
 
 <dl class="py function" id="script-releng-ls">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.11.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.0: </span>Add support for <code class="docutils literal notranslate"><span class="pre">recursive</span></code>.</p>
 </div>
 <p>Attempts to read a directory for its contents and prints this information
 to the configured standard output stream.</p>
@@ -934,7 +952,10 @@ to the configured standard output stream.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parametry<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dir</strong> – the directory</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> – the directory</p></li>
+<li><p><strong>recursive</strong> (<em>optional</em>) – recursive search of entries</p></li>
+</ul>
 </dd>
 <dt class="field-even">Zwraca<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the directory could be read and its contents have been
@@ -1203,9 +1224,12 @@ symbolic link could not be created</p>
 
 <dl class="py function" id="script-releng-require-version">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_require_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_require_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.11.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.0: </span>Support maximum version.</p>
 </div>
 <p>Enables a caller to explicitly check for a required releng-tool version.
 Invoking this function with a dotted-separated <code class="docutils literal notranslate"><span class="pre">version</span></code> string, the
@@ -1222,9 +1246,10 @@ return <code class="docutils literal notranslate"><span class="pre">False</span>
 <dl class="field-list simple">
 <dt class="field-odd">Parametry<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>version</strong> – dotted-separated version string</p></li>
-<li><p><strong>quiet</strong> (<em>optional</em>) – whether or not to suppress output</p></li>
-<li><p><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</p></li>
+<li><p><strong>minver</strong> – dotted-separated minimum version string</p></li>
+<li><p><strong>**quiet</strong> (<em>optional</em>) – whether or not to suppress output</p></li>
+<li><p><strong>**critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</p></li>
+<li><p><strong>**maxver</strong> (<em>optional</em>) – dotted-separated maximum version string</p></li>
 </ul>
 </dd>
 <dt class="field-even">Zwraca<span class="colon">:</span></dt>
@@ -1373,6 +1398,39 @@ generating a formatted message</p></li>
 </dd></dl>
 
 </section>
+<section id="available-variables">
+<h2>Available variables<a class="headerlink" href="#available-variables" title="Link to this heading">¶</a></h2>
+<p>The following variables are registered in the global context for any
+project or package definition/script.</p>
+<section id="releng-args">
+<h3><code class="docutils literal notranslate"><span class="pre">releng_args</span></code><a class="headerlink" href="#releng-args" title="Link to this heading">¶</a></h3>
+<p>A list of arguments forwarded into a releng-tool invoke. If a caller uses
+the <code class="docutils literal notranslate"><span class="pre">--</span></code> argument, all trailing arguments will be populated into
+„forwarded argument” list. A project may use these arguments for their own
+tailoring.</p>
+<p>A user can use Python’s <a class="reference external" href="https://docs.python.org/3/library/argparse.html"><code class="docutils literal notranslate"><span class="pre">argparse</span></code></a> module to manage custom
+arguments. For example, if trying to add a new flag <code class="docutils literal notranslate"><span class="pre">--custom</span></code> to a build,
+the following can be added into a project’s <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code> definition:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--custom&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">releng_args</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">custom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The flag can be enabled by invoking releng-tool using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="o">--</span> <span class="o">--</span><span class="n">custom</span>
+</pre></div>
+</div>
+</section>
+<section id="releng-version">
+<h3><code class="docutils literal notranslate"><span class="pre">releng_version</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h3>
+<p>The version of releng-tool.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Using version </span><span class="si">{</span><span class="n">releng_version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="importing-helpers">
 <h2>Importing helpers<a class="headerlink" href="#importing-helpers" title="Link to this heading">¶</a></h2>
 <p>Scripts directly invoked by releng-tool will automatically have these helpers
@@ -1451,6 +1509,11 @@ example, import a specific function:</p>
             <ul>
 <li><a class="reference internal" href="#">Script helpers</a><ul>
 <li><a class="reference internal" href="#available-functions">Available functions</a></li>
+<li><a class="reference internal" href="#available-variables">Available variables</a><ul>
+<li><a class="reference internal" href="#releng-args"><code class="docutils literal notranslate"><span class="pre">releng_args</span></code></a></li>
+<li><a class="reference internal" href="#releng-version"><code class="docutils literal notranslate"><span class="pre">releng_version</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#importing-helpers">Importing helpers</a></li>
 </ul>
 </li>

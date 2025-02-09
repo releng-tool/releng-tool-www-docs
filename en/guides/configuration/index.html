@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../examples/">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors/">Contributor guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANNEX A - Quick reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -595,7 +596,7 @@ prefix is typically set to <code class="docutils literal notranslate"><span clas
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a>.</p>
+<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a> and <a class="reference internal" href="../environment/#env-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></span></a>.</p>
 </section>
 <section id="url-mirror">
 <span id="conf-url-mirror"></span><h3><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code><a class="headerlink" href="#url-mirror" title="Link to this heading">¶</a></h3>
@@ -606,6 +607,16 @@ definition.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/data/&#39;</span>
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">url_mirror</span></code> configuration also accepts the following format options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: the name of a package</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code>: the version of a package</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/cache/</span><span class="si">{name}</span><span class="s1">/&#39;</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">{name}</span></code> will be replaced by the package name being fetched.</p>
 </section>
 </section>
 <section id="advanced-options">
@@ -680,11 +691,6 @@ adding them into a project’s <code class="docutils literal notranslate"><span 
 </section>
 <section id="override-extract-tools">
 <span id="conf-override-extract-tools"></span><h3><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code><a class="headerlink" href="#override-extract-tools" title="Link to this heading">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The use of an override option should only be used in special cases (see
-also <a class="reference internal" href="../configuration-overrides/"><span class="doc std std-doc">configuration overrides</span></a>).</p>
-</div>
 <p>A dictionary to be provided to map an extension type to an external tool
 to indicate which tool should be used for extraction. For example, when a
 <code class="docutils literal notranslate"><span class="pre">.zip</span></code> archive is being processed for extraction, releng-tool will
@@ -695,50 +701,8 @@ tool with their own extraction utility. Consider the following example:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="override-revisions">
-<span id="conf-override-revisions"></span><h3><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code><a class="headerlink" href="#override-revisions" title="Link to this heading">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The use of an override option should only be used in special cases (see
-also <a class="reference internal" href="../configuration-overrides/"><span class="doc std std-doc">configuration overrides</span></a>).</p>
-</div>
-<p>Allows a dictionary to be provided to map a package name to a new revision
-value. Consider the following example: a project defines <code class="docutils literal notranslate"><span class="pre">module-a</span></code> and
-<code class="docutils literal notranslate"><span class="pre">module-b</span></code> packages with package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> depending on package
-<code class="docutils literal notranslate"><span class="pre">module-a</span></code>. A developer may be attempting to tweak package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> on
-the fly to test a new capabilities against the current stable version of
-<code class="docutils literal notranslate"><span class="pre">module-a</span></code>. However, the developer does not want to explicitly change the
-revision inside package <code class="docutils literal notranslate"><span class="pre">module-b</span></code>’s definition. To avoid this, an override
-can be used instead:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;module-b&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;test-branch&gt;&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The above example shows that package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> will fetch using a test
-branch instead of what is defined in the actual package definition.</p>
-</section>
-<section id="override-sites">
-<span id="conf-override-sites"></span><h3><code class="docutils literal notranslate"><span class="pre">override_sites</span></code><a class="headerlink" href="#override-sites" title="Link to this heading">¶</a></h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The use of an override option should only be used in special cases (see
-also <a class="reference internal" href="../configuration-overrides/"><span class="doc std std-doc">configuration overrides</span></a>).</p>
-</div>
-<p>A dictionary to be provided to map a package name to a new site value. There
-may be times where a host may not have access to a specific package site. To
-have a host to use a mirror location without having to adjust the package
-definition, the site override option can be used. For example, consider a
-package pulls from site <code class="docutils literal notranslate"><span class="pre">git&#64;example.com:myproject.git</span></code>. However, the host
-<code class="docutils literal notranslate"><span class="pre">example.com</span></code> cannot be access from the host machine. If a mirror location
-has been setup at <code class="docutils literal notranslate"><span class="pre">git&#64;example.org:myproject.git</span></code>, the following override
-can be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;git@example.org:mywork.git&#39;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">{file}</span></code> key will be replaced with the file to be extracted, and the
+<code class="docutils literal notranslate"><span class="pre">{dir}</span></code> key will be replaced where the contents should extract to.</p>
 </section>
 <section id="quirks">
 <span id="conf-quirks"></span><h3><code class="docutils literal notranslate"><span class="pre">quirks</span></code><a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h3>
@@ -791,6 +755,65 @@ version string that is compatible with <a class="reference external" href="https
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../packages/system-pkg-options/#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a>.</p>
+</section>
+</section>
+<section id="deprecated-options">
+<h2>Deprecated options<a class="headerlink" href="#deprecated-options" title="Link to this heading">¶</a></h2>
+<p>The following outlines deprecated configuration options. It is not
+recommended to use these options.</p>
+<section id="override-revisions">
+<span id="conf-override-revisions"></span><h3><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code><a class="headerlink" href="#override-revisions" title="Link to this heading">¶</a></h3>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.0: </span>The use of revision overrides is deprecated.
+Users wanting to override revisions without source modification are
+recommended to use <a class="reference internal" href="../arguments/#arg-variable-injection"><span class="std std-ref">variable injection</span></a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The use of an override option should only be used in special cases (see
+also <a class="reference internal" href="../configuration-overrides/"><span class="doc std std-doc">configuration overrides</span></a>).</p>
+</div>
+<p>Allows a dictionary to be provided to map a package name to a new revision
+value. Consider the following example: a project defines <code class="docutils literal notranslate"><span class="pre">module-a</span></code> and
+<code class="docutils literal notranslate"><span class="pre">module-b</span></code> packages with package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> depending on package
+<code class="docutils literal notranslate"><span class="pre">module-a</span></code>. A developer may be attempting to tweak package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> on
+the fly to test a new capabilities against the current stable version of
+<code class="docutils literal notranslate"><span class="pre">module-a</span></code>. However, the developer does not want to explicitly change the
+revision inside package <code class="docutils literal notranslate"><span class="pre">module-b</span></code>’s definition. To avoid this, an override
+can be used instead:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_revisions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;module-b&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;test-branch&gt;&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The above example shows that package <code class="docutils literal notranslate"><span class="pre">module-b</span></code> will fetch using a test
+branch instead of what is defined in the actual package definition.</p>
+</section>
+<section id="override-sites">
+<span id="conf-override-sites"></span><h3><code class="docutils literal notranslate"><span class="pre">override_sites</span></code><a class="headerlink" href="#override-sites" title="Link to this heading">¶</a></h3>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.0: </span>The use of site overrides is deprecated.
+Users wanting to override sites without source modification are
+recommended to use <a class="reference internal" href="../arguments/#arg-variable-injection"><span class="std std-ref">variable injection</span></a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The use of an override option should only be used in special cases (see
+also <a class="reference internal" href="../configuration-overrides/"><span class="doc std std-doc">configuration overrides</span></a>).</p>
+</div>
+<p>A dictionary to be provided to map a package name to a new site value. There
+may be times where a host may not have access to a specific package site. To
+have a host to use a mirror location without having to adjust the package
+definition, the site override option can be used. For example, consider a
+package pulls from site <code class="docutils literal notranslate"><span class="pre">git&#64;example.com:myproject.git</span></code>. However, the host
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code> cannot be access from the host machine. If a mirror location
+has been setup at <code class="docutils literal notranslate"><span class="pre">git&#64;example.org:myproject.git</span></code>, the following override
+can be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_sites</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;&lt;pkg&gt;&#39;</span><span class="p">:</span> <span class="s1">&#39;git@example.org:mywork.git&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="urlopen" role="doc-footnote">
@@ -880,11 +903,14 @@ version string that is compatible with <a class="reference external" href="https
 <li><a class="reference internal" href="#extra-license-exceptions"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></a></li>
 <li><a class="reference internal" href="#extra-licenses"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></a></li>
 <li><a class="reference internal" href="#override-extract-tools"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></a></li>
-<li><a class="reference internal" href="#override-revisions"><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code></a></li>
-<li><a class="reference internal" href="#override-sites"><code class="docutils literal notranslate"><span class="pre">override_sites</span></code></a></li>
 <li><a class="reference internal" href="#quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a></li>
 <li><a class="reference internal" href="#urlopen-context"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></a></li>
 <li><a class="reference internal" href="#vsdevcmd"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deprecated-options">Deprecated options</a><ul>
+<li><a class="reference internal" href="#override-revisions"><code class="docutils literal notranslate"><span class="pre">override_revisions</span></code></a></li>
+<li><a class="reference internal" href="#override-sites"><code class="docutils literal notranslate"><span class="pre">override_sites</span></code></a></li>
 </ul>
 </li>
 </ul>

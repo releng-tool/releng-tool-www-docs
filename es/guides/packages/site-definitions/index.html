@@ -304,10 +304,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/">Ejemplos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Guía del colaborador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANEXO A - Guía rápida</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANNEX A — Quick reference</a></li>
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-07-01_01.02.00/">1.2 (2024-07-01)</a></li>
@@ -410,7 +411,7 @@ Git sources); however, this is optional if a package wishes to use the
 <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> option.</p>
 </div>
 <section id="breezy-site">
-<h2>Breezy site<a class="headerlink" href="#breezy-site" title="Link to this heading">¶</a></h2>
+<span id="site-breezy"></span><h2>Breezy site<a class="headerlink" href="#breezy-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://www.breezy-vcs.org/">Breezy</a>-based location, the site value must be
 prefixed with a <code class="docutils literal notranslate"><span class="pre">brz+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;brz+https://example.com/project/trunk&#39;</span>
@@ -424,7 +425,10 @@ archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
 <section id="bazaar-site">
-<h2>Bazaar site<a class="headerlink" href="#bazaar-site" title="Link to this heading">¶</a></h2>
+<span id="site-bazaar"></span><h2>Bazaar site<a class="headerlink" href="#bazaar-site" title="Link to this heading">¶</a></h2>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 2.0: </span>Support for Bazaar sites is deprecated.</p>
+</div>
 <p>To define a <a class="reference external" href="https://wikipedia.org/wiki/GNU_Bazaar">Bazaar</a>-based location, the site value must be
 prefixed with a <code class="docutils literal notranslate"><span class="pre">bzr+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;bzr+ssh://example.com/project/trunk&#39;</span>
@@ -438,7 +442,7 @@ archived into a file during fetch stage. Once a cached archive is made, the
 fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
 <section id="cvs-site">
-<h2>CVS site<a class="headerlink" href="#cvs-site" title="Link to this heading">¶</a></h2>
+<span id="site-cvs"></span><h2>CVS site<a class="headerlink" href="#cvs-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="http://cvs.nongnu.org/">CVS</a>-based location, the site value must be prefixed
 with a <code class="docutils literal notranslate"><span class="pre">cvs+</span></code> or other common CVSROOT value. A site can be defined as
 follows:</p>
@@ -454,8 +458,18 @@ fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually
 removed.</p>
 </section>
+<section id="file-site">
+<span id="site-file"></span><h2>File site<a class="headerlink" href="#file-site" title="Link to this heading">¶</a></h2>
+<p>Site type dedicated for accepting a file uniform resource identifier
+(<code class="docutils literal notranslate"><span class="pre">file://</span></code>). The site value also accepts the <code class="docutils literal notranslate"><span class="pre">file+</span></code> prefix.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;file:///mnt/share/libfoo.tgz&#39;</span>
+<span class="c1"># (or)</span>
+<span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;file+/mnt/share/libfoo.tgz&#39;</span>
+</pre></div>
+</div>
+</section>
 <section id="git-site">
-<h2>Git site<a class="headerlink" href="#git-site" title="Link to this heading">¶</a></h2>
+<span id="site-git"></span><h2>Git site<a class="headerlink" href="#git-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://git-scm.com/">Git</a>-based location, the site value must be prefixed with
 a <code class="docutils literal notranslate"><span class="pre">git+</span></code> value or postfixed with the <code class="docutils literal notranslate"><span class="pre">.git</span></code> value. A site can be defined
 as follows:</p>
@@ -484,7 +498,7 @@ development/testing/training purposes. See
 <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> for more information.</p>
 </section>
 <section id="mercurial-site">
-<h2>Mercurial site<a class="headerlink" href="#mercurial-site" title="Link to this heading">¶</a></h2>
+<span id="site-mercurial"></span><h2>Mercurial site<a class="headerlink" href="#mercurial-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://www.mercurial-scm.org/">Mercurial</a>-based location, the site value must be
 prefixed with a <code class="docutils literal notranslate"><span class="pre">hg+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://example.com/project&#39;</span>
@@ -498,7 +512,7 @@ cache location. If a desired revision does not exist, the origin remote will be
 pulled for the new revision (if it exists).</p>
 </section>
 <section id="perforce-site">
-<h2>Perforce site<a class="headerlink" href="#perforce-site" title="Link to this heading">¶</a></h2>
+<span id="site-perforce"></span><h2>Perforce site<a class="headerlink" href="#perforce-site" title="Link to this heading">¶</a></h2>
 <p>To define a Perforce-based location, the site value must be prefixed with
 an <code class="docutils literal notranslate"><span class="pre">perforce+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;perforce+srcs.example.com:1666 //base/libfoo/main&#39;</span>
@@ -516,7 +530,7 @@ a file during fetch stage. Once a cached archive is made, the fetch stage
 ill be skipped unless the archive is manually removed.</p>
 </section>
 <section id="rsync-site">
-<h2>rsync site<a class="headerlink" href="#rsync-site" title="Link to this heading">¶</a></h2>
+<span id="site-rsync"></span><h2>rsync site<a class="headerlink" href="#rsync-site" title="Link to this heading">¶</a></h2>
 <p>To define an rsync-based location, the site value must be prefixed with an
 <code class="docutils literal notranslate"><span class="pre">rsync+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;rsync+&lt;source&gt;&#39;</span>
@@ -530,7 +544,7 @@ Adding or replacing options can be done by using the
 <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-fetch-opts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code></span></a> option.</p>
 </section>
 <section id="scp-site">
-<h2>SCP site<a class="headerlink" href="#scp-site" title="Link to this heading">¶</a></h2>
+<span id="site-scp"></span><h2>SCP site<a class="headerlink" href="#scp-site" title="Link to this heading">¶</a></h2>
 <p>To define an SCP-based location, the site value must be prefixed with a <code class="docutils literal notranslate"><span class="pre">scp+</span></code>
 value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;scp+[user@]host:]file&#39;</span>
@@ -542,7 +556,7 @@ a remote host. The fetched file will be stored inside the <code class="docutils 
 fetched, the fetch stage will be skipped unless the file is manually removed.</p>
 </section>
 <section id="svn-site">
-<h2>SVN site<a class="headerlink" href="#svn-site" title="Link to this heading">¶</a></h2>
+<span id="site-svn"></span><h2>SVN site<a class="headerlink" href="#svn-site" title="Link to this heading">¶</a></h2>
 <p>To define a <a class="reference external" href="https://subversion.apache.org/">Subversion</a>-based location, the site value must be
 prefixed with a <code class="docutils literal notranslate"><span class="pre">svn+</span></code> value. A site can be defined as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/branches/libfoo-1.2&#39;</span>
@@ -554,7 +568,7 @@ be fetched and archived into a file during fetch stage. Once a cached archive
 is made, the fetch stage will be skipped unless the archive is manually removed.</p>
 </section>
 <section id="url-site-default">
-<h2>URL site (default)<a class="headerlink" href="#url-site-default" title="Link to this heading">¶</a></h2>
+<span id="site-url"></span><h2>URL site (default)<a class="headerlink" href="#url-site-default" title="Link to this heading">¶</a></h2>
 <p>All packages that do not define a helper prefix/postfix value (as seen
 in other site definitions) or do not explicitly set a
 <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> value (other than <code class="docutils literal notranslate"><span class="pre">url</span></code>), will be
@@ -564,8 +578,7 @@ considered a URL site. A URL site can be defined as follows:</p>
 </div>
 <p>The site value provided will be directly used in a URL request. URL values
 supported are defined by the Python’s <code class="docutils literal notranslate"><span class="pre">urlopen</span></code> implementation <a class="footnote-reference brackets" href="#urlopen" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></a>,
-which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>, <code class="docutils literal notranslate"><span class="pre">file://</span></code> and
-more.</p>
+which includes (but not limited to) <code class="docutils literal notranslate"><span class="pre">http(s)://</span></code>, <code class="docutils literal notranslate"><span class="pre">ftp://</span></code> and more.</p>
 <p>See also <a class="reference internal" href="../../configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a>.</p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
@@ -684,6 +697,7 @@ more.</p>
 <li><a class="reference internal" href="#breezy-site">Breezy site</a></li>
 <li><a class="reference internal" href="#bazaar-site">Bazaar site</a></li>
 <li><a class="reference internal" href="#cvs-site">CVS site</a></li>
+<li><a class="reference internal" href="#file-site">File site</a></li>
 <li><a class="reference internal" href="#git-site">Git site</a></li>
 <li><a class="reference internal" href="#local-site">Local site</a></li>
 <li><a class="reference internal" href="#mercurial-site">Mercurial site</a></li>
