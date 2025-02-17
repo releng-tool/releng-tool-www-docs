@@ -308,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
@@ -461,6 +462,7 @@ releng-tool project.</p>
 <h2>Configuration options<a class="headerlink" href="#configuration-options" title="Link to this heading">¶</a></h2>
 <p>Options which are read by releng-tool from a project's configuration script:</p>
 <pre class="literal-block"><a class="reference internal" href="../guides/configuration/#conf-cache-ext"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></span></a> = &lt;callable&gt;
+<a class="reference internal" href="../guides/configuration/#conf-default-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></span></a> = bool
 <a class="reference internal" href="../guides/configuration/#conf-default-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></span></a> = bool
 <a class="reference internal" href="../guides/configuration/#conf-environment"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">environment</span></code></span></a> = {'&lt;key&gt;': '&lt;val&gt;'}
 <a class="reference internal" href="../guides/configuration/#conf-extensions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></span></a> = ['&lt;extension&gt;', '&lt;extension&gt;']
@@ -492,6 +494,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/environment/#env-host-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-host-include-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-host-lib-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-host-share-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">HOST_SHARE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-license-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LICENSE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-njobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></span></a>
@@ -537,11 +540,13 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/environment/#env-staging-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-staging-include-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-staging-lib-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-staging-share-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">STAGING_SHARE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-symbols-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">SYMBOLS_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-target-bin-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_BIN_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-target-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-target-include-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-target-lib-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-target-share-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">TARGET_SHARE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-pkg-var-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_BUILD_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-pkg-var-output-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_BUILD_OUTPUT_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-pkg-var-defdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;PKG_NAME&gt;_DEFDIR</span></code></span></a>

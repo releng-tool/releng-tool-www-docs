@@ -308,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
@@ -487,7 +488,7 @@ to be located in another location/repository. To allow packages to be
 loaded from another package container directory, one or more package
 locations can be provided. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MY_EXTERNAL_PKG_DIR&#39;</span><span class="p">],</span>
+    <span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;MY_EXTERNAL_PKG_DIR&#39;</span><span class="p">),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -652,6 +653,25 @@ For example:</p>
 </div>
 <p>The above transform indicates that all packages using the
 <code class="docutils literal notranslate"><span class="pre">static.example.org</span></code> site will be <code class="docutils literal notranslate"><span class="pre">tgz</span></code> archives.</p>
+</section>
+<section id="default-devmode-ignore-cache">
+<span id="conf-default-devmode-ignore-cache"></span><h3><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code><a class="headerlink" href="#default-devmode-ignore-cache" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.1.</span></p>
+</div>
+<p>When operating in <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>, packages may
+configure <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code></span></a> to
+indicate that a package should ignore any generated cache when operating
+from a clean state. If a developer is managing a package set in a project
+where most (if not all) packages would want to use this feature, a global
+override can be configured.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_devmode_ignore_cache</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Setting this value to <code class="docutils literal notranslate"><span class="pre">True</span></code> will default all packages to operate with a
+manner as if <code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="pre">=</span> <span class="pre">True</span></code>. Individual packages may
+opt-out in this scenario by configuring <code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span> <span class="pre">=</span> <span class="pre">False</span></code>.</p>
+<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code></span></a>.</p>
 </section>
 <section id="extra-license-exceptions">
 <span id="conf-extra-license-exceptions"></span><h3><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code><a class="headerlink" href="#extra-license-exceptions" title="Link to this heading">¶</a></h3>
@@ -900,6 +920,7 @@ can be used:</p>
 </li>
 <li><a class="reference internal" href="#advanced-options">Advanced options</a><ul>
 <li><a class="reference internal" href="#cache-ext"><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></a></li>
+<li><a class="reference internal" href="#default-devmode-ignore-cache"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></a></li>
 <li><a class="reference internal" href="#extra-license-exceptions"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></a></li>
 <li><a class="reference internal" href="#extra-licenses"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></a></li>
 <li><a class="reference internal" href="#override-extract-tools"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></a></li>

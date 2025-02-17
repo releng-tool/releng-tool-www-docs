@@ -308,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
@@ -500,10 +501,10 @@ the respective folder:</p>
 │       ├── workdir/
 │       │   └── my-releng-tool-project/
 │       │       ├── package/
-│       │       │   └── liba/
-│       │       │       └── ...
-│       │       │   └── libb/
-│       │       │       └── ...
+│       │       │   ├── liba/
+│       │       │   │   └── ...
+│       │       │   ├── libb/
+│       │       │   │   └── ...
 │       │       │   └── libc/
 │       │       │       └── ...
 │       │       ├── LICENSE
@@ -530,6 +531,10 @@ the respective folder:</p>
 <li><p>Invoking <a class="reference internal" href="../arguments/#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a>; or,</p></li>
 <li><p>By manually removing the file flag found at the root of the project.</p></li>
 </ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">sources</span> <span class="n">unset</span>
+</pre></div>
+</div>
 </section>
 
         </article>

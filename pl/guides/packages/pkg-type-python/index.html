@@ -308,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
@@ -407,15 +408,26 @@ supported module.</p>
 </pre></div>
 </div>
 <p>Only the build and installation phases are used when processing the sources
-for a Python package (i.e. no configuration stage is invoked). By default,
-the build phase will invoke <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">build</span></code> while the installation stage
-will invoke <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">install</span></code> (see
-<a class="reference internal" href="#pkg-opt-python-setup-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_SETUP_TYPE</span></code></span></a> for other setup
-types). When a Python package is process, it will use the system’s
-default Python interpreter. A developer can override what Python interpreter
-to use by configuring the
-<a class="reference internal" href="#pkg-opt-python-interpreter"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INTERPRETER</span></code></span></a> option in a
-package:</p>
+for a Python package (i.e. no configuration stage is invoked). The
+<a class="reference internal" href="#pkg-opt-python-setup-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_SETUP_TYPE</span></code></span></a> configuration dictates
+which build approach is performed for a package. The installation stage
+for all Python packages uses the <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> module. When a Python
+package is processed, it will use the same Python interpreter used by
+releng-tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Informacja</p>
+<p>For environments where releng-tool has been installed using <code class="docutils literal notranslate"><span class="pre">pipx</span></code>, a user
+will need to install any required build backend desired using the
+<a class="reference external" href="https://pipx.pypa.io/#inject-a-package"><code class="docutils literal notranslate"><span class="pre">pipx</span> <span class="pre">inject</span></code></a> command. For example, packages requiring
+<a class="reference external" href="https://flit.pypa.io">Flit</a> can install the build backend for their isolated environment
+using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">inject</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">flit</span><span class="o">-</span><span class="n">core</span>
+</pre></div>
+</div>
+</div>
+<p>A developer can override what Python interpreter to use by
+configuring the <a class="reference internal" href="#pkg-opt-python-interpreter"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INTERPRETER</span></code></span></a>
+option in a package:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/my-custom-python-build/python&#39;</span>
 </pre></div>
 </div>

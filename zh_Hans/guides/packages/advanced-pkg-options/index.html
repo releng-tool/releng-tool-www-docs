@@ -308,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-01-19_01.04.00/">1.4 (2025-01-19)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2024-08-01_01.03.00/">1.3 (2024-08-19)</a></li>
@@ -436,6 +437,7 @@ clean state.</p>
 type being fetched. In most cases, fetch operations will treat the default case
 of this option as disabled (<code class="docutils literal notranslate"><span class="pre">False</span></code>). DVCS site types may elect to enable this
 option by default (<code class="docutils literal notranslate"><span class="pre">True</span></code>) if the target revision is a branch.</p>
+<p>See also <a class="reference internal" href="../../configuration/#conf-default-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></span></a>.</p>
 </section>
 <section id="libfoo-devmode-revision">
 <span id="pkg-opt-devmode-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code><a class="headerlink" href="#libfoo-devmode-revision" title="Link to this heading">¶</a></h2>
@@ -706,6 +708,9 @@ prefix value.</p>
 </section>
 <section id="libfoo-remote-config">
 <span id="pkg-opt-remote-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code><a class="headerlink" href="#libfoo-remote-config" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
 <p>Flag value to indicate that a package should attempt to load any package
 configurations which may be defined in the package's source. If the package
 includes a <code class="docutils literal notranslate"><span class="pre">.releng-tool</span></code> file at the root of their sources, supported
@@ -719,6 +724,9 @@ the package before invoking a package's configuration stage.</p>
 </section>
 <section id="libfoo-remote-scripts">
 <span id="pkg-opt-remote-scripts"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code><a class="headerlink" href="#libfoo-remote-scripts" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
 <p>Flag value to indicate that a package should attempt to load any package
 scripts which may be defined in the package's source. Typically, a
 script-based package will load configuration, build, etc. scripts from its
