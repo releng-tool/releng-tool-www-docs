@@ -295,6 +295,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
@@ -551,7 +552,9 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/environment/#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-ignore-running-as-root"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-ignore-unknown-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS</span></code></span></a>
-<a class="reference internal" href="../guides/environment/#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a></pre>
+<a class="reference internal" href="../guides/environment/#env-releng-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-parallel-level"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL</span></code></span></a></pre>
 </section>
 <section id="package-types">
 <h2>Package types<a class="headerlink" href="#package-types" title="Link to this heading">¶</a></h2>
@@ -622,6 +625,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-patch-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></span></a> = '&lt;subdir&gt;'
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a> = '&lt;path&gt;' # '/usr'
 <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-dist-path"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_DIST_PATH</span></code></span></a> = '&lt;path&gt;'  # e.g. 'dist/'
+<a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-installer-interpreter"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span></code></span></a> = '&lt;interpreter&gt;'
 <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-installer-launcher-kind"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_LAUNCHER_KIND</span></code></span></a> = '&lt;kind&gt;'
   └── posix, win-amd64, win-arm64, win-arm, win-ia32
 <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-installer-scheme"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_SCHEME</span></code></span></a> = dict or str
@@ -668,6 +672,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_mkdir" title="releng_tool.releng_mkdir"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></span></a>(dir_, *args, quiet=False)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_move" title="releng_tool.releng_move"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None, nested=False)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_move_into" title="releng_tool.releng_move_into"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_move_into</span></code></span></a>(src, dst, quiet=False, critical=True, nested=False)
+<a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_path" title="releng_tool.releng_path"><span class="xref myst py py-meth"><code class="docutils literal notranslate"><span class="pre">releng_path</span></code></span></a>(*pathsegments)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_remove" title="releng_tool.releng_remove"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></span></a>(path, quiet=False)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_require_version" title="releng_tool.releng_require_version"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></span></a>(minver, maxver=None, quiet=False, critical=True)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_symlink" title="releng_tool.releng_symlink"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_symlink</span></code></span></a>(target, link_path, quiet=False, critical=True, lpd=False, relative=True)

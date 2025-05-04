@@ -295,6 +295,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
@@ -467,12 +468,12 @@ the build event. This field is optional.</p>
 <div class="versionadded">
 <p><span class="versionmodified added"> Dodane w wersji 0.17.</span></p>
 </div>
-<p>Specifies the build type used for the CMake package. A package may use a
-common build type (<code class="docutils literal notranslate"><span class="pre">Debug</span></code>, <code class="docutils literal notranslate"><span class="pre">Release</span></code>, <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code> or <code class="docutils literal notranslate"><span class="pre">MinSizeRel</span></code>),
-or may have a custom build type defined. A developer needing to use a
-specific build type can configure this option with the name of the
-configuration. By default, the <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code> build type is used for
-all CMake packages.</p>
+<p>Specifies the <a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html">build type</a> used for the CMake package.
+A package may use a common build type (<code class="docutils literal notranslate"><span class="pre">Debug</span></code>, <code class="docutils literal notranslate"><span class="pre">Release</span></code>, <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code>
+or <code class="docutils literal notranslate"><span class="pre">MinSizeRel</span></code>), or may have a custom build type defined. A developer
+needing to use a specific build type can configure this option with the
+name of the configuration. By default, the <code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code> build type is
+used for all CMake packages.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_BUILD_TYPE</span> <span class="o">=</span> <span class="s1">&#39;Debug&#39;</span>
 </pre></div>
 </div>

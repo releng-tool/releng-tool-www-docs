@@ -295,6 +295,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
@@ -423,6 +424,7 @@ the configured root directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/cache
 </pre></div>
 </div>
+<p>See also <a class="reference internal" href="#env-releng-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code></span></a>.</p>
 </section>
 <section id="dl-dir">
 <span id="env-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code><a class="headerlink" href="#dl-dir" title="Link to this heading">¶</a></h3>
@@ -434,6 +436,7 @@ the configured root directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/dl
 </pre></div>
 </div>
+<p>See also <a class="reference internal" href="#env-releng-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code></span></a>.</p>
 </section>
 <section id="host-bin-dir">
 <span id="env-host-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_BIN_DIR</span></code><a class="headerlink" href="#host-bin-dir" title="Link to this heading">¶</a></h3>
@@ -511,6 +514,7 @@ the configured output directory. For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/images
 </pre></div>
 </div>
+<p>See also <a class="reference internal" href="#env-releng-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR</span></code></span></a>.</p>
 </section>
 <section id="license-dir">
 <span id="env-license-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">LICENSE_DIR</span></code><a class="headerlink" href="#license-dir" title="Link to this heading">¶</a></h3>
@@ -1017,7 +1021,7 @@ in <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_BUIL
 point to the specified local source path. For example, when configured for
 <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a>, the build directory may exist
 out of the root directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── libfoo/                           &lt;---- LIBFOO_BUILD_DIR
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── libfoo/                           &lt;---- LIBFOO_BUILD_DIR
 │   └── ...
 └── my-releng-tool-project/
     ├── output/
@@ -1184,6 +1188,7 @@ content.</p>
 to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/cache</span></code>. If a user does not override a cache directory using the
 <a class="reference internal" href="../arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code> option can
 be used to override this location.</p>
+<p>See also <a class="reference internal" href="#env-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">CACHE_DIR</span></code></span></a>.</p>
 </section>
 <section id="releng-dl-dir">
 <span id="env-releng-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-dl-dir" title="Link to this heading">¶</a></h3>
@@ -1194,6 +1199,7 @@ be used to override this location.</p>
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/dl</span></code>. If a user does not override a download directory
 using the <a class="reference internal" href="../arguments/#arg-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span></code> argument</span></a>, the <code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code> option
 can be used to override this location.</p>
+<p>See also <a class="reference internal" href="#env-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">DL_DIR</span></code></span></a>.</p>
 </section>
 <section id="releng-global-output-container-dir">
 <span id="env-releng-global-out-container-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-global-output-container-dir" title="Link to this heading">¶</a></h3>
@@ -1268,6 +1274,17 @@ releng-tool with an elevated user.</p>
 arguments.</p>
 <p>See also the <a class="reference internal" href="../arguments/#arg-relaxed-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code> argument</span></a>.</p>
 </section>
+<section id="releng-images-dir">
+<span id="env-releng-images-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-images-dir" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
+</div>
+<p>The images directory to use. By default, the images directory used is
+configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/images</span></code>. If a user does not override a images
+directory using the <a class="reference internal" href="../arguments/#arg-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--images-dir</span></code> argument</span></a>, the
+<code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR</span></code> option can be used to override this location.</p>
+<p>See also <a class="reference internal" href="#env-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></span></a>.</p>
+</section>
 <section id="releng-output-dir">
 <span id="env-releng-out-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-output-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
@@ -1279,6 +1296,15 @@ directory using the <a class="reference internal" href="../arguments/#arg-out-di
 <code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code> option can be used to override this location.</p>
 <p>See also
 <a class="reference internal" href="#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a>.</p>
+</section>
+<section id="releng-parallel-level">
+<span id="env-releng-parallel-level"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL=&lt;level&gt;</span></code><a class="headerlink" href="#releng-parallel-level" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.3.</span></p>
+</div>
+<p>Numbers of jobs to handle (defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>; automatic).</p>
+<p>See also the <a class="reference internal" href="../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a>, <a class="reference internal" href="#env-njobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></span></a> and
+<a class="reference internal" href="#env-njobsconf"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">NJOBSCONF</span></code></span></a>.</p>
 </section>
 <section id="tool-overrides">
 <span id="env-tool-overrides"></span><h3>Tool overrides<a class="headerlink" href="#tool-overrides" title="Link to this heading">¶</a></h3>
@@ -1439,7 +1465,9 @@ Consider the following example:</p>
 <li><a class="reference internal" href="#releng-global-output-container-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-running-as-root"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-unknown-args"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code></a></li>
+<li><a class="reference internal" href="#releng-images-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-output-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-parallel-level"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL=&lt;level&gt;</span></code></a></li>
 <li><a class="reference internal" href="#tool-overrides">Tool overrides</a></li>
 </ul>
 </li>

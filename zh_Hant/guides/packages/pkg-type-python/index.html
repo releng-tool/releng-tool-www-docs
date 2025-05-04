@@ -295,6 +295,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
@@ -533,6 +534,46 @@ output into <code class="docutils literal notranslate"><span class="pre">build/d
 </pre></div>
 </div>
 </section>
+<section id="libfoo-python-installer-interpreter">
+<span id="pkg-opt-python-installer-interpreter"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span></code><a class="headerlink" href="#libfoo-python-installer-interpreter" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.3.</span></p>
+</div>
+<p>Configures the interpreter path to use when generating launcher scripts
+when installing a Python package. This is passed into <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a>
+which handles the creations of launchers for an application (if a given
+Python package defines project scripts).</p>
+<p>The default interpreter used for project scripts is as follows:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Type</p></th>
+<th class="head text-left"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>Non-Windows</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/usr/bin/python</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>Windows</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">python.exe</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>An example using a custom interpreter <code class="docutils literal notranslate"><span class="pre">/opt/custom/python</span></code> for project
+scripts can be done using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/custom/python&#39;</span>
+</pre></div>
+</div>
+<p>Which should generate project scripts with a shebang:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/opt/custom/python</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Before the introduction of this variable, the interpreter used would
+be configured to the same interpreter used by releng-tool.</p>
+</section>
 <section id="libfoo-python-installer-launcher-kind">
 <span id="pkg-opt-python-installer-launcher-kind"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_LAUNCHER_KIND</span></code><a class="headerlink" href="#libfoo-python-installer-launcher-kind" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
@@ -768,6 +809,7 @@ with <code class="docutils literal notranslate"><span class="pre">bdist_wheel</s
 <li><a class="reference internal" href="#libfoo-install-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-install-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-python-dist-path"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_DIST_PATH</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-python-installer-interpreter"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-python-installer-launcher-kind"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_LAUNCHER_KIND</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-python-installer-scheme"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INSTALLER_SCHEME</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-python-interpreter"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INTERPRETER</span></code></a></li>

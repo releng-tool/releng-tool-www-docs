@@ -295,6 +295,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-09_02.00.00/">2.0 (2025-02-09)</a></li>
@@ -1145,6 +1146,16 @@ has failed</p>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="releng_tool.releng_path">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">pathsegments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_path" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added"> Dodane w wersji 2.3.</span></p>
+</div>
+<p>An alias for <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code>. See also
+<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path">https://docs.python.org/3/library/pathlib.html#pathlib.Path</a>.</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.releng_remove">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#releng_tool.releng_remove" title="Link to this definition">¶</a></dt>
@@ -1574,6 +1585,7 @@ example, import a specific function:</p>
 <li><a class="reference internal" href="#releng_tool.releng_mkdir"><code class="docutils literal notranslate"><span class="pre">releng_mkdir()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_move"><code class="docutils literal notranslate"><span class="pre">releng_move()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_move_into"><code class="docutils literal notranslate"><span class="pre">releng_move_into()</span></code></a></li>
+<li><a class="reference internal" href="#releng_tool.releng_path"><code class="docutils literal notranslate"><span class="pre">releng_path()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_remove"><code class="docutils literal notranslate"><span class="pre">releng_remove()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_symlink"><code class="docutils literal notranslate"><span class="pre">releng_symlink()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_require_version"><code class="docutils literal notranslate"><span class="pre">releng_require_version()</span></code></a></li>
