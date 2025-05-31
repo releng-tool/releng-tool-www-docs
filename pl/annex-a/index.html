@@ -266,6 +266,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
@@ -295,6 +296,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
@@ -429,6 +431,7 @@
 <a class="reference internal" href="../guides/arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-debug-extended"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--debug-extended</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-development"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span> <span class="pre">[&lt;mode&gt;]</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-force"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code></span></a>
@@ -467,11 +470,12 @@
 <a class="reference internal" href="../guides/configuration/#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a> = ['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;']
 <a class="reference internal" href="../guides/configuration/#conf-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></span></a> = ['&lt;quirk-id&gt;']
 <a class="reference internal" href="../guides/configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a> = '&lt;format&gt;'
-  └── csv, html, json, json-spdx, rdp-spdx, text, xml
+  └── csv, html, json, json-spdx, rdf-spdx, text, xml
 <a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a> = '&lt;path&gt;' # '/usr'
 <a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a> = '&lt;mirror-url&gt;'
 <a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;
-<a class="reference internal" href="../guides/configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> = bool or str</pre>
+<a class="reference internal" href="../guides/configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> = bool or str
+<a class="reference internal" href="../guides/configuration/#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a> = str</pre>
 </section>
 <section id="environment-variables">
 <h2>Zmienne środowiskowe<a class="headerlink" href="#environment-variables" title="Link to this heading">¶</a></h2>
@@ -643,7 +647,8 @@
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> = '&lt;vcs-type&gt;'
   └── brz, bzr, cvs, file, git, hg, local, none, perforce, rsync, scp, svn, url
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> = '&lt;version&gt;'
-<a class="reference internal" href="../guides/packages/system-pkg-options/#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a> = bool or str</pre>
+<a class="reference internal" href="../guides/packages/system-pkg-options/#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a> = bool or str
+<a class="reference internal" href="../guides/packages/system-pkg-options/#pkg-opt-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD_PRODUCTS</span></code></span></a> = str</pre>
 </section>
 <section id="script-helpers">
 <h2>Script helpers<a class="headerlink" href="#script-helpers" title="Link to this heading">¶</a></h2>
@@ -685,6 +690,7 @@
 <p>Quirk options used by releng-tool:</p>
 <pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/#quirk-releng-bzr-certifi"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.bzr.certifi</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/#quirk-releng-disable-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_devmode_ignore_cache</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_local_site_warn/#quirk-releng-disable-local-site-warn"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_local_site_warn</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/#quirk-releng-disable-prerequisites-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code></span></a>

@@ -266,6 +266,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
@@ -295,6 +296,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
@@ -416,7 +418,28 @@ version string that is compatible with <a class="reference external" href="https
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VSDEVCMD</span> <span class="o">=</span> <span class="s1">&#39;[17.0,18.0)&#39;</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../../configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a>.</p>
+<p>See also <a class="reference internal" href="../../configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> and
+<a class="reference internal" href="#pkg-opt-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD_PRODUCTS</span></code></span></a>.</p>
+</section>
+<section id="libfoo-vsdevcmd-products">
+<span id="pkg-opt-vsdevcmd-products"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD_PRODUCTS</span></code><a class="headerlink" href="#libfoo-vsdevcmd-products" title="Link to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>The option is ignored in non-Windows environments.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.4.</span></p>
+</div>
+<p>Allows a package to configure which products to search for when releng-tool
+invokes <a class="reference external" href="https://github.com/microsoft/vswhere">Visual Studio Locator</a> to find which Visual Studio tooling
+to use. By default, releng-tool operates as if <code class="docutils literal notranslate"><span class="pre">vswhere</span></code> is invoked with the
+<code class="docutils literal notranslate"><span class="pre">-products</span> <span class="pre">*</span></code> argument. Providing a string in this option replaces the
+asterisk value with the configured value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_VSDEVCMD_PRODUCTS</span> <span class="o">=</span> <span class="s1">&#39;Microsoft.VisualStudio.Product.BuildTools&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../../configuration/#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a> and
+<a class="reference internal" href="#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a>.</p>
 </section>
 </section>
 
@@ -481,6 +504,7 @@ version string that is compatible with <a class="reference external" href="https
             <ul>
 <li><a class="reference internal" href="#">System-specific package options</a><ul>
 <li><a class="reference internal" href="#libfoo-vsdevcmd"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-vsdevcmd-products"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD_PRODUCTS</span></code></a></li>
 </ul>
 </li>
 </ul>

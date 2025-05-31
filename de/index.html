@@ -266,6 +266,7 @@
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
@@ -295,6 +296,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
@@ -529,6 +531,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#cache-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#config-file-var"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#debug"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#debug-extended"><code class="docutils literal notranslate"><span class="pre">--debug-extended</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#d-development-mode-var"><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span> <span class="pre">[&lt;mode&gt;]</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#dl-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#f-force"><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code></a></li>
@@ -574,6 +577,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#urlopen-context"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#vsdevcmd"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuration/#vsdevcmd-products"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="guides/configuration/#deprecated-options">Deprecated options</a><ul>
@@ -716,6 +720,7 @@ between the staging/target area with the host system.</p>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/system-pkg-options/">System-specific options</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="guides/packages/system-pkg-options/#libfoo-vsdevcmd"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="guides/packages/system-pkg-options/#libfoo-vsdevcmd-products"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD_PRODUCTS</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/bootstrapping/">Bootstrapping</a></li>
@@ -919,6 +924,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>

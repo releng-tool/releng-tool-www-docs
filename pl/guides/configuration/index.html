@@ -266,6 +266,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
@@ -295,6 +296,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-02-17_02.01.00/">2.1 (2025-02-17)</a></li>
@@ -532,6 +534,9 @@ later during a building, packaging, etc. phase.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 0.16: </span>Support added for <code class="docutils literal notranslate"><span class="pre">json-spdx</span></code> and <code class="docutils literal notranslate"><span class="pre">rdp-spdx</span></code>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.4: </span><code class="docutils literal notranslate"><span class="pre">rdp-spdx</span></code> renamed to <code class="docutils literal notranslate"><span class="pre">rdf-spdx</span></code>.</p>
+</div>
 <p>Configures the default format to use when generating a software build of
 materials (SBOM). By default, <code class="docutils literal notranslate"><span class="pre">text</span></code> format SBOMs are generated for a
 project.</p>
@@ -559,8 +564,8 @@ project.</p>
 <tr class="row-odd"><td class="text-right"><p>JSON (SPDX)</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">json-spdx</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-right"><p>RDP (SPDX)</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rdp-spdx</span></code></p></td>
+<tr class="row-even"><td class="text-right"><p>RDF (SPDX)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">rdf-spdx</span></code></p></td>
 </tr>
 <tr class="row-odd"><td class="text-right"><p>Text</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">text</span></code> (default)</p></td>
@@ -578,6 +583,9 @@ project.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">all</span></code> value is accepted to generate all supported SBOM variants.</p>
+<p>See also <a class="reference internal" href="../arguments/#action-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></span></a> (action) and
+<a class="reference internal" href="../arguments/#arg-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></span></a> (argument).</p>
 </section>
 <section id="sysroot-prefix">
 <span id="conf-sysroot-prefix"></span><h3><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code><a class="headerlink" href="#sysroot-prefix" title="Link to this heading">¶</a></h3>
@@ -764,7 +772,28 @@ version string that is compatible with <a class="reference external" href="https
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vsdevcmd</span> <span class="o">=</span> <span class="s1">&#39;[17.0,18.0)&#39;</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../packages/system-pkg-options/#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a>.</p>
+<p>See also <a class="reference internal" href="#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a> and
+<a class="reference internal" href="../packages/system-pkg-options/#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a>.</p>
+</section>
+<section id="vsdevcmd-products">
+<span id="conf-vsdevcmd-products"></span><h3><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code><a class="headerlink" href="#vsdevcmd-products" title="Link to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Informacja</p>
+<p>The option is ignored in non-Windows environments.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added"> Dodane w wersji 2.4.</span></p>
+</div>
+<p>Allows a project to configure which products to search for when releng-tool
+invokes <a class="reference external" href="https://github.com/microsoft/vswhere">Visual Studio Locator</a> to find which Visual Studio tooling
+to use. By default, releng-tool operates as if <code class="docutils literal notranslate"><span class="pre">vswhere</span></code> is invoked with the
+<code class="docutils literal notranslate"><span class="pre">-products</span> <span class="pre">*</span></code> argument. Providing a string in this option replaces the
+asterisk value with the configured value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vsdevcmd_products</span> <span class="o">=</span> <span class="s1">&#39;Microsoft.VisualStudio.Product.BuildTools&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> and
+<a class="reference internal" href="../packages/system-pkg-options/#pkg-opt-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD_PRODUCTS</span></code></span></a>.</p>
 </section>
 </section>
 <section id="deprecated-options">
@@ -917,6 +946,7 @@ can be used:</p>
 <li><a class="reference internal" href="#quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a></li>
 <li><a class="reference internal" href="#urlopen-context"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></a></li>
 <li><a class="reference internal" href="#vsdevcmd"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></a></li>
+<li><a class="reference internal" href="#vsdevcmd-products"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#deprecated-options">Deprecated options</a><ul>
