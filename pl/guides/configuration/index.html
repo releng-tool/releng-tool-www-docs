@@ -261,6 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
@@ -296,6 +297,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
@@ -759,6 +761,10 @@ environment. For example:</p>
 <div class="versionadded">
 <p><span class="versionmodified added"> Dodane w wersji 1.4.</span></p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.5: </span>Cycles through all applicable configured products until the first install
+that provides <code class="docutils literal notranslate"><span class="pre">VsDevCmd.bat</span></code> is found.</p>
+</div>
 <p>Allows a project to automatically load Visual Studio Developer Command
 Prompt (<code class="docutils literal notranslate"><span class="pre">VsDevCmd.bat</span></code>) variables into the releng-tool process. This will
 allow packages and post-build scripts to invoke commands as if releng-tool
@@ -766,9 +772,13 @@ was started from within a Visual Studio Developer Command Prompt.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vsdevcmd</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
+<p>The version of which Visual Studio application it used is determined with
+the help of <a class="reference external" href="https://github.com/microsoft/vswhere">Visual Studio Locator</a> (vswhere). By default, the
+newest version of Visual Studio and the most recent installed version is
+used (assuming the installation includes a <code class="docutils literal notranslate"><span class="pre">VsDevCmd.bat</span></code> script).</p>
 <p>Projects looking to use an explicit version of Visual Studio can specify a
-version string that is compatible with <a class="reference external" href="https://github.com/microsoft/vswhere">Visual Studio Locator’s</a>
-(vswhere) <code class="docutils literal notranslate"><span class="pre">-version</span></code> argument.</p>
+version string that is compatible with Visual Studio Locator’s <code class="docutils literal notranslate"><span class="pre">-version</span></code>
+argument.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vsdevcmd</span> <span class="o">=</span> <span class="s1">&#39;[17.0,18.0)&#39;</span>
 </pre></div>
 </div>

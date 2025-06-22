@@ -180,7 +180,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -261,6 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../guides/intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../guides/quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
@@ -296,6 +297,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
@@ -386,7 +388,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -394,6 +396,19 @@
         <article role="main" id="furo-main-content">
           <section id="understanding-rebuilds">
 <h1>Understanding rebuilds<a class="headerlink" href="#understanding-rebuilds" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>Completed stages for a package are not executed again when releng-tool is
+re-run.</p></li>
+<li><p>Users looking to re-run a completed stage for a specific package need to
+manually re-trigger the stage (e.g.
+<a class="reference internal" href="../../guides/arguments/#action-pkg-rebuild"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">&lt;pkg&gt;-rebuild</span></code></span></a>,
+<a class="reference internal" href="../../guides/arguments/#action-pkg-reconfigure"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">&lt;pkg&gt;-reconfigure</span></code></span></a>,
+<a class="reference internal" href="../../guides/arguments/#action-pkg-reinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">&lt;pkg&gt;-reinstall</span></code></span></a>).</p></li>
+<li><p>Users can also invoke <a class="reference internal" href="../../guides/arguments/#action-punch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng-tool</span> <span class="pre">punch</span></code></span></a> for force
+re-trigger all package stages.</p></li>
+</ul>
+<section id="details">
+<h2>Details<a class="headerlink" href="#details" title="Link to this heading">¶</a></h2>
 <p>As packages are processed in order (based off of detected dependencies, if any),
 each package will go through their respective stages:</p>
 <ol class="arabic simple">
@@ -461,6 +476,7 @@ allow <code class="docutils literal notranslate"><span class="pre">module-c</spa
 <p>This is a very simple example to consider, and attempts to rebuild can vary
 based on the packages, changes made and languages used.</p>
 </section>
+</section>
 
         </article>
       </div>
@@ -509,8 +525,27 @@ based on the packages, changes made and languages used.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Understanding rebuilds</a><ul>
+<li><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

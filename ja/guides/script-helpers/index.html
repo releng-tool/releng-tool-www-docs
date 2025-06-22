@@ -261,6 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
@@ -296,6 +297,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
@@ -1461,7 +1463,16 @@ generating a formatted message</p></li>
 <p>The following variables are registered in the global context for any
 project or package definition/script.</p>
 <section id="releng-args">
-<h3><code class="docutils literal notranslate"><span class="pre">releng_args</span></code><a class="headerlink" href="#releng-args" title="Link to this heading">¶</a></h3>
+<span id="vars-releng-args"></span><h3><code class="docutils literal notranslate"><span class="pre">releng_args</span></code><a class="headerlink" href="#releng-args" title="Link to this heading">¶</a></h3>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 2.5 で変更: </span>Variable no longer populated when <a class="reference internal" href="../arguments/#action-pkg-exec"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">action-pkg-exec</span></code></span></a> is set.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>When using <a class="reference internal" href="../arguments/#action-pkg-exec"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span> <span class="pre">&quot;&lt;cmd&gt;&quot;</span></code></span></a>, the <code class="docutils literal notranslate"><span class="pre">releng_args</span></code> variable
+will not be populated. This is to prevent conflicts from project-specific
+argument processing and package-specific run arguments.</p>
+</div>
 <p>A list of arguments forwarded into a releng-tool invoke. If a caller uses
 the <code class="docutils literal notranslate"><span class="pre">--</span></code> argument, all trailing arguments will be populated into
 &quot;forwarded argument&quot; list. A project may use these arguments for their own

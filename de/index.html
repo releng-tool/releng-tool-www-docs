@@ -261,6 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="guides/intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="guides/quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
@@ -296,6 +297,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-03-29_02.02.00/">2.2 (2025-03-29)</a></li>
@@ -476,7 +478,10 @@ between the staging/target area with the host system.</p>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="getting-started/rebuilds/">Understanding rebuilds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting-started/rebuilds/">Understanding rebuilds</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting-started/rebuilds/#details">Details</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="getting-started/fetching/">Understanding fetching</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="getting-started/fetching/#start-fresh">Start fresh!</a></li>
 <li class="toctree-l4"><a class="reference internal" href="getting-started/fetching/#full-fetching">Full fetching</a></li>
@@ -532,21 +537,22 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#config-file-var"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#debug"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#debug-extended"><code class="docutils literal notranslate"><span class="pre">--debug-extended</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#d-development-mode-var"><code class="docutils literal notranslate"><span class="pre">-D</span></code>, <code class="docutils literal notranslate"><span class="pre">--development</span> <span class="pre">[&lt;mode&gt;]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#development-mode-var-d-mode-var"><code class="docutils literal notranslate"><span class="pre">--development</span> <span class="pre">[&lt;mode&gt;]</span></code>, <code class="docutils literal notranslate"><span class="pre">-D</span> <span class="pre">[&lt;mode&gt;]</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#dl-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--dl-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#f-force"><code class="docutils literal notranslate"><span class="pre">-F</span></code>, <code class="docutils literal notranslate"><span class="pre">--force</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#h-help"><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#force-f"><code class="docutils literal notranslate"><span class="pre">--force</span></code>, <code class="docutils literal notranslate"><span class="pre">-F</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#help-h"><code class="docutils literal notranslate"><span class="pre">--help</span></code>, <code class="docutils literal notranslate"><span class="pre">-h</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#images-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--images-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#j-jobs-jobs-var"><code class="docutils literal notranslate"><span class="pre">-j</span></code>, <code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#l-local-sources-pkg-var-dir-var"><code class="docutils literal notranslate"><span class="pre">-L</span></code>, <code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#jobs-jobs-var-j-jobs-var"><code class="docutils literal notranslate"><span class="pre">--jobs</span> <span class="pre">&lt;jobs&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">-j</span> <span class="pre">&lt;jobs&gt;</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#local-sources-pkg-var-dir-var-l-pkg-var-dir-var"><code class="docutils literal notranslate"><span class="pre">--local-sources</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code>, <code class="docutils literal notranslate"><span class="pre">-L</span> <span class="pre">[[&lt;pkg&gt;:]&lt;dir&gt;]</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#nocolorout"><code class="docutils literal notranslate"><span class="pre">--nocolorout</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#only-mirror"><code class="docutils literal notranslate"><span class="pre">--only-mirror</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#out-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#profile-profile-var-p-profile-var"><code class="docutils literal notranslate"><span class="pre">--profile</span> <span class="pre">[&lt;profile&gt;]</span></code>, <code class="docutils literal notranslate"><span class="pre">-P</span> <span class="pre">[&lt;profile&gt;]</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#relaxed-args"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#root-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#sbom-format-fmt-var"><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#quirk-quirk-id-var"><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#v-verbose"><code class="docutils literal notranslate"><span class="pre">-V</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#verbose-v"><code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">-V</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#version"><code class="docutils literal notranslate"><span class="pre">--version</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#werror-werror"><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></a></li>
 </ul>
@@ -627,6 +633,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-force"><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-localsrcs"><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-mrproper"><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-profiles"><code class="docutils literal notranslate"><span class="pre">RELENG_PROFILES</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-rebuild"><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-reconfigure"><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-reinstall"><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></a></li>
@@ -910,6 +917,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l3"><a class="reference internal" href="guides/intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/configuration-overrides/">Configuration overrides</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration-overrides/#extraction-tool-overrides">Extraction tool overrides</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration-overrides/#revision-overrides">Revision overrides</a></li>
