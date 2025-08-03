@@ -297,6 +297,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-04_02.03.00/">2.3 (2025-05-04)</a></li>
@@ -396,6 +397,9 @@
         <article role="main" id="furo-main-content">
           <section id="cmake-package">
 <h1>CMake package<a class="headerlink" href="#cmake-package" title="Link to this heading">¶</a></h1>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 2.6 で変更: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code>.</p>
+</div>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported
 module.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_TYPE</span> <span class="o">=</span> <span class="s1">&#39;cmake&#39;</span>
@@ -411,6 +415,24 @@ environment variables and options used by the CMake executable.</p>
 can override this option by explicitly adjusting the configuration option
 <code class="docutils literal notranslate"><span class="pre">--config</span></code> to, for example, <code class="docutils literal notranslate"><span class="pre">Debug</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CMAKE_BUILD_TYPE</span> <span class="o">=</span> <span class="s1">&#39;Debug&#39;</span>
+</pre></div>
+</div>
+<p>Packages can be configured with a toolchain using with the define
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_TOOLCHAIN_FILE.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_TOOLCHAIN_FILE</span></code></a> (via
+<a class="reference internal" href="#pkg-opt-cmake-conf-defs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code></span></a>) or using the command line option
+<a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake-toolchain"><code class="docutils literal notranslate"><span class="pre">--toolchain</span></code></a> (via
+<a class="reference internal" href="#pkg-opt-cmake-conf-opts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_OPTS</span></code></span></a>). releng-tool will provide
+required staging/target paths through the
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code></a> configuration. Ensure the
+toolchain configuration accepts <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code> hints. For example,
+using either:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">APPEND</span> <span class="n">CMAKE_FIND_ROOT_PATH</span> <span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">NOT</span> <span class="n">DEFINED</span> <span class="n">CMAKE_FIND_ROOT_PATH</span><span class="p">)</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">CMAKE_FIND_ROOT_PATH</span> <span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
+<span class="n">endif</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The following sections outline configuration options are available for a CMake
