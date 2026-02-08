@@ -180,7 +180,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
@@ -277,6 +278,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
@@ -291,12 +293,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/">Przykłady</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-autotools/">Autotools package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cargo/">Cargo package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cmake/">CMake package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-make/">Make package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-meson/">Meson package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-python/">Python package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-scons/">SCons package examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Prośba o pomoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Contributor guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -389,7 +401,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -413,8 +425,7 @@ Packages can consist of libraries, programs or even basic assets.</p>
     └── releng-tool.rt
 </pre></div>
 </div>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p class="rubric">Overview</p>
 <p>There is no explicit limit on the total number of packages a project can have.
 Package names are recommended to be lower-case with dash-separated (<code class="docutils literal notranslate"><span class="pre">-</span></code>)
 separators (if needed). For example, <code class="docutils literal notranslate"><span class="pre">package-a</span></code> is recommended over <code class="docutils literal notranslate"><span class="pre">PackageA</span></code>
@@ -450,9 +461,7 @@ the supported option name. Considering the same package with the name
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PACKAGE_A_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
 </pre></div>
 </div>
-</section>
-<section id="topics">
-<h2>Topics<a class="headerlink" href="#topics" title="Link to this heading">¶</a></h2>
+<p class="rubric">Topics</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../common-pkg-options/">Common options</a></li>
@@ -471,10 +480,10 @@ the supported option name. Considering the same package with the name
 <li class="toctree-l1"><a class="reference internal" href="../pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </div>
-</section>
 </section>
 
         </article>
@@ -524,28 +533,8 @@ the supported option name. Considering the same package with the name
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Packages</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#topics">Topics</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

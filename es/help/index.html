@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="Búsqueda" href="../search/" /><link rel="next" title="Guía del colaborador" href="../contributors/" /><link rel="prev" title="Ejemplos" href="../examples/" />
+<link rel="search" title="Búsqueda" href="../search/" /><link rel="next" title="Guía del colaborador" href="../contributors/" /><link rel="prev" title="SCons package examples" href="../examples/examples-scons/" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Requesting help - documentación de releng-tool -</title>
@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
@@ -277,6 +278,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
@@ -291,12 +293,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/">Ejemplos</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-autotools/">Autotools package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-cargo/">Cargo package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-cmake/">CMake package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-make/">Make package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-meson/">Meson package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-python/">Python package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-scons/">SCons package examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors/">Guía del colaborador</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -419,14 +431,14 @@ not hesitate to create an issue in this project’s GitHub page:</p>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../examples/">
+          <a class="prev-page" href="../examples/examples-scons/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Ejemplos</div>
+                <div class="title">SCons package examples</div>
                 
               </div>
             </a>

@@ -241,6 +241,7 @@
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
@@ -277,6 +278,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
@@ -291,12 +293,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/">Przykłady</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-autotools/">Autotools package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cargo/">Cargo package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cmake/">CMake package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-make/">Make package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-meson/">Meson package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-python/">Python package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-scons/">SCons package examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Prośba o pomoc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Contributor guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -411,15 +423,74 @@ invoked to generate build files for the module. For the build stage,
 stage (if enabled), <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">install</span></code> will be used. Each stage can be
 configured to manipulate environment variables and options used by Meson.</p>
 <p>The default configuration built for projects is <code class="docutils literal notranslate"><span class="pre">debugoptimized</span></code>. A developer
-can override this option by explicitly adjusting the define option
-<code class="docutils literal notranslate"><span class="pre">buildtype</span></code> to, for example, <code class="docutils literal notranslate"><span class="pre">debug</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;buildtype&#39;</span><span class="p">:</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+can override this option by explicitly adjusting the configuration option
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code> to, for example, <code class="docutils literal notranslate"><span class="pre">debug</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_MESON_BUILD_TYPE</span> <span class="o">=</span> <span class="s1">&#39;debug&#39;</span>
 </pre></div>
 </div>
-<p>The following sections outline configuration options are available for a Meson
-package.</p>
+<p>The following shows the default arguments used in stages and outlines
+configuration options that are available for a Meson package to set.
+See also the <a class="reference internal" href="../../../examples/examples-meson/"><span class="doc std std-doc">Meson package examples</span></a>. All stages
+are invoked with a <a class="reference internal" href="../../environment/#env-pkg-build-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_DIR</span></code></span></a> working directory.</p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Configuration</label><div class="tab-content docutils">
+<p>The configuration stage invokes <code class="docutils literal notranslate"><span class="pre">meson</span></code> with the arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meson setup \
+    --buildtype debugoptimized \
+    -Dcmake_prefix_path=&lt;SYSROOT_PATHS&gt; \
+    -Dlibdir=lib \
+    -Dpkg_config_path=&lt;SYSROOT_PKGCFG_PATHS&gt; \
+    -Dprefix=&lt;PREFIX&gt; \
+    -Dwrap_mode=nodownload \
+    &lt;BUILD_OUTPUT_DIR&gt;
+</pre></div>
+</div>
+<p>The build type is configured by
+<a class="reference internal" href="#pkg-opt-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code></span></a>.</p>
+<p>The build output directory is configured to
+<a class="reference internal" href="../../environment/#env-pkg-build-output-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></span></a>.</p>
+<p>Paths may vary based on how the package’s
+<a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code></span></a> is configured. System root paths
+provided will only include the staging directory if <code class="docutils literal notranslate"><span class="pre">staging</span></code> is configured.
+Both the staging and target directories are provided is the <code class="docutils literal notranslate"><span class="pre">target</span></code> is
+configured. Likewise with the host directory if <code class="docutils literal notranslate"><span class="pre">host</span></code> is configured.
+pkg-config paths are defined to <code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;/lib/pkgconfig</span></code>.</p>
+<p>If <a class="reference internal" href="../advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a> resolves to an empty prefix, the
+<code class="docutils literal notranslate"><span class="pre">-Dprefix</span></code> define is not provided.</p>
+<p>In the event that a package is reconfigured (e.g.
+<a class="reference internal" href="../../arguments/#action-pkg-reconfigure"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure</span></code></span></a>), the <code class="docutils literal notranslate"><span class="pre">--reconfigure</span></code> argument
+will also be included.</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Build</label><div class="tab-content docutils">
+<p>The build stage invokes <code class="docutils literal notranslate"><span class="pre">meson</span></code> with the arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meson compile -C &lt;BUILD_OUTPUT_DIR&gt; --jobs &lt;NJOBS&gt;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-C</span></code> directory is configured to
+<a class="reference internal" href="../../environment/#env-pkg-build-output-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></span></a>.</p>
+<p>The number of jobs is populated by either the <a class="reference internal" href="../../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a> or
+<a class="reference internal" href="../advanced-pkg-options/#pkg-opt-fixed-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></span></a>. Although, if the configuration
+results in a single job, the argument will not be used.</p>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Install</label><div class="tab-content docutils">
+<p>The install stage invokes <code class="docutils literal notranslate"><span class="pre">meson</span></code> with the arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meson install -C &lt;BUILD_OUTPUT_DIR&gt; --destdir &lt;TARGET_DIR&gt; --no-rebuild
+</pre></div>
+</div>
+<p>With the following environment variables set:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DESTDIR=&lt;TARGET_DIR&gt;
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-C</span></code> directory is configured to
+<a class="reference internal" href="../../environment/#env-pkg-build-output-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_OUTPUT_DIR</span></code></span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--destdir</span></code> argument and <code class="docutils literal notranslate"><span class="pre">DESTDIR</span></code> environment path will be set to the
+target sysroot the package should install into (see also
+<a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code></span></a>). <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">install</span></code> may be invoked
+multiple times for each target it needs to install into.</p>
+<p>The installation stage can be skipped by configuring
+<a class="reference internal" href="#pkg-opt-meson-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_NOINSTALL</span></code></span></a>.</p>
+</div>
+</div>
 <section id="libfoo-build-defs">
 <span id="pkg-opt-meson-build-defs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code><a class="headerlink" href="#libfoo-build-defs" title="Link to this heading">¶</a></h2>
 <div class="versionchanged">
@@ -461,6 +532,8 @@ the build event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--flag&quot; to the command</span>
+    <span class="s1">&#39;--flag&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
@@ -469,21 +542,6 @@ the build event. This field is optional.</p>
     <span class="c1"># adds &quot;--some-option&quot; to the command</span>
     <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
-</pre></div>
-</div>
-</section>
-<section id="libfoo-meson-noinstall">
-<span id="pkg-opt-meson-noinstall"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_NOINSTALL</span></code><a class="headerlink" href="#libfoo-meson-noinstall" title="Link to this heading">¶</a></h2>
-<p>Specifies whether the Meson package should skip an attempt to invoke the
-install command. Ideally, projects will have an <a class="reference external" href="https://mesonbuild.com/Commands.html#install">install</a>
-options configured to define how a project will install files into a target
-(or staging) environment. Not all Meson projects have installation options
-configured, or there can be cases where installation stage for a package to
-fail due to issues with some host environments. A developer can specify this
-no-install flag to skip a Meson-driven install request and manage installation
-actions through other means (such as post-processing). By default, the
-installation stage is invoked with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_MESON_NOINSTALL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </section>
@@ -529,6 +587,8 @@ configuration event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--flag&quot; to the command</span>
+    <span class="s1">&#39;--flag&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
@@ -600,6 +660,8 @@ the installation event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--flag&quot; to the command</span>
+    <span class="s1">&#39;--flag&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>
@@ -608,6 +670,37 @@ the installation event. This field is optional.</p>
     <span class="c1"># adds &quot;--some-option&quot; to the command</span>
     <span class="s1">&#39;--some-option&#39;</span><span class="p">,</span>
 <span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="libfoo-meson-build-type">
+<span id="pkg-opt-meson-build-type"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code><a class="headerlink" href="#libfoo-meson-build-type" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added"> Dodane w wersji 2.7.</span></p>
+</div>
+<p>Specifies the <a class="reference external" href="https://mesonbuild.com/Builtin-options.html#details-for-buildtype">build type</a> used for the Meson package.
+A package may use a Meson-supported build type (<code class="docutils literal notranslate"><span class="pre">plain</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>,
+<code class="docutils literal notranslate"><span class="pre">debugoptimized</span></code>, <code class="docutils literal notranslate"><span class="pre">release</span></code> or <code class="docutils literal notranslate"><span class="pre">minsize</span></code>). A developer needing to use a
+specific build type can configure this option with the name of the
+configuration. By default, the <code class="docutils literal notranslate"><span class="pre">debugoptimized</span></code> build type is used for all
+Meson packages.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_MESON_BUILD_TYPE</span> <span class="o">=</span> <span class="s1">&#39;debugoptimized&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../../configuration/#conf-default-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code></span></a>.</p>
+</section>
+<section id="libfoo-meson-noinstall">
+<span id="pkg-opt-meson-noinstall"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_NOINSTALL</span></code><a class="headerlink" href="#libfoo-meson-noinstall" title="Link to this heading">¶</a></h2>
+<p>Specifies whether the Meson package should skip an attempt to invoke the
+install command. Ideally, projects will have an <a class="reference external" href="https://mesonbuild.com/Commands.html#install">install</a>
+options configured to define how a project will install files into a target
+(or staging) environment. Not all Meson projects have installation options
+configured, or there can be cases where installation stage for a package to
+fail due to issues with some host environments. A developer can specify this
+no-install flag to skip a Meson-driven install request and manage installation
+actions through other means (such as post-processing). By default, the
+installation stage is invoked with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_MESON_NOINSTALL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </section>
@@ -676,7 +769,6 @@ the installation event. This field is optional.</p>
 <li><a class="reference internal" href="#libfoo-build-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-build-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_ENV</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-build-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_OPTS</span></code></a></li>
-<li><a class="reference internal" href="#libfoo-meson-noinstall"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_NOINSTALL</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-conf-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-conf-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_ENV</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-conf-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_OPTS</span></code></a></li>
@@ -684,6 +776,8 @@ the installation event. This field is optional.</p>
 <li><a class="reference internal" href="#libfoo-install-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-install-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-install-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-meson-build-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-meson-noinstall"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_NOINSTALL</span></code></a></li>
 </ul>
 </li>
 </ul>

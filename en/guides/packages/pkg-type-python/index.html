@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
@@ -277,6 +278,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
@@ -291,12 +293,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-autotools/">Autotools package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cargo/">Cargo package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cmake/">CMake package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-make/">Make package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-meson/">Meson package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-python/">Python package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-scons/">SCons package examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Contributor guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -426,8 +438,59 @@ option in a package:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/my-custom-python-build/python&#39;</span>
 </pre></div>
 </div>
-<p>The following sections outline configuration options are available for a
-Python package.</p>
+<p>The following shows the default arguments used in a package’s build stage based
+on the configured setup type and outlines options that are available for a
+Python package to set. See also the
+<a class="reference internal" href="../../../examples/examples-python/"><span class="doc std std-doc">Python package examples</span></a></p>
+<div class="tab-set docutils">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Flit</label><div class="tab-content docutils">
+<p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">flit_core.wheel</span></code> module and arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m flit_core.wheel
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Hatch</label><div class="tab-content docutils">
+<p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">hatch</span></code> module and arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m hatch --no-interactive build --target wheel
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">PDM</label><div class="tab-content docutils">
+<p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">pdm</span></code> module and arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m pdm --ignore-python build --no-isolation --no-sdist
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--4">PEP 517 build</label><div class="tab-content docutils">
+<p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">build</span></code> module and arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m build --no-isolation --wheel
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--5">Poetry</label><div class="tab-content docutils">
+<p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">poetry</span></code> module and arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m poetry build --no-interaction
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--6" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--6">Setuptools</label><div class="tab-content docutils">
+<p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file and arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python setup.py --no-user-cfg bdist_wheel
+</pre></div>
+</div>
+<p>However, if <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> does not exist, the <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> module will be
+imported and <code class="docutils literal notranslate"><span class="pre">setup()</span></code> will be triggered:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -c &quot;import setuptools; setuptools.setup()&quot; --no-user-cfg bdist_wheel
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--7" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--7">distutils</label><div class="tab-content docutils">
+<p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file and arguments:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python setup.py --no-user-cfg bdist_wheel
+</pre></div>
+</div>
+</div>
+</div>
 <section id="libfoo-build-defs">
 <span id="pkg-opt-python-build-defs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code><a class="headerlink" href="#libfoo-build-defs" title="Link to this heading">¶</a></h2>
 <div class="versionchanged">
@@ -469,6 +532,8 @@ the build event. This field is optional.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_BUILD_OPTS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># adds &quot;--option value&quot; to the command</span>
     <span class="s1">&#39;--option&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+    <span class="c1"># adds &quot;--flag&quot; to the command</span>
+    <span class="s1">&#39;--flag&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="c1"># (or)</span>

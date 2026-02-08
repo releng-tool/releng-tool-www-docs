@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="Suche" href="../search/" /><link rel="next" title="2.6 (2025-08-03)" href="../news/2025-08-03_02.06.00/" /><link rel="prev" title="Leitfaden für Mitwirkende" href="../contributors/" />
+<link rel="search" title="Suche" href="../search/" /><link rel="next" title="2.7 (2026-02-08)" href="../news/2026-02-08_02.07.00/" /><link rel="prev" title="Leitfaden für Mitwirkende" href="../contributors/" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Versionshinweise - releng-tool Dokumentation</title>
@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
@@ -277,6 +278,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
@@ -291,12 +293,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/">Beispiele</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-autotools/">Autotools package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-cargo/">Cargo package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-cmake/">CMake package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-make/">Make package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-meson/">Meson package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-python/">Python package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-scons/">SCons package examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributors/">Leitfaden für Mitwirkende</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Versionshinweise</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Versionshinweise</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -404,6 +416,7 @@ releng-tool, please see the project’s <a class="reference external" href="http
 <h2>News<a class="headerlink" href="#news" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -426,6 +439,34 @@ releng-tool, please see the project’s <a class="reference external" href="http
 <li class="toctree-l1"><a class="reference internal" href="../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
 </ul>
 </div>
+</section>
+<section id="v2-7-0-2026-02-08">
+<h2>2.7.0 (2026-02-08)<a class="headerlink" href="#v2-7-0-2026-02-08" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Allow project configurations to define a <code class="docutils literal notranslate"><span class="pre">releng_setup</span></code> registry hook</p></li>
+<li><p>Failures in loading project extensions will now stop releng-tool</p></li>
+<li><p>Fixed some scenarios where using <code class="docutils literal notranslate"><span class="pre">--debug-extended</span></code> may crash releng-tool</p></li>
+<li><p>Generate a „step over“ message for already processed packages on rebuilds</p></li>
+<li><p>Handle trailing path-slash in a path-completed action request</p></li>
+<li><p>Improved error handling for incorrect extension handle signatures</p></li>
+<li><p>Improved processing of command outputs</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code> to override Meson build types</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span></code> to support forced pre-configuration extraction</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">default_cmake_build_type</span></code> project configuration</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code> project configuration</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">releng_define</span></code> helper script function</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">releng_register_path</span></code> helper script function</p></li>
+<li><p>Introduce multiple package event types extension can hook into</p></li>
+<li><p>Introduce the <code class="docutils literal notranslate"><span class="pre">lint</span></code> action to support quality checks on a project/package</p></li>
+<li><p>Introduce the <code class="docutils literal notranslate"><span class="pre">printvars</span></code> action to support dumping package variable names</p></li>
+<li><p>Only show SSH error logs for remote Git actions</p></li>
+<li><p>Prevent default CMake define conflicts when overrides set in <code class="docutils literal notranslate"><span class="pre">&lt;PKG&gt;_CONF_DEFS</span></code></p></li>
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">PKG_DEFDIR</span></code> in early package configuration variable expansions</p></li>
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">releng_include</span></code> sourcing variables into caller script</p></li>
+<li><p>Support the existence of a <code class="docutils literal notranslate"><span class="pre">FORCE_COLOR</span></code> environment variable</p></li>
+<li><p>Support variable expansion on various logging calls</p></li>
+<li><p>Support variable expansion on various path-like utility calls</p></li>
+</ul>
 </section>
 <section id="v2-6-0-2025-08-03">
 <h2>2.6.0 (2025-08-03)<a class="headerlink" href="#v2-6-0-2025-08-03" title="Link to this heading">¶</a></h2>
@@ -889,12 +930,12 @@ execution</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../news/2025-08-03_02.06.00/">
+          <a class="next-page" href="../news/2026-02-08_02.07.00/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">2.6 (2025-08-03)</div>
+                <div class="title">2.7 (2026-02-08)</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -945,6 +986,7 @@ execution</p></li>
             <ul>
 <li><a class="reference internal" href="#">Versionshinweise</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
+<li><a class="reference internal" href="#v2-7-0-2026-02-08">2.7.0 (2026-02-08)</a></li>
 <li><a class="reference internal" href="#v2-6-0-2025-08-03">2.6.0 (2025-08-03)</a></li>
 <li><a class="reference internal" href="#v2-5-0-2025-06-22">2.5.0 (2025-06-22)</a></li>
 <li><a class="reference internal" href="#v2-4-0-2025-05-31">2.4.0 (2025-05-31)</a></li>

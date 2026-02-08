@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
@@ -277,6 +278,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
@@ -291,12 +293,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../examples/">例</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-autotools/">Autotools package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cargo/">Cargo package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cmake/">CMake package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-make/">Make package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-meson/">Meson package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-python/">Python package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-scons/">SCons package examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">寄稿者ガイド</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -700,6 +712,30 @@ patches tailored for the specific module being targeted.</p>
 </div>
 <p>See also <a class="reference internal" href="#pkg-opt-build-subdir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></span></a>.</p>
 </section>
+<section id="libfoo-preextract">
+<span id="pkg-opt-preextract"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span></code><a class="headerlink" href="#libfoo-preextract" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.7.</span></p>
+</div>
+<p>Flag value to indicate that a package should attempt to extract the package
+contents before any configuration stage of all other packages are performed.
+By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PREEXTRACT</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Ideally, package configurations can utilize <a class="reference internal" href="../common-pkg-options/#pkg-opt-needs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NEEDS</span></code></span></a> to
+manage the order of processed packages. However, in the scenario where package
+dependencies result in a cyclic dependency, releng-tool will report an error
+since a known dependency order is require for a consistent build pipeline.</p>
+<p>In situations where two or more packages do depend on each other, developers
+can utilize this pre-extraction flag to hint that packages should already be
+extracted before any other package attempts to configure/build. For example,
+if <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> and <code class="docutils literal notranslate"><span class="pre">libbar</span></code> both depend on each other, developers can configure
+<code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span> <span class="pre">=</span> <span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">LIBBAR_PREEXTRACT</span> <span class="pre">=</span> <span class="pre">True</span></code> in each package's
+respective definition. The process order of packages will still be driven by
+any <a class="reference internal" href="../common-pkg-options/#pkg-opt-needs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NEEDS</span></code></span></a> options set (that do not result in a
+cyclic error) and the order defined by <a class="reference internal" href="../../configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a>.</p>
+</section>
 <section id="libfoo-prefix">
 <span id="pkg-opt-prefix"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code><a class="headerlink" href="#libfoo-prefix" title="Link to this heading">¶</a></h2>
 <div class="versionchanged">
@@ -818,7 +854,7 @@ what the site value is configured as.</p>
 <p>Supported types are as follows:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">brz</span></code> (Breezy)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bzr</span></code> (Bazaar)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bzr</span></code> (Bazaar) <em>(deprecated)</em></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cvs</span></code> (CVS)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> (File URI)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">git</span></code> (Git)</p></li>
@@ -953,6 +989,7 @@ warning message.</p>
 <li><a class="reference internal" href="#libfoo-internal"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-no-extraction"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-patch-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-preextract"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-prefix"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-remote-config"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-remote-scripts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code></a></li>

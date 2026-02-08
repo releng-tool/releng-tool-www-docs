@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
 </li>
@@ -277,6 +278,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
@@ -291,12 +293,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/">Ejemplos</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-autotools/">Autotools package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-cargo/">Cargo package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-cmake/">CMake package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-make/">Make package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-meson/">Meson package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-python/">Python package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-scons/">SCons package examples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Requesting help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributors/">Guía del colaborador</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-05-31_02.04.00/">2.4 (2025-05-31)</a></li>
@@ -404,8 +416,11 @@ are listed below:</p>
 <h2>Available functions<a class="headerlink" href="#available-functions" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.debug">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.debug" title="Link to this definition">¶</a></dt>
-<dd><p>Logs a debug message to standard out with a trailing new line. By default,
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.debug" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Logs a debug message to standard out with a trailing new line. By default,
 debug messages will not be output to standard out unless the instance is
 configured with debugging enabled.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;this is a debug message&#39;</span><span class="p">)</span>
@@ -420,12 +435,16 @@ generating a formatted message</p></li>
 </ul>
 </dd>
 </dl>
+<p>See also the <code class="docutils literal notranslate"><span class="pre">--debug</span></code> <a class="reference internal" href="../arguments/#arg-debug"><span class="std std-ref">argument</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.err">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.err" title="Link to this definition">¶</a></dt>
-<dd><p>Logs an error message to standard error with a trailing new line and (if
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.err" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Logs an error message to standard error with a trailing new line and (if
 enabled) a red colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">err</span><span class="p">(</span><span class="s1">&#39;this is an error message&#39;</span><span class="p">)</span>
 </pre></div>
@@ -443,12 +462,15 @@ generating a formatted message</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.hint">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">hint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.hint" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">hint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.hint" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.13.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 1.4: </span>Ensure availability in script helpers.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
 </div>
 <p>Logs a hint message to standard out with a trailing new line and (if
 enabled) a cyan colorization.</p>
@@ -468,8 +490,11 @@ generating a formatted message</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.log">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.log" title="Link to this definition">¶</a></dt>
-<dd><p>Logs a (normal) message to standard out with a trailing new line.</p>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.log" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Logs a (normal) message to standard out with a trailing new line.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;this is a message&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -486,8 +511,11 @@ generating a formatted message</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.note">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.note" title="Link to this definition">¶</a></dt>
-<dd><p>Logs a notification message to standard out with a trailing new line and (if
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.note" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Logs a notification message to standard out with a trailing new line and (if
 enabled) an inverted colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">note</span><span class="p">(</span><span class="s1">&#39;this is a note message&#39;</span><span class="p">)</span>
 </pre></div>
@@ -511,6 +539,9 @@ generating a formatted message</p></li>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided file will now expand variables.</p>
 </div>
 <p>Attempts to read one or more files provided to this call. For each file, it
 will be read and printed out to the standard output.</p>
@@ -543,6 +574,9 @@ output; <code class="docutils literal notranslate"><span class="pre">False</span
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided paths will now expand variables.</p>
 </div>
 <p>This call will attempt to copy a provided file, directory’s contents or
 directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
@@ -608,6 +642,9 @@ has failed</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided paths will now expand variables.</p>
+</div>
 <p>This call will attempt to copy a provided file, directory’s contents or
 directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
 destination directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If a target directory does not
@@ -652,6 +689,35 @@ has failed</p>
 </dd>
 <dt class="field-odd">Muestra<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>SystemExit</strong> – if the copy operation fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="releng_tool.releng_define">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_define</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_define" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.7.</span></p>
+</div>
+<p>Ensures a provided variable is defined in the caller’s global context.
+If not, the variable will be defined with the provided default value.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="n">releng_define</span><span class="p">(</span><span class="s1">&#39;MY_DEFINE&#39;</span><span class="p">,</span> <span class="s1">&#39;default-value&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<span class="c1"># (or)</span>
+<span class="n">releng_define</span><span class="p">(</span><span class="s1">&#39;MY_DEFINE&#39;</span><span class="p">,</span> <span class="s1">&#39;default-value&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MY_DEFINE</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>var</strong> – the define/variable name</p></li>
+<li><p><strong>default</strong> (<em>optional</em>) – the default value to use if the define is not set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>the set value for this define</p>
 </dd>
 </dl>
 </dd></dl>
@@ -724,11 +790,6 @@ instead of the original environment of the caller.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the execution fails for any reason,
 this call will issue a system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>). By default, the
 critical flag is enabled (i.e. <code class="docutils literal notranslate"><span class="pre">critical=True</span></code>).</p>
-<p>In special cases, an executing process may not provide carriage returns/new
-lines to simple output processing. This can lead the output of a process to
-be undesirably buffered. To workaround this issue, the execution call can
-instead poll for output results by using the <code class="docutils literal notranslate"><span class="pre">poll</span></code> option with a value
-of <code class="docutils literal notranslate"><span class="pre">True</span></code>. By default, polling is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>A caller may wish to capture the provided output from a process for
 examination. If a list is provided in the call argument <code class="docutils literal notranslate"><span class="pre">capture</span></code>, the
 list will be populated with the output provided from an invoked process.</p>
@@ -747,8 +808,7 @@ list will be populated with the output provided from an invoked process.</p>
 <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
 <li><p><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure
 (defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
-<li><p><strong>poll</strong> (<em>optional</em>) – force polling stdin/stdout for output data (defaults to
-<code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>poll</strong> (<em>optional</em>) – obsolete/ignored argument</p></li>
 <li><p><strong>capture</strong> (<em>optional</em>) – list to capture output into</p></li>
 <li><p><strong>expand</strong> (<em>optional</em>) – perform variable expansion on arguments</p></li>
 <li><p><strong>args_str</strong> (<em>optional</em>) – invoke arguments as a single string</p></li>
@@ -826,6 +886,9 @@ instead of the original environment of the caller.</p>
 <dd><div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided path will now expand variables.</p>
+</div>
 <p>Allows a caller to verify the existence of a file on the file system. This
 call will return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the path exists; <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
@@ -850,8 +913,11 @@ call will return <code class="docutils literal notranslate"><span class="pre">Tr
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.releng_exit">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_exit" title="Link to this definition">¶</a></dt>
-<dd><p>Provides a convenience method to help invoke a system exit call without
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_exit" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Provides a convenience method to help invoke a system exit call without
 needing to explicitly use <code class="docutils literal notranslate"><span class="pre">sys</span></code>. A caller can provide a message to
 indicate the reason for the exit. The provide message will output to
 standard error. The exit code, if not explicit set, will vary on other
@@ -916,12 +982,18 @@ duplicate entries.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.releng_include">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#releng_tool.releng_include" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#releng_tool.releng_include" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided file path will now expand variables.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Introduce the <code class="docutils literal notranslate"><span class="pre">source</span></code> argument.</p>
 </div>
 <p>The provided call will execute code at the provided file path. The path
 will be relative to the caller’s script, unless an absolute path is
@@ -932,9 +1004,20 @@ the caller’s script.</p>
 <span class="n">releng_include</span><span class="p">(</span><span class="s1">&#39;my-other-script&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Changes to the global context can be imported into the caller’s context
+by enabling the <code class="docutils literal notranslate"><span class="pre">source</span></code> argument. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># script &quot;my-var-script&quot; defines &quot;HELLO=&#39;world&#39;&quot;</span>
+<span class="n">releng_include</span><span class="p">(</span><span class="s1">&#39;my-var-script&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># prints &quot;world&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">HELLO</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>file_path</strong> – the script to invoke</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> – the script to invoke</p></li>
+<li><p><strong>source</strong> (<em>optional</em>) – import globals into invoking script</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -957,6 +1040,9 @@ the caller’s script.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided directory will now expand variables.</p>
 </div>
 <p>Attempts to read a directory for its contents and prints this information
 to the configured standard output stream.</p>
@@ -996,6 +1082,9 @@ be read</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided directory will now expand variables.</p>
 </div>
 <p>Attempts to create the provided directory. If the directory already exists,
 this method has no effect. If the directory does not exist and could not be
@@ -1045,6 +1134,9 @@ be created</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided paths will now expand variables.</p>
 </div>
 <p>This call will attempt to move a provided file, directory’s contents or
 directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
@@ -1105,6 +1197,9 @@ has failed</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided paths will now expand variables.</p>
+</div>
 <p>This call will attempt to move a provided file, directory’s contents or
 directory itself (if <code class="docutils literal notranslate"><span class="pre">nested</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>); defined by <code class="docutils literal notranslate"><span class="pre">src</span></code> into a
 destination directory defined by <code class="docutils literal notranslate"><span class="pre">dst</span></code>. If a target directory directory
@@ -1162,10 +1257,48 @@ has failed</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="releng_tool.releng_register_path">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_register_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_register_path" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.7.</span></p>
+</div>
+<p>This call will register a provided path into the Python module search path
+(<code class="docutils literal notranslate"><span class="pre">sys.path</span></code>). This can be useful for situations when trying to load a
+local/relative folder containing extensions or other enhancements a
+developer wants to use/import. If <code class="docutils literal notranslate"><span class="pre">critical</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the
+specified directory could not be registered for any reason, this call will
+issue a system exit (<code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>).</p>
+<p>If the provided path is already registered, the call is ignored and will
+return as if a registration was made (<code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_register_path</span><span class="p">(</span><span class="n">ROOT_DIR</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;my-other-folder&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir</strong> – the directory to register</p></li>
+<li><p><strong>critical</strong> (<em>optional</em>) – whether or not to stop execution on failure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the path has been registered; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the registration
+has failed</p>
+</dd>
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SystemExit</strong> – if the registration fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.releng_remove">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#releng_tool.releng_remove" title="Link to this definition">¶</a></dt>
 <dd><div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided path will now expand variables.</p>
 </div>
 <p>Attempts to remove the provided path if it exists. The path value can either
 be a directory or a specific file. If the provided path does not exist, this
@@ -1197,7 +1330,7 @@ path could not be removed from the system</p>
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_symlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#releng_tool.releng_symlink" title="Link to this definition">¶</a></dt>
 <dd><div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>this call may not work in Windows environments if the user invoking
+<p>This call may not work in Windows environments if the user invoking
 releng-tool does not have permission to create symbolic links.</p>
 </div>
 <div class="versionadded">
@@ -1205,6 +1338,9 @@ releng-tool does not have permission to create symbolic links.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided paths will now expand variables.</p>
 </div>
 <p>This call will attempt to create a symbolic link to a <code class="docutils literal notranslate"><span class="pre">target</span></code> path.
 A provided <code class="docutils literal notranslate"><span class="pre">link_path</span></code> determines where the symbolic link will be
@@ -1310,6 +1446,9 @@ has failed</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Add support for <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**wd</span></code>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided directory will now expand variables.</p>
+</div>
 <p>Creates a temporary directory in the provided directory <code class="docutils literal notranslate"><span class="pre">dir_</span></code> (or system
 default, is not provided). This is a context-supported call and will
 automatically remove the directory when completed. If the provided
@@ -1344,6 +1483,9 @@ working directory (defaults to <code class="docutils literal notranslate"><span 
 <div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Add support for <code class="docutils literal notranslate"><span class="pre">*args</span></code>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided file will now expand variables.</p>
+</div>
 <p>Attempts to update the access/modifications times on a file. If the file
 does not exist, it will be created. This utility call operates in the same
 fashion as the <code class="docutils literal notranslate"><span class="pre">touch</span></code> system command.</p>
@@ -1374,6 +1516,9 @@ not be created/updated</p>
 <dd><div class="versionchanged">
 <p><span class="versionmodified changed">Distinto en la versión 2.2: </span>Accepts a str, bytes or os.PathLike.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided directory will now expand variables.</p>
+</div>
 <p>Moves the current context into the provided working directory <code class="docutils literal notranslate"><span class="pre">dir</span></code>. When
 returned, the original working directory will be restored. If the provided
 directory does not exist, it will created. If the directory could not be
@@ -1399,8 +1544,11 @@ thrown.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.success">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.success" title="Link to this definition">¶</a></dt>
-<dd><p>Logs a success message to standard error with a trailing new line and (if
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.success" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Logs a success message to standard error with a trailing new line and (if
 enabled) a green colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">success</span><span class="p">(</span><span class="s1">&#39;this is a success message&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1418,8 +1566,11 @@ generating a formatted message</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.verbose">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.verbose" title="Link to this definition">¶</a></dt>
-<dd><p>Logs a verbose message to standard out with a trailing new line and (if
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">verbose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.verbose" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Logs a verbose message to standard out with a trailing new line and (if
 enabled) an inverted colorization. By default, verbose messages will not be
 output to standard out unless the instance is configured with verbosity.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;this is a verbose message&#39;</span><span class="p">)</span>
@@ -1434,12 +1585,16 @@ generating a formatted message</p></li>
 </ul>
 </dd>
 </dl>
+<p>See also the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> <a class="reference internal" href="../arguments/#arg-verbose"><span class="std std-ref">argument</span></a>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.warn">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.warn" title="Link to this definition">¶</a></dt>
-<dd><p>Logs a warning message to standard error with a trailing new line and (if
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.warn" title="Link to this definition">¶</a></dt>
+<dd><div class="versionchanged">
+<p><span class="versionmodified changed">Distinto en la versión 2.7: </span>Provided message will now expand variables.</p>
+</div>
+<p>Logs a warning message to standard error with a trailing new line and (if
 enabled) a purple colorization.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;this is a warning message&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1587,6 +1742,7 @@ example, import a specific function:</p>
 <li><a class="reference internal" href="#releng_tool.releng_cat"><code class="docutils literal notranslate"><span class="pre">releng_cat()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_copy"><code class="docutils literal notranslate"><span class="pre">releng_copy()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_copy_into"><code class="docutils literal notranslate"><span class="pre">releng_copy_into()</span></code></a></li>
+<li><a class="reference internal" href="#releng_tool.releng_define"><code class="docutils literal notranslate"><span class="pre">releng_define()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_env"><code class="docutils literal notranslate"><span class="pre">releng_env()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_execute"><code class="docutils literal notranslate"><span class="pre">releng_execute()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_execute_rv"><code class="docutils literal notranslate"><span class="pre">releng_execute_rv()</span></code></a></li>
@@ -1600,6 +1756,7 @@ example, import a specific function:</p>
 <li><a class="reference internal" href="#releng_tool.releng_move"><code class="docutils literal notranslate"><span class="pre">releng_move()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_move_into"><code class="docutils literal notranslate"><span class="pre">releng_move_into()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_path"><code class="docutils literal notranslate"><span class="pre">releng_path()</span></code></a></li>
+<li><a class="reference internal" href="#releng_tool.releng_register_path"><code class="docutils literal notranslate"><span class="pre">releng_register_path()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_remove"><code class="docutils literal notranslate"><span class="pre">releng_remove()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_symlink"><code class="docutils literal notranslate"><span class="pre">releng_symlink()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_require_version"><code class="docutils literal notranslate"><span class="pre">releng_require_version()</span></code></a></li>
