@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg-type-waf/">Waf package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -301,6 +302,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-meson/">Meson package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-scons/">SCons package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-waf/">Waf package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Requesting help</a></li>
@@ -308,6 +310,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Versionshinweise</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Versionshinweise</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
@@ -463,8 +466,28 @@ in development mode.</p>
 <p>See also <a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> and
 <a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a>.</p>
 </section>
+<section id="libfoo-devmode-skip-integrity-check">
+<span id="pkg-opt-devmode-skip-integrity-check"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code><a class="headerlink" href="#libfoo-devmode-skip-integrity-check" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.8.</span></p>
+</div>
+<p>Flag value to indicate that a package can skip an integrity check when fetching
+a development revision when operating in
+<a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>. This option can be used when
+a package defines a static resource with an explicit hash but opts for an
+alternative resource when in a development mode. Switching to an alternative
+static resource can result in the fetch stage failing if no alternative
+hashes are defined. Developers not wanting to maintain development hashes can
+instead configure this option if not needing an integrity check.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
 <section id="libfoo-extension">
 <span id="pkg-opt-extension"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code><a class="headerlink" href="#libfoo-extension" title="Link to this heading">¶</a></h2>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Geändert in Version 2.8: </span>Support an empty extension value.</p>
+</div>
 <p>Specifies a filename extension for the package. A package may be cached inside
 the download directory to be used when the extraction phase is invoked.
 releng-tool attempts to determine the most ideal extension for this cache file;
@@ -531,12 +554,20 @@ this option.</p>
 </section>
 <section id="libfoo-fixed-jobs">
 <span id="pkg-opt-fixed-jobs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code><a class="headerlink" href="#libfoo-fixed-jobs" title="Link to this heading">¶</a></h2>
-<p>Explicitly configure the total number of jobs a package can use. The
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>It is recommended to use <a class="reference internal" href="#pkg-opt-max-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></span></a> instead.</p>
+</div>
+<p>Explicitly configure the total number of jobs a package will use. The
 primary use case for this option is to help limit the total number of jobs
 for a package that cannot support a large or any parallel build environment.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_FIXED_JOBS</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
+<p>Note that this option will override the <a class="reference internal" href="../../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a> and can
+be used to exceed the jobs count (although not recommended in most scenarios).</p>
+<p>See also the <a class="reference internal" href="../../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a> and
+<a class="reference internal" href="#pkg-opt-max-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></span></a>.</p>
 </section>
 <section id="libfoo-git-config">
 <span id="pkg-opt-git-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="Link to this heading">¶</a></h2>
@@ -662,6 +693,26 @@ configured to be internal.</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
+</section>
+<section id="libfoo-max-jobs">
+<span id="pkg-opt-max-jobs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code><a class="headerlink" href="#libfoo-max-jobs" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.8.</span></p>
+</div>
+<p>Configure the maximum number of jobs a package can use. This option can be used
+for packages that cannot support a large or any parallel build environment.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_MAX_JOBS</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>This option also accepts negative values. When a negative option is provided,
+the total number of jobs used for a package will be the default job count less
+the provided value (to a minimum of one). For example, to use one less job than
+the total number of cores, the following can be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_MAX_JOBS</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>See also the <a class="reference internal" href="../../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a> and
+<a class="reference internal" href="#pkg-opt-fixed-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></span></a>.</p>
 </section>
 <section id="libfoo-no-extraction">
 <span id="pkg-opt-no-extraction"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code><a class="headerlink" href="#libfoo-no-extraction" title="Link to this heading">¶</a></h2>
@@ -805,8 +856,8 @@ revisions can be configured based off the mode:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="#pkg-opt-devmode-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></span></a> and
-<a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a>.</p>
+<p>See also <a class="reference internal" href="#pkg-opt-devmode-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></span></a>,
+<a class="reference internal" href="../common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> and <a class="reference internal" href="../../configuration/#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a>.</p>
 </section>
 <section id="libfoo-strip-count">
 <span id="pkg-opt-strip-count"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code><a class="headerlink" href="#libfoo-strip-count" title="Link to this heading">¶</a></h2>
@@ -974,6 +1025,7 @@ warning message.</p>
 <li><a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-devmode-ignore-cache"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-devmode-skip-integrity-check"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-extension"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-external"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-extopt"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code></a></li>
@@ -987,6 +1039,7 @@ warning message.</p>
 <li><a class="reference internal" href="#libfoo-git-verify-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-host-provides"><code class="docutils literal notranslate"><span class="pre">LIBFOO_HOST_PROVIDES</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-internal"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-max-jobs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-no-extraction"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-patch-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-preextract"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span></code></a></li>

@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-waf/">Waf package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -301,6 +302,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-meson/">Meson package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-scons/">SCons package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-waf/">Waf package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Prośba o pomoc</a></li>
@@ -308,6 +310,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
@@ -544,6 +547,39 @@ later during a building, packaging, etc. phase.</p>
 </pre></div>
 </div>
 </section>
+<section id="revisions">
+<span id="conf-revisions"></span><h3><code class="docutils literal notranslate"><span class="pre">revisions</span></code><a class="headerlink" href="#revisions" title="Link to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Informacja</p>
+<p>Users are encouraged to use <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> or
+<a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> over this option.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added"> Dodane w wersji 2.8.</span></p>
+</div>
+<p>Provides a dictionary that defines which revisions to use for packages. While
+package revisions are typically set using <a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a>
+or <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a>, using the project configuration’s
+<code class="docutils literal notranslate"><span class="pre">revisions</span></code> can provide a convenience factor when revisions want to be
+maintained in a single location.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">revisions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;libfoo&#39;</span><span class="p">:</span> <span class="s1">&#39;libfoo-v2.1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;myapp&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The dictionary will map a package name to a revision value. If an entry
+exists for a package, its provided revision value will be used as if
+<a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> was configured with this same value.</p>
+<p>Also consider:</p>
+<ul class="simple">
+<li><p>A package definition’s revision value (i.e.
+<a class="reference internal" href="../packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> or <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a>)
+takes precedence over revision values defined by this configuration option.</p></li>
+<li><p>If this option is used and a revision is not defined for a package, packages
+will use their standard way to resolving a revision.</p></li>
+</ul>
+</section>
 <section id="sbom-format">
 <span id="conf-sbom-format"></span><h3><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code><a class="headerlink" href="#sbom-format" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
@@ -607,6 +643,9 @@ project.</p>
 </section>
 <section id="sysroot-prefix">
 <span id="conf-sysroot-prefix"></span><h3><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code><a class="headerlink" href="#sysroot-prefix" title="Link to this heading">¶</a></h3>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.8: </span>Support added for path-like values.</p>
+</div>
 <p>Define a custom sysroot prefix to provide to packages during their
 configuration, build and installation stages. By default, the sysroot
 prefix is typically set to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>; for Windows, the value is empty.</p>
@@ -990,6 +1029,7 @@ can be used:</p>
 <li><a class="reference internal" href="#license-header"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></a></li>
 <li><a class="reference internal" href="#packages"><code class="docutils literal notranslate"><span class="pre">packages</span></code></a></li>
 <li><a class="reference internal" href="#prerequisites"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></a></li>
+<li><a class="reference internal" href="#revisions"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></a></li>
 <li><a class="reference internal" href="#sbom-format"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></a></li>
 <li><a class="reference internal" href="#sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></a></li>
 <li><a class="reference internal" href="#url-mirror"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></a></li>

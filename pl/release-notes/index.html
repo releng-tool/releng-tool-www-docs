@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="2.7 (2026-02-08)" href="../news/2026-02-08_02.07.00/" /><link rel="prev" title="Contributor guide" href="../contributors/" />
+<link rel="search" title="Szukaj" href="../search/" /><link rel="next" title="2.8 (2026-02-22)" href="../news/2026-02-22_02.08.00/" /><link rel="prev" title="Contributor guide" href="../contributors/" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>Informacje o wydaniu - releng-tool - dokumentacja</title>
@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/packages/pkg-type-waf/">Waf package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -301,6 +302,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/examples-meson/">Meson package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/examples-scons/">SCons package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples-waf/">Waf package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../help/">Prośba o pomoc</a></li>
@@ -308,6 +310,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Informacje o wydaniu</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
@@ -416,6 +419,7 @@ releng-tool, please see the project’s <a class="reference external" href="http
 <h2>News<a class="headerlink" href="#news" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
@@ -439,6 +443,19 @@ releng-tool, please see the project’s <a class="reference external" href="http
 <li class="toctree-l1"><a class="reference internal" href="../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
 </ul>
 </div>
+</section>
+<section id="v2-8-0-2026-02-22">
+<h2>2.8.0 (2026-02-22)<a class="headerlink" href="#v2-8-0-2026-02-22" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Allow <code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code> to support empty extensions</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code> for development scenarios</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code> to help cap/limit package jobs</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">revisions</span></code> project configuration</p></li>
+<li><p>Introduce support for Waf-based packages</p></li>
+<li><p>Support exit code overrides on a successful run</p></li>
+<li><p>Update SPDX license database to v3.28</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code> to also accept a path-like value</p></li>
+</ul>
 </section>
 <section id="v2-7-0-2026-02-08">
 <h2>2.7.0 (2026-02-08)<a class="headerlink" href="#v2-7-0-2026-02-08" title="Link to this heading">¶</a></h2>
@@ -930,12 +947,12 @@ execution</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../news/2026-02-08_02.07.00/">
+          <a class="next-page" href="../news/2026-02-22_02.08.00/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">2.7 (2026-02-08)</div>
+                <div class="title">2.8 (2026-02-22)</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -986,6 +1003,7 @@ execution</p></li>
             <ul>
 <li><a class="reference internal" href="#">Informacje o wydaniu</a><ul>
 <li><a class="reference internal" href="#news">News</a></li>
+<li><a class="reference internal" href="#v2-8-0-2026-02-22">2.8.0 (2026-02-22)</a></li>
 <li><a class="reference internal" href="#v2-7-0-2026-02-08">2.7.0 (2026-02-08)</a></li>
 <li><a class="reference internal" href="#v2-6-0-2025-08-03">2.6.0 (2025-08-03)</a></li>
 <li><a class="reference internal" href="#v2-5-0-2025-06-22">2.5.0 (2025-06-22)</a></li>

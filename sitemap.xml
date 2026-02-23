@@ -355,6 +355,76 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://docs.releng.io/en/examples/examples-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/examples/examples-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/examples/examples-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/examples/examples-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/examples/examples-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/examples/examples-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/examples/examples-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/examples/examples-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/examples/examples-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/examples/examples-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/examples/examples-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/examples/examples-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/examples/examples-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/examples/examples-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/examples/examples-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://docs.releng.io/en/examples/examples-python/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/examples/examples-python/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/examples/examples-python/"/>
@@ -3645,6 +3715,76 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://docs.releng.io/en/guides/packages/pkg-type-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/packages/pkg-type-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/guides/packages/pkg-type-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/packages/pkg-type-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/guides/packages/pkg-type-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/packages/pkg-type-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/guides/packages/pkg-type-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/packages/pkg-type-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/guides/packages/pkg-type-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/packages/pkg-type-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/guides/packages/pkg-type-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/packages/pkg-type-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/guides/packages/pkg-type-waf/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/packages/pkg-type-waf/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/packages/pkg-type-waf/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://docs.releng.io/en/guides/packages/bootstrapping/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/packages/bootstrapping/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/packages/bootstrapping/"/>
@@ -5392,6 +5532,76 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2021-12-31_00.10.00/"/>
         <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2021-12-31_00.10.00/"/>
         <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2021-12-31_00.10.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/en/news/2026-02-22_02.08.00/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-02-22_02.08.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/news/2026-02-22_02.08.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-02-22_02.08.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/news/2026-02-22_02.08.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-02-22_02.08.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/news/2026-02-22_02.08.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-02-22_02.08.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/news/2026-02-22_02.08.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-02-22_02.08.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/news/2026-02-22_02.08.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-02-22_02.08.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/news/2026-02-22_02.08.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-02-22_02.08.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-02-22_02.08.00/"/>
         <changefreq>monthly</changefreq>
     </url>
     <url>

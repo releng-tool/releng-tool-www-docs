@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/pkg-type-scons/">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/packages/pkg-type-waf/">Waf package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -301,6 +302,7 @@
 <li class="toctree-l2"><a class="reference internal" href="examples/examples-meson/">Meson package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/examples-scons/">SCons package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/examples-waf/">Waf package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="help/">Requesting help</a></li>
@@ -308,6 +310,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
@@ -567,6 +570,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#profile-profile-var-p-profile-var"><code class="docutils literal notranslate"><span class="pre">--profile</span> <span class="pre">[&lt;profile&gt;]</span></code>, <code class="docutils literal notranslate"><span class="pre">-P</span> <span class="pre">[&lt;profile&gt;]</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#relaxed-args"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#root-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/arguments/#success-exit-code-code-var"><code class="docutils literal notranslate"><span class="pre">--success-exit-code</span> <span class="pre">&lt;code&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#sbom-format-fmt-var"><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#quirk-quirk-id-var"><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/arguments/#verbose-v"><code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">-V</span></code></a></li>
@@ -586,6 +590,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#license-header"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#packages"><code class="docutils literal notranslate"><span class="pre">packages</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#prerequisites"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuration/#revisions"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#sbom-format"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#sysroot-prefix"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/configuration/#url-mirror"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></a></li>
@@ -719,6 +724,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-devmode-ignore-cache"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-devmode-skip-integrity-check"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-extension"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-external"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-extopt"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code></a></li>
@@ -732,6 +738,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-git-verify-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-host-provides"><code class="docutils literal notranslate"><span class="pre">LIBFOO_HOST_PROVIDES</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-internal"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-max-jobs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-no-extraction"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-patch-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-preextract"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span></code></a></li>
@@ -868,6 +875,20 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-scons/#libfoo-scons-noinstall"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SCONS_NOINSTALL</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="guides/packages/pkg-type-waf/">Waf package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-build-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_DEFS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-build-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_ENV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-build-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_OPTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-conf-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-conf-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_ENV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-conf-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_OPTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_ENV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-install-defs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-install-env"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_ENV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-install-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_OPTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/pkg-type-waf/#libfoo-waf-noinstall"><code class="docutils literal notranslate"><span class="pre">LIBFOO_WAF_NOINSTALL</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/packages/deprecated-pkg-options/">Deprecated options</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/deprecated-pkg-options/#libfoo-dependencies"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEPENDENCIES</span></code></a></li>
@@ -998,6 +1019,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l2"><a class="reference internal" href="examples/examples-meson/">Meson package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/examples-scons/">SCons package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/examples-waf/">Waf package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="help/">Requesting help</a></li>

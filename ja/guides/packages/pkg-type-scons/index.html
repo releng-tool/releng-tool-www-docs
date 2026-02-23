@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="検索" href="../../../search/" /><link rel="next" title="Package hacking" href="../hacking/" /><link rel="prev" title="Python package" href="../pkg-type-python/" />
+<link rel="search" title="検索" href="../../../search/" /><link rel="next" title="Waf package" href="../pkg-type-waf/" /><link rel="prev" title="Python package" href="../pkg-type-python/" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
         <title>SCons package - releng-tool ドキュメント</title>
@@ -241,6 +241,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-meson/">Meson package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">SCons package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg-type-waf/">Waf package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -301,6 +302,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-meson/">Meson package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-scons/">SCons package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-waf/">Waf package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Requesting help</a></li>
@@ -308,6 +310,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of バージョンノート</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-06-22_02.05.00/">2.5 (2025-06-22)</a></li>
@@ -457,9 +460,10 @@ the following can be used:</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>The number of jobs is populated by either the <a class="reference internal" href="../../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a> or
-<a class="reference internal" href="../advanced-pkg-options/#pkg-opt-fixed-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></span></a>. Although, if the configuration
-results in a single job, the argument will not be used.</p>
+<p>The number of jobs is populated by either the <a class="reference internal" href="../../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a>,
+<a class="reference internal" href="../advanced-pkg-options/#pkg-opt-fixed-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></span></a> or
+<a class="reference internal" href="../advanced-pkg-options/#pkg-opt-max-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></span></a>. Although, if the configuration results
+in a single job, the argument will not be used.</p>
 </div>
 <input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Install</label><div class="tab-content docutils">
 <p>The install stage invokes <code class="docutils literal notranslate"><span class="pre">scons</span></code> with an <code class="docutils literal notranslate"><span class="pre">install</span></code> target:</p>
@@ -697,12 +701,12 @@ By default, the installation stage is invoked with a value of <code class="docut
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../hacking/">
+          <a class="next-page" href="../pkg-type-waf/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Package hacking</div>
+                <div class="title">Waf package</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
