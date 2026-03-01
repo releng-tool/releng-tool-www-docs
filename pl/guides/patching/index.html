@@ -1,25 +1,25 @@
 <!doctype html>
 <html class="no-js" lang="pl" data-content_root="../../">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="Szukaj" href="../../search/" /><link rel="next" title="Internal/external packages" href="../intern-extern-pkgs/" /><link rel="prev" title="Advanced" href="../advanced-guides/" />
+<link rel="search" title="Szukaj" href="../../search/"><link rel="next" title="Internal/external packages" href="../intern-extern-pkgs/"><link rel="prev" title="Advanced" href="../advanced-guides/">
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Patching - releng-tool - dokumentacja</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=ebe3738c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=88acf7b1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
@@ -146,14 +146,10 @@
   </symbol>
 </svg>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
 
 <a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
@@ -163,8 +159,7 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
       </label>
     </div>
     <div class="header-center">
@@ -172,8 +167,7 @@
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
           <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
           <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -181,8 +175,7 @@
         </button>
       </div>
       <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
   </header>
@@ -190,7 +183,6 @@
     <div class="sidebar-container">
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
-  
 
 <div class="sidebar-logo-container">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 8.02" class="sidebar-logo" alt="releng-tool">
@@ -208,9 +200,9 @@
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../requirements/">Wymagania</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../install/">Instalacja</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/getting-started/">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/getting-started/">Getting started</a><input aria-label="Toggle navigation of Getting started" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/prelude/">Prelude</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started/tutorials/">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started/tutorials/">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/tutorial-basic/">Tutorial „Basic packages”</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/tutorial-sdl/">Tutorial „An SDL example”</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/tutorial-toolchain/">Tutorial „A toolchain example”</a></li>
@@ -220,11 +212,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/fetching/">Understanding fetching</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../guides/">User guides</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of User guides</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../guides/">Podręczniki użytkownika</a><input aria-label="Toggle navigation of Podręczniki użytkownika" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../arguments/">Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../configuration/">Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../environment/">Environment variables</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../packages/packages/">Packages</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../packages/packages/">Packages</a><input aria-label="Toggle navigation of Packages" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../packages/common-pkg-options/">Common options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/advanced-pkg-options/">Advanced options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/system-pkg-options/">System-specific options</a></li>
@@ -249,7 +241,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../post-processing/">Post-processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../script-helpers/">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licenses/">Licenses</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">Wskazówki</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Wskazówki</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">Wskazówki</a><input aria-label="Toggle navigation of Wskazówki" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/parallel-builds/">Parallel builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
@@ -258,14 +250,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Advanced</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
@@ -287,14 +279,14 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../extensions/extensions/">Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../extensions/extensions/">Extensions</a><input aria-label="Toggle navigation of Extensions" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../extensions/making-a-custom-post-build-action/">Making a custom post-build action extension</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../extensions/making-a-custom-package-type/">Making a custom package type extension</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/examples/">Examples</a><input aria-label="Toggle navigation of Examples" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-autotools/">Autotools package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-cargo/">Cargo package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-cmake/">CMake package examples</a></li>
@@ -309,7 +301,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../contributors/">Contributor guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Informacje o wydaniu</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
@@ -346,6 +339,11 @@
       <li><a class="reference external" href="https://releng.io/">releng.io</a></li>
       <li><a class="reference external" href="https://github.com/releng-tool/releng-tool">releng-tool GitHub</a></li>
     </ul>
+    <hr class="injected-sidebar-tree-spacer" />
+    <div class="injected-sidebar-extras">
+        <a class="reference" href="../../releng-tool.pdf">🗎 PDF</a>
+        <a class="reference" href="../../_/">🗏 Full Page</a>
+    </div>
 
     <hr class="injected-sidebar-tree-spacer" />
     <div class="injected-sidebar-i8n">
@@ -391,13 +389,12 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/patching.md" title="Edit this page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/patching.md" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
 </div><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -405,8 +402,7 @@
             </button>
           </div>
           <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
@@ -414,9 +410,13 @@
 <h1>Patching<a class="headerlink" href="#patching" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Informacja</p>
-<p>Patches are ignored when in <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a> for
-packages with a development revision, for <code class="docutils literal notranslate"><span class="pre">local</span></code> VCS packages or when in
-<a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a> for internal packages.</p>
+<p>Patches are ignored when in <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a> by default
+for packages with a development revision, for <code class="docutils literal notranslate"><span class="pre">local</span></code> VCS packages or when
+in <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a> for internal packages.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.9: </span>Additional configuration modes to permit development revisions to have
+patches applied.</p>
 </div>
 <p>The patching stage for a package provides the ability for a developer to apply
 one or more patches to extracted sources. A project may take advantage of
@@ -450,14 +450,27 @@ the following package patches:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">0003-support-disabling-test-build.patch</span></code></p></li>
 </ol>
 <p>If a user configures their build environment in
-<a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>, patches will not be applied if a
-package defines a development revision. The idea is that a development
+<a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>, patches will not be applied by default
+if a package defines a development revision. The idea is that a development
 revision is most likely the bleeding edge source of a package and does not
 need any patches. If a user configures their build environment in
 <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a> and a package is defined as
 internal, patches will not be applied to the sources. This is to prevent the
 patching system from making unexpected modifications to a developer’s local
 sources.</p>
+<p>In the scenario where a developer does want to override when patches are
+applied, there are a couple of advanced options. First, the option
+<a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-ignore-patches"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_IGNORE_PATCHES</span></code></span></a> allows a developer to avoid
+the automatic application of patches on a package during normal runs. Second,
+the option <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-devmode-patches"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code></span></a> can be
+configured to permit a package to utilize patches in a development mode.</p>
+<p>For example, the following configuration will instead only apply patches on
+a package when releng-tool is operating in a development mode and the package
+defines a development revision:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_PATCHES</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">LIBFOO_IGNORE_PATCHES</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -514,9 +527,9 @@ sources.</p>
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=bb0f2bca"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/translations.js?v=2827c288"></script>
     </body>

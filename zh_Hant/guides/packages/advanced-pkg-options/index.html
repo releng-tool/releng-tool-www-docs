@@ -1,25 +1,25 @@
 <!doctype html>
 <html class="no-js" lang="zh-Hant" data-content_root="../../../">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="search" title="Search" href="../../../search/" /><link rel="next" title="System-specific package options" href="../system-pkg-options/" /><link rel="prev" title="Common package options" href="../common-pkg-options/" />
+<link rel="search" title="Search" href="../../../search/"><link rel="next" title="System-specific package options" href="../system-pkg-options/"><link rel="prev" title="Common package options" href="../common-pkg-options/">
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Advanced package options - releng-tool documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=ebe3738c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=88acf7b1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
@@ -146,14 +146,10 @@
   </symbol>
 </svg>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
 
 <a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
@@ -163,8 +159,7 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
       </label>
     </div>
     <div class="header-center">
@@ -172,8 +167,7 @@
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
           <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
           <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -181,8 +175,7 @@
         </button>
       </div>
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
   </header>
@@ -190,7 +183,6 @@
     <div class="sidebar-container">
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../">
-  
 
 <div class="sidebar-logo-container">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 8.02" class="sidebar-logo" alt="releng-tool">
@@ -208,9 +200,9 @@
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../requirements/">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../install/">Installation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started/getting-started/">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started/getting-started/">Getting started</a><input aria-label="Toggle navigation of Getting started" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../getting-started/prelude/">Prelude</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../getting-started/tutorials/">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../getting-started/tutorials/">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../getting-started/tutorial-basic/">Tutorial "Basic packages"</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../getting-started/tutorial-sdl/">Tutorial "An SDL example"</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../getting-started/tutorial-toolchain/">Tutorial "A toolchain example"</a></li>
@@ -220,11 +212,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../getting-started/fetching/">Understanding fetching</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../guides/">User guides</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of User guides</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../guides/">User guides</a><input aria-label="Toggle navigation of User guides" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../arguments/">Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../configuration/">Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../environment/">Environment variables</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../packages/">Packages</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packages</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../packages/">Packages</a><input aria-label="Toggle navigation of Packages" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../common-pkg-options/">Common options</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Advanced options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../system-pkg-options/">System-specific options</a></li>
@@ -249,7 +241,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../post-processing/">Post-processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../script-helpers/">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../licenses/">Licenses</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../tips/tips/">Tips</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Tips</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tips/tips/">Tips</a><input aria-label="Toggle navigation of Tips" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/parallel-builds/">Parallel builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/privileged-builds/">Privileged builds</a></li>
@@ -258,14 +250,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../advanced-guides/">Advanced</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Advanced</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configuration-overrides/">Configuration overrides</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Quirks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
@@ -287,14 +279,14 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../extensions/extensions/">Extensions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Extensions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../extensions/extensions/">Extensions</a><input aria-label="Toggle navigation of Extensions" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../extensions/making-a-custom-post-build-action/">Making a custom post-build action extension</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../extensions/making-a-custom-package-type/">Making a custom package type extension</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/examples/">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Examples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/examples/">Examples</a><input aria-label="Toggle navigation of Examples" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-autotools/">Autotools package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cargo/">Cargo package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-cmake/">CMake package examples</a></li>
@@ -309,7 +301,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../contributors/">Contributor guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Release notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2025-08-03_02.06.00/">2.6 (2025-08-03)</a></li>
@@ -334,7 +327,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2021-12-31_00.10.00/">0.10 (2021-12-31)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">ANNEX A — Quick reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex-a/">附件 A — 快速参考</a></li>
 </ul>
 
 </div>
@@ -346,6 +339,11 @@
       <li><a class="reference external" href="https://releng.io/">releng.io</a></li>
       <li><a class="reference external" href="https://github.com/releng-tool/releng-tool">releng-tool GitHub</a></li>
     </ul>
+    <hr class="injected-sidebar-tree-spacer" />
+    <div class="injected-sidebar-extras">
+        <a class="reference" href="../../../releng-tool.pdf">🗎 PDF</a>
+        <a class="reference" href="../../../_/">🗏 Full Page</a>
+    </div>
 
     <hr class="injected-sidebar-tree-spacer" />
     <div class="injected-sidebar-i8n">
@@ -391,13 +389,12 @@
     <span class="visually-hidden">View this page</span>
   </a>
 </div><div class="edit-this-page">
-  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/packages/advanced-pkg-options.md" title="Edit this page">
+  <a class="muted-link" href="https://github.com/releng-tool/releng-tool-docs/edit/main/content/guides/packages/advanced-pkg-options.md" rel="edit" title="Edit this page">
     <svg><use href="#svg-pencil"></use></svg>
     <span class="visually-hidden">Edit this page</span>
   </a>
 </div><div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -405,8 +402,7 @@
             </button>
           </div>
           <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
@@ -451,6 +447,48 @@ type being fetched. In most cases, fetch operations will treat the default case
 of this option as disabled (<code class="docutils literal notranslate"><span class="pre">False</span></code>). DVCS site types may elect to enable this
 option by default (<code class="docutils literal notranslate"><span class="pre">True</span></code>) if the target revision is a branch.</p>
 <p>See also <a class="reference internal" href="../../configuration/#conf-default-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></span></a>.</p>
+</section>
+<section id="libfoo-devmode-patches">
+<span id="pkg-opt-devmode-patches"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code><a class="headerlink" href="#libfoo-devmode-patches" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.9.</span></p>
+</div>
+<p>Allow configuring a package to apply patches when operating in
+<a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>. Typically, patches are not
+enabled for packages in development mode since they are primarily for helping
+to patch fixed revisions that have issues. However, this option can be used
+to allow a package in a development mode to have patches applied to them.
+By default, patches are never applied to development mode packages with a
+value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>To enable all patches to be applied when in development mode, the following
+flag can be set:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_PATCHES</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>A developer can provide a pattern of patches to include:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_PATCHES</span> <span class="o">=</span> <span class="s1">&#39;*variable-shift*&#39;</span>
+</pre></div>
+</div>
+<p>Or multiple patterns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_PATCHES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;007-add-mode-x.patch&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;*-experimental-shuffle-*&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>A developer can also configure the inclusion or patterns based on the
+specific development mode being operated on:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_PATCHES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;custom-mode-2&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;custom-mode-3&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;002-disable-help.patch&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;*-ui-tweaks-*&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#pkg-opt-ignore-patches"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_IGNORE_PATCHES</span></code></span></a> and
+<a class="reference internal" href="../../patching/"><span class="doc std std-doc">patching</span></a>.</p>
 </section>
 <section id="libfoo-devmode-revision">
 <span id="pkg-opt-devmode-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code><a class="headerlink" href="#libfoo-devmode-revision" title="Link to this heading">¶</a></h2>
@@ -680,6 +718,30 @@ not available at the start of a run.</p>
 </div>
 <p>See also <a class="reference internal" href="../common-pkg-options/#pkg-opt-install-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code></span></a>.</p>
 </section>
+<section id="libfoo-ignore-patches">
+<span id="pkg-opt-ignore-patches"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_IGNORE_PATCHES</span></code><a class="headerlink" href="#libfoo-ignore-patches" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.9.</span></p>
+</div>
+<p>Flag value to indicate that a package should ignore patches found alongside
+the package definition. This option can be useful with
+<a class="reference internal" href="#pkg-opt-devmode-patches"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code></span></a> to allow a package to
+manage packages aimed for development mode over a primary build.
+By default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>For example, to ignore all patches in a default run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_IGNORE_PATCHES</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Developers can also configure patterns of patches to ignore:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_IGNORE_PATCHES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;*-new-engine-*&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;006-custom-int.patch&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#pkg-opt-devmode-patches"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code></span></a> and
+<a class="reference internal" href="../../patching/"><span class="doc std std-doc">patching</span></a>.</p>
+</section>
 <section id="libfoo-internal">
 <span id="pkg-opt-internal"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code><a class="headerlink" href="#libfoo-internal" title="Link to this heading">¶</a></h2>
 <p>Flag value to indicate that a package is an internal package. Internal
@@ -744,6 +806,35 @@ copy of the project's license file. Specifying <code class="docutils literal not
 projects with the no-extraction flag enabled will result in a warning. By
 default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </section>
+<section id="libfoo-only-devmode">
+<span id="pkg-opt-only-devmode"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_ONLY_DEVMODE</span></code><a class="headerlink" href="#libfoo-only-devmode" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.9.</span></p>
+</div>
+<p>Flag whether this package should only be used when running in a
+<a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>. Typically, packages that are
+registered in the releng-tool pipeline will get processed for a build. If a
+developer wishes to introduced a new package that is aimed for development,
+they may use various conditionals to avoid enabling a package in the main
+pipeline.</p>
+<p>This option aims to make a developers life a bit more flexible by allow a
+package to be excluded even if registered in the package chain. This can
+allow a project to easily prepare for a future package integration with a
+single flag until the primary build is ready to enable the new package. By
+default, this option is disabled with a value of <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_ONLY_DEVMODE</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Developers can also hint specific development modes this package is enabled.
+For example, if looking to target two specific development modes, the
+following may be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_ONLY_DEVMODE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;mode-a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;mode-c&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
 <section id="libfoo-patch-subdir">
 <span id="pkg-opt-patch-subdir"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code><a class="headerlink" href="#libfoo-patch-subdir" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
@@ -783,7 +874,7 @@ can utilize this pre-extraction flag to hint that packages should already be
 extracted before any other package attempts to configure/build. For example,
 if <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> and <code class="docutils literal notranslate"><span class="pre">libbar</span></code> both depend on each other, developers can configure
 <code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span> <span class="pre">=</span> <span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">LIBBAR_PREEXTRACT</span> <span class="pre">=</span> <span class="pre">True</span></code> in each package's
-respective definition. The process order of packages will still be driven by
+respective definition. The processed order of packages will still be driven by
 any <a class="reference internal" href="../common-pkg-options/#pkg-opt-needs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NEEDS</span></code></span></a> options set (that do not result in a
 cyclic error) and the order defined by <a class="reference internal" href="../../configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a>.</p>
 </section>
@@ -805,6 +896,9 @@ prefix value.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.3.</span></p>
 </div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.9: </span>This feature is planned to be removed in the future.</p>
+</div>
 <p>Flag value to indicate that a package should attempt to load any package
 configurations which may be defined in the package's source. If the package
 includes a <code class="docutils literal notranslate"><span class="pre">.releng-tool</span></code> file at the root of their sources, supported
@@ -821,15 +915,18 @@ the package before invoking a package's configuration stage.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 1.3.</span></p>
 </div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.9: </span>This feature is planned to be removed in the future.</p>
+</div>
 <p>Flag value to indicate that a package should attempt to load any package
 scripts which may be defined in the package's source. Typically, a
 script-based package will load configuration, build, etc. scripts from its
 package definition folder. If a script-based package is missing a stage script
 to invoke and finds an associated script in the package's source, the detected
-script will be invoked. For example, if <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> package may attempt to load
-a <code class="docutils literal notranslate"><span class="pre">libfoo-configure</span></code> script for a configuration stage. In the event that the
+script will be invoked. For example, if <code class="docutils literal notranslate"><span class="pre">libfoo.rt</span></code> package may attempt to load
+a <code class="docutils literal notranslate"><span class="pre">libfoo-configure.rt</span></code> script for a configuration stage. In the event that the
 script cannot be found and remote scripting is permitted for a package, the
-script (if exists) <code class="docutils literal notranslate"><span class="pre">releng-configure</span></code> will be loaded from the root of the
+script (if exists) <code class="docutils literal notranslate"><span class="pre">releng-configure.rt</span></code> will be loaded from the root of the
 package's contents.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
@@ -1024,6 +1121,7 @@ warning message.</p>
 <li><a class="reference internal" href="#">Advanced package options</a><ul>
 <li><a class="reference internal" href="#libfoo-build-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_BUILD_SUBDIR</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-devmode-ignore-cache"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-devmode-patches"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-devmode-skip-integrity-check"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-extension"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></a></li>
@@ -1038,9 +1136,11 @@ warning message.</p>
 <li><a class="reference internal" href="#libfoo-git-submodules"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-git-verify-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_VERIFY_REVISION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-host-provides"><code class="docutils literal notranslate"><span class="pre">LIBFOO_HOST_PROVIDES</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-ignore-patches"><code class="docutils literal notranslate"><span class="pre">LIBFOO_IGNORE_PATCHES</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-internal"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-max-jobs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-no-extraction"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NO_EXTRACTION</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-only-devmode"><code class="docutils literal notranslate"><span class="pre">LIBFOO_ONLY_DEVMODE</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-patch-subdir"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-preextract"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-prefix"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></a></li>
@@ -1061,9 +1161,9 @@ warning message.</p>
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=ebd5bd6d"></script>
-    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
     </body>
 </html>
