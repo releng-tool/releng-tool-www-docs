@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Szukaj" href="../../../search/"><link rel="next" title="System-specific package options" href="../system-pkg-options/"><link rel="prev" title="Common package options" href="../common-pkg-options/">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
         <title>Advanced package options - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
@@ -256,17 +256,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_spdx_check/">releng.disable_spdx_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_verbose_patch/">releng.disable_verbose_patch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
@@ -302,6 +299,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
@@ -426,7 +424,7 @@ processes are invoked from.</p>
 <section id="libfoo-devmode-ignore-cache">
 <span id="pkg-opt-devmode-ignore-cache"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_IGNORE_CACHE</span></code><a class="headerlink" href="#libfoo-devmode-ignore-cache" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.3.</span></p>
+<p><span class="versionmodified added">Added in version 0.3.</span></p>
 </div>
 <p>Flag value to indicate that a package should ignore any generated cache
 file when operating in <a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>.
@@ -451,7 +449,7 @@ option by default (<code class="docutils literal notranslate"><span class="pre">
 <section id="libfoo-devmode-patches">
 <span id="pkg-opt-devmode-patches"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code><a class="headerlink" href="#libfoo-devmode-patches" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.9.</span></p>
+<p><span class="versionmodified added">Added in version 2.9.</span></p>
 </div>
 <p>Allow configuring a package to apply patches when operating in
 <a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>. Typically, patches are not
@@ -507,7 +505,7 @@ in development mode.</p>
 <section id="libfoo-devmode-skip-integrity-check">
 <span id="pkg-opt-devmode-skip-integrity-check"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code><a class="headerlink" href="#libfoo-devmode-skip-integrity-check" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.8.</span></p>
+<p><span class="versionmodified added">Added in version 2.8.</span></p>
 </div>
 <p>Flag value to indicate that a package can skip an integrity check when fetching
 a development revision when operating in
@@ -610,7 +608,7 @@ be used to exceed the jobs count (although not recommended in most scenarios).</
 <section id="libfoo-git-config">
 <span id="pkg-opt-git-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.6.</span></p>
+<p><span class="versionmodified added">Added in version 0.6.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Support added for path-like values.</p>
@@ -628,7 +626,7 @@ introduced (i.e. all Git calls will use the global configuration set).</p>
 <section id="libfoo-git-depth">
 <span id="pkg-opt-git-depth"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code><a class="headerlink" href="#libfoo-git-depth" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.4.</span></p>
+<p><span class="versionmodified added">Added in version 0.4.</span></p>
 </div>
 <p>Limit fetching for a Git-based source to the specified number of commits. The
 value provided will be used with the <a class="reference external" href="https://git-scm.com/docs/git-clone#Documentation/git-clone.txt-code--depthltdepthgtcode"><code class="docutils literal notranslate"><span class="pre">--depth</span></code></a> argument. By
@@ -648,7 +646,7 @@ repository will be fetched.</p>
 <section id="libfoo-git-refspecs">
 <span id="pkg-opt-git-refspecs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code><a class="headerlink" href="#libfoo-git-refspecs" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.4.</span></p>
+<p><span class="versionmodified added">Added in version 0.4.</span></p>
 </div>
 <p>List of addition refspecs to fetch when using a <code class="docutils literal notranslate"><span class="pre">git</span></code> VCS type. By default,
 a Git fetch request will acquire all <code class="docutils literal notranslate"><span class="pre">heads</span></code> and <code class="docutils literal notranslate"><span class="pre">tags</span></code> refspecs. If a
@@ -662,7 +660,7 @@ fetching.</p>
 <section id="libfoo-git-submodules">
 <span id="pkg-opt-git-submodules"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_SUBMODULES</span></code><a class="headerlink" href="#libfoo-git-submodules" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.8.</span></p>
+<p><span class="versionmodified added">Added in version 0.8.</span></p>
 </div>
 <p>Flag value to indicate whether a package’s Git submodules should be
 fetched/extracted during a package’s own fetch/extraction stages. By default,
@@ -692,7 +690,7 @@ system or if the target revision is not signed.</p>
 <section id="libfoo-host-provides">
 <span id="pkg-opt-host-provides"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_HOST_PROVIDES</span></code><a class="headerlink" href="#libfoo-host-provides" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.13.</span></p>
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
 </div>
 <p>Hints at what host tools this package may be providing. A project may have a
 series of prerequisites, which are checked at the start of a run. This is to
@@ -721,7 +719,7 @@ not available at the start of a run.</p>
 <section id="libfoo-ignore-patches">
 <span id="pkg-opt-ignore-patches"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_IGNORE_PATCHES</span></code><a class="headerlink" href="#libfoo-ignore-patches" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.9.</span></p>
+<p><span class="versionmodified added">Added in version 2.9.</span></p>
 </div>
 <p>Flag value to indicate that a package should ignore patches found alongside
 the package definition. This option can be useful with
@@ -759,7 +757,7 @@ configured to be internal.</p>
 <section id="libfoo-max-jobs">
 <span id="pkg-opt-max-jobs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code><a class="headerlink" href="#libfoo-max-jobs" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.8.</span></p>
+<p><span class="versionmodified added">Added in version 2.8.</span></p>
 </div>
 <p>Configure the maximum number of jobs a package can use. This option can be used
 for packages that cannot support a large or any parallel build environment.</p>
@@ -787,7 +785,7 @@ manage or expect to support various actions (such as building, since no
 sources are available).</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.3.</span></p>
+<p><span class="versionmodified added">Added in version 0.3.</span></p>
 </div>
 <p>Flag value to indicate that a package should not extract the package
 contents. This feature is primarily used when using releng-tool to fetch
@@ -809,7 +807,7 @@ default, this option is disabled with a value of <code class="docutils literal n
 <section id="libfoo-only-devmode">
 <span id="pkg-opt-only-devmode"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_ONLY_DEVMODE</span></code><a class="headerlink" href="#libfoo-only-devmode" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.9.</span></p>
+<p><span class="versionmodified added">Added in version 2.9.</span></p>
 </div>
 <p>Flag whether this package should only be used when running in a
 <a class="reference internal" href="../../development-mode/"><span class="doc std std-doc">development mode</span></a>. Typically, packages that are
@@ -838,7 +836,7 @@ following may be used:</p>
 <section id="libfoo-patch-subdir">
 <span id="pkg-opt-patch-subdir"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PATCH_SUBDIR</span></code><a class="headerlink" href="#libfoo-patch-subdir" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.15.</span></p>
+<p><span class="versionmodified added">Added in version 0.15.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Support added for path-like values.</p>
@@ -857,7 +855,7 @@ patches tailored for the specific module being targeted.</p>
 <section id="libfoo-preextract">
 <span id="pkg-opt-preextract"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREEXTRACT</span></code><a class="headerlink" href="#libfoo-preextract" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.7.</span></p>
+<p><span class="versionmodified added">Added in version 2.7.</span></p>
 </div>
 <p>Flag value to indicate that a package should attempt to extract the package
 contents before any configuration stage of all other packages are performed.
@@ -894,7 +892,7 @@ prefix value.</p>
 <section id="libfoo-remote-config">
 <span id="pkg-opt-remote-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code><a class="headerlink" href="#libfoo-remote-config" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.3.</span></p>
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
 </div>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Niezalecane od wersji 2.9: </span>This feature is planned to be removed in the future.</p>
@@ -913,7 +911,7 @@ the package before invoking a package’s configuration stage.</p>
 <section id="libfoo-remote-scripts">
 <span id="pkg-opt-remote-scripts"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code><a class="headerlink" href="#libfoo-remote-scripts" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.3.</span></p>
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
 </div>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Niezalecane od wersji 2.9: </span>This feature is planned to be removed in the future.</p>
@@ -993,6 +991,9 @@ a <code class="docutils literal notranslate"><span class="pre">url</span></code>
 type. Projects should switch to defining <code class="docutils literal notranslate"><span class="pre">file</span></code> if they wish to explicitly
 set the VCS type.</p>
 </div>
+<div class="versionremoved">
+<p><span class="versionmodified removed">Removed in version 2.10: </span>Support for Bazaar sites has been removed.</p>
+</div>
 <p>Explicitly sets the version control system type to use when acquiring
 sources. releng-tool attempts to automatically determine the VCS type of
 a package based off a <a class="reference internal" href="../common-pkg-options/#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a> value. In some
@@ -1002,7 +1003,6 @@ what the site value is configured as.</p>
 <p>Supported types are as follows:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">brz</span></code> (Breezy)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bzr</span></code> (Bazaar) <em>(deprecated)</em></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cvs</span></code> (CVS)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> (File URI)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">git</span></code> (Git)</p></li>
@@ -1161,10 +1161,10 @@ warning message.</p>
     </aside>
   </div>
 </div><script src="../../../_static/documentation_options.js?v=bb0f2bca"></script>
-    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/tabs.js?v=3ee01567"></script>
-    <script src="../../../_static/translations.js?v=2827c288"></script>
+    <script src="../../../_static/translations.js?v=4c397337"></script>
     </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="検索" href="../search/"><link rel="prev" title="0.10 (2021-12-31)" href="../news/2021-12-31_00.10.00/">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
         <title>付録 A — クイックリファレンス - releng-tool ドキュメント</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
@@ -256,17 +256,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/api-mode/">API Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_spdx_check/">releng.disable_spdx_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_verbose_patch/">releng.disable_verbose_patch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
@@ -302,6 +299,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">バージョンノート</a><input aria-label="Toggle navigation of バージョンノート" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
@@ -423,6 +421,7 @@ releng-tool project.</p>
 <a class="reference internal" href="../guides/arguments/#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#action-patch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">patch</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#action-printpkgs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">printpkgs</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#action-printvars"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">printvars</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#action-punch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">punch</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#action-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></span></a>
@@ -462,11 +461,12 @@ releng-tool project.</p>
 <a class="reference internal" href="../guides/arguments/#arg-only-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--only-mirror</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-profile"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--profile</span> <span class="pre">[&lt;profile&gt;]</span></code>, <code class="docutils literal notranslate"><span class="pre">-P</span> <span class="pre">[&lt;profile&gt;]</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-quiet"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--quiet</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-quirk"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-relaxed-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-root-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">-R</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-success-exit-code"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--success-exit-code</span> <span class="pre">&lt;code&gt;</span></code></span></a>
-<a class="reference internal" href="../guides/arguments/#arg-quirk"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-verbose"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">-V</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--version</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-werror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></span></a></pre>
@@ -494,7 +494,7 @@ releng-tool project.</p>
 <a class="reference internal" href="../guides/configuration/#conf-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></span></a> = ['&lt;quirk-id&gt;']
 <a class="reference internal" href="../guides/configuration/#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a> = {'&lt;pkg&gt;': '&lt;revision&gt;'}
 <a class="reference internal" href="../guides/configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a> = '&lt;format&gt;'
-  └── csv, html, json, json-spdx, rdf-spdx, text, xml
+  └── csv, html, json, json-cyclonedx, json-spdx, rdf-spdx, text, xml, xml-cyclonedx
 <a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a> = '&lt;path&gt;' # '/usr'
 <a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a> = '&lt;mirror-url&gt;'
 <a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;
@@ -674,14 +674,12 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code></span></a> = bool   <em>(deprecated)</em>
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> = '&lt;revision&gt;'
 <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SCONS_NOINSTALL</span></code></span></a> = bool
-<a class="reference internal" href="../guides/packages/deprecated-pkg-options/#pkg-opt-skip-remote-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_CONFIG</span></code></span></a> = bool   <em>(deprecated)</em>
-<a class="reference internal" href="../guides/packages/deprecated-pkg-options/#pkg-opt-skip-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SKIP_REMOTE_SCRIPTS</span></code></span></a> = bool   <em>(deprecated)</em>
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a> = '&lt;site&gt;'
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-strip-count"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_STRIP_COUNT</span></code></span></a> = int # &gt;= 0
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_TYPE</span></code></span></a> = '&lt;type&gt;'
   └── autotools, cargo, cmake, make, meson, python, scons, script, waf, ext-&lt;extension&gt;
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-vcs-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VCS_TYPE</span></code></span></a> = '&lt;vcs-type&gt;'
-  └── brz, bzr, cvs, file, git, hg, local, none, perforce, rsync, scp, svn, url
+  └── brz, cvs, file, git, hg, local, none, perforce, rsync, scp, svn, url
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VERSION</span></code></span></a> = '&lt;version&gt;'
 <a class="reference internal" href="../guides/packages/system-pkg-options/#pkg-opt-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD</span></code></span></a> = bool or str
 <a class="reference internal" href="../guides/packages/system-pkg-options/#pkg-opt-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_VSDEVCMD_PRODUCTS</span></code></span></a> = str
@@ -708,6 +706,9 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_exit" title="releng_tool.releng_exit"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_exit</span></code></span></a>(msg=None, code=None)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_expand" title="releng_tool.releng_expand"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_expand</span></code></span></a>(obj, kv=None)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_include" title="releng_tool.releng_include"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_include</span></code></span></a>(file_path)
+<a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_is_api_mode" title="releng_tool.releng_is_api_mode"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_is_api_mode</span></code></span></a>()
+<a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_is_debug_mode" title="releng_tool.releng_is_debug_mode"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_is_debug_mode</span></code></span></a>()
+<a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_is_verbose_mode" title="releng_tool.releng_is_verbose_mode"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_is_verbose_mode</span></code></span></a>()
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_join" title="releng_tool.releng_join"><span class="xref myst py py-meth"><code class="docutils literal notranslate"><span class="pre">releng_join</span></code></span></a>(path, *args)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_ls" title="releng_tool.releng_ls"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_ls</span></code></span></a>(dir_, recursive=False)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_mkdir" title="releng_tool.releng_mkdir"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_mkdir</span></code></span></a>(dir_, *args, quiet=False)
@@ -727,14 +728,11 @@ releng-tool (may vary per context):</p>
 <section id="quirks">
 <h2>Quirks<a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
-<pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-bzr-certifi/#quirk-releng-bzr-certifi"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.bzr.certifi</span></code></span></a>
-<a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
+<pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/#quirk-releng-disable-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_devmode_ignore_cache</span></code></span></a>
-<a class="reference internal" href="../guides/quirks/quirk-disable_local_site_warn/#quirk-releng-disable-local-site-warn"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_local_site_warn</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/#quirk-releng-disable-prerequisites-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_remote_scripts/#quirk-releng-disable-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_scripts</span></code></span></a>
-<a class="reference internal" href="../guides/quirks/quirk-disable_spdx_check/#quirk-releng-disable-spdx-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_spdx_check</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_verbose_patch/#quirk-releng-disable-verbose-patch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_verbose_patch</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-git-no_depth/#quirk-releng-git-no-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.no_depth</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-git-no_quick_fetch/#quirk-releng-git-no-quick-fetch"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.git.no_quick_fetch</span></code></span></a>
@@ -817,8 +815,8 @@ releng-tool (may vary per context):</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=53b3c8e4"></script>
-    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/tabs.js?v=3ee01567"></script>
     <script src="../_static/translations.js?v=4755f45a"></script>

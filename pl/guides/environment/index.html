@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="search" title="Szukaj" href="../../search/"><link rel="next" title="Packages" href="../packages/packages/"><link rel="prev" title="Configuration" href="../configuration/">
 
-    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
         <title>Environment variables - releng-tool - dokumentacja</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
@@ -256,17 +256,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-bzr-certifi/">releng.bzr.certifi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_parallel_option/">releng.cmake.disable_parallel_option</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_local_site_warn/">releng.disable_local_site_warn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_scripts/">releng.disable_remote_scripts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_spdx_check/">releng.disable_spdx_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_verbose_patch/">releng.disable_verbose_patch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_depth/">releng.git.no_depth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
@@ -302,6 +299,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-02-22_02.08.00/">2.8 (2026-02-22)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-02-08_02.07.00/">2.7 (2026-02-08)</a></li>
@@ -480,7 +478,7 @@ directory. For example:</p>
 <section id="host-bin-dir">
 <span id="env-host-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_BIN_DIR</span></code><a class="headerlink" href="#host-bin-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.14.</span></p>
+<p><span class="versionmodified added">Added in version 0.14.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -504,7 +502,7 @@ the configured output directory. For example:</p>
 <section id="host-include-dir">
 <span id="env-host-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_INCLUDE_DIR</span></code><a class="headerlink" href="#host-include-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -518,7 +516,7 @@ directory may be as follows:</p>
 <section id="host-lib-dir">
 <span id="env-host-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_LIB_DIR</span></code><a class="headerlink" href="#host-lib-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -532,7 +530,7 @@ directory may be as follows:</p>
 <section id="host-share-dir">
 <span id="env-host-share-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">HOST_SHARE_DIR</span></code><a class="headerlink" href="#host-share-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.1.</span></p>
+<p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -612,7 +610,7 @@ environment variable.</p></li>
 <section id="pkg-build-base-dir">
 <span id="env-pkg-build-base-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_BUILD_BASE_DIR</span></code><a class="headerlink" href="#pkg-build-base-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <p>The directory for a specific package’s base directory for buildable content.
 In most cases, this value will be the same as
@@ -713,7 +711,7 @@ the resulting cache file may be:</p>
 <section id="pkg-devmode">
 <span id="env-pkg-devmode"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE</span></code><a class="headerlink" href="#pkg-devmode" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.13.</span></p>
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
 </div>
 <p>Whether the package is configured for development mode. While runtime may be
 configured in a development mode, not all packages may be designed for
@@ -733,7 +731,7 @@ environment variable will be set to a value of one (i.e. <code class="docutils l
 <section id="pkg-localsrcs">
 <span id="env-pkg-localsrcs"></span><h3><code class="docutils literal notranslate"><span class="pre">PKG_LOCALSRCS</span></code><a class="headerlink" href="#pkg-localsrcs" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.13.</span></p>
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
 </div>
 <p>Whether the package is configured for local-sources mode. If a package is
 configured for local-sources, the environment variable will be set to a
@@ -770,7 +768,7 @@ by default.</p>
 <section id="prefixed-host-dir">
 <span id="env-prefixed-host-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code><a class="headerlink" href="#prefixed-host-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -784,7 +782,7 @@ directory may be as follows:</p>
 <section id="prefixed-staging-dir">
 <span id="env-prefixed-staging-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code><a class="headerlink" href="#prefixed-staging-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -798,7 +796,7 @@ directory may be as follows:</p>
 <section id="prefixed-target-dir">
 <span id="env-prefixed-target-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code><a class="headerlink" href="#prefixed-target-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -812,7 +810,7 @@ directory may be as follows:</p>
 <section id="releng-clean">
 <span id="env-releng-clean"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code><a class="headerlink" href="#releng-clean" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 <p>Flag set if performing a clean request.</p>
 <p>This includes when a user invokes either a <a class="reference internal" href="../arguments/#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a>,
@@ -821,7 +819,7 @@ directory may be as follows:</p>
 <section id="releng-debug">
 <span id="env-releng-debug"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code><a class="headerlink" href="#releng-debug" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 <p>Flag set if debug-related information should be shown.</p>
 <p>This flag is enabled when the <a class="reference internal" href="../arguments/#arg-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--debug</span></code> argument</span></a> is configured.</p>
@@ -829,7 +827,7 @@ directory may be as follows:</p>
 <section id="releng-devmode">
 <span id="env-releng-devmode"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code><a class="headerlink" href="#releng-devmode" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.2.</span></p>
+<p><span class="versionmodified added">Added in version 0.2.</span></p>
 </div>
 <p>The development mode or flag set if in <a class="reference internal" href="../development-mode/"><span class="doc std std-doc">development mode</span></a>.</p>
 <p>See also <a class="reference internal" href="#env-pkg-devmode"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PKG_DEVMODE</span></code></span></a> and
@@ -838,7 +836,7 @@ directory may be as follows:</p>
 <section id="releng-distclean">
 <span id="env-releng-distclean"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DISTCLEAN</span></code><a class="headerlink" href="#releng-distclean" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 <p>Flag set if performing an extreme pristine clean request.</p>
 <p>This includes when a user invokes either the <a class="reference internal" href="../arguments/#action-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></span></a>
@@ -847,14 +845,14 @@ action request.</p>
 <section id="releng-exec">
 <span id="env-releng-exec"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_EXEC</span></code><a class="headerlink" href="#releng-exec" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.4.</span></p>
+<p><span class="versionmodified added">Added in version 1.4.</span></p>
 </div>
 <p>Flag set if performing a <a class="reference internal" href="../arguments/#action-pkg-exec"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-exec</span></code></span></a> request.</p>
 </section>
 <section id="releng-force">
 <span id="env-releng-force"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code><a class="headerlink" href="#releng-force" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.11.</span></p>
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
 </div>
 <p>Flag set if performing a forced request from the command line.</p>
 <p>See also <a class="reference internal" href="../arguments/#arg-force"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--force</span></code></span></a>.</p>
@@ -862,7 +860,7 @@ action request.</p>
 <section id="releng-localsrcs">
 <span id="env-releng-localsrcs"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code><a class="headerlink" href="#releng-localsrcs" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.2.</span></p>
+<p><span class="versionmodified added">Added in version 0.2.</span></p>
 </div>
 <p>Flag set if in <a class="reference internal" href="../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a>.</p>
 <p>See also <a class="reference internal" href="../arguments/#arg-local-sources"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--local-sources</span></code></span></a>.</p>
@@ -876,7 +874,7 @@ action request.</p>
 <section id="releng-profiles">
 <span id="env-releng-profiles"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_PROFILES</span></code><a class="headerlink" href="#releng-profiles" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.5.</span></p>
+<p><span class="versionmodified added">Added in version 2.5.</span></p>
 </div>
 <p>Defines one or more semicolon-separated profile values actively configured
 for a run.</p>
@@ -902,7 +900,7 @@ for a run.</p>
 <section id="releng-script">
 <span id="env-releng-script"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT</span></code><a class="headerlink" href="#releng-script" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.0.</span></p>
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -913,7 +911,7 @@ for a run.</p>
 <section id="releng-script-dir">
 <span id="env-releng-script-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT_DIR</span></code><a class="headerlink" href="#releng-script-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.0.</span></p>
+<p><span class="versionmodified added">Added in version 1.0.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -924,7 +922,7 @@ for a run.</p>
 <section id="releng-target-pkg">
 <span id="env-releng-target-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_TARGET_PKG</span></code><a class="headerlink" href="#releng-target-pkg" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.13.</span></p>
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
 </div>
 <p>The name of the target package (if any) provided by the command line.</p>
 <p>For example, if running <code class="docutils literal notranslate"><span class="pre">libfoo-rebuild</span></code>, the target package would be:</p>
@@ -936,7 +934,7 @@ for a run.</p>
 <section id="releng-verbose">
 <span id="env-releng-verbose"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERBOSE</span></code><a class="headerlink" href="#releng-verbose" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 <p>Flag set if verbose-related information should be shown.</p>
 <p>This flag is enabled when the <a class="reference internal" href="../arguments/#arg-verbose"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--verbose</span></code> argument</span></a> is configured.</p>
@@ -944,7 +942,7 @@ for a run.</p>
 <section id="releng-version">
 <span id="env-releng-version"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_VERSION</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.7.</span></p>
+<p><span class="versionmodified added">Added in version 0.7.</span></p>
 </div>
 <p>The version of releng-tool.</p>
 </section>
@@ -960,7 +958,7 @@ for a run.</p>
 <section id="staging-bin-dir">
 <span id="env-staging-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_BIN_DIR</span></code><a class="headerlink" href="#staging-bin-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.14.</span></p>
+<p><span class="versionmodified added">Added in version 0.14.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -985,7 +983,7 @@ inside the configured output directory. For example:</p>
 <section id="staging-include-dir">
 <span id="env-staging-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_INCLUDE_DIR</span></code><a class="headerlink" href="#staging-include-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -999,7 +997,7 @@ directory may be as follows:</p>
 <section id="staging-lib-dir">
 <span id="env-staging-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_LIB_DIR</span></code><a class="headerlink" href="#staging-lib-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -1013,7 +1011,7 @@ directory may be as follows:</p>
 <section id="staging-share-dir">
 <span id="env-staging-share-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">STAGING_SHARE_DIR</span></code><a class="headerlink" href="#staging-share-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.1.</span></p>
+<p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -1038,7 +1036,7 @@ inside the configured output directory. For example:</p>
 <section id="target-bin-dir">
 <span id="env-target-bin-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_BIN_DIR</span></code><a class="headerlink" href="#target-bin-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.14.</span></p>
+<p><span class="versionmodified added">Added in version 0.14.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -1063,7 +1061,7 @@ inside the configured output directory. For example:</p>
 <section id="target-include-dir">
 <span id="env-target-include-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_INCLUDE_DIR</span></code><a class="headerlink" href="#target-include-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -1077,7 +1075,7 @@ directory may be as follows:</p>
 <section id="target-lib-dir">
 <span id="env-target-lib-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_LIB_DIR</span></code><a class="headerlink" href="#target-lib-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.12.</span></p>
+<p><span class="versionmodified added">Added in version 0.12.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -1091,7 +1089,7 @@ directory may be as follows:</p>
 <section id="target-share-dir">
 <span id="env-target-share-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">TARGET_SHARE_DIR</span></code><a class="headerlink" href="#target-share-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.1.</span></p>
+<p><span class="versionmodified added">Added in version 2.1.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.2: </span>Variable is path-like in a script environment.</p>
@@ -1268,7 +1266,7 @@ releng-tool.</p>
 <section id="releng-generated-licenses">
 <span id="env-releng-generated-licenses"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code><a class="headerlink" href="#releng-generated-licenses" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.3.</span></p>
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
 </div>
 <p>Defines a list of generated license files at the end of package processing
 that is available for post-processing actions to use.</p>
@@ -1276,7 +1274,7 @@ that is available for post-processing actions to use.</p>
 <section id="releng-generated-sboms">
 <span id="env-releng-generated-sboms"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code><a class="headerlink" href="#releng-generated-sboms" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.3.</span></p>
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
 </div>
 <p>Defines a list of generated software build of materials (SBOM) files at the
 end of package processing that is available for post-processing actions
@@ -1291,7 +1289,7 @@ accepted:</p>
 <section id="releng-assets-dir">
 <span id="env-releng-assets-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-assets-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.10.</span></p>
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
 </div>
 <p>Configures the asset directory to use. The asset directory is the container
 directory to use for both cache and download content. By default, no asset
@@ -1303,7 +1301,7 @@ content.</p>
 <section id="releng-cache-dir">
 <span id="env-releng-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-cache-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.10.</span></p>
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
 </div>
 <p>Configures the cache directory to use. By default, the cache directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/cache</span></code>. If a user does not override a cache directory
@@ -1314,7 +1312,7 @@ option can be used to override this location.</p>
 <section id="releng-dl-dir">
 <span id="env-releng-dl-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-dl-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.10.</span></p>
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
 </div>
 <p>Configures the download directory to use. By default, the download directory
 used is configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/dl</span></code>. If a user does not override a download
@@ -1331,7 +1329,7 @@ option can be used to override this location.</p>
 <a class="reference internal" href="#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a> environment variable is used.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.1.</span></p>
+<p><span class="versionmodified added">Added in version 1.1.</span></p>
 </div>
 <p>Configures a „global” container directory used to hold the output contents
 of releng-tool projects. Projects will typically generate output contents
@@ -1381,7 +1379,7 @@ and configures this option to the path <code class="docutils literal notranslate
 <section id="releng-ignore-running-as-root">
 <span id="env-releng-ignore-running-as-root"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code><a class="headerlink" href="#releng-ignore-running-as-root" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.10.</span></p>
+<p><span class="versionmodified added">Added in version 0.10.</span></p>
 </div>
 <p>Suppress the <a class="reference internal" href="../tips/privileged-builds/"><span class="doc std std-doc">warning</span></a> generated when running
 releng-tool with an elevated user.</p>
@@ -1389,7 +1387,7 @@ releng-tool with an elevated user.</p>
 <section id="releng-ignore-unknown-args">
 <span id="env-releng-ignore-unknown-args"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code><a class="headerlink" href="#releng-ignore-unknown-args" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.3.</span></p>
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
 </div>
 <p>Suppress the warning/error generated when running releng-tool with unknown
 arguments.</p>
@@ -1398,7 +1396,7 @@ arguments.</p>
 <section id="releng-images-dir">
 <span id="env-releng-images-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-images-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 0.13.</span></p>
+<p><span class="versionmodified added">Added in version 0.13.</span></p>
 </div>
 <p>Configures the images directory to use. By default, the images directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output/images</span></code>. If a user does not override a images
@@ -1409,7 +1407,7 @@ directory using the <a class="reference internal" href="../arguments/#arg-images
 <section id="releng-output-dir">
 <span id="env-releng-out-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-output-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 1.1.</span></p>
+<p><span class="versionmodified added">Added in version 1.1.</span></p>
 </div>
 <p>Configures the output directory to use. By default, the output directory used is
 configured to <code class="docutils literal notranslate"><span class="pre">&lt;root&gt;/output</span></code>. If a user does not override an output
@@ -1421,7 +1419,7 @@ directory using the <a class="reference internal" href="../arguments/#arg-out-di
 <section id="releng-parallel-level">
 <span id="env-releng-parallel-level"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL=&lt;level&gt;</span></code><a class="headerlink" href="#releng-parallel-level" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added"> Dodane w wersji 2.3.</span></p>
+<p><span class="versionmodified added">Added in version 2.3.</span></p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 2.9: </span>Added support for negative jobs.</p>
@@ -1610,10 +1608,10 @@ Consider the following example:</p>
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=bb0f2bca"></script>
-    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
-    <script src="../../_static/translations.js?v=2827c288"></script>
+    <script src="../../_static/translations.js?v=4c397337"></script>
     </body>
 </html>

@@ -1475,76 +1475,6 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_parallel_option/</loc>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_parallel_option/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_parallel_option/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_parallel_option/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_parallel_option/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_parallel_option/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_parallel_option/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_parallel_option/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
         <loc>https://docs.releng.io/en/guides/quirks/quirk-disable_remote_scripts/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_remote_scripts/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_remote_scripts/"/>
@@ -1615,146 +1545,6 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://docs.releng.io/en/guides/quirks/quirk-disable_spdx_check/</loc>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_spdx_check/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/de/guides/quirks/quirk-disable_spdx_check/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_spdx_check/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/es/guides/quirks/quirk-disable_spdx_check/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_spdx_check/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/ja/guides/quirks/quirk-disable_spdx_check/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_spdx_check/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/pl/guides/quirks/quirk-disable_spdx_check/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_spdx_check/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_spdx_check/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_spdx_check/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_spdx_check/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_spdx_check/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_spdx_check/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/en/guides/quirks/quirk-disable_local_site_warn/</loc>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_local_site_warn/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/de/guides/quirks/quirk-disable_local_site_warn/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_local_site_warn/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/es/guides/quirks/quirk-disable_local_site_warn/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_local_site_warn/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/ja/guides/quirks/quirk-disable_local_site_warn/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_local_site_warn/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/pl/guides/quirks/quirk-disable_local_site_warn/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_local_site_warn/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_local_site_warn/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_local_site_warn/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hant/guides/quirks/quirk-disable_local_site_warn/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-disable_local_site_warn/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-disable_local_site_warn/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
         <loc>https://docs.releng.io/en/guides/quirks/quirks/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirks/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirks/"/>
@@ -1822,76 +1612,6 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirks/"/>
         <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirks/"/>
         <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirks/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/en/guides/quirks/quirk-bzr-certifi/</loc>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-bzr-certifi/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/de/guides/quirks/quirk-bzr-certifi/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-bzr-certifi/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/es/guides/quirks/quirk-bzr-certifi/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-bzr-certifi/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/ja/guides/quirks/quirk-bzr-certifi/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-bzr-certifi/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/pl/guides/quirks/quirk-bzr-certifi/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-bzr-certifi/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hans/guides/quirks/quirk-bzr-certifi/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-bzr-certifi/"/>
-        <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://docs.releng.io/zh_Hant/guides/quirks/quirk-bzr-certifi/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-bzr-certifi/"/>
-        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-bzr-certifi/"/>
         <changefreq>monthly</changefreq>
     </url>
     <url>
@@ -5115,6 +4835,76 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://docs.releng.io/en/guides/api-mode/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/api-mode/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/guides/api-mode/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/api-mode/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/guides/api-mode/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/api-mode/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/guides/api-mode/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/api-mode/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/guides/api-mode/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/api-mode/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/guides/api-mode/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/api-mode/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/guides/api-mode/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/api-mode/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/api-mode/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://docs.releng.io/en/guides/guides/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/guides/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/guides/"/>
@@ -5812,6 +5602,76 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2023-08-06_00.17.00/"/>
         <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2023-08-06_00.17.00/"/>
         <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2023-08-06_00.17.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/en/news/2026-03-08_02.10.00/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-03-08_02.10.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/news/2026-03-08_02.10.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-03-08_02.10.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/news/2026-03-08_02.10.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-03-08_02.10.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/news/2026-03-08_02.10.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-03-08_02.10.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/news/2026-03-08_02.10.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-03-08_02.10.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/news/2026-03-08_02.10.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-03-08_02.10.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/news/2026-03-08_02.10.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-03-08_02.10.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-03-08_02.10.00/"/>
         <changefreq>monthly</changefreq>
     </url>
     <url>
