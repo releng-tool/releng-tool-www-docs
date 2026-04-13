@@ -10020,7 +10020,7 @@ configuration:</p>
 <p>Or configured with a <a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
 environment variable:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_LINT_MAX_VERSION</span><span class="o">=</span><span class="mf">2.8</span>
-<span class="n">releng</span><span class="o">-</span><span class="n">tool</span>
+<span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">lint</span>
 </pre></div>
 </div>
 <p>This should allow developers to maintain a working CI pipeline that may lint
@@ -11505,7 +11505,7 @@ is no longer the case with v3.0. Users with projects that utilize Python will
 now need to ensure the dependency is installed with any frontend or backend
 used.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">inject</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">installer</span> <span class="o">...</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pipx inject releng-tool installer ...
 </pre></div>
 </div>
 <p>Also introduced in this release is new optional dependency configurations.
@@ -11513,7 +11513,7 @@ While releng-tool will now only install the bare minimum requirements for
 execution, users wanting to automatically install Python dependencies can do
 so when installing releng-tool. For example, to install all Python-related
 dependencies releng-tool could use, the following can be used:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">install</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span><span class="p">[</span><span class="n">py</span><span class="o">-</span><span class="nb">all</span><span class="p">]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pipx install releng-tool[py-all]
 </pre></div>
 </div>
 <p>See all <a class="reference internal" href="#python-dependencies"><span class="std std-ref">optional Python dependencies options</span></a>.</p>
@@ -11530,13 +11530,13 @@ to cause failures on required pipelines when new linting checks are
 introduced by releng-tool.</p>
 <p>Linting limits can be configured with the
 <a class="reference internal" href="#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;2.8&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;2.8&#39;</span>
 </pre></div>
 </div>
 <p>Or configured with a <a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
 environment variable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_LINT_MAX_VERSION</span><span class="o">=</span><span class="mf">2.8</span>
-<span class="n">releng</span><span class="o">-</span><span class="n">tool</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export RELENG_LINT_MAX_VERSION=2.8
+releng-tool lint
 </pre></div>
 </div>
 </section>
