@@ -251,13 +251,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../guides/advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../guides/linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/api-mode/">API Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../guides/configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
@@ -299,6 +299,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
@@ -487,6 +488,7 @@ releng-tool project.</p>
 <a class="reference internal" href="../guides/configuration/#conf-extra-license-exceptions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></span></a> = {'&lt;short-exception-id&gt;': '&lt;exception-name&gt;'}
 <a class="reference internal" href="../guides/configuration/#conf-extra-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></span></a> = {'&lt;short-license-id&gt;': '&lt;license-name&gt;'}
 <a class="reference internal" href="../guides/configuration/#conf-license-header"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></span></a> = '&lt;data&gt;'
+<a class="reference internal" href="../guides/configuration/#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> = '&lt;max-version&gt;'
 <a class="reference internal" href="../guides/configuration/#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a> = {'&lt;tool&gt;': '&lt;tool-path&gt;'}
 <a class="reference internal" href="../guides/configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;', '&lt;pkg&gt;']
 <a class="reference internal" href="../guides/configuration/#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a> = ['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;']
@@ -581,6 +583,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/environment/#env-releng-ignore-running-as-root"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-ignore-unknown-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-parallel-level"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL</span></code></span></a></pre>
 </section>
@@ -632,6 +635,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-extract-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code></span></a> = 'ext-&lt;extraction-extension&gt;'
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-fetch-opts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code></span></a> = {'--option': 'value'} or ['--option', 'value']
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-fixed-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></span></a> = int # &gt;= 1
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-force-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FORCE_REVISION</span></code></span></a> = '&lt;revision&gt;'
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code></span></a> = {'FOO': 'BAR'}
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code></span></a> = int # &gt;= 0
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-git-refspecs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></span></a> = ['&lt;refspec&gt;'] # e.g. pull
@@ -723,6 +727,9 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.success" title="releng_tool.success"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">success</span></code></span></a>(msg, *args)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.verbose" title="releng_tool.verbose"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">verbose</span></code></span></a>(msg, *args)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.warn" title="releng_tool.warn"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">warn</span></code></span></a>(msg, *args)</pre>
+<p>Variables available to scripts invoked by releng-tool:</p>
+<pre class="literal-block"><a class="reference internal" href="../guides/script-helpers/#vars-releng-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_args</span></code></span></a>
+<a class="reference internal" href="../guides/script-helpers/#vars-releng-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_version</span></code></span></a></pre>
 </section>
 <section id="quirks">
 <h2>Quirks<a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h2>

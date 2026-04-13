@@ -251,13 +251,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
@@ -299,6 +299,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
@@ -605,6 +606,28 @@ for a package that cannot support a large or any parallel build environment.</p>
 be used to exceed the jobs count (although not recommended in most scenarios).</p>
 <p>See also the <a class="reference internal" href="../../arguments/#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a> and
 <a class="reference internal" href="#pkg-opt-max-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></span></a>.</p>
+</section>
+<section id="libfoo-force-revision">
+<span id="pkg-opt-force-revision"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_FORCE_REVISION</span></code><a class="headerlink" href="#libfoo-force-revision" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.0.</span></p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudencia</p>
+<p>This option is not recommended for use inside a package definition.</p>
+</div>
+<p>Specifies a forced revision to use for a package. This option is not
+recommended for use inside a package definition. It is designed for users
+trying to override a used revision from the command line. The primary use
+case is to help override a specific revision for projects that may utilize
+both regular and development revisions. A user may be in a situation where
+the active runtime mode may vary but wants a consistent revision to use no
+matter what mode is configured.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">LIBFOO_FORCE_REVISION</span><span class="o">=</span><span class="s2">&quot;1.2.3&quot;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#pkg-opt-devmode-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></span></a>,
+<a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> and <a class="reference internal" href="../../configuration/#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a>.</p>
 </section>
 <section id="libfoo-git-config">
 <span id="pkg-opt-git-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="Link to this heading">¶</a></h2>
@@ -1131,6 +1154,7 @@ warning message.</p>
 <li><a class="reference internal" href="#libfoo-extract-type"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-fetch-opts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-fixed-jobs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-force-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FORCE_REVISION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-git-config"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-git-depth"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-git-refspecs"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></a></li>

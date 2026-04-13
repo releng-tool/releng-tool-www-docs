@@ -251,13 +251,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
@@ -299,6 +299,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
@@ -1725,7 +1726,7 @@ the following can be added into a project’s <code class="docutils literal notr
 </div>
 </section>
 <section id="releng-version">
-<h3><code class="docutils literal notranslate"><span class="pre">releng_version</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h3>
+<span id="vars-releng-version"></span><h3><code class="docutils literal notranslate"><span class="pre">releng_version</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h3>
 <p>The version of releng-tool.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Using version </span><span class="si">{</span><span class="n">releng_version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>

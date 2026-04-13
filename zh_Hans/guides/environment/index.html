@@ -199,7 +199,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../requirements/">要求</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">安装</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/getting-started/">Getting started</a><input aria-label="Toggle navigation of Getting started" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started/prelude/">Prelude</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../getting-started/tutorials/">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -251,13 +251,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
@@ -299,6 +299,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
@@ -1394,6 +1395,18 @@ releng-tool with an elevated user.</p>
 arguments.</p>
 <p>See also the <a class="reference internal" href="../arguments/#arg-relaxed-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code> argument</span></a>.</p>
 </section>
+<section id="releng-lint-max-version">
+<span id="env-releng-lint-max-version"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-lint-max-version" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.0.</span></p>
+</div>
+<p>Configures the maximum lint version checks when using the <a class="reference internal" href="../arguments/#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a>
+action.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_LINT_MAX_VERSION</span><span class="o">=</span><span class="mf">3.0</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../linting/"><span class="doc std std-doc">Linting</span></a> and <a class="reference internal" href="../configuration/#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a>.</p>
+</section>
 <section id="releng-images-dir">
 <span id="env-releng-images-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-images-dir" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
@@ -1591,6 +1604,7 @@ Consider the following example:</p>
 <li><a class="reference internal" href="#releng-global-output-container-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-running-as-root"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-unknown-args"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code></a></li>
+<li><a class="reference internal" href="#releng-lint-max-version"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-images-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-output-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-parallel-level"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL=&lt;level&gt;</span></code></a></li>

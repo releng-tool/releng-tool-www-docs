@@ -251,13 +251,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
@@ -299,6 +299,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
@@ -800,6 +801,19 @@ adding them into a project's <code class="docutils literal notranslate"><span cl
 </div>
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
 </section>
+<section id="lint-max-version">
+<span id="conf-lint-max-version"></span><h3><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code><a class="headerlink" href="#lint-max-version" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.0.</span></p>
+</div>
+<p>Configures the maximum lint version checks when using the <a class="reference internal" href="../arguments/#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a>
+action.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;3.0&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../linting/"><span class="doc std std-doc">Linting</span></a> and
+<a class="reference internal" href="../environment/#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>.</p>
+</section>
 <section id="override-extract-tools">
 <span id="conf-override-extract-tools"></span><h3><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code><a class="headerlink" href="#override-extract-tools" title="Link to this heading">¶</a></h3>
 <p>A dictionary to be provided to map an extension type to an external tool
@@ -987,6 +1001,7 @@ asterisk value with the configured value.</p>
 <li><a class="reference internal" href="#default-meson-build-type"><code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code></a></li>
 <li><a class="reference internal" href="#extra-license-exceptions"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></a></li>
 <li><a class="reference internal" href="#extra-licenses"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></a></li>
+<li><a class="reference internal" href="#lint-max-version"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></a></li>
 <li><a class="reference internal" href="#override-extract-tools"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></a></li>
 <li><a class="reference internal" href="#quirks"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></a></li>
 <li><a class="reference internal" href="#urlopen-context"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></a></li>

@@ -200,7 +200,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="#document-requirements">要求</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#document-install">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-install">安装</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="#document-getting-started/getting-started">Getting started</a><input aria-label="Toggle navigation of Getting started" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="#document-getting-started/prelude">Prelude</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="#document-getting-started/tutorials">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -252,13 +252,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="#document-guides/advanced-guides">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="#document-guides/linting">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/patching">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/intern-extern-pkgs">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/development-mode">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/local-sources-mode">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/profiles">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/api-mode">API Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#document-guides/configuration-overrides">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="#document-guides/quirks/quirks">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="#document-guides/quirks/quirk-cmake-disable_direct_includes">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#document-guides/quirks/quirk-disable_devmode_ignore_cache">releng.disable_devmode_ignore_cache</a></li>
@@ -300,6 +300,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="#document-release-notes">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-news/2026-04-12_03.00.00">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#document-news/2026-03-10_02.11.00">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#document-news/2026-03-08_02.10.00">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#document-news/2026-03-01_02.09.00">2.9 (2026-03-01)</a></li>
@@ -448,7 +449,7 @@ between the staging/target area with the host system.</p>
 <span id="document-requirements"></span><section id="requirements">
 <h2>要求<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
 <p>releng-tool is developed in <a class="reference external" href="https://www.python.org/">Python</a> and requires either
-<a class="reference external" href="https://www.python.org/">Python</a> 3.9+ to run on a host system. A series of optional
+<a class="reference external" href="https://www.python.org/">Python</a> 3.10+ to run on a host system. A series of optional
 tools are required if certain stages or features are used. For example,
 projects fetching sources from <a class="reference external" href="https://git-scm.com/">Git</a> will require the <code class="docutils literal notranslate"><span class="pre">git</span></code> tool
 installed; projects with patches will required the <code class="docutils literal notranslate"><span class="pre">patch</span></code> tool. While
@@ -457,7 +458,7 @@ designed for Linux-based hosts), releng-tool can work on various operating
 system variants.</p>
 </section>
 <span id="document-install"></span><section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<h2>安装<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
 <p>The recommended method of installing/upgrading releng-tool is using
 <a class="reference external" href="https://pipx.pypa.io/">pipx</a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pipx<span class="w"> </span>install<span class="w"> </span>releng-tool
@@ -478,75 +479,104 @@ python<span class="w"> </span>-m<span class="w"> </span>releng-tool<span class="
 </pre></div>
 </div>
 <section id="quick-start">
-<h3>Quick-start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h3>
+<h3>快速开始<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h3>
 <p>The following provides a series of steps to assist in preparing a new
 environment to use this package.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio" /><label class="tab-label" for="tab-set--1-input--1">Linux</label><div class="tab-content docutils">
-<p>While the use of <a class="reference external" href="https://www.python.org/">Python</a>/<a class="reference external" href="https://pip.pypa.io/">pip</a> is almost consistent between
+<p>While the use of <a class="reference external" href="https://www.python.org/">Python</a>/<a class="reference external" href="https://pipx.pypa.io/">pipx</a> is almost consistent between
 Linux distributions, below is a series of helpful steps to install
 this package under specific distributions of Linux. From a terminal,
 invoke the following commands:</p>
 <div class="tab-set docutils">
-<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--1">Arch</label><div class="tab-content docutils">
-<p>Using <code class="docutils literal notranslate"><span class="pre">pipx</span></code>:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-Syu
-<span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pipx
-<span class="gp">$ </span>pipx<span class="w"> </span>ensurepath
-<span class="gp">$ </span>pipx<span class="w"> </span>install<span class="w"> </span>releng-tool
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--1">Alpine</label><div class="tab-content docutils">
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>apk<span class="w"> </span>add<span class="w"> </span>pipx
+<span class="gp"># </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp"># </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">dosas</span></code>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>doas<span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>pipx
+<span class="gp">$ </span>doas<span class="w"> </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
 <span class="gp">$ </span>releng-tool<span class="w"> </span>--version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
-<p>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-Sy
-<span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--2">Arch</label><div class="tab-content docutils">
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pipx
+<span class="gp"># </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp"># </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python-pipx
+<span class="gp">$ </span>sudo<span class="w"> </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
 <span class="gp">$ </span>releng-tool<span class="w"> </span>--version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
 </div>
 <p>This package is also <a class="reference external" href="https://aur.archlinux.org/packages/releng-tool/">available on AUR</a>.</p>
 </div>
-<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--2">Fedora</label><div class="tab-content docutils">
-<p>Using <code class="docutils literal notranslate"><span class="pre">pipx</span></code>:</p>
+<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--3">Debian</label><div class="tab-content docutils">
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
+<span class="gp"># </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp"># </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
+<span class="gp">$ </span>sudo<span class="w"> </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--4">Fedora</label><div class="tab-content docutils">
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
+<span class="gp"># </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp"># </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>pipx
+<span class="gp">$ </span>sudo<span class="w"> </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--5" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--5">openSUSE</label><div class="tab-content docutils">
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>zypper<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-pipx
+<span class="gp"># </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp"># </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-pipx
+<span class="gp">$ </span>sudo<span class="w"> </span>pipx<span class="w"> </span>install<span class="w"> </span>--global<span class="w"> </span>releng-tool
+<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--6" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--6">Ubuntu</label><div class="tab-content docutils">
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
+<span class="gp"># </span>pipx<span class="w"> </span>ensurepath
+<span class="gp"># </span>pipx<span class="w"> </span>install<span class="w"> </span>releng-tool
+<span class="gp"># </span>releng-tool<span class="w"> </span>--version
+<span class="go">releng-tool &lt;version&gt;</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
 <span class="gp">$ </span>pipx<span class="w"> </span>ensurepath
 <span class="gp">$ </span>pipx<span class="w"> </span>install<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
-<span class="go">releng-tool &lt;version&gt;</span>
-</pre></div>
-</div>
-<p>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python-pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
-<span class="go">releng-tool &lt;version&gt;</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--3">openSUSE</label><div class="tab-content docutils">
-<p>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
-<span class="go">releng-tool &lt;version&gt;</span>
-</pre></div>
-</div>
-</div>
-<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--4">Ubuntu</label><div class="tab-content docutils">
-<p>Using <code class="docutils literal notranslate"><span class="pre">pipx</span></code> (Ubuntu 23.04 or above):</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>pipx
-<span class="gp">$ </span>pipx<span class="w"> </span>ensurepath
-<span class="gp">$ </span>pipx<span class="w"> </span>install<span class="w"> </span>releng-tool
-<span class="gp">$ </span>releng-tool<span class="w"> </span>--version
-<span class="go">releng-tool &lt;version&gt;</span>
-</pre></div>
-</div>
-<p>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-<span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python-pip
-<span class="gp">$ </span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>releng-tool
 <span class="gp">$ </span>releng-tool<span class="w"> </span>--version
 <span class="go">releng-tool &lt;version&gt;</span>
 </pre></div>
@@ -572,16 +602,13 @@ invoke the following commands:</p>
 </div>
 </div>
 <input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio" /><label class="tab-label" for="tab-set--1-input--3">Windows</label><div class="tab-content docutils">
-<p>If not already installed, download the most recent version of <a class="reference external" href="https://www.python.org/">Python</a>:</p>
+<p>请先下载最新版本的 [Python][python]：</p>
 <blockquote>
 <div><p>Python — Downloads <br />
 <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
 </div></blockquote>
-<p>When invoking the installer, it is recommended to select the option to
-&quot;Add Python to PATH&quot;. However, users can explicitly invoked Python from
-an absolute path (the remainder of these steps will assume Python is
-available in the path).</p>
-<p>Open a Windows command prompt and invoke the following:</p>
+<p>调用安装程序时，建议选择 [&quot;Add Python to PATH&quot;] 选项。但是，用户可以从绝对路径显式调用 Python （这些步骤的其余部分将假设 Python 在路径中可用）。</p>
+<p>打开 Windows 命令提示符并调用以下内容：</p>
 <div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> python -m pip install -U releng-tool
 <span class="gp">&gt;</span> python -m releng-tool --version
 <span class="go">releng-tool ~version~</span>
@@ -590,10 +617,97 @@ available in the path).</p>
 </div>
 </div>
 </section>
+<section id="optional-python-dependencies">
+<span id="python-dependencies"></span><h3>Optional Python Dependencies<a class="headerlink" href="#optional-python-dependencies" title="Link to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following only applies to releng-tool installations performed using
+<a class="reference external" href="https://pipx.pypa.io/">pipx</a> or using a virtual environment. If an installation is performed
+through a system's package manager, any dependencies should also be installed
+using the system's package manager.</p>
+</div>
+<p>A releng-tool installation also supports the automatic installation of
+optional Python-based dependencies (if required for a project and not
+manually installed).</p>
+<p>The following outlines the various configuration sets supported when installing
+releng-tool:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head text-center"><p>Value</p></th>
+<th class="head text-center"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>All Dependencies</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Meson Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">meson</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Python Support (All)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">py-all</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python Flit Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">py-flit</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Python Hatch Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">py-hatch</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python PDM Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">py-pdm</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Python Poetry Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">py-poetry</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Python Setuptools Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">py-setuptools</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-even"><td><p>SCons Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">scons</span></code></p></td>
+<td class="text-center"><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Statistics (PDF) Support</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">statistics</span></code></p></td>
+<td class="text-center"><p>0.8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Users may install all dependencies using:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pipx<span class="w"> </span>install<span class="w"> </span>releng-tool<span class="o">[</span>all<span class="o">]</span>
+</pre></div>
+</div>
+<p>For example, if a project contains Meson-based packages, releng-tool can
+utilize a Meson installation available from the native system or the version
+found in the running interpreter (if even different). Users could either:</p>
+<ul>
+<li><p>Install Meson using the system package manager.</p></li>
+<li><p>Install Meson in their releng-tool installation environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">inject</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">meson</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install Meson dependency when installing releng-tool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">install</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span><span class="p">[</span><span class="n">meson</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
 <section id="development">
-<h3>Development<a class="headerlink" href="#development" title="Link to this heading">¶</a></h3>
-<p>To install the most recent development sources, the following <a class="reference external" href="https://pip.pypa.io/">pip</a>
-command can be used:</p>
+<h3>发展<a class="headerlink" href="#development" title="Link to this heading">¶</a></h3>
+<p>To install the most recent development sources, the following
+<a class="reference external" href="https://pipx.pypa.io/">pipx</a>/<a class="reference external" href="https://pip.pypa.io/">pip</a> command can be used:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pipx<span class="w"> </span>install<span class="w"> </span>git+https://github.com/releng-tool/releng-tool.git
 <span class="w"> </span><span class="o">(</span>or<span class="o">)</span>
 pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/releng-tool/releng-tool.git
@@ -1990,7 +2104,7 @@ with a <code class="docutils literal notranslate"><span class="pre">noqa</span><
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">UNEXPECTED_KEY</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># noqa</span>
 </pre></div>
 </div>
-<p>See also the <a class="reference internal" href="#action-pkg-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-lint</span></code></span></a> action.</p>
+<p>See also <a class="reference internal" href="#document-guides/linting"><span class="doc std std-doc">Linting</span></a> and the <a class="reference internal" href="#action-pkg-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-lint</span></code></span></a> action.</p>
 </section>
 <section id="mrproper">
 <span id="action-mrproper"></span><h5><code class="docutils literal notranslate"><span class="pre">mrproper</span></code><a class="headerlink" href="#mrproper" title="Link to this heading">¶</a></h5>
@@ -2248,7 +2362,7 @@ not already done.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-lint
 </pre></div>
 </div>
-<p>See also the <a class="reference internal" href="#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a> action.</p>
+<p>See also <a class="reference internal" href="#document-guides/linting"><span class="doc std std-doc">Linting</span></a> and the <a class="reference internal" href="#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a> action.</p>
 </section>
 <section id="pkg-var-patch">
 <span id="action-pkg-patch"></span><h5><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code><a class="headerlink" href="#pkg-var-patch" title="Link to this heading">¶</a></h5>
@@ -3038,6 +3152,19 @@ adding them into a project's <code class="docutils literal notranslate"><span cl
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#document-guides/licenses"><span class="doc std std-doc">licenses</span></a>.</p>
+</section>
+<section id="lint-max-version">
+<span id="conf-lint-max-version"></span><h5><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code><a class="headerlink" href="#lint-max-version" title="Link to this heading">¶</a></h5>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.0.</span></p>
+</div>
+<p>Configures the maximum lint version checks when using the <a class="reference internal" href="#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a>
+action.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;3.0&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#document-guides/linting"><span class="doc std std-doc">Linting</span></a> and
+<a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>.</p>
 </section>
 <section id="override-extract-tools">
 <span id="conf-override-extract-tools"></span><h5><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code><a class="headerlink" href="#override-extract-tools" title="Link to this heading">¶</a></h5>
@@ -4133,6 +4260,18 @@ releng-tool with an elevated user.</p>
 arguments.</p>
 <p>See also the <a class="reference internal" href="#arg-relaxed-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code> argument</span></a>.</p>
 </section>
+<section id="releng-lint-max-version">
+<span id="env-releng-lint-max-version"></span><h5><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-lint-max-version" title="Link to this heading">¶</a></h5>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.0.</span></p>
+</div>
+<p>Configures the maximum lint version checks when using the <a class="reference internal" href="#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a>
+action.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_LINT_MAX_VERSION</span><span class="o">=</span><span class="mf">3.0</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#document-guides/linting"><span class="doc std std-doc">Linting</span></a> and <a class="reference internal" href="#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a>.</p>
+</section>
 <section id="releng-images-dir">
 <span id="env-releng-images-dir"></span><h5><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR=&lt;dir&gt;</span></code><a class="headerlink" href="#releng-images-dir" title="Link to this heading">¶</a></h5>
 <div class="versionadded">
@@ -4721,6 +4860,28 @@ for a package that cannot support a large or any parallel build environment.</p>
 be used to exceed the jobs count (although not recommended in most scenarios).</p>
 <p>See also the <a class="reference internal" href="#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a> and
 <a class="reference internal" href="#pkg-opt-max-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></span></a>.</p>
+</section>
+<section id="libfoo-force-revision">
+<span id="pkg-opt-force-revision"></span><h5><code class="docutils literal notranslate"><span class="pre">LIBFOO_FORCE_REVISION</span></code><a class="headerlink" href="#libfoo-force-revision" title="Link to this heading">¶</a></h5>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.0.</span></p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This option is not recommended for use inside a package definition.</p>
+</div>
+<p>Specifies a forced revision to use for a package. This option is not
+recommended for use inside a package definition. It is designed for users
+trying to override a used revision from the command line. The primary use
+case is to help override a specific revision for projects that may utilize
+both regular and development revisions. A user may be in a situation where
+the active runtime mode may vary but wants a consistent revision to use no
+matter what mode is configured.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">LIBFOO_FORCE_REVISION</span><span class="o">=</span><span class="s2">&quot;1.2.3&quot;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#pkg-opt-devmode-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></span></a>,
+<a class="reference internal" href="#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> and <a class="reference internal" href="#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a>.</p>
 </section>
 <section id="libfoo-git-config">
 <span id="pkg-opt-git-config"></span><h5><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code><a class="headerlink" href="#libfoo-git-config" title="Link to this heading">¶</a></h5>
@@ -7234,14 +7395,17 @@ package is processed, it will use the same Python interpreter used by
 releng-tool.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For environments where releng-tool has been installed using <code class="docutils literal notranslate"><span class="pre">pipx</span></code>, a user
-will need to install any required build backend desired using the
-<a class="reference external" href="https://pipx.pypa.io/#inject-a-package"><code class="docutils literal notranslate"><span class="pre">pipx</span> <span class="pre">inject</span></code></a> command. For example, packages requiring
-<a class="reference external" href="https://flit.pypa.io">Flit</a> can install the build backend for their isolated environment
-using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">inject</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">flit</span><span class="o">-</span><span class="n">core</span>
+<p>For environments where releng-tool is installed using <code class="docutils literal notranslate"><span class="pre">pipx</span></code> or in a virtual
+environment, a user will need to install any required packages/backends
+needed for a project's Python packages. Users may install dependencies
+manually (e.g. using <a class="reference external" href="https://pipx.pypa.io/stable/how-to/inject-packages/"><code class="docutils literal notranslate"><span class="pre">pipx</span> <span class="pre">inject</span></code></a> for <code class="docutils literal notranslate"><span class="pre">pipx</span></code> installs).
+Alternatively, users may also automatically support various Python dependencies
+when installing releng-tool. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pipx install releng-tool[py-all]
 </pre></div>
 </div>
+<p>See also <a class="reference internal" href="#python-dependencies"><span class="std std-ref">Optional Python Dependencies</span></a> for more
+information.</p>
 </div>
 <p>A developer can override what Python interpreter to use by
 configuring the <a class="reference internal" href="#pkg-opt-python-interpreter"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INTERPRETER</span></code></span></a>
@@ -7377,7 +7541,7 @@ value. This field is optional.</p>
 <section id="libfoo-install-defs">
 <h5><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code><a class="headerlink" href="#libfoo-install-defs" title="Link to this heading">¶</a></h5>
 <div class="versionremoved">
-<p><span class="versionmodified removed">Removed in version 2.0: </span>No longer applicable as all Python packages are  installed using the
+<p><span class="versionmodified removed">Removed in version 2.0: </span>No longer applicable as all Python packages are installed using the
 <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> module.</p>
 </div>
 </section>
@@ -9601,7 +9765,7 @@ the following can be added into a project's <code class="docutils literal notran
 </div>
 </section>
 <section id="releng-version">
-<h5><code class="docutils literal notranslate"><span class="pre">releng_version</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h5>
+<span id="vars-releng-version"></span><h5><code class="docutils literal notranslate"><span class="pre">releng_version</span></code><a class="headerlink" href="#releng-version" title="Link to this heading">¶</a></h5>
 <p>The version of releng-tool.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Using version </span><span class="si">{</span><span class="n">releng_version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -9817,6 +9981,53 @@ configuration which can be applied for Git-based repositories (via
 <p>The following contains a series of advanced guides which a developer may
 want to use for more involved use cases.</p>
 <div class="toctree-wrapper compound">
+<span id="document-guides/linting"></span><section id="linting">
+<h4>Linting<a class="headerlink" href="#linting" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.7.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.0: </span>Support maximum lint version checks.</p>
+</div>
+<p>The releng-tool application provides linting actions to allow developers to
+help sanity check their project configuration. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">lint</span>
+</pre></div>
+</div>
+<p>The goal of this action is to:</p>
+<ul class="simple">
+<li><p>Help warn about unexpected configuration issues.</p></li>
+<li><p>Inform users of deprecated features being used.</p></li>
+</ul>
+<p>The action will cycle through packages configured for a project, checking both
+project configuration, package configurations and more for notable issues.</p>
+<p>For scenarios where a user wants to ignore lines based on preference or
+false-positives, lines can be commented with a <code class="docutils literal notranslate"><span class="pre">noqa</span></code> keyword to not be
+flagged. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">UNEXPECTED_KEY</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># noqa</span>
+</pre></div>
+</div>
+<p>As releng-tool adds lint checks over time, new lint checks are mapped to the
+release version of releng-tool that introduces the check. For example, if
+releng-tool v3 adds two new checks, both checks will be mapped to v3.0. If
+a build environment wants to perform CI without utilizing new lint checks,
+they can do so by configuring a maximum version for lint checks to use. This
+can be configured in the <a class="reference internal" href="#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> project
+configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;2.8&#39;</span>
+</pre></div>
+</div>
+<p>Or configured with a <a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
+environment variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_LINT_MAX_VERSION</span><span class="o">=</span><span class="mf">2.8</span>
+<span class="n">releng</span><span class="o">-</span><span class="n">tool</span>
+</pre></div>
+</div>
+<p>This should allow developers to maintain a working CI pipeline that may lint
+their project configurations while still utilizing newer versions of
+releng-tool. Developers can bump to newer link-check versions when they are
+ready to handle new checks that may be introduced.</p>
+</section>
 <span id="document-guides/patching"></span><section id="patching">
 <h4>Patching<a class="headerlink" href="#patching" title="Link to this heading">¶</a></h4>
 <div class="admonition note">
@@ -10284,38 +10495,6 @@ the standard output stream is not populated during an API mode run.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-</section>
-<span id="document-guides/configuration-overrides"></span><section id="configuration-overrides">
-<h4>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="Link to this heading">¶</a></h4>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0: </span>The use of a <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code> script is deprecated. Various override
-capabilities noted below can either be supported in a <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>
-configuration or have alternative approaches to performing overrides.</p>
-</div>
-<p>If a builder needs to (for example) override a tool location or package site, a
-user can define either environment options or setup a configuration override
-script <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-releng-tool-project/
-    ├── package/
-    │   └── ...
-    ├── LICENSE
-    ├── README.md
-    ├── releng-tool.rt
-    ├── releng-overrides     &lt;-- an override script
-    ...
-</pre></div>
-</div>
-<p>It is never recommended to persist a configuration overrides file into a
-project's source repository. Overrides are intended for dealing with specific
-hosts (e.g. injecting overrides when running with legacy build images).</p>
-<section id="extraction-tool-overrides">
-<h5>Extraction tool overrides<a class="headerlink" href="#extraction-tool-overrides" title="Link to this heading">¶</a></h5>
-<p>See <a class="reference internal" href="#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a>.</p>
-</section>
-<section id="tool-overrides">
-<h5>Tool overrides<a class="headerlink" href="#tool-overrides" title="Link to this heading">¶</a></h5>
-<p>See <a class="reference internal" href="#env-tool-overrides"><span class="std std-ref">Environment — Tool overrides</span></a>.</p>
 </section>
 </section>
 <span id="document-guides/quirks/quirks"></span><section id="quirks">
@@ -11309,6 +11488,59 @@ releng-tool, please see the project's <a class="reference external" href="https:
 <section id="news">
 <h3>News<a class="headerlink" href="#news" title="Link to this heading">¶</a></h3>
 <div class="toctree-wrapper compound">
+<span id="document-news/2026-04-12_03.00.00"></span><section id="v3-0-2026-04-12">
+<h4>3.0 (2026-04-12)<a class="headerlink" href="#v3-0-2026-04-12" title="Link to this heading">¶</a></h4>
+<section id="python-installer-support-and-dependency-changes">
+<h5>Python Installer support and dependency changes<a class="headerlink" href="#python-installer-support-and-dependency-changes" title="Link to this heading">¶</a></h5>
+<p>Since releng-tool v2.0, Python-based packages have been installed into various
+staging/target paths using the <a class="reference external" href="https://installer.pypa.io/">Python installer</a> package.
+Changes introduced in its latest v1.0 release has resulted in unexpected
+installation events for Python-based packages.</p>
+<p>This release of releng-tool adjusts its interaction to address issues,
+maintaining support for installer's v0.5 to v1.0 releases.</p>
+<p>In part with these changes, adjustments have been made to releng-tool to help
+manage Python optional dependencies for releng-tool projects. Originally, the
+<code class="docutils literal notranslate"><span class="pre">installer</span></code> package was included by default in releng-tool installations. This
+is no longer the case with v3.0. Users with projects that utilize Python will
+now need to ensure the dependency is installed with any frontend or backend
+used.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">inject</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="n">installer</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Also introduced in this release is new optional dependency configurations.
+While releng-tool will now only install the bare minimum requirements for
+execution, users wanting to automatically install Python dependencies can do
+so when installing releng-tool. For example, to install all Python-related
+dependencies releng-tool could use, the following can be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipx</span> <span class="n">install</span> <span class="n">releng</span><span class="o">-</span><span class="n">tool</span><span class="p">[</span><span class="n">py</span><span class="o">-</span><span class="nb">all</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>See all <a class="reference internal" href="#python-dependencies"><span class="std std-ref">optional Python dependencies options</span></a>.</p>
+<p>Lastly, releng-tool now includes prerequisite checks for each supported Python
+setup-type. A package requiring, for example, Flit support will now fail early
+if the Python runtime/virtual environment is missing the module.</p>
+</section>
+<section id="lint-check-version-capping">
+<h5>Lint-check version capping<a class="headerlink" href="#lint-check-version-capping" title="Link to this heading">¶</a></h5>
+<p>Users taking advantage of <a class="reference internal" href="#document-guides/linting"><span class="doc std std-doc">linting capabilities</span></a> may now
+configure version limits for lint-checks to be performed. This may be helpful
+for users who add linting checks to their projects CI scripts, but do not want
+to cause failures on required pipelines when new linting checks are
+introduced by releng-tool.</p>
+<p>Linting limits can be configured with the
+<a class="reference internal" href="#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> project configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;2.8&#39;</span>
+</pre></div>
+</div>
+<p>Or configured with a <a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
+environment variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_LINT_MAX_VERSION</span><span class="o">=</span><span class="mf">2.8</span>
+<span class="n">releng</span><span class="o">-</span><span class="n">tool</span>
+</pre></div>
+</div>
+</section>
+</section>
 <span id="document-news/2026-03-10_02.11.00"></span><section id="v2-11-2026-03-10">
 <h4>2.11 (2026-03-10)<a class="headerlink" href="#v2-11-2026-03-10" title="Link to this heading">¶</a></h4>
 <section id="corrections-in-version-requirement-checks">
@@ -13181,6 +13413,20 @@ the following environment variables can be used instead:</p>
 </section>
 </div>
 </section>
+<section id="v3-0-2026-04-12">
+<h3>3.0 (2026-04-12)<a class="headerlink" href="#v3-0-2026-04-12" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>(note)</strong> Support for <code class="docutils literal notranslate"><span class="pre">releng-overrides</span></code> script has been dropped</p></li>
+<li><p>Adding various prerequisite checks for configured Python setup types</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_FORCE_REVISION</span></code> to forcing package revisions for all modes</p></li>
+<li><p>Introduce support for a maximum version for lint checks</p></li>
+<li><p>Introduce various install optional dependencies configurations (e.g. <code class="docutils literal notranslate"><span class="pre">[all]</span></code>)</p></li>
+<li><p>Python's <code class="docutils literal notranslate"><span class="pre">installer</span></code> package is now an optional dependency</p></li>
+<li><p>SBOM package entries are now sorted by name</p></li>
+<li><p>Support new changes in Python's <code class="docutils literal notranslate"><span class="pre">installer</span></code> package (v1.0+)</p></li>
+<li><p>Use of a global output container path now hints full project output path</p></li>
+</ul>
+</section>
 <section id="v2-11-0-2026-03-10">
 <h3>2.11.0 (2026-03-10)<a class="headerlink" href="#v2-11-0-2026-03-10" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -13812,6 +14058,7 @@ releng-tool project.</p>
 <a class="reference internal" href="#conf-extra-license-exceptions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></span></a> = {'&lt;short-exception-id&gt;': '&lt;exception-name&gt;'}
 <a class="reference internal" href="#conf-extra-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></span></a> = {'&lt;short-license-id&gt;': '&lt;license-name&gt;'}
 <a class="reference internal" href="#conf-license-header"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></span></a> = '&lt;data&gt;'
+<a class="reference internal" href="#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> = '&lt;max-version&gt;'
 <a class="reference internal" href="#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a> = {'&lt;tool&gt;': '&lt;tool-path&gt;'}
 <a class="reference internal" href="#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;', '&lt;pkg&gt;']
 <a class="reference internal" href="#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a> = ['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;']
@@ -13906,6 +14153,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="#env-releng-ignore-running-as-root"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT</span></code></span></a>
 <a class="reference internal" href="#env-releng-ignore-unknown-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS</span></code></span></a>
 <a class="reference internal" href="#env-releng-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR</span></code></span></a>
+<a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
 <a class="reference internal" href="#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a>
 <a class="reference internal" href="#env-releng-parallel-level"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL</span></code></span></a></pre>
 </section>
@@ -13957,6 +14205,7 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="#pkg-opt-extract-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTRACT_TYPE</span></code></span></a> = 'ext-&lt;extraction-extension&gt;'
 <a class="reference internal" href="#pkg-opt-fetch-opts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FETCH_OPTS</span></code></span></a> = {'--option': 'value'} or ['--option', 'value']
 <a class="reference internal" href="#pkg-opt-fixed-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FIXED_JOBS</span></code></span></a> = int # &gt;= 1
+<a class="reference internal" href="#pkg-opt-force-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_FORCE_REVISION</span></code></span></a> = '&lt;revision&gt;'
 <a class="reference internal" href="#pkg-opt-git-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_CONFIG</span></code></span></a> = {'FOO': 'BAR'}
 <a class="reference internal" href="#pkg-opt-git-depth"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_DEPTH</span></code></span></a> = int # &gt;= 0
 <a class="reference internal" href="#pkg-opt-git-refspecs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_GIT_REFSPECS</span></code></span></a> = ['&lt;refspec&gt;'] # e.g. pull
@@ -14048,6 +14297,9 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="#releng_tool.success" title="releng_tool.success"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">success</span></code></span></a>(msg, *args)
 <a class="reference internal" href="#releng_tool.verbose" title="releng_tool.verbose"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">verbose</span></code></span></a>(msg, *args)
 <a class="reference internal" href="#releng_tool.warn" title="releng_tool.warn"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">warn</span></code></span></a>(msg, *args)</pre>
+<p>Variables available to scripts invoked by releng-tool:</p>
+<pre class="literal-block"><a class="reference internal" href="#vars-releng-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_args</span></code></span></a>
+<a class="reference internal" href="#vars-releng-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng_version</span></code></span></a></pre>
 </section>
 <section id="quirks">
 <h3>Quirks<a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h3>

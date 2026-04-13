@@ -251,13 +251,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../configuration-overrides/">Configuration overrides</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
@@ -299,6 +299,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-01_02.09.00/">2.9 (2026-03-01)</a></li>
@@ -526,7 +527,7 @@ with a <code class="docutils literal notranslate"><span class="pre">noqa</span><
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">UNEXPECTED_KEY</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># noqa</span>
 </pre></div>
 </div>
-<p>See also the <a class="reference internal" href="#action-pkg-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-lint</span></code></span></a> action.</p>
+<p>See also <a class="reference internal" href="../linting/"><span class="doc std std-doc">Linting</span></a> and the <a class="reference internal" href="#action-pkg-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-lint</span></code></span></a> action.</p>
 </section>
 <section id="mrproper">
 <span id="action-mrproper"></span><h3><code class="docutils literal notranslate"><span class="pre">mrproper</span></code><a class="headerlink" href="#mrproper" title="Link to this heading">¶</a></h3>
@@ -784,7 +785,7 @@ not already done.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>&lt;pkg&gt;-lint
 </pre></div>
 </div>
-<p>See also the <a class="reference internal" href="#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a> action.</p>
+<p>See also <a class="reference internal" href="../linting/"><span class="doc std std-doc">Linting</span></a> and the <a class="reference internal" href="#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a> action.</p>
 </section>
 <section id="pkg-var-patch">
 <span id="action-pkg-patch"></span><h3><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-patch</span></code><a class="headerlink" href="#pkg-var-patch" title="Link to this heading">¶</a></h3>
