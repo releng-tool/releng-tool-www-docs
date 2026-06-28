@@ -234,6 +234,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-python/">Python package</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">SCons package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pkg-type-waf/">Waf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pkg-type-xmake/">Xmake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -242,21 +243,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../../script-helpers/">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../tips/tips/">Consejos</a><input aria-label="Toggle navigation of Consejos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/parallel-builds/">Parallel builds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../tips/privileged-builds/">Privileged builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/alternative-extensions/">Alternative extensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../cleaning/">Cleaning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../release-mode/">Release Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
@@ -269,9 +274,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
 </ul>
 </li>
 </ul>
@@ -292,6 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-scons/">SCons package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-waf/">Waf package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/examples-xmake/">Xmake package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../help/">Solicitar asistencia</a></li>
@@ -299,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
@@ -614,6 +624,7 @@ value. This field is optional.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>See also <a class="reference internal" href="../../configuration/#conf-environment"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">environment</span></code></span></a>.</p>
 </section>
 <section id="libfoo-install-defs">
 <span id="pkg-opt-scons-install-defs"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code><a class="headerlink" href="#libfoo-install-defs" title="Link to this heading">¶</a></h2>

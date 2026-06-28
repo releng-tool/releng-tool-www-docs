@@ -234,6 +234,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-waf/">Waf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-xmake/">Xmake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -242,21 +243,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../script-helpers/">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">ヒント</a><input aria-label="Toggle navigation of ヒント" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/parallel-builds/">Parallel builds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/alternative-extensions/">Alternative extensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cleaning/">Cleaning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../release-mode/">Release Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
@@ -269,9 +274,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
 </ul>
 </li>
 </ul>
@@ -292,6 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-scons/">SCons package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-waf/">Waf package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-xmake/">Xmake package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">支援要請</a></li>
@@ -299,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input aria-label="Toggle navigation of バージョンノート" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
@@ -899,6 +909,14 @@ for a run.</p>
 <p>Flag set if performing a re-install request.</p>
 <p>See also <a class="reference internal" href="../arguments/#action-pkg-reinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></span></a>.</p>
 </section>
+<section id="releng-release">
+<span id="env-releng-release"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_RELEASE</span></code><a class="headerlink" href="#releng-release" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
+</div>
+<p>Flag set if running in a <a class="reference internal" href="../release-mode/"><span class="doc std std-doc">release mode</span></a>.</p>
+<p>See also <a class="reference internal" href="../arguments/#arg-release"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--release</span></code></span></a>.</p>
+</section>
 <section id="releng-script">
 <span id="env-releng-script"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT</span></code><a class="headerlink" href="#releng-script" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
@@ -1377,6 +1395,33 @@ and configures this option to the path <code class="docutils literal notranslate
             └── ...
 </pre></div>
 </div>
+<p>See also
+<a class="reference internal" href="#env-releng-global-out-container-no-images"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_NO_IMAGES</span></code></span></a>.</p>
+</section>
+<section id="releng-global-output-container-no-images">
+<span id="env-releng-global-out-container-no-images"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_NO_IMAGES=1</span></code><a class="headerlink" href="#releng-global-output-container-no-images" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
+</div>
+<p>This option is used with
+<a class="reference internal" href="#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a> to
+hint that generate images should not default to a global output container
+path. While developers may want to rely on
+<code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code> for interim build files for partitioning
+or spacing reasons, developers may want final images/artifacts to be
+placed in a project's root/local output directory.</p>
+<p>When this option is used, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span><span class="o">=/</span><span class="n">mnt</span><span class="o">/</span><span class="n">extern</span><span class="o">-</span><span class="n">disk</span>
+<span class="n">export</span> <span class="n">RELENG_GLOBAL_OUTPUT_CONTAINER_NO_IMAGES</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>If a build utilizes a global container output, files generates into
+<a class="reference internal" href="#env-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">IMAGES_DIR</span></code></span></a> will still output to the default images path:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/images
+</pre></div>
+</div>
+<p>See also
+<a class="reference internal" href="#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a>.</p>
 </section>
 <section id="releng-ignore-running-as-root">
 <span id="env-releng-ignore-running-as-root"></span><h3><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code><a class="headerlink" href="#releng-ignore-running-as-root" title="Link to this heading">¶</a></h3>
@@ -1564,6 +1609,7 @@ Consider the following example:</p>
 <li><a class="reference internal" href="#releng-rebuild"><code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code></a></li>
 <li><a class="reference internal" href="#releng-reconfigure"><code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code></a></li>
 <li><a class="reference internal" href="#releng-reinstall"><code class="docutils literal notranslate"><span class="pre">RELENG_REINSTALL</span></code></a></li>
+<li><a class="reference internal" href="#releng-release"><code class="docutils literal notranslate"><span class="pre">RELENG_RELEASE</span></code></a></li>
 <li><a class="reference internal" href="#releng-script"><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT</span></code></a></li>
 <li><a class="reference internal" href="#releng-script-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_SCRIPT_DIR</span></code></a></li>
 <li><a class="reference internal" href="#releng-target-pkg"><code class="docutils literal notranslate"><span class="pre">RELENG_TARGET_PKG</span></code></a></li>
@@ -1602,6 +1648,7 @@ Consider the following example:</p>
 <li><a class="reference internal" href="#releng-cache-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-dl-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR=&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#releng-global-output-container-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR=&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#releng-global-output-container-no-images"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_NO_IMAGES=1</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-running-as-root"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_RUNNING_AS_ROOT=1</span></code></a></li>
 <li><a class="reference internal" href="#releng-ignore-unknown-args"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS=1</span></code></a></li>
 <li><a class="reference internal" href="#releng-lint-max-version"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION=&lt;dir&gt;</span></code></a></li>

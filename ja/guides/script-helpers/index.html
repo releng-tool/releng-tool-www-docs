@@ -234,6 +234,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-waf/">Waf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-xmake/">Xmake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -242,21 +243,25 @@
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">ヒント</a><input aria-label="Toggle navigation of ヒント" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/parallel-builds/">Parallel builds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/alternative-extensions/">Alternative extensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cleaning/">Cleaning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../release-mode/">Release Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
@@ -269,9 +274,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
 </ul>
 </li>
 </ul>
@@ -292,6 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-scons/">SCons package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-waf/">Waf package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-xmake/">Xmake package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">支援要請</a></li>
@@ -299,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">バージョンノート</a><input aria-label="Toggle navigation of バージョンノート" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
@@ -852,10 +862,22 @@ execution has failed</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">バージョン 2.0 で変更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">ignore_stderr</span></code>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 3.1 で変更: </span>Correct support for expansion by default.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 3.1 で変更: </span>Add support for <code class="docutils literal notranslate"><span class="pre">newline</span></code>.</p>
+</div>
 <p>Runs the command <code class="docutils literal notranslate"><span class="pre">command</span></code> with provided <code class="docutils literal notranslate"><span class="pre">args</span></code> until completion. A
 caller can adjust the working directory of the executed command by
 explicitly setting the directory in <code class="docutils literal notranslate"><span class="pre">cwd</span></code>. The execution request will
 return the command's return code as well as any captured output.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rv</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">releng_execute_rv</span><span class="p">(</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="c1"># rv: 1</span>
+<span class="c1"># out: 1 2 3</span>
+</pre></div>
+</div>
 <p>The environment variables used on execution can be manipulated in two ways.
 First, the environment can be explicitly controlled by applying a new
 environment content using the <code class="docutils literal notranslate"><span class="pre">env</span></code> dictionary. Key of the dictionary will
@@ -869,8 +891,8 @@ the original environment values and update select values which match in the
 updated environment request. When <code class="docutils literal notranslate"><span class="pre">env</span></code> and <code class="docutils literal notranslate"><span class="pre">env_update</span></code> are both
 provided, <code class="docutils literal notranslate"><span class="pre">env_update</span></code> will be updated the options based off of <code class="docutils literal notranslate"><span class="pre">env</span></code>
 instead of the original environment of the caller.</p>
-<p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rv</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">releng_execute_rv</span><span class="p">(</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;$TEST&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;env-test&#39;</span><span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">releng_execute_rv</span><span class="p">(</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;env-$TEST&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;TEST&#39;</span><span class="p">:</span> <span class="s1">&#39;test&#39;</span><span class="p">})</span>
+<span class="c1"># out: env-test</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -884,6 +906,7 @@ instead of the original environment of the caller.</p>
 <li><p><strong>**expand</strong> -- perform variable expansion on arguments</p></li>
 <li><p><strong>**args_str</strong> -- invoke arguments as a single string</p></li>
 <li><p><strong>**ignore_stderr</strong> -- ignore any stderr output</p></li>
+<li><p><strong>**newline</strong> -- newline value to use or defaults to <code class="docutils literal notranslate"><span class="pre">\n</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
@@ -1108,7 +1131,7 @@ if the message to be built may include a performance cost.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.releng_ls">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#releng_tool.releng_ls" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#releng_tool.releng_ls" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.11.</span></p>
 </div>
@@ -1121,16 +1144,34 @@ if the message to be built may include a performance cost.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">バージョン 2.7 で変更: </span>Provided directory will now expand variables.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 3.1 で変更: </span>Directories always output POSIX path separators.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 3.1 で変更: </span>Directory is optional (using working directory).</p>
+</div>
 <p>Attempts to read a directory for its contents and prints this information
-to the configured standard output stream.</p>
+to the configured standard output stream. If no directory is provided,
+the working directory will be used.</p>
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_ls</span><span class="p">(</span><span class="s1">&#39;my-dir/&#39;</span><span class="p">)</span>
+<span class="c1"># another-dir/</span>
+<span class="c1"># file-a.txt</span>
+<span class="c1"># second-file.tgz</span>
+</pre></div>
+</div>
+<p>Or when using the <code class="docutils literal notranslate"><span class="pre">recursive</span></code> argument.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_ls</span><span class="p">(</span><span class="s1">&#39;test-dir/&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># another-dir/</span>
+<span class="c1"># another-dir/sub-dir/</span>
+<span class="c1"># another-dir/sub-dir/file-b.txt</span>
+<span class="c1"># file-c.txt</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dir</strong> -- the directory</p></li>
+<li><p><strong>dir</strong> (<em>optional</em>) -- the directory or the working directory</p></li>
 <li><p><strong>recursive</strong> (<em>optional</em>) -- recursive search of entries</p></li>
 </ul>
 </dd>
@@ -1403,6 +1444,102 @@ path could not be removed from the system</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="releng_tool.releng_require_version">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_require_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_require_version" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.11.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 2.0 で変更: </span>Support maximum version.</p>
+</div>
+<p>Enables a caller to explicitly check for a required releng-tool version.
+Invoking this function with a dotted-separated <code class="docutils literal notranslate"><span class="pre">version</span></code> string, the
+string will be parsed and compared with the running releng-tool version.
+If the required version is met, this method will have no effect. In the
+event that the required version is not met, the exception <code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>
+will be raised if the critical flag is set; otherwise this call will
+return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>An example when using in the context of script helpers is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ensure we are using releng-tool v1</span>
+<span class="n">releng_require_version</span><span class="p">(</span><span class="s1">&#39;1.0.0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>minver</strong> -- dotted-separated minimum version string</p></li>
+<li><p><strong>**quiet</strong> (<em>optional</em>) -- whether or not to suppress output</p></li>
+<li><p><strong>**critical</strong> (<em>optional</em>) -- whether or not to stop execution on failure</p></li>
+<li><p><strong>**maxver</strong> (<em>optional</em>) -- dotted-separated maximum version string</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the version check is met; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the version check
+has failed</p>
+</dd>
+<dt class="field-odd">例外<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SystemExit</strong> -- if the version check fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="releng_tool.releng_step">
+<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_step" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
+</div>
+<p>The following is a helper generator that aims to act like a context manager
+for invoking a step of commands once across re-invokes. This may
+be useful for scripts which contain a large number of actions. A step
+operation accepts a name value which would typically be unique for a
+given package. Consider the following example when used in the context
+of a build script helper:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">releng_step</span><span class="p">(</span><span class="s1">&#39;first-step&#39;</span><span class="p">):</span>
+    <span class="c1"># invoked only once on success</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">releng_step</span><span class="p">(</span><span class="s1">&#39;second-step&#39;</span><span class="p">):</span>
+    <span class="c1"># invoked only once on success</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">releng_step</span><span class="p">(</span><span class="s1">&#39;third-step&#39;</span><span class="p">):</span>
+    <span class="c1"># invoked only once on success</span>
+</pre></div>
+</div>
+<p>When invoked for the first time, calls inside the for-loop scope will
+be executed as normal. Once done, the step will persist a file flag in
+the active context's package output directory (or the path defined by
+<code class="docutils literal notranslate"><span class="pre">dir_</span></code>). In the event that the build script is re-invoked (e.g. continuing
+from a stopped/canceled state), if the step was previously completed, the
+scope will be stepped over.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">force</span></code> argument can be set depending on the stage, if desired. For
+example, when running in a build script, utilizing <code class="docutils literal notranslate"><span class="pre">RELENG_REBUILD</span></code> may
+be ideal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">releng_step</span><span class="p">(</span><span class="s1">&#39;subbuild&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">RELENG_REBUILD</span><span class="p">):</span>
+    <span class="c1"># invoked only once on success</span>
+</pre></div>
+</div>
+<p>Likewise with <code class="docutils literal notranslate"><span class="pre">RELENG_RECONFIGURE</span></code> in configuration scripts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">releng_step</span><span class="p">(</span><span class="s1">&#39;cfg-stage-1&#39;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">RELENG_RECONFIGURE</span><span class="p">):</span>
+    <span class="c1"># invoked only once on success</span>
+</pre></div>
+</div>
+<p>If a directory cannot be detected for use of the file flag, a
+<code class="docutils literal notranslate"><span class="pre">FailedToPrepareStepError</span></code> exception will be thrown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> -- name for the file flag</p></li>
+<li><p><strong>force</strong> (<em>optional</em>) -- force run the step</p></li>
+<li><p><strong>dir</strong> (<em>optional</em>) -- the directory to store the file flag</p></li>
+</ul>
+</dd>
+<dt class="field-even">例外<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FailedToPrepareStepError</strong> -- the step context could not be prepared</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.releng_symlink">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_symlink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quiet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#releng_tool.releng_symlink" title="Link to this definition">¶</a></dt>
 <dd><div class="admonition note">
@@ -1447,7 +1584,7 @@ reason, this call will issue a system exit (<code class="docutils literal notran
 <span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;some/folder/my-link&#39;</span><span class="p">)</span>
 
 <span class="c1"># my-file -&gt; container/my-file</span>
-<span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;container&#39;</span><span class="p">,</span> <span class="n">ldp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;container&#39;</span><span class="p">,</span> <span class="n">lpd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># some-path/my-link -&gt; &lt;workdir&gt;/folder/my-file</span>
 <span class="n">releng_symlink</span><span class="p">(</span><span class="s1">&#39;folder/my-file&#39;</span><span class="p">,</span> <span class="s1">&#39;some-path/my-link&#39;</span><span class="p">,</span> <span class="n">relative</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1475,46 +1612,6 @@ symbolic link could not be created</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="releng_tool.releng_require_version">
-<span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_require_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">minver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#releng_tool.releng_require_version" title="Link to this definition">¶</a></dt>
-<dd><div class="versionadded">
-<p><span class="versionmodified added">Added in version 0.11.</span></p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">バージョン 2.0 で変更: </span>Support maximum version.</p>
-</div>
-<p>Enables a caller to explicitly check for a required releng-tool version.
-Invoking this function with a dotted-separated <code class="docutils literal notranslate"><span class="pre">version</span></code> string, the
-string will be parsed and compared with the running releng-tool version.
-If the required version is met, this method will have no effect. In the
-event that the required version is not met, the exception <code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>
-will be raised if the critical flag is set; otherwise this call will
-return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p>An example when using in the context of script helpers is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ensure we are using releng-tool v1</span>
-<span class="n">releng_require_version</span><span class="p">(</span><span class="s1">&#39;1.0.0&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>minver</strong> -- dotted-separated minimum version string</p></li>
-<li><p><strong>**quiet</strong> (<em>optional</em>) -- whether or not to suppress output</p></li>
-<li><p><strong>**critical</strong> (<em>optional</em>) -- whether or not to stop execution on failure</p></li>
-<li><p><strong>**maxver</strong> (<em>optional</em>) -- dotted-separated maximum version string</p></li>
-</ul>
-</dd>
-<dt class="field-even">戻り値<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the version check is met; <code class="docutils literal notranslate"><span class="pre">False</span></code> if the version check
-has failed</p>
-</dd>
-<dt class="field-odd">例外<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>SystemExit</strong> -- if the version check fails with <code class="docutils literal notranslate"><span class="pre">critical=True</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="releng_tool.releng_tmpdir">
 <span class="sig-prename descclassname"><span class="pre">releng_tool.</span></span><span class="sig-name descname"><span class="pre">releng_tmpdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#releng_tool.releng_tmpdir" title="Link to this definition">¶</a></dt>
 <dd><div class="versionchanged">
@@ -1534,6 +1631,14 @@ created, an <code class="docutils literal notranslate"><span class="pre">FailedT
 <p>An example when using in the context of script helpers is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">()</span> <span class="k">as</span> <span class="n">dir_</span><span class="p">:</span>
     <span class="n">log</span><span class="p">(</span><span class="n">dir_</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An example of a temporary directory being configured as the working
+directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">releng_tmpdir</span><span class="p">(</span><span class="n">wd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">dir_</span><span class="p">:</span>
+    <span class="c1"># invoked in temporary folder</span>
+
+<span class="c1"># invoked in original working directory</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1733,6 +1838,20 @@ the following can be added into a project's <code class="docutils literal notran
 </div>
 </section>
 </section>
+<section id="imported-python-modules-functions-etc">
+<h2>Imported Python modules/functions/etc.<a class="headerlink" href="#imported-python-modules-functions-etc" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
+</div>
+<p>Select Python modules and callables are automatically imported into package
+definitions and script for convenience:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path"><code class="docutils literal notranslate"><span class="pre">Path</span></code> class</a> from
+<a class="reference external" href="https://docs.python.org/3/library/pathlib.html"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code> module</a></p></li>
+<li><p>The <a class="reference external" href="https://docs.python.org/3/library/os.html"><code class="docutils literal notranslate"><span class="pre">os</span></code> module</a></p></li>
+<li><p>The <a class="reference external" href="https://docs.python.org/3/library/sys.html"><code class="docutils literal notranslate"><span class="pre">sys</span></code> module</a></p></li>
+</ul>
+</section>
 <section id="importing-helpers">
 <h2>Importing helpers<a class="headerlink" href="#importing-helpers" title="Link to this heading">¶</a></h2>
 <p>Scripts directly invoked by releng-tool will automatically have these helpers
@@ -1838,8 +1957,9 @@ example, import a specific function:</p>
 <li><a class="reference internal" href="#releng_tool.releng_path"><code class="docutils literal notranslate"><span class="pre">releng_path()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_register_path"><code class="docutils literal notranslate"><span class="pre">releng_register_path()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_remove"><code class="docutils literal notranslate"><span class="pre">releng_remove()</span></code></a></li>
-<li><a class="reference internal" href="#releng_tool.releng_symlink"><code class="docutils literal notranslate"><span class="pre">releng_symlink()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_require_version"><code class="docutils literal notranslate"><span class="pre">releng_require_version()</span></code></a></li>
+<li><a class="reference internal" href="#releng_tool.releng_step"><code class="docutils literal notranslate"><span class="pre">releng_step()</span></code></a></li>
+<li><a class="reference internal" href="#releng_tool.releng_symlink"><code class="docutils literal notranslate"><span class="pre">releng_symlink()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_tmpdir"><code class="docutils literal notranslate"><span class="pre">releng_tmpdir()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_touch"><code class="docutils literal notranslate"><span class="pre">releng_touch()</span></code></a></li>
 <li><a class="reference internal" href="#releng_tool.releng_wd"><code class="docutils literal notranslate"><span class="pre">releng_wd()</span></code></a></li>
@@ -1853,6 +1973,7 @@ example, import a specific function:</p>
 <li><a class="reference internal" href="#releng-version"><code class="docutils literal notranslate"><span class="pre">releng_version</span></code></a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#imported-python-modules-functions-etc">Imported Python modules/functions/etc.</a></li>
 <li><a class="reference internal" href="#importing-helpers">Importing helpers</a></li>
 </ul>
 </li>

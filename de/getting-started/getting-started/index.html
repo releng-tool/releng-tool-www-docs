@@ -234,6 +234,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-scons/">SCons package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-waf/">Waf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/packages/pkg-type-xmake/">Xmake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -242,21 +243,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../../guides/script-helpers/">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../guides/licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/tips/tips/">Tips</a><input aria-label="Toggle navigation of Tips" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/parallel-builds/">Parallel builds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/privileged-builds/">Privileged builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/alternative-extensions/">Alternative extensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/cleaning/">Cleaning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/release-mode/">Release Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
@@ -269,9 +274,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
 </ul>
 </li>
 </ul>
@@ -292,6 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-scons/">SCons package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-waf/">Waf package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-xmake/">Xmake package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Um Hilfe bitten</a></li>
@@ -299,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Versionshinweise</a><input aria-label="Toggle navigation of Versionshinweise" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
@@ -416,7 +426,7 @@ Python-compatible scripts, which releng-tool accepts for processing
 configuration files and invoking other tools on a host system. While
 releng-tool supports running on various host systems (e.g. Linux, OS X,
 Windows, etc.), this guide will primarily show examples following a
-Unix-styled file system.</p>
+POSIX-styled file system.</p>
 <section id="running-releng-tool">
 <h2>Running releng-tool<a class="headerlink" href="#running-releng-tool" title="Link to this heading">¶</a></h2>
 <p>Depending on the host and how releng-tool has been <a class="reference internal" href="../../install/"><span class="doc std std-doc">installed</span></a>,
@@ -436,17 +446,12 @@ python -m releng-tool --version
 <p>A project will typically be defined by a <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code> configuration
 file along with one or more packages found inside a <code class="docutils literal notranslate"><span class="pre">package/</span></code> folder.
 This location can be referred to as the „root directory“.</p>
-<div class="admonition note">
-<p class="admonition-title">Bemerkung</p>
-<p>releng-tool supports using a <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension. For more information, please
-see <a class="reference internal" href="../../guides/tips/alternative-extensions/"><span class="doc std std-doc">alternative extensions</span></a>.</p>
-</div>
-<p>When invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>, the tool will look in the current working
+<p>When invoking <code class="docutils literal notranslate"><span class="pre">releng-tool</span></code>, the tool will look in the working
 directory for project information to process. For example, if a folder
 <code class="docutils literal notranslate"><span class="pre">my-project</span></code> had a skeleton such as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>└── my-project/
     ├── package/
-    │   └── package-a/
+    │   └── my-app/
     │       └── ...
     └── releng-tool.rt
 </pre></div>
@@ -454,19 +459,19 @@ directory for project information to process. For example, if a folder
 <p>The following output may be observed when running releng-tool:</p>
 <div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project
 <span class="gp">$ </span>releng-tool
-<span class="go">extracting package-a...</span>
-<span class="go">patching package-a...</span>
-<span class="go">configuring package-a...</span>
-<span class="go">building package-a...</span>
-<span class="go">installing package-a...</span>
+<span class="go">extracting my-app...</span>
+<span class="go">patching my-app...</span>
+<span class="go">configuring my-app...</span>
+<span class="go">building my-app...</span>
+<span class="go">installing my-app...</span>
 <span class="go">generating license information...</span>
 <span class="gp gp-VirtualEnv">(success)</span> <span class="go">completed (0:01:30)</span>
 </pre></div>
 </div>
 <p>On a successful execution, it is most likely that the releng-tool process
 will have an asset (or multiple) generated into a <code class="docutils literal notranslate"><span class="pre">images/</span></code> location. It is
-up to the developer of a releng-tool project to decide where generated
-files will be stored.</p>
+up to the developer of a releng-tool project to decide how content is packaged
+and where generated files will be stored.</p>
 <p>If a user wishes to pass the directory of a project location via command line,
 the argument <code class="docutils literal notranslate"><span class="pre">--root-dir</span></code> can be used:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>--root-dir<span class="w"> </span>my-project/

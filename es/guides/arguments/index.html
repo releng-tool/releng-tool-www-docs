@@ -234,6 +234,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-waf/">Waf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-xmake/">Xmake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -242,21 +243,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../script-helpers/">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">Consejos</a><input aria-label="Toggle navigation of Consejos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/parallel-builds/">Parallel builds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/alternative-extensions/">Alternative extensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cleaning/">Cleaning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../release-mode/">Release Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
@@ -269,9 +274,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
 </ul>
 </li>
 </ul>
@@ -292,6 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-scons/">SCons package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-waf/">Waf package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-xmake/">Xmake package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Solicitar asistencia</a></li>
@@ -299,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
@@ -421,18 +431,13 @@ steps are to be performed.</p>
 <p>The following outlines available global actions:</p>
 <section id="clean">
 <span id="action-clean"></span><h3><code class="docutils literal notranslate"><span class="pre">clean</span></code><a class="headerlink" href="#clean" title="Link to this heading">¶</a></h3>
-<p>Clean (removes) a series of folders holding content such as extracted
-archives, built libraries and more.</p>
+<p>Removes content such as extracted archives, built libraries and more.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>releng-tool<span class="w"> </span>clean
 </pre></div>
 </div>
-<p>Images and downloaded assets/cache are not removed (see
-<a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> for a more through all cleaning operation).
-This clean operation will remove files based off the configured output
-directory. If an output directory is provided (i.e. <code class="docutils literal notranslate"><span class="pre">--out-dir</span> <span class="pre">&lt;dir&gt;</span></code>)
-during a clean event, select folders inside this directory will be removed
-instead of the output directory (if any) found in the root directory.</p>
-<p>See also the <a class="reference internal" href="#action-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></span></a>, <a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> and
+<p>Built images and downloaded assets/cache are not removed.</p>
+<p>See specifics under <a class="reference internal" href="../cleaning/"><span class="doc std std-doc">Cleaning</span></a>. Also see the
+<a class="reference internal" href="#action-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></span></a>, <a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> and
 <a class="reference internal" href="#action-pkg-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></span></a> actions.</p>
 </section>
 <section id="distclean">
@@ -446,10 +451,10 @@ instead of the output directory (if any) found in the root directory.</p>
 </div>
 <p>This request removes the <code class="docutils literal notranslate"><span class="pre">cache/</span></code>, <code class="docutils literal notranslate"><span class="pre">dl/</span></code> and <code class="docutils literal notranslate"><span class="pre">output/</span></code> directories found
 in the root directory or overridden by respective arguments, as well as
-any mode file flags which may be set. See also the <a class="reference internal" href="#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a>
-or <a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> actions.</p>
-<p>See also the <a class="reference internal" href="#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a>, <a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> and
-<a class="reference internal" href="#action-pkg-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-distclean</span></code></span></a> actions.</p>
+any mode file flags which may be set.</p>
+<p>See specifics under <a class="reference internal" href="../cleaning/"><span class="doc std std-doc">Cleaning</span></a>. Also see the
+<a class="reference internal" href="#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a>, <a class="reference internal" href="#action-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">mrproper</span></code></span></a> and
+<a class="reference internal" href="#action-pkg-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></span></a> actions.</p>
 </section>
 <section id="extract">
 <span id="action-extract"></span><h3><code class="docutils literal notranslate"><span class="pre">extract</span></code><a class="headerlink" href="#extract" title="Link to this heading">¶</a></h3>
@@ -541,8 +546,9 @@ with a <code class="docutils literal notranslate"><span class="pre">noqa</span><
 <p>This request removes the <code class="docutils literal notranslate"><span class="pre">output/</span></code> directory found in the root directory or
 overridden by the <code class="docutils literal notranslate"><span class="pre">--out-dir</span></code> argument, as well as any mode file flags
 which may be set. The <code class="docutils literal notranslate"><span class="pre">cache/</span></code> and <code class="docutils literal notranslate"><span class="pre">dl/</span></code> directories will remain untouched.</p>
-<p>See also the <a class="reference internal" href="#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a> and <a class="reference internal" href="#action-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></span></a>
-actions.</p>
+<p>See specifics under <a class="reference internal" href="../cleaning/"><span class="doc std std-doc">Cleaning</span></a>. Also see the
+<a class="reference internal" href="#action-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">clean</span></code></span></a>, <a class="reference internal" href="#action-distclean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">distclean</span></code></span></a> and
+<a class="reference internal" href="#action-pkg-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-clean</span></code></span></a> actions.</p>
 </section>
 <section id="patch">
 <span id="action-patch"></span><h3><code class="docutils literal notranslate"><span class="pre">patch</span></code><a class="headerlink" href="#patch" title="Link to this heading">¶</a></h3>
@@ -1082,19 +1088,21 @@ process. This option can be used multiple times to apply multiple quirks.</p>
 <p>Do not throw an error when releng-tool is provided unknown arguments.</p>
 <p>See also <a class="reference internal" href="../environment/#env-releng-ignore-unknown-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IGNORE_UNKNOWN_ARGS</span></code></span></a>.</p>
 </section>
+<section id="release">
+<span id="arg-release"></span><h3><code class="docutils literal notranslate"><span class="pre">--release</span></code><a class="headerlink" href="#release" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
+</div>
+<p>Invoke releng-tool in a <a class="reference internal" href="../release-mode/"><span class="doc std std-doc">release mode</span></a>. Helps
+sanity check certain configurations are not used for a run that is expected
+to produce a release.</p>
+<p>See also <a class="reference internal" href="../environment/#env-releng-release"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_RELEASE</span></code></span></a>.</p>
+</section>
 <section id="root-dir-dir-var-r-dir-var">
 <span id="arg-root-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">-R</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#root-dir-dir-var-r-dir-var" title="Link to this heading">¶</a></h3>
 <p>Directory to process a releng-tool project. By default, the root directory is
 configured to the working directory.</p>
 <p>See also <a class="reference internal" href="../environment/#env-root-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">ROOT_DIR</span></code></span></a>.</p>
-</section>
-<section id="success-exit-code-code-var">
-<span id="arg-success-exit-code"></span><h3><code class="docutils literal notranslate"><span class="pre">--success-exit-code</span> <span class="pre">&lt;code&gt;</span></code><a class="headerlink" href="#success-exit-code-code-var" title="Link to this heading">¶</a></h3>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 2.8.</span></p>
-</div>
-<p>Allows overriding the exit code reported on a successful run. By default, a
-successful run will have an exit code of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 </section>
 <section id="sbom-format-fmt-var">
 <span id="arg-sbom-format"></span><h3><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code><a class="headerlink" href="#sbom-format-fmt-var" title="Link to this heading">¶</a></h3>
@@ -1146,6 +1154,14 @@ Multiple formats can be provided (comma-separated).</p>
 </div>
 <p>See also <a class="reference internal" href="#action-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></span></a> (action) and <a class="reference internal" href="../configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a>
 (configuration).</p>
+</section>
+<section id="success-exit-code-code-var">
+<span id="arg-success-exit-code"></span><h3><code class="docutils literal notranslate"><span class="pre">--success-exit-code</span> <span class="pre">&lt;code&gt;</span></code><a class="headerlink" href="#success-exit-code-code-var" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 2.8.</span></p>
+</div>
+<p>Allows overriding the exit code reported on a successful run. By default, a
+successful run will have an exit code of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 </section>
 <section id="verbose-v">
 <span id="arg-verbose"></span><h3><code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">-V</span></code><a class="headerlink" href="#verbose-v" title="Link to this heading">¶</a></h3>
@@ -1302,9 +1318,10 @@ package with a version <code class="docutils literal notranslate"><span class="p
 <li><a class="reference internal" href="#quiet"><code class="docutils literal notranslate"><span class="pre">--quiet</span></code></a></li>
 <li><a class="reference internal" href="#quirk-quirk-id-var"><code class="docutils literal notranslate"><span class="pre">--quirk</span> <span class="pre">&lt;quirk-id&gt;</span></code></a></li>
 <li><a class="reference internal" href="#relaxed-args"><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code></a></li>
+<li><a class="reference internal" href="#release"><code class="docutils literal notranslate"><span class="pre">--release</span></code></a></li>
 <li><a class="reference internal" href="#root-dir-dir-var-r-dir-var"><code class="docutils literal notranslate"><span class="pre">--root-dir</span> <span class="pre">&lt;dir&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">-R</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
-<li><a class="reference internal" href="#success-exit-code-code-var"><code class="docutils literal notranslate"><span class="pre">--success-exit-code</span> <span class="pre">&lt;code&gt;</span></code></a></li>
 <li><a class="reference internal" href="#sbom-format-fmt-var"><code class="docutils literal notranslate"><span class="pre">--sbom-format</span> <span class="pre">&lt;fmt&gt;</span></code></a></li>
+<li><a class="reference internal" href="#success-exit-code-code-var"><code class="docutils literal notranslate"><span class="pre">--success-exit-code</span> <span class="pre">&lt;code&gt;</span></code></a></li>
 <li><a class="reference internal" href="#verbose-v"><code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">-V</span></code></a></li>
 <li><a class="reference internal" href="#version"><code class="docutils literal notranslate"><span class="pre">--version</span></code></a></li>
 <li><a class="reference internal" href="#werror-werror"><code class="docutils literal notranslate"><span class="pre">--werror</span></code>, <code class="docutils literal notranslate"><span class="pre">-Werror</span></code></a></li>

@@ -234,6 +234,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-python/">Python package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-scons/">SCons package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-waf/">Waf package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packages/pkg-type-xmake/">Xmake package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/hacking/">Package hacking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packages/deprecated-pkg-options/">Deprecated options</a></li>
 </ul>
@@ -242,21 +243,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../script-helpers/">Script helpers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">Wskazówki</a><input aria-label="Toggle navigation of Wskazówki" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/parallel-builds/">Parallel builds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/license-generation/">License generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/offline-builds/">Offline builds</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/alternative-extensions/">Alternative extensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/vcs-ignore/">VCS Ignore</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../advanced-guides/">Advanced</a><input aria-label="Toggle navigation of Advanced" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cleaning/">Cleaning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../linting/">Linting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../patching/">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../intern-extern-pkgs/">Internal/external packages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../release-mode/">Release Mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
@@ -269,9 +274,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-no_quick_fetch/">releng.git.no_quick_fetch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-git-replicate_cache/">releng.git.replicate_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_failed_extensions/">releng.ignore_failed_extensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
 </ul>
 </li>
 </ul>
@@ -292,6 +300,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-python/">Python package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-scons/">SCons package examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/examples-waf/">Waf package examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/examples-xmake/">Xmake package examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../help/">Prośba o pomoc</a></li>
@@ -299,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-08_02.10.00/">2.10 (2026-03-08)</a></li>
@@ -509,6 +519,21 @@ defined by project’s configuration. For example:</p>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
+</section>
+<section id="network-isolation">
+<span id="conf-network-isolation"></span><h3><code class="docutils literal notranslate"><span class="pre">network_isolation</span></code><a class="headerlink" href="#network-isolation" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
+</div>
+<p>A flag to indicate that non-fetch package stages will attempt to perform
+<a class="reference internal" href="../network-isolation/"><span class="doc std std-doc">network isolation</span></a>. This is to help promote/enforce
+network-related interaction in expected stages which can be helpful for use
+cases such as <a class="reference internal" href="../tips/offline-builds/"><span class="doc std std-doc">offline builds</span></a>.</p>
+<p>By default, network isolation is not enforced.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">network_isolation</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NETWORK_ISOLATION</span></code></span></a>.</p>
 </section>
 <section id="packages">
 <span id="conf-packages"></span><h3><code class="docutils literal notranslate"><span class="pre">packages</span></code><a class="headerlink" href="#packages" title="Link to this heading">¶</a></h3>
@@ -765,6 +790,22 @@ the following may be used:</p>
 </div>
 <p>See also <a class="reference internal" href="../packages/pkg-type-meson/#pkg-opt-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code></span></a>.</p>
 </section>
+<section id="default-xmake-build-type">
+<span id="conf-default-xmake-build-type"></span><h3><code class="docutils literal notranslate"><span class="pre">default_xmake_build_type</span></code><a class="headerlink" href="#default-xmake-build-type" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
+</div>
+<p><a class="reference internal" href="../packages/pkg-type-xmake/"><span class="doc std std-doc">Xmake</span></a> packages can configure a mode on
+individual packages using
+<a class="reference internal" href="../packages/pkg-type-xmake/#pkg-opt-xmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_XMAKE_BUILD_TYPE</span></code></span></a>. However, if a developer
+wishes to configure the default mode across all Xmake packages, this
+option may be used. For example, to default to using the <code class="docutils literal notranslate"><span class="pre">debug</span></code> mode,
+the following may be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_xmake_build_type</span> <span class="o">=</span> <span class="s1">&#39;debug&#39;</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../packages/pkg-type-xmake/#pkg-opt-xmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_XMAKE_BUILD_TYPE</span></code></span></a>.</p>
+</section>
 <section id="extra-license-exceptions">
 <span id="conf-extra-license-exceptions"></span><h3><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code><a class="headerlink" href="#extra-license-exceptions" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
@@ -986,6 +1027,7 @@ asterisk value with the configured value.</p>
 <li><a class="reference internal" href="#extensions"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a></li>
 <li><a class="reference internal" href="#external-packages"><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></a></li>
 <li><a class="reference internal" href="#license-header"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></a></li>
+<li><a class="reference internal" href="#network-isolation"><code class="docutils literal notranslate"><span class="pre">network_isolation</span></code></a></li>
 <li><a class="reference internal" href="#packages"><code class="docutils literal notranslate"><span class="pre">packages</span></code></a></li>
 <li><a class="reference internal" href="#prerequisites"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></a></li>
 <li><a class="reference internal" href="#revisions"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></a></li>
@@ -999,6 +1041,7 @@ asterisk value with the configured value.</p>
 <li><a class="reference internal" href="#default-cmake-build-type"><code class="docutils literal notranslate"><span class="pre">default_cmake_build_type</span></code></a></li>
 <li><a class="reference internal" href="#default-devmode-ignore-cache"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></a></li>
 <li><a class="reference internal" href="#default-meson-build-type"><code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code></a></li>
+<li><a class="reference internal" href="#default-xmake-build-type"><code class="docutils literal notranslate"><span class="pre">default_xmake_build_type</span></code></a></li>
 <li><a class="reference internal" href="#extra-license-exceptions"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></a></li>
 <li><a class="reference internal" href="#extra-licenses"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></a></li>
 <li><a class="reference internal" href="#lint-max-version"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></a></li>
