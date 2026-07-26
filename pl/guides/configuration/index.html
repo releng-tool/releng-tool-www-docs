@@ -308,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
@@ -418,6 +419,10 @@
         <article role="main" id="furo-main-content">
           <section id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.0: </span>Added support for <code class="docutils literal notranslate"><span class="pre">releng_config</span></code>. See
+<a class="reference internal" href="#conf-modern-v-classic"><span class="std std-ref">modern versus classic configurations</span></a>.</p>
+</div>
 <p>A releng-tool project defines its configuration options inside the a
 <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code> file at the root of a project (or other defaults; see
 <a class="reference internal" href="../tips/alternative-extensions/"><span class="doc std std-doc">alternative extensions</span></a>). The primary
@@ -436,11 +441,13 @@ such as follows:</p>
 </pre></div>
 </div>
 <p>Can have a configuration (<code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>) such as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Packages can be loaded implicitly. If other packages depend on each other,
@@ -448,11 +455,68 @@ a project may only list a subset of packages in a <code class="docutils literal 
 For example, if the above had <code class="docutils literal notranslate"><span class="pre">package-b</span></code> dependent on both <code class="docutils literal notranslate"><span class="pre">package-a</span></code> and
 <code class="docutils literal notranslate"><span class="pre">package-c</span></code>, then only <code class="docutils literal notranslate"><span class="pre">package-b</span></code> would need to be defined in the main
 configuration file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
+<section id="modern-vs-classic">
+<span id="conf-modern-v-classic"></span><h2>Modern vs Classic<a class="headerlink" href="#modern-vs-classic" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.0: </span>Modern configuration approach as added.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Informacja</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">releng_config</span></code> (modern approach), options configured in the
+project’s configuration global context (classic approach) will be ignored.</p>
+</div>
+<p>Users can define their project configuration using either a modern approach
+or classic approach. The modern approach for configurations is to use a
+<code class="docutils literal notranslate"><span class="pre">releng_config</span></code> call:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="c1"># options</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This call accepts arguments for all options noted in this document. For
+example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">environment</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;MY_ENV&#39;</span><span class="p">:</span> <span class="s1">&#39;Example value&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">url_mirror</span><span class="o">=</span><span class="s1">&#39;ftp://mirror.example.org/cache/</span><span class="si">{name}</span><span class="s1">/&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>releng-tool also accepts a classical means to configure options by defining
+options directly in the project configuration. The equivalent configuration
+based on the above example would be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">environment</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;MY_ENV&#39;</span><span class="p">:</span> <span class="s1">&#39;Example value&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/cache/</span><span class="si">{name}</span><span class="s1">/&#39;</span>
+</pre></div>
+</div>
+<p>Either approach can be used. The use of <code class="docutils literal notranslate"><span class="pre">releng_config</span></code> is recommended solely
+to help make it easier for users to have a clear section on
+releng-tool-specific options being set over other implementation a user may
+wish to add in the project configuration (e.g. custom argument handling,
+additional sanity checks, etc.).</p>
+</section>
 <section id="common-options">
 <h2>Common options<a class="headerlink" href="#common-options" title="Link to this heading">¶</a></h2>
 <p>A series of additional configuration options are available to be defined inside
@@ -463,7 +527,10 @@ follows:</p>
 <p>A flag to indicate that projects are implicitly loaded as internal projects.
 By default, packages not explicitly configured as internal or external are
 assumed to be external packages.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_internal</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">default_internal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>    
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../intern-extern-pkgs/"><span class="doc std std-doc">internal and external packages</span></a>.</p>
@@ -475,10 +542,13 @@ assumed to be external packages.</p>
 </div>
 <p>A dictionary to define environment variables to apply to all stages of
 releng-tool.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">environment</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;MY_ENV_1&#39;</span><span class="p">:</span> <span class="s1">&#39;First example&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;MY_ENV_2&#39;</span><span class="p">:</span> <span class="s1">&#39;Another example&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">environment</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;MY_ENV_1&#39;</span><span class="p">:</span> <span class="s1">&#39;First example&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MY_ENV_2&#39;</span><span class="p">:</span> <span class="s1">&#39;Another example&#39;</span><span class="p">,</span>
+    <span class="p">}</span><span class="o">.</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -487,10 +557,13 @@ releng-tool.</p>
 <p>A list of extensions to load before processing a releng-tool project. If an
 extension cannot be loaded, releng-tool will stop with information on why
 an extension could not be loaded.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;ext-a&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;ext-b&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;ext-a&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ext-b&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../extensions/extensions/"><span class="doc std std-doc">extensions</span></a>.</p>
@@ -503,9 +576,12 @@ In some build environments, some packages may be required or may be preferred
 to be located in another location/repository. To allow packages to be
 loaded from another package container directory, one or more package
 locations can be provided. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">external_packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;MY_EXTERNAL_PKG_DIR&#39;</span><span class="p">),</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">external_packages</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">releng_env</span><span class="p">(</span><span class="s1">&#39;MY_EXTERNAL_PKG_DIR&#39;</span><span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -515,7 +591,10 @@ locations can be provided. For example:</p>
 generated containing each package’s license information. If a developer
 wishes to add a custom header to the generated document, a header can be
 defined by project’s configuration. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">license_header</span> <span class="o">=</span> <span class="s1">&#39;my leading content&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">license_header</span><span class="o">=</span><span class="s1">&#39;my leading content&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
@@ -530,7 +609,10 @@ defined by project’s configuration. For example:</p>
 network-related interaction in expected stages which can be helpful for use
 cases such as <a class="reference internal" href="../tips/offline-builds/"><span class="doc std std-doc">offline builds</span></a>.</p>
 <p>By default, network isolation is not enforced.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">network_isolation</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">network_isolation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NETWORK_ISOLATION</span></code></span></a>.</p>
@@ -540,11 +622,14 @@ cases such as <a class="reference internal" href="../tips/offline-builds/"><span
 <p>A list of packages to process. Packages listed will be processed by
 releng-tool till their completion. Package dependencies not explicitly
 listed will be automatically loaded and processed as well.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;package-a&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;package-b&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;package-c&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The order of listed packages is used to determine the order of processed
@@ -560,11 +645,14 @@ configurations).</p>
 Allows a developer to identify tools to check and fail-fast if missing,
 instead of waiting for a stage which requires a specific tool and failing
 later during a building, packaging, etc. phase.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prerequisites</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;tool-a&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tool-b&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;tool-c&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">prerequisites</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;tool-a&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tool-b&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tool-c&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -583,10 +671,13 @@ package revisions are typically set using <a class="reference internal" href="..
 or <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a>, using the project configuration’s
 <code class="docutils literal notranslate"><span class="pre">revisions</span></code> can provide a convenience factor when revisions want to be
 maintained in a single location.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">revisions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;libfoo&#39;</span><span class="p">:</span> <span class="s1">&#39;libfoo-v2.1&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;myapp&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">revisions</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;libfoo&#39;</span><span class="p">:</span> <span class="s1">&#39;libfoo-v2.1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;myapp&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The dictionary will map a package name to a revision value. If an entry
@@ -618,7 +709,10 @@ will use their standard way to resolving a revision.</p></li>
 <p>Configures the default format to use when generating a software build of
 materials (SBOM). By default, <code class="docutils literal notranslate"><span class="pre">text</span></code> format SBOMs are generated for a
 project.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sbom_format</span> <span class="o">=</span> <span class="s1">&#39;xml&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">sbom_format</span><span class="o">=</span><span class="s1">&#39;xml&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The following lists the available formats supported:</p>
@@ -661,10 +755,13 @@ project.</p>
 </table>
 </div>
 <p>Multiple formats can be provided. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sbom_format</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;html&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;json&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">sbom_format</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;html&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">all</span></code> value is accepted to generate all supported SBOM variants.</p>
@@ -679,7 +776,10 @@ project.</p>
 <p>Define a custom sysroot prefix to provide to packages during their
 configuration, build and installation stages. By default, the sysroot
 prefix is typically set to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>; for Windows, the value is empty.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sysroot_prefix</span> <span class="o">=</span> <span class="s1">&#39;/usr&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">sysroot_prefix</span><span class="o">=</span><span class="s1">&#39;/usr&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../packages/advanced-pkg-options/#pkg-opt-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PREFIX</span></code></span></a> and <a class="reference internal" href="../environment/#env-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIX</span></code></span></a>.</p>
@@ -690,7 +790,10 @@ prefix is typically set to <code class="docutils literal notranslate"><span clas
 option is set, any URL fetch requests will first be tried on the configured
 mirror before attempting to acquired from the defined site in a package
 definition.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/data/&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">url_mirror</span><span class="o">=</span><span class="s1">&#39;ftp://mirror.example.org/data/&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">url_mirror</span></code> configuration also accepts the following format options:</p>
@@ -699,7 +802,10 @@ definition.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">version</span></code>: the version of a package</p></li>
 </ul>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_mirror</span> <span class="o">=</span> <span class="s1">&#39;ftp://mirror.example.org/cache/</span><span class="si">{name}</span><span class="s1">/&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">url_mirror</span><span class="o">=</span><span class="s1">&#39;ftp://mirror.example.org/cache/</span><span class="si">{name}</span><span class="s1">/&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">{name}</span></code> will be replaced by the package name being fetched.</p>
@@ -733,7 +839,10 @@ For example:</p>
         <span class="k">return</span> <span class="s1">&#39;tgz&#39;</span>
     <span class="k">return</span> <span class="kc">None</span>
 
-<span class="n">cache_ext</span> <span class="o">=</span> <span class="n">my_translator</span>
+<span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">cache_ext</span><span class="o">=</span><span class="n">my_translator</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The above transform indicates that all packages using the
@@ -750,7 +859,10 @@ build type on individual packages using
 wishes to configure the default build type across all CMake packages, this
 option may be used. For example, to default to using the <code class="docutils literal notranslate"><span class="pre">Release</span></code> build type,
 the following may be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_cmake_build_type</span> <span class="o">=</span> <span class="s1">&#39;Release&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">default_cmake_build_type</span><span class="o">=</span><span class="s1">&#39;Release&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../packages/pkg-type-cmake/#pkg-opt-cmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CMAKE_BUILD_TYPE</span></code></span></a>.</p>
@@ -766,7 +878,10 @@ indicate that a package should ignore any generated cache when operating
 from a clean state. If a developer is managing a package set in a project
 where most (if not all) packages would want to use this feature, a global
 override can be configured.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_devmode_ignore_cache</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">default_devmode_ignore_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Setting this value to <code class="docutils literal notranslate"><span class="pre">True</span></code> will default all packages to operate with a
@@ -785,7 +900,10 @@ build type on individual packages using
 wishes to configure the default build type across all Meson packages, this
 option may be used. For example, to default to using the <code class="docutils literal notranslate"><span class="pre">Release</span></code> build type,
 the following may be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_meson_build_type</span> <span class="o">=</span> <span class="s1">&#39;release&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">default_meson_build_type</span><span class="o">=</span><span class="s1">&#39;release&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../packages/pkg-type-meson/#pkg-opt-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code></span></a>.</p>
@@ -801,7 +919,10 @@ individual packages using
 wishes to configure the default mode across all Xmake packages, this
 option may be used. For example, to default to using the <code class="docutils literal notranslate"><span class="pre">debug</span></code> mode,
 the following may be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">default_xmake_build_type</span> <span class="o">=</span> <span class="s1">&#39;debug&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">default_xmake_build_type</span><span class="o">=</span><span class="s1">&#39;debug&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../packages/pkg-type-xmake/#pkg-opt-xmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_XMAKE_BUILD_TYPE</span></code></span></a>.</p>
@@ -817,9 +938,12 @@ package definitions. Packages which define license exceptions in a
 <a class="reference external" href="https://spdx.org/licenses/exceptions-index.html">SPDX License Exceptions</a>. If not, a warning is generated
 by default. A project can define their own custom exceptions by adding them
 into a project’s <code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code> option to avoid this warning:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_license_exceptions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;My-Exception-ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Exception Name&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">extra_license_exceptions</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;My-Exception-ID&#39;</span><span class="p">:</span> <span class="s1">&#39;Exception Name&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
@@ -835,9 +959,12 @@ definitions. Packages which define licenses in a
 defined in the <a class="reference external" href="https://spdx.org/licenses/">SPDX License List</a>. If not, a warning is
 generated by default. A project can define their own custom license by
 adding them into a project’s <code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code> option to avoid this warning:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_licenses</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;My-License-ID&#39;</span><span class="p">:</span> <span class="s1">&#39;License Name&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">extra_licenses</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;My-License-ID&#39;</span><span class="p">:</span> <span class="s1">&#39;License Name&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../licenses/"><span class="doc std std-doc">licenses</span></a>.</p>
@@ -849,7 +976,10 @@ adding them into a project’s <code class="docutils literal notranslate"><span 
 </div>
 <p>Configures the maximum lint version checks when using the <a class="reference internal" href="../arguments/#action-lint"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint</span></code></span></a>
 action.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;3.0&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">lint_max_version</span><span class="o">=</span><span class="s1">&#39;3.0&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="../linting/"><span class="doc std std-doc">Linting</span></a> and
@@ -862,9 +992,12 @@ to indicate which tool should be used for extraction. For example, when a
 <code class="docutils literal notranslate"><span class="pre">.zip</span></code> archive is being processed for extraction, releng-tool will
 internally extract the archive. However, a user may wish to override this
 tool with their own extraction utility. Consider the following example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">override_extract_tools</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;/opt/my-custom-unzip </span><span class="si">{file}</span><span class="s1"> </span><span class="si">{dir}</span><span class="s1">&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">override_extract_tools</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;zip&#39;</span><span class="p">:</span> <span class="s1">&#39;/opt/my-custom-unzip </span><span class="si">{file}</span><span class="s1"> </span><span class="si">{dir}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">{file}</span></code> key will be replaced with the file to be extracted, and the
@@ -874,9 +1007,12 @@ tool with their own extraction utility. Consider the following example:</p>
 <span id="conf-quirks"></span><h3><code class="docutils literal notranslate"><span class="pre">quirks</span></code><a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h3>
 <p>A list of configuration quirks to apply to deal with corner cases which
 can prevent releng-tool operating on a host system.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;releng.&lt;special-quirk-id&gt;&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;releng.&lt;special-quirk-id&gt;&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>For a list of available quirks, see <a class="reference internal" href="../quirks/quirks/"><span class="doc std std-doc">quirks</span></a>.</p>
@@ -894,7 +1030,10 @@ environment. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ssl</span>
 <span class="o">...</span>
 
-<span class="n">urlopen_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">()</span>
+<span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">urlopen_context</span><span class="o">=</span><span class="n">ssl</span><span class="o">.</span><span class="n">create_default_context</span><span class="p">(),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -915,7 +1054,10 @@ that provides <code class="docutils literal notranslate"><span class="pre">VsDev
 Prompt (<code class="docutils literal notranslate"><span class="pre">VsDevCmd.bat</span></code>) variables into the releng-tool process. This will
 allow packages and post-build scripts to invoke commands as if releng-tool
 was started from within a Visual Studio Developer Command Prompt.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vsdevcmd</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">vsdevcmd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The version of which Visual Studio application it used is determined with
@@ -925,7 +1067,10 @@ used (assuming the installation includes a <code class="docutils literal notrans
 <p>Projects looking to use an explicit version of Visual Studio can specify a
 version string that is compatible with Visual Studio Locator’s <code class="docutils literal notranslate"><span class="pre">-version</span></code>
 argument.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vsdevcmd</span> <span class="o">=</span> <span class="s1">&#39;[17.0,18.0)&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">vsdevcmd</span><span class="o">=</span><span class="s1">&#39;[17.0,18.0)&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a> and
@@ -945,7 +1090,10 @@ invokes <a class="reference external" href="https://github.com/microsoft/vswhere
 to use. By default, releng-tool operates as if <code class="docutils literal notranslate"><span class="pre">vswhere</span></code> is invoked with the
 <code class="docutils literal notranslate"><span class="pre">-products</span> <span class="pre">*</span></code> argument. Providing a string in this option replaces the
 asterisk value with the configured value.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vsdevcmd_products</span> <span class="o">=</span> <span class="s1">&#39;Microsoft.VisualStudio.Product.BuildTools&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">vsdevcmd_products</span><span class="o">=</span><span class="s1">&#39;Microsoft.VisualStudio.Product.BuildTools&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> and
@@ -1021,6 +1169,7 @@ asterisk value with the configured value.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#modern-vs-classic">Modern vs Classic</a></li>
 <li><a class="reference internal" href="#common-options">Common options</a><ul>
 <li><a class="reference internal" href="#default-internal"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></a></li>
 <li><a class="reference internal" href="#environment"><code class="docutils literal notranslate"><span class="pre">environment</span></code></a></li>

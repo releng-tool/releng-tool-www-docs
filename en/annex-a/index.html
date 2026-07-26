@@ -308,6 +308,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
@@ -488,32 +489,35 @@ releng-tool project.</p>
 <h2>Configuration options<a class="headerlink" href="#configuration-options" title="Link to this heading">¶</a></h2>
 <p>Options which are read by releng-tool from a project’s configuration script
 (<code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>):</p>
-<pre class="literal-block"><a class="reference internal" href="../guides/configuration/#conf-cache-ext"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></span></a> = &lt;callable&gt;
-<a class="reference internal" href="../guides/configuration/#conf-default-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></span></a> = bool
-<a class="reference internal" href="../guides/configuration/#conf-default-cmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_cmake_build_type</span></code></span></a> = str
-<a class="reference internal" href="../guides/configuration/#conf-default-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code></span></a> = str
-<a class="reference internal" href="../guides/configuration/#conf-default-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></span></a> = bool
-<a class="reference internal" href="../guides/configuration/#conf-default-xmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_xmake_build_type</span></code></span></a> = str
-<a class="reference internal" href="../guides/configuration/#conf-environment"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">environment</span></code></span></a> = {'&lt;key&gt;': '&lt;val&gt;'}
-<a class="reference internal" href="../guides/configuration/#conf-extensions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></span></a> = ['&lt;extension&gt;', '&lt;extension&gt;']
-<a class="reference internal" href="../guides/configuration/#conf-external-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></span></a> = ['&lt;path&gt;', '&lt;path&gt;']
-<a class="reference internal" href="../guides/configuration/#conf-extra-license-exceptions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></span></a> = {'&lt;short-exception-id&gt;': '&lt;exception-name&gt;'}
-<a class="reference internal" href="../guides/configuration/#conf-extra-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></span></a> = {'&lt;short-license-id&gt;': '&lt;license-name&gt;'}
-<a class="reference internal" href="../guides/configuration/#conf-license-header"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></span></a> = '&lt;data&gt;'
-<a class="reference internal" href="../guides/configuration/#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> = '&lt;max-version&gt;'
-<a class="reference internal" href="../guides/configuration/#conf-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">network_isolation</span></code></span></a> = bool
-<a class="reference internal" href="../guides/configuration/#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a> = {'&lt;tool&gt;': '&lt;tool-path&gt;'}
-<a class="reference internal" href="../guides/configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;', '&lt;pkg&gt;']
-<a class="reference internal" href="../guides/configuration/#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a> = ['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;']
-<a class="reference internal" href="../guides/configuration/#conf-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></span></a> = ['&lt;quirk-id&gt;']
-<a class="reference internal" href="../guides/configuration/#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a> = {'&lt;pkg&gt;': '&lt;revision&gt;'}
-<a class="reference internal" href="../guides/configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a> = '&lt;format&gt;'
-  └── csv, html, json, json-cyclonedx, json-spdx, rdf-spdx, text, xml, xml-cyclonedx
-<a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a> = '&lt;path&gt;' # '/usr'
-<a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a> = '&lt;mirror-url&gt;'
-<a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;
-<a class="reference internal" href="../guides/configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> = bool or str
-<a class="reference internal" href="../guides/configuration/#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a> = str</pre>
+<pre class="literal-block">releng_config(
+    <a class="reference internal" href="../guides/configuration/#conf-cache-ext"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></span></a> = &lt;callable&gt;,
+    <a class="reference internal" href="../guides/configuration/#conf-default-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></span></a> = bool,
+    <a class="reference internal" href="../guides/configuration/#conf-default-cmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_cmake_build_type</span></code></span></a> = str,
+    <a class="reference internal" href="../guides/configuration/#conf-default-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code></span></a> = str,
+    <a class="reference internal" href="../guides/configuration/#conf-default-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></span></a> = bool,
+    <a class="reference internal" href="../guides/configuration/#conf-default-xmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_xmake_build_type</span></code></span></a> = str,
+    <a class="reference internal" href="../guides/configuration/#conf-environment"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">environment</span></code></span></a> = {'&lt;key&gt;': '&lt;val&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-extensions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></span></a> = ['&lt;extension&gt;', '&lt;extension&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-external-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></span></a> = ['&lt;path&gt;', '&lt;path&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-extra-license-exceptions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></span></a> = {'&lt;short-exception-id&gt;': '&lt;exception-name&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-extra-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></span></a> = {'&lt;short-license-id&gt;': '&lt;license-name&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-license-header"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></span></a> = '&lt;data&gt;',
+    <a class="reference internal" href="../guides/configuration/#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> = '&lt;max-version&gt;',
+    <a class="reference internal" href="../guides/configuration/#conf-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">network_isolation</span></code></span></a> = bool,
+    <a class="reference internal" href="../guides/configuration/#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a> = {'&lt;tool&gt;': '&lt;tool-path&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;', '&lt;pkg&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a> = ['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></span></a> = ['&lt;quirk-id&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a> = {'&lt;pkg&gt;': '&lt;revision&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a> = '&lt;format&gt;',
+      └── csv, html, json, json-cyclonedx, json-spdx, rdf-spdx, text, xml, xml-cyclonedx
+    <a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a> = '&lt;path&gt;',  # '/usr'
+    <a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a> = '&lt;mirror-url&gt;',
+    <a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;,
+    <a class="reference internal" href="../guides/configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> = bool or str,
+    <a class="reference internal" href="../guides/configuration/#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a> = str,
+)</pre>
+<p>See also <a class="reference internal" href="../guides/configuration/#conf-modern-v-classic"><span class="std std-ref">modern versus classic configurations</span></a>.</p>
 </section>
 <section id="environment-variables">
 <h2>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading">¶</a></h2>

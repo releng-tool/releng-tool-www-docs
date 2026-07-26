@@ -308,6 +308,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-03-10_02.11.00/">2.11 (2026-03-10)</a></li>
@@ -427,7 +428,8 @@ supported module.</p>
 <p>Only the build and installation phases are used when processing the sources
 for a Python package (i.e. no configuration stage is invoked). The
 <a class="reference internal" href="#pkg-opt-python-setup-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_SETUP_TYPE</span></code></span></a> configuration dictates
-which build approach is performed for a package. The installation stage
+which build approach is performed for a package. If no setup type is provided,
+a PEP 517 build will be invoked. The installation stage
 for all Python packages uses the <a class="reference external" href="https://installer.pypa.io/"><code class="docutils literal notranslate"><span class="pre">installer</span></code></a> module. When a Python
 package is processed, it will use the same Python interpreter used by
 releng-tool.</p>
@@ -474,7 +476,7 @@ Python package to set. See also the
 </pre></div>
 </div>
 </div>
-<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--4">PEP 517 build</label><div class="tab-content docutils">
+<input class="tab-input" id="tab-set--0-input--4" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--4">PEP 517 build (Default)</label><div class="tab-content docutils">
 <p>The build stage invokes Python with the <code class="docutils literal notranslate"><span class="pre">build</span></code> module and arguments:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python -m build --no-isolation --wheel
 </pre></div>
@@ -755,8 +757,10 @@ interpreter will be used. This field is optional.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2.10: </span>Explicit setup type is required.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.0: </span>Setup type defaults to PEP 517 if not configured.</p>
+</div>
 <p>The setup type will configure how a Python package is built and installed.
-It is required to configure a setup type for a Python package.
 The following outlines available setup types in releng-tool:</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
@@ -776,7 +780,7 @@ The following outlines available setup types in releng-tool:</p>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pdm</span></code></p></td>
 </tr>
 <tr class="row-odd"><td class="text-right"><p><a class="reference external" href="https://build.pypa.io/">PEP 517 build</a></p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pep517</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">pep517</span></code> (default)</p></td>
 </tr>
 <tr class="row-even"><td class="text-right"><p><a class="reference external" href="https://python-poetry.org/">Poetry</a></p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">poetry</span></code></p></td>
