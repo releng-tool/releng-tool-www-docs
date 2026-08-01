@@ -264,6 +264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
@@ -308,6 +309,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
@@ -434,10 +436,10 @@ standard error stream.</p>
 </div>
 <p>Responses may vary on the action and other options used. Callers will always
 get a <code class="docutils literal notranslate"><span class="pre">code</span></code> response (matching the return value):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="o">...</span>
-<span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+    &quot;code&quot;: 0,
+    ...
+}
 </pre></div>
 </div>
 <p>There is no definitive schema for this output at this time. Results may
@@ -449,50 +451,50 @@ the standard output stream is not populated during an API mode run.</p>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
 <p>The following shows an example API mode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;releng-tool&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;packages&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;my-app&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;build-dir&quot;</span><span class="p">:</span> <span class="s2">&quot;.../output/build/my-app-1.2.4&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;build-output-dir&quot;</span><span class="p">:</span> <span class="s2">&quot;.../output/build/my-app-1.2.4/releng-output&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;def-dir&quot;</span><span class="p">:</span> <span class="s2">&quot;.../package/my-app&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;def-file&quot;</span><span class="p">:</span> <span class="s2">&quot;.../package/my-app/my-app.rt&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;durations&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;extract&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;fetch-post&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;boot&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;configure&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-                <span class="s2">&quot;build&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
-                <span class="s2">&quot;install&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;post&quot;</span><span class="p">:</span> <span class="mi">0</span>
-            <span class="p">},</span>
-            <span class="s2">&quot;install-type&quot;</span><span class="p">:</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;internal&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-            <span class="s2">&quot;license&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;Apache-2.0&quot;</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;license-files&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;LICENSE.txt&quot;</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;revision&quot;</span><span class="p">:</span> <span class="s2">&quot;v1.2.4.0&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;site&quot;</span><span class="p">:</span> <span class="s2">&quot;https://git.example.com/grp/my-app.git&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;stages&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;extract&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;patch&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;fetch-post&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;boot&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;configure&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;build&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;install&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;post&quot;</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;vcs-type&quot;</span><span class="p">:</span> <span class="s2">&quot;git&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.4&quot;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;releng-tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;my-app&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;build-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../output/build/my-app-1.2.4&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;build-output-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../output/build/my-app-1.2.4/releng-output&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;def-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../package/my-app&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;def-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../package/my-app/my-app.rt&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;durations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;extract&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;patch&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;fetch-post&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;boot&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;configure&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;install&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;post&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;install-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;target&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;internal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Apache-2.0&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;license-files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;LICENSE.txt&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;revision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v1.2.4.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;site&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://git.example.com/grp/my-app.git&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;stages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;extract&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;patch&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;fetch-post&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;boot&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;configure&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;install&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;post&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;vcs-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.4&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>

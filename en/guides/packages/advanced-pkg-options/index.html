@@ -264,6 +264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
@@ -308,6 +309,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
@@ -531,6 +533,18 @@ instead configure this option if not needing an integrity check.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
+</section>
+<section id="libfoo-exclude-sbom">
+<span id="pkg-opt-exclude-sbom"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXCLUDE_SBOM</span></code><a class="headerlink" href="#libfoo-exclude-sbom" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.1.</span></p>
+</div>
+<p>Flag value to indicate that a package should be excluded from any generated
+software build of materials (SBOM).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXCLUDE_SBOM</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>See also the <a class="reference internal" href="../../arguments/#action-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></span></a> action.</p>
 </section>
 <section id="libfoo-extension">
 <span id="pkg-opt-extension"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code><a class="headerlink" href="#libfoo-extension" title="Link to this heading">¶</a></h2>
@@ -1050,6 +1064,9 @@ set the VCS type.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.1: </span>Support added for <code class="docutils literal notranslate"><span class="pre">lore</span></code>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.1: </span>Support sibling root fallback path for <code class="docutils literal notranslate"><span class="pre">local</span></code> sites.</p>
+</div>
 <p>Explicitly sets the version control system type to use when acquiring
 sources. releng-tool attempts to automatically determine the VCS type of
 a package based off a <a class="reference internal" href="../common-pkg-options/#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a> value. In some
@@ -1090,6 +1107,11 @@ sites, users can provide an explicit VCS type based off a configured mode:</p>
 respective host tool is installed on the host system. For example, if a
 Git VCS-type is set, the host system will need to have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on
 the system.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The use of the <code class="docutils literal notranslate"><span class="pre">local</span></code> type is not recommended except for interim
+development scenarios.</p>
+</div>
 <p>The use of the <code class="docutils literal notranslate"><span class="pre">local</span></code> type is designed to be a special/development-helper
 type only. When set, this option allows placing the sources of a package
 directly inside a <code class="docutils literal notranslate"><span class="pre">local</span></code> folder inside the definition folder. For example,
@@ -1106,13 +1128,27 @@ follows:</p>
     ...
 </pre></div>
 </div>
+<p>Alternatively, when using the <code class="docutils literal notranslate"><span class="pre">local</span></code> type, if a <code class="docutils literal notranslate"><span class="pre">local</span></code> folder does not exist
+for a package, a package’s sources may be found in a sibling folder alongside
+the root directory. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── libfoo/                           &lt;----
+│   ├── src/
+│   │   └── ...
+│   └── Makefile
+└── my-releng-tool-project/
+    ├── package/
+    │   └── libfoo/
+    │       └── libfoo.rt
+    ...
+</pre></div>
+</div>
 <p>This approach is similar to using
 <a class="reference internal" href="../../local-sources-mode/"><span class="doc std std-doc">local-sources mode</span></a>, where it avoids the
 need to have the module content located in a site to be fetched –
 specifically, for initial development/testing/training scenarios.
 It is never recommended to store the package’s “main content” inside a
-releng-tool project, thus using the <code class="docutils literal notranslate"><span class="pre">local</span></code> type will always generate a
-warning message.</p>
+releng-tool project or permanently use package sources with a relative path
+outside the releng-tool project.</p>
 </section>
 </section>
 
@@ -1181,6 +1217,7 @@ warning message.</p>
 <li><a class="reference internal" href="#libfoo-devmode-patches"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-devmode-skip-integrity-check"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-exclude-sbom"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXCLUDE_SBOM</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-extension"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-external"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></a></li>
 <li><a class="reference internal" href="#libfoo-extopt"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code></a></li>

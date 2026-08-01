@@ -264,6 +264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
@@ -308,6 +309,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
@@ -628,7 +630,7 @@ Python package defines project scripts).</p>
 </div>
 <p>An example using a custom interpreter <code class="docutils literal notranslate"><span class="pre">/opt/custom/python</span></code> for project
 scripts can be done using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/custom/python&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/custom/python&#39;</span>
 </pre></div>
 </div>
 <p>Which should generate project scripts with a shebang:</p>
@@ -658,7 +660,7 @@ Options may include:</p>
 </ul>
 <p>For example, to explicitly build POSIX executable scripts, the following
 configuration can be defined:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -706,16 +708,16 @@ releng-tool uses the following scheme entries:</p>
 </div>
 <p>A package can be configured with a scheme <code class="docutils literal notranslate"><span class="pre">native</span></code> to use the default
 install target based on the native system:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;native&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;native&#39;</span>
 </pre></div>
 </div>
 <p>Packages can also use schemes supported by Python’s <a class="reference external" href="https://docs.python.org/3/library/sysconfig.html"><code class="docutils literal notranslate"><span class="pre">sysconfig</span></code></a>
 module. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix_prefix&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix_prefix&#39;</span>
 </pre></div>
 </div>
 <p>A package may also define a custom scheme:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;data&#39;</span><span class="p">:</span>        <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="s1">&#39;include&#39;</span><span class="p">:</span>     <span class="s1">&#39;include/python&#39;</span><span class="p">,</span>
     <span class="s1">&#39;platinclude&#39;</span><span class="p">:</span> <span class="s1">&#39;include/python&#39;</span><span class="p">,</span>

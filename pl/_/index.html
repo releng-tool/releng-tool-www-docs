@@ -265,6 +265,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/network-isolation">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#document-guides/api-mode">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="#document-guides/quirks/quirks">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="#document-guides/quirks/quirk-cmake-disable_default_prefix">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#document-guides/quirks/quirk-cmake-disable_direct_includes">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#document-guides/quirks/quirk-disable_devmode_ignore_cache">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#document-guides/quirks/quirk-disable_prerequisites_check">releng.disable_prerequisites_check</a></li>
@@ -309,6 +310,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="#document-release-notes">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-news/2026-08-01_04.01.00">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#document-news/2026-07-26_04.00.00">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#document-news/2026-06-28_03.01.00">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#document-news/2026-04-12_03.00.00">3.0 (2026-04-12)</a></li>
@@ -932,9 +934,11 @@ releng-tool will process the <code class="docutils literal notranslate"><span cl
 <p>With this minimal set of packages, the project’s releng-tool configuration
 can now be created. At the root of the project, create a <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>
 configuration file with the following contents:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;program-b&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;program-b&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">packages</span></code> key indicates a list of required packages to be processed.
@@ -1321,11 +1325,12 @@ placed alongside the executable we plan to build.</p></li>
 <p>Lastly, we need to create our releng-tool configuration file for the project.
 In the root folder, create a <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code> file with the following
 contents:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;sample&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="n">vsdevcmd</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;sample&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">vsdevcmd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1483,9 +1488,11 @@ package, dependencies and project configuration:</p>
 <p>The first changes we will make to our releng-tool project is to define the
 specifics of the project configuration in <code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>. Apply the
 following contents to the configuration:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;htop&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="n">packages</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;htop&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 
 <span class="c1"># location of the toolchain to use</span>
 <span class="n">MY_TOOLCHAIN_ROOT</span> <span class="o">=</span> <span class="s1">&#39;/opt/aarch64--glibc--stable-2022.08-1&#39;</span>
@@ -2674,6 +2681,7 @@ semicolon (<code class="docutils literal notranslate"><span class="pre">;</span>
 </div>
 <p>Allows specifying a runtime <a class="reference internal" href="#document-guides/quirks/quirks"><span class="doc std std-doc">quirk</span></a> for the releng-tool
 process. This option can be used multiple times to apply multiple quirks.</p>
+<p>See also <a class="reference internal" href="#env-releng-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_QUIRKS</span></code></span></a>.</p>
 </section>
 <section id="relaxed-args">
 <span id="arg-relaxed-args"></span><h5><code class="docutils literal notranslate"><span class="pre">--relaxed-args</span></code><a class="headerlink" href="#relaxed-args" title="Link to this heading">¶</a></h5>
@@ -4556,6 +4564,15 @@ provided value from the automatic job detection count (to a minimum of one).</p>
 <p>See also the <a class="reference internal" href="#arg-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--jobs</span></code> argument</span></a>, <a class="reference internal" href="#env-njobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">NJOBS</span></code></span></a> and
 <a class="reference internal" href="#env-njobsconf"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">NJOBSCONF</span></code></span></a>.</p>
 </section>
+<section id="releng-quirks">
+<span id="env-releng-quirks"></span><h5><code class="docutils literal notranslate"><span class="pre">RELENG_QUIRKS=&lt;level&gt;</span></code><a class="headerlink" href="#releng-quirks" title="Link to this heading">¶</a></h5>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.1.</span></p>
+</div>
+<p>Allows specifying a runtime <a class="reference internal" href="#document-guides/quirks/quirks"><span class="doc std std-doc">quirk</span></a> for the releng-tool
+process. Multiple semicolon-separated quirks can be provided.</p>
+<p>See also the <a class="reference internal" href="#arg-quirk"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--quirk</span></code> argument</span></a>.</p>
+</section>
 <section id="tool-overrides">
 <span id="env-tool-overrides"></span><h5>Tool overrides<a class="headerlink" href="#tool-overrides" title="Link to this heading">¶</a></h5>
 <p>Environment variables can be used to help override external tool invoked by the
@@ -5045,6 +5062,18 @@ instead configure this option if not needing an integrity check.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
+</section>
+<section id="libfoo-exclude-sbom">
+<span id="pkg-opt-exclude-sbom"></span><h5><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXCLUDE_SBOM</span></code><a class="headerlink" href="#libfoo-exclude-sbom" title="Link to this heading">¶</a></h5>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.1.</span></p>
+</div>
+<p>Flag value to indicate that a package should be excluded from any generated
+software build of materials (SBOM).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_EXCLUDE_SBOM</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>See also the <a class="reference internal" href="#action-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom</span></code></span></a> action.</p>
 </section>
 <section id="libfoo-extension">
 <span id="pkg-opt-extension"></span><h5><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code><a class="headerlink" href="#libfoo-extension" title="Link to this heading">¶</a></h5>
@@ -5564,6 +5593,9 @@ set the VCS type.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Zmienione w wersji 3.1: </span>Support added for <code class="docutils literal notranslate"><span class="pre">lore</span></code>.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 4.1: </span>Support sibling root fallback path for <code class="docutils literal notranslate"><span class="pre">local</span></code> sites.</p>
+</div>
 <p>Explicitly sets the version control system type to use when acquiring
 sources. releng-tool attempts to automatically determine the VCS type of
 a package based off a <a class="reference internal" href="#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a> value. In some
@@ -5604,6 +5636,11 @@ sites, users can provide an explicit VCS type based off a configured mode:</p>
 respective host tool is installed on the host system. For example, if a
 Git VCS-type is set, the host system will need to have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed on
 the system.</p>
+<div class="admonition caution">
+<p class="admonition-title">Ostrzeżenie</p>
+<p>The use of the <code class="docutils literal notranslate"><span class="pre">local</span></code> type is not recommended except for interim
+development scenarios.</p>
+</div>
 <p>The use of the <code class="docutils literal notranslate"><span class="pre">local</span></code> type is designed to be a special/development-helper
 type only. When set, this option allows placing the sources of a package
 directly inside a <code class="docutils literal notranslate"><span class="pre">local</span></code> folder inside the definition folder. For example,
@@ -5620,13 +5657,27 @@ follows:</p>
     ...
 </pre></div>
 </div>
+<p>Alternatively, when using the <code class="docutils literal notranslate"><span class="pre">local</span></code> type, if a <code class="docutils literal notranslate"><span class="pre">local</span></code> folder does not exist
+for a package, a package’s sources may be found in a sibling folder alongside
+the root directory. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── libfoo/                           &lt;----
+│   ├── src/
+│   │   └── ...
+│   └── Makefile
+└── my-releng-tool-project/
+    ├── package/
+    │   └── libfoo/
+    │       └── libfoo.rt
+    ...
+</pre></div>
+</div>
 <p>This approach is similar to using
 <a class="reference internal" href="#document-guides/local-sources-mode"><span class="doc std std-doc">local-sources mode</span></a>, where it avoids the
 need to have the module content located in a site to be fetched –
 specifically, for initial development/testing/training scenarios.
 It is never recommended to store the package’s „main content” inside a
-releng-tool project, thus using the <code class="docutils literal notranslate"><span class="pre">local</span></code> type will always generate a
-warning message.</p>
+releng-tool project or permanently use package sources with a relative path
+outside the releng-tool project.</p>
 </section>
 </section>
 <span id="document-guides/packages/system-pkg-options"></span><section id="system-specific-package-options">
@@ -5790,7 +5841,7 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.0 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;tag:v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;tag:v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;brz+https://example.com/project/trunk&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span>
 </pre></div>
@@ -5798,7 +5849,7 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning the latest trunk branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;-1&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;-1&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;brz+https://example.com/project/trunk&#39;</span>
 </pre></div>
 </div>
@@ -5824,7 +5875,7 @@ removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio" /><label class="tab-label" for="tab-set--3-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a libfoo-1.2.3 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;libfoo-$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;libfoo-$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;:pserver:anonymous@cvs.example.com:/var/lib/cvsroot libfoo&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -5832,7 +5883,7 @@ removed.</p>
 </div>
 <input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio" /><label class="tab-label" for="tab-set--3-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;:pserver:anonymous@cvs.example.com:/var/lib/cvsroot libfoo&#39;</span>
 </pre></div>
 </div>
@@ -5871,7 +5922,7 @@ exist, the origin remote will be fetched for the new revision (if it exists).</p
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio" /><label class="tab-label" for="tab-set--4-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -5879,14 +5930,14 @@ exist, the origin remote will be fetched for the new revision (if it exists).</p
 </div>
 <input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio" /><label class="tab-label" for="tab-set--4-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/libfoo.git&#39;</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--4-input--3" name="tab-set--4" type="radio" /><label class="tab-label" for="tab-set--4-input--3">Commit Hash Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning with a commit hash:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;da39a3ee5e6b4b0d3255bfef95601890afd80709&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;da39a3ee5e6b4b0d3255bfef95601890afd80709&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+ssh://git.example.com/group/libfoo.git&#39;</span>
 </pre></div>
 </div>
@@ -5924,14 +5975,14 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio" /><label class="tab-label" for="tab-set--5-input--1">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;lore://lore.example.org&#39;</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--5-input--2" name="tab-set--5" type="radio" /><label class="tab-label" for="tab-set--5-input--2">Revision Hash Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning with a revision hash:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;a89c9b0632406842567001d0b77d8cfdef3c3fc810457498bcb500b7e3172197&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;a89c9b0632406842567001d0b77d8cfdef3c3fc810457498bcb500b7e3172197&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;lore+lores://sources.example.org&#39;</span>
 </pre></div>
 </div>
@@ -5954,7 +6005,7 @@ pulled for the new revision (if it exists).</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio" /><label class="tab-label" for="tab-set--6-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://hg.example.org/repo/hello&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -5962,7 +6013,7 @@ pulled for the new revision (if it exists).</p>
 </div>
 <input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio" /><label class="tab-label" for="tab-set--6-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://hg.example.org/repo/hello&#39;</span>
 </pre></div>
 </div>
@@ -5992,7 +6043,7 @@ will be skipped unless the archive is manually removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio" /><label class="tab-label" for="tab-set--7-input--1">Revision Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning the 27574 revision:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;perforce+srcs.example.com:1666 //base/libfoo/main&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;perforce+srcs.example.com:1666 //base/libfoo/main&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;27574&#39;</span>
 </pre></div>
 </div>
@@ -6043,7 +6094,7 @@ is made, the fetch stage will be skipped unless the archive is manually removed.
 <input checked="True" class="tab-input" id="tab-set--8-input--1" name="tab-set--8" type="radio" /><label class="tab-label" for="tab-set--8-input--1">Explicit Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag with a fixed SVN
 revision value:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="mi">46801</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="mi">46801</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/tags/$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -6053,7 +6104,7 @@ revision value:</p>
 <input class="tab-input" id="tab-set--8-input--2" name="tab-set--8" type="radio" /><label class="tab-label" for="tab-set--8-input--2">Flexible Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag with a flexible
 revision value:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/tags/$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -6063,7 +6114,7 @@ explicit SVN revision. This approach supports moved tags.</p>
 </div>
 <input class="tab-input" id="tab-set--8-input--3" name="tab-set--8" type="radio" /><label class="tab-label" for="tab-set--8-input--3">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/branches/1.x-lts&#39;</span>
 </pre></div>
 </div>
@@ -6797,7 +6848,14 @@ the installation event. This field is optional.</p>
 <span id="document-guides/packages/pkg-type-cmake"></span><section id="cmake-package">
 <h4>CMake package<a class="headerlink" href="#cmake-package" title="Link to this heading">¶</a></h4>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Zmienione w wersji 2.6: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code>.</p>
+<p><span class="versionmodified changed">Zmienione w wersji 2.1: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_MODULE_PATH</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 2.6: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code> and
+<code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH_MODE_PROGRAM</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Zmienione w wersji 4.1: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code>.</p>
 </div>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported
 module.</p>
@@ -6825,13 +6883,13 @@ required staging/target paths through the
 <a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code></a> configuration. Ensure the
 toolchain configuration accepts <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code> hints. For example,
 using either:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">APPEND</span> <span class="n">CMAKE_FIND_ROOT_PATH</span> <span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="s">APPEND</span><span class="w"> </span><span class="s">CMAKE_FIND_ROOT_PATH</span><span class="w"> </span><span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Or:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">NOT</span> <span class="n">DEFINED</span> <span class="n">CMAKE_FIND_ROOT_PATH</span><span class="p">)</span>
-    <span class="nb">set</span><span class="p">(</span><span class="n">CMAKE_FIND_ROOT_PATH</span> <span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
-<span class="n">endif</span><span class="p">()</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">DEFINED</span><span class="w"> </span><span class="s">CMAKE_FIND_ROOT_PATH</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_FIND_ROOT_PATH</span><span class="w"> </span><span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The following shows the default arguments used in stages and outlines
@@ -6854,6 +6912,7 @@ CMAKE_INSTALL_LIBDIR=&quot;lib&quot;
 CMAKE_INSTALL_PREFIX=&lt;PREFIX&gt;
 CMAKE_LIBRARY_PATH=&lt;LIBRARY_PATHS&gt;
 CMAKE_MODULE_PATH=&lt;MODULE_PATHS&gt;
+CMAKE_PREFIX_PATH=&lt;PREFIX_PATHS&gt;
 CMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
 </pre></div>
 </div>
@@ -6866,12 +6925,15 @@ root paths provided will only include the staging directory
 if <code class="docutils literal notranslate"><span class="pre">staging</span></code> is configured. Likewise, both the staging and target directories
 are provided when using <code class="docutils literal notranslate"><span class="pre">staging_and_target</span></code>.</p>
 <p>The same concepts apply for defined include (<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/include</span></code>),
-library (<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/lib</span></code>) and module paths
-(<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/share/cmake/Modules</span></code>).</p>
+library (<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/lib</span></code>), module paths
+(<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/share/cmake/Modules</span></code>) and prefix paths
+(<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]</span></code>).</p>
 <p>Packages may override default defines using the
 <a class="reference internal" href="#pkg-opt-cmake-conf-defs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code></span></a> option.</p>
-<p>A package may opt-out of configuring <code class="docutils literal notranslate"><span class="pre">CMAKE_&lt;LANG&gt;_STANDARD_INCLUDE_DIRECTORIES</span></code>
-variables using the
+<p>Packages may opt-out of configuring the <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> variable using the
+<a class="reference internal" href="#quirk-releng-cmake-disable-default-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_default_prefix</span></code></span></a>
+quirk. Packages may opt-out of configuring
+<code class="docutils literal notranslate"><span class="pre">CMAKE_&lt;LANG&gt;_STANDARD_INCLUDE_DIRECTORIES</span></code> variables using the
 <a class="reference internal" href="#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
 quirk.</p>
 </div>
@@ -7931,7 +7993,7 @@ Python package defines project scripts).</p>
 </div>
 <p>An example using a custom interpreter <code class="docutils literal notranslate"><span class="pre">/opt/custom/python</span></code> for project
 scripts can be done using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/custom/python&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_INTERPRETER</span> <span class="o">=</span> <span class="s1">&#39;/opt/custom/python&#39;</span>
 </pre></div>
 </div>
 <p>Which should generate project scripts with a shebang:</p>
@@ -7961,7 +8023,7 @@ Options may include:</p>
 </ul>
 <p>For example, to explicitly build POSIX executable scripts, the following
 configuration can be defined:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -8009,16 +8071,16 @@ releng-tool uses the following scheme entries:</p>
 </div>
 <p>A package can be configured with a scheme <code class="docutils literal notranslate"><span class="pre">native</span></code> to use the default
 install target based on the native system:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;native&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;native&#39;</span>
 </pre></div>
 </div>
 <p>Packages can also use schemes supported by Python’s <a class="reference external" href="https://docs.python.org/3/library/sysconfig.html"><code class="docutils literal notranslate"><span class="pre">sysconfig</span></code></a>
 module. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix_prefix&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="s1">&#39;posix_prefix&#39;</span>
 </pre></div>
 </div>
 <p>A package may also define a custom scheme:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_PYTHON_INSTALLER_SCHEME</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;data&#39;</span><span class="p">:</span>        <span class="s1">&#39;&#39;</span><span class="p">,</span>
     <span class="s1">&#39;include&#39;</span><span class="p">:</span>     <span class="s1">&#39;include/python&#39;</span><span class="p">,</span>
     <span class="s1">&#39;platinclude&#39;</span><span class="p">:</span> <span class="s1">&#39;include/python&#39;</span><span class="p">,</span>
@@ -8975,7 +9037,7 @@ be invoked:</p>
 <p>If the assignment of <code class="docutils literal notranslate"><span class="pre">PREFIX</span></code> causes issues for a package, a developer can
 hint to remove such an option by configuring
 <a class="reference internal" href="#pkg-opt-make-install-defs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_DEFS</span></code></span></a> to be as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INSTALL_DEFS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;PREFIX&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -10990,7 +11052,10 @@ a build environment wants to perform CI without utilizing new lint checks,
 they can do so by configuring a maximum version for lint checks to use. This
 can be configured in the <a class="reference internal" href="#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> project
 configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lint_max_version</span> <span class="o">=</span> <span class="s1">&#39;2.8&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">lint_max_version</span><span class="o">=</span><span class="s1">&#39;2.8&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Or configured with a <a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
@@ -11112,13 +11177,16 @@ extract and patch stages skipped.</p></li>
 </ul>
 <p>An individual package can be configured as internal using
 <a class="reference internal" href="#pkg-opt-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></span></a>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_INTERNAL</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>Developers may want to instead use the project configuration
 <a class="reference internal" href="#conf-default-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></span></a> to configure all packages as
 internal by default:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default_internal</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">default_internal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="#pkg-opt-external"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></span></a>.</p>
@@ -11464,20 +11532,23 @@ an execution failure. If a build stage attempts to use utilities that perform
 a network request, the build stage would fail.</p>
 <p>Network isolation mode can be configured at the project-level using
 the <a class="reference internal" href="#conf-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">network_isolation</span></code></span></a> project configuration:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">network_isolation</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">network_isolation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Developers may also tailor individual packages for network isolation mode
 using the <a class="reference internal" href="#pkg-opt-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_NETWORK_ISOLATION</span></code></span></a> option.
 For example, to enable it for the <code class="docutils literal notranslate"><span class="pre">myapp</span></code> package (if not configured at a
 project level):</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">MYAPP_NETWORK_ISOLATION</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MYAPP_NETWORK_ISOLATION</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 <p>Developers can also opt-out of network-isolation if the project is configured
 to isolate but a specific package still relies on networking outside of the
 fetch stage:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">MYAPP_NETWORK_ISOLATION</span> <span class="o">=</span> <span class="kc">False</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MYAPP_NETWORK_ISOLATION</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
 <p>Restricting networking is not intended to be a perfect isolation
@@ -11503,10 +11574,10 @@ standard error stream.</p>
 </div>
 <p>Responses may vary on the action and other options used. Callers will always
 get a <code class="docutils literal notranslate"><span class="pre">code</span></code> response (matching the return value):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="o">...</span>
-<span class="p">}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+    &quot;code&quot;: 0,
+    ...
+}
 </pre></div>
 </div>
 <p>There is no definitive schema for this output at this time. Results may
@@ -11518,50 +11589,50 @@ the standard output stream is not populated during an API mode run.</p>
 <section id="example">
 <h5>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h5>
 <p>The following shows an example API mode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;releng-tool&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;packages&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;my-app&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;build-dir&quot;</span><span class="p">:</span> <span class="s2">&quot;.../output/build/my-app-1.2.4&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;build-output-dir&quot;</span><span class="p">:</span> <span class="s2">&quot;.../output/build/my-app-1.2.4/releng-output&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;def-dir&quot;</span><span class="p">:</span> <span class="s2">&quot;.../package/my-app&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;def-file&quot;</span><span class="p">:</span> <span class="s2">&quot;.../package/my-app/my-app.rt&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;durations&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;extract&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;fetch-post&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;boot&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;configure&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-                <span class="s2">&quot;build&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
-                <span class="s2">&quot;install&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="s2">&quot;post&quot;</span><span class="p">:</span> <span class="mi">0</span>
-            <span class="p">},</span>
-            <span class="s2">&quot;install-type&quot;</span><span class="p">:</span> <span class="s2">&quot;target&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;internal&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-            <span class="s2">&quot;license&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;Apache-2.0&quot;</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;license-files&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;LICENSE.txt&quot;</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;revision&quot;</span><span class="p">:</span> <span class="s2">&quot;v1.2.4.0&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;site&quot;</span><span class="p">:</span> <span class="s2">&quot;https://git.example.com/grp/my-app.git&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;stages&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">&quot;extract&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;patch&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;fetch-post&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;boot&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;configure&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;build&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;install&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;post&quot;</span>
-            <span class="p">],</span>
-            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;vcs-type&quot;</span><span class="p">:</span> <span class="s2">&quot;git&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.4&quot;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;releng-tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;my-app&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;build-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../output/build/my-app-1.2.4&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;build-output-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../output/build/my-app-1.2.4/releng-output&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;def-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../package/my-app&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;def-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.../package/my-app/my-app.rt&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;durations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;extract&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;patch&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;fetch-post&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;boot&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;configure&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;install&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;post&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;install-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;target&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;internal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;Apache-2.0&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;license-files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;LICENSE.txt&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;revision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v1.2.4.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;site&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://git.example.com/grp/my-app.git&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;stages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;extract&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;patch&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;fetch-post&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;boot&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;configure&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;install&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;post&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;vcs-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.4&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -11592,11 +11663,14 @@ releng-tool.</p>
 <p>Quirks can also be enabled through the <a class="reference internal" href="#conf-quirks"><span class="std std-ref">project configuration</span></a>.
 For example, the following can be used to enable one or more quirks for a
 releng-tool run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;releng.quirk1&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;releng.quirk2&#39;</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;releng.quirk1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;releng.quirk2&#39;</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -11604,6 +11678,53 @@ releng-tool run:</p>
 <h5>Available quirks<a class="headerlink" href="#available-quirks" title="Link to this heading">¶</a></h5>
 <p>The following is a list of all available quirks supported by releng-tool:</p>
 <div class="toctree-wrapper compound">
+<span id="document-guides/quirks/quirk-cmake-disable_default_prefix"></span><section id="quirk-releng-cmake-disable-default-prefix">
+<span id="id1"></span><h6>Quirk <code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_default_prefix</span></code><a class="headerlink" href="#quirk-releng-cmake-disable-default-prefix" title="Link to this heading">¶</a></h6>
+<p>For CMake-based projects, releng-tool will populate
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_PREFIX_PATH.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code></a> to paths applicable for a package.
+This is to help packages find dependencies using find operations using
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/find_package.html#config-mode-search-procedure">„Config” mode</a>.</p>
+<p>While the use of this configuration should work for most scenarios, it may
+be problematic for project’s using CMake toolchain definitions with
+cross-compiling considerations. For example, a toolchain configuration may setup
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH_MODE_PROGRAM.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH_MODE_PROGRAM</span></code></a> to not
+be <code class="docutils literal notranslate"><span class="pre">NEVER</span></code>. In turn, if a package is aimed to be cross-compiled and find
+operations are performed for executables, the CMake project may find staging
+executables that cannot run on the host system.</p>
+<p>One workaround for a package is to override/unset the <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code>
+option to use a default/unset value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_CONF_DEFS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;CMAKE_PREFIX_PATH&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>However, if multiple packages are a concern for a project, developers may
+utilizes this quirk to disable this feature. The feature can be disabled using
+the <code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_default_prefix</span></code> quirk using the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="o">--</span><span class="n">quirk</span> <span class="n">releng</span><span class="o">.</span><span class="n">cmake</span><span class="o">.</span><span class="n">disable_default_prefix</span>
+</pre></div>
+</div>
+<p>Or adding in the project configuration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.cmake.disable_default_prefix&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note, once disabled, individual packages may need to explicitly configure
+paths for various dependencies that a project relies on „Config” mode
+resolutions.</p>
+<section id="see-also">
+<h6 aria-level="7">See also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h6>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_PREFIX_PATH.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code></a></p></li>
+<li><p><a class="reference internal" href="#document-guides/quirks/quirks"><span class="doc std std-doc">Quirks</span></a></p></li>
+</ul>
+</section>
+</section>
 <span id="document-guides/quirks/quirk-cmake-disable_direct_includes"></span><section id="quirk-releng-cmake-disable-direct-includes">
 <span id="id1"></span><h6>Quirk <code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code><a class="headerlink" href="#quirk-releng-cmake-disable-direct-includes" title="Link to this heading">¶</a></h6>
 <p>For CMake-based projects, releng-tool will populate a series of include
@@ -11625,10 +11746,13 @@ overrides), the option can be disabled using the
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.cmake.disable_direct_includes&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.cmake.disable_direct_includes&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11656,10 +11780,13 @@ avoid any re-fetch attempt. For example, using the command line::</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.disable_devmode_ignore_cache&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.disable_devmode_ignore_cache&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11686,10 +11813,13 @@ quirk to skip any prerequisite check using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.disable_prerequisites_check&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.disable_prerequisites_check&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11710,10 +11840,13 @@ of late-stage configuration options using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.disable_remote_configs&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.disable_remote_configs&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11734,10 +11867,13 @@ these scripts using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.disable_remote_scripts&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.disable_remote_scripts&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11760,10 +11896,13 @@ For example, using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.disable_verbose_patch&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.disable_verbose_patch&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11784,10 +11923,13 @@ used. For example, using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.git.no_depth&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.git.no_depth&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11812,10 +11954,13 @@ using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.git.no_quick_fetch&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.git.no_quick_fetch&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11845,10 +11990,13 @@ using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.git.replicate_cache&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.git.replicate_cache&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11873,10 +12021,13 @@ For example, using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.ignore_failed_extensions&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.ignore_failed_extensions&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11906,10 +12057,13 @@ For example, using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.ignore_release_check&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.ignore_release_check&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11935,10 +12089,13 @@ each argument on their own line. For example, using the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.log.execute_args&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.log.execute_args&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11964,10 +12121,13 @@ the command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.log.execute_env&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.log.execute_env&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -11990,10 +12150,13 @@ information.</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.stats.no_pdf&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.stats.no_pdf&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -12023,10 +12186,13 @@ architecture configuration, this feature can be disabled using the quirk
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.xmake.disable_arch_detection&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.xmake.disable_arch_detection&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -12052,10 +12218,13 @@ command line:</p>
 </pre></div>
 </div>
 <p>Or adding in the project configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">quirks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
     <span class="o">...</span>
-    <span class="s1">&#39;releng.xmake.disable_deps_init&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.xmake.disable_deps_init&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <section id="see-also">
@@ -12083,9 +12252,12 @@ configurations to perform similar actions as extensions can.</p>
 in the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> configuration option inside the project configuration
 (<code class="docutils literal notranslate"><span class="pre">releng</span></code>). For example, to load an extension <code class="docutils literal notranslate"><span class="pre">my_awesome_extension</span></code> into
 releng-tool, the following can be defined:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
-   <span class="s1">&#39;my_awesome_extension&#39;</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span>
+       <span class="s1">&#39;my_awesome_extension&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>During the initial stages of a releng-tool process, the process will
@@ -12770,6 +12942,104 @@ releng-tool, please see the project’s <a class="reference external" href="http
 <section id="news">
 <h3>News<a class="headerlink" href="#news" title="Link to this heading">¶</a></h3>
 <div class="toctree-wrapper compound">
+<span id="document-news/2026-08-01_04.01.00"></span><section id="v4-1-2026-08-01">
+<h4>4.1 (2026-08-01)<a class="headerlink" href="#v4-1-2026-08-01" title="Link to this heading">¶</a></h4>
+<section id="target-skeleton-report">
+<h5>Target skeleton report<a class="headerlink" href="#target-skeleton-report" title="Link to this heading">¶</a></h5>
+<p>At the end of a releng-tool run, the output folder will now have a report
+generated (<code class="docutils literal notranslate"><span class="pre">skeleton-target.txt</span></code>) which captures the file structure of the
+target directory:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;root-dir&gt;/output/skeleton-target.txt
+</pre></div>
+</div>
+<p>The goal is to make it easier for developers to compare file structure of
+packages as their projects evolve.</p>
+</section>
+<section id="re-introducing-configuring-cmake-prefix-path-to-support-config-finds">
+<h5>Re-introducing configuring <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> to support „Config” finds<a class="headerlink" href="#re-introducing-configuring-cmake-prefix-path-to-support-config-finds" title="Link to this heading">¶</a></h5>
+<p>This release revisits the use of releng-tool configuring the
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_PREFIX_PATH.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code></a> option. The use of <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code>
+was previously removed to help prevent issues of <code class="docutils literal notranslate"><span class="pre">find_*</span></code> (e.g. when
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH_MODE_PROGRAM.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH_MODE_PROGRAM</span></code></a> is not
+set to <code class="docutils literal notranslate"><span class="pre">NEVER</span></code>). In turn, if a prefix is configured to a staging/target path,
+cross-compiled programs may be detected/used in CMake <code class="docutils literal notranslate"><span class="pre">find_*</span></code> calls leading to
+unexpected results. While the removal of a <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> assignment
+prevented this issue, it broke the ability to use CMake „Config”-based
+dependency lookups.</p>
+<p>When CMake options were attempted to be cleaned up (based on observations
+noted above), the prefix assignment was dropped over using CMake module path
+configurations. The use of modules appeared to be the proper approach for
+managing this, which was easily configured and integrated into releng-tool.
+However, „Module” mode in CMake is only one of the supported modes; CMake also
+supports a „Config” mode. When examining the
+<a class="reference external" href="https://cmake.org/cmake/help/book/mastering-cmake/chapter/Finding%20Packages.html"><code class="docutils literal notranslate"><span class="pre">find_package</span></code> documentation</a>, a „Config” mode operates on
+different <a class="reference external" href="https://cmake.org/cmake/help/latest/command/find_package.html#config-mode-search-procedure">search patterns</a>. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;prefix&gt;/(lib/&lt;arch&gt;|lib*|share)/&lt;name&gt;*/
+</pre></div>
+</div>
+<p>This does not use the <code class="docutils literal notranslate"><span class="pre">share/cmake/Modules/</span></code> folder and can result in
+packages unable to easily find packages when using „Config” mode without
+explicit configurations.</p>
+<p>There is a desire to have releng-tool to be flexible to support this and the
+assignment on <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> appears to be the only way to support this
+(e.g. supporting a combination of a toolchain sysroot (if used), releng-tool
+staging/target paths and a host sysroot (if used)).</p>
+<p>This release re-adds the <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> assignment to applicable
+paths. Having both <code class="docutils literal notranslate"><span class="pre">CMAKE_MODULE_PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> set
+should cover all CMake find modes.</p>
+<p>If this change causes issues for developers, immediate workarounds are as
+follows. First, configuring a quirk on the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">releng</span><span class="o">-</span><span class="n">tool</span> <span class="o">--</span><span class="n">quirk</span> <span class="n">releng</span><span class="o">.</span><span class="n">cmake</span><span class="o">.</span><span class="n">disable_default_prefix</span>
+</pre></div>
+</div>
+<p>Alternative, adding the quirk in the project configuration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">releng_config</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">quirks</span><span class="o">=</span><span class="p">[</span>
+        <span class="o">...</span>
+        <span class="s1">&#39;releng.cmake.disable_default_prefix&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Or registering the following environment variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RELENG_QUIRKS=releng.cmake.disable_default_prefix
+</pre></div>
+</div>
+</section>
+<section id="allow-local-package-types-to-use-sibling-root-path-as-a-fallback">
+<h5>Allow local package types to use sibling root path as a fallback<a class="headerlink" href="#allow-local-package-types-to-use-sibling-root-path-as-a-fallback" title="Link to this heading">¶</a></h5>
+<p>The use of <a class="reference internal" href="#site-local"><span class="std std-ref">local</span></a> site type now supports finding package sources
+in the sibling folder based on the root path. Typically local packages would
+require to be held inside of a <code class="docutils literal notranslate"><span class="pre">local</span></code> folder in the package folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>└── my-releng-tool-project/
+    ├── package/
+    │   └── libfoo/
+    │       ├── local/                &lt;----
+    │       │   ├── src/
+    │       │   │   └── ...
+    │       │   └── Makefile
+    │       └── libfoo.rt
+    ...
+</pre></div>
+</div>
+<p>Considering the above example, with this release, the <code class="docutils literal notranslate"><span class="pre">libfoo</span></code> sources can now
+reside alongside the project folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── libfoo/                           &lt;----
+│   ├── src/
+│   │   └── ...
+│   └── Makefile
+└── my-releng-tool-project/
+    ├── package/
+    │   └── libfoo/
+    │       └── libfoo.rt
+    ...
+</pre></div>
+</div>
+<p>The goal is to make it easier to initial development/testing for packages
+which may not yet be available through a version control system.</p>
+</section>
+</section>
 <span id="document-news/2026-07-26_04.00.00"></span><section id="v4-0-2026-07-26">
 <h4>4.0 (2026-07-26)<a class="headerlink" href="#v4-0-2026-07-26" title="Link to this heading">¶</a></h4>
 <section id="introducing-releng-config">
@@ -14850,6 +15120,19 @@ the following environment variables can be used instead:</p>
 </section>
 </div>
 </section>
+<section id="v4-1-2026-08-01">
+<h3>4.1 (2026-08-01)<a class="headerlink" href="#v4-1-2026-08-01" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Allow local package types to use sibling root path as a fallback</p></li>
+<li><p>Always check for cache existence if a package fetch-state is stale</p></li>
+<li><p>Fixed clearing of stale fetch-state after invoking package-specific distclean</p></li>
+<li><p>Generate a <code class="docutils literal notranslate"><span class="pre">skeleton-target.txt</span></code> of the target file structure post-run</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">LIBFOO_EXCLUDE_SBOM</span></code> to support package-specific SBOM exclusion</p></li>
+<li><p>Process license files as binary to avoid encoding issues</p></li>
+<li><p>Re-introducing configuring <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> to support „Config” finds</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">RELENG_QUIRKS</span></code> to pass in quirks via an environment variable</p></li>
+</ul>
+</section>
 <section id="v4-0-2026-07-26">
 <h3>4.0 (2026-07-26)<a class="headerlink" href="#v4-0-2026-07-26" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -15628,7 +15911,8 @@ execution</p></li>
 <a class="reference internal" href="#env-releng-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR</span></code></span></a>
 <a class="reference internal" href="#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
 <a class="reference internal" href="#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a>
-<a class="reference internal" href="#env-releng-parallel-level"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL</span></code></span></a></pre>
+<a class="reference internal" href="#env-releng-parallel-level"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL</span></code></span></a>
+<a class="reference internal" href="#env-releng-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_QUIRKS</span></code></span></a></pre>
 </section>
 <section id="package-types">
 <h3>Package types<a class="headerlink" href="#package-types" title="Link to this heading">¶</a></h3>
@@ -15673,6 +15957,7 @@ execution</p></li>
 <code class="docutils literal notranslate"><span class="pre">LIBFOO_ENV</span></code> = {'FOO': 'BAR'}
   └── <em>(<a class="reference internal" href="#pkg-opt-autotools-env"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="#pkg-opt-cargo-env"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="#pkg-opt-cmake-env"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="#pkg-opt-make-env"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="#pkg-opt-meson-env"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="#pkg-opt-python-env"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="#pkg-opt-scons-env"><span class="std std-ref">SCons</span></a>, <a class="reference internal" href="#pkg-opt-waf-env"><span class="std std-ref">Waf</span></a>, <a class="reference internal" href="#pkg-opt-xmake-env"><span class="std std-ref">Xmake</span></a>)</em>
 <a class="reference internal" href="#pkg-opt-devmode-skip-integrity-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code></span></a> = bool
+<a class="reference internal" href="#pkg-opt-exclude-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXCLUDE_SBOM</span></code></span></a> = bool
 <a class="reference internal" href="#pkg-opt-extension"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></span></a> = '&lt;extension&gt;'
 <a class="reference internal" href="#pkg-opt-external"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></span></a> = bool
 <a class="reference internal" href="#pkg-opt-extopt"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code></span></a> = {'FOO': 'BAR'}
@@ -15782,7 +16067,8 @@ execution</p></li>
 <section id="quirks">
 <h3>Quirks<a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h3>
 <p>Quirk options used by releng-tool:</p>
-<pre class="literal-block"><a class="reference internal" href="#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
+<pre class="literal-block"><a class="reference internal" href="#quirk-releng-cmake-disable-default-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_default_prefix</span></code></span></a>
+<a class="reference internal" href="#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
 <a class="reference internal" href="#quirk-releng-disable-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_devmode_ignore_cache</span></code></span></a>
 <a class="reference internal" href="#quirk-releng-disable-prerequisites-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code></span></a>
 <a class="reference internal" href="#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code></span></a>

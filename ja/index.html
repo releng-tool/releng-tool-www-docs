@@ -264,6 +264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="guides/network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="guides/api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
@@ -308,6 +309,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="release-notes/">バージョンノート</a><input aria-label="Toggle navigation of バージョンノート" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
@@ -718,6 +720,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-images-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR=&lt;dir&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-output-dir"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR=&lt;dir&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-parallel-level"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL=&lt;level&gt;</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/environment/#releng-quirks"><code class="docutils literal notranslate"><span class="pre">RELENG_QUIRKS=&lt;level&gt;</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/environment/#tool-overrides">Tool overrides</a></li>
 </ul>
 </li>
@@ -740,6 +743,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-devmode-patches"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_PATCHES</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-devmode-revision"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_REVISION</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-devmode-skip-integrity-check"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-exclude-sbom"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXCLUDE_SBOM</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-extension"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-external"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/packages/advanced-pkg-options/#libfoo-extopt"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code></a></li>
@@ -1006,6 +1010,7 @@ between the staging/target area with the host system.</p>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirks/#command-line-quirks">Command line quirks</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirks/#configuration-driven-quirks">Configuration-driven quirks</a></li>
 <li class="toctree-l4"><a class="reference internal" href="guides/quirks/quirks/#available-quirks">Available quirks</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l5"><a class="reference internal" href="guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>

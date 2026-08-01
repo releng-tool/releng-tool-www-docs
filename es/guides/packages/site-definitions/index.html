@@ -264,6 +264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
@@ -308,6 +309,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
@@ -447,7 +449,7 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.0 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;tag:v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;tag:v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;brz+https://example.com/project/trunk&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span>
 </pre></div>
@@ -455,7 +457,7 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 </div>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio" /><label class="tab-label" for="tab-set--0-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning the latest trunk branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;-1&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;-1&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;brz+https://example.com/project/trunk&#39;</span>
 </pre></div>
 </div>
@@ -481,7 +483,7 @@ removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio" /><label class="tab-label" for="tab-set--1-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a libfoo-1.2.3 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;libfoo-$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;libfoo-$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;:pserver:anonymous@cvs.example.com:/var/lib/cvsroot libfoo&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -489,7 +491,7 @@ removed.</p>
 </div>
 <input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio" /><label class="tab-label" for="tab-set--1-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;:pserver:anonymous@cvs.example.com:/var/lib/cvsroot libfoo&#39;</span>
 </pre></div>
 </div>
@@ -528,7 +530,7 @@ exist, the origin remote will be fetched for the new revision (if it exists).</p
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+git@example.com:base/libfoo.git&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -536,14 +538,14 @@ exist, the origin remote will be fetched for the new revision (if it exists).</p
 </div>
 <input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/libfoo.git&#39;</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--2-input--3" name="tab-set--2" type="radio" /><label class="tab-label" for="tab-set--2-input--3">Commit Hash Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning with a commit hash:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;da39a3ee5e6b4b0d3255bfef95601890afd80709&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;da39a3ee5e6b4b0d3255bfef95601890afd80709&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;git+ssh://git.example.com/group/libfoo.git&#39;</span>
 </pre></div>
 </div>
@@ -581,14 +583,14 @@ fetch stage will be skipped unless the archive is manually removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio" /><label class="tab-label" for="tab-set--3-input--1">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;lore://lore.example.org&#39;</span>
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio" /><label class="tab-label" for="tab-set--3-input--2">Revision Hash Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning with a revision hash:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;a89c9b0632406842567001d0b77d8cfdef3c3fc810457498bcb500b7e3172197&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;a89c9b0632406842567001d0b77d8cfdef3c3fc810457498bcb500b7e3172197&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;lore+lores://sources.example.org&#39;</span>
 </pre></div>
 </div>
@@ -611,7 +613,7 @@ pulled for the new revision (if it exists).</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio" /><label class="tab-label" for="tab-set--4-input--1">Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;v$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://hg.example.org/repo/hello&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -619,7 +621,7 @@ pulled for the new revision (if it exists).</p>
 </div>
 <input class="tab-input" id="tab-set--4-input--2" name="tab-set--4" type="radio" /><label class="tab-label" for="tab-set--4-input--2">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;lts-1.x&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;hg+https://hg.example.org/repo/hello&#39;</span>
 </pre></div>
 </div>
@@ -649,7 +651,7 @@ will be skipped unless the archive is manually removed.</p>
 <div class="tab-set docutils">
 <input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio" /><label class="tab-label" for="tab-set--5-input--1">Revision Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning the 27574 revision:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;perforce+srcs.example.com:1666 //base/libfoo/main&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;perforce+srcs.example.com:1666 //base/libfoo/main&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;27574&#39;</span>
 </pre></div>
 </div>
@@ -700,7 +702,7 @@ is made, the fetch stage will be skipped unless the archive is manually removed.
 <input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio" /><label class="tab-label" for="tab-set--6-input--1">Explicit Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag with a fixed SVN
 revision value:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="mi">46801</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="mi">46801</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/tags/$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -710,7 +712,7 @@ revision value:</p>
 <input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio" /><label class="tab-label" for="tab-set--6-input--2">Flexible Tagged Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.2.3 tag with a flexible
 revision value:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/tags/$</span><span class="si">{LIBFOO_VERSION}</span><span class="s1">&#39;</span>
 <span class="n">LIBFOO_VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.2.3&#39;</span>
 </pre></div>
@@ -720,7 +722,7 @@ explicit SVN revision. This approach supports moved tags.</p>
 </div>
 <input class="tab-input" id="tab-set--6-input--3" name="tab-set--6" type="radio" /><label class="tab-label" for="tab-set--6-input--3">Branch Clone</label><div class="tab-content docutils">
 <p>The following shows an example of cloning a v1.x LTS branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REVISION</span> <span class="o">=</span> <span class="s1">&#39;HEAD&#39;</span>
 <span class="n">LIBFOO_SITE</span> <span class="o">=</span> <span class="s1">&#39;svn+https://svn.example.com/repos/libfoo/c/branches/1.x-lts&#39;</span>
 </pre></div>
 </div>

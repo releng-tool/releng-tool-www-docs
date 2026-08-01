@@ -264,6 +264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
@@ -308,6 +309,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">バージョンノート</a><input aria-label="Toggle navigation of バージョンノート" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
@@ -604,7 +606,8 @@ releng-tool (may vary per context):</p>
 <a class="reference internal" href="../guides/environment/#env-releng-images-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_IMAGES_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LINT_MAX_VERSION</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-out-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_OUTPUT_DIR</span></code></span></a>
-<a class="reference internal" href="../guides/environment/#env-releng-parallel-level"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL</span></code></span></a></pre>
+<a class="reference internal" href="../guides/environment/#env-releng-parallel-level"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PARALLEL_LEVEL</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_QUIRKS</span></code></span></a></pre>
 </section>
 <section id="package-types">
 <h2>Package types<a class="headerlink" href="#package-types" title="Link to this heading">¶</a></h2>
@@ -649,6 +652,7 @@ releng-tool (may vary per context):</p>
 <code class="docutils literal notranslate"><span class="pre">LIBFOO_ENV</span></code> = {'FOO': 'BAR'}
   └── <em>(<a class="reference internal" href="../guides/packages/pkg-type-autotools/#pkg-opt-autotools-env"><span class="std std-ref">Autotools</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cargo/#pkg-opt-cargo-env"><span class="std std-ref">Cargo</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-cmake/#pkg-opt-cmake-env"><span class="std std-ref">CMake</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-env"><span class="std std-ref">Make</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-env"><span class="std std-ref">Meson</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-env"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-env"><span class="std std-ref">SCons</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-waf/#pkg-opt-waf-env"><span class="std std-ref">Waf</span></a>, <a class="reference internal" href="../guides/packages/pkg-type-xmake/#pkg-opt-xmake-env"><span class="std std-ref">Xmake</span></a>)</em>
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-devmode-skip-integrity-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEVMODE_SKIP_INTEGRITY_CHECK</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-exclude-sbom"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXCLUDE_SBOM</span></code></span></a> = bool
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-extension"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTENSION</span></code></span></a> = '&lt;extension&gt;'
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-external"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTERNAL</span></code></span></a> = bool
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-extopt"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_EXTOPT</span></code></span></a> = {'FOO': 'BAR'}
@@ -759,7 +763,8 @@ releng-tool (may vary per context):</p>
 <section id="quirks">
 <h2>Quirks<a class="headerlink" href="#quirks" title="Link to this heading">¶</a></h2>
 <p>Quirk options used by releng-tool:</p>
-<pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
+<pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_default_prefix/#quirk-releng-cmake-disable-default-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_default_prefix</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/#quirk-releng-disable-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_devmode_ignore_cache</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/#quirk-releng-disable-prerequisites-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code></span></a>

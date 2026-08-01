@@ -264,6 +264,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
@@ -308,6 +309,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">バージョンノート</a><input aria-label="Toggle navigation of バージョンノート" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-04-12_03.00.00/">3.0 (2026-04-12)</a></li>
@@ -420,7 +422,14 @@
           <section id="cmake-package">
 <h1>CMake package<a class="headerlink" href="#cmake-package" title="Link to this heading">¶</a></h1>
 <div class="versionchanged">
-<p><span class="versionmodified changed">バージョン 2.6 で変更: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code>.</p>
+<p><span class="versionmodified changed">バージョン 2.1 で変更: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_MODULE_PATH</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 2.6 で変更: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code> and
+<code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH_MODE_PROGRAM</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">バージョン 4.1 で変更: </span>releng-tool now populates <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code>.</p>
 </div>
 <p>A CMake package provides support for processing a <a class="reference external" href="https://cmake.org/">CMake</a> supported
 module.</p>
@@ -448,13 +457,13 @@ required staging/target paths through the
 <a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_FIND_ROOT_PATH.html"><code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code></a> configuration. Ensure the
 toolchain configuration accepts <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_ROOT_PATH</span></code> hints. For example,
 using either:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">APPEND</span> <span class="n">CMAKE_FIND_ROOT_PATH</span> <span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="s">APPEND</span><span class="w"> </span><span class="s">CMAKE_FIND_ROOT_PATH</span><span class="w"> </span><span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Or:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">NOT</span> <span class="n">DEFINED</span> <span class="n">CMAKE_FIND_ROOT_PATH</span><span class="p">)</span>
-    <span class="nb">set</span><span class="p">(</span><span class="n">CMAKE_FIND_ROOT_PATH</span> <span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
-<span class="n">endif</span><span class="p">()</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">DEFINED</span><span class="w"> </span><span class="s">CMAKE_FIND_ROOT_PATH</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_FIND_ROOT_PATH</span><span class="w"> </span><span class="s2">&quot;INTERNAL_SDK_PATH&quot;</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The following shows the default arguments used in stages and outlines
@@ -477,6 +486,7 @@ CMAKE_INSTALL_LIBDIR=&quot;lib&quot;
 CMAKE_INSTALL_PREFIX=&lt;PREFIX&gt;
 CMAKE_LIBRARY_PATH=&lt;LIBRARY_PATHS&gt;
 CMAKE_MODULE_PATH=&lt;MODULE_PATHS&gt;
+CMAKE_PREFIX_PATH=&lt;PREFIX_PATHS&gt;
 CMAKE_SKIP_INSTALL_ALL_DEPENDENCY=ON
 </pre></div>
 </div>
@@ -489,12 +499,15 @@ root paths provided will only include the staging directory
 if <code class="docutils literal notranslate"><span class="pre">staging</span></code> is configured. Likewise, both the staging and target directories
 are provided when using <code class="docutils literal notranslate"><span class="pre">staging_and_target</span></code>.</p>
 <p>The same concepts apply for defined include (<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/include</span></code>),
-library (<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/lib</span></code>) and module paths
-(<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/share/cmake/Modules</span></code>).</p>
+library (<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/lib</span></code>), module paths
+(<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]/share/cmake/Modules</span></code>) and prefix paths
+(<code class="docutils literal notranslate"><span class="pre">&lt;sysroot&gt;[/&lt;prefix&gt;]</span></code>).</p>
 <p>Packages may override default defines using the
 <a class="reference internal" href="#pkg-opt-cmake-conf-defs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_CONF_DEFS</span></code></span></a> option.</p>
-<p>A package may opt-out of configuring <code class="docutils literal notranslate"><span class="pre">CMAKE_&lt;LANG&gt;_STANDARD_INCLUDE_DIRECTORIES</span></code>
-variables using the
+<p>Packages may opt-out of configuring the <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> variable using the
+<a class="reference internal" href="../../quirks/quirk-cmake-disable_default_prefix/#quirk-releng-cmake-disable-default-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_default_prefix</span></code></span></a>
+quirk. Packages may opt-out of configuring
+<code class="docutils literal notranslate"><span class="pre">CMAKE_&lt;LANG&gt;_STANDARD_INCLUDE_DIRECTORIES</span></code> variables using the
 <a class="reference internal" href="../../quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
 quirk.</p>
 </div>

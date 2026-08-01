@@ -1825,6 +1825,76 @@
         <changefreq>monthly</changefreq>
     </url>
     <url>
+        <loc>https://docs.releng.io/en/news/2026-08-01_04.01.00/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-08-01_04.01.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/news/2026-08-01_04.01.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-08-01_04.01.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/news/2026-08-01_04.01.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-08-01_04.01.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/news/2026-08-01_04.01.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-08-01_04.01.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/news/2026-08-01_04.01.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-08-01_04.01.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/news/2026-08-01_04.01.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/news/2026-08-01_04.01.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/news/2026-08-01_04.01.00/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/news/2026-08-01_04.01.00/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/news/2026-08-01_04.01.00/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
         <loc>https://docs.releng.io/en/news/2025-05-31_02.04.00/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/news/2025-05-31_02.04.00/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/news/2025-05-31_02.04.00/"/>
@@ -7562,6 +7632,76 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirks/"/>
         <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirks/"/>
         <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirks/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_default_prefix/</loc>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_default_prefix/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_default_prefix/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_default_prefix/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_default_prefix/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_default_prefix/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hant" href="https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://docs.releng.io/zh_Hant/guides/quirks/quirk-cmake-disable_default_prefix/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.releng.io/en/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://docs.releng.io/de/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://docs.releng.io/es/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://docs.releng.io/ja/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://docs.releng.io/pl/guides/quirks/quirk-cmake-disable_default_prefix/"/>
+        <xhtml:link rel="alternate" hreflang="zh_Hans" href="https://docs.releng.io/zh_Hans/guides/quirks/quirk-cmake-disable_default_prefix/"/>
         <changefreq>monthly</changefreq>
     </url>
     <url>
