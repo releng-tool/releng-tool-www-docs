@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=88acf7b1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/theme_overrides.css?v=26d2822e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -266,6 +266,7 @@
 <li class="toctree-l3 current has-children"><a class="reference internal" href="../quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirk-cmake-disable_export_compile_commands/">releng.cmake.disable_export_compile_commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-log-execute_env/">releng.log.execute_env</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirk-log-skip_package_versions_banner/">releng.log.skip_package_versions_banner</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
@@ -309,6 +311,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Release notes</a><input aria-label="Toggle navigation of Release notes" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-29_04.02.00/">4.2 (2026-08-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
@@ -419,7 +422,7 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="quirk-releng-git-replicate-cache">
+          <section class="quirk-header" id="quirk-releng-git-replicate-cache">
 <span id="id1"></span><h1>Quirk <code class="docutils literal notranslate"><span class="pre">releng.git.replicate_cache</span></code><a class="headerlink" href="#quirk-releng-git-replicate-cache" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.17.</span></p>

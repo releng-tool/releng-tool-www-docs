@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=88acf7b1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=26d2822e" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -266,6 +266,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-cmake-disable_export_compile_commands/">releng.cmake.disable_export_compile_commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-log-skip_package_versions_banner/">releng.log.skip_package_versions_banner</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
@@ -309,6 +311,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Versionshinweise</a><input aria-label="Toggle navigation of Versionshinweise" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-08-29_04.02.00/">4.2 (2026-08-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
@@ -931,6 +934,18 @@ or <code class="docutils literal notranslate"><span class="pre">--dl-dir</span><
 </div>
 <p>See also <a class="reference internal" href="../environment/#env-releng-assets-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR</span></code></span></a>.</p>
 </section>
+<section id="build-id-id-var">
+<span id="arg-build-id"></span><h3><code class="docutils literal notranslate"><span class="pre">--build-id</span> <span class="pre">&lt;id&gt;</span></code><a class="headerlink" href="#build-id-id-var" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.2.</span></p>
+</div>
+<p>Allows providing a build/job identifier which projects may utilize for identify
+a given releng-tool run.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng-tool --build-id=123
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../environment/#env-releng-build-id"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_ID</span></code></span></a>.</p>
+</section>
 <section id="cache-dir-dir-var">
 <span id="arg-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#cache-dir-dir-var" title="Link to this heading">¶</a></h3>
 <p>Directory for distributed version control cache information (defaults to
@@ -1304,6 +1319,7 @@ package with a version <code class="docutils literal notranslate"><span class="p
 </li>
 <li><a class="reference internal" href="#option-arguments">Option arguments</a><ul>
 <li><a class="reference internal" href="#assets-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
+<li><a class="reference internal" href="#build-id-id-var"><code class="docutils literal notranslate"><span class="pre">--build-id</span> <span class="pre">&lt;id&gt;</span></code></a></li>
 <li><a class="reference internal" href="#cache-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#config-file-var"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></a></li>
 <li><a class="reference internal" href="#debug"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></a></li>

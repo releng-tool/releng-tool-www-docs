@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=88acf7b1" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=26d2822e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
@@ -266,6 +266,7 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_default_prefix/">releng.cmake.disable_default_prefix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/">releng.cmake.disable_direct_includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_export_compile_commands/">releng.cmake.disable_export_compile_commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/">releng.disable_devmode_ignore_cache</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/">releng.disable_prerequisites_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/">releng.disable_remote_configs</a></li>
@@ -278,6 +279,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-ignore_release_check/">releng.ignore_release_check</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_args/">releng.log.execute_args</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-execute_env/">releng.log.execute_env</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-log-skip_package_versions_banner/">releng.log.skip_package_versions_banner</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/">releng.stats.no_pdf</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-xmake-disable-arch-detection/">releng.xmake.disable_arch_detection</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../guides/quirks/quirk-xmake-disable-deps-init/">releng.xmake.disable_deps_init</a></li>
@@ -309,6 +311,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-08-29_04.02.00/">4.2 (2026-08-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-06-28_03.01.00/">3.1 (2026-06-28)</a></li>
@@ -460,6 +463,7 @@
 <a class="reference internal" href="../guides/arguments/#action-pkg-reconfigure-only"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reconfigure-only</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#action-pkg-reinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-assets-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-build-id"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--build-id</span> <span class="pre">&lt;id&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></span></a>
@@ -553,6 +557,7 @@
 <a class="reference internal" href="../guides/environment/#env-prefixed-host-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_HOST_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-prefixed-staging-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-prefixed-target-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-build-id"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_ID</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-devmode"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></span></a>
@@ -561,6 +566,9 @@
 <a class="reference internal" href="../guides/environment/#env-releng-force"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_FORCE</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-generated-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_LICENSES</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-generated-sboms"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GENERATED_SBOMS</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-host-os-linux"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_HOST_OS_LINUX</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-host-os-macos"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_HOST_OS_MACOS</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-host-os-windows"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_HOST_OS_WINDOWS</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-localsrcs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_LOCALSRCS</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-mrproper"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_MRPROPER</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-profiles"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PROFILES</span></code></span></a>
@@ -596,6 +604,7 @@
 <code class="docutils literal notranslate"><span class="pre">NO_COLOR</span></code>
 <a class="reference internal" href="../guides/environment/#env-releng-assets-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-delayed-start"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DELAYED_START</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-global-out-container-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-global-out-container-no-images"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_GLOBAL_OUTPUT_CONTAINER_NO_IMAGES</span></code></span></a>
@@ -674,6 +683,7 @@
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-install-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INSTALL_TYPE</span></code></span></a> = '&lt;install-type&gt;'
   └── host, images, staging, staging_and_target, target
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_INTERNAL</span></code></span></a> = bool
+<a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-configure"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAKE_CONFIGURE</span></code></span></a> = '&lt;command&gt;'
 <a class="reference internal" href="../guides/packages/pkg-type-make/#pkg-opt-make-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAKE_NOINSTALL</span></code></span></a> = bool
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-max-jobs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MAX_JOBS</span></code></span></a> = int
 <a class="reference internal" href="../guides/packages/pkg-type-meson/#pkg-opt-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_MESON_BUILD_TYPE</span></code></span></a> = '&lt;build-type&gt;'
@@ -742,6 +752,8 @@
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_move" title="releng_tool.releng_move"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_move</span></code></span></a>(src, dst, quiet=False, critical=True, dst_dir=None, nested=False)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_move_into" title="releng_tool.releng_move_into"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_move_into</span></code></span></a>(src, dst, quiet=False, critical=True, nested=False)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_path" title="releng_tool.releng_path"><span class="xref myst py py-meth"><code class="docutils literal notranslate"><span class="pre">releng_path</span></code></span></a>(*pathsegments)
+<a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_register_env_path" title="releng_tool.releng_register_env_path"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_register_env_path</span></code></span></a>(path, critical=True)
+<a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_register_python_path" title="releng_tool.releng_register_python_path"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_register_python_path</span></code></span></a>(path, critical=True)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_remove" title="releng_tool.releng_remove"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_remove</span></code></span></a>(path, quiet=False)
 <a class="reference internal" href="../guides/script-helpers/#releng_tool.releng_require_version" title="releng_tool.releng_require_version"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_require_version</span></code></span></a>(minver, maxver=None, quiet=False, critical=True)
 <a class="reference internal" href="../guides/extensions/extensions/"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">releng_setup</span></code></span></a>(app)
@@ -762,6 +774,7 @@
 <p>Quirk options used by releng-tool:</p>
 <pre class="literal-block"><a class="reference internal" href="../guides/quirks/quirk-cmake-disable_default_prefix/#quirk-releng-cmake-disable-default-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_default_prefix</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-cmake-disable_direct_includes/#quirk-releng-cmake-disable-direct-includes"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_direct_includes</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-cmake-disable_export_compile_commands/#quirk-releng-cmake-disable-export-compile-commands"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.cmake.disable_export_compile_commands</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_devmode_ignore_cache/#quirk-releng-disable-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_devmode_ignore_cache</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_prerequisites_check/#quirk-releng-disable-prerequisites-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_prerequisites_check</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code></span></a>
@@ -774,6 +787,7 @@
 <a class="reference internal" href="../guides/quirks/quirk-ignore_release_check/#quirk-releng-ignore-release-check"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.ignore_release_check</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-log-execute_args/#quirk-releng-log-execute-args"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.log.execute_args</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-log-execute_env/#quirk-releng-log-execute-env"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.log.execute_env</span></code></span></a>
+<a class="reference internal" href="../guides/quirks/quirk-log-skip_package_versions_banner/#quirk-releng-log-skip-package-versions-banner"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.log.skip_package_versions_banner</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-stats-no_pdf/#quirk-releng-stats-no-pdf"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.stats.no_pdf</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-xmake-disable-arch-detection/#quirk-releng-xmake-disable-arch-detection"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.xmake.disable_arch_detection</span></code></span></a>
 <a class="reference internal" href="../guides/quirks/quirk-xmake-disable-deps-init/#quirk-releng-xmake-disable-deps-init"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.xmake.disable_deps_init</span></code></span></a></pre>
