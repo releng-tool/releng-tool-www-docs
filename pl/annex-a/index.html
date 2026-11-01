@@ -244,6 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../guides/licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../guides/tips/tips/">Wskazówki</a><input aria-label="Toggle navigation of Wskazówki" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../guides/tips/parallel-builds/">Parallel builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/tips/passthrough-options/">Passthrough options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/tips/license-generation/">License generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/tips/privileged-builds/">Privileged builds</a></li>
@@ -260,7 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/release-mode/">Release Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../guides/profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../guides/profile/">Profile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../guides/api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -311,6 +312,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../release-notes/">Informacje o wydaniu</a><input aria-label="Toggle navigation of Informacje o wydaniu" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../news/2026-11-01_04.03.00/">4.3 (2026-11-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-08-29_04.02.00/">4.2 (2026-08-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
@@ -464,6 +466,7 @@
 <a class="reference internal" href="../guides/arguments/#action-pkg-reinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;-reinstall</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-assets-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-build-id"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--build-id</span> <span class="pre">&lt;id&gt;</span></code></span></a>
+<a class="reference internal" href="../guides/arguments/#arg-build-variant"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--build-variant</span> <span class="pre">&lt;variant&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></span></a>
 <a class="reference internal" href="../guides/arguments/#arg-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></span></a>
@@ -495,32 +498,32 @@
 <p>Options which are read by releng-tool from a project’s configuration script
 (<code class="docutils literal notranslate"><span class="pre">releng-tool.rt</span></code>):</p>
 <pre class="literal-block">releng_config(
-    <a class="reference internal" href="../guides/configuration/#conf-cache-ext"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></span></a> = &lt;callable&gt;,
-    <a class="reference internal" href="../guides/configuration/#conf-default-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></span></a> = bool,
-    <a class="reference internal" href="../guides/configuration/#conf-default-cmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_cmake_build_type</span></code></span></a> = str,
-    <a class="reference internal" href="../guides/configuration/#conf-default-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code></span></a> = str,
-    <a class="reference internal" href="../guides/configuration/#conf-default-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></span></a> = bool,
-    <a class="reference internal" href="../guides/configuration/#conf-default-xmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_xmake_build_type</span></code></span></a> = str,
-    <a class="reference internal" href="../guides/configuration/#conf-environment"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">environment</span></code></span></a> = {'&lt;key&gt;': '&lt;val&gt;'},
-    <a class="reference internal" href="../guides/configuration/#conf-extensions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></span></a> = ['&lt;extension&gt;', '&lt;extension&gt;'],
-    <a class="reference internal" href="../guides/configuration/#conf-external-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></span></a> = ['&lt;path&gt;', '&lt;path&gt;'],
-    <a class="reference internal" href="../guides/configuration/#conf-extra-license-exceptions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></span></a> = {'&lt;short-exception-id&gt;': '&lt;exception-name&gt;'},
-    <a class="reference internal" href="../guides/configuration/#conf-extra-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></span></a> = {'&lt;short-license-id&gt;': '&lt;license-name&gt;'},
-    <a class="reference internal" href="../guides/configuration/#conf-license-header"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></span></a> = '&lt;data&gt;',
-    <a class="reference internal" href="../guides/configuration/#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a> = '&lt;max-version&gt;',
-    <a class="reference internal" href="../guides/configuration/#conf-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">network_isolation</span></code></span></a> = bool,
-    <a class="reference internal" href="../guides/configuration/#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a> = {'&lt;tool&gt;': '&lt;tool-path&gt;'},
-    <a class="reference internal" href="../guides/configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a> = ['&lt;pkg&gt;', '&lt;pkg&gt;', '&lt;pkg&gt;'],
-    <a class="reference internal" href="../guides/configuration/#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a> = ['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;'],
-    <a class="reference internal" href="../guides/configuration/#conf-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></span></a> = ['&lt;quirk-id&gt;'],
-    <a class="reference internal" href="../guides/configuration/#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a> = {'&lt;pkg&gt;': '&lt;revision&gt;'},
-    <a class="reference internal" href="../guides/configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a> = '&lt;format&gt;',
+    <a class="reference internal" href="../guides/configuration/#conf-cache-ext"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">cache_ext</span></code></span></a>=&lt;callable&gt;,
+    <a class="reference internal" href="../guides/configuration/#conf-default-devmode-ignore-cache"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_devmode_ignore_cache</span></code></span></a>=bool,
+    <a class="reference internal" href="../guides/configuration/#conf-default-cmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_cmake_build_type</span></code></span></a>=str,
+    <a class="reference internal" href="../guides/configuration/#conf-default-meson-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_meson_build_type</span></code></span></a>=str,
+    <a class="reference internal" href="../guides/configuration/#conf-default-internal"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_internal</span></code></span></a>=bool,
+    <a class="reference internal" href="../guides/configuration/#conf-default-xmake-build-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">default_xmake_build_type</span></code></span></a>=str,
+    <a class="reference internal" href="../guides/configuration/#conf-environment"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">environment</span></code></span></a>={'&lt;key&gt;': '&lt;val&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-extensions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></span></a>=['&lt;extension&gt;', '&lt;extension&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-external-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">external_packages</span></code></span></a>=['&lt;path&gt;', '&lt;path&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-extra-license-exceptions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_license_exceptions</span></code></span></a>={'&lt;short-exception-id&gt;': '&lt;exception-name&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-extra-licenses"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">extra_licenses</span></code></span></a>={'&lt;short-license-id&gt;': '&lt;license-name&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-license-header"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">license_header</span></code></span></a>='&lt;data&gt;',
+    <a class="reference internal" href="../guides/configuration/#conf-lint-max-version"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">lint_max_version</span></code></span></a>='&lt;max-version&gt;',
+    <a class="reference internal" href="../guides/configuration/#conf-network-isolation"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">network_isolation</span></code></span></a>=bool,
+    <a class="reference internal" href="../guides/configuration/#conf-override-extract-tools"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">override_extract_tools</span></code></span></a>={'&lt;tool&gt;': '&lt;tool-path&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-packages"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">packages</span></code></span></a>=['&lt;pkg&gt;', '&lt;pkg&gt;', '&lt;pkg&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-prerequisites"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></span></a>=['&lt;tool&gt;', '&lt;tool&gt;', '&lt;tool&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-quirks"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">quirks</span></code></span></a>=['&lt;quirk-id&gt;'],
+    <a class="reference internal" href="../guides/configuration/#conf-revisions"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">revisions</span></code></span></a>={'&lt;pkg&gt;': '&lt;revision&gt;'},
+    <a class="reference internal" href="../guides/configuration/#conf-sbom-format"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sbom_format</span></code></span></a>='&lt;format&gt;',
       └── csv, html, json, json-cyclonedx, json-spdx, rdf-spdx, text, xml, xml-cyclonedx
-    <a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a> = '&lt;path&gt;',  # '/usr'
-    <a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a> = '&lt;mirror-url&gt;',
-    <a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a> = &lt;ssl.SSLContext&gt;,
-    <a class="reference internal" href="../guides/configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a> = bool or str,
-    <a class="reference internal" href="../guides/configuration/#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a> = str,
+    <a class="reference internal" href="../guides/configuration/#conf-sysroot-prefix"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">sysroot_prefix</span></code></span></a>='&lt;path&gt;',  # '/usr'
+    <a class="reference internal" href="../guides/configuration/#conf-url-mirror"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">url_mirror</span></code></span></a>='&lt;mirror-url&gt;',
+    <a class="reference internal" href="../guides/configuration/#conf-urlopen-context"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">urlopen_context</span></code></span></a>=&lt;ssl.SSLContext&gt;,
+    <a class="reference internal" href="../guides/configuration/#conf-vsdevcmd"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd</span></code></span></a>=bool or str,
+    <a class="reference internal" href="../guides/configuration/#conf-vsdevcmd-products"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">vsdevcmd_products</span></code></span></a>=str,
 )</pre>
 <p>See also <a class="reference internal" href="../guides/configuration/#conf-modern-v-classic"><span class="std std-ref">modern versus classic configurations</span></a>.</p>
 </section>
@@ -558,6 +561,7 @@
 <a class="reference internal" href="../guides/environment/#env-prefixed-staging-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_STAGING_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-prefixed-target-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">PREFIXED_TARGET_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-build-id"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_ID</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-build-variant"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_VARIANT</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-clean"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_CLEAN</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-debug"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEBUG</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-devmode"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DEVMODE</span></code></span></a>
@@ -603,6 +607,9 @@
 <pre class="literal-block"><code class="docutils literal notranslate"><span class="pre">FORCE_COLOR</span></code>
 <code class="docutils literal notranslate"><span class="pre">NO_COLOR</span></code>
 <a class="reference internal" href="../guides/environment/#env-releng-assets-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_ASSETS_DIR</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-build-id-set"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_ID</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-build-id-no-implicit"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_ID_NO_IMPLICIT</span></code></span></a>
+<a class="reference internal" href="../guides/environment/#env-releng-build-variant-set"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_VARIANT</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-cache-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_CACHE_DIR</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-delayed-start"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DELAYED_START</span></code></span></a>
 <a class="reference internal" href="../guides/environment/#env-releng-dl-dir"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_DL_DIR</span></code></span></a>
@@ -706,8 +713,8 @@
 <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-interpreter"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_INTERPRETER</span></code></span></a> = '&lt;path&gt;'
 <a class="reference internal" href="../guides/packages/pkg-type-python/#pkg-opt-python-setup-type"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_PYTHON_SETUP_TYPE</span></code></span></a> = '&lt;setup-type&gt;'
   └── distutils, setuptools, flit, hatch, pdm, pep517, poetry
-<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-remote-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code></span></a> = bool   <em>(deprecated)</em>
-<a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code></span></a> = bool   <em>(deprecated)</em>
+<a class="reference internal" href="../guides/packages/deprecated-pkg-options/#pkg-opt-remote-config"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code></span></a> = bool   <em>(deprecated)</em>
+<a class="reference internal" href="../guides/packages/deprecated-pkg-options/#pkg-opt-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code></span></a> = bool   <em>(deprecated)</em>
 <a class="reference internal" href="../guides/packages/advanced-pkg-options/#pkg-opt-revision"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REVISION</span></code></span></a> = '&lt;revision&gt;'
 <a class="reference internal" href="../guides/packages/pkg-type-scons/#pkg-opt-scons-noinstall"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SCONS_NOINSTALL</span></code></span></a> = bool
 <a class="reference internal" href="../guides/packages/common-pkg-options/#pkg-opt-site"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">LIBFOO_SITE</span></code></span></a> = '&lt;site&gt;'

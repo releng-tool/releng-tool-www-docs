@@ -244,6 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../guides/licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../guides/tips/tips/">Consejos</a><input aria-label="Toggle navigation of Consejos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/parallel-builds/">Parallel builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/tips/passthrough-options/">Passthrough options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/license-generation/">License generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/tips/privileged-builds/">Privileged builds</a></li>
@@ -260,7 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../guides/development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/release-mode/">Release Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../guides/profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/profile/">Profile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../guides/api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../guides/quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -311,6 +312,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../2026-11-01_04.03.00/">4.3 (2026-11-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2026-08-29_04.02.00/">4.2 (2026-08-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
@@ -426,7 +428,7 @@
 <h1>2.5 (2025-06-22)<a class="headerlink" href="#v2-5-2025-06-22" title="Link to this heading">¶</a></h1>
 <section id="introducing-profiles">
 <h2>Introducing Profiles<a class="headerlink" href="#introducing-profiles" title="Link to this heading">¶</a></h2>
-<p>A user can now provide <a class="reference internal" href="../../guides/profiles/"><span class="doc std std-doc">«profile» hints</span></a> for a releng-tool
+<p>A user can now provide <a class="reference internal" href="../../guides/profile/"><span class="doc std std-doc">«profile» hints</span></a> for a releng-tool
 execution. These are simple string hints that a caller can used to inform a
 project of custom runtime states that should be performed. A user can trigger
 a run to use a profile by using the <a class="reference internal" href="../../guides/arguments/#arg-profile"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">--profile</span></code> argument</span></a>. For

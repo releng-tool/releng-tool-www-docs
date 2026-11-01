@@ -244,6 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../tips/tips/">Consejos</a><input aria-label="Toggle navigation of Consejos" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/parallel-builds/">Parallel builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tips/passthrough-options/">Passthrough options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/license-generation/">License generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../tips/privileged-builds/">Privileged builds</a></li>
@@ -260,7 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../release-mode/">Release Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../profile/">Profile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -311,6 +312,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../release-notes/">Notas de la versión</a><input aria-label="Toggle navigation of Notas de la versión" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/2026-11-01_04.03.00/">4.3 (2026-11-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-29_04.02.00/">4.2 (2026-08-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
@@ -443,6 +445,49 @@ processed first:</p>
 </pre></div>
 </div>
 </section>
+<section id="libfoo-remote-config">
+<span id="pkg-opt-remote-config"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code><a class="headerlink" href="#libfoo-remote-config" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 2.9: </span>This feature is planned to be removed in the future v4.4 release.</p>
+</div>
+<p>Flag value to indicate that a package should attempt to load any package
+configurations which may be defined in the package’s source. If the package
+includes a <code class="docutils literal notranslate"><span class="pre">.releng-tool</span></code> file at the root of their sources, supported
+configuration options that have not been populated will be registered into
+the package before invoking a package’s configuration stage.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>See also
+<a class="reference internal" href="../../quirks/quirk-disable_remote_configs/#quirk-releng-disable-remote-configs"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_configs</span></code> quirk</span></a>.</p>
+</section>
+<section id="libfoo-remote-scripts">
+<span id="pkg-opt-remote-scripts"></span><h2><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code><a class="headerlink" href="#libfoo-remote-scripts" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 1.3.</span></p>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 2.9: </span>This feature is planned to be removed in the future v4.4 release.</p>
+</div>
+<p>Flag value to indicate that a package should attempt to load any package
+scripts which may be defined in the package’s source. Typically, a
+script-based package will load configuration, build, etc. scripts from its
+package definition folder. If a script-based package is missing a stage script
+to invoke and finds an associated script in the package’s source, the detected
+script will be invoked. For example, if <code class="docutils literal notranslate"><span class="pre">libfoo.rt</span></code> package may attempt to load
+a <code class="docutils literal notranslate"><span class="pre">libfoo-configure.rt</span></code> script for a configuration stage. In the event that the
+script cannot be found and remote scripting is permitted for a package, the
+script (if exists) <code class="docutils literal notranslate"><span class="pre">releng-configure.rt</span></code> will be loaded from the root of the
+package’s contents.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LIBFOO_REMOTE_CONFIG</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>See also
+<a class="reference internal" href="../../quirks/quirk-disable_remote_scripts/#quirk-releng-disable-remote-scripts"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">releng.disable_remote_scripts</span></code> quirk</span></a>.</p>
+</section>
 </section>
 
         </article>
@@ -506,6 +551,8 @@ processed first:</p>
             <ul>
 <li><a class="reference internal" href="#">Deprecated package options</a><ul>
 <li><a class="reference internal" href="#libfoo-dependencies"><code class="docutils literal notranslate"><span class="pre">LIBFOO_DEPENDENCIES</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-remote-config"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_CONFIG</span></code></a></li>
+<li><a class="reference internal" href="#libfoo-remote-scripts"><code class="docutils literal notranslate"><span class="pre">LIBFOO_REMOTE_SCRIPTS</span></code></a></li>
 </ul>
 </li>
 </ul>

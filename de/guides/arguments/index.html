@@ -244,6 +244,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../licenses/">Licenses</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../tips/tips/">Tips</a><input aria-label="Toggle navigation of Tips" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../tips/parallel-builds/">Parallel builds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tips/passthrough-options/">Passthrough options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/license-generation/">License generation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/revision-overrides-in-ci/">Revision Overrides in CI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tips/privileged-builds/">Privileged builds</a></li>
@@ -260,7 +261,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../development-mode/">Development mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../local-sources-mode/">Local-sources mode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../release-mode/">Release Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../profiles/">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../profile/">Profile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../network-isolation/">Network isolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api-mode/">API Mode</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../quirks/quirks/">Quirks</a><input aria-label="Toggle navigation of Quirks" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -311,6 +312,7 @@
 </ul>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../release-notes/">Versionshinweise</a><input aria-label="Toggle navigation of Versionshinweise" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../news/2026-11-01_04.03.00/">4.3 (2026-11-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-08-29_04.02.00/">4.2 (2026-08-29)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-08-01_04.01.00/">4.1 (2026-08-01)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../news/2026-07-26_04.00.00/">4.0 (2026-07-26)</a></li>
@@ -939,12 +941,26 @@ or <code class="docutils literal notranslate"><span class="pre">--dl-dir</span><
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 4.2.</span></p>
 </div>
-<p>Allows providing a build/job identifier which projects may utilize for identify
-a given releng-tool run.</p>
+<p>Allows providing a build identifier passthrough option which projects may
+utilize for identify a given releng-tool run.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng-tool --build-id=123
 </pre></div>
 </div>
-<p>See also <a class="reference internal" href="../environment/#env-releng-build-id"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_ID</span></code></span></a>.</p>
+<p>See also <a class="reference internal" href="../environment/#env-releng-build-id"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_ID</span></code></span></a> and
+<a class="reference internal" href="../tips/passthrough-options/"><span class="doc std std-doc">passthrough options</span></a>.</p>
+</section>
+<section id="build-variant-variant-var">
+<span id="arg-build-variant"></span><h3><code class="docutils literal notranslate"><span class="pre">--build-variant</span> <span class="pre">&lt;variant&gt;</span></code><a class="headerlink" href="#build-variant-variant-var" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.3.</span></p>
+</div>
+<p>Allows providing a build variant passthrough option which projects may utilize
+for identify a variant build.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng-tool --build-variant=extended
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="../environment/#env-releng-build-variant"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_BUILD_VARIANT</span></code></span></a> and
+<a class="reference internal" href="../tips/passthrough-options/"><span class="doc std std-doc">passthrough options</span></a>.</p>
 </section>
 <section id="cache-dir-dir-var">
 <span id="arg-cache-dir"></span><h3><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code><a class="headerlink" href="#cache-dir-dir-var" title="Link to this heading">¶</a></h3>
@@ -1081,7 +1097,8 @@ a project accepts custom profile options. Multiple profiles can be provided
 by repeating this argument. Multiple profiles can also be provided in a
 single argument where profiles are separated by a comma (<code class="docutils literal notranslate"><span class="pre">,</span></code>) or a
 semicolon (<code class="docutils literal notranslate"><span class="pre">;</span></code>).</p>
-<p>See also <a class="reference internal" href="../profiles/"><span class="doc std std-doc">using profiles</span></a>.</p>
+<p>See also <a class="reference internal" href="../environment/#env-releng-profiles"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">RELENG_PROFILES</span></code></span></a>, <a class="reference internal" href="../profile/"><span class="doc std std-doc">build profile</span></a>
+and <a class="reference internal" href="../tips/passthrough-options/"><span class="doc std std-doc">passthrough options</span></a>.</p>
 </section>
 <section id="quiet">
 <span id="arg-quiet"></span><h3><code class="docutils literal notranslate"><span class="pre">--quiet</span></code><a class="headerlink" href="#quiet" title="Link to this heading">¶</a></h3>
@@ -1214,6 +1231,7 @@ package with a version <code class="docutils literal notranslate"><span class="p
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>releng-tool LIBFOO_VERSION=1.1
 </pre></div>
 </div>
+<p>See also <a class="reference internal" href="../script-helpers/#releng_tool.releng_define" title="releng_tool.releng_define"><span class="xref myst py py-func"><code class="docutils literal notranslate"><span class="pre">releng_define</span></code></span></a>.</p>
 </section>
 </section>
 
@@ -1320,6 +1338,7 @@ package with a version <code class="docutils literal notranslate"><span class="p
 <li><a class="reference internal" href="#option-arguments">Option arguments</a><ul>
 <li><a class="reference internal" href="#assets-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--assets-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#build-id-id-var"><code class="docutils literal notranslate"><span class="pre">--build-id</span> <span class="pre">&lt;id&gt;</span></code></a></li>
+<li><a class="reference internal" href="#build-variant-variant-var"><code class="docutils literal notranslate"><span class="pre">--build-variant</span> <span class="pre">&lt;variant&gt;</span></code></a></li>
 <li><a class="reference internal" href="#cache-dir-dir-var"><code class="docutils literal notranslate"><span class="pre">--cache-dir</span> <span class="pre">&lt;dir&gt;</span></code></a></li>
 <li><a class="reference internal" href="#config-file-var"><code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">&lt;file&gt;</span></code></a></li>
 <li><a class="reference internal" href="#debug"><code class="docutils literal notranslate"><span class="pre">--debug</span></code></a></li>
